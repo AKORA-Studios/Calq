@@ -138,6 +138,13 @@
                 "year": 3,
                 "big": true,
                 "date": "1636403089"
+            },
+            {
+                "name": "Vortrag Autoren 1900",
+                "grade": 13,
+                "year": 3,
+                "big": false,
+                "date": "1638372996"
             }
         ]
     },
@@ -294,6 +301,13 @@
                 "year": 3,
                 "big": false,
                 "date": "1636633585"
+            },
+            {
+                "name": "Klausur 2",
+                "grade": 14,
+                "year": 3,
+                "big": true,
+                "date": "1638372996"
             }
         ]
     },
@@ -401,6 +415,13 @@
                 "year": 3,
                 "big": false,
                 "date": "1636122526"
+            },
+            {
+                "name": "Diskussion Nachhaltigkeit",
+                "grade": 11,
+                "year": 3,
+                "big": false,
+                "date": "1638372996"
             }
         ]
     },
