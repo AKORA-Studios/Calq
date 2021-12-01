@@ -29,11 +29,14 @@ class OverviewController:  ViewController, ChartViewDelegate {
         let subjects = Util.getAllSubjects()
       
         if (subjects.count > 0){
-            gradeChart.setprogress(Util.generalAverage()/15, .accentColor,grade , "⌀")
-            pointChart.setprogress(Util.generalAverage()/15, .accentColor, String(format: "%.2f",Util.generalAverage()), "Punkte")
+            let blocks = Util.generateBlockOne() + Util.generateBlockTwo()
+            let blockGrade = Util.grade(number: Double(blocks * 15 / 900))
+            
+            gradeChart.setprogress(blocks/900, .accentColor, String(blockGrade), "⌀")
+            pointChart.setprogress(Util.generalAverage()/15, .accentColor, String(format: "%.2f",Util.generalAverage()), grade)
         } else {
-            gradeChart.setprogress(0.0, .accentColor, "6", "⌀")
-            pointChart.setprogress(0.0, .accentColor, "0", "Punkte")
+            gradeChart.setprogress(0.0, .accentColor, "0", "6.0")
+            pointChart.setprogress(0.0, .accentColor, "0", "0.0")
         }
     }
     

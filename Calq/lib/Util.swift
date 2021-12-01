@@ -434,11 +434,22 @@ struct Util {
                 }
             }
         }
-        
-        
-        
         if(sum == 0 ) {return 0.0}
         return Double((sum / count) * 40.0)
+    }
+        
+        /// Calc points block II
+        static func generateBlockTwo() -> Double{
+            let subjects = Util.getAllExamSubjects()
+            if(subjects.count == 0){return 0.0}
+            
+            var sum: Double = 0.0
+            
+            for sub in subjects {
+                sum += Double(Int(sub.exampoints) * 4)
+            }
+            
+        return sum
     }
     /// Calc Maxpoints block I
     static func generatePossibleBlockOne() -> Double{
