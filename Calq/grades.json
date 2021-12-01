@@ -702,18 +702,32 @@
                 "date": "1626167640"
             },
             {
-                "name": "Fitness #2",
+                "name": "Fitness #1",
                 "grade": 9,
                 "year": 3,
                 "big": false,
                 "date": "1636536581"
             },
             {
-                "name": "Fitness #1",
+                "name": "Fitness #2",
                 "grade": 9,
                 "year": 3,
                 "big": false,
-                "date": "1635928181"
+                "date": "1636554996"
+            },
+            {
+                "name": "Fitness #3",
+                "grade": 7,
+                "year": 3,
+                "big": false,
+                "date": "1637246196"
+            },
+            {
+                "name": "Fitness #4",
+                "grade": 7,
+                "year": 3,
+                "big": false,
+                "date": "1637850996"
             }
         ]
     },
@@ -773,7 +787,7 @@
                 "date": "1624871640"
             },
             {
-                "name": "Test Arbeistschutz",
+                "name": "Test Arbeitsschutz",
                 "grade": 13,
                 "year": 3,
                 "big": false,
