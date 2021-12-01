@@ -16,17 +16,17 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 <summary>Showcase Light Mode</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/819922260424785920/903681466108633138/unknown.png?width=376&height=669)
-![Kurse2](https://media.discordapp.net/attachments/819922260424785920/910878371230126080/unknown.png?width=376&height=669)
+![Kurse1](https://media.discordapp.net/attachments/819922260424785920/915685968516874240/unknown.png?width=376&height=669)
+![Kurse2](https://media.discordapp.net/attachments/819922260424785920/915685980185427968/unknown.png?width=376&height=669)
 
-![Kurse3](https://media.discordapp.net/attachments/819922260424785920/910878386849730590/unknown.png?width=376&height=669)
+![Kurse3](https://media.discordapp.net/attachments/819922260424785920/915686016717840434/unknown.png?width=376&height=669)
 ![Neue Noten](https://media.discordapp.net/attachments/819922260424785920/910881212653010944/unknown.png?width=376&height=669)
 
 ![Average](https://media.discordapp.net/attachments/819922260424785920/910878430256566272/unknown.png?width=376&height=669)
 ![Subject](https://media.discordapp.net/attachments/819922260424785920/910878402683228180/unknown.png?width=376&height=669)
   
-![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/904074655403474984/unknown.png?width=376&height=669)
-![Einstellung](https://media.discordapp.net/attachments/819922260424785920/910879766524076102/unknown.png?width=376&height=669)
+![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/915685991564578888/unknown.png?width=376&height=669)
+![Einstellung](https://media.discordapp.net/attachments/819922260424785920/915686002696286288/unknown.png?width=376&height=669)
 </details>
 
 <details open>
