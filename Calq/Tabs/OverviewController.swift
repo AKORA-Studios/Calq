@@ -197,6 +197,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
                 lineChartSet.drawVerticalHighlightIndicatorEnabled = false
                 lineChartSet.label = nil
                 
+                lineChartSet.lineWidth = CGFloat(2)
                 data.addDataSet(lineChartSet)
             }
             
