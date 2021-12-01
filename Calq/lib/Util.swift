@@ -347,6 +347,18 @@ struct Util {
             WidgetCenter.shared.reloadAllTimelines()
         return sub
     }
+    
+    /// Calculate count of inactive Halfyears
+    static func calcInactiveYearsCount()-> Int{
+        let subjects = Util.getAllSubjects()
+        if(subjects.count == 0) {return 0}
+        var count: Int = 0
+        
+        for sub in subjects {
+            count += Util.getinactiveYears(sub).count
+        }
+        return count
+    }
                                        
     private static func arrToString(_ arr: [String]) -> String{
         return arr.joined(separator: " ")

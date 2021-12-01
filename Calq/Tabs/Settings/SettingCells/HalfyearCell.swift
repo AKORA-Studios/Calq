@@ -112,7 +112,11 @@ class HalfyearCell: UITableViewCell {
     }
     
     public func configure(with model: YearOption){
-        let array =  model.subtitle?.components(separatedBy: " ") ?? ["--","--","--","--"]
+        var array =  model.subtitle?.components(separatedBy: " ") ?? ["--","--","--","--"]
+     
+        while array.count <= 4 {
+            array.append("")
+        }
         
         label.text =  model.title.count > 23 ? String(model.title.prefix(21)) + "..." : model.title
         lab1.text =  array[0]
