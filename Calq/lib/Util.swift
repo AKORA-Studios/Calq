@@ -355,7 +355,11 @@ struct Util {
         var count: Int = 0
         
         for sub in subjects {
-            count += Util.getinactiveYears(sub).count
+            let arr = Util.getinactiveYears(sub)
+            for num in arr {
+                if(num == "") {continue}
+                if Int(num) != nil { count += 1}
+            }
         }
         return count
     }

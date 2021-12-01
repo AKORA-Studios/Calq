@@ -11,6 +11,8 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
         return table
     }()
     
+    let demoAlert = UIAlertController(title: "Info", message: "Du musst 40 Halbjahre einbringen :3 Behalte hier einen Überblick", preferredStyle: .alert)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,7 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.frame = view.bounds
         
+        demoAlert.addAction(UIAlertAction(title: "Oki", style: .default, handler: nil))
         self.navigationItem.title = "Alle Kurse"
         update()
       
@@ -141,7 +144,8 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
             let inactives = Util.calcInactiveYearsCount()
             let halfyears = subjects.count * 4
             
-            models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von  \(halfyears) aktiv", subtitle: "", points: "#", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
+            models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von  \(halfyears) aktiv", subtitle: "", points: "∑", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
+                self.present(self.demoAlert, animated: true, completion: nil)
             }))]))
         }
     }
