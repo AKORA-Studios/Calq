@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AppUserSettings" representedClassName=".AppUserSettings" syncable="YES">
+        <attribute name="colorfulChart" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="firstLaunch" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="smoothGraphs" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="user_subjects" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Subjects" representedClassName=".Subjects" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="lk" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="tests" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Tests" representedClassName=".Tests" syncable="YES" codeGenerationType="class">
+        <attribute name="big" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="grade" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="AppUserSettings" positionX="35.47454833984375" positionY="-569.9404907226562" width="128" height="103"/>
+        <element name="Subjects" positionX="-194.585693359375" positionY="-450.5570678710938" width="128" height="103"/>
+        <element name="Tests" positionX="221.5020141601562" positionY="-343.2495269775391" width="128" height="118"/>
+    </elements>
+</model>

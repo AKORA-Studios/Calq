@@ -1,0 +1,763 @@
+[
+    {
+        "name": "Mathe",
+        "lk": true,
+        "color": "#0c449c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Test Grenzwerte",
+                "grade": 6,
+                "year": 1,
+                "big": false,
+                "date": "1602148440"
+            },
+            {
+                "name": "Test Online Kurvendiskussion",
+                "grade": 11,
+                "year": 1,
+                "big": false,
+                "date": "1608977640"
+            },
+            {
+                "name": "Test Online Kurvendiskussion #2",
+                "grade": 9,
+                "year": 1,
+                "big": false,
+                "date": "1611137640"
+            },
+            {
+                "name": "Vorstellen Hausaufgabenn",
+                "grade": 13,
+                "year": 1,
+                "big": false,
+                "date": "1611828840"
+            },
+            {
+                "name": "Test1",
+                "grade": 10,
+                "year": 1,
+                "big": false,
+                "date": "1613124840"
+            },
+            {
+                "name": "Klausur Differentialrechnung",
+                "grade": 4,
+                "year": 1,
+                "big": true,
+                "date": "1606126440"
+            },
+            {
+                "name": "Klausur 2",
+                "grade": 13,
+                "year": 1,
+                "big": true,
+                "date": "1613729640"
+            },
+            {
+                "name": "Klausur Vektorrechnung",
+                "grade": 10,
+                "year": 2,
+                "big": true,
+                "date": "1619774040"
+            },
+            {
+                "name": "Test Lagebeziehung Vektoren",
+                "grade": 10,
+                "year": 2,
+                "big": false,
+                "date": "1623402840"
+            },
+            {
+                "name": "Test Integrale",
+                "grade": 12,
+                "year": 3,
+                "big": false,
+                "date": "1633338840"
+            },
+            {
+                "name": "Klausur Integrale",
+                "grade": 10,
+                "year": 3,
+                "big": true,
+                "date": "1635790692"
+            },
+            {
+                "name": "Test Integrale #2",
+                "grade": 13,
+                "year": 3,
+                "big": false,
+                "date": "1636536581"
+            }
+        ]
+    },
+    {
+        "name": "Deutsch",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Klausur Sachtextanalyse",
+                "grade": 2,
+                "year": 1,
+                "big": true,
+                "date": "1602494040"
+            },
+            {
+                "name": "Charakterisierung Besuch der Alten Dame",
+                "grade": 15,
+                "year": 1,
+                "big": false,
+                "date": "1614507240"
+            },
+            {
+                "name": "Test 1",
+                "grade": 9,
+                "year": 1,
+                "big": false,
+                "date": "1614334440"
+            },
+            {
+                "name": "Vortrag Aufklärung",
+                "grade": 12,
+                "year": 2,
+                "big": false,
+                "date": "1618391640"
+            },
+            {
+                "name": "Test Gedichtsanalyse",
+                "grade": 11,
+                "year": 2,
+                "big": false,
+                "date": "1624612440"
+            },
+            {
+                "name": "Klausur Parabel Kafka",
+                "grade": 9,
+                "year": 3,
+                "big": true,
+                "date": "1636403089"
+            }
+        ]
+    },
+    {
+        "name": "Biologie",
+        "lk": true,
+        "color": "#0c9c37",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Klausur Enzyme",
+                "grade": 11,
+                "year": 1,
+                "big": true,
+                "date": "1606385640"
+            },
+            {
+                "name": "2. Klausur",
+                "grade": 10,
+                "year": 1,
+                "big": true,
+                "date": "1613470440"
+            },
+            {
+                "name": "Protokoll Experiment",
+                "grade": 11,
+                "year": 1,
+                "big": false,
+                "date": "1602062040"
+            },
+            {
+                "name": "Test Zellbestandteile",
+                "grade": 14,
+                "year": 1,
+                "big": false,
+                "date": "1604398440"
+            },
+            {
+                "name": "Mikroskopische Zeichnung",
+                "grade": 14,
+                "year": 1,
+                "big": false,
+                "date": "1611051240"
+            },
+            {
+                "name": "klausur Ökologie",
+                "grade": 8,
+                "year": 2,
+                "big": true,
+                "date": "1625562840"
+            },
+            {
+                "name": "Experiment Blattfarbstoffe",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1615284840"
+            },
+            {
+                "name": "Test stoffwechselprozesse",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1616494440"
+            },
+            {
+                "name": "Vorstellen Hausaufgabe",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1622625240"
+            },
+            {
+                "name": "Exkursionsbericht",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1626192991"
+            },
+            {
+                "name": "Bioolympiadee",
+                "grade": 14,
+                "year": 3,
+                "big": false,
+                "date": "1632820440"
+            },
+            {
+                "name": "Klausur Genetik",
+                "grade": 12,
+                "year": 3,
+                "big": true,
+                "date": "1635790651"
+            },
+               {
+                "name": "Test Stammbaumanalyse",
+                "grade": 14,
+                "year": 3,
+                "big": false,
+                "date": "1637602982"
+            }
+        ]
+    },
+    {
+        "name": "Englisch",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Test 1",
+                "grade": 10,
+                "year": 1,
+                "big": false,
+                "date": "1604484840"
+            },
+            {
+                "name": "Test 2",
+                "grade": 11,
+                "year": 1,
+                "big": false,
+                "date": "1612952040"
+            },
+            {
+                "name": "Klausur 1",
+                "grade": 12,
+                "year": 1,
+                "big": true,
+                "date": "1609928040"
+            },
+            {
+                "name": "Test Geschichte USA",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1621415640"
+            },
+            {
+                "name": "Podcast Gesundheitssystem USA",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1625822040"
+            },
+            {
+                "name": "Vokabeltest",
+                "grade": 15,
+                "year": 3,
+                "big": false,
+                "date": "1633598040"
+            },
+               {
+                "name": "Vortrag Dream job",
+                "grade": 15,
+                "year": 3,
+                "big": false,
+                "date": "1636633585"
+            }
+        ]
+    },
+    {
+        "name": "Ethik",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Kommentar massentierhaltung",
+                "grade": 14,
+                "year": 1,
+                "big": false,
+                "date": "1611137640"
+            },
+            {
+                "name": "Test Determinismus",
+                "grade": 12,
+                "year": 1,
+                "big": false,
+                "date": "1604312040"
+            },
+            {
+                "name": "Klausur Determination",
+                "grade": 8,
+                "year": 1,
+                "big": true,
+                "date": "1606126440"
+            },
+            {
+                "name": "Abgabe moralisch gutes Handeln",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1616494440"
+            },
+            {
+                "name": "Test moralisch gutes Handeln",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1620292440"
+            },
+            {
+                "name": "Test Gerechtigkeit",
+                "grade": 14,
+                "year": 3,
+                "big": false,
+                "date": "1635790651"
+            },
+             {
+                "name": "Klausur Frage nach Gerechtigkeit",
+                "grade": 14,
+                "year": 3,
+                "big": true,
+                "date": "1637678079"
+            }
+        ]
+    },
+    {
+        "name": "Geografie",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Test 1",
+                "grade": 11,
+                "year": 1,
+                "big": false,
+                "date": "1604571240"
+            },
+            {
+                "name": "Test 2",
+                "grade": 12,
+                "year": 1,
+                "big": false,
+                "date": "1613038440"
+            },
+            {
+                "name": "Klausur 1",
+                "grade": 11,
+                "year": 1,
+                "big": true,
+                "date": "1610014440"
+            },
+            {
+                "name": "Test atmosphärische Prozesse",
+                "grade": 10,
+                "year": 2,
+                "big": false,
+                "date": "1622106840"
+            },
+            {
+                "name": "Raumanalyse Äthiopien",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1625994840"
+            },
+            {
+                "name": "Test geographische Zonen",
+                "grade": 11,
+                "year": 3,
+                "big": false,
+                "date": "1636122526"
+            }
+        ]
+    },
+    {
+        "name": "Geschichte",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Test Industrialisierung",
+                "grade": 10,
+                "year": 1,
+                "big": false,
+                "date": "1602580440"
+            },
+            {
+                "name": "Vortrag Lösungen Soziale Frage",
+                "grade": 13,
+                "year": 1,
+                "big": false,
+                "date": "1635945913"
+            },
+            {
+                "name": "Klausur Soziale Frage",
+                "grade": 14,
+                "year": 1,
+                "big": true,
+                "date": "1613124840"
+            },
+            {
+                "name": "Test Beurteilung Nürnberger Prozesse",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1620119640"
+            },
+            {
+                "name": "Vortrag Weiße Rose",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1625562840"
+            },
+            {
+                "name": "Klausur Selbstverständniss DDR & BRD",
+                "grade": 10,
+                "year": 3,
+                "big": true,
+                "date": "1633943640"
+            }
+        ]
+    },
+    {
+        "name": "Kunst",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Bildatlas",
+                "grade": 15,
+                "year": 1,
+                "big": false,
+                "date": "1602753240"
+            },
+            {
+                "name": "Bild auf Leinwand",
+                "grade": 15,
+                "year": 1,
+                "big": false,
+                "date": "1613643240"
+            },
+            {
+                "name": "Klausur Fotografie & Grafik",
+                "grade": 15,
+                "year": 1,
+                "big": true,
+                "date": "1606385640"
+            },
+            {
+                "name": "Linoldruck",
+                "grade": 15,
+                "year": 2,
+                "big": false,
+                "date": "1619428440"
+            },
+            {
+                "name": "Portrait Selbstverfremdung",
+                "grade": 15,
+                "year": 2,
+                "big": false,
+                "date": "1622452440"
+            },
+            {
+                "name": "Leporello performance",
+                "grade": 15,
+                "year": 3,
+                "big": false,
+                "date": "1632215640"
+            },
+            {
+                "name": "Memoflip Kunstepochen",
+                "grade": 14,
+                "year": 3,
+                "big": false,
+                "date": "1636544701"
+            },
+               {
+                "name": "Collage Museum",
+                "grade": 15,
+                "year": 3,
+                "big": false,
+                "date": "1638287401"
+            },
+               {
+                "name": "Klausur Surealismus",
+                "grade": 13,
+                "year": 3,
+                "big": true,
+                "date": "1638456601"
+            }
+        ]
+    },
+    {
+        "name": "Physik",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Stundenleistung newtonsche Gesetze",
+                "grade": 13,
+                "year": 1,
+                "big": false,
+                "date": "1610360040"
+            },
+            {
+                "name": "Test Kondensator",
+                "grade": 11,
+                "year": 1,
+                "big": false,
+                "date": "1614593640"
+            },
+            {
+                "name": "Klausur 1",
+                "grade": 13,
+                "year": 1,
+                "big": true,
+                "date": "1604916840"
+            },
+            {
+                "name": "Test Bewegte LAdungen im Magnetfeld",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1620033240"
+            },
+            {
+                "name": "Experiment Spule",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1624266840"
+            },
+            {
+                "name": "Stundenleistung Interferenz am Doppelspalt",
+                "grade": 15,
+                "year": 3,
+                "big": false,
+                "date": "1633598040"
+            },
+              {
+                "name": "Klausur Licht als Welle",
+                "grade": 15,
+                "year": 3,
+                "big": true,
+                "date": "1636633585"
+            }
+        ]
+    },
+    {
+        "name": "Spanisch",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "3",
+        "subjecttests": [
+            {
+                "name": "Test Andalucia",
+                "grade": 14,
+                "year": 1,
+                "big": false,
+                "date": "1612347240"
+            },
+            {
+                "name": "Diskussion",
+                "grade": 14,
+                "year": 1,
+                "big": false,
+                "date": "1601025240"
+            },
+            {
+                "name": "Klausur 1",
+                "grade": 7,
+                "year": 1,
+                "big": true,
+                "date": "1607681640"
+            },
+            {
+                "name": "Vortrag Guernika",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1615025640"
+            },
+            {
+                "name": "test 1",
+                "grade": 10,
+                "year": 2,
+                "big": false,
+                "date": "1620724440"
+            },
+            {
+                "name": "Vortrag Zeitungsartikel",
+                "grade": 14,
+                "year": 3,
+                "big": false,
+                "date": "1633943640"
+            },
+            {
+                "name": "Klausur 2",
+                "grade": 10,
+                "year": 3,
+                "big": true,
+                "date": "1636122526"
+            }
+        ]
+    },
+    {
+        "name": "Sport",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "1 3 4",
+        "subjecttests": [
+            {
+                "name": "Volleyball Angaben",
+                "grade": 12,
+                "year": 1,
+                "big": false,
+                "date": "1604398440"
+            },
+            {
+                "name": "Volleyball",
+                "grade": 10,
+                "year": 1,
+                "big": false,
+                "date": "1611310440"
+            },
+            {
+                "name": "Volleyball Spielnote",
+                "grade": 7,
+                "year": 1,
+                "big": false,
+                "date": "1611310440"
+            },
+            {
+                "name": "Abgabe Handout",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1626167640"
+            },
+            {
+                "name": "Test 2",
+                "grade": 14,
+                "year": 2,
+                "big": false,
+                "date": "1626167640"
+            },
+            {
+                "name": "Fitness #2",
+                "grade": 9,
+                "year": 3,
+                "big": false,
+                "date": "1636536581"
+            },
+            {
+                "name": "Fitness #1",
+                "grade": 9,
+                "year": 3,
+                "big": false,
+                "date": "1635928181"
+            }
+        ]
+    },
+    {
+        "name": "fvBo",
+        "lk": false,
+        "color": "#9c0c0c",
+        "inactiveYears": "",
+        "subjecttests": [
+            {
+                "name": "Test 1",
+                "grade": 9,
+                "year": 1,
+                "big": false,
+                "date": "1604571240"
+            },
+            {
+                "name": "Test 2",
+                "grade": 9,
+                "year": 1,
+                "big": false,
+                "date": "1609668840"
+            },
+            {
+                "name": "Abgabe Bologna Prozess",
+                "grade": 13,
+                "year": 1,
+                "big": false,
+                "date": "1611915240"
+            },
+            {
+                "name": "Klausur 1",
+                "grade": 9,
+                "year": 1,
+                "big": true,
+                "date": "1603444440"
+            },
+            {
+                "name": "Test 4",
+                "grade": 10,
+                "year": 2,
+                "big": false,
+                "date": "1617527640"
+            },
+            {
+                "name": "Arbeitsmarktprognose",
+                "grade": 13,
+                "year": 2,
+                "big": false,
+                "date": "1622279640"
+            },
+            {
+                "name": "Abgabe Bewerbung",
+                "grade": 11,
+                "year": 2,
+                "big": false,
+                "date": "1624871640"
+            },
+            {
+                "name": "Test Arbeistschutz",
+                "grade": 13,
+                "year": 3,
+                "big": false,
+                "date": "1636544701"
+            }
+        ]
+    }
+]

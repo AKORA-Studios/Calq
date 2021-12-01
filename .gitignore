@@ -1,0 +1,8 @@
+Pods/**
+**/Breakpoints*.*
+
+.xcworkspace
+
+xcuserdata/
+
+.DS_Store
