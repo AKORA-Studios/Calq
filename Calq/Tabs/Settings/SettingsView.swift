@@ -2,7 +2,10 @@ import UIKit
 import CoreData
 import WidgetKit
 
-class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource {
+import UniformTypeIdentifiers
+import MobileCoreServices
+
+class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource, UIDocumentPickerDelegate {
     private let tableView : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
@@ -42,7 +45,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource 
         
         demoAlert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: nil))
         demoAlert.addAction(UIAlertAction(title: "Laden", style: .destructive, handler: {action in
-            Util.loadDemoData()
+            JSON.loadDemoData()
             self.update()
         }))
         restoreAlert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: nil))
@@ -220,10 +223,19 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource 
                     }
                 )),
             
+                .staticCell(model:SettingsOption(title: "Noten importieren", subtitle: "", icon: UIImage(systemName: "square.stack.3d.down.right.fill"), iconBackgroundColor: .accentColor, selectHandler: {
+                   
+                    let types = UTType.types(tag: "json", tagClass: UTTagClass.filenameExtension, conformingTo: nil)
+                    let documentPickerController = UIDocumentPickerViewController(forOpeningContentTypes: types)
+                    documentPickerController.delegate = self
+                    
+                    self.present(documentPickerController, animated: true, completion: {})
+                })),
+            
                 .staticCell(model:SettingsOption(title: "Noten exportieren", subtitle: "", icon: UIImage(systemName: "folder.fill"), iconBackgroundColor: UIColor.init(hexString: "#2f4899"), selectHandler: {
                     
-                    let data = Util.exportJSON()
-                    let url = Util.writeJSON(data)
+                    let data = JSON.exportJSON()
+                    let url = JSON.writeJSON(data)
                     
                     let activity = UIActivityViewController(
                         activityItems: [ url],
@@ -255,10 +267,20 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource 
                         {
                             let url = URL(string: "https://cocoapods.org/pods/Charts")
                             UIApplication.shared.open(url!)
-                            
                         })
         ]))
         
         models.append(Section(title: "Kurse", options: arr))
     }
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+        guard let fileURL = urls.first else {return}
+  
+        do {
+            try JSON.importJSONfromDevice(fileURL)
+        }catch {
+            print("Failed")
+        }
+       
+    }
+ 
 }

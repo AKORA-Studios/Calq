@@ -35,6 +35,7 @@
 		DD70E112261F30870092815F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E111261F30870092815F /* ViewController.swift */; };
 		DD73801D267E6B390041C65B /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73801C267E6B390041C65B /* ScrollView.swift */; };
 		DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81835426820EA100FBC3D8 /* OverviewController.swift */; };
+		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8C568726408F640042AC25 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C568626408F640042AC25 /* TabController.swift */; };
 		DD8D4DB826AD738B00AC289A /* GradePieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DB726AD738B00AC289A /* GradePieChart.swift */; };
 		DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DBF26AD795F00AC289A /* AppOnly.swift */; };
@@ -137,6 +138,7 @@
 		DD70E111261F30870092815F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/marvinjacob/Documents/Projects/Calq/Calq/ViewController.swift; sourceTree = "<absolute>"; };
 		DD73801C267E6B390041C65B /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		DD81835426820EA100FBC3D8 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
+		DD81F6822759091600B4A43B /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		DD8C568626408F640042AC25 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		DD8D4D8D26ACC43600AC289A /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
@@ -309,6 +311,7 @@
 				DD7A4A6F26AF297B00CBF7D8 /* CoreData */,
 				DD8D4DB626AD733700AC289A /* Charts */,
 				DD687945261C530000BF2B48 /* Util.swift */,
+				DD81F6822759091600B4A43B /* JSONUtil.swift */,
 				DD8D4DBF26AD795F00AC289A /* AppOnly.swift */,
 				DD3D62DA27382A01008BF2AF /* CircularProgress.swift */,
 			);
@@ -604,6 +607,7 @@
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
 				DDBB97C02757D28E00491231 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */,
+				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				DD68793C261B9BC600BF2B48 /* AddViewController.swift in Sources */,
 				DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */,
 				DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
