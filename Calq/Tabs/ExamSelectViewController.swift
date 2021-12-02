@@ -147,8 +147,8 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
         if(oldSub.count != 0){
             arr.append(.staticCell(model: SettingsOption(
                 title: "Prüfung löschen",
-                subtitle: "",
-                icon: UIImage(systemName: "xmark.app.fill"),
+                subtitle: "",// delete.forward.fill
+                icon: UIImage(systemName: "xmark.bin.fill"),
                 iconBackgroundColor:  UIColor.red
             ){
                 self.deleteExam()
