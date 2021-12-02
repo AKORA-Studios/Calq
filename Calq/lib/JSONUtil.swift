@@ -121,15 +121,23 @@ private static func loadJSON() ->[SubjectStruct]{
      var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"firstLaunch\": \(data?.firstLaunch ?? false), \"smoothGraphs\": \(data?.smoothGraphs ?? false), \"usersubjects\": ["
      
      let subjects = Util.getAllSubjects()
+     var subCount: Int = 0
+     
      for sub in subjects {
-         string += "{\"name\": \"\(sub.name!)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color!)\", \"inactiveYears\": \(sub.inactiveYears ?? "") \"subjecttests\": ["
+         string += "{\"name\": \"\(sub.name!)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color!)\", \"inactiveYears\":  \"\(sub.inactiveYears ?? "") \", \"subjecttests\": ["
 
          if(sub.subjecttests == nil){continue}
          let tests = sub.subjecttests!.allObjects as! [UserTest]
+         var testCount: Int = 0
+         
          for test in tests{
-             string += "{\"name\": \"\(test.name!)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \(test.date!.timeIntervalSince1970), \"big\": \(test.big)},"
+             testCount += 1
+             string += "{\"name\": \"\(test.name!)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \(test.date!.timeIntervalSince1970), \"big\": \(test.big)} \(tests.count == testCount ? "": ",")"
+           
          }
-         string += "]},"
+         subCount += 1
+         string += "]} \(subjects.count == subCount ? "" : ",")"
+       
      }
      string += "]}"
      return string
