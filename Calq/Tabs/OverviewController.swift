@@ -27,7 +27,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
         
         let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
         let subjects = Util.getAllSubjects()
-      
+        
         if (subjects.count > 0){
             let blocks = Util.generateBlockOne() + Util.generateBlockTwo()
             let blockGrade = Util.grade(number: Double(blocks * 15 / 900))
@@ -46,12 +46,12 @@ class OverviewController:  ViewController, ChartViewDelegate {
         self.navigationItem.title = "Übersicht"
         setupCharts();
         update()
-      
-      scrollView.contentSize = CGSize(
+        
+        scrollView.contentSize = CGSize(
             width: scrollView.visibleSize.width,
             height: scrollView.visibleSize.height*1.4
         )
-
+        
         if #available(iOS 15.0, *) {
             let appearence =  UITabBarAppearance()
             appearence.configureWithDefaultBackground()
@@ -148,7 +148,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
         
         self.barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: arr)
         self.barChart.xAxis.setLabelCount(( subjects.count*2) + 1, force: false)
-     //   barChart.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
+        //   barChart.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
     }
     
     //MARK: Create Time Chart
@@ -158,8 +158,9 @@ class OverviewController:  ViewController, ChartViewDelegate {
             return
         }
         
+        let subjects = Util.getAllSubjects()
+        
         do {
-            let subjects = Util.getAllSubjects()
             let data = LineChartData()
             
             let minDate = try Util.calcMinDate()
@@ -172,7 +173,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
                 let Tests = (subject.subjecttests!.allObjects as! [UserTest])
                     .sorted{
                         $0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970
-                        }
+                    }
                 
                 var count = 0
                 

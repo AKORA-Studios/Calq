@@ -179,7 +179,7 @@ static func writeJSON(_ data: String) -> URL{
                 test.name = newTest.name
                 test.year = checkYear(newTest.year)
                 test.grade = checkGrade(newTest.grade)
-                let timestamp = Int(newTest.date) ?? 1635417527 / 1000
+                let timestamp = Double(newTest.date) ?? 1635417527 / 1000
                 test.date = Date(timeIntervalSince1970: Double(timestamp))
                 test.big = newTest.big
                 
