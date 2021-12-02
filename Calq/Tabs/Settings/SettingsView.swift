@@ -19,6 +19,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
     
     let demoAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Daten werden unwiderruflich gelöscht", preferredStyle: .alert)
     let restoreAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Daten werden unwiderruflich gelöscht", preferredStyle: .alert)
+    let importalert = UIAlertController(title: "Fehler beim Importieren", message: "Etwas in deiner Datei scheint falsch zu sein, die Daten können nicht importiert werden", preferredStyle: .alert)
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
@@ -53,6 +54,8 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
             self.settings =  Util.deleteSettings()
             self.update()
         }))
+        
+        importalert.addAction(UIAlertAction(title: "Oki", style: .cancel, handler: nil))
         
         if #available(iOS 15.0, *) {
             let appearence =  UITabBarAppearance()
@@ -272,13 +275,14 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         
         models.append(Section(title: "Kurse", options: arr))
     }
+    
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         guard let fileURL = urls.first else {return}
-  
-        do {
+                do {
             try JSON.importJSONfromDevice(fileURL)
+                    self.update()
         }catch {
-            print("Failed")
+           self.present(self.importalert, animated: true, completion: nil)
         }
        
     }

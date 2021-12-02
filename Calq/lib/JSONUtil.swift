@@ -93,38 +93,16 @@ private static func loadJSON() ->[SubjectStruct]{
     return values
 }
 
-/// Check if given data is valid
- static func validateJson(str: String) -> Bool{
-     let decoder = JSONDecoder()
-     
-     do {
-         _ = try decoder.decode([SubjectStruct].self, from: str.data(using: .utf8)!)
-     }catch {return false}
-    
-    return true
-}
-
-/// Create data from json File
- static func importJson(str: String) -> [SubjectStruct]{
-     let decoder = JSONDecoder()
-     var values: [SubjectStruct] = [ ]
-     
-     let products = try! decoder.decode([SubjectStruct].self, from: str.data(using: .utf8)!)
-    values = products
-     
-     return values
-}
-
 ///Export userdata as json
  static func exportJSON()-> String{
      let data = Util.getSettings()
-     var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"firstLaunch\": \(data?.firstLaunch ?? false), \"smoothGraphs\": \(data?.smoothGraphs ?? false), \"usersubjects\": ["
+     var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"smoothGraphs\": \(data?.smoothGraphs ?? false), \"usersubjects\": ["
      
      let subjects = Util.getAllSubjects()
      var subCount: Int = 0
      
      for sub in subjects {
-         string += "{\"name\": \"\(sub.name!)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color!)\", \"inactiveYears\":  \"\(sub.inactiveYears ?? "") \", \"subjecttests\": ["
+         string += "{\"name\": \"\(sub.name!)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color!)\", \"inactiveYears\":  \"\(sub.inactiveYears ?? "")\", \"subjecttests\": ["
 
          if(sub.subjecttests == nil){continue}
          let tests = sub.subjecttests!.allObjects as! [UserTest]
@@ -132,7 +110,7 @@ private static func loadJSON() ->[SubjectStruct]{
          
          for test in tests{
              testCount += 1
-             string += "{\"name\": \"\(test.name!)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \(test.date!.timeIntervalSince1970), \"big\": \(test.big)} \(tests.count == testCount ? "": ",")"
+             string += "{\"name\": \"\(test.name!)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \"\(test.date!.timeIntervalSince1970)\", \"big\": \(test.big)} \(tests.count == testCount ? "": ",")"
            
          }
          subCount += 1
@@ -164,8 +142,9 @@ static func writeJSON(_ data: String) -> URL{
     //MARK: Import JSON
     static func importJSONfromDevice(_ URL: URL)throws {
         var json: Data
-        
+     
         do {
+        
             json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
         } catch {
             throw loadErrors.failedToloadData
@@ -173,66 +152,71 @@ static func writeJSON(_ data: String) -> URL{
 
         var newSettings: AppStruct
         let decoder = JSONDecoder()
-   
+    
         do {
-            print("A2")
             let importedSettings = try decoder.decode(AppStruct.self, from: json)
-            print(importedSettings)
             newSettings = importedSettings
-            print("B")
         }catch {
             throw loadErrors.parseJSON
         }
-        print("C")
-       /* do {
-            let data = try Data(contentsOf: URL)
-            let json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
-    
-            let decoder = JSONDecoder()
-            let products = try decoder.decode([SubjectStruct].self, from: json)
-            values = products
-            print(products)
-            print("a")
-        } catch {
-            print("h")
-            throw loadErrors.failedToloadData
+
+        let context = CoreDataStack.shared.managedObjectContext
+        let set: AppSettings = Util.deleteSettings()
+        set.colorfulCharts = newSettings.colorfulCharts
+        set.smoothGraphs = newSettings.smoothGraphs
+        
+       // if(set.usersubjects.count != 0){
+          for subject in newSettings.usersubjects {
+            let sub = UserSubject(context: context)
+            sub.name = subject.name
+            sub.color = subject.color
+            sub.lk = subject.lk
+            sub.inactiveYears = subject.inactiveYears
+            
+        //    if(sub.subjecttests.count != 0){
+          for newTest in subject.subjecttests {
+                let test = UserTest(context: context)
+                test.name = newTest.name
+                test.year = checkYear(newTest.year)
+                test.grade = checkGrade(newTest.grade)
+                let timestamp = Int(newTest.date) ?? 1635417527 / 1000
+                test.date = Date(timeIntervalSince1970: Double(timestamp))
+                test.big = newTest.big
+                
+                sub.addToSubjecttests(test)
+            }//}
+            set.addToUsersubjects(sub)
+      //  }
         }
-        print("b")
-        print(values)*/
-        //var nameArr: [String] = []
+      
+        try! context.save()
+        WidgetCenter.shared.reloadAllTimelines()
+ //   }
+}
+}
 
-        /*   if(nameArr.contains(sub.name)){ throw "Duplicate Subejctname at: \(sub.name)"}
-           nameArr.append(sub.name)
+private func checkGrade(_ num: Int) -> Int16 {
+    if(num >= 0 && num <= 15){return Int16(num)}
+    return Int16(0)
+}
 
-           if(sub.inactiveYears) {
-               let arr: [String] = sub.inactiveYears!.components(separatedBy: " ")
-               for num in arr {
-                   var num = Int(num)
-                   if (num == nil) {throw "Invalid inactiveYears at: \(sub.name)"}
-                   if (num > 4 || num < 1)) {throw "Invalid inactiveYears at: \(sub.name)"}
-               }
-               return arr
-           }
+private func checkYear(_ num: Int) -> Int16 {
+    if(num >= 1 && num <= 4){return Int16(num)}
+    return Int16(0)
+}
 
-           var testArr: [String] = []
-           for test in sub.subjecttests{
-           if(testArr.contains(test.name)) {throw "Duplicate Testname \(test.name) at: \(sub.name)"}
-            testArr.append(test.name)
-
-           if(test.grade > 15 || test.grade < 0) { throw "Invalid grade at:  \(test.name)"}
-           if(test.year > 4 || test.year < 1) { throw "Invalid year at:  \(test.name)"}
-        }*/
-    }
+private func checkType(_ num: Int) -> Int16 {
+    if(num >= 1 && num <= 5){return Int16(num)}
+    return Int16(0)
 }
 
 // Struct for importing from json
 struct AppStruct: Codable {
     var colorfulCharts: Bool;
-    var firstLaunch: Bool;
     var smoothGraphs: Bool;
     var usersubjects: [SubjectStruct];
     
-    struct SubjectStruct: Codable {
+   struct SubjectStruct: Codable {
         var name: String;
         var lk: Bool;
         var color: String;
