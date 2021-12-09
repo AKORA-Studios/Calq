@@ -854,6 +854,21 @@
             </objects>
             <point key="canvasLocation" x="782.60869565217399" y="-887.27678571428567"/>
         </scene>
+        <!--Predict View-->
+        <scene sceneID="UdL-Nq-cTh">
+            <objects>
+                <viewController restorationIdentifier="PredictView" storyboardIdentifier="PredictView" id="Cut-86-Fbi" customClass="PredictView" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vdb-OM-91W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NhJ-KP-NYK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x48-HY-rfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="-827"/>
+        </scene>
         <!--Subject Select View-->
         <scene sceneID="b7G-vd-7ZN">
             <objects>
@@ -864,7 +879,14 @@
                         <viewLayoutGuide key="safeArea" id="XfC-1V-efT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HvJ-Of-f6g"/>
+                    <navigationItem key="navigationItem" id="HvJ-Of-f6g">
+                        <barButtonItem key="rightBarButtonItem" image="plus.viewfinder" catalog="system" style="plain" id="Ez2-Ye-JXX">
+                            <color key="tintColor" name="AccentColor"/>
+                            <connections>
+                                <action selector="navigateToPredictView:" destination="WAr-OC-XW3" id="cst-rf-elt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZV-ze-sW2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1266,6 +1288,7 @@
         <image name="paintpalette" catalog="system" width="128" height="105"/>
         <image name="paintpalette.fill" catalog="system" width="128" height="105"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <image name="plus.viewfinder" catalog="system" width="128" height="115"/>
         <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>

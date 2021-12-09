@@ -43,6 +43,7 @@
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
 		DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA78E42708D8350071DFAE /* GradeCell.swift */; };
+		DDB9012C27626C6900E799FD /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9012B27626C6900E799FD /* PredictView.swift */; };
 		DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
 		DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
 		DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */; };
@@ -151,6 +152,7 @@
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
 		DDAA78E42708D8350071DFAE /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
+		DDB9012B27626C6900E799FD /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
 		DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97B82757D28E00491231 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -350,6 +352,7 @@
 				DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */,
 				DD687940261BAD2E00BF2B48 /* SingleSubjectView.swift */,
 				DD089BC7264E99910027D198 /* SubjectSelectView.swift */,
+				DDB9012B27626C6900E799FD /* PredictView.swift */,
 				DD68793B261B9BC600BF2B48 /* AddViewController.swift */,
 				DD6BD11F2634C859008E95B2 /* Settings */,
 			);
@@ -610,6 +613,7 @@
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				DD68793C261B9BC600BF2B48 /* AddViewController.swift in Sources */,
 				DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */,
+				DDB9012C27626C6900E799FD /* PredictView.swift in Sources */,
 				DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD6878DF261901A400BF2B48 /* SceneDelegate.swift in Sources */,
 				DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */,

@@ -147,4 +147,10 @@ class SubjectSelectView:   ViewController, UITableViewDelegate,UITableViewDataSo
         }
         self.navigationController?.present(newView, animated: true)
     }
+
+    @IBAction func navigateToPredictView(_ sender: Any) {
+         let newView = storyboard?.getView("PredictView") as! PredictView
+         self.navigationController?.present(newView, animated: true)
+    }
+    
 }
