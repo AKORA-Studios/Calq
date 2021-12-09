@@ -88,8 +88,9 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func navigateBacktoExamView(_ id: NSManagedObjectID){
+        UserDefaults.resetStandardUserDefaults()
         UserDefaults.standard.set(id.uriRepresentation().absoluteString, forKey: "sub")
-        
+       
         self.dismiss(animated: true, completion: ({
             self.callback();
         }))
