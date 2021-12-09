@@ -149,6 +149,7 @@ class SubjectSelectView:   ViewController, UITableViewDelegate,UITableViewDataSo
     }
 
     @IBAction func navigateToPredictView(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "sub")
          let newView = storyboard?.getView("PredictView") as! PredictView
          self.navigationController?.present(newView, animated: true)
     }

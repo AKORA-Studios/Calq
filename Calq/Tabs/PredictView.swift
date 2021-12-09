@@ -23,30 +23,25 @@ class PredictView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setImpactSegemnts()
         yearSegment.selectedSegmentIndex = self.selectedYear - 1
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
-        let defaults = UserDefaults.standard
-        defaults.set(nil, forKey: "sub")
         update()
     }
-
     
     func update(){
-        if(UserDefaults.standard.data(forKey: "sub") == nil) {  return  }
-        print("A")
-        let sub = UserDefaults.standard.data(forKey: "sub") as! String?
+        if(UserDefaults.standard.string(forKey: "sub") == nil) {  return  }
+
+        let sub = UserDefaults.standard.string(forKey: "sub")
         if(sub == nil) {return}
-        print("B")
+     
         let ObjectURL = URL(string: sub!)
         if(ObjectURL == nil) {return}
-        print("C")
+
         let coordinator = CoreDataStack.shared.managedObjectContext.persistentStoreCoordinator
         let id = coordinator?.managedObjectID(forURIRepresentation: ObjectURL!)
         
         self.subject = Util.getSubject(id!)
-        print(self.subject!.name)
             
             var year: Int = 1
             if(self.subject!.subjecttests?.count != 0){
@@ -61,6 +56,7 @@ class PredictView: UIViewController {
         if(self.subject != nil){
             subjectPicker.setTitle(self.subject!.name, for: .normal)
         }
+        setImpactSegemnts()
     }
     
     @IBAction func indexChanged(_ sender: Any) {
@@ -102,8 +98,7 @@ class PredictView: UIViewController {
         
         let newView = storyboard?.getView("PredictSelect") as! PredictSelect
         newView.callback = {
-            self.update();
-            print("call")
+            self.update()
         }
         self.present(newView, animated: true)
     }
@@ -111,21 +106,81 @@ class PredictView: UIViewController {
     func setImpactSegemnts(){
         let width = Int(impactView.frame.width / 15)
          var num = width
+        let colors = generateColors()
        
          for i in 1...15 {
              let text = UILabel()
              let view = UIView()
-             view.backgroundColor = .red
+             if(self.subject == nil) { view.backgroundColor = .systemGray4} else { view.backgroundColor = colors[i - 1]}
              view.frame = CGRect(x: num, y: 0, width: width, height: Int(impactView.frame.height))
              text.frame = view.frame
              text.text = "\(i)"
              text.textAlignment = .center
-             if(i % 2 == 0){ view.backgroundColor = .blue}
       
              impactView.addSubview(view)
              impactView.addSubview(text)
              num += width
          }
+    }
+    
+    
+    func generateColors()-> [UIColor]{
+        var arr : [UIColor] = []
+        var none: Bool = false
+    
+        if(self.subject!.subjecttests?.count == 0 ) {none = true}
+        var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
+        tests = tests.filter{Int($0.year) == selectedYear}
+        if (tests.count == 0) {none = true}
+        
+        if(none){
+            for _ in 1...15 {arr.append(.systemGray4)}
+            return arr
+        }
+        
+        //calculation old grade
+        var divider = 2.0
+        let big =  Util.testAverage(tests.filter{$0.big})
+        if(tests.filter{$0.big}.count == 0) {divider = 1}
+        
+        let small = Util.testAverage(tests.filter{!$0.big})
+        if(tests.filter{!$0.big}.count == 0) {divider = 1}
+        
+        let averageOld: Int = Int((big + small)/divider)
+        
+        //calculation new grade
+        for i in 1...15 {
+            divider = 2.0
+            var newAverage: Int = 0
+            
+            if(typeSegment.selectedSegmentIndex == 0){ //small
+                var gradeArr = tests.filter{!$0.big}.map{Int($0.grade)}
+                gradeArr.append(i)
+                let newSmall = Util.average(gradeArr)
+                
+                if(tests.filter{$0.big}.count == 0) {divider = 1}
+                 newAverage = Int((big + newSmall)/divider)
+                
+            }else { //big
+                var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
+                gradeArr.append(i)
+                let newBig = Util.average(gradeArr)
+                
+                if(tests.filter{!$0.big}.count == 0) {divider = 1}
+                newAverage = Int((newBig + small)/divider)
+            }
+            
+            //push colors
+            if(averageOld > newAverage){
+                arr.append(.systemRed)
+            } else if(newAverage > averageOld ){
+                arr.append(.systemGreen)
+            }
+            else {
+                arr.append(.systemGray4)
+            }
+        }
+        return  arr
     }
 
 }
