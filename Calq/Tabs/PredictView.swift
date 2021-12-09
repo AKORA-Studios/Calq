@@ -26,33 +26,38 @@ class PredictView: UIViewController {
         yearSegment.selectedSegmentIndex = self.selectedYear - 1
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
+        var year: Int = 1
+        if(self.subject != nil) {
+            if(self.subject?.subjecttests?.count != 0){
+                var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
+                tests =  tests.sorted(by: ({$0.year > $1.year}))
+                
+                year = Int(tests[0].year)
+            }
+        }
+        
+        self.selectedYear = year
+        yearSegment.selectedSegmentIndex = year - 1
+        
         update()
     }
     
     func update(){
+        setImpactSegemnts()
+        
         if(UserDefaults.standard.string(forKey: "sub") == nil) {  return  }
-
+        
         let sub = UserDefaults.standard.string(forKey: "sub")
         if(sub == nil) {return}
-     
+        
         let ObjectURL = URL(string: sub!)
         if(ObjectURL == nil) {return}
-
+        
         let coordinator = CoreDataStack.shared.managedObjectContext.persistentStoreCoordinator
         let id = coordinator?.managedObjectID(forURIRepresentation: ObjectURL!)
         
         self.subject = Util.getSubject(id!)
-            
-            var year: Int = 1
-            if(self.subject!.subjecttests?.count != 0){
-                var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
-                tests =  tests.sorted(by: ({$0.year > $1.year}))
-              
-                year = Int(tests[0].year)
-            }
-            self.selectedYear = year
-            yearSegment.selectedSegmentIndex = year - 1
-     
+        
         if(self.subject != nil){
             subjectPicker.setTitle(self.subject!.name, for: .normal)
         }
@@ -72,6 +77,7 @@ class PredictView: UIViewController {
         default:
             selectedYear = 1
         }
+        update()
     }
     
     @IBAction func gradeTypeChanged(_ sender: Any) {
@@ -83,6 +89,7 @@ class PredictView: UIViewController {
         default:
             bigGrade = false
         }
+        update()
     }
     
     @IBAction func selectOne(_ sender: UIButton) {
@@ -94,7 +101,7 @@ class PredictView: UIViewController {
     
     func navigateSubjectPick(){
         let selection = UISelectionFeedbackGenerator()
-            selection.selectionChanged()
+        selection.selectionChanged()
         
         let newView = storyboard?.getView("PredictSelect") as! PredictSelect
         newView.callback = {
@@ -105,36 +112,37 @@ class PredictView: UIViewController {
     
     func setImpactSegemnts(){
         let width = Int(impactView.frame.width / 15)
-         var num = width
-        let colors = generateColors()
-       
-         for i in 1...15 {
-             let text = UILabel()
-             let view = UIView()
-             if(self.subject == nil) { view.backgroundColor = .systemGray4} else { view.backgroundColor = colors[i - 1]}
-             view.frame = CGRect(x: num, y: 0, width: width, height: Int(impactView.frame.height))
-             text.frame = view.frame
-             text.text = "\(i)"
-             text.textAlignment = .center
-      
-             impactView.addSubview(view)
-             impactView.addSubview(text)
-             num += width
-         }
+        impactView.frame = CGRect(x: impactView.frame.minX, y: impactView.frame.minY, width: CGFloat(width * 15), height: impactView.frame.height)
+        var num: Int = 0
+        let colors: [UIColor] = self.subject != nil ? generateColors() : []
+        
+        for i in 1...15 {
+            let text = UILabel()
+            let view = UIView()
+            if(self.subject == nil) { view.backgroundColor = .systemGray5} else { view.backgroundColor = colors[i - 1]}
+            view.frame = CGRect(x: num, y: 0, width: width, height: Int(impactView.frame.height))
+            text.frame = view.frame
+            text.text = "\(i)"
+            text.textAlignment = .center
+            
+            impactView.addSubview(view)
+            impactView.addSubview(text)
+            num += width
+        }
     }
     
-    
     func generateColors()-> [UIColor]{
+        print("colors")
         var arr : [UIColor] = []
         var none: Bool = false
-    
+        
         if(self.subject!.subjecttests?.count == 0 ) {none = true}
         var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
         tests = tests.filter{Int($0.year) == selectedYear}
         if (tests.count == 0) {none = true}
         
         if(none){
-            for _ in 1...15 {arr.append(.systemGray4)}
+            for _ in 1...15 {arr.append(.systemGray5)}
             return arr
         }
         
@@ -159,7 +167,7 @@ class PredictView: UIViewController {
                 let newSmall = Util.average(gradeArr)
                 
                 if(tests.filter{$0.big}.count == 0) {divider = 1}
-                 newAverage = Int((big + newSmall)/divider)
+                newAverage = Int((big + newSmall)/divider)
                 
             }else { //big
                 var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
@@ -177,10 +185,10 @@ class PredictView: UIViewController {
                 arr.append(.systemGreen)
             }
             else {
-                arr.append(.systemGray4)
+                arr.append(.systemGray5)
             }
         }
         return  arr
     }
-
+    
 }
