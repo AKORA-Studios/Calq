@@ -2,17 +2,15 @@ import UIKit
 import CoreData
 import WidgetKit
 
-class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource {
+class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
     private let tableView : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         return table
     }()
   
-    var callback: (() -> Void)!;
-    var subjects: [UserSubject]!
-    var examtype: Int = 1
     var models = [Section]()
+    var callback: (() -> Void)!;
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
@@ -23,7 +21,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Prüfungsfachauswahl"
+        self.navigationItem.title = "Kursauswahl"
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -33,12 +31,6 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
         self.models = [];
         self.configure();
         self.tableView.reloadData();
-        
-        if #available(iOS 15.0, *) {
-            let appearence =  UITabBarAppearance()
-            appearence.configureWithDefaultBackground()
-            self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
-        }
     }
     
     //MARK: Table Setup
@@ -96,28 +88,8 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func navigateBacktoExamView(_ id: NSManagedObjectID){
-        let subject = Util.getSubject(id)
-        let allSubjects = Util.getAllExamSubjects()
+        UserDefaults.standard.set(id.uriRepresentation().absoluteString, forKey: "sub")
         
-        let oldSub = allSubjects.filter{$0.examtype == Int16(examtype)}
-        if(oldSub.count != 0){
-            oldSub[0].exampoints = 0
-            oldSub[0].examtype = 0
-        }
-        
-        subject?.examtype = Int16(examtype)
-        subject?.exampoints = 0;
-        
-        try! CoreDataStack.shared.managedObjectContext.save()
-        WidgetCenter.shared.reloadAllTimelines()
-        
-        self.dismiss(animated: true, completion: ({
-            self.callback();
-        }))
-    }
-    
-    func deleteExam(){
-        Util.deleteExam(self.examtype)
         self.dismiss(animated: true, completion: ({
             self.callback();
         }))
@@ -125,7 +97,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     func configure(){
         var arr: [SettingsOptionType] = []
-        let subjectArr = self.subjects.sorted(by: {$0.name! < $1.name! })
+        let subjectArr = Util.getAllSubjects().sorted(by: {$0.name! < $1.name! })
     
             for sub in subjectArr {
                 if(sub.examtype != 0 ){ continue}
@@ -142,19 +114,6 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
                             })
                 )
             }
-        
-        let oldSub = Util.getAllExamSubjects().filter{$0.examtype == Int16(self.examtype)}
-        if(oldSub.count != 0){
-            arr.append(.staticCell(model: SettingsOption(
-                title: "Prüfung löschen",
-                subtitle: "",// delete.forward.fill
-                icon: UIImage(systemName: "xmark.bin.fill"),
-                iconBackgroundColor:  UIColor.red
-            ){
-                self.deleteExam()
-            }
-                ))
-        }
-            models.append(Section(title: "Wähle einen Kurs als Prüfungsfach", options: arr))
+            models.append(Section(title: "Wähle einen Kurs", options: arr))
     }
 }
