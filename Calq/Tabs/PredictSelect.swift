@@ -87,10 +87,10 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func navigateBacktoExamView(_ id: NSManagedObjectID){
+    func navigateBack(_ id: NSManagedObjectID){
         UserDefaults.resetStandardUserDefaults()
         UserDefaults.standard.set(id.uriRepresentation().absoluteString, forKey: "sub")
-       
+        
         self.dismiss(animated: true, completion: ({
             self.callback();
         }))
@@ -111,7 +111,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
                                 iconBackgroundColor:  UIColor.accentColor
                             ){
-                                self.navigateBacktoExamView(sub.objectID)
+                                self.navigateBack(sub.objectID)
                             })
                 )
             }

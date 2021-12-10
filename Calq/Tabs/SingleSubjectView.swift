@@ -314,13 +314,9 @@ class SingleSubjectView: UIViewController, ChartViewDelegate, UITableViewDelegat
                         addView.title = self.subject.name;
                         addView.subject = self.subject
                         
-                        addView.callback = {
-                            self.update();
-                        }
+                        addView.update()
                         
                         self.present(addView, animated: true)
                     })]))
     }
 }
-
-

@@ -142,10 +142,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                             let addView = self.storyboard?.getView("AddViewController") as! AddViewController;
                             addView.title = self.subject.name;
                             addView.subject = self.subject
-                            
-                            addView.callback = {
-                                self.update();
-                            }
+                            addView.update()
                             
                             self.present(addView, animated: true)
                         })
