@@ -193,10 +193,21 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         impactView.frame = CGRect(x: impactView.frame.minX, y: impactView.frame.minY, width: CGFloat(width * 15), height: impactView.frame.height)
         var num: Int = 0
         let colors: [UIColor] = self.subject != nil ? generateColors() : []
+        impactView.backgroundColor = .clear
         
         for i in 1...15 {
             let text = UILabel()
             let view = UIView()
+            if(i == 1){
+                view.layer.cornerRadius = 5.0
+                view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+            }
+            if(i == 15) {
+                view.layer.cornerRadius = 5.0
+                view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+            }
+    
+            
             if(self.subject == nil) { view.backgroundColor = .systemGray5} else { view.backgroundColor = colors[i - 1]}
             view.frame = CGRect(x: num, y: 0, width: width, height: Int(impactView.frame.height))
             text.frame = view.frame
