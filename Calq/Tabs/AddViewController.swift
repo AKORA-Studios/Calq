@@ -159,7 +159,32 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         selection.selectionChanged()
         
         let newView = storyboard?.getView("PredictSelect") as! PredictSelect
-        newView.callback = {self.update() }
+        newView.callback = {
+            let sub = UserDefaults.standard.string(forKey: "sub")
+            if(sub == nil) {return}
+            
+            let ObjectURL = URL(string: sub!)
+            if(ObjectURL == nil) {return}
+            
+            let coordinator = CoreDataStack.shared.managedObjectContext.persistentStoreCoordinator
+            let id = coordinator?.managedObjectID(forURIRepresentation: ObjectURL!)
+            
+            self.subject = Util.getSubject(id!)
+            var year: Int = 1
+                
+            if(self.subject != nil) {
+                        if(self.subject?.subjecttests?.count != 0){
+                            var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
+                            tests =  tests.sorted(by: ({$0.year > $1.year}))
+                            
+                            year = Int(tests[0].year)
+                        }
+                    }
+       
+                    self.selectedYear = year
+            self.yearSegment.selectedSegmentIndex = year - 1
+            
+            self.update() }
         self.present(newView, animated: true)
     }
     
