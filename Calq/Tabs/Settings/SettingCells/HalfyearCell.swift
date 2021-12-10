@@ -107,7 +107,7 @@ class HalfyearCell: UITableViewCell {
         iconContainer.backgroundColor = nil
         
         for label in [lab1,lab2,lab3,lab4]{
-            label.textColor = .systemGray4
+            label.textColor = .systemGray2
         }
     }
     
@@ -133,7 +133,7 @@ class HalfyearCell: UITableViewCell {
                 let number = (Int(num)) ?? 4
             
                 let label: UILabel = labelArray[number - 1]
-                label.textColor = UIColor.init(hexString: "#dda8a8")
+                label.textColor = .systemGray4//UIColor.init(hexString: "#dda8a8")
             }
         }
     }
