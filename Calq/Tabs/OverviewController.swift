@@ -148,9 +148,9 @@ class OverviewController:  ViewController, ChartViewDelegate {
             let view = UIView()
             
             let hei = ((Double(value * 100 ) / 15) * barChartView.frame.height) / 100 - 5
-            let textheight = (Double((1 * 100 ) / 15) * barChartView.frame.height) / 100 //labels with height of 1
+            let textheight = (Double((1 * 100 ) / 15) * barChartView.frame.height) / 100
             
-            view.backgroundColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)// .systemTeal
+            view.backgroundColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)
             
             let hi = barChartView.frame.height
             view.frame = CGRect(x: num, y: (barChartView.frame.maxY - barChartView.frame.origin.y), width: barwidth, height: (hi-(hi + hei)) )
@@ -162,6 +162,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
             text.text = "\(value)"
             text.textAlignment = .center
             text.adjustsFontSizeToFitWidth = true
+            text.textColor = .black
             
             //Bar description
             let labelheight = 1.5 * Double(textheight)
@@ -179,7 +180,6 @@ class OverviewController:  ViewController, ChartViewDelegate {
             num += barwidth + spacer
         }
     }
-    
     
     //MARK: Create Halfyear Bar Chart
     func sethalfyearChart(){
