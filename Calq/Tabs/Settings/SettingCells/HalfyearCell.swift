@@ -133,7 +133,7 @@ class HalfyearCell: UITableViewCell {
                 let number = (Int(num)) ?? 4
             
                 let label: UILabel = labelArray[number - 1]
-                label.textColor = .systemGray4//UIColor.init(hexString: "#dda8a8")
+                label.textColor = .systemRed
             }
         }
     }
