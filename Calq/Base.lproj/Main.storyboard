@@ -44,7 +44,7 @@
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2g-mO-wka" customClass="BarChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2g-mO-wka" customClass="CalqYearBarChartView" customModule="Calq" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="601" width="340" height="139"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
@@ -95,10 +95,10 @@
                     <connections>
                         <outlet property="barChart" destination="U1Y-6B-Fva" id="g36-mB-rJY"/>
                         <outlet property="gradeChart" destination="hL9-AT-vkF" id="wY9-yv-myF"/>
-                        <outlet property="halfyearChart" destination="e2g-mO-wka" id="Exd-PE-aJQ"/>
+                        <outlet property="halfyearChart" destination="e2g-mO-wka" id="ScN-Xb-eh8"/>
                         <outlet property="pointChart" destination="Wwr-9d-cbg" id="eMu-iv-un4"/>
                         <outlet property="scrollView" destination="DHJ-Ld-dzX" id="fkE-f2-Key"/>
-                        <outlet property="timeChart" destination="8Dl-lx-e9T" id="IMj-cV-pBY"/>
+                        <outlet property="timeChart" destination="8Dl-lx-e9T" id="xEh-2b-Hrx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucZ-vV-OH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -4,12 +4,13 @@ import CoreData
 
 class OverviewController:  ViewController, ChartViewDelegate {
 
+    @IBOutlet weak var halfyearChart: CalqYearBarChartView!
     @IBOutlet weak var barChart: CalqBarChartView!
     @IBOutlet weak var timeChart: LineChartView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
     @IBOutlet weak var gradeChart: CircularProgressView!
-    @IBOutlet weak var halfyearChart: BarChartView!
+    @IBOutlet weak var halfyearChartOld: BarChartView!
     
     var settings: AppSettings?
     
@@ -21,8 +22,8 @@ class OverviewController:  ViewController, ChartViewDelegate {
     func update() {
         self.settings = Util.getSettings()
         barChart.drawChart(Util.getAllSubjects())
+        halfyearChart.drawChart()
         setTimeChart()
-        sethalfyearChart()
         
         let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
         let subjects = Util.getAllSubjects()
@@ -61,7 +62,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
     //MARK: Create Halfyear Bar Chart
     func sethalfyearChart(){
         if(!checkChartData()){
-            halfyearChart.data = nil
+            halfyearChartOld.data = nil
             return;
         }
         
@@ -76,11 +77,11 @@ class OverviewController:  ViewController, ChartViewDelegate {
         let barChartSet = BarChartDataSet(entries: barchartEntries)
         barChartSet.colors = [UIColor.init(hexString: "428FE3")]
         
-        self.halfyearChart.data = BarChartData(dataSet: barChartSet)
-        self.halfyearChart.xAxis.axisMaximum = 4.5
+        self.halfyearChartOld.data = BarChartData(dataSet: barChartSet)
+        self.halfyearChartOld.xAxis.axisMaximum = 4.5
         
-        self.halfyearChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["1","2","3","4"])
-        self.halfyearChart.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
+        self.halfyearChartOld.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["1","2","3","4"])
+        self.halfyearChartOld.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
     }
     
     
@@ -177,45 +178,5 @@ class OverviewController:  ViewController, ChartViewDelegate {
         self.timeChart.leftAxis.drawGridLinesEnabled = true
         self.timeChart.leftAxis.gridColor = .systemGray4
         self.timeChart.leftAxis.drawGridLinesBehindDataEnabled = true
-        
-        //MARK: Halfyear Chart
-        self.halfyearChart.noDataText = NoDataText
-        self.halfyearChart.highlightFullBarEnabled = false;
-        self.halfyearChart.highlightPerTapEnabled = false;
-        self.halfyearChart.highlightPerDragEnabled = false;
-        
-        self.halfyearChart.xAxis.drawAxisLineEnabled = false
-        self.halfyearChart.xAxis.drawGridLinesEnabled = false
-        self.halfyearChart.rightAxis.drawZeroLineEnabled = false
-        self.halfyearChart.xAxis.labelPosition = .bottom
-        self.halfyearChart.xAxis.drawLabelsEnabled = true
-        self.halfyearChart.xAxis.avoidFirstLastClippingEnabled = true
-        
-        self.halfyearChart.leftAxis.gridLineWidth = CGFloat(1.5)
-        self.halfyearChart.leftAxis.gridLineDashLengths = [4,1]
-        self.halfyearChart.leftAxis.drawGridLinesEnabled = true
-        self.halfyearChart.leftAxis.gridColor = .systemGray4
-        
-        self.halfyearChart.leftAxis.axisMinimum = 0
-        self.halfyearChart.leftAxis.axisMaximum = 15
-        self.halfyearChart.leftAxis.drawZeroLineEnabled = false
-        self.halfyearChart.leftAxis.drawAxisLineEnabled = true
-        self.halfyearChart.leftAxis.drawGridLinesBehindDataEnabled = true
-        self.halfyearChart.leftAxis.drawLabelsEnabled = true
-        
-        self.halfyearChart.rightAxis.drawLabelsEnabled = false
-        self.halfyearChart.rightAxis.drawGridLinesEnabled = false
-        self.halfyearChart.rightAxis.drawZeroLineEnabled = false
-        self.halfyearChart.rightAxis.drawAxisLineEnabled = false
-        self.halfyearChart.rightAxis.drawGridLinesBehindDataEnabled = true
-        
-        self.halfyearChart.legend.enabled = false
-        self.halfyearChart.xAxis.drawLabelsEnabled = false
-        self.halfyearChart.drawValueAboveBarEnabled = true
-        self.halfyearChart.pinchZoomEnabled = false
-        self.halfyearChart.doubleTapToZoomEnabled = false
-        
-        self.halfyearChart.scaleXEnabled = false
-        self.halfyearChart.scaleYEnabled = false
     }
 }
