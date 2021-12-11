@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="1244"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1Y-6B-Fva">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1Y-6B-Fva" customClass="CalqBarChartView" customModule="Calq" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="32" width="340" height="285"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
@@ -93,9 +93,9 @@
                     <navigationItem key="navigationItem" id="rkU-f0-JMq"/>
                     <size key="freeformSize" width="414" height="1400"/>
                     <connections>
-                        <outlet property="barChartView" destination="U1Y-6B-Fva" id="9KN-BQ-j6q"/>
+                        <outlet property="barChart" destination="U1Y-6B-Fva" id="g36-mB-rJY"/>
                         <outlet property="gradeChart" destination="hL9-AT-vkF" id="wY9-yv-myF"/>
-                        <outlet property="halfyearChart" destination="e2g-mO-wka" id="NYX-7B-Uxf"/>
+                        <outlet property="halfyearChart" destination="e2g-mO-wka" id="Exd-PE-aJQ"/>
                         <outlet property="pointChart" destination="Wwr-9d-cbg" id="eMu-iv-un4"/>
                         <outlet property="scrollView" destination="DHJ-Ld-dzX" id="fkE-f2-Key"/>
                         <outlet property="timeChart" destination="8Dl-lx-e9T" id="IMj-cV-pBY"/>
