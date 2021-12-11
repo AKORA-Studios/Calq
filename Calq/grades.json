@@ -69,14 +69,14 @@
                 "date": "1623402840"
             },
             {
-                "name": "Test Integrale",
+                "name": "Test Integrale #1",
                 "grade": 12,
                 "year": 3,
                 "big": false,
                 "date": "1633338840"
             },
             {
-                "name": "Klausur Integrale",
+                "name": "Klausur Integrale #1",
                 "grade": 10,
                 "year": 3,
                 "big": true,
@@ -98,10 +98,17 @@
             },
             {
                 "name": "Test Integrale #3",
-                "grade": 11,
+                "grade": 10,
                 "year": 3,
                 "big": false,
                 "date": "1638978893"
+            },
+            {
+                "name": "Vorstellen Hausaufgabe",
+                "grade": 10,
+                "year": 3,
+                "big": false,
+                "date": "1639219911"
             }
         ]
     },
@@ -397,7 +404,7 @@
         "subjecttests": [
             {
                 "name": "Test 1",
-                "grade": 11,
+                "grade": 10,
                 "year": 1,
                 "big": false,
                 "date": "1604571240"
@@ -752,14 +759,14 @@
             },
             {
                 "name": "Fitness #1",
-                "grade": 9,
+                "grade": 8,
                 "year": 3,
                 "big": false,
                 "date": "1636536581"
             },
             {
                 "name": "Fitness #2",
-                "grade": 9,
+                "grade": 8,
                 "year": 3,
                 "big": false,
                 "date": "1636554996"
@@ -853,7 +860,7 @@
                 "name": "Video Berufswahlpass",
                 "grade": 11,
                 "year": 3,
-                "big": false,
+                "big": true,
                 "date": "1638370493"
             }
         ]
