@@ -3,8 +3,8 @@ import Charts
 import CoreData
 
 class OverviewController:  ViewController, ChartViewDelegate {
-    
-    @IBOutlet weak var barChart: CombinedChartView!
+
+    @IBOutlet weak var barChartView: UIView!
     @IBOutlet weak var timeChart: LineChartView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
@@ -21,7 +21,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
     func update() {
         self.settings = Util.getSettings()
         
-        setBarChart()
+        setBarChart( Util.getAllSubjects())
         setTimeChart()
         sethalfyearChart()
         
@@ -38,6 +38,23 @@ class OverviewController:  ViewController, ChartViewDelegate {
             gradeChart.setprogress(0.0, .accentColor, "0", "6.0")
             pointChart.setprogress(0.0, .accentColor, "0", "0.0")
         }
+    }
+    
+    func getSubjectAverage(_ sub: UserSubject) -> Double{
+        let tests = Util.filterTests(sub)
+        if(tests.count == 0){return 0.0}
+        
+        var count = 0.0
+        var subaverage = 0.0
+        
+        for e in 1...4 {
+            let yearTests = tests.filter{$0.year == Int16(e)}
+            if(yearTests.count == 0) {continue}
+            count += 1
+            subaverage += Util.testAverage(yearTests)
+        }
+        let average = subaverage / count
+        return Double(String(format: "%.2f", average))!
     }
     
     override func viewDidLoad() {
@@ -58,6 +75,99 @@ class OverviewController:  ViewController, ChartViewDelegate {
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
         }
     }
+    
+    func setBarChart(_ subjects: [UserSubject]){
+        barChartView.backgroundColor = .clear
+        //barchart
+        let width = (barChartView.frame.width - 20.0) / Double(subjects.count)
+        var num = 20.0
+        let spacer = Double(( 20 * width ) / 100)
+        let barwidth = width - spacer
+        
+        //Y-Axis
+        let yAxis = UIView()
+        yAxis.frame = CGRect(x: 17.0, y: 0.0, width: 1.0, height: barChartView.frame.height)
+        yAxis.backgroundColor = .systemGray5
+        barChartView.addSubview(yAxis)
+        
+        let zeroLineValue = (barChartView.frame.maxY - barChartView.frame.origin.y)
+        //15 line
+        let line1 = UIView()
+        line1.frame = CGRect(x: 15.0, y: 0.0 + 5, width: barChartView.frame.width - 20, height: 1.0)
+        line1.backgroundColor = .systemGray5
+        barChartView.addSubview(line1)
+        let label1 = UILabel()
+        label1.frame = CGRect(x: 0.0, y: 0.0 , width: 15.0, height: 15.0)
+        label1.text = "15"
+        label1.adjustsFontSizeToFitWidth = true
+        label1.textColor = .systemGray5
+        barChartView.addSubview(label1)
+        
+        //10 line
+        let line2 = UIView()
+        line2.frame = CGRect(x: 15.0, y: ((500/15)*zeroLineValue)/100 + 5, width: barChartView.frame.width - 20, height: 1.0)
+        line2.backgroundColor = .systemGray5
+        barChartView.addSubview(line2)
+        let label2 = UILabel()
+        label2.frame = CGRect(x: 0.0, y: ((500/15)*zeroLineValue)/100 , width: 15.0, height: 15.0)
+        label2.text = "10"
+        label2.adjustsFontSizeToFitWidth = true
+        label2.textColor = .systemGray5
+        barChartView.addSubview(label2)
+        
+        //5 line
+        let line3 = UIView()
+        line3.frame = CGRect(x: 15.0, y: ((1000/15)*zeroLineValue)/100 + 5, width: barChartView.frame.width - 20, height: 1.0)
+        line3.backgroundColor = .systemGray5
+        barChartView.addSubview(line3)
+        let label3 = UILabel()
+        label3.frame = CGRect(x: 0.0, y: ((1000/15)*zeroLineValue)/100 , width: 15.0, height: 15.0)
+        label3.text = "5"
+        label3.adjustsFontSizeToFitWidth = true
+        label3.textColor = .systemGray5
+        barChartView.addSubview(label3)
+        
+        //create bars
+        for i in 0..<subjects.count  {
+            let subject = subjects[i]
+            let value =  getSubjectAverage(subject)
+            
+            let text = UILabel()
+            let view = UIView()
+            
+            let hei = ((Double(value * 100 ) / 15) * barChartView.frame.height) / 100 - 5
+            let textheight = (Double((1 * 100 ) / 15) * barChartView.frame.height) / 100 //labels with height of 1
+            
+            view.backgroundColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)// .systemTeal
+            
+            let hi = barChartView.frame.height
+            view.frame = CGRect(x: num, y: (barChartView.frame.maxY - barChartView.frame.origin.y), width: barwidth, height: (hi-(hi + hei)) )
+            
+            view.layer.cornerRadius = 5.0
+            view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            
+            text.frame = CGRect(x: num, y: (barChartView.frame.maxY - barChartView.frame.origin.y), width: barwidth, height: -textheight)
+            text.text = "\(value)"
+            text.textAlignment = .center
+            text.adjustsFontSizeToFitWidth = true
+            
+            //Bar description
+            let labelheight = 1.5 * Double(textheight)
+            let barlabel = UILabel()
+            barlabel.frame = CGRect(x: num, y: (barChartView.frame.maxY - barChartView.frame.origin.y), width: barwidth, height: labelheight)
+            barlabel.text = String(subject.name!.prefix(3)).uppercased()
+            barlabel.adjustsFontSizeToFitWidth = true
+            barlabel.textAlignment = .center
+            
+            //draw everything
+            barChartView.addSubview(view)
+            barChartView.addSubview(text)
+            barChartView.addSubview(barlabel)
+            
+            num += barwidth + spacer
+        }
+    }
+    
     
     //MARK: Create Halfyear Bar Chart
     func sethalfyearChart(){
@@ -84,80 +194,6 @@ class OverviewController:  ViewController, ChartViewDelegate {
         self.halfyearChart.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
     }
     
-    //MARK: Create Bar Chart
-    func setBarChart() {
-        if(!checkChartData()){
-            barChart.data = nil
-            return;
-        }
-        let subjects = Util.getAllSubjects()
-        
-        var lineEntries : [ChartDataEntry] = []
-        var barchartEntries: [BarChartDataEntry] = []
-        
-        var completeAvg = 0.0, avgCount = 0.0;
-        for i in 0..<subjects.count {
-            let subj = subjects[i]
-            let tests = Util.filterTests(subjects[i]);
-            
-            var count = 0.0
-            var subaverage = 0.0
-            if(tests.count != 0 ){
-                for e in 1...4 {
-                    let yearTests = tests.filter{$0.year == Int16(e)}
-                    if(yearTests.count == 0) {continue}
-                    count += 1
-                    subaverage += Util.testAverage(yearTests)
-                }
-                
-                let average = subaverage / count
-                completeAvg += subaverage / count
-                avgCount += 1.0
-                
-                let barEntry = BarChartDataEntry(x: Double(i), y: Double(average), data: average)
-                barchartEntries.append(barEntry)
-            }
-        }
-        
-        completeAvg /= avgCount;
-        lineEntries.append(ChartDataEntry(x: -0.5, y: completeAvg));
-        for i in 0..<(subjects.count) {
-            lineEntries.append(ChartDataEntry(x:Double(i+1), y: completeAvg));
-        }
-        
-        lineEntries.append(ChartDataEntry(x: Double(subjects.count) + 0.5, y: completeAvg));
-        let lineChartSet = LineChartDataSet(entries: lineEntries)
-        let barChartSet = BarChartDataSet(entries: barchartEntries)
-        
-        
-        barChartSet.colors = settings!.colorfulCharts ? Util.pastelColors : subjects.map({UIColor.init(hexString: $0.color!)});
-        
-        lineChartSet.label = nil
-        lineChartSet.colors = [ .systemBlue]
-        lineChartSet.drawCirclesEnabled = false
-        
-        lineChartSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartSet.drawVerticalHighlightIndicatorEnabled = false
-        
-        let data = CombinedChartData()
-        data.barData = BarChartData(dataSet: barChartSet)
-        data.lineData = LineChartData(dataSet: lineChartSet)
-        data.lineData.setDrawValues(false)
-        
-        self.barChart.data = data
-        self.barChart.xAxis.axisMinimum = -0.5
-        self.barChart.xAxis.axisMaximum = Double(subjects.count) - 0.5
-        
-        let arr = subjects.map{sub -> String in
-            let str = sub.name!,
-                index = str.index(str.startIndex, offsetBy: 3);
-            return str[..<index].uppercased()
-        };
-        
-        self.barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: arr)
-        self.barChart.xAxis.setLabelCount(( subjects.count*2) + 1, force: false)
-        //   barChart.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
-    }
     
     //MARK: Create Time Chart
     func setTimeChart() {
@@ -225,46 +261,6 @@ class OverviewController:  ViewController, ChartViewDelegate {
     // rounded bars: https://www.appcodezip.com/2021/03/rounded-bars-in-iOS-Charts.html
     //MARK: Setup Charts
     func setupCharts() {
-        self.barChart.noDataText = NoDataText
-        self.barChart.highlightFullBarEnabled = false;
-        self.barChart.highlightPerTapEnabled = false;
-        self.barChart.highlightPerDragEnabled = false;
-        
-        self.barChart.xAxis.drawAxisLineEnabled = true
-        self.barChart.xAxis.drawGridLinesEnabled = false
-        self.barChart.xAxis.labelPosition = .bottom
-        self.barChart.xAxis.drawLabelsEnabled = true
-        self.barChart.xAxis.avoidFirstLastClippingEnabled = true
-        
-        self.barChart.leftAxis.gridLineWidth = CGFloat(1.5)
-        self.barChart.leftAxis.gridLineDashLengths = [4,1]
-        self.barChart.leftAxis.drawGridLinesEnabled = true
-        self.barChart.leftAxis.gridColor = .systemGray4
-        
-        self.barChart.leftAxis.axisMinimum = 0
-        self.barChart.leftAxis.axisMaximum = 15
-        self.barChart.leftAxis.drawZeroLineEnabled = false
-        self.barChart.leftAxis.drawAxisLineEnabled = false
-        self.barChart.leftAxis.drawGridLinesBehindDataEnabled = true
-        self.barChart.leftAxis.drawLabelsEnabled = true
-        self.barChart.leftAxis.setLabelCount(8, force: true)
-        
-        self.barChart.rightAxis.drawLabelsEnabled = false
-        self.barChart.rightAxis.drawGridLinesEnabled = false
-        self.barChart.rightAxis.drawZeroLineEnabled = false
-        self.barChart.rightAxis.drawAxisLineEnabled = false
-        self.barChart.rightAxis.drawGridLinesBehindDataEnabled = true
-        
-        self.barChart.legend.enabled = false
-        
-        self.barChart.drawValueAboveBarEnabled = true
-        self.barChart.pinchZoomEnabled = false
-        self.barChart.doubleTapToZoomEnabled = false
-        
-        self.barChart.scaleXEnabled = false
-        self.barChart.scaleYEnabled = false
-        
-        
         //MARK: Time Chart
         self.timeChart.noDataText = NoDataText
         self.timeChart.rightAxis.enabled = false;

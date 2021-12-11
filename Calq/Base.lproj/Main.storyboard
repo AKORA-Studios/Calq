@@ -27,59 +27,59 @@
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="1244"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1Y-6B-Fva" customClass="CombinedChartView" customModule="Charts">
-                                                <rect key="frame" x="20" y="32" width="340" height="373"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1Y-6B-Fva">
+                                                <rect key="frame" x="20" y="32" width="340" height="285"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Dl-lx-e9T" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="20" y="456" width="340" height="183"/>
+                                                <rect key="frame" x="20" y="368" width="340" height="183"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Verlauf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gU-AK-E3D">
-                                                <rect key="frame" x="20" y="413" width="340" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" systemColor="systemGray2Color"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Halbjahre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOS-Vc-ecD">
-                                                <rect key="frame" x="20" y="647" width="340" height="34"/>
+                                                <rect key="frame" x="20" y="332" width="340" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2g-mO-wka" customClass="BarChartView" customModule="Charts">
-                                                <rect key="frame" x="20" y="689" width="340" height="139"/>
+                                                <rect key="frame" x="20" y="601" width="340" height="139"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wwr-9d-cbg" customClass="CircularProgressView" customModule="Calq" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="890" width="150" height="156"/>
+                                                <rect key="frame" x="20" y="802" width="150" height="156"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fächerschnitt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulk-Jz-NbU">
-                                                <rect key="frame" x="20" y="846" width="180" height="36"/>
+                                                <rect key="frame" x="20" y="758" width="180" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Abischnitt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-xX-LPq">
-                                                <rect key="frame" x="196" y="846" width="164" height="36"/>
+                                                <rect key="frame" x="196" y="758" width="164" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-AT-vkF" customClass="CircularProgressView" customModule="Calq" customModuleProvider="target">
-                                                <rect key="frame" x="210" y="890" width="150" height="156"/>
+                                                <rect key="frame" x="210" y="802" width="150" height="156"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Halbjahre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOS-Vc-ecD">
+                                                <rect key="frame" x="20" y="567" width="340" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </view>
                                 </subviews>
@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" id="rkU-f0-JMq"/>
                     <size key="freeformSize" width="414" height="1400"/>
                     <connections>
-                        <outlet property="barChart" destination="U1Y-6B-Fva" id="6ck-dh-f3S"/>
+                        <outlet property="barChartView" destination="U1Y-6B-Fva" id="9KN-BQ-j6q"/>
                         <outlet property="gradeChart" destination="hL9-AT-vkF" id="wY9-yv-myF"/>
                         <outlet property="halfyearChart" destination="e2g-mO-wka" id="NYX-7B-Uxf"/>
                         <outlet property="pointChart" destination="Wwr-9d-cbg" id="eMu-iv-un4"/>
