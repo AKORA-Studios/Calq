@@ -77,7 +77,19 @@ class OverviewController:  ViewController, ChartViewDelegate {
     }
     
     func setBarChart(_ subjects: [UserSubject]){
+        barChartView.subviews.forEach({ $0.removeFromSuperview() })
         barChartView.backgroundColor = .clear
+        
+        if(subjects.count == 0){
+            let label = UILabel()
+            label.frame = barChartView.frame
+            label.text = "Keine Daten vorhanden"
+            label.textAlignment = .center
+            label.adjustsFontSizeToFitWidth = true
+            barChartView.addSubview(label)
+            return
+        }
+        
         //barchart
         let width = (barChartView.frame.width - 20.0) / Double(subjects.count)
         var num = 20.0
