@@ -98,12 +98,20 @@ class OverviewController:  ViewController, ChartViewDelegate {
         var completeAvg = 0.0, avgCount = 0.0;
         for i in 0..<subjects.count {
             let subj = subjects[i]
-            let tests = Util.filterTests(subj);
+            let tests = Util.filterTests(subjects[i]);
             
+            var count = 0.0
+            var subaverage = 0.0
             if(tests.count != 0 ){
-                let average = round(Util.testAverage(tests));
+                for e in 1...4 {
+                    let yearTests = tests.filter{$0.year == Int16(e)}
+                    if(yearTests.count == 0) {continue}
+                    count += 1
+                    subaverage += Util.testAverage(yearTests)
+                }
                 
-                completeAvg += average;
+                let average = subaverage / count
+                completeAvg += subaverage / count
                 avgCount += 1.0
                 
                 let barEntry = BarChartDataEntry(x: Double(i), y: Double(average), data: average)
