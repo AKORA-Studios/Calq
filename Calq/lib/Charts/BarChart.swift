@@ -85,38 +85,20 @@ class CalqBarChartView: UIView {
         self.addSubview(yAxis)
         
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-        //15 line
-        let line1 = UIView()
-        line1.frame = CGRect(x: 15.0, y: 0.0 + 5, width: self.frame.width - 20, height: 1.0)
-        line1.backgroundColor = .systemGray5
-        self.addSubview(line1)
-        let label1 = UILabel()
-        label1.frame = CGRect(x: 0.0, y: 0.0 , width: 15.0, height: 15.0)
-        label1.text = "15"
-        label1.adjustsFontSizeToFitWidth = true
-        label1.textColor = .systemGray5
-        self.addSubview(label1)
         
-        //10 line
-        let line2 = UIView()
-        line2.frame = CGRect(x: 15.0, y: ((500/15)*zeroLineValue)/100 + 5, width: self.frame.width - 20, height: 1.0)
-        line2.backgroundColor = .systemGray5
-        self.addSubview(line2)
-        let label2 = UILabel()
-        label2.frame = CGRect(x: 0.0, y: ((500/15)*zeroLineValue)/100 , width: 15.0, height: 15.0)
-        label2.text = "10"
-        label2.adjustsFontSizeToFitWidth = true
-        label2.textColor = .systemGray5
-        self.addSubview(label2)
-        
-        //5 line
+        drawAxe(0, "15")
+        drawAxe(((500/15)*zeroLineValue)/100, "10")
+        drawAxe(((1000/15)*zeroLineValue)/100, "5")
+    }
+    
+    func drawAxe(_ height: Double, _ title: String){
         let line3 = UIView()
-        line3.frame = CGRect(x: 15.0, y: ((1000/15)*zeroLineValue)/100 + 5, width: self.frame.width - 20, height: 1.0)
+        line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
         line3.backgroundColor = .systemGray5
         self.addSubview(line3)
         let label3 = UILabel()
-        label3.frame = CGRect(x: 0.0, y: ((1000/15)*zeroLineValue)/100 , width: 15.0, height: 15.0)
-        label3.text = "5"
+        label3.frame = CGRect(x: 0.0, y: height , width: 15.0, height: 15.0)
+        label3.text = title
         label3.adjustsFontSizeToFitWidth = true
         label3.textColor = .systemGray5
         self.addSubview(label3)
