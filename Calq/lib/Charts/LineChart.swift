@@ -13,8 +13,10 @@ class LineChart: UIView {
     var maxYValue: Double = 15.0
     var maxXValue: Double = 100.0
     let values: [ChartEntry] = []
+    
     var pointColor = UIColor.blue
     var lineColor = UIColor.systemGray3
+    var markAxes: [Double] = []
     
     private var points: [CGPoint] = []
 
@@ -23,12 +25,19 @@ class LineChart: UIView {
         self.layer.sublayers?.forEach({$0.removeFromSuperlayer()})
     }
     
-    public func drawChart(_ values: [ChartEntry], _ max: Double){
+    public func drawChart(_ values: [ChartEntry], _ max: Double, _ markAxes: [Double] = []){
         self.points = []
         self.maxXValue = max
+        self.markAxes = markAxes
         
         clearView()
         drawAxes()
+        if(markAxes.count != 0){
+            for axe in markAxes {
+                let xValue = ((( axe  * 100.0) / maxXValue) *  self.frame.width - 30.0) / 100
+                drawMarkAxes(xValue)
+            }
+        }
         
         self.backgroundColor = .clear
         if(values.count == 0){return}
@@ -70,7 +79,6 @@ class LineChart: UIView {
         let yValue = (self.frame.height - ((y * 100 / maxYValue)) * self.frame.height / 100) + 2
        
         return CGPoint(x: xValue + 27, y: yValue)
-        
     }
     
     private func drawPoint(_ Point: CGPoint){
@@ -93,6 +101,13 @@ class LineChart: UIView {
         drawAxe(((500/15) * zeroLineValue) / 100, "10")
         drawAxe(((1000/15) * zeroLineValue) / 100, "5")
         drawAxe((self.frame.height - 5.0), "0")
+    }
+    
+    private func drawMarkAxes(_ value: Double){
+        let Axe = UIView()
+        Axe.frame = CGRect(x: value, y: 0.0, width: 1.0, height: self.frame.height)
+        Axe.backgroundColor = .systemGray3
+        self.addSubview(Axe)
     }
     
     private  func drawAxe(_ height: Double, _ title: String){

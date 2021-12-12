@@ -101,13 +101,36 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
         
         var arr: [ChartEntry] = []
         for test in tests {
-            let y =  (test.date!.timeIntervalSince1970 / 1000) - minDate
-            arr.append((Double(y), Double(test.grade)))
+            let x =  (test.date!.timeIntervalSince1970 / 1000) - minDate
+            arr.append((Double(x), Double(test.grade)))
         }
         let color =  settings!.colorfulCharts ? self.pastelColor! : UIColor.init(hexString: self.subject.color!)
         timeChart.lineColor = color
         timeChart.pointColor = color
         timeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate)
+    }
+    
+    func getHalfYearAxes(_ arr: [UserTest]) -> [Double]{
+        var returnArr: [Double] = [0.0]
+
+        let maxYear = arr.sorted(by: {$0.year > $1.year })[0].year
+        let minYear = arr.sorted(by: {$0.year < $1.year })[0].year
+        if(minYear == maxYear){ return returnArr}
+        
+        let minimumDate = (arr.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+        
+        for i in minYear...maxYear{
+            let tests = arr.filter({$0.year == i})
+            let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000 - minimumDate
+            
+            if(i + 1 > maxYear) {continue}
+            let testsNew = arr.filter({$0.year == i + 1})
+            let minDate = (testsNew.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000 - minimumDate
+     
+            let date = ((maxDate + minDate) / 2) + 1000
+            returnArr.append(date)
+        }
+        return returnArr.filter({$0 != 0.0})
     }
     
     func setYearChart(){
@@ -119,13 +142,14 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
         
         var arr: [ChartEntry] = []
         for test in tests {
-            let y =  (test.date!.timeIntervalSince1970 / 1000) - minDate
-            arr.append((Double(y), Double(test.grade)))
+            let x =  (test.date!.timeIntervalSince1970 / 1000) - minDate
+            arr.append((Double(x), Double(test.grade)))
         }
+ 
         let color =  settings!.colorfulCharts ? self.pastelColor! : UIColor.init(hexString: self.subject.color!)
         yeartimeChart.lineColor = color
         yeartimeChart.pointColor = color
-        yeartimeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate)
+        yeartimeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate, getHalfYearAxes(tests))
     }
 
     @IBAction func navigateToGrades(_ sender: Any) {
