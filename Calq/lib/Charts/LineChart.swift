@@ -60,6 +60,7 @@ class LineChart: UIView {
         let layer =  CAShapeLayer()
         layer.path = freeform.cgPath
         layer.strokeColor = self.lineColor.cgColor
+        layer.lineWidth = 3.0
         self.layer.addSublayer(layer)
     }
     

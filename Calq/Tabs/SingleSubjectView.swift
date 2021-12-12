@@ -10,6 +10,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
     @IBOutlet weak var CircularProgress: CircularProgressView!
     @IBOutlet weak var yearSwitch: UISwitch!
     @IBOutlet weak var gradesButton: UIButton!
+    @IBOutlet weak var yeartimeChart: LineChart!
     
     var subject: UserSubject!
     var settings: AppSettings?
@@ -42,6 +43,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
                 yearSegment.selectedSegmentIndex = self.selectedYear - 1
                 
                 setChart(arr)
+                setYearChart()
                 CircularProgress.setprogress((Util.testAverage(arr)/15.0), self.pastelColor!, String(Util.testAverage(arr)), "")
             }
     }
@@ -55,11 +57,8 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
         self.update()
 
         subjectName.text = self.subject.name
-        
-        subjectName.textColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
-        UIColor.init(hexString: self.subject.color!)
-        self.yearSwitch.tintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
-        UIColor.init(hexString: self.subject.color!)
+        subjectName.textColor = self.pastelColor
+        self.yearSwitch.tintColor = self.pastelColor
         
         if(self.subject.subjecttests?.count != 0){
             var tests = self.subject.subjecttests!.allObjects as! [UserTest]
@@ -74,9 +73,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
             self.selectedYear = 0
         }
     
-        yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
-        UIColor.init(hexString: self.subject.color!)
-        
+        yearSegment.selectedSegmentTintColor = self.pastelColor
     }
     
     // Switch changed
@@ -97,7 +94,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
     typealias ChartEntry = (Double, Double)
     //MARK: Create Time Chart
     func setChart(_ tests: [UserTest]) {
-        if(tests.count == 0){ return timeChart.drawChart([], 10.0)}
+        if(tests.count == 0){return timeChart.drawChart([], 10.0)}
         
         let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
         let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
@@ -111,6 +108,24 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
         timeChart.lineColor = color
         timeChart.pointColor = color
         timeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate)
+    }
+    
+    func setYearChart(){
+        let tests =  self.subject.subjecttests!.allObjects as! [UserTest]
+        if(tests.count == 0){return yeartimeChart.drawChart([], 10.0)}
+        
+        let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+        let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+        
+        var arr: [ChartEntry] = []
+        for test in tests {
+            let y =  (test.date!.timeIntervalSince1970 / 1000) - minDate
+            arr.append((Double(y), Double(test.grade)))
+        }
+        let color =  settings!.colorfulCharts ? self.pastelColor! : UIColor.init(hexString: self.subject.color!)
+        yeartimeChart.lineColor = color
+        yeartimeChart.pointColor = color
+        yeartimeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate)
     }
 
     @IBAction func navigateToGrades(_ sender: Any) {

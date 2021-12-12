@@ -932,6 +932,7 @@
                         <outlet property="timeChart" destination="bnb-aM-hi5" id="5V5-e0-saU"/>
                         <outlet property="yearSegment" destination="bYb-cR-pXy" id="UuK-cE-0kJ"/>
                         <outlet property="yearSwitch" destination="eVv-MN-YWF" id="zpo-Ju-xwU"/>
+                        <outlet property="yeartimeChart" destination="nBQ-Ff-FD2" id="jMd-nl-gUL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5C-6f-qSV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
