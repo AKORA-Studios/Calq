@@ -5,7 +5,6 @@ import CoreData
 class SingleSubjectView: UIViewController, ChartViewDelegate  {
     
     @IBOutlet weak var yearSegment: UISegmentedControl!
-    @IBOutlet weak var timeChart: LineChart!
     @IBOutlet weak var subjectName: UILabel!
     @IBOutlet weak var CircularProgress: CircularProgressView!
     @IBOutlet weak var yearSwitch: UISwitch!
@@ -14,10 +13,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
     
     var subject: UserSubject!
     var settings: AppSettings?
-    
     var selectedYear = 1;
-    var callback: (() -> Void)!;
-    
     var pastelColor: UIColor?
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,23 +29,16 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
         self.pastelColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
         UIColor.init(hexString: self.subject.color!)
         
-
             if(self.subject!.subjecttests == nil){
-                setChart([])
                 CircularProgress.setprogress(0.0, self.pastelColor!, "/", "")
             } else {
                 let allTests = self.subject.subjecttests!.allObjects as! [UserTest]
                 let arr = allTests.filter{$0.year == self.selectedYear};
                 yearSegment.selectedSegmentIndex = self.selectedYear - 1
-                
-                setChart(arr)
-                setYearChart()
+            
                 CircularProgress.setprogress((Util.testAverage(arr)/15.0), self.pastelColor!, String(Util.testAverage(arr)), "")
             }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.callback()
+        setYearChart()
     }
     
     override func viewDidLoad() {
@@ -72,7 +61,6 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
             yearSegment.selectedSegmentIndex = 0;
             self.selectedYear = 0
         }
-    
         yearSegment.selectedSegmentTintColor = self.pastelColor
     }
     
@@ -92,24 +80,7 @@ class SingleSubjectView: UIViewController, ChartViewDelegate  {
     }
     
     typealias ChartEntry = (Double, Double)
-    //MARK: Create Time Chart
-    func setChart(_ tests: [UserTest]) {
-        if(tests.count == 0){return timeChart.drawChart([], 10.0)}
-        
-        let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
-        let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
-        
-        var arr: [ChartEntry] = []
-        for test in tests {
-            let x =  (test.date!.timeIntervalSince1970 / 1000) - minDate
-            arr.append((Double(x), Double(test.grade)))
-        }
-        let color =  settings!.colorfulCharts ? self.pastelColor! : UIColor.init(hexString: self.subject.color!)
-        timeChart.lineColor = color
-        timeChart.pointColor = color
-        timeChart.drawChart(arr.sorted(by: {$0.0 > $1.0}), maxDate - minDate)
-    }
-    
+
     func getHalfYearAxes(_ arr: [UserTest]) -> [Double]{
         var returnArr: [Double] = [0.0]
 

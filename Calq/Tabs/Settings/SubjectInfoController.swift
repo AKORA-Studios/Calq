@@ -13,7 +13,6 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
     
     let demoAlert = UIAlertController(title: "Info", message: "Du musst 40 Halbjahre einbringen :3 Behalte hier einen Überblick", preferredStyle: .alert)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
@@ -30,7 +29,6 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,14 +98,11 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-
-    
     func navigateSubject(_ subject: UserSubject){
         let newView = storyboard?.getView("SingleSubjectView") as! SingleSubjectView
         
         newView.title = subject.name
         newView.subject = subject;
-        newView.callback = { self.update();}
         
         self.present(newView, animated: true)
     }

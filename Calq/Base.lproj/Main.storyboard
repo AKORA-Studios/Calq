@@ -838,20 +838,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-aM-hi5" customClass="LineChart" customModule="Calq" customModuleProvider="target">
-                                <rect key="frame" x="20" y="378" width="374" height="133"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jahr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-Yu-RcF">
-                                <rect key="frame" x="20" y="238" width="96" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Halbjahr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-Yu-RcF">
+                                <rect key="frame" x="21" y="260" width="373" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bYb-cR-pXy">
-                                <rect key="frame" x="113" y="241" width="281" height="32"/>
+                                <rect key="frame" x="19" y="305" width="374" height="32"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="TextFieldBackground"/>
                                 <segments>
@@ -866,45 +861,37 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Durchschnitt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R27-xJ-qZN">
-                                <rect key="frame" x="20" y="519" width="374" height="31"/>
+                                <rect key="frame" x="20" y="387" width="374" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Verlauf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWM-TD-Emu">
-                                <rect key="frame" x="20" y="339" width="374" height="39"/>
+                                <rect key="frame" x="24" y="86" width="374" height="39"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Halbjahr einbringen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBN-gX-xDw">
-                                <rect key="frame" x="20" y="283" width="256" height="39"/>
+                                <rect key="frame" x="19" y="344" width="300" height="39"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-MN-YWF">
-                                <rect key="frame" x="311" y="287" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <color key="onTintColor" name="AccentColor"/>
-                                <connections>
-                                    <action selector="switchChanged:" destination="rr4-pR-0xN" eventType="valueChanged" id="BDV-L1-LZK"/>
-                                </connections>
-                            </switch>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBL-Q7-cSb" customClass="CircularProgressView" customModule="Calq" customModuleProvider="target">
-                                <rect key="frame" x="138" y="565" width="136" height="136"/>
+                                <rect key="frame" x="138" y="433" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-Ff-FD2" customClass="LineChart" customModule="Calq" customModuleProvider="target">
-                                <rect key="frame" x="20" y="88" width="374" height="127"/>
+                                <rect key="frame" x="19" y="125" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdW-rY-QUw">
-                                <rect key="frame" x="20" y="709" width="378" height="50"/>
+                                <rect key="frame" x="17" y="598" width="378" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -921,6 +908,14 @@
                                     <action selector="navigateToGrades:" destination="rr4-pR-0xN" eventType="touchUpInside" id="azg-dk-Ztv"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-MN-YWF">
+                                <rect key="frame" x="346" y="352" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="onTintColor" name="AccentColor"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="rr4-pR-0xN" eventType="valueChanged" id="BDV-L1-LZK"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7RN-jw-aU8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -929,7 +924,6 @@
                         <outlet property="CircularProgress" destination="dBL-Q7-cSb" id="py3-dj-hof"/>
                         <outlet property="gradesButton" destination="LdW-rY-QUw" id="Gys-m7-Njf"/>
                         <outlet property="subjectName" destination="4nw-nc-BNU" id="AqR-x3-Ae3"/>
-                        <outlet property="timeChart" destination="bnb-aM-hi5" id="5V5-e0-saU"/>
                         <outlet property="yearSegment" destination="bYb-cR-pXy" id="UuK-cE-0kJ"/>
                         <outlet property="yearSwitch" destination="eVv-MN-YWF" id="zpo-Ju-xwU"/>
                         <outlet property="yeartimeChart" destination="nBQ-Ff-FD2" id="jMd-nl-gUL"/>
