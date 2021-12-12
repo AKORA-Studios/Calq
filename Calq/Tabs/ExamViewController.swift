@@ -1,5 +1,4 @@
 import UIKit
-import Charts
 import CoreData
 
 class ExamViewController: ViewController, UITextFieldDelegate {
