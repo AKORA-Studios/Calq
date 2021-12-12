@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalqBarChartView: UIView {
+class BarChart: UIView {
     
     private var values: [UserSubject] = []
     

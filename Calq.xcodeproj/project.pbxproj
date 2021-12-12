@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
 		DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39350426A9C92500917E06 /* ExamViewController.swift */; };
 		DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D62DA27382A01008BF2AF /* CircularProgress.swift */; };
 		DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
@@ -106,6 +107,7 @@
 /* Begin PBXFileReference section */
 		24224B77BEA75789F09F91A3 /* Pods-Calq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calq.debug.xcconfig"; path = "Target Support Files/Pods-Calq/Pods-Calq.debug.xcconfig"; sourceTree = "<group>"; };
 		7B58450762AEC4ECF4E74A23 /* Pods-Calq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calq.release.xcconfig"; path = "Target Support Files/Pods-Calq/Pods-Calq.release.xcconfig"; sourceTree = "<group>"; };
+		DD0B86D327667E3F00DCC61F /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DD32890326A9B0D7000DFD73 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +341,7 @@
 			children = (
 				DD3D62DA27382A01008BF2AF /* CircularProgress.swift */,
 				DD8813782764D58B00EB6BD8 /* BarChart.swift */,
+				DD0B86D327667E3F00DCC61F /* LineChart.swift */,
 				DDB965C82765408600F89D0C /* YearBarChart.swift */,
 			);
 			path = Charts;
@@ -605,6 +608,7 @@
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
+				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */,
 				DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,

@@ -5,7 +5,7 @@ import CoreData
 class OverviewController:  ViewController, ChartViewDelegate {
 
     @IBOutlet weak var halfyearChart: CalqYearBarChartView!
-    @IBOutlet weak var barChart: CalqBarChartView!
+    @IBOutlet weak var barChart: BarChart!
     @IBOutlet weak var timeChart: LineChartView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
