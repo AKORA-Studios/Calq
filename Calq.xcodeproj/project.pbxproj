@@ -37,7 +37,6 @@
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
 		DD8C568726408F640042AC25 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C568626408F640042AC25 /* TabController.swift */; };
-		DD8D4DB826AD738B00AC289A /* GradePieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DB726AD738B00AC289A /* GradePieChart.swift */; };
 		DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DBF26AD795F00AC289A /* AppOnly.swift */; };
 		DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D6A627358C5B00399615 /* HalfyearCell.swift */; };
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
@@ -144,7 +143,6 @@
 		DD8C568626408F640042AC25 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		DD8D4D8D26ACC43600AC289A /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		DD8D4DB726AD738B00AC289A /* GradePieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePieChart.swift; sourceTree = "<group>"; };
 		DD8D4DBA26AD78C000AC289A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8D4DBF26AD795F00AC289A /* AppOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnly.swift; sourceTree = "<group>"; };
 		DD8F9854273043F50002CC2A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,7 +315,6 @@
 				DD687945261C530000BF2B48 /* Util.swift */,
 				DD81F6822759091600B4A43B /* JSONUtil.swift */,
 				DD8D4DBF26AD795F00AC289A /* AppOnly.swift */,
-				DD3D62DA27382A01008BF2AF /* CircularProgress.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -340,7 +337,7 @@
 		DD8D4DB626AD733700AC289A /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				DD8D4DB726AD738B00AC289A /* GradePieChart.swift */,
+				DD3D62DA27382A01008BF2AF /* CircularProgress.swift */,
 				DD8813782764D58B00EB6BD8 /* BarChart.swift */,
 				DDB965C82765408600F89D0C /* YearBarChart.swift */,
 			);
@@ -606,7 +603,6 @@
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
-				DD8D4DB826AD738B00AC289A /* GradePieChart.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
 				DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */,

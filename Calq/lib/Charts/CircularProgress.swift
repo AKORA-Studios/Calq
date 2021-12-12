@@ -92,6 +92,7 @@ class CircularProgressView: UIView {
         self.progress =  progress
         self.color = color
         self.title = String(text.prefix(5))
+        self.Backgroundcolor = .clear
         
         if(text2 != ""){self.subtitle = "\n" + text2}
         createLabels()
