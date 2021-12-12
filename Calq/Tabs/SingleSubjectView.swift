@@ -1,8 +1,7 @@
-import Charts
 import UIKit
 import CoreData
 
-class SingleSubjectView: UIViewController, ChartViewDelegate  {
+class SingleSubjectView: UIViewController  {
     
     @IBOutlet weak var yearSegment: UISegmentedControl!
     @IBOutlet weak var subjectName: UILabel!
