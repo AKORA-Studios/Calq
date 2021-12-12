@@ -16,8 +16,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Hell</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/819922260424785920/903681466108633138/unknown.png?width=376&height=669)
-![Kurse2](https://media.discordapp.net/attachments/819922260424785920/910878371230126080/unknown.png?width=376&height=669)
+![Kurse1](https://media.discordapp.net/attachments/819922260424785920/919331408357498970/unknown.png?width=376&height=669)
+![Kurse2](https://media.discordapp.net/attachments/819922260424785920/919331391982936114/unknown.png?width=376&height=669)
 
 ![Kurse3](https://media.discordapp.net/attachments/819922260424785920/910878386849730590/unknown.png?width=376&height=669)
 ![Neue Noten](https://media.discordapp.net/attachments/819922260424785920/910881212653010944/unknown.png?width=376&height=669)
