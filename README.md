@@ -22,8 +22,8 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![Kurse3](https://media.discordapp.net/attachments/819922260424785920/915686016717840434/unknown.png?width=376&height=669)
 ![Neue Noten](https://media.discordapp.net/attachments/819922260424785920/910881212653010944/unknown.png?width=376&height=669)
 
-![Average](https://media.discordapp.net/attachments/819922260424785920/910878430256566272/unknown.png?width=376&height=669)
-![Subject](https://media.discordapp.net/attachments/819922260424785920/910878402683228180/unknown.png?width=376&height=669)
+![SubjectInfo](https://media.discordapp.net/attachments/819922260424785920/919707681613291541/unknown.png?width=376&height=669)
+![Grades](https://media.discordapp.net/attachments/819922260424785920/919707364431630396/unknown.png?width=376&height=669)
   
 ![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/915685991564578888/unknown.png?width=376&height=669)
 ![Einstellung](https://media.discordapp.net/attachments/819922260424785920/915686002696286288/unknown.png?width=376&height=669)
