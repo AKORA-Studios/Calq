@@ -61,6 +61,9 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
             let appearence =  UITabBarAppearance()
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+            let appearence2 =  UINavigationBarAppearance()
+            appearence2.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence2
         }
     }
     
