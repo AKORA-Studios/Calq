@@ -14,10 +14,16 @@ class SingleSubjectView: UIViewController  {
     var settings: AppSettings?
     var selectedYear = 1;
     var pastelColor: UIColor?
+    var callback: (() -> Void)!;
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         self.update()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.callback()
     }
     
     func update() {
@@ -125,6 +131,7 @@ class SingleSubjectView: UIViewController  {
     @IBAction func navigateToGrades(_ sender: Any) {
         let newView = storyboard?.getView("gradeTableView") as! gradeTableView
         newView.subject = self.subject;
+     
         self.present(newView, animated: true)
     }
 }

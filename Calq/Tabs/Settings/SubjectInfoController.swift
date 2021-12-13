@@ -103,6 +103,7 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
         
         newView.title = subject.name
         newView.subject = subject;
+        newView.callback = { self.update();}
         
         self.present(newView, animated: true)
     }
