@@ -890,8 +890,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                             </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-MN-YWF">
+                                <rect key="frame" x="318" y="352" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="onTintColor" name="AccentColor"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="rr4-pR-0xN" eventType="valueChanged" id="BDV-L1-LZK"/>
+                                </connections>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdW-rY-QUw">
-                                <rect key="frame" x="17" y="598" width="378" height="50"/>
+                                <rect key="frame" x="18" y="577" width="378" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -908,14 +916,6 @@
                                     <action selector="navigateToGrades:" destination="rr4-pR-0xN" eventType="touchUpInside" id="azg-dk-Ztv"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-MN-YWF">
-                                <rect key="frame" x="318" y="352" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <color key="onTintColor" name="AccentColor"/>
-                                <connections>
-                                    <action selector="switchChanged:" destination="rr4-pR-0xN" eventType="valueChanged" id="BDV-L1-LZK"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7RN-jw-aU8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
