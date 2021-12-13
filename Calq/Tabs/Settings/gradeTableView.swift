@@ -33,7 +33,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        self.navigationItem.title = "Einstellungen"
+        self.navigationItem.title = "Notenübersicht"
         
         deleteAlert.addAction(UIAlertAction(title: "Nein", style: .default, handler: nil))
         deleteAlert.addAction(UIAlertAction(title: "Löschen", style: .destructive, handler: {action in
