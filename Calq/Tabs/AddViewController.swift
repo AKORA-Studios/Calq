@@ -2,8 +2,9 @@ import UIKit
 import CoreData
 import WidgetKit
 
-class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
+class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIScrollViewDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var subjectSelect: UIButton!
     @IBOutlet weak var impactView: UIView!
     @IBOutlet weak var gradeName: UITextField!
@@ -60,6 +61,19 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         gradeName.delegate = self
         pointViewer.text = "9"
         pointSlider.value = 9.0
+        
+        
+        scrollView.delegate = self
+              super.viewDidLoad()
+              scrollView.isDirectionalLockEnabled = false
+              
+              let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
+                  rect = rect.union(view.frame)
+              }
+              self.scrollView.contentSize = contentRect.size
+              
+              let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
+              scrollView.contentSize = size
         
         update()
     }
