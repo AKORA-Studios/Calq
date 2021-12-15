@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="-665" y="1457"/>
         </scene>
-        <!--Tab Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="C3K-Yu-oHm">
             <objects>
-                <tabBarController storyboardIdentifier="QwQ" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vkk-T6-lNy" customClass="TabController" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="QwQ" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vkk-T6-lNy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Wwd-FI-1ic"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wLc-6Z-IRv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
