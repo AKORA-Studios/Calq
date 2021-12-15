@@ -71,7 +71,7 @@ class ExamViewController: ViewController, UITextFieldDelegate {
                     field = examFields[Int(sub.examtype)-1],
                     label = examLabels[Int(sub.examtype)-1]
                 
-                field.backgroundColor = .systemGray3
+                field.backgroundColor = .accentColor//.systemGray3
                 field.setTitle(sub.name, for: .normal)
                 slider.setValue(points, animated: true)
                 label.text = String(sub.exampoints)
@@ -83,7 +83,7 @@ class ExamViewController: ViewController, UITextFieldDelegate {
                     field = examFields[i],
                     label = examLabels[i]
                 
-                field.backgroundColor = .systemGray5
+                field.backgroundColor = .systemGray3
                 field.setTitle("Prüfungsfach wählen", for: .normal)
                 slider.setValue(Float(0), animated: true)
                 label.text = "0"
