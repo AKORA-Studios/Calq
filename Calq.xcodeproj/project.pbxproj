@@ -33,11 +33,9 @@
 		DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD1152634C27E008E95B2 /* gradeTableView.swift */; };
 		DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD11A2634C83E008E95B2 /* editGradeView.swift */; };
 		DD70E112261F30870092815F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E111261F30870092815F /* ViewController.swift */; };
-		DD73801D267E6B390041C65B /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73801C267E6B390041C65B /* ScrollView.swift */; };
 		DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81835426820EA100FBC3D8 /* OverviewController.swift */; };
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
-		DD8C568726408F640042AC25 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C568626408F640042AC25 /* TabController.swift */; };
 		DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DBF26AD795F00AC289A /* AppOnly.swift */; };
 		DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D6A627358C5B00399615 /* HalfyearCell.swift */; };
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
@@ -138,11 +136,9 @@
 		DD6BD1152634C27E008E95B2 /* gradeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTableView.swift; sourceTree = "<group>"; };
 		DD6BD11A2634C83E008E95B2 /* editGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editGradeView.swift; sourceTree = "<group>"; };
 		DD70E111261F30870092815F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/marvinjacob/Documents/Projects/Calq/Calq/ViewController.swift; sourceTree = "<absolute>"; };
-		DD73801C267E6B390041C65B /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		DD81835426820EA100FBC3D8 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		DD81F6822759091600B4A43B /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		DD8813782764D58B00EB6BD8 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
-		DD8C568626408F640042AC25 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		DD8D4D8D26ACC43600AC289A /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		DD8D4DBA26AD78C000AC289A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,7 +267,6 @@
 				DD70E116261F315E0092815F /* lib */,
 				DDB4B235261C77D50022163C /* Tabs */,
 				DD6878832617B1A900BF2B48 /* AppDelegate.swift */,
-				DD73801C267E6B390041C65B /* ScrollView.swift */,
 				DD6878892617B1A900BF2B48 /* Main.storyboard */,
 				DD68788F2617B1AB00BF2B48 /* Assets.xcassets */,
 				DD60BA542715B69A00048FA4 /* grades.json */,
@@ -279,7 +274,6 @@
 				DD6878942617B1AB00BF2B48 /* Info.plist */,
 				DD70E111261F30870092815F /* ViewController.swift */,
 				DD6878DE261901A400BF2B48 /* SceneDelegate.swift */,
-				DD8C568626408F640042AC25 /* TabController.swift */,
 			);
 			path = Calq;
 			sourceTree = "<group>";
@@ -595,8 +589,6 @@
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
 				DD70E112261F30870092815F /* ViewController.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
-				DD73801D267E6B390041C65B /* ScrollView.swift in Sources */,
-				DD8C568726408F640042AC25 /* TabController.swift in Sources */,
 				DDC89037261F902100A93178 /* SettingsCell.swift in Sources */,
 				DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */,
 				DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */,
