@@ -20,13 +20,13 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![Kurse2](https://media.discordapp.net/attachments/819922260424785920/919331391982936114/unknown.png?width=376&height=669)
 
 ![Kurse3](https://media.discordapp.net/attachments/819922260424785920/915686016717840434/unknown.png?width=376&height=669)
-![Neue Noten](https://media.discordapp.net/attachments/819922260424785920/910881212653010944/unknown.png?width=376&height=669)
+![New Grade](https://media.discordapp.net/attachments/867129329363976212/921414888180576276/unknown.png?width=369&height=656)
 
 ![SubjectInfo](https://media.discordapp.net/attachments/819922260424785920/919707681613291541/unknown.png?width=376&height=669)
-![Grades](https://media.discordapp.net/attachments/819922260424785920/919707364431630396/unknown.png?width=376&height=669)
+![Grades](https://media.discordapp.net/attachments/867129329363976212/921414826377506846/unknown.png?width=369&height=656)
   
-![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/915685991564578888/unknown.png?width=376&height=669)
-![Einstellung](https://media.discordapp.net/attachments/819922260424785920/915686002696286288/unknown.png?width=376&height=669)
+![Exams](https://media.discordapp.net/attachments/819922260424785920/915685991564578888/unknown.png?width=376&height=669)
+![Settings](https://media.discordapp.net/attachments/819922260424785920/910879766524076102/unknown.png?width=376&height=669)
 </details>
 
 <details open>
