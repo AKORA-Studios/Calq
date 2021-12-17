@@ -62,7 +62,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         pointViewer.text = "9"
         pointSlider.value = 9.0
         
-        
         scrollView.delegate = self
               super.viewDidLoad()
               scrollView.isDirectionalLockEnabled = false
@@ -104,22 +103,19 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         addButton.backgroundColor = .accentColor
         subjectSelect.backgroundColor = .systemGray5
         
-        
-        if(self.subject != nil){
-            subjectSelect.setTitle(self.subject!.name, for: .normal)
-        }
+        if(self.subject != nil){subjectSelect.setTitle(self.subject!.name, for: .normal)}
         
         if(self.subject != nil) {
             gradeTypeSelect.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
              yearSegment.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
             pointSlider.tintColor = UIColor.init(hexString: self.subject!.color!)
         }
+        
         if(Util.getSettings()!.colorfulCharts) {
              gradeTypeSelect.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
              yearSegment.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
             pointSlider.tintColor = Util.getPastelColorByIndex(self.subject!.name!)
         }
-        
         setImpactSegemnts()
     }
     
@@ -195,23 +191,27 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                         }
                     }
        
-                    self.selectedYear = year
+            self.selectedYear = year
             self.yearSegment.selectedSegmentIndex = year - 1
-            
             self.update() }
+        
         self.present(newView, animated: true)
     }
     
     func setImpactSegemnts(){
-        let width = Int(impactView.frame.width / 15)
+        impactView.subviews.forEach({$0.removeFromSuperview()})
+        
+        let width = impactView.frame.width / 15
         impactView.frame = CGRect(x: impactView.frame.minX, y: impactView.frame.minY, width: CGFloat(width * 15), height: impactView.frame.height)
-        var num: Int = 0
-        let colors: [UIColor] = self.subject != nil ? generateColors() : []
+        var num: Double = 0.0
+        let colors: [ImpactEntry] = self.subject != nil ? generateColors() : []
         impactView.backgroundColor = .clear
         
         for i in 1...15 {
             let text = UILabel()
+            let gradeText = UILabel()
             let view = UIView()
+            
             if(i == 1){
                 view.layer.cornerRadius = 5.0
                 view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
@@ -221,21 +221,36 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
             }
     
+            let labelHeight = impactView.frame.height / 2
+            if(self.subject == nil) { view.backgroundColor = .systemGray5} else { view.backgroundColor = (colors[i - 1]).0}
             
-            if(self.subject == nil) { view.backgroundColor = .systemGray5} else { view.backgroundColor = colors[i - 1]}
-            view.frame = CGRect(x: num, y: 0, width: width, height: Int(impactView.frame.height))
-            text.frame = view.frame
+            view.frame = CGRect(x: num, y: 0, width: width, height: labelHeight)
+            text.frame = CGRect(x: num, y: 0, width: width, height: labelHeight)
+            gradeText.frame = CGRect(x: num, y: labelHeight, width: width, height: labelHeight)
+            
             text.text = "\(i)"
             text.textAlignment = .center
+            text.adjustsFontSizeToFitWidth = true
+            
+            gradeText.text = ""
+            if(self.subject != nil)  {
+                print(colors[i - 1])
+                gradeText.text = (colors[i - 1]).1
+            }
+            gradeText.textAlignment = .center
+            gradeText.adjustsFontSizeToFitWidth = true
             
             impactView.addSubview(view)
             impactView.addSubview(text)
+            impactView.addSubview(gradeText)
             num += width
         }
     }
     
-    func generateColors()-> [UIColor]{
-        var arr : [UIColor] = []
+    typealias ImpactEntry = (UIColor, String)
+    
+    func generateColors()-> [ImpactEntry]{
+        var arr : [ImpactEntry] = []
         var none: Bool = false
         
         if(self.subject!.subjecttests?.count == 0 ) {none = true}
@@ -244,7 +259,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         if (tests.count == 0) {none = true}
         
         if(none){
-            for _ in 1...15 {arr.append(.systemGray5)}
+            for _ in 1...15 {arr.append(ImpactEntry(.systemGray5, ""))}
             return arr
         }
         
@@ -258,6 +273,9 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         
         let averageOld: Int = Int((big + small)/divider)
         
+        
+        var worseLast: Int = 99
+        var betterLast: Int = 99
         //calculation new grade
         for i in 1...15 {
             divider = 2.0
@@ -281,12 +299,19 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
             }
             //push colors
             if(averageOld > newAverage){
-                arr.append(.systemRed)
+                var str = "\(newAverage)"
+                if(worseLast == newAverage) {str = ""}
+                arr.append(ImpactEntry(.systemRed, str))
+                worseLast = newAverage
+                
             } else if(newAverage > averageOld ){
-                arr.append(.systemGreen)
+                var str = "\(newAverage)"
+                if(betterLast == newAverage) {str = ""}
+                arr.append(ImpactEntry(.systemGreen, str))
+                betterLast = newAverage
             }
             else {
-                arr.append(.systemGray5)
+                arr.append(ImpactEntry(.systemGray5, ""))
             }
         }
         return  arr
