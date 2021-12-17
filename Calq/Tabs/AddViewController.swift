@@ -221,28 +221,38 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
             }
     
-            let labelHeight = impactView.frame.height / 2
+            let labelHeight = impactView.frame.height / 3
+            let viewHeight = 2 * impactView.frame.height / 3
             if(self.subject == nil) { view.backgroundColor = .systemGray5} else { view.backgroundColor = (colors[i - 1]).0}
             
-            view.frame = CGRect(x: num, y: 0, width: width, height: labelHeight)
-            text.frame = CGRect(x: num, y: 0, width: width, height: labelHeight)
-            gradeText.frame = CGRect(x: num, y: labelHeight, width: width, height: labelHeight)
+            view.frame = CGRect(x: num, y: 0, width: width, height: viewHeight)
+            text.frame = CGRect(x: num, y: 0, width: width, height: viewHeight)
+            gradeText.frame = CGRect(x: num, y: viewHeight, width: width, height: labelHeight)
             
             text.text = "\(i)"
             text.textAlignment = .center
             text.adjustsFontSizeToFitWidth = true
+            text.textColor = .systemGray6
             
             gradeText.text = ""
             if(self.subject != nil)  {
-                print(colors[i - 1])
                 gradeText.text = (colors[i - 1]).1
+                
+                if((colors[i - 1]).1 != ""){
+                    let stroke = UIView()
+                    stroke.frame = CGRect(x: num, y: viewHeight, width: 1, height: labelHeight)
+                    stroke.backgroundColor = view.backgroundColor
+                    impactView.addSubview(stroke)
+                }
             }
             gradeText.textAlignment = .center
             gradeText.adjustsFontSizeToFitWidth = true
+            gradeText.textColor = .systemGray2
             
             impactView.addSubview(view)
             impactView.addSubview(text)
             impactView.addSubview(gradeText)
+           
             num += width
         }
     }
@@ -311,7 +321,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 betterLast = newAverage
             }
             else {
-                arr.append(ImpactEntry(.systemGray5, ""))
+                arr.append(ImpactEntry(.systemGray4, ""))
             }
         }
         return  arr
