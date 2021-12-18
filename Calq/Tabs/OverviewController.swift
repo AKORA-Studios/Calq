@@ -20,8 +20,12 @@ class OverviewController:  ViewController, ChartViewDelegate {
     
     func update() {
         self.settings = Util.getSettings()
+        
         barChart.drawChart(Util.getAllSubjects())
-        barChart.drawAverageLine(Util.generalAverage())
+        if(Util.getAllSubjects().count != 0){
+            barChart.drawAverageLine(Util.generalAverage())
+        }
+        
         halfyearChart.drawChart()
         setTimeChart()
         
