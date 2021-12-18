@@ -63,16 +63,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         pointSlider.value = 9.0
         
         scrollView.delegate = self
-              super.viewDidLoad()
-              scrollView.isDirectionalLockEnabled = false
+        scrollView.isDirectionalLockEnabled = false
               
-              let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
-                  rect = rect.union(view.frame)
-              }
-              self.scrollView.contentSize = contentRect.size
-              
-              let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
-              scrollView.contentSize = size
+        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
+        rect = rect.union(view.frame)}
+        self.scrollView.contentSize = contentRect.size
+        
+        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
+        scrollView.contentSize = size
         
         update()
     }
