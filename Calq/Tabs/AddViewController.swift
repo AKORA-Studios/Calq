@@ -297,7 +297,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 let newSmall = Util.average(gradeArr)
                 
                 if(tests.filter{$0.big}.count == 0) {divider = 1}
-                newAverage = Int((big + newSmall)/divider)
+                newAverage = Int(round((big + newSmall)/divider))
                 
             }else { //big
                 var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
@@ -305,7 +305,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 let newBig = Util.average(gradeArr)
                 
                 if(tests.filter{!$0.big}.count == 0) {divider = 1}
-                newAverage = Int((newBig + small)/divider)
+                newAverage = Int(round((newBig + small)/divider))
             }
             //push colors
             if(averageOld > newAverage){
