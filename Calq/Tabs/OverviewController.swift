@@ -32,7 +32,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         rect = rect.union(view.frame)}
         self.scrollView.contentSize = contentRect.size
         
-        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 350)
+        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 300)
         scrollView.contentSize = size
         
         if #available(iOS 15.0, *) {

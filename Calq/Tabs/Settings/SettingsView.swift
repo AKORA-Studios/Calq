@@ -195,24 +195,6 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         )
         
         models.append(Section(title: "Allgemein", options: [
-            
-            .switchCell(model: SettingsSwitchOption(
-                title: "Dynamische Linien",
-                icon: settings!.smoothGraphs ? UIImage(systemName: "scribble") : UIImage(systemName: "line.diagonal"),
-                iconBackgroundColor: .systemPurple,
-                isOn: settings!.smoothGraphs,
-                selectHandler:{
-                    
-                },
-                switchHandler: {
-                    self.settings?.smoothGraphs =
-                    !(self.settings!.smoothGraphs ? true : false) as Bool;
-                    try! CoreDataStack.shared.managedObjectContext.save()
-                    WidgetCenter.shared.reloadAllTimelines()
-                    self.update();
-                }
-            )),
-            
                 .switchCell(model: SettingsSwitchOption(
                     title: "Automatische Farben",
                     icon: UIImage(systemName: "chart.bar.fill") ,

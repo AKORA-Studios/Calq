@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="colorfulCharts" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="firstLaunch" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="smoothGraphs" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="usersubjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttosettings" inverseEntity="UserSubject"/>
     </entity>
     <entity name="UserSubject" representedClassName="UserSubject" syncable="YES">
@@ -25,7 +24,7 @@
         <relationship name="testtosubbject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttests" inverseEntity="UserSubject"/>
     </entity>
     <elements>
-        <element name="AppSettings" positionX="-219.6380004882812" positionY="-210.9061584472656" width="128" height="89"/>
+        <element name="AppSettings" positionX="-219.6380004882812" positionY="-210.9061584472656" width="128" height="74"/>
         <element name="UserSubject" positionX="-169.4303283691406" positionY="-23.45440673828125" width="128" height="149"/>
         <element name="UserTest" positionX="-356.9806518554688" positionY="144.6180419921875" width="128" height="119"/>
     </elements>

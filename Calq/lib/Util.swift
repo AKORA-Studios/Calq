@@ -231,7 +231,6 @@ struct Util {
             if(items.count == 0){
                 let item =  AppSettings(context: context)
                 item.colorfulCharts = false
-                item.smoothGraphs = true
                 item.firstLaunch = false
                 
                 try! context.save()

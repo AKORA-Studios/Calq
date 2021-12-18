@@ -40,6 +40,10 @@
 		DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D6A627358C5B00399615 /* HalfyearCell.swift */; };
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
+		DDA44B65276E331100C7DD5E /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44B63276E331100C7DD5E /* AppSettings+CoreDataClass.swift */; };
+		DDA44B66276E331100C7DD5E /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44B64276E331100C7DD5E /* AppSettings+CoreDataProperties.swift */; };
+		DDA44B67276E331D00C7DD5E /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44B63276E331100C7DD5E /* AppSettings+CoreDataClass.swift */; };
+		DDA44B68276E332000C7DD5E /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44B64276E331100C7DD5E /* AppSettings+CoreDataProperties.swift */; };
 		DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA78E42708D8350071DFAE /* GradeCell.swift */; };
 		DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9012D276272E600E799FD /* PredictSelect.swift */; };
 		DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB965C82765408600F89D0C /* YearBarChart.swift */; };
@@ -47,10 +51,6 @@
 		DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
 		DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */; };
 		DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */; };
-		DDBB97C02757D28E00491231 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B82757D28E00491231 /* AppSettings+CoreDataClass.swift */; };
-		DDBB97C12757D28E00491231 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B82757D28E00491231 /* AppSettings+CoreDataClass.swift */; };
-		DDBB97C22757D28E00491231 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B92757D28E00491231 /* AppSettings+CoreDataProperties.swift */; };
-		DDBB97C32757D28E00491231 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B92757D28E00491231 /* AppSettings+CoreDataProperties.swift */; };
 		DDBB97C42757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */; };
 		DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */; };
 		DDBB97C62757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */; };
@@ -148,13 +148,13 @@
 		DD95D6A627358C5B00399615 /* HalfyearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfyearCell.swift; sourceTree = "<group>"; };
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
+		DDA44B63276E331100C7DD5E /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataClass.swift"; path = "lib/CoreData/AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DDA44B64276E331100C7DD5E /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataProperties.swift"; path = "lib/CoreData/AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDAA78E42708D8350071DFAE /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		DDB9012D276272E600E799FD /* PredictSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictSelect.swift; sourceTree = "<group>"; };
 		DDB965C82765408600F89D0C /* YearBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearBarChart.swift; sourceTree = "<group>"; };
 		DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		DDBB97B82757D28E00491231 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DDBB97B92757D28E00491231 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDC22B4D261DDF730001B27C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -318,10 +318,10 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				DDA44B63276E331100C7DD5E /* AppSettings+CoreDataClass.swift */,
+				DDA44B64276E331100C7DD5E /* AppSettings+CoreDataProperties.swift */,
 				DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */,
 				DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */,
-				DDBB97B82757D28E00491231 /* AppSettings+CoreDataClass.swift */,
-				DDBB97B92757D28E00491231 /* AppSettings+CoreDataProperties.swift */,
 				DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */,
 				DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */,
 				DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */,
@@ -562,15 +562,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDBB97C12757D28E00491231 /* AppSettings+CoreDataClass.swift in Sources */,
 				DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
+				DDA44B67276E331D00C7DD5E /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
 				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
 				DDBB97C72757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
-				DDBB97C32757D28E00491231 /* AppSettings+CoreDataProperties.swift in Sources */,
+				DDA44B68276E332000C7DD5E /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
 				DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
 			);
@@ -593,18 +593,18 @@
 				DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */,
 				DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */,
 				DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */,
-				DDBB97C22757D28E00491231 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
+				DDA44B66276E331100C7DD5E /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
+				DDA44B65276E331100C7DD5E /* AppSettings+CoreDataClass.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */,
 				DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
-				DDBB97C02757D28E00491231 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,

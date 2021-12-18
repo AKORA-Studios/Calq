@@ -18,7 +18,7 @@ static func loadDemoData(){
     let settings: AppSettings = Util.deleteSettings()
     settings.colorfulCharts = true
     settings.firstLaunch = false
-    settings.smoothGraphs = false
+   
     do {
         let data = loadJSON()
         for subject in data {
@@ -96,7 +96,7 @@ private static func loadJSON() ->[SubjectStruct]{
 ///Export userdata as json
  static func exportJSON()-> String{
      let data = Util.getSettings()
-     var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"smoothGraphs\": \(data?.smoothGraphs ?? false), \"usersubjects\": ["
+     var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"usersubjects\": ["
      
      let subjects = Util.getAllSubjects()
      var subCount: Int = 0
@@ -163,7 +163,6 @@ static func writeJSON(_ data: String) -> URL{
         let context = CoreDataStack.shared.managedObjectContext
         let set: AppSettings = Util.deleteSettings()
         set.colorfulCharts = newSettings.colorfulCharts
-        set.smoothGraphs = newSettings.smoothGraphs
         
        // if(set.usersubjects.count != 0){
           for subject in newSettings.usersubjects {
@@ -213,7 +212,6 @@ private func checkType(_ num: Int) -> Int16 {
 // Struct for importing from json
 struct AppStruct: Codable {
     var colorfulCharts: Bool;
-    var smoothGraphs: Bool;
     var usersubjects: [SubjectStruct];
     
    struct SubjectStruct: Codable {
