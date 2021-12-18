@@ -195,6 +195,13 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         )
         
         models.append(Section(title: "Allgemein", options: [
+            .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.accentColor)
+                        {
+                            let url = URL(string: "https://github.com/AKORA-Studios/Calq-iOS")
+                            UIApplication.shared.open(url!)
+                            
+                        }),
+            
                 .switchCell(model: SettingsSwitchOption(
                     title: "Automatische Farben",
                     icon: UIImage(systemName: "chart.bar.fill") ,
@@ -243,20 +250,6 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                                 self.present(self.restoreAlert, animated: true, completion: nil)
                             }),
         ] ))
-        
-        models.append(Section(title: "Info Links", options: [
-            .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.accentColor)
-                        {
-                            let url = URL(string: "https://github.com/AKORA-Studios/Calq-iOS")
-                            UIApplication.shared.open(url!)
-                            
-                        }),
-            .staticCell(model:SettingsOption(title: "Cocoapods: Charts", subtitle: "", icon: UIImage(systemName: "chart.bar.xaxis"), iconBackgroundColor: UIColor.init(hexString: "#63d3bd"))
-                        {
-                            let url = URL(string: "https://cocoapods.org/pods/Charts")
-                            UIApplication.shared.open(url!)
-                        })
-        ]))
         
         models.append(Section(title: "Kurse", options: arr))
     }
