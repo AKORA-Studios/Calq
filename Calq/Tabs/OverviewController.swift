@@ -1,21 +1,45 @@
 import UIKit
-import Charts
 import CoreData
 
-class OverviewController:  ViewController, ChartViewDelegate, UIScrollViewDelegate {
+class OverviewController:  ViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var halfyearChart: CalqYearBarChartView!
     @IBOutlet weak var barChart: BarChart!
-    @IBOutlet weak var timeChart: LineChartView!
+    @IBOutlet weak var timeChart: LineChart!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
     @IBOutlet weak var gradeChart: CircularProgressView!
     
     var settings: AppSettings?
+    typealias ChartEntry = (Double, Double)
+    typealias ChartEntrySet = (UIColor, [ChartEntry])
+    var maxDataLineChart: [Double] = [0.0]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         update()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        self.navigationItem.title = "Übersicht"
+        update()
+        
+        scrollView.delegate = self
+        scrollView.isDirectionalLockEnabled = false
+              
+        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
+        rect = rect.union(view.frame)}
+        self.scrollView.contentSize = contentRect.size
+        
+        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 350)
+        scrollView.contentSize = size
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UITabBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+        }
     }
     
     func update() {
@@ -27,7 +51,6 @@ class OverviewController:  ViewController, ChartViewDelegate, UIScrollViewDelega
         }
         
         halfyearChart.drawChart()
-        setTimeChart()
         
         let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
         let subjects = Util.getAllSubjects()
@@ -42,129 +65,37 @@ class OverviewController:  ViewController, ChartViewDelegate, UIScrollViewDelega
             gradeChart.setprogress(0.0, .accentColor, "0", "6.0")
             pointChart.setprogress(0.0, .accentColor, "0", "0.0")
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad();
         
-        self.navigationItem.title = "Übersicht"
-        setupCharts();
-        update()
+        timeChart.lineWidth = 1.0
+        timeChart.drawPoints = false
+        var DataAr: [ChartEntrySet] = []
         
-        /*scrollView.contentSize = CGSize(
-            width: scrollView.visibleSize.width,
-            height: scrollView.visibleSize.height*1.4
-        )*/
-        scrollView.delegate = self
-        scrollView.isDirectionalLockEnabled = false
-              
-        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
-        rect = rect.union(view.frame)}
-        self.scrollView.contentSize = contentRect.size
+        for sub in Util.getAllSubjects(){
+            let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) :
+            UIColor.init(hexString: sub.color!)
+            DataAr.append( ChartEntrySet(color, getChartData(sub))  )
+        }
         
-        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 350)
-        scrollView.contentSize = size
-        print(scrollView.contentSize)
-        
-        if #available(iOS 15.0, *) {
-            let appearence =  UITabBarAppearance()
-            appearence.configureWithDefaultBackground()
-            self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+        timeChart.drawChart(self.maxDataLineChart.sorted(by: {$0 > $1})[0])
+        for data in DataAr {
+            timeChart.addDataSet(data.1, data.0)
         }
     }
+    
+    func getChartData(_ sub: UserSubject) -> [ChartEntry]{
+        let tests =  sub.subjecttests!.allObjects as! [UserTest]
+        if(tests.count == 0){return  []}
+        
+        let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+        let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+        
+        var arr: [ChartEntry] = []
+        for test in tests {
+            let x =  (test.date!.timeIntervalSince1970 / 1000) - minDate
+            arr.append((Double(x), Double(test.grade)))
+        }
+        self.maxDataLineChart.append(maxDate - minDate)
 
-    //MARK: Create Time Chart
-    func setTimeChart() {
-        if(!checkChartData()){
-            timeChart.data = nil
-            return
-        }
-        
-        let subjects = Util.getAllSubjects()
-        
-        do {
-            let data = LineChartData()
-            
-            let minDate = try Util.calcMinDate()
-            let maxDate = try Util.calcMaxDate()
-            
-            for subject in subjects {
-                if(subject.subjecttests == nil) {continue}
-                
-                var lineEntries : [ChartDataEntry] = [];
-                let Tests = (subject.subjecttests!.allObjects as! [UserTest])
-                    .sorted{
-                        $0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970
-                    }
-                
-                var count = 0
-                
-                for test in Tests {
-                    lineEntries.append(ChartDataEntry(
-                        x: test.date!.timeIntervalSince(minDate),
-                        y: Double(test.grade)
-                    ))
-                    count += 1
-                }
-                
-                let colorful = settings!.colorfulCharts
-                let lineChartSet = LineChartDataSet(entries: lineEntries)
-                lineChartSet.mode = settings!.smoothGraphs ? .cubicBezier : .linear;
-                lineChartSet.colors = colorful ? [Util.getPastelColorByIndex(subject.name!)] : [ UIColor.init(hexString: subject.color!)];
-                
-                lineChartSet.circleColors = colorful ? [Util.getPastelColorByIndex(subject.name!)] : [ UIColor.init(hexString: subject.color!)];
-                lineChartSet.circleRadius = CGFloat(2)
-                lineChartSet.circleHoleColor = .systemBackground
-                
-                lineChartSet.circleHoleRadius = CGFloat(1)
-                lineChartSet.drawCirclesEnabled = false
-                
-                lineChartSet.drawHorizontalHighlightIndicatorEnabled = false
-                lineChartSet.drawVerticalHighlightIndicatorEnabled = false
-                lineChartSet.label = nil
-                
-                lineChartSet.lineWidth = CGFloat(2)
-                data.addDataSet(lineChartSet)
-            }
-            
-            data.setDrawValues(false)
-            self.timeChart.data = data
-            self.timeChart.xAxis.axisMinimum = 0
-            self.timeChart.xAxis.axisMaximum = maxDate.timeIntervalSince(minDate)
-        } catch {
-            print("Something went wrong")
-        }
-    }
-    
-    // rounded bars: https://www.appcodezip.com/2021/03/rounded-bars-in-iOS-Charts.html
-    //MARK: Setup Charts
-    func setupCharts() {
-        //MARK: Time Chart
-        self.timeChart.noDataText = NoDataText
-        self.timeChart.rightAxis.enabled = false;
-        
-        self.timeChart.xAxis.drawAxisLineEnabled = false
-        self.timeChart.xAxis.drawGridLinesEnabled = false
-        self.timeChart.xAxis.drawLabelsEnabled = false
-        
-        self.timeChart.leftAxis.axisMinimum = 0
-        self.timeChart.leftAxis.axisMaximum = 16
-        
-        self.timeChart.rightAxis.drawLabelsEnabled = false
-        self.timeChart.rightAxis.drawZeroLineEnabled = false
-        self.timeChart.rightAxis.drawAxisLineEnabled = false
-        self.timeChart.rightAxis.drawGridLinesBehindDataEnabled = false
-        
-        self.timeChart.legend.enabled = false
-        self.timeChart.pinchZoomEnabled = false
-        self.timeChart.doubleTapToZoomEnabled = false
-        self.timeChart.scaleXEnabled = false
-        self.timeChart.scaleYEnabled = false
-        
-        self.timeChart.leftAxis.gridLineWidth = CGFloat(1.5)
-        self.timeChart.leftAxis.gridLineDashLengths = [4,1]
-        self.timeChart.leftAxis.drawGridLinesEnabled = true
-        self.timeChart.leftAxis.gridColor = .systemGray4
-        self.timeChart.leftAxis.drawGridLinesBehindDataEnabled = true
+        return arr.sorted(by: {$0.0 > $1.0})
     }
 }

@@ -12,55 +12,58 @@ class LineChart: UIView {
     
     var maxYValue: Double = 15.0
     var maxXValue: Double = 100.0
-    let values: [ChartEntry] = []
+    let values: [[ChartEntry]] = []
     
     var pointColor = UIColor.blue
     var lineColor = UIColor.systemGray3
     var markAxes: [Double] = []
     
-    private var points: [CGPoint] = []
+    var lineWidth: Double = 3.0
+    var pointWidth: Double = 4.0
+    var drawPoints: Bool = true
 
-    private func clearView(){
+    public func clearView(){
         self.subviews.forEach({$0.removeFromSuperview()})
         self.layer.sublayers?.forEach({$0.removeFromSuperlayer()})
     }
     
-    public func drawChart(_ values: [ChartEntry], _ max: Double, _ markAxes: [Double] = []){
-        self.points = []
+    public func drawChart(_ max: Double, _ markAxes: [Double] = []){
         self.maxXValue = max
         self.markAxes = markAxes
         
         clearView()
         drawAxes()
+        
         if(markAxes.count != 0){
             for axe in markAxes {
                 let xValue = ((( axe  * 100.0) / maxXValue) *  self.frame.width - 30.0) / 100
                 drawMarkAxes(xValue)
             }
         }
-        
         self.backgroundColor = .clear
         if(values.count == 0){return}
-        
-        //create points
-        for i in 0..<values.count  {
-            let value = values[i]
-            points.append(createPoint(value.0, value.1))
-        }
-      
-        // draw line between points
-        for i in 0..<points.count{
-            if(i + 1 == points.count) {continue}
-            let point = points[i]
-            let newPoint = points[i + 1]
-            drawLine(point, newPoint)
-            }
-        
-        // draw points
-        for point in points{drawPoint(point)   }
     }
     
-    private func drawLine(_ newPoint: CGPoint, _ oldPoint: CGPoint){
+    public func addDataSet(_ values: [ChartEntry], _ color: UIColor){
+        var points: [CGPoint] = []
+        //create points
+            for value in values  {
+            points.append(createPoint(value.0, value.1))
+            }
+    
+            // draw line between points
+            for i in 0..<points.count{
+                if(i + 1 == points.count) {continue}
+                let point = points[i]
+                let newPoint = points[i + 1]
+                drawLine(point, newPoint, color)
+                }
+            
+            // draw points
+        if(self.drawPoints)   {  for point in points{drawPoint(point, color)   }}
+    }
+    
+    private func drawLine(_ newPoint: CGPoint, _ oldPoint: CGPoint, _ color: UIColor){
         let freeform = UIBezierPath()
         freeform.move(to: CGPoint(x: oldPoint.x + 2, y: oldPoint.y + 2))
         freeform.addLine(to: CGPoint(x: newPoint.x + 2, y: newPoint.y + 2))
@@ -68,8 +71,8 @@ class LineChart: UIView {
   
         let layer =  CAShapeLayer()
         layer.path = freeform.cgPath
-        layer.strokeColor = self.lineColor.cgColor
-        layer.lineWidth = 3.0
+        layer.strokeColor = color.cgColor
+        layer.lineWidth = self.lineWidth
         self.layer.addSublayer(layer)
     }
     
@@ -81,11 +84,11 @@ class LineChart: UIView {
         return CGPoint(x: xValue + 27, y: yValue)
     }
     
-    private func drawPoint(_ Point: CGPoint){
-        let path = UIBezierPath(ovalIn: CGRect(x: Point.x, y: Point.y, width: 4.0, height: 4.0))
+    private func drawPoint(_ Point: CGPoint,_ color: UIColor){
+        let path = UIBezierPath(ovalIn: CGRect(x: Point.x, y: Point.y, width: self.pointWidth, height: self.pointWidth))
         let layer =  CAShapeLayer()
         layer.path = path.cgPath
-        layer.strokeColor = self.pointColor.cgColor
+        layer.strokeColor = color.cgColor
         self.layer.addSublayer(layer)
     }
     
