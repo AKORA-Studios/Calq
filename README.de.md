@@ -5,7 +5,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ## Funktionen
 * Abiturschnitt berechnen
 * Fächerdurchschnitt berechnen
-* Daten als JSON exportieren
+* Daten als JSON exportieren (beinhaltet nciht die finalen Abiturprüfungen)
 * (optional) Automatische Fächerfarben
 * Berechnung Auswirkung neuer Note
 * Deaktivieren von Halbjahren
@@ -16,7 +16,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Hell</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/819922260424785920/919331408357498970/unknown.png?width=376&height=669)
+![Kurse1](https://media.discordapp.net/attachments/867129329363976212/921790894288560168/unknown.png?width=376&height=669)
 ![Kurse2](https://media.discordapp.net/attachments/819922260424785920/919331391982936114/unknown.png?width=376&height=669)
 
 ![Kurse3](https://media.discordapp.net/attachments/819922260424785920/910878386849730590/unknown.png?width=376&height=669)
@@ -26,7 +26,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/921414826377506846/unknown.png?width=369&height=656)
   
 ![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/904074655403474984/unknown.png?width=376&height=669)
-![Einstellung](https://media.discordapp.net/attachments/819922260424785920/910879766524076102/unknown.png?width=376&height=669)
+![Einstellung](https://media.discordapp.net/attachments/867129329363976212/921790908263964672/unknown.png?width=376&height=669)
 </details>
 
 <details open>
@@ -43,6 +43,3 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 # License
 Calq is available under the MIT license. See the [LICENSE](https://github.com/AKORA-Studios/Calq-iOS/blob/main/LICENSE) file for more info.
-
-## Used Cocoa Pods
-* [Charts](https://cocoapods.org/pods/Charts)
