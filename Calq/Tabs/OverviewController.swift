@@ -2,7 +2,7 @@ import UIKit
 import Charts
 import CoreData
 
-class OverviewController:  ViewController, ChartViewDelegate {
+class OverviewController:  ViewController, ChartViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var halfyearChart: CalqYearBarChartView!
     @IBOutlet weak var barChart: BarChart!
@@ -51,10 +51,20 @@ class OverviewController:  ViewController, ChartViewDelegate {
         setupCharts();
         update()
         
-        scrollView.contentSize = CGSize(
+        /*scrollView.contentSize = CGSize(
             width: scrollView.visibleSize.width,
             height: scrollView.visibleSize.height*1.4
-        )
+        )*/
+        scrollView.delegate = self
+        scrollView.isDirectionalLockEnabled = false
+              
+        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
+        rect = rect.union(view.frame)}
+        self.scrollView.contentSize = contentRect.size
+        
+        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 350)
+        scrollView.contentSize = size
+        print(scrollView.contentSize)
         
         if #available(iOS 15.0, *) {
             let appearence =  UITabBarAppearance()
