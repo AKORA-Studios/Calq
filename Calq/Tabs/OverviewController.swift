@@ -10,7 +10,6 @@ class OverviewController:  ViewController, ChartViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
     @IBOutlet weak var gradeChart: CircularProgressView!
-    @IBOutlet weak var halfyearChartOld: BarChartView!
     
     var settings: AppSettings?
     
@@ -22,6 +21,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
     func update() {
         self.settings = Util.getSettings()
         barChart.drawChart(Util.getAllSubjects())
+        barChart.drawAverageLine(Util.generalAverage())
         halfyearChart.drawChart()
         setTimeChart()
         
@@ -58,33 +58,7 @@ class OverviewController:  ViewController, ChartViewDelegate {
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
         }
     }
-    
-    //MARK: Create Halfyear Bar Chart
-    func sethalfyearChart(){
-        if(!checkChartData()){
-            halfyearChartOld.data = nil
-            return;
-        }
-        
-        var barchartEntries: [BarChartDataEntry] = []
-        
-        for i in 1...4 {
-            let barEntry = BarChartDataEntry(x: Double(i), y: Util.generalAverage(i), data: Util.generalAverage(i))
-            
-            barchartEntries.append(barEntry)
-        }
-        
-        let barChartSet = BarChartDataSet(entries: barchartEntries)
-        barChartSet.colors = [UIColor.init(hexString: "428FE3")]
-        
-        self.halfyearChartOld.data = BarChartData(dataSet: barChartSet)
-        self.halfyearChartOld.xAxis.axisMaximum = 4.5
-        
-        self.halfyearChartOld.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["1","2","3","4"])
-        self.halfyearChartOld.animate(yAxisDuration: 0.6, easingOption: .easeInOutQuart)
-    }
-    
-    
+
     //MARK: Create Time Chart
     func setTimeChart() {
         if(!checkChartData()){
