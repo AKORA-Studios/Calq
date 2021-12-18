@@ -3,6 +3,6 @@ target 'Calq' do
 
   # Pods for Calq
 
-  pod 'Charts', '~> 3.6.0'
+
 end
 
