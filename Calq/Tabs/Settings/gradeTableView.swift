@@ -12,6 +12,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     var models = [Section]()
     var subject: UserSubject!
+    var showOptions: Bool = true
     
     let deleteAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Noten werden unwiderruflich gelöscht", preferredStyle: .alert)
     
@@ -40,6 +41,9 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             self.subject.subjecttests = []
             try! CoreDataStack.shared.managedObjectContext.save()
             WidgetCenter.shared.reloadAllTimelines()
+            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
+            
         }))
     }
     
@@ -127,27 +131,34 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func configure(){
-        models.append(Section(title: "", options: [
-            .staticCell(model: SettingsOption(
-                title: "Alle löschen", subtitle: "",
-                icon: UIImage(systemName: "archivebox"),
-                iconBackgroundColor: .systemRed )
-                        {
-                            self.present(self.deleteAlert, animated: true)
-                        }),
-            .staticCell(model: SettingsOption(
-                title: "Neue Note hinzufügen", subtitle: "",
-                icon: UIImage(systemName: "doc.badge.plus"), iconBackgroundColor: .systemGreen )
-                        {
-                            let addView = self.storyboard?.getView("AddViewController") as! AddViewController;
-                            addView.title = self.subject.name;
-                            addView.subject = self.subject
-                            addView.update()
-                            
-                            self.present(addView, animated: true)
-                        })
-        ]))
         
+        if(self.showOptions) {
+            models.append(Section(title: "", options: [
+                .staticCell(model: SettingsOption(
+                    title: "Alle löschen", subtitle: "",
+                    icon: UIImage(systemName: "archivebox"),
+                    iconBackgroundColor: .systemRed )
+                            {
+                                self.present(self.deleteAlert, animated: true)
+                            }),
+              /*  .staticCell(model: SettingsOption(
+                    title: "Neue Note hinzufügen", subtitle: "",
+                    icon: UIImage(systemName: "doc.badge.plus"), iconBackgroundColor: .systemGreen )
+                            {
+                                let addView = self.storyboard?.getView("AddViewController") as! AddViewController;
+                           //     addView.title = self.subject.name;
+                                addView.subject = self.subject
+                                addView.update()
+                                
+                                UserDefaults.resetStandardUserDefaults()
+                                UserDefaults.standard.set(self.subject.objectID.uriRepresentation().absoluteString, forKey: "sub")
+                                
+                                
+                                self.present(addView, animated: true)
+                            })*/
+            ]))
+        }
+
         if(self.subject.subjecttests == nil){return}
         
     
@@ -183,12 +194,13 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                                     
                                                 iconBackgroundColor:settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
                                                     UIColor.init(hexString: self.subject.color!),
-                                                hideIcon: t.big
-                                                
+                                                hideIcon: t.big,
+                                                hideArrow: !self.showOptions
                                             ){
-                                                self.navigateGrade(t)
+                                                if(self.showOptions)  { self.navigateGrade(t)}
                                                 
                                             }
+                                        
                                     )
                                 
                              }

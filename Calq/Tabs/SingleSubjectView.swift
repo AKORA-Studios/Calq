@@ -131,6 +131,7 @@ class SingleSubjectView: UIViewController  {
     @IBAction func navigateToGrades(_ sender: Any) {
         let newView = storyboard?.getView("gradeTableView") as! gradeTableView
         newView.subject = self.subject;
+        newView.showOptions = false
      
         self.present(newView, animated: true)
     }

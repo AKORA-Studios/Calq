@@ -198,6 +198,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     
     func setImpactSegemnts(){
         impactView.subviews.forEach({$0.removeFromSuperview()})
+       
         
         let width = impactView.frame.width / 15
         impactView.frame = CGRect(x: impactView.frame.minX, y: impactView.frame.minY, width: CGFloat(width * 15), height: impactView.frame.height)
