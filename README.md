@@ -16,14 +16,14 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 <summary>Showcase Light Mode</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/867129329363976212/921790894288560168/unknown.png?width=376&height=669)
-![Kurse2](https://media.discordapp.net/attachments/819922260424785920/919331391982936114/unknown.png?width=376&height=669)
+![Overview1](https://media.discordapp.net/attachments/867129329363976212/922540738791743538/unknown.png?width=376&height=669)
+![Overview2](https://media.discordapp.net/attachments/867129329363976212/922541001392939029/unknown.png?width=376&height=669)
 
-![Kurse3](https://media.discordapp.net/attachments/819922260424785920/915686016717840434/unknown.png?width=376&height=669)
-![New Grade](https://media.discordapp.net/attachments/867129329363976212/921414888180576276/unknown.png?width=369&height=656)
+![Subejctoverview](https://media.discordapp.net/attachments/867129329363976212/922541369136910336/unknown.png?width=376&height=656)
+![New Grade](https://media.discordapp.net/attachments/867129329363976212/922542508372815872/unknown.png?width=369&height=656)
 
 ![SubjectInfo](https://media.discordapp.net/attachments/819922260424785920/919707681613291541/unknown.png?width=376&height=669)
-![Grades](https://media.discordapp.net/attachments/867129329363976212/921414826377506846/unknown.png?width=369&height=656)
+![Grades](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=369&height=656)
   
 ![Exams](https://media.discordapp.net/attachments/819922260424785920/915685991564578888/unknown.png?width=376&height=669)
 ![Settings](https://media.discordapp.net/attachments/867129329363976212/921790908263964672/unknown.png?width=376&height=669)
