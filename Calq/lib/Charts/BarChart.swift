@@ -41,7 +41,7 @@ class BarChart: UIView {
         //create bars
         for i in 0..<self.values.count  {
             let subject = values[i]
-            let value = getSubjectAverage(subject)
+            let value = Util.getSubjectAverage(subject)
             let color =  Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)
             let yPosition = self.frame.maxY - self.frame.origin.y
             
@@ -66,7 +66,8 @@ class BarChart: UIView {
             averageBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
             text.frame = CGRect(x: num + 1.0, y: yPosition, width: barwidth - 2.0, height: -textheight)
-            text.text = "\(value)"
+            text.text = String(format: "%.0f", round(value))
+       
             text.textAlignment = .center
             text.adjustsFontSizeToFitWidth = true
             text.textColor = .black
@@ -117,23 +118,6 @@ class BarChart: UIView {
         label3.adjustsFontSizeToFitWidth = true
         label3.textColor = color
         self.addSubview(label3)
-    }
-    
-    private func getSubjectAverage(_ sub: UserSubject) -> Double{
-        let tests = Util.filterTests(sub)
-        if(tests.count == 0){return 0.0}
-        
-        var count = 0.0
-        var subaverage = 0.0
-        
-        for e in 1...4 {
-            let yearTests = tests.filter{$0.year == Int16(e)}
-            if(yearTests.count == 0) {continue}
-            count += 1
-            subaverage += Util.testAverage(yearTests)
-        }
-        let average = (subaverage / count)
-        return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0))!
     }
     
     public override init(frame: CGRect){
