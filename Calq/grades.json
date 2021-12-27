@@ -273,7 +273,7 @@
                 "big": true,
                 "date": "1635790651"
             },
-               {
+            {
                 "name": "Test Stammbaumanalyse",
                 "grade": 14,
                 "year": 3,
@@ -344,7 +344,7 @@
                 "big": false,
                 "date": "1633598040"
             },
-               {
+            {
                 "name": "Vortrag Dream job",
                 "grade": 15,
                 "year": 3,
@@ -408,7 +408,7 @@
                 "big": false,
                 "date": "1635790651"
             },
-             {
+            {
                 "name": "Klausur Frage nach Gerechtigkeit",
                 "grade": 14,
                 "year": 3,
@@ -471,6 +471,13 @@
                 "year": 3,
                 "big": false,
                 "date": "1638372996"
+            },
+            {
+                "name": "Klausur Raumanalyse",
+                "grade": 14,
+                "year": 3,
+                "big": true,
+                "date": "1639753174"
             }
         ]
     },
@@ -535,13 +542,6 @@
                 "year": 3,
                 "big": false,
                 "date": "1638284093"
-            },
-            {
-                "name": "Klausur Raumanalyse",
-                "grade": 14,
-                "year": 3,
-                "big": true,
-                "date": "1639753174"
             }
         ]
     },
@@ -600,14 +600,14 @@
                 "big": false,
                 "date": "1636544701"
             },
-               {
+            {
                 "name": "Collage Museum",
                 "grade": 15,
                 "year": 3,
                 "big": false,
                 "date": "1638287401"
             },
-               {
+            {
                 "name": "Klausur Surealismus",
                 "grade": 13,
                 "year": 3,
@@ -664,7 +664,7 @@
                 "big": false,
                 "date": "1633598040"
             },
-              {
+            {
                 "name": "Klausur Licht als Welle",
                 "grade": 15,
                 "year": 3,
