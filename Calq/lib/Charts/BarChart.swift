@@ -36,13 +36,14 @@ class BarChart: UIView {
         
         //draw averageline
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-        drawAxe((((15.0 - average) * 100/15)*zeroLineValue)/100, "⌀")
+        drawAxe((((15.0 - average) * 100/15)*zeroLineValue)/100, "⌀",.systemGray5,false)
         
         //create bars
         for i in 0..<self.values.count  {
             let subject = values[i]
             let value = getSubjectAverage(subject)
             let color =  Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)
+            let yPosition = self.frame.maxY - self.frame.origin.y
             
             let text = UILabel()
             let view = UIView()
@@ -56,15 +57,15 @@ class BarChart: UIView {
             let averageBarHeight = ((Double(average * 100 ) / 15) * self.frame.height) / 100 - 5
             let textheight = (Double((1 * 100 ) / 15) * self.frame.height) / 100
          
-            view.frame = CGRect(x: num, y: (self.frame.maxY - self.frame.origin.y), width: barwidth, height: (frameHeight-(frameHeight + barHeight)) )
+            view.frame = CGRect(x: num, y: yPosition, width: barwidth, height: (frameHeight-(frameHeight + barHeight)) )
             view.layer.cornerRadius = 5.0
             view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             
-            averageBar.frame = CGRect(x: num, y: (self.frame.maxY - self.frame.origin.y), width: barwidth, height: (frameHeight-(frameHeight + averageBarHeight)) )
+            averageBar.frame = CGRect(x: num, y: yPosition, width: barwidth, height: (frameHeight-(frameHeight + averageBarHeight)) )
             averageBar.layer.cornerRadius = 5.0
             averageBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-            
-            text.frame = CGRect(x: num, y: (self.frame.maxY - self.frame.origin.y), width: barwidth, height: -textheight)
+        
+            text.frame = CGRect(x: num + 1.0, y: yPosition, width: barwidth - 2.0, height: -textheight)
             text.text = "\(value)"
             text.textAlignment = .center
             text.adjustsFontSizeToFitWidth = true
@@ -73,7 +74,7 @@ class BarChart: UIView {
             //Bar description
             let labelheight = 1.5 * Double(textheight)
             let barlabel = UILabel()
-            barlabel.frame = CGRect(x: num, y: (self.frame.maxY - self.frame.origin.y), width: barwidth, height: labelheight)
+            barlabel.frame = CGRect(x: num, y: yPosition, width: barwidth, height: labelheight)
             barlabel.text = String(subject.name!.prefix(3)).uppercased()
             barlabel.adjustsFontSizeToFitWidth = true
             barlabel.textAlignment = .center
@@ -102,11 +103,14 @@ class BarChart: UIView {
         drawAxe(((1000/15)*zeroLineValue)/100, "5")
     }
     
-    func drawAxe(_ height: Double, _ title: String, _ color: UIColor = .systemGray5){
-        let line3 = UIView()
-        line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
-        line3.backgroundColor = color
-        self.addSubview(line3)
+    func drawAxe(_ height: Double, _ title: String, _ color: UIColor = .systemGray5, _ drawLine: Bool = true){
+        if(drawLine){
+            let line3 = UIView()
+            line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
+            line3.backgroundColor = color
+            self.addSubview(line3)
+        }
+     
         let label3 = UILabel()
         label3.frame = CGRect(x: 0.0, y: height , width: 15.0, height: 15.0)
         label3.text = title
