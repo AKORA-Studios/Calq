@@ -151,7 +151,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        pointViewer.resignFirstResponder()
         return true
     }
     
