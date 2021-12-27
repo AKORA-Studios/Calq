@@ -45,11 +45,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     func update() {
         self.settings = Util.getSettings()
         
-        barChart.drawChart(Util.getAllSubjects())
-        if(Util.getAllSubjects().count != 0){
-            barChart.drawAverageLine(Util.generalAverage())
-        }
-        
+        barChart.drawChart(Util.getAllSubjects(), Util.generalAverage())
         halfyearChart.drawChart()
         
         let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))

@@ -140,7 +140,7 @@ class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDat
             let inactives = Util.calcInactiveYearsCount()
             let halfyears = subjects.count * 4
             
-            models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von  \(halfyears) aktiv", subtitle: "", points: "∑", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
+            models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von \(halfyears) aktiv", subtitle: "", points: "∑", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
                 self.present(self.demoAlert, animated: true, completion: nil)
             }))]))
         }
