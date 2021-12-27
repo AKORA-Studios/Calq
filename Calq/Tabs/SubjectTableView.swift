@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class SubjectInfoController: ViewController, UITableViewDelegate, UITableViewDataSource{
+class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSource{
     var models = [Section2]()
     var settings: AppSettings?
     

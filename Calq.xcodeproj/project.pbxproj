@@ -33,6 +33,7 @@
 		DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD1152634C27E008E95B2 /* gradeTableView.swift */; };
 		DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD11A2634C83E008E95B2 /* editGradeView.swift */; };
 		DD70E112261F30870092815F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E111261F30870092815F /* ViewController.swift */; };
+		DD7E635B277A3C73005F53D5 /* SubjectTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */; };
 		DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81835426820EA100FBC3D8 /* OverviewController.swift */; };
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
@@ -59,7 +60,6 @@
 		DDC89037261F902100A93178 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC89036261F902100A93178 /* SettingsCell.swift */; };
 		DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */; };
 		DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
-		DDF5308A26821E5E005FD819 /* SubjectInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5308926821E5E005FD819 /* SubjectInfoController.swift */; };
 		DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF83D082639BE5300E995BC /* NewSubjectView.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +133,7 @@
 		DD6BD1152634C27E008E95B2 /* gradeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTableView.swift; sourceTree = "<group>"; };
 		DD6BD11A2634C83E008E95B2 /* editGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editGradeView.swift; sourceTree = "<group>"; };
 		DD70E111261F30870092815F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/marvinjacob/Documents/Projects/Calq/Calq/ViewController.swift; sourceTree = "<absolute>"; };
+		DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableView.swift; sourceTree = "<group>"; };
 		DD81835426820EA100FBC3D8 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		DD81F6822759091600B4A43B /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		DD8813782764D58B00EB6BD8 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
@@ -158,7 +159,6 @@
 		DDC89036261F902100A93178 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsCell.swift; sourceTree = "<group>"; };
 		DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DDF5308926821E5E005FD819 /* SubjectInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubjectInfoController.swift; path = Settings/SubjectInfoController.swift; sourceTree = "<group>"; };
 		DDF83D082639BE5300E995BC /* NewSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,7 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				DD81835426820EA100FBC3D8 /* OverviewController.swift */,
-				DDF5308926821E5E005FD819 /* SubjectInfoController.swift */,
+				DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */,
 				DD39350426A9C92500917E06 /* ExamViewController.swift */,
 				DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */,
 				DDB9012D276272E600E799FD /* PredictSelect.swift */,
@@ -522,7 +522,6 @@
 			files = (
 				DDBB97C42757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
-				DDF5308A26821E5E005FD819 /* SubjectInfoController.swift in Sources */,
 				DDBB97C62757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
 				DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
@@ -532,6 +531,7 @@
 				DDC89037261F902100A93178 /* SettingsCell.swift in Sources */,
 				DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */,
 				DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */,
+				DD7E635B277A3C73005F53D5 /* SubjectTableView.swift in Sources */,
 				DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */,
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,

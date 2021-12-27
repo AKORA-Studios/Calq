@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="-664" y="-220"/>
         </scene>
-        <!--Subject Info Controller-->
+        <!--Subject Table View-->
         <scene sceneID="zYt-qq-gRl">
             <objects>
-                <viewController id="awR-SX-Jgp" customClass="SubjectInfoController" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SubjectTableView" storyboardIdentifier="SubjectTableView" id="awR-SX-Jgp" customClass="SubjectTableView" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J6T-cY-47E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
