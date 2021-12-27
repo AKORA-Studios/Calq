@@ -32,13 +32,13 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         } catch{}
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated);
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
         if (!self.deleted) {self.saveValues();}
     }
     
-    
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.isHidden = true
         super.viewDidLoad()
         SubjectTitle.text = self.title
         
