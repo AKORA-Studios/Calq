@@ -161,7 +161,6 @@ struct Util {
         }
         
         if((a / subjectCount).isNaN) {return 0.0}
-        print(a, subjectCount)
         return a / subjectCount
     }
     
