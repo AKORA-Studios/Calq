@@ -30,7 +30,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         
         self.models = [];
         self.configure();
-        self.tableView.reloadData();
+        self.tableView.reloadData()
     }
     
     //MARK: Table Setup
