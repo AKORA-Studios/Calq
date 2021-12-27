@@ -120,16 +120,30 @@ struct Util {
             
             return (smallAvg + bigAvg) / 2;
         } else if (smallArr.count == 0) {
-            if (bigArr.count == 0) {
-                return 0;
-            } else {
                 return Util.average(bigArr);
-            }
         } else if (bigArr.count == 0) {
             return Util.average(smallArr)
         }
         return 0.0;
     }
+    
+    /// Returns the average of all grades from all subjects.
+    static func getSubjectAverage(_ sub: UserSubject) -> Double{
+       let tests = Util.filterTests(sub)
+       if(tests.count == 0){return 0.0}
+       
+       var count = 0.0
+       var subaverage = 0.0
+       
+       for e in 1...4 {
+           let yearTests = tests.filter{$0.year == Int16(e)}
+           if(yearTests.count == 0) {continue}
+           count += 1
+           subaverage += Util.testAverage(yearTests)
+       }
+       let average = (subaverage / count)
+       return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0))!
+   }
     
     /// Returns the average of all grades from all subjects.
     static func generalAverage() -> Double{
@@ -143,11 +157,12 @@ struct Util {
             if(sub.subjecttests == nil){subjectCount-=1;continue}
             let tests = filterTests(sub)
             if(tests.count == 0){subjectCount-=1;continue}
-            a += testAverage(tests)
+            a += round(getSubjectAverage(sub))
         }
         
-        if((a / Double(subjectCount)).isNaN) {return 0.0}
-        return (a / Double(subjectCount))
+        if((a / subjectCount).isNaN) {return 0.0}
+        print(a, subjectCount)
+        return a / subjectCount
     }
     
     /// Filtering the tests so you get only the ones which are in active halfyears
@@ -176,7 +191,7 @@ struct Util {
             if(tests.count == 0){continue}
           
             count += 1
-            grades += Util.testAverage(tests)
+            grades += round(Util.testAverage(tests))
         }
         if(grades == 0.0){ return 0.0}
         return grades / count

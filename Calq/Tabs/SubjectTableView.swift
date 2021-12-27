@@ -115,19 +115,15 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
         if(subjects.count != 0){
             for sub in subjects {
                 let str = (Util.averageString(sub))
-                var subAverage: Double
-                if(sub.subjecttests == nil){ subAverage = 0.0}else{
-                    let tests =  Util.filterTests(sub)
-                    if(tests.count == 0){subAverage = 0.0}else{  subAverage = round(Util.testAverage(tests))}
-                }
-          
+                let subAverage = Util.getSubjectAverage(sub)
+           
                 arr.append(
                     .yearCell(
                         model:
                             YearOption(
                                 title: sub.name!,
                                 subtitle: str,
-                                points: String(Int(subAverage)),
+                                points: String(format: "%.0f", round(subAverage)),
                                 iconBackgroundColor:  settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!),
                                 inactive: sub.inactiveYears
                             ){
