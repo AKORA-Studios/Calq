@@ -239,7 +239,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 
                 if((colors[i - 1]).1 != ""){
                     let stroke = UIView()
-                    stroke.frame = CGRect(x: num, y: viewHeight, width: 1, height: labelHeight)
+                    stroke.frame = CGRect(x: num, y: 20, width: 1, height: impactView.frame.height - 20.0 )
                     stroke.backgroundColor = view.backgroundColor
                     impactView.addSubview(stroke)
                 }
@@ -285,6 +285,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         
         var worseLast: Int = 99
         var betterLast: Int = 99
+        var sameLast: Int = 99
         //calculation new grade
         for i in 1...15 {
             divider = 2.0
@@ -306,21 +307,23 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
                 if(tests.filter{!$0.big}.count == 0) {divider = 1}
                 newAverage = Int(round((newBig + small)/divider))
             }
+            
+            var str = "\(newAverage)"
             //push colors
             if(averageOld > newAverage){
-                var str = "\(newAverage)"
                 if(worseLast == newAverage) {str = ""}
                 arr.append(ImpactEntry(.systemRed, str))
                 worseLast = newAverage
                 
             } else if(newAverage > averageOld ){
-                var str = "\(newAverage)"
                 if(betterLast == newAverage) {str = ""}
                 arr.append(ImpactEntry(.systemGreen, str))
                 betterLast = newAverage
             }
             else {
-                arr.append(ImpactEntry(.systemGray4, ""))
+                if( sameLast == averageOld) {str = ""}
+                sameLast = averageOld
+                arr.append(ImpactEntry(.systemGray4, str))
             }
         }
         return  arr
