@@ -101,6 +101,8 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         let subjectArr = Util.getAllSubjects().sorted(by: {$0.name! < $1.name! })
     
             for sub in subjectArr {
+                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                
                 if(sub.examtype != 0 ){ continue}
                 arr.append(
                     .staticCell(
@@ -109,7 +111,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
                                 title: sub.name!,
                                 subtitle: "",
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
-                                iconBackgroundColor:  UIColor.accentColor
+                                iconBackgroundColor:  color
                             ){
                                 self.navigateBack(sub.objectID)
                             })

@@ -113,9 +113,11 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
         let subjects = Util.getAllSubjects()
         
         if(subjects.count != 0){
+          
             for sub in subjects {
                 let str = (Util.averageString(sub))
                 let subAverage = Util.getSubjectAverage(sub)
+                let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
            
                 arr.append(
                     .yearCell(
@@ -124,7 +126,7 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
                                 title: sub.name!,
                                 subtitle: str,
                                 points: String(format: "%.0f", round(subAverage)),
-                                iconBackgroundColor:  settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!),
+                                iconBackgroundColor: color,
                                 inactive: sub.inactiveYears
                             ){
                                 self.navigateSubject(sub)
