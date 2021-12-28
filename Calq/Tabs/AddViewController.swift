@@ -166,7 +166,8 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         let selection = UISelectionFeedbackGenerator()
         selection.selectionChanged()
         
-        let newView = storyboard?.getView("PredictSelect") as! PredictSelect
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "PredictSelect") as! PredictSelect
+        
         newView.callback = {
             let sub = UserDefaults.standard.string(forKey: "sub")
             if(sub == nil) {return}
@@ -193,12 +194,12 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
             self.yearSegment.selectedSegmentIndex = year - 1
             self.update() }
         
-        self.present(newView, animated: true)
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func setImpactSegemnts(){
         impactView.subviews.forEach({$0.removeFromSuperview()})
-       
         
         let width = impactView.frame.width / 15
         impactView.frame = CGRect(x: impactView.frame.minX, y: impactView.frame.minY, width: CGFloat(width * 15), height: impactView.frame.height)

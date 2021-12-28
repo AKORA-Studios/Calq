@@ -24,6 +24,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Prüfungsfachauswahl"
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -39,6 +40,10 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
         }
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Table Setup
