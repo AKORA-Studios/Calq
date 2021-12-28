@@ -15,9 +15,7 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     var subject: UserSubject!;
     var test: UserTest!;
     var callback: ((_ sub : UserSubject) -> Void)!;
-
     var settings: AppSettings?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +32,17 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         
         gradeTypeSegemnt.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
         yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
+        
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.title = "Note bearbeiten"
     }
     
     func update(){
         self.settings = Util.getSettings()
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {

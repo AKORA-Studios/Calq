@@ -115,7 +115,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func navigateGrade(_ test: UserTest){
-        let newView = storyboard?.getView("editGradeView") as! editGradeView
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "editGradeView") as! editGradeView
         
         newView.title = test.name
         newView.subject = test.testtosubbject
@@ -127,7 +127,8 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             newView.navigationItem.setHidesBackButton(true, animated: true)
             self.navigationController!.pushViewController(newView, animated: true)
         }
-        self.present(newView, animated: true)
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func configure(){
@@ -152,7 +153,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                                 
                                 UserDefaults.resetStandardUserDefaults()
                                 UserDefaults.standard.set(self.subject.objectID.uriRepresentation().absoluteString, forKey: "sub")
-                                
                                 
                                 self.present(addView, animated: true)
                             })*/
@@ -183,7 +183,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                 Section(title: name + " Halbjahr",
                         options: tests.enumerated().map(
                             {(ind, t) in
-                               
                                 
                                     return .gradeCell(
                                         model:
