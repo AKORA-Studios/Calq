@@ -684,7 +684,7 @@
         "name": "Spanisch",
         "lk": false,
         "color": "#9c0c0c",
-        "inactiveYears": "3",
+        "inactiveYears": "",
         "subjecttests": [
             {
                 "name": "Test Andalucia",
@@ -833,7 +833,7 @@
         "name": "fvBo",
         "lk": false,
         "color": "#9c0c0c",
-        "inactiveYears": "",
+        "inactiveYears": "1",
         "subjecttests": [
             {
                 "name": "Test 1",
