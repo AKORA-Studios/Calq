@@ -22,8 +22,9 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Kursauswahl"
-        
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
         view.addSubview(tableView)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
@@ -31,6 +32,10 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         self.models = [];
         self.configure();
         self.tableView.reloadData()
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Table Setup

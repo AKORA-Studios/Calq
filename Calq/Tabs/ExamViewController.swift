@@ -125,7 +125,7 @@ class ExamViewController: ViewController, UITextFieldDelegate {
         let selection = UISelectionFeedbackGenerator()
             selection.selectionChanged()
         
-        let newView = storyboard?.getView("ExamSelectView") as! ExamSelectView
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "ExamSelectView") as! ExamSelectView
         var subs = Util.getAllSubjects()
         
         let lktypes = subs.filter{$0.lk}.filter{$0.examtype != 0} 
@@ -145,7 +145,8 @@ class ExamViewController: ViewController, UITextFieldDelegate {
         newView.callback = {
             self.update();
         }
-        self.navigationController?.present(newView, animated: true)
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     
