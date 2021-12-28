@@ -50,8 +50,8 @@ class SingleSubjectView: UIViewController  {
         super.viewDidLoad()
         self.update()
 
-        subjectName.text = self.subject.name
-        subjectName.textColor = self.pastelColor
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.title = self.subject.name
         self.yearSwitch.tintColor = self.pastelColor
         
         if(self.subject.subjecttests?.count != 0){
@@ -67,6 +67,10 @@ class SingleSubjectView: UIViewController  {
             self.selectedYear = 0
         }
         yearSegment.selectedSegmentTintColor = self.pastelColor
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     // Switch changed

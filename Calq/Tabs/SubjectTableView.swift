@@ -99,13 +99,14 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func navigateSubject(_ subject: UserSubject){
-        let newView = storyboard?.getView("SingleSubjectView") as! SingleSubjectView
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "SingleSubjectView") as! SingleSubjectView
         
         newView.title = subject.name
         newView.subject = subject;
         newView.callback = { self.update();}
         
-        self.present(newView, animated: true)
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func configure(){
