@@ -53,6 +53,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     
     override func viewDidLoad() {
         scrollView.delegate = self
+        gradeName.delegate = self
         super.viewDidLoad()
         scrollView.isDirectionalLockEnabled = false
         UserDefaults.standard.set(nil, forKey: "sub")
@@ -81,12 +82,26 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         if(UserDefaults.standard.string(forKey: "sub") == nil) {
             addButton.backgroundColor = .systemGray4
             self.subject = nil
-            gradeTypeSelect.selectedSegmentTintColor = .accentColor
-             yearSegment.selectedSegmentTintColor = .accentColor
-            pointSlider.tintColor = .accentColor
             subjectSelect.setTitle("Kurs wählen", for: .normal)
             subjectSelect.backgroundColor = .accentColor
+            
+            yearSegment.isUserInteractionEnabled = false
+            pointSlider.isUserInteractionEnabled = false
+            gradeTypeSelect.isUserInteractionEnabled = false
+            datePicker.isUserInteractionEnabled = false
+            gradeName.isUserInteractionEnabled = false
+            
+            yearSegment.selectedSegmentTintColor = .systemGray5
+            pointSlider.tintColor = .systemGray5
+            gradeTypeSelect.selectedSegmentTintColor = .systemGray5
+            
             return  }
+        
+        yearSegment.isUserInteractionEnabled = true
+        pointSlider.isUserInteractionEnabled = true
+        gradeTypeSelect.isUserInteractionEnabled = true
+        datePicker.isUserInteractionEnabled = true
+        gradeName.isUserInteractionEnabled = true
         
         let sub = UserDefaults.standard.string(forKey: "sub")
         if(sub == nil) {return}
@@ -151,7 +166,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        pointViewer.resignFirstResponder()
+        gradeName.resignFirstResponder()
         return true
     }
     
@@ -330,3 +345,5 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         return  arr
     }
 }
+
+
