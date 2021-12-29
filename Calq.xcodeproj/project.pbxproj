@@ -38,7 +38,6 @@
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
 		DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D4DBF26AD795F00AC289A /* AppOnly.swift */; };
-		DD8E3C12277CC48E00222244 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E3C11277CC48E00222244 /* ScrollView.swift */; };
 		DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D6A627358C5B00399615 /* HalfyearCell.swift */; };
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
@@ -142,7 +141,6 @@
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		DD8D4DBA26AD78C000AC289A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8D4DBF26AD795F00AC289A /* AppOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnly.swift; sourceTree = "<group>"; };
-		DD8E3C11277CC48E00222244 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		DD8F9854273043F50002CC2A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8F985827304A660002CC2A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD95D6A627358C5B00399615 /* HalfyearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfyearCell.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				DD6878832617B1A900BF2B48 /* AppDelegate.swift */,
 				DD6878DE261901A400BF2B48 /* SceneDelegate.swift */,
 				DD70E111261F30870092815F /* ViewController.swift */,
-				DD8E3C11277CC48E00222244 /* ScrollView.swift */,
 				DD6878892617B1A900BF2B48 /* Main.storyboard */,
 				DD6878912617B1AB00BF2B48 /* LaunchScreen.storyboard */,
 				DD68788F2617B1AB00BF2B48 /* Assets.xcassets */,
@@ -540,7 +537,6 @@
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
 				DDA44B66276E331100C7DD5E /* AppSettings+CoreDataProperties.swift in Sources */,
-				DD8E3C12277CC48E00222244 /* ScrollView.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
 				DDA44B65276E331100C7DD5E /* AppSettings+CoreDataClass.swift in Sources */,
