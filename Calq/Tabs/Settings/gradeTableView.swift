@@ -43,12 +43,26 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             WidgetCenter.shared.reloadAllTimelines()
             self.dismiss(animated: true, completion: nil)
             self.navigationController?.popToRootViewController(animated: true)
-            
         }))
+        
+        if(!self.showOptions){
+            self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+            self.navigationItem.title = "Notenübersicht"
+            
+            if #available(iOS 15.0, *) {
+                let appearence =  UINavigationBarAppearance()
+                appearence.configureWithDefaultBackground()
+                self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     func update() {

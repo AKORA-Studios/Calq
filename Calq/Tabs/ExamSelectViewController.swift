@@ -24,7 +24,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Prüfungsfachauswahl"
-        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -36,9 +36,9 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.reloadData();
         
         if #available(iOS 15.0, *) {
-            let appearence =  UITabBarAppearance()
+            let appearence =  UINavigationBarAppearance()
             appearence.configureWithDefaultBackground()
-            self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
     }
     

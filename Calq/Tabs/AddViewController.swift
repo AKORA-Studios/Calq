@@ -52,7 +52,10 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        scrollView.delegate = self
+        gradeName.delegate = self
+        super.viewDidLoad()
+        scrollView.isDirectionalLockEnabled = false
         UserDefaults.standard.set(nil, forKey: "sub")
         
         self.navigationItem.title = "Note hinzufügen"
@@ -61,12 +64,10 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         gradeName.delegate = self
         pointViewer.text = "9"
         pointSlider.value = 9.0
-        
-        scrollView.delegate = self
-        scrollView.isDirectionalLockEnabled = false
               
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
-        rect = rect.union(view.frame)}
+            rect = rect.union(view.frame)
+        }
         self.scrollView.contentSize = contentRect.size
         
         let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
@@ -81,12 +82,26 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         if(UserDefaults.standard.string(forKey: "sub") == nil) {
             addButton.backgroundColor = .systemGray4
             self.subject = nil
-            gradeTypeSelect.selectedSegmentTintColor = .accentColor
-             yearSegment.selectedSegmentTintColor = .accentColor
-            pointSlider.tintColor = .accentColor
             subjectSelect.setTitle("Kurs wählen", for: .normal)
             subjectSelect.backgroundColor = .accentColor
+            
+            yearSegment.isUserInteractionEnabled = false
+            pointSlider.isUserInteractionEnabled = false
+            gradeTypeSelect.isUserInteractionEnabled = false
+            datePicker.isUserInteractionEnabled = false
+            gradeName.isUserInteractionEnabled = false
+            
+            yearSegment.selectedSegmentTintColor = .systemGray5
+            pointSlider.tintColor = .systemGray5
+            gradeTypeSelect.selectedSegmentTintColor = .systemGray5
+            
             return  }
+        
+        yearSegment.isUserInteractionEnabled = true
+        pointSlider.isUserInteractionEnabled = true
+        gradeTypeSelect.isUserInteractionEnabled = true
+        datePicker.isUserInteractionEnabled = true
+        gradeName.isUserInteractionEnabled = true
         
         let sub = UserDefaults.standard.string(forKey: "sub")
         if(sub == nil) {return}
@@ -151,7 +166,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        pointViewer.resignFirstResponder()
+        gradeName.resignFirstResponder()
         return true
     }
     

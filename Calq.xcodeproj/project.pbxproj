@@ -251,13 +251,13 @@
 				DD70E116261F315E0092815F /* lib */,
 				DDB4B235261C77D50022163C /* Tabs */,
 				DD6878832617B1A900BF2B48 /* AppDelegate.swift */,
-				DD6878892617B1A900BF2B48 /* Main.storyboard */,
-				DD68788F2617B1AB00BF2B48 /* Assets.xcassets */,
-				DD60BA542715B69A00048FA4 /* grades.json */,
-				DD6878912617B1AB00BF2B48 /* LaunchScreen.storyboard */,
-				DD6878942617B1AB00BF2B48 /* Info.plist */,
-				DD70E111261F30870092815F /* ViewController.swift */,
 				DD6878DE261901A400BF2B48 /* SceneDelegate.swift */,
+				DD70E111261F30870092815F /* ViewController.swift */,
+				DD6878892617B1A900BF2B48 /* Main.storyboard */,
+				DD6878912617B1AB00BF2B48 /* LaunchScreen.storyboard */,
+				DD68788F2617B1AB00BF2B48 /* Assets.xcassets */,
+				DD6878942617B1AB00BF2B48 /* Info.plist */,
+				DD60BA542715B69A00048FA4 /* grades.json */,
 			);
 			path = Calq;
 			sourceTree = "<group>";

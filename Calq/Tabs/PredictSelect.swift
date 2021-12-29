@@ -22,7 +22,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Kursauswahl"
-        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
         view.addSubview(tableView)
         
         tableView.delegate = self
@@ -32,6 +32,12 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         self.models = [];
         self.configure();
         self.tableView.reloadData()
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UINavigationBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+        }
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
