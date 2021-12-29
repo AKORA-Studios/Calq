@@ -16,13 +16,13 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Hell</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/867129329363976212/922540738791743538/unknown.png?width=369&height=656)
+![Kurse1](https://media.discordapp.net/attachments/867129329363976212/925812009889570876/unknown.png?width=369&height=656)
 ![Kurse2](https://media.discordapp.net/attachments/867129329363976212/922541001392939029/unknown.png?width=369&height=656)
 
 ![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/922541369136910336/unknown.png?width=369&height=656)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/922542508372815872/unknown.png?width=369&height=656)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=369&height=656)
 
-![Kursinfo](https://media.discordapp.net/attachments/819922260424785920/919707681613291541/unknown.png?width=369&height=656)
+![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/925812175140978748/unknown.png?width=369&height=656)
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=369&height=656)
   
 ![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/904074655403474984/unknown.png?width=369&height=656)

@@ -16,11 +16,11 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 <summary>Showcase Light Mode</summary>
 <br>
   
-![Overview1](https://media.discordapp.net/attachments/867129329363976212/922540738791743538/unknown.png?width=376&height=669)
+![Overview1](https://media.discordapp.net/attachments/867129329363976212/925812009889570876/unknown.png?width=376&height=669)
 ![Overview2](https://media.discordapp.net/attachments/867129329363976212/922541001392939029/unknown.png?width=376&height=669)
 
 ![Subejctoverview](https://media.discordapp.net/attachments/867129329363976212/922541369136910336/unknown.png?width=376&height=656)
-![New Grade](https://media.discordapp.net/attachments/867129329363976212/922542508372815872/unknown.png?width=369&height=656)
+![New Grade](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=376&height=669)
 
 ![SubjectInfo](https://media.discordapp.net/attachments/819922260424785920/919707681613291541/unknown.png?width=376&height=669)
 ![Grades](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=369&height=656)
