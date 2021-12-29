@@ -15,24 +15,23 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     typealias ChartEntrySet = (UIColor, [ChartEntry])
     var maxDataLineChart: [Double] = [0.0]
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         update()
-    }
+    }*/
     
     override func viewDidLoad() {
-        super.viewDidLoad();
-        self.navigationItem.title = "Übersicht"
-        update()
-        
         scrollView.delegate = self
+        super.viewDidLoad()
+        self.navigationItem.title = "Übersicht"
+     
         scrollView.isDirectionalLockEnabled = false
               
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
         rect = rect.union(view.frame)}
         self.scrollView.contentSize = contentRect.size
         
-        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height + 300)
+        let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
         scrollView.contentSize = size
         
         if #available(iOS 15.0, *) {
@@ -40,6 +39,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
         }
+        update()
     }
     
     func update() {
