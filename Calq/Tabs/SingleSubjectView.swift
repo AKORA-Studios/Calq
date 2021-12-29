@@ -139,10 +139,11 @@ class SingleSubjectView: UIViewController  {
     }
 
     @IBAction func navigateToGrades(_ sender: Any) {
-        let newView = storyboard?.getView("gradeTableView") as! gradeTableView
+       let newView = self.storyboard?.instantiateViewController(withIdentifier: "gradeTableView") as! gradeTableView
         newView.subject = self.subject;
         newView.showOptions = false
      
-        self.present(newView, animated: true)
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
 }
