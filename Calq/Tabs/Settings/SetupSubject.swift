@@ -44,7 +44,6 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         
         colorPicker.delegate =  self
         colorPicker.supportsAlpha = false
-        
         SubjectTitle.delegate = self
         
         deleteAlert.addAction(UIAlertAction(title: "Nein", style: .default, handler: nil))

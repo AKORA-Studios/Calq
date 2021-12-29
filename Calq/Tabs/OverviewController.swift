@@ -15,11 +15,6 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     typealias ChartEntrySet = (UIColor, [ChartEntry])
     var maxDataLineChart: [Double] = [0.0]
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        update()
-    }*/
-    
     override func viewDidLoad() {
         scrollView.delegate = self
         super.viewDidLoad()

@@ -23,7 +23,6 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
         super.viewWillAppear(animated);
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Neuer Kurs"

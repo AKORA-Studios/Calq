@@ -345,5 +345,3 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         return  arr
     }
 }
-
-
