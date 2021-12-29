@@ -50,7 +50,7 @@ class SingleSubjectView: UIViewController  {
         super.viewDidLoad()
         self.update()
 
-        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.title = self.subject.name
         self.yearSwitch.tintColor = self.pastelColor
         
@@ -67,6 +67,12 @@ class SingleSubjectView: UIViewController  {
             self.selectedYear = 0
         }
         yearSegment.selectedSegmentTintColor = self.pastelColor
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UINavigationBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+        }
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {

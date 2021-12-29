@@ -33,8 +33,14 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         gradeTypeSegemnt.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
         yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
         
-        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.title = "Note bearbeiten"
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UINavigationBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+        }
     }
     
     func update(){
