@@ -25,6 +25,7 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Neuer Kurs"
         
         SubjectTitle.text = self.title
         SubjectTitle.delegate = self
@@ -35,19 +36,6 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
         colorDisplay.backgroundColor = UIColor.accentColor
         colorChanger.backgroundColor = UIColor.accentColor
         subjectTypeSegment.selectedSegmentIndex = 1
-        
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
-        self.navigationItem.title = "Neuer Kurs"
-        
-        if #available(iOS 15.0, *) {
-            let appearence =  UINavigationBarAppearance()
-            appearence.configureWithDefaultBackground()
-            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
-        }
-    }
-    
-    @objc func backButtonPressed(_ sender:UIButton) {
-       self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func changeColor(_ sender: Any) {

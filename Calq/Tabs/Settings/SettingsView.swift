@@ -133,23 +133,30 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         
     }
     
-    func navigateSubjectSettings(_ id: NSManagedObjectID){
-       let subject = Util.getSubject(id)!
-        let newView = self.storyboard?.getView("SetupSubject") as! SetupSubject
-        newView.title = subject.name
-        newView.subject = subject
+    func navigateSubjectSettings(name: String){
+        let newView = storyboard?.getView("SetupSubject") as! SetupSubject
+        newView.title = name
         
-        let navController = UINavigationController(rootViewController: newView)
-        self.navigationController?.present(navController, animated: true, completion: nil)
+        do {
+            let items = try CoreDataStack.shared.managedObjectContext.fetch(AppSettings.fetchRequest())
+            if(items[0].usersubjects == nil){return}
+            
+            let subs = items[0].usersubjects!.allObjects as! [UserSubject]
+            
+            for meal in subs {
+                if(meal.name == name) {newView.subject = meal
+                    self.navigationController?.pushViewController(newView, animated: true)
+                    return}
+            }
+        } catch{}
     }
     
     func navigateAddSubject(){
-        let newView = self.storyboard?.getView("NewSubjectView") as! NewSubjectView
+        let newView = storyboard?.getView("NewSubjectView") as! NewSubjectView
         newView.callback = {
             self.update();
         }
-        let navController = UINavigationController(rootViewController: newView)
-        self.navigationController?.present(navController, animated: true, completion: nil)
+        self.navigationController?.present(newView, animated: true)
     }
     
     func configure(){
@@ -168,7 +175,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
                                 iconBackgroundColor:  settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
                             ){
-                                self.navigateSubjectSettings(sub.objectID)
+                                self.navigateSubjectSettings(name: sub.name!)
                             })
                 )
             }
