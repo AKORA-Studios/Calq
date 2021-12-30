@@ -137,9 +137,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
         newView.callback = { (sub) in
             self.subject = sub;
             self.update();
-            let newView = self.storyboard?.getView("SettingsView") as! SettingsView
-            newView.navigationItem.setHidesBackButton(true, animated: true)
-            self.navigationController!.pushViewController(newView, animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)
