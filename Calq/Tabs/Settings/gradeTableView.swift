@@ -12,8 +12,8 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     var models = [Section]()
     var subject: UserSubject!
-    var showOptions: Bool = true
-    
+    var callback: (() -> Void)!
+ 
     let deleteAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Noten werden unwiderruflich gelöscht", preferredStyle: .alert)
     
     var settings: AppSettings?
@@ -42,10 +42,10 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             try! CoreDataStack.shared.managedObjectContext.save()
             WidgetCenter.shared.reloadAllTimelines()
             self.dismiss(animated: true, completion: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+         //   self.navigationController?.popToRootViewController(animated: true)
+            self.callback()
         }))
         
-        if(!self.showOptions){
             self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
             self.navigationItem.title = "Notenübersicht"
             
@@ -54,7 +54,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                 appearence.configureWithDefaultBackground()
                 self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
             }
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -138,6 +137,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             self.subject = sub;
             self.update();
             self.dismiss(animated: true, completion: nil)
+            self.callback()
         }
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)
@@ -145,7 +145,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     func configure(){
         
-        if(self.showOptions) {
             models.append(Section(title: "", options: [
                 .staticCell(model: SettingsOption(
                     title: "Alle löschen", subtitle: "",
@@ -169,7 +168,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                                 self.present(addView, animated: true)
                             })*/
             ]))
-        }
 
         if(self.subject.subjecttests == nil){return}
         
@@ -205,10 +203,9 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                                     
                                                 iconBackgroundColor:settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
                                                     UIColor.init(hexString: self.subject.color!),
-                                                hideIcon: t.big,
-                                                hideArrow: !self.showOptions
+                                                hideIcon: t.big
                                             ){
-                                                if(self.showOptions)  { self.navigateGrade(t)}
+                                                 self.navigateGrade(t)
                                                 
                                             }
                                         

@@ -44,6 +44,14 @@ class SingleSubjectView: UIViewController  {
                 CircularProgress.setprogress((Util.testAverage(arr)/15.0), self.pastelColor!, String(Util.testAverage(arr)), "")
             }
         setYearChart()
+        
+        if(self.subject.subjecttests?.count == 0){
+            gradesButton.isUserInteractionEnabled = false
+            gradesButton.backgroundColor = .systemGray5
+        } else {
+            gradesButton.isUserInteractionEnabled = true
+            gradesButton.backgroundColor = .accentColor
+        }
     }
     
     override func viewDidLoad() {
@@ -141,7 +149,9 @@ class SingleSubjectView: UIViewController  {
     @IBAction func navigateToGrades(_ sender: Any) {
        let newView = self.storyboard?.instantiateViewController(withIdentifier: "gradeTableView") as! gradeTableView
         newView.subject = self.subject;
-        newView.showOptions = false
+        newView.callback = {
+            self.update()
+        }
      
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)

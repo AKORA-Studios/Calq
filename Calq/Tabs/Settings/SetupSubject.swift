@@ -90,6 +90,7 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     @IBAction func editGrades(_ sender: Any) {
         let newView = storyboard?.getView("gradeTableView") as! gradeTableView
         newView.subject = self.subject;
+        newView.callback = {}
         self.navigationController?.pushViewController(newView, animated: true)
     }
     
@@ -99,20 +100,15 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     @IBAction func typeChanged(_ sender: UISegmentedControl) { self.saveValues();}
     
     func saveValues() {
-     //   self.subject,////
         let context = CoreDataStack.shared.managedObjectContext
         self.subject.color = self.colorPicker.selectedColor.toHexString()
         
-      //  let subject = UserSubject(context: context)
         self.subject.name = self.SubjectTitle.text ?? self.title!
         self.subject.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
         self.subject.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
-       // sub.subjecttests = self.subject.subjecttests
 
         try! context.save()
         WidgetCenter.shared.reloadAllTimelines()
-        
-     //  self.subject = sub
         update()
     }
     

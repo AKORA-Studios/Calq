@@ -46,7 +46,6 @@ struct GradeOption{
     let points: String?
     let iconBackgroundColor: UIColor
     let hideIcon: Bool
-    let hideArrow: Bool
     let selectHandler: (()-> Void)
 }
 

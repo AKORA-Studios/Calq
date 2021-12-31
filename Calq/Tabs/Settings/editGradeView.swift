@@ -48,7 +48,9 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
-       self.dismiss(animated: true, completion: nil)
+       self.dismiss(animated: true, completion: ({
+           self.callback(self.subject);
+       }))
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
