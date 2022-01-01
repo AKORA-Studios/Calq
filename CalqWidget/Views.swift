@@ -28,7 +28,7 @@ struct OverviewView: View {
                       let subj = subjects[subject]
                       let grade =  (Util.getSubjectAverage(subj) * 100) / 15.0
                      
-                      let name = (subj.name?.prefix(3) ?? "\(subject + 1)").uppercased()
+                      let name = (subj.name?.prefix(2) ?? "\(subject + 1)").uppercased()
                       let color = settings!.colorfulCharts ? Color(Util.getPastelColorByIndex(subject)) : Color(.accentColor)
                       
                       BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
@@ -60,14 +60,10 @@ struct BarView: View{
                    .font(.footnote)
                   .fontWeight(.light)
                     .foregroundColor(.black)
-         
             }
-     }.padding(.bottom, 10).padding(.top, 10)
-       // Text(subName)   .foregroundColor(.black)    .font(.footnote)
-        //    .fontWeight(.light).foregroundColor(.black).frame(width: 20, height: 20, alignment: .center).foregroundColor(Color(.blue))
-                                                                      Rectangle().frame(width: 17, height: 17).foregroundColor(Color(.blue))
-                                                                      
-                                                                     }
+     }.padding(.top, 10)
+         Text(subName).font(.system(size: 10)).fontWeight(.light).frame(width: 17, height: 3)
+        }.padding(.bottom, 20)
     }
 }
 
@@ -76,7 +72,6 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
     let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
     
     func makeBody(configuration: Configuration) -> some View {
-        
         ZStack {
             Circle()
                 .trim(from: 0.0, to: 1.0)
@@ -92,7 +87,6 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
                 .frame(width: 100)
             
             VStack {
-             
                 Text(String(format: "%.01f", Util.generalAverage()))
                     .fontWeight(.bold)
                     .foregroundColor(color)
