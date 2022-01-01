@@ -37,6 +37,11 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         update()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        update()
+        super.viewWillAppear(true)
+    }
+    
     func update() {
         self.settings = Util.getSettings()
         
