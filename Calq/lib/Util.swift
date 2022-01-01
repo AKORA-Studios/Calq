@@ -127,7 +127,7 @@ struct Util {
         return 0.0;
     }
     
-    /// Returns the average of all grades from all subjects.
+    /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double{
        let tests = Util.filterTests(sub)
        if(tests.count == 0){return 0.0}

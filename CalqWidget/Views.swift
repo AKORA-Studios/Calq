@@ -2,14 +2,12 @@ import Foundation
 import SwiftUI
 import CoreData
 
-
 struct AverageView: View {
     var body: some View {
         ProgressView("Loading...", value: Util.generalAverage(), total: 15)
             .progressViewStyle(CustomCircularProgressViewStyle())
     }
 }
-
 
 struct OverviewView: View {
     var subjects: [UserSubject] = Util.getAllSubjects()
@@ -25,16 +23,15 @@ struct OverviewView: View {
                   HStack () {
                   ForEach(0..<subjects.count) { subject in
                       Spacer()
-                   
-                      let subj = subjects[subject]
-                      let tests = Util.filterTests(subj);
-                      let grade = tests.count != 0 ? 10 * round(Util.testAverage(tests)) : 0
+                      let height = geo.size.height - 30
                       
-                      let height = geo.size.height - 20
-                      let name = subj.name?.prefix(2) ?? "\(subject + 1)"
+                      let subj = subjects[subject]
+                      let grade =  (Util.getSubjectAverage(subj) * 100) / 15.0
+                     
+                      let name = (subj.name?.prefix(2) ?? "\(subject + 1)").uppercased()
                       let color = settings!.colorfulCharts ? Color(Util.getPastelColorByIndex(subject)) : Color(.accentColor)
                       
-                      BarView(value: (grade * 100)/height, cornerRadius: CGFloat(4), text: String(name), height:height, color: color)
+                      BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
                   }
                   Spacer()
               }
@@ -43,27 +40,30 @@ struct OverviewView: View {
     }
 }
 
-
 struct BarView: View{
     var value: CGFloat
     var cornerRadius: CGFloat
     var text: String
     var height: CGFloat
     var color: Color
+    var subName: String
     
     var body: some View {
      VStack {
          ZStack (alignment: .bottom) {
-                RoundedRectangle(cornerRadius: cornerRadius).frame(width: 17, height: height).foregroundColor(Color(.systemGray4))
+         ZStack (alignment: .bottom) {
+             
+             Text("--") .foregroundColor(.black)
+            RoundedRectangle(cornerRadius: cornerRadius).frame(width: 17, height: height).foregroundColor(Color(.systemGray4))
              RoundedRectangle(cornerRadius: cornerRadius).frame(width: 17, height: value).foregroundColor(color)
                 Text(text)
-                    .font(.footnote)
-                    .fontWeight(.light)
-                    .frame(height: 20)
+                   .font(.footnote)
+                  .fontWeight(.light)
                     .foregroundColor(.black)
-                    
             }
-     }.padding(.bottom, 10).padding(.top, 10)
+     }.padding(.top, 10)
+         Text(subName).font(.system(size: 10)).fontWeight(.light).frame(width: 17, height: 3)
+        }.padding(.bottom, 20)
     }
 }
 
@@ -72,7 +72,6 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
     let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
     
     func makeBody(configuration: Configuration) -> some View {
-        
         ZStack {
             Circle()
                 .trim(from: 0.0, to: 1.0)
@@ -88,7 +87,6 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
                 .frame(width: 100)
             
             VStack {
-             
                 Text(String(format: "%.01f", Util.generalAverage()))
                     .fontWeight(.bold)
                     .foregroundColor(color)

@@ -48,7 +48,9 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
-       self.dismiss(animated: true, completion: nil)
+       self.dismiss(animated: true, completion: ({
+           self.callback(self.subject);
+       }))
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
@@ -78,7 +80,7 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     @IBAction func deleteButton(_ sender: UIButton) {
         CoreDataStack.shared.managedObjectContext.delete(self.test)
         
-        dismiss(animated: true, completion: ({
+      dismiss(animated: true, completion: ({
             self.callback(self.subject);
         }))
     }

@@ -74,7 +74,5 @@ class GradeCell: UITableViewCell {
         pointLabel.text = model.points != nil ? model.points : "0"
         iconContainer.backgroundColor = model.iconBackgroundColor
         if(!(model.hideIcon)) {iconContainer.backgroundColor = UIColor.clear}
-        
-        if(model.hideArrow) {self.accessoryType = .none }
     }
 }

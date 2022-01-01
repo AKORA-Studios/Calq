@@ -17,19 +17,8 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     var deleted = false;
     
     override func viewDidAppear(_ animated: Bool) {
+        update()
         super.viewDidAppear(animated)
-       
-        do {
-            let items = try CoreDataStack.shared.managedObjectContext.fetch(AppSettings.fetchRequest())
-            if(items[0].usersubjects == nil){return}
-            
-            let subs = items[0].usersubjects!.allObjects as! [UserSubject]
-            
-            for meal in subs {
-                if(meal.name == self.subject.name) {self.subject = meal
-                    return}
-              }
-        } catch{}
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,17 +47,32 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         colorDisplay.backgroundColor = UIColor.init(hexString: subject.color!)
         subjectTypeSegment.selectedSegmentIndex = self.subject.lk ? 0 : 1
         
-        do {
-            let items = try CoreDataStack.shared.managedObjectContext.fetch(AppSettings.fetchRequest())
-            if(items[0].usersubjects == nil){return}
-            
-            let subs = items[0].usersubjects!.allObjects as! [UserSubject]
-            
-            for meal in subs {
-                if(meal.name == self.subject.name) {self.subject = meal
-                    return}
-              }
-        } catch{}
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.title = "Kurs bearbeiten"
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UINavigationBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+        }
+        
+        update()
+    }
+    
+    func update(){
+        self.subject = Util.getSubject(self.subject.objectID)
+        
+        if(self.subject.subjecttests?.count == 0){
+            editGradesButton.isUserInteractionEnabled = false
+            editGradesButton.backgroundColor = .systemGray5
+        } else {
+            editGradesButton.isUserInteractionEnabled = true
+            editGradesButton.backgroundColor = .accentColor
+        }
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func deleteSubject(_ sender: Any) {
@@ -86,6 +90,7 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     @IBAction func editGrades(_ sender: Any) {
         let newView = storyboard?.getView("gradeTableView") as! gradeTableView
         newView.subject = self.subject;
+        newView.callback = {}
         self.navigationController?.pushViewController(newView, animated: true)
     }
     
@@ -98,22 +103,13 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         let context = CoreDataStack.shared.managedObjectContext
         self.subject.color = self.colorPicker.selectedColor.toHexString()
         
-        let sub = UserSubject(context: context)
-        sub.name = self.SubjectTitle.text ?? self.title!
-        sub.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
-        sub.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
-        sub.subjecttests = self.subject.subjecttests
-        
-        do{
-            let items = try context.fetch(AppSettings.fetchRequest())
-            items[0].addToUsersubjects(sub)
-        }catch{}
-            
-        context.delete(self.subject)
+        self.subject.name = self.SubjectTitle.text ?? self.title!
+        self.subject.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
+        self.subject.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
+
         try! context.save()
         WidgetCenter.shared.reloadAllTimelines()
-        
-        self.subject = sub
+        update()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
