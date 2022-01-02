@@ -30,8 +30,19 @@ class LineChart: UIView {
     public func drawChart(_ max: Double, _ markAxes: [Double] = []){
         self.maxXValue = max
         self.markAxes = markAxes
-        
         clearView()
+        self.backgroundColor = .clear
+        
+        if(self.values.count == 0){
+            let centerPoint =  CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
+            let label = UILabel()
+            label.frame = self.frame
+            label.text = "Keine Daten vorhanden"
+            label.textAlignment = .center
+            label.center = centerPoint
+            label.adjustsFontSizeToFitWidth = true
+            return self.addSubview(label)
+        }
         drawAxes()
         
         if(markAxes.count != 0){
