@@ -33,8 +33,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Widget</summary>
 <br>
   
-![Dark](https://media.discordapp.net/attachments/819922260424785920/914186744247775252/unknown.png?width=304&height=657)
-![Light](https://media.discordapp.net/attachments/819922260424785920/914188431742078986/unknown.png?width=304&height=657)
+![Dunkel](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=304&height=657)
+![Hell](https://media.discordapp.net/attachments/819922260424785920/926869082903568434/unknown.png?width=304&height=657)
 </details
 <br>
 
