@@ -12,7 +12,6 @@ class LineChart: UIView {
     
     var maxYValue: Double = 15.0
     var maxXValue: Double = 100.0
-    let values: [[ChartEntry]] = []
     
     var pointColor = UIColor.blue
     var lineColor = UIColor.systemGray3
@@ -33,7 +32,7 @@ class LineChart: UIView {
         clearView()
         self.backgroundColor = .clear
         
-        if(self.values.count == 0){
+        if(Util.getAllSubjects().count == 0){
             let centerPoint =  CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
             let label = UILabel()
             label.frame = self.frame
@@ -51,8 +50,6 @@ class LineChart: UIView {
                 drawMarkAxes(xValue)
             }
         }
-        self.backgroundColor = .clear
-        if(values.count == 0){return}
     }
     
     public func addDataSet(_ values: [ChartEntry], _ color: UIColor){
