@@ -22,7 +22,6 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Kursauswahl"
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         view.addSubview(tableView)
         
         tableView.delegate = self
@@ -39,11 +38,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
     }
-    
-    @objc func backButtonPressed(_ sender:UIButton) {
-       self.dismiss(animated: true, completion: nil)
-    }
-    
+
     //MARK: Table Setup
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
@@ -98,13 +93,11 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func navigateBack(_ id: NSManagedObjectID){
-        UserDefaults.resetStandardUserDefaults()
-        UserDefaults.standard.set(id.uriRepresentation().absoluteString, forKey: "sub")
-        
-        self.dismiss(animated: true, completion: ({
-            self.callback();
-        }))
+    func navigateToAddView(_ sub: UserSubject){
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+        newView.subject = sub
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func configure(){
@@ -124,7 +117,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
                                 iconBackgroundColor:  color
                             ){
-                                self.navigateBack(sub.objectID)
+                                self.navigateToAddView(sub)
                             })
                 )
             }

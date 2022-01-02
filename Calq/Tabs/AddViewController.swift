@@ -5,7 +5,6 @@ import WidgetKit
 class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var subjectSelect: UIButton!
     @IBOutlet weak var impactView: UIView!
     @IBOutlet weak var gradeName: UITextField!
     @IBOutlet weak var gradeTypeSelect: UISegmentedControl!
@@ -40,15 +39,26 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         try! CoreDataStack.shared.managedObjectContext.save()
         WidgetCenter.shared.reloadAllTimelines()
         
-        UserDefaults.standard.set(nil, forKey: "sub")
-        self.tabBarController?.selectedViewController = tabBarController?.viewControllers![0]
+        self.dismiss(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        UserDefaults.standard.set(nil, forKey: "sub")
-        
         self.update()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var year: Int = 1
+        
+        if(self.subject?.subjecttests?.count != 0){
+        var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
+        tests =  tests.sorted(by: ({$0.year > $1.year}))
+        year = Int(tests[0].year)
+        }
+                         
+        self.selectedYear = year
+        self.yearSegment.selectedSegmentIndex = year - 1
+        super.viewWillAppear(true)
     }
     
     override func viewDidLoad() {
@@ -56,9 +66,9 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         gradeName.delegate = self
         super.viewDidLoad()
         scrollView.isDirectionalLockEnabled = false
-        UserDefaults.standard.set(nil, forKey: "sub")
         
         self.navigationItem.title = "Note hinzufügen"
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         gradeName.delegate = self
@@ -76,58 +86,23 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         update()
     }
     
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
+    }
+    
     func update(){
         setImpactSegemnts()
+        self.subject = Util.getSubject(self.subject!.objectID)
         
-        if(UserDefaults.standard.string(forKey: "sub") == nil) {
-            addButton.backgroundColor = .systemGray4
-            self.subject = nil
-            subjectSelect.setTitle("Kurs wählen", for: .normal)
-            subjectSelect.backgroundColor = .accentColor
-            
-            yearSegment.isUserInteractionEnabled = false
-            pointSlider.isUserInteractionEnabled = false
-            gradeTypeSelect.isUserInteractionEnabled = false
-            datePicker.isUserInteractionEnabled = false
-            gradeName.isUserInteractionEnabled = false
-            
-            yearSegment.selectedSegmentTintColor = .systemGray5
-            pointSlider.tintColor = .systemGray5
-            gradeTypeSelect.selectedSegmentTintColor = .systemGray5
-            
-            return  }
-        
-        yearSegment.isUserInteractionEnabled = true
-        pointSlider.isUserInteractionEnabled = true
-        gradeTypeSelect.isUserInteractionEnabled = true
-        datePicker.isUserInteractionEnabled = true
-        gradeName.isUserInteractionEnabled = true
-        
-        let sub = UserDefaults.standard.string(forKey: "sub")
-        if(sub == nil) {return}
-        
-        let ObjectURL = URL(string: sub!)
-        if(ObjectURL == nil) {return}
-        
-        let coordinator = CoreDataStack.shared.managedObjectContext.persistentStoreCoordinator
-        let id = coordinator?.managedObjectID(forURIRepresentation: ObjectURL!)
-        
-        self.subject = Util.getSubject(id!)
         addButton.backgroundColor = .accentColor
-        subjectSelect.backgroundColor = .systemGray5
-        
-        if(self.subject != nil){subjectSelect.setTitle(self.subject!.name, for: .normal)}
-        
-        if(self.subject != nil) {
-            gradeTypeSelect.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
-             yearSegment.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
-            pointSlider.tintColor = UIColor.init(hexString: self.subject!.color!)
-        }
+        gradeTypeSelect.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
+        yearSegment.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
+        pointSlider.tintColor = UIColor.init(hexString: self.subject!.color!)
         
         if(Util.getSettings()!.colorfulCharts) {
-             gradeTypeSelect.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
-             yearSegment.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
-            pointSlider.tintColor = Util.getPastelColorByIndex(self.subject!.name!)
+        gradeTypeSelect.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
+        yearSegment.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
+        pointSlider.tintColor = Util.getPastelColorByIndex(self.subject!.name!)
         }
         setImpactSegemnts()
     }
@@ -168,49 +143,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         gradeName.resignFirstResponder()
         return true
-    }
-    
-    @IBAction func selectOne(_ sender: UIButton) {
-        if(Util.getAllSubjects().count == 0){
-            return  self.present(self.errorAlert, animated: true, completion: nil)
-        }
-        navigateSubjectPick()
-    }
-    
-    func navigateSubjectPick(){
-        let selection = UISelectionFeedbackGenerator()
-        selection.selectionChanged()
-        
-        let newView = self.storyboard?.instantiateViewController(withIdentifier: "PredictSelect") as! PredictSelect
-        
-        newView.callback = {
-            let sub = UserDefaults.standard.string(forKey: "sub")
-            if(sub == nil) {return}
-            
-            let ObjectURL = URL(string: sub!)
-            if(ObjectURL == nil) {return}
-            
-            let coordinator = CoreDataStack.shared.managedObjectContext.persistentStoreCoordinator
-            let id = coordinator?.managedObjectID(forURIRepresentation: ObjectURL!)
-            
-            self.subject = Util.getSubject(id!)
-            var year: Int = 1
-                
-            if(self.subject != nil) {
-                        if(self.subject?.subjecttests?.count != 0){
-                            var tests = self.subject!.subjecttests!.allObjects as! [UserTest]
-                            tests =  tests.sorted(by: ({$0.year > $1.year}))
-                            
-                            year = Int(tests[0].year)
-                        }
-                    }
-       
-            self.selectedYear = year
-            self.yearSegment.selectedSegmentIndex = year - 1
-            self.update() }
-        
-        let navController = UINavigationController(rootViewController: newView)
-        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func setImpactSegemnts(){
