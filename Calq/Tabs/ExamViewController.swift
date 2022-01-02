@@ -52,6 +52,10 @@ class ExamViewController: ViewController, UITextFieldDelegate {
             let appearence =  UITabBarAppearance()
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+            
+            let appearence3 =  UINavigationBarAppearance()
+            appearence3.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence3
         }
     }
     

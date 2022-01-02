@@ -28,6 +28,10 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
             let appearence =  UITabBarAppearance()
             appearence.configureWithDefaultBackground()
             self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
+            
+            let appearence2 =  UINavigationBarAppearance()
+            appearence2.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence2
         }
     }
     
@@ -113,8 +117,6 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
         var arr: [SettingsOptionType2] = []
         let subjects = Util.getAllSubjects()
         
-        if(subjects.count != 0){
-          
             for sub in subjects {
                 let str = (Util.averageString(sub))
                 let subAverage = Util.getSubjectAverage(sub)
@@ -134,11 +136,13 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
                             })
                 )
             }
-            models.append(Section2(title: "", options: arr))
-            
+            let title = subjects.count == 0 ? "Du hast noch keine Kurse hinzugefügt" : ""
+            models.append(Section2(title: title, options: arr))
+        
+        if(subjects.count != 0){
             let inactives = Util.calcInactiveYearsCount()
             let halfyears = subjects.count * 4
-            
+ 
             models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von \(halfyears) aktiv", subtitle: "", points: "∑", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
                 self.present(self.demoAlert, animated: true, completion: nil)
             }))]))
