@@ -18,10 +18,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     var selectedYear: Int = 1
     var subject: UserSubject?
     
-    let errorAlert = UIAlertController(title: "Fehler qwq", message: "Du hast keinen Kurs ausgewählt", preferredStyle: .alert)
-    
     @IBAction func addNewGrade(_ sender: Any) {
-        if(self.subject == nil) {  return  self.present(self.errorAlert, animated: true, completion: nil)}
         UserDefaults.standard.set(nil, forKey: "sub")
         let impact = UIImpactFeedbackGenerator()
             impact.impactOccurred()
@@ -69,7 +66,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         
         self.navigationItem.title = "Note hinzufügen"
         self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
-        errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         gradeName.delegate = self
         pointViewer.text = "9"

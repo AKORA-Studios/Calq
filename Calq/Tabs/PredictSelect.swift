@@ -121,6 +121,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
                             })
                 )
             }
-            models.append(Section(title: "Wähle einen Kurs", options: arr))
+            let title = subjectArr.count == 0 ? "Du hast noch keine Kurse hinzugefügt" : "Wähle einen Kurs"
+            models.append(Section(title: title, options: arr))
     }
 }
