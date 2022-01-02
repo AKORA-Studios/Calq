@@ -17,17 +17,19 @@ class BarChart: UIView {
     public func drawChart(_ values: [UserSubject], _ average: Double){
         self.values = values
         clearView()
-        
         self.backgroundColor = .clear
+        
         if(self.values.count == 0){
+            let centerPoint =  CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
             let label = UILabel()
             label.frame = self.frame
             label.text = "Keine Daten vorhanden"
             label.textAlignment = .center
+            label.center = centerPoint
             label.adjustsFontSizeToFitWidth = true
             return self.addSubview(label)
         }
-         drawAxes()
+        drawAxes()
         
         let width = (self.frame.width - 20.0) / Double(values.count)
         var num = 20.0
