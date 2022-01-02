@@ -80,7 +80,7 @@ class CircularProgressView: UIView {
         let secondAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0), NSAttributedString.Key.foregroundColor: self.color, .paragraphStyle: titleParagraphStyle]
         
         let firstString = NSMutableAttributedString(string: self.title, attributes: firstAttributes)
-        let secondString = NSMutableAttributedString(string: self.subtitle, attributes: secondAttributes)//
+        let secondString = NSMutableAttributedString(string: self.subtitle, attributes: secondAttributes)
         
         firstString.append(secondString)
         centerText.attributedText = firstString
