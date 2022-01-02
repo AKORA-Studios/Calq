@@ -55,7 +55,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
             let blocks = Util.generateBlockOne() + Util.generateBlockTwo()
             let blockGrade = Util.grade(number: Double(blocks * 15 / 900))
             
-            gradeChart.setprogress(blocks/900, .accentColor, String(blockGrade), "⌀")
+            gradeChart.setprogress(blocks/900, .accentColor, String(format: "%.2f", blockGrade), "⌀")
             pointChart.setprogress(Util.generalAverage()/15, .accentColor, String(format: "%.2f",Util.generalAverage()), grade)
         } else {
             gradeChart.setprogress(0.0, .accentColor, "0", "6.0")

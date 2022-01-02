@@ -70,6 +70,7 @@ class CircularProgressView: UIView {
         centerText.frame = self.frame
         // center textfield in view
         centerText.center = centerPoint
+        centerText.adjustsFontSizeToFitWidth = true
         
         //Text Formatting
         let titleParagraphStyle = NSMutableParagraphStyle()
