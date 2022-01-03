@@ -107,7 +107,6 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
             for sub in subjectArr {
                 let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
                 
-                if(sub.examtype != 0 ){ continue}
                 arr.append(
                     .staticCell(
                         model:
