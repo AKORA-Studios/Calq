@@ -85,11 +85,12 @@ class LineChart: UIView {
     }
     
     private  func createPoint(_ x: Double,_ y: Double) -> CGPoint{
-        let width = self.frame.width - 30.0
+        let width = self.frame.width - 25.0
         let xValue = ((( x  * 100.0) / maxXValue) * width) / 100
+
         let yValue = (self.frame.height - ((y * 100 / maxYValue)) * self.frame.height / 100) + 2
        
-        return CGPoint(x: xValue + 27, y: yValue)
+        return CGPoint(x: xValue + 20, y: yValue)
     }
     
     private func drawPoint(_ Point: CGPoint,_ color: UIColor){
