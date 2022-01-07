@@ -153,20 +153,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                             {
                                 self.present(self.deleteAlert, animated: true)
                             }),
-              /*  .staticCell(model: SettingsOption(
-                    title: "Neue Note hinzufügen", subtitle: "",
-                    icon: UIImage(systemName: "doc.badge.plus"), iconBackgroundColor: .systemGreen )
-                            {
-                                let addView = self.storyboard?.getView("AddViewController") as! AddViewController;
-                           //     addView.title = self.subject.name;
-                                addView.subject = self.subject
-                                addView.update()
-                                
-                                UserDefaults.resetStandardUserDefaults()
-                                UserDefaults.standard.set(self.subject.objectID.uriRepresentation().absoluteString, forKey: "sub")
-                                
-                                self.present(addView, animated: true)
-                            })*/
             ]))
 
         if(self.subject.subjecttests == nil){return}
@@ -174,8 +160,8 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        let Alltests = self.subject.subjecttests!.allObjects as! [UserTest]
-        
+        let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date! < $1.date! })
+          
         for i in 1...4 {
             var name = "";
             switch i {
