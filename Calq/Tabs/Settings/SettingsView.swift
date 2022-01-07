@@ -138,6 +138,9 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         let newView = self.storyboard?.getView("SetupSubject") as! SetupSubject
         newView.title = subject.name
         newView.subject = subject
+        newView.callback = {
+            self.update()
+        }
         
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)

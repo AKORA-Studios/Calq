@@ -15,6 +15,7 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     
     var subject: UserSubject!
     var deleted = false;
+    var callback: (() -> Void)!;
     
     override func viewDidAppear(_ animated: Bool) {
         update()
@@ -55,7 +56,6 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
             appearence.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
-        
         update()
     }
     
@@ -69,6 +69,10 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
             editGradesButton.isUserInteractionEnabled = true
             editGradesButton.backgroundColor = .accentColor
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        callback()
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
@@ -94,17 +98,22 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         self.navigationController?.pushViewController(newView, animated: true)
     }
     
-    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) { self.saveValues();}
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        colorDisplay.backgroundColor = viewController.selectedColor
+        self.saveValues()
+        viewController.dismiss(animated: true, completion: nil)
+        self.saveValues();
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) { self.saveValues();}
    
     @IBAction func typeChanged(_ sender: UISegmentedControl) { self.saveValues();}
     
     func saveValues() {
         let context = CoreDataStack.shared.managedObjectContext
-        self.subject.color = self.colorPicker.selectedColor.toHexString()
+        self.subject.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
         
         self.subject.name = self.SubjectTitle.text ?? self.title!
-        self.subject.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
         self.subject.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
 
         try! context.save()
