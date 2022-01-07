@@ -56,6 +56,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         self.selectedYear = year
         self.yearSegment.selectedSegmentIndex = year - 1
         super.viewWillAppear(true)
+        update()
     }
     
     override func viewDidLoad() {
