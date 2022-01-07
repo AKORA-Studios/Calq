@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJe-Ik-5GA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="-1564.2857142857142"/>
+            <point key="canvasLocation" x="74" y="-1564"/>
         </scene>
         <!--New Subject View-->
         <scene sceneID="EpY-c1-s6t">
@@ -534,7 +534,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="VZt-MM-OPs">
-                                <rect key="frame" x="126" y="239" width="268" height="39"/>
+                                <rect key="frame" x="126" y="239" width="268" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="AccentColor"/>
                             </datePicker>
@@ -1159,7 +1159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkY-Dr-fV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2475" y="1269"/>
+            <point key="canvasLocation" x="1790" y="1269"/>
         </scene>
     </scenes>
     <resources>

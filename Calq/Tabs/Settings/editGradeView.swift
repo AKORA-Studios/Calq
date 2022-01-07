@@ -17,6 +17,8 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     var callback: ((_ sub : UserSubject) -> Void)!;
     var settings: AppSettings?
     
+    let warningAlert = UIAlertController(title: "Speichern?", message: "Möchtest du die Änderung an dieser Note eventuell speichern?", preferredStyle: .alert)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         update();
@@ -29,7 +31,6 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         self.pointSlider.value = Float(self.test.grade)
         self.pointLabel.text = String(self.test.grade)
         
-        
         gradeTypeSegemnt.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
         yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
         
@@ -41,6 +42,14 @@ class editGradeView: UIViewController, UITextFieldDelegate {
             appearence.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
+        
+        warningAlert.addAction(UIAlertAction(title: "Nein", style: .destructive, handler:  {[self]action in  self.dismiss(animated: true, completion: ({
+            callback(subject)
+        }))}
+            ))
+        warningAlert.addAction(UIAlertAction(title: "Ja!", style: .cancel, handler: { [self]action in
+            self.saveData()
+        }))
     }
     
     func update(){
@@ -48,12 +57,19 @@ class editGradeView: UIViewController, UITextFieldDelegate {
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
+        if(test.name != gradeName.text || test.grade != Int16(pointSlider.value) || test.date != gradeDate.date || test.big != (gradeTypeSegemnt.selectedSegmentIndex == 1) || test.year != Int16(yearSegment.selectedSegmentIndex + 1)){
+           return self.present(warningAlert, animated: true, completion: nil)
+        }
        self.dismiss(animated: true, completion: ({
            self.callback(self.subject);
        }))
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
+        saveData()
+    }
+    
+    func saveData(){
         let context = CoreDataStack.shared.managedObjectContext
         
         let name = gradeName.text?.count == 0 ? "Neue Note" : gradeName.text

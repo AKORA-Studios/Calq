@@ -157,7 +157,6 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
 
         if(self.subject.subjecttests == nil){return}
         
-    
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date! < $1.date! })
