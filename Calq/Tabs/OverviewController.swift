@@ -40,6 +40,21 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         update()
         super.viewWillAppear(true)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+      
+        let firstLaunch =   UserDefaults.standard.bool(forKey: "LaunchedAlready")
+        
+        if(!firstLaunch){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "FirstLaunch", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FirstLaunch") as! FirstLaunch
+
+            UserDefaults.standard.set(true, forKey: "LaunchedAlready")
+            return self.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
     func update() {

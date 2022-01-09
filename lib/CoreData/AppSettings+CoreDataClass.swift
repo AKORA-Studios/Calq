@@ -2,7 +2,7 @@
 //  AppSettings+CoreDataClass.swift
 //  Calq
 //
-//  Created by Akora on 18.12.21.
+//  Created by Kiara on 09.01.22.
 //
 //
 

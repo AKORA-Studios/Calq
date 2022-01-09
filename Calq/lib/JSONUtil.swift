@@ -17,7 +17,6 @@ static func loadDemoData(){
     
     let settings: AppSettings = Util.deleteSettings()
     settings.colorfulCharts = true
-    settings.firstLaunch = false
    
     do {
         let data = loadJSON()
@@ -54,7 +53,6 @@ static func loadDefaultData() {
     do {
         let items = try context.fetch(AppSettings.fetchRequest())
         settings = items[0]
-        settings.firstLaunch = true
         
         struct sub{
             var name: String

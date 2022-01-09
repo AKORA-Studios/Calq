@@ -245,7 +245,6 @@ struct Util {
             if(items.count == 0){
                 let item =  AppSettings(context: context)
                 item.colorfulCharts = false
-                item.firstLaunch = false
                 
                 try! context.save()
                 WidgetCenter.shared.reloadAllTimelines()
