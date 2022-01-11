@@ -428,6 +428,13 @@
                 "year": 3,
                 "big": true,
                 "date": "1637678079"
+            },
+                {
+                "name": "Menschenrechte Stundenleistung",
+                "grade": 12,
+                "year": 3,
+                "big": false,
+                "date": "1641912347"
             }
         ]
     },
