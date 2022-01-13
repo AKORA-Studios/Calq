@@ -129,7 +129,7 @@ class SingleSubjectView: UIViewController  {
     
     func setYearChart(){
         let tests =  self.subject.subjecttests!.allObjects as! [UserTest]
-        if(tests.count == 0){return yeartimeChart.drawChart( 10.0)}
+        if(tests.count < 2){return yeartimeChart.drawChart( 10.0)}
         
         let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
         let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
