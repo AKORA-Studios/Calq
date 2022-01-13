@@ -41,7 +41,7 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
             CoreDataStack.shared.managedObjectContext.delete(self.subject)
             self.deleted = true;
 
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }))
         
         colorPicker.selectedColor = UIColor.init(hexString: subject.color!)
