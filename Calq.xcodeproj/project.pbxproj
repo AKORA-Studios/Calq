@@ -10,10 +10,6 @@
 		DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
 		DD22EE26278B3E9700C3024B /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */; };
 		DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE29278B430600C3024B /* FirstLaunchView.swift */; };
-		DD22EE2D278B4E7600C3024B /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE2B278B4E7600C3024B /* AppSettings+CoreDataClass.swift */; };
-		DD22EE2E278B4E7600C3024B /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE2C278B4E7600C3024B /* AppSettings+CoreDataProperties.swift */; };
-		DD22EE2F278B4EE000C3024B /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE2B278B4E7600C3024B /* AppSettings+CoreDataClass.swift */; };
-		DD22EE30278B4EE300C3024B /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE2C278B4E7600C3024B /* AppSettings+CoreDataProperties.swift */; };
 		DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39350426A9C92500917E06 /* ExamViewController.swift */; };
 		DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D62DA27382A01008BF2AF /* CircularProgress.swift */; };
 		DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
@@ -48,6 +44,10 @@
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
 		DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA78E42708D8350071DFAE /* GradeCell.swift */; };
+		DDB250F227907D68008126B4 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB250F027907D68008126B4 /* AppSettings+CoreDataClass.swift */; };
+		DDB250F327907D68008126B4 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB250F027907D68008126B4 /* AppSettings+CoreDataClass.swift */; };
+		DDB250F427907D68008126B4 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB250F127907D68008126B4 /* AppSettings+CoreDataProperties.swift */; };
+		DDB250F527907D68008126B4 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB250F127907D68008126B4 /* AppSettings+CoreDataProperties.swift */; };
 		DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9012D276272E600E799FD /* PredictSelect.swift */; };
 		DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB965C82765408600F89D0C /* YearBarChart.swift */; };
 		DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
@@ -107,8 +107,6 @@
 		DD0B86D327667E3F00DCC61F /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
 		DD22EE29278B430600C3024B /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
-		DD22EE2B278B4E7600C3024B /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataClass.swift"; path = "lib/CoreData/AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DD22EE2C278B4E7600C3024B /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataProperties.swift"; path = "lib/CoreData/AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DD32890326A9B0D7000DFD73 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +151,8 @@
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
 		DDAA78E42708D8350071DFAE /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
+		DDB250F027907D68008126B4 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DDB250F127907D68008126B4 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDB9012D276272E600E799FD /* PredictSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictSelect.swift; sourceTree = "<group>"; };
 		DDB965C82765408600F89D0C /* YearBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearBarChart.swift; sourceTree = "<group>"; };
 		DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -308,8 +308,8 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DD22EE2B278B4E7600C3024B /* AppSettings+CoreDataClass.swift */,
-				DD22EE2C278B4E7600C3024B /* AppSettings+CoreDataProperties.swift */,
+				DDB250F027907D68008126B4 /* AppSettings+CoreDataClass.swift */,
+				DDB250F127907D68008126B4 /* AppSettings+CoreDataProperties.swift */,
 				DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */,
 				DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */,
 				DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */,
@@ -511,13 +511,13 @@
 			files = (
 				DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
-				DD22EE2F278B4EE000C3024B /* AppSettings+CoreDataClass.swift in Sources */,
+				DDB250F327907D68008126B4 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
 				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
 				DDBB97C72757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
-				DD22EE30278B4EE300C3024B /* AppSettings+CoreDataProperties.swift in Sources */,
+				DDB250F527907D68008126B4 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
 				DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
 			);
@@ -543,7 +543,7 @@
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
-				DD22EE2E278B4E7600C3024B /* AppSettings+CoreDataProperties.swift in Sources */,
+				DDB250F427907D68008126B4 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
@@ -560,7 +560,7 @@
 				DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD6878DF261901A400BF2B48 /* SceneDelegate.swift in Sources */,
 				DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */,
-				DD22EE2D278B4E7600C3024B /* AppSettings+CoreDataClass.swift in Sources */,
+				DDB250F227907D68008126B4 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD6BD08E262B81AB008E95B2 /* SetupSubject.swift in Sources */,
 				DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */,
 			);
