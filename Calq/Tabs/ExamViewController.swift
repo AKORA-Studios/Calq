@@ -194,6 +194,13 @@ class ExamViewController: ViewController, UITextFieldDelegate {
     
     func setBlocks(){
         let block1points = Util.generateBlockOne()
+        if(block1points < 200){
+            Block1.tintColor = .red
+            block1Label.textColor = .red
+        }else {
+            Block1.tintColor = .accentColor
+            block1Label.textColor = .accentColor
+        }
         let posibleBlock1Points = Util.generatePossibleBlockOne()
         
         block1Label.text = "\(String(Int(block1points))) von \(String(Int(posibleBlock1Points)))"
