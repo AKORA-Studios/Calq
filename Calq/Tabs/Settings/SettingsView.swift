@@ -130,7 +130,6 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         case .gradeCell(let model):
             model.selectHandler()
         }
-        
     }
     
     func navigateSubjectSettings(_ id: NSManagedObjectID){
