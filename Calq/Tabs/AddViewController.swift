@@ -19,7 +19,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
     var subject: UserSubject?
     
     @IBAction func addNewGrade(_ sender: Any) {
-        UserDefaults.standard.set(nil, forKey: "sub")
         let impact = UIImpactFeedbackGenerator()
             impact.impactOccurred()
         
