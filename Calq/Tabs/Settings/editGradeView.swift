@@ -50,11 +50,18 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         warningAlert.addAction(UIAlertAction(title: "Ja!", style: .cancel, handler: { [self]action in
             self.saveData()
         }))
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     func update(){
         self.settings = Util.getSettings()
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+          gradeName.resignFirstResponder()
+      }
     
     @objc func backButtonPressed(_ sender:UIButton) {
         if(test.name != gradeName.text || test.grade != Int16(pointSlider.value) || test.date != gradeDate.date || test.big != (gradeTypeSegemnt.selectedSegmentIndex == 1) || test.year != Int16(yearSegment.selectedSegmentIndex + 1)){

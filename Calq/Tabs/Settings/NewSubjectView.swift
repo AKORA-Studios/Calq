@@ -44,7 +44,14 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
             appearence.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
+        self.view.addGestureRecognizer(tapGesture)
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        SubjectTitle.resignFirstResponder()
+      }
     
     @objc func backButtonPressed(_ sender:UIButton) {
        self.dismiss(animated: true, completion: nil)

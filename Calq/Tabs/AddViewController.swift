@@ -79,8 +79,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         let size =  CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
         scrollView.contentSize = size
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
+        self.view.addGestureRecognizer(tapGesture)
         update()
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+          gradeName.resignFirstResponder()
+      }
     
     @objc func backButtonPressed(_ sender:UIButton) {
        self.dismiss(animated: true, completion: nil)

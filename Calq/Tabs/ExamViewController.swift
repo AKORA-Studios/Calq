@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class ExamViewController: ViewController, UITextFieldDelegate {
+class ExamViewController: ViewController {
     @IBOutlet weak var Block1: UIProgressView!
     @IBOutlet weak var Block2: UIProgressView!
     @IBOutlet weak var block1Label: UILabel!
