@@ -20,6 +20,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
     let demoAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Daten werden unwiderruflich gelöscht", preferredStyle: .alert)
     let restoreAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Daten werden unwiderruflich gelöscht", preferredStyle: .alert)
     let importalert = UIAlertController(title: "Fehler beim Importieren", message: "Etwas in deiner Datei scheint falsch zu sein, die Daten können nicht importiert werden", preferredStyle: .alert)
+    let versionAlert = UIAlertController(title: "Coming soon ...", message: "Hier gibt es noch nichts zu sehen UwU", preferredStyle: .alert)
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
@@ -54,6 +55,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
             self.settings =  Util.deleteSettings()
             self.update()
         }))
+        versionAlert.addAction(UIAlertAction(title: "Oki", style: .cancel, handler: nil))
         
         importalert.addAction(UIAlertAction(title: "Oki", style: .cancel, handler: nil))
         
@@ -176,6 +178,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
             }
         }
         
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
         arr.append(
             .staticCell(
                 model:
@@ -188,13 +191,15 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                         self.navigateAddSubject()
                     })
         )
-        
+     
         models.append(Section(title: "Allgemein", options: [
+            .staticCell(model:SettingsOption(title: "Version", subtitle: appVersion, icon: UIImage(systemName: "doc.on.doc.fill"), iconBackgroundColor: UIColor.init(hexString: "#53c678"))
+                        { self.present(self.versionAlert, animated: true, completion: nil)
+                        }),
             .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.init(hexString: "#63d3bd"))
                         {
                             let url = URL(string: "https://github.com/AKORA-Studios/Calq-iOS")
                             UIApplication.shared.open(url!)
-                            
                         }),
             
                 .switchCell(model: SettingsSwitchOption(

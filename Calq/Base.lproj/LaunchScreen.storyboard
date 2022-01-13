@@ -19,15 +19,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalqBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-iu-ilF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V. 2.2.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cen-iQ-RGh">
-                                <rect key="frame" x="20" y="781" width="374" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Sue-mQ-EAM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalqLogo" id="Iye-oy-Ax6">
                                 <rect key="frame" x="86" y="329" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -40,15 +31,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.6006926412123027" green="0.700519480909227" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cen-iQ-RGh" firstAttribute="centerX" secondItem="Gda-iu-ilF" secondAttribute="centerX" id="0HI-Ks-zdb"/>
                             <constraint firstItem="Iye-oy-Ax6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="BkS-Bu-yXS"/>
                             <constraint firstItem="Gda-iu-ilF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="EuA-Dq-SP2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iye-oy-Ax6" secondAttribute="trailing" constant="87" id="QnU-Fn-5Mw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cen-iQ-RGh" secondAttribute="bottom" id="RDh-UY-mFw"/>
                             <constraint firstItem="Gda-iu-ilF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wde-Sr-xdV"/>
                             <constraint firstAttribute="bottom" secondItem="Gda-iu-ilF" secondAttribute="bottom" id="eWW-fV-IQh"/>
                             <constraint firstItem="Gda-iu-ilF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fl4-eF-wuq"/>
-                            <constraint firstItem="cen-iQ-RGh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="kwz-Rv-LEK"/>
                         </constraints>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
