@@ -67,6 +67,20 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
             appearence2.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence2
         }
+        
+        // Add tableView footer
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let headerView = UIView(frame: CGRect(x: 0, y: 0,  width: self.tableView.frame.width, height: 17))
+   
+        let versionLabel = UILabel()
+        versionLabel.frame = headerView.frame
+        versionLabel.text = "Version: \(appVersion)"
+        versionLabel.textColor = .systemGray3
+        versionLabel.adjustsFontSizeToFitWidth = true
+        versionLabel.textAlignment = .center
+
+        headerView.addSubview(versionLabel)
+        self.tableView.tableFooterView = headerView
     }
     
     //MARK: Table Setup
@@ -177,8 +191,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                 )
             }
         }
-        
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+
         arr.append(
             .staticCell(
                 model:
@@ -193,9 +206,6 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         )
      
         models.append(Section(title: "Allgemein", options: [
-            .staticCell(model:SettingsOption(title: "Version", subtitle: appVersion, icon: UIImage(systemName: "doc.on.doc.fill"), iconBackgroundColor: UIColor.init(hexString: "#53c678"))
-                        { self.present(self.versionAlert, animated: true, completion: nil)
-                        }),
             .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.init(hexString: "#63d3bd"))
                         {
                             let url = URL(string: "https://github.com/AKORA-Studios/Calq-iOS")
