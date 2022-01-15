@@ -142,7 +142,7 @@ class ExamViewController: ViewController {
         }
         
         if(lktypes.count == 2){}else if(gktypes.count == 3 ){}
-        else if(subs.count == 0) {return  self.present(self.errorAlert, animated: true, completion: nil)}
+        else if(subs.count == 0 && Util.getAllSubjects().filter{$0.examtype == num}.count == 0) {return  self.present(self.errorAlert, animated: true, completion: nil)}
         
         newView.examtype = num
         newView.subjects = subs
