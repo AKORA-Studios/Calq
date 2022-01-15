@@ -25,7 +25,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         let name = gradeName.text?.count == 0 ? "Neue Note" : gradeName.text
         let newTest = UserTest(context: CoreDataStack.shared.managedObjectContext)
         
-        newTest.name = name ?? "Neue Note"
+        newTest.name = name == "" ? "Neue Note" : name
         newTest.grade =  Int16(pointSlider.value)
         newTest.date = datePicker.date
         newTest.big = bigGrade
