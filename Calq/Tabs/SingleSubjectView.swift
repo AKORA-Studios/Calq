@@ -115,10 +115,13 @@ class SingleSubjectView: UIViewController  {
         
         for i in minYear...maxYear{
             let tests = arr.filter({$0.year == i})
+            if(tests.count == 0){continue}
             let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000 - minimumDate
             
             if(i + 1 > maxYear) {continue}
             let testsNew = arr.filter({$0.year == i + 1})
+            if(testsNew.count == 0){ continue}
+            
             let minDate = (testsNew.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000 - minimumDate
      
             let date = ((maxDate + minDate) / 2) + 1000
