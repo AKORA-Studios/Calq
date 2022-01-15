@@ -72,7 +72,7 @@ class SingleSubjectView: UIViewController  {
             self.selectedYear = year
         }else {
             yearSegment.selectedSegmentIndex = 0;
-            self.selectedYear = 0
+            self.selectedYear = 1
         }
         yearSegment.selectedSegmentTintColor = self.pastelColor
         
