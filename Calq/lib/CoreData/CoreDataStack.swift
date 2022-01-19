@@ -6,7 +6,7 @@ class CoreDataStack {
     private init() {}
 
     private let persistentContainer: NSPersistentContainer = {
-        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.Calq")?.appendingPathComponent("Model.sqlite")
+        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner")?.appendingPathComponent("Model.sqlite")
         
         let container = NSPersistentContainer(name: "Model")
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL!)]

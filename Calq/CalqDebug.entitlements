@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.Calq</string>
+		<string>group.CalqRechner</string>
 	</array>
 </dict>
 </plist>
