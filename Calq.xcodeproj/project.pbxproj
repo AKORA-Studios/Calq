@@ -110,6 +110,8 @@
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DD32890326A9B0D7000DFD73 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD37556C279F3D36005DCB83 /* CalqWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
+		DD37556D279F3D90005DCB83 /* CalqRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqRelease.entitlements; sourceTree = "<group>"; };
 		DD39350426A9C92500917E06 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
 		DD3D62DA27382A01008BF2AF /* CircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		DD4F97522751167000D3CC57 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		DD6878772617B1A900BF2B48 = {
 			isa = PBXGroup;
 			children = (
+				DD37556C279F3D36005DCB83 /* CalqWidgetExtensionRelease.entitlements */,
 				DD4F97B327524F5200D3CC57 /* CalqWidgetExtensionDebug.entitlements */,
 				DD6878822617B1A900BF2B48 /* Calq */,
 				DD4F979C27515CA800D3CC57 /* CalqWidget */,
@@ -251,6 +254,7 @@
 		DD6878822617B1A900BF2B48 /* Calq */ = {
 			isa = PBXGroup;
 			children = (
+				DD37556D279F3D90005DCB83 /* CalqRelease.entitlements */,
 				DD4F97B427524F7000D3CC57 /* CalqDebug.entitlements */,
 				DD70E116261F315E0092815F /* lib */,
 				DDB4B235261C77D50022163C /* Tabs */,
@@ -656,6 +660,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
@@ -826,6 +831,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
