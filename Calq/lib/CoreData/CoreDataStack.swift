@@ -5,7 +5,7 @@ class CoreDataStack {
 
     private init() {}
 
-    private let persistentContainer: NSPersistentContainer = {
+   /* private let persistentContainer: NSPersistentContainer = {
         let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner")?.appendingPathComponent("Model.sqlite")
         
         let container = NSPersistentContainer(name: "Model")
@@ -16,18 +16,34 @@ class CoreDataStack {
             }
         })
         return container
-    }()
+    }()*/
     
-/*    private var persistentContainer: NSPersistentContainer = {
-           let container = NSPersistentContainer(name: "Model")
+    private var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        let storeURL = URL.storeURL()
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        container.persistentStoreDescriptions = [storeDescription]
+    
            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
                if let error = error as NSError? {
                    fatalError("Unresolved error \(error), \(error.userInfo)")
                }
            })
            return container
-       }()*/
+       }()
 }
+
+public extension URL {
+    
+    static func storeURL() -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner") else {
+            fatalError("Shared file container could not be created")
+        }
+        return fileContainer.appendingPathComponent("Model.sqlite")
+    }
+}
+
+
 
 // MARK: - Main context
 extension CoreDataStack {
