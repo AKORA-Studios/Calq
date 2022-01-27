@@ -82,7 +82,7 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         let name = gradeName.text?.count == 0 ? "Neue Note" : gradeName.text
         let newTest = UserTest(context: context)
         
-        newTest.name =  name ?? "Neue Note"
+        newTest.name =   Util.replaceString(name!)
         newTest.grade = Int16(pointSlider.value)
         newTest.date = gradeDate.date
         newTest.big = gradeTypeSegemnt.selectedSegmentIndex == 1

@@ -23,9 +23,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
             impact.impactOccurred()
         
         let name = gradeName.text?.count == 0 ? "Neue Note" : gradeName.text
+       
+        if(Util.checkString(name!)){
+            self.present(nameCharctersAlert, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {nameCharctersAlert.dismiss(animated: true, completion: nil)})
+        } else {
+            
         let newTest = UserTest(context: CoreDataStack.shared.managedObjectContext)
-        
-        newTest.name = name == "" ? "Neue Note" : name
+        newTest.name = name
         newTest.grade =  Int16(pointSlider.value)
         newTest.date = datePicker.date
         newTest.big = bigGrade
@@ -36,6 +41,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         WidgetCenter.shared.reloadAllTimelines()
         
         self.dismiss(animated: true)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
