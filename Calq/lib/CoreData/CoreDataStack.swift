@@ -2,21 +2,8 @@ import CoreData
 
 class CoreDataStack {
     static let shared = CoreDataStack()
-
+    
     private init() {}
-
-   /* private let persistentContainer: NSPersistentContainer = {
-        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner")?.appendingPathComponent("Model.sqlite")
-        
-        let container = NSPersistentContainer(name: "Model")
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL!)]
-        container.loadPersistentStores(completionHandler: { storeDescription, error in
-            if let error = error as NSError? {
-                print(error.localizedDescription)
-            }
-        })
-        return container
-    }()*/
     
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")

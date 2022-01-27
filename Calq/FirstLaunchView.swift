@@ -12,11 +12,19 @@ class FirstLaunch: UIViewController {
     @IBOutlet weak var pointSlider: UISlider!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pointLabel.text = "9"
         pointSlider.value = 9.0
+        
+        view.backgroundColor = .clear
+        backgroundView.backgroundColor = .clear
+        let blurEffect = UIBlurEffect(style: .dark)
+        let effectView = UIVisualEffectView(effect: blurEffect)
+        effectView.frame = view.bounds
+        view.insertSubview(effectView, at: 0)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
