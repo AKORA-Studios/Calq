@@ -11,7 +11,20 @@ enum UtilErrors: Error {
     case NoSubjects
 }
 
+public let nameCharctersAlert = UIAlertController(title: "Ungültiges Zeichen", message: "Dieser Name beinhaltet ein ungültiges Zeichen. Nur zeichen von a-z sind möglich ^^", preferredStyle: .alert)
+
 struct Util {
+    static func checkString(_ str: String) -> Bool{
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
+        let range = NSRange(location: 0, length: str.utf16.count)
+        return regex.firstMatch(in: str, options: [], range: range) == nil
+    }
+    
+    static func replaceString(_ str: String)->String{
+        let regex = try! NSRegularExpression(pattern: "[^a-zA-Z\\s]")
+        let range = NSRange(location: 0, length: str.utf16.count)
+        return regex.stringByReplacingMatches(in: str, options: [], range: range, withTemplate: "")
+    }
     
     // MARK: Colors & Gradients
     static func generateColorGradient(

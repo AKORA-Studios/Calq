@@ -10,8 +10,6 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
     
     @IBOutlet weak var colorChanger: UIButton!
     let colorPicker = UIColorPickerViewController()
-
-    let reservedAlert = UIAlertController(title: "Kurs bereits vorhanden", message: "Ein anderer Kurs trägt bereits diesen Namen. Wähle doch bitte einen anderen", preferredStyle: .alert)
     var callback: (() -> Void)!;
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -30,7 +28,6 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
         SubjectTitle.delegate = self
         colorPicker.delegate =  self
         
-        reservedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         colorPicker.selectedColor = UIColor.accentColor
         colorDisplay.backgroundColor = UIColor.accentColor
         colorChanger.backgroundColor = UIColor.accentColor
@@ -62,8 +59,14 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
     }
     
     @IBAction func saveSubjectOwO(_ sender: UIButton) {
-         createSubject()
-        self.dismiss(animated: true)
+        let name = SubjectTitle.text == "" ?  "Neuer Kurs" : SubjectTitle.text
+        if(Util.checkString(name!)){
+            self.present(nameCharctersAlert, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {nameCharctersAlert.dismiss(animated: true, completion: nil)})
+        } else {
+            createSubject()
+            self.dismiss(animated: true)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

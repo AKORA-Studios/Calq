@@ -117,10 +117,12 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
     @IBAction func typeChanged(_ sender: UISegmentedControl) { self.saveValues();}
     
     func saveValues() {
+        let name = SubjectTitle.text == "" ?  "Neuer Kurs" : SubjectTitle.text
+        
         let context = CoreDataStack.shared.managedObjectContext
         self.subject.color = colorDisplay.backgroundColor?.toHexString() ?? "ffffff"
         
-        self.subject.name = self.SubjectTitle.text ?? self.title!
+        self.subject.name = Util.replaceString(name!)
         self.subject.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
 
         try! context.save()
