@@ -9,6 +9,9 @@ import UIKit
 
 class FirstLaunch: UIViewController {
     
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var stepperLabelBig: UILabel!
+    @IBOutlet weak var stepperLabelSmall: UILabel!
     @IBOutlet weak var pointSlider: UISlider!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -18,6 +21,9 @@ class FirstLaunch: UIViewController {
         super.viewDidLoad()
         pointLabel.text = "9"
         pointSlider.value = 9.0
+        
+        stepperLabelBig.text = "50"
+        stepperLabelSmall.text = "50"
         
         view.backgroundColor = .clear
         backgroundView.backgroundColor = .clear
@@ -30,6 +36,7 @@ class FirstLaunch: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         let settings = Util.getSettings()
         settings?.goalGrade = Int16(pointSlider.value)
+        settings?.weightBigGrades = stepperLabelBig.text
         try! CoreDataStack.shared.managedObjectContext.save()
         super.viewDidDisappear(true)
     }
@@ -40,5 +47,11 @@ class FirstLaunch: UIViewController {
     @IBAction func sliderChanged(_ sender: UISlider) {
         sender.value =  round(sender.value)
         pointLabel.text = String(Int(pointSlider.value))
+    }
+    
+    @IBAction func stpperChanged(_ sender: UIStepper) {
+        let newBig = sender.value
+        stepperLabelBig.text =  String(format: "%.0f", newBig)
+        stepperLabelSmall.text =  String(format: "%.0f", 100 - newBig)
     }
 }
