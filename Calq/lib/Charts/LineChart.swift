@@ -20,6 +20,7 @@ class LineChart: UIView {
     var lineWidth: Double = 3.0
     var pointWidth: Double = 4.0
     var drawPoints: Bool = true
+    var axeColor: UIColor = .systemGray4
 
     public func clearView(){
         self.subviews.forEach({$0.removeFromSuperview()})
@@ -104,7 +105,7 @@ class LineChart: UIView {
     private func drawAxes(){
         let yAxis = UIView()
         yAxis.frame = CGRect(x: 17.0, y: 0.0, width: 1.0, height: self.frame.height)
-        yAxis.backgroundColor = .systemGray3
+        yAxis.backgroundColor = .systemGray4
         self.addSubview(yAxis)
    
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
@@ -118,20 +119,20 @@ class LineChart: UIView {
     private func drawMarkAxes(_ value: Double){
         let Axe = UIView()
         Axe.frame = CGRect(x: value, y: 0.0, width: 1.0, height: self.frame.height)
-        Axe.backgroundColor = .systemGray3
+        Axe.backgroundColor = axeColor
         self.addSubview(Axe)
     }
     
     private  func drawAxe(_ height: Double, _ title: String){
         let line3 = UIView()
         line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
-        line3.backgroundColor = .systemGray5
+        line3.backgroundColor = axeColor
         self.addSubview(line3)
         let label3 = UILabel()
         label3.frame = CGRect(x: 0.0, y: height , width: 15.0, height: 15.0)
         label3.text = title
         label3.adjustsFontSizeToFitWidth = true
-        label3.textColor = .systemGray5
+        label3.textColor = axeColor
         self.addSubview(label3)
     }
     

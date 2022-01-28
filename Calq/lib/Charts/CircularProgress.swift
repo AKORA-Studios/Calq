@@ -24,7 +24,7 @@ class CircularProgressView: UIView {
     /// Circle foregroundColor
     var color: UIColor = UIColor.blue
     /// Circle backgroundColor
-    var Backgroundcolor: UIColor = .systemBackground
+    var Backgroundcolor: UIColor = .systemGray6
     ///0.0 - 1.0
     var progress: Double = 0.5
     /// circle radius

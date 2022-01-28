@@ -88,7 +88,7 @@ class BarChart: UIView {
         //Y-Axis
         let yAxis = UIView()
         yAxis.frame = CGRect(x: 17.0, y: 0.0, width: 1.0, height: self.frame.height)
-        yAxis.backgroundColor = .systemGray5
+        yAxis.backgroundColor = .systemGray4
         self.addSubview(yAxis)
         
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
@@ -98,7 +98,7 @@ class BarChart: UIView {
         drawAxe(((1000/15)*zeroLineValue)/100, "5")
     }
     
-    func drawAxe(_ height: Double, _ title: String, _ color: UIColor = .systemGray5){
+    func drawAxe(_ height: Double, _ title: String, _ color: UIColor = .systemGray4){
             let line3 = UIView()
             line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
             line3.backgroundColor = color
