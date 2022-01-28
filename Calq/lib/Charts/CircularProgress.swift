@@ -16,7 +16,7 @@ class CircularProgressView: UIView {
     private var endPoint = CGFloat(3 * Double.pi / 2)
 
     /// circle line width
-    var lineWidth: Double  = 20
+    var lineWidth: Double  = 15
     /// Text inside the circle line 1
     var title : String = ""
     /// Text inside the circle line 2
@@ -28,7 +28,7 @@ class CircularProgressView: UIView {
     ///0.0 - 1.0
     var progress: Double = 0.5
     /// circle radius
-    var radius: Int = 60
+    var radius: Int = 50
     
     override init(frame: CGRect) {
           super.init(frame: frame)
@@ -76,7 +76,7 @@ class CircularProgressView: UIView {
         let titleParagraphStyle = NSMutableParagraphStyle()
         titleParagraphStyle.alignment = .center
         
-        let firstAttributes: [NSAttributedString.Key: Any] = [ .font: UIFont.systemFont(ofSize: 35.0), .foregroundColor: self.color, .paragraphStyle: titleParagraphStyle]
+        let firstAttributes: [NSAttributedString.Key: Any] = [ .font: UIFont.systemFont(ofSize: 30.0), .foregroundColor: self.color, .paragraphStyle: titleParagraphStyle]
         let secondAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0), NSAttributedString.Key.foregroundColor: self.color, .paragraphStyle: titleParagraphStyle]
         
         let firstString = NSMutableAttributedString(string: self.title, attributes: firstAttributes)
