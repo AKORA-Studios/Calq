@@ -14,6 +14,14 @@ enum UtilErrors: Error {
 public let nameCharctersAlert = UIAlertController(title: "Ungültiges Zeichen", message: "Dieser Name beinhaltet ein ungültiges Zeichen. Nur zeichen von a-z sind möglich ^^", preferredStyle: .alert)
 public let noTestsAlert = UIAlertController(title: "Keine Noten", message: "Dieses Fach hat noch keine eingetragenen Noten", preferredStyle: .alert)
 
+class backView: UIView {
+    override func layoutSubviews() {
+        self.layer.cornerRadius = 5.0
+        self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        self.backgroundColor = .systemGray6
+    }
+}
+
 struct Util {
     static func checkString(_ str: String) -> Bool{
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
