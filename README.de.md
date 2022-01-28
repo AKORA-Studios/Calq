@@ -11,22 +11,22 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 * Deaktivieren von Halbjahren
 
 
-## Showcase (Iphone8)
+## Showcase
 <details open>
 <summary>Showcase Hell</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/819922260424785920/929342867476979742/unknown.png?width=369&height=656)
-![Kurse2](https://media.discordapp.net/attachments/819922260424785920/929343073262133288/unknown.png?width=369&height=656)
+![Kurse1](https://media.discordapp.net/attachments/867129329363976212/936641961639694346/unknown.png?width=309&height=670)
+![Kurse2](https://media.discordapp.net/attachments/867129329363976212/936641988613259325/unknown.png?width=309&height=670)
 
-![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/922541369136910336/unknown.png?width=369&height=656)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=369&height=656)
+![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/936642987201527848/unknown.png?width=309&height=670)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=309&height=670)
 
-![Kursinfo](https://media.discordapp.net/attachments/819922260424785920/929343353399672892/unknown.png?width=369&height=656)
-![Noten](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=369&height=656)
+![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/936642048696647690/unknown.png?width=309&height=670)
+![Noten](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=309&height=670)
   
-![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/929342845142327346/unknown.png?width=369&height=656)
-![Einstellung](https://media.discordapp.net/attachments/867129329363976212/921790908263964672/unknown.png?width=369&height=656)
+![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
+![Einstellung](https://media.discordapp.net/attachments/867129329363976212/936643000052887562/unknown.png?width=309&height=670)
 </details>
 
 <details open>

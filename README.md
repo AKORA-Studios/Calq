@@ -11,22 +11,22 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 * Disable half-years
 
 
-## Showcase (Iphone8)
+## Showcase
 <details open>
 <summary>Showcase Light Mode</summary>
 <br>
   
-![Overview1](https://media.discordapp.net/attachments/819922260424785920/929342867476979742/unknown.png?width=376&height=669)
-![Overview2](https://media.discordapp.net/attachments/819922260424785920/929343073262133288/unknown.png?width=376&height=669)
+![Overview1](https://media.discordapp.net/attachments/867129329363976212/936641961639694346/unknown.png?width=309&height=670)
+![Overview2](https://media.discordapp.net/attachments/867129329363976212/936641988613259325/unknown.png?width=309&height=670)
 
-![Subejctoverview](https://media.discordapp.net/attachments/867129329363976212/922541369136910336/unknown.png?width=376&height=669)
-![New Grade](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=376&height=669)
+![Subejctoverview](https://media.discordapp.net/attachments/867129329363976212/936642987201527848/unknown.png?width=309&height=670)
+![New Grade](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=309&height=670)
 
-![SubjectInfo](https://media.discordapp.net/attachments/819922260424785920/929343353399672892/unknown.png?width=376&height=669)
-![Grades](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=376&height=669)
+![SubjectInfo](https://media.discordapp.net/attachments/867129329363976212/936642048696647690/unknown.png?width=309&height=670)
+![Grades](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=309&height=670)
   
-![Exams](https://media.discordapp.net/attachments/819922260424785920/929342845142327346/unknown.png?width=376&height=669)
-![Settings](https://media.discordapp.net/attachments/867129329363976212/921790908263964672/unknown.png?width=376&height=669)
+![Exams](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
+![Settings](https://media.discordapp.net/attachments/867129329363976212/936643000052887562/unknown.png?width=309&height=670)
 </details>
 
 <details open>
