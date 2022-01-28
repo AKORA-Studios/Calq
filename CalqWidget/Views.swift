@@ -34,7 +34,7 @@ struct OverviewView: View {
                       BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
                   }
                   Spacer()
-              }
+                  }
           }
           }
     }
@@ -72,6 +72,12 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
     let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
     
     func makeBody(configuration: Configuration) -> some View {
+        VStack {
+            HStack {
+                Image(systemName: "chart.bar.fill")   .font(.system(size: 16.0)).foregroundColor(.accentColor)
+                Text("Durchschnitt").foregroundColor(.accentColor)
+            }.padding(.top, 10)
+ 
         ZStack {
             Circle()
                 .trim(from: 0.0, to: 1.0)
@@ -95,7 +101,7 @@ struct CustomCircularProgressViewStyle: ProgressViewStyle {
                     .foregroundColor(color)
                     .frame(width: 90)
             }
-        
         }
+        }.padding(.bottom, 10)
     }
 }

@@ -47,10 +47,13 @@ struct CalqWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+              //  .background(Color(UIColor.systemGray5))
         }
         .configurationDisplayName("Durchschnitt Widget")
         .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
         .supportedFamilies([.systemSmall])
+        
     }
 }
 
