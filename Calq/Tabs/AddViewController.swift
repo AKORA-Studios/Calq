@@ -88,6 +88,12 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
         self.view.addGestureRecognizer(tapGesture)
         update()
+        
+        if #available(iOS 15.0, *) {
+            let appearence =  UINavigationBarAppearance()
+            appearence.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+        }
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
