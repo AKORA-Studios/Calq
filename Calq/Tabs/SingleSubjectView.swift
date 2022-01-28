@@ -4,10 +4,8 @@ import CoreData
 class SingleSubjectView: UIViewController  {
     
     @IBOutlet weak var yearSegment: UISegmentedControl!
-    @IBOutlet weak var subjectName: UILabel!
     @IBOutlet weak var CircularProgress: CircularProgressView!
     @IBOutlet weak var yearSwitch: UISwitch!
-    @IBOutlet weak var gradesButton: UIButton!
     @IBOutlet weak var yeartimeChart: LineChart!
     
     var subject: UserSubject!
@@ -44,14 +42,6 @@ class SingleSubjectView: UIViewController  {
                 CircularProgress.setprogress((Util.testAverage(arr)/15.0), self.pastelColor!, String(Util.testAverage(arr)), "")
             }
         setYearChart()
-        
-        if(self.subject.subjecttests?.count == 0){
-            gradesButton.isUserInteractionEnabled = false
-            gradesButton.backgroundColor = .systemGray5
-        } else {
-            gradesButton.isUserInteractionEnabled = true
-            gradesButton.backgroundColor = .accentColor
-        }
     }
     
     override func viewDidLoad() {
@@ -59,6 +49,7 @@ class SingleSubjectView: UIViewController  {
         self.update()
 
         self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Notenliste", style: .plain, target: self, action: #selector(navigateToGrades))
         self.navigationItem.title = self.subject.name
         self.yearSwitch.tintColor = self.pastelColor
         
@@ -81,6 +72,7 @@ class SingleSubjectView: UIViewController  {
             appearence.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
+        view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ? .white : .black
     }
     
     @objc func backButtonPressed(_ sender:UIButton) {
@@ -149,7 +141,13 @@ class SingleSubjectView: UIViewController  {
         yeartimeChart.addDataSet(arr.sorted(by: {$0.0 > $1.0}), color)
     }
 
-    @IBAction func navigateToGrades(_ sender: Any) {
+    @objc func navigateToGrades(_ sender: UIButton) {
+        if(self.subject.subjecttests?.count == 0){
+            self.present(noTestsAlert, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {noTestsAlert.dismiss(animated: true, completion: nil)})
+            return
+        }
+        
        let newView = self.storyboard?.instantiateViewController(withIdentifier: "gradeTableView") as! gradeTableView
         newView.subject = self.subject;
         newView.callback = {

@@ -12,6 +12,7 @@ enum UtilErrors: Error {
 }
 
 public let nameCharctersAlert = UIAlertController(title: "Ungültiges Zeichen", message: "Dieser Name beinhaltet ein ungültiges Zeichen. Nur zeichen von a-z sind möglich ^^", preferredStyle: .alert)
+public let noTestsAlert = UIAlertController(title: "Keine Noten", message: "Dieses Fach hat noch keine eingetragenen Noten", preferredStyle: .alert)
 
 struct Util {
     static func checkString(_ str: String) -> Bool{
