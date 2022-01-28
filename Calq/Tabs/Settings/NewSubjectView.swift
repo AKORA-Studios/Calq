@@ -44,6 +44,7 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
         self.view.addGestureRecognizer(tapGesture)
+        view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ? .white : .black
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

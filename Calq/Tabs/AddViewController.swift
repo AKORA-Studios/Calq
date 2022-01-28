@@ -94,6 +94,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
             appearence.configureWithDefaultBackground()
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
         }
+        view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ? .white : .black
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

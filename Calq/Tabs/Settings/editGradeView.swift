@@ -53,6 +53,7 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)) )
         self.view.addGestureRecognizer(tapGesture)
+        view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ? .white : .black
     }
     
     func update(){
