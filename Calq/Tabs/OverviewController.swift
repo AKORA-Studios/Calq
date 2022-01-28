@@ -48,7 +48,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        UserDefaults.standard.removeObject(forKey: "LaunchedAlready")
+
         let firstLaunch =   UserDefaults.standard.bool(forKey: "LaunchedAlready")
         
         if(!firstLaunch){
