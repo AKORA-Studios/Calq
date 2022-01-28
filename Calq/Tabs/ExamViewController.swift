@@ -75,7 +75,9 @@ class ExamViewController: ViewController {
                     field = examFields[Int(sub.examtype)-1],
                     label = examLabels[Int(sub.examtype)-1]
                 
-                field.backgroundColor = .accentColor//.systemGray3
+                let subColor = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                field.backgroundColor = subColor
+                slider.tintColor = subColor
                 field.setTitle(sub.name, for: .normal)
                 slider.setValue(points, animated: true)
                 label.text = String(sub.exampoints)
@@ -90,6 +92,7 @@ class ExamViewController: ViewController {
                 field.backgroundColor = .systemGray3
                 field.setTitle("Prüfungsfach wählen", for: .normal)
                 slider.setValue(Float(0), animated: true)
+                slider.tintColor = .accentColor
                 label.text = "0"
             }
            //set everything to default values if there are no exam subjects selected
@@ -103,6 +106,7 @@ class ExamViewController: ViewController {
                 field.backgroundColor = .systemGray3
                 field.setTitle("Prüfungsfach wählen", for: .normal)
                 slider.setValue(Float(0), animated: true)
+                slider.tintColor = .accentColor
                 label.text = "0"
             }
         }
