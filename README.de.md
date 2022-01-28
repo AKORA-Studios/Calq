@@ -20,10 +20,10 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ![Kurse2](https://media.discordapp.net/attachments/867129329363976212/936641988613259325/unknown.png?width=309&height=670)
 
 ![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/936642987201527848/unknown.png?width=309&height=670)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/925812132656840754/unknown.png?width=309&height=670)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/936730372769738843/unknown.png?width=309&height=670)
 
 ![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/936642048696647690/unknown.png?width=309&height=670)
-![Noten](https://media.discordapp.net/attachments/867129329363976212/922541355677405224/unknown.png?width=309&height=670)
+![Noten](https://media.discordapp.net/attachments/867129329363976212/936730395087601664/unknown.png?width=309&height=670)
   
 ![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
 ![Einstellung](https://media.discordapp.net/attachments/867129329363976212/936643000052887562/unknown.png?width=309&height=670)
@@ -33,8 +33,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Widget</summary>
 <br>
   
-![Dunkel](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=304&height=657)
-![Hell](https://media.discordapp.net/attachments/819922260424785920/926869082903568434/unknown.png?width=304&height=657)
+![Dunkel](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=304&height=670)
+![Hell](https://media.discordapp.net/attachments/867129329363976212/936730718237761586/unknown.png?width=309&height=670)
 </details
 <br>
 
