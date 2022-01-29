@@ -17,13 +17,19 @@ class FirstLaunch: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var backgroundView: UIView!
     
+    var settings: AppSettings?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        pointLabel.text = "9"
-        pointSlider.value = 9.0
         
-        stepperLabelBig.text = "50"
-        stepperLabelSmall.text = "50"
+        self.settings = Util.getSettings()
+        let oldWeight = Double((settings?.weightBigGrades)!)
+        stepperLabelBig.text = String(oldWeight! * 100)
+        stepperLabelSmall.text = String((1 - oldWeight!) * 100)
+        
+        let oldGoal = Int(settings!.goalGrade)
+        pointLabel.text = String(oldGoal)
+        pointSlider.value = Float(oldGoal)
         
         view.backgroundColor = .clear
         backgroundView.backgroundColor = .clear
@@ -34,9 +40,8 @@ class FirstLaunch: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        let settings = Util.getSettings()
         settings?.goalGrade = Int16(pointSlider.value)
-        settings?.weightBigGrades = stepperLabelBig.text
+        settings?.weightBigGrades = String(Double(stepperLabelBig.text!)! / 100)
         try! CoreDataStack.shared.managedObjectContext.save()
         super.viewDidDisappear(true)
     }
