@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 class FirstLaunch: UIViewController {
     
@@ -43,6 +44,7 @@ class FirstLaunch: UIViewController {
         settings?.goalGrade = Int16(pointSlider.value)
         settings?.weightBigGrades = String(Double(stepperLabelBig.text!)! / 100)
         try! CoreDataStack.shared.managedObjectContext.save()
+        WidgetCenter.shared.reloadAllTimelines()
         super.viewDidDisappear(true)
     }
     @IBAction func navigateBack(_ sender: Any) {

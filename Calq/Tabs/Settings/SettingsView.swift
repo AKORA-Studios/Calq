@@ -29,10 +29,10 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
     
     func update() {
         self.settings = Util.getSettings()
-        self.models = [];
+        self.models = []
         self.switches = []
-        self.configure();
-        self.tableView.reloadData();
+        self.configure()
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -227,8 +227,8 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                         self.update();
                     }
                 )),
-            
-                .staticCell(model:SettingsOption(title: "Noten importieren", subtitle: "", icon: UIImage(systemName: "square.stack.3d.down.right.fill"), iconBackgroundColor: .accentColor, selectHandler: {
+                
+                .staticCell(model:SettingsOption(title: "Noten importieren", subtitle: "", icon: UIImage(systemName: "folder.fill"), iconBackgroundColor: .accentColor, selectHandler: {
                    
                     let types = UTType.types(tag: "json", tagClass: UTTagClass.filenameExtension, conformingTo: nil)
                     let documentPickerController = UIDocumentPickerViewController(forOpeningContentTypes: types)
@@ -237,7 +237,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                     self.present(documentPickerController, animated: true, completion: {})
                 })),
             
-                .staticCell(model:SettingsOption(title: "Noten exportieren", subtitle: "", icon: UIImage(systemName: "folder.fill"), iconBackgroundColor: UIColor.init(hexString: "#2f4899"), selectHandler: {
+                .staticCell(model:SettingsOption(title: "Noten exportieren", subtitle: "", icon: UIImage(systemName: "square.and.arrow.up.fill"), iconBackgroundColor: UIColor.init(hexString: "#2f4899"), selectHandler: {
                     
                     let data = JSON.exportJSON()
                     let url = JSON.writeJSON(data)
@@ -248,7 +248,12 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                     )
                     self.present(activity, animated: true, completion: nil)
                 })),
-            
+                
+                    .staticCell(model:SettingsOption(title: "Wertung ändern", subtitle: "", icon: UIImage(systemName: "square.stack.3d.down.right.fill"), iconBackgroundColor: .systemYellow, selectHandler: {
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "FirstLaunch", bundle:nil)
+                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FirstLaunch") as! FirstLaunch
+                        return self.present(nextViewController, animated:true, completion: nil)
+                    })),
             
                 .staticCell(model:SettingsOption(title: "Demo Daten laden", subtitle: "", icon: UIImage(systemName: "exclamationmark.triangle.fill"), iconBackgroundColor: .systemOrange)
                             {
