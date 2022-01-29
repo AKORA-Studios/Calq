@@ -236,39 +236,39 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         }
         
         //calculation old grade
-        var divider = 2.0
+        let weigth = Double(Util.getSettings()!.weightBigGrades!)!
+        let weightSmall = 1 - weigth
+        let averageOld: Int = Int(round(Util.testAverage(tests)))
+        
         let big =  Util.testAverage(tests.filter{$0.big})
-        if(tests.filter{$0.big}.count == 0) {divider = 1}
-        
         let small = Util.testAverage(tests.filter{!$0.big})
-        if(tests.filter{!$0.big}.count == 0) {divider = 1}
-        
-        let averageOld: Int = Int((big + small)/divider)
-        
         
         var worseLast: Int = 99
         var betterLast: Int = 99
         var sameLast: Int = 99
         //calculation new grade
         for i in 1...15 {
-            divider = 2.0
             var newAverage: Int = 0
             
             if(gradeTypeSelect.selectedSegmentIndex == 0){ //small
                 var gradeArr = tests.filter{!$0.big}.map{Int($0.grade)}
                 gradeArr.append(i)
-                let newSmall = Util.average(gradeArr)
                 
-                if(tests.filter{$0.big}.count == 0) {divider = 1}
-                newAverage = Int(round((big + newSmall)/divider))
+                if(tests.filter{$0.big}.count == 0) {
+                    newAverage = Int(round(Util.average(gradeArr)))
+                } else {
+                        newAverage = Int(round(weigth * big + weightSmall * Util.average(gradeArr)))
+                    }
                 
             }else { //big
                 var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
                 gradeArr.append(i)
-                let newBig = Util.average(gradeArr)
                 
-                if(tests.filter{!$0.big}.count == 0) {divider = 1}
-                newAverage = Int(round((newBig + small)/divider))
+                if(tests.filter{!$0.big}.count == 0) {
+                    newAverage = Int(round(Util.average(gradeArr)))
+                } else {
+                    newAverage = Int(round(weigth * Util.average(gradeArr) + weightSmall * small))
+                }
             }
             
             var str = "\(newAverage)"

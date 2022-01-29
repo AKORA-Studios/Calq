@@ -133,6 +133,8 @@ struct Util {
     
     /// Returns the average of an array of tests.
     static func testAverage(_ tests: [UserTest]) -> Double {
+        let weigth = Double(Util.getSettings()!.weightBigGrades!)!
+     
         let smallArr = tests.filter{!$0.big}.map{Int($0.grade)},
             bigArr = tests.filter{$0.big}.map{Int($0.grade)};
         
@@ -140,7 +142,9 @@ struct Util {
             let smallAvg = Util.average(smallArr),
                 bigAvg = Util.average(bigArr)
             
-            return (smallAvg + bigAvg) / 2;
+            return weigth * bigAvg + (1.0 - weigth) * smallAvg
+            
+          //  return (smallAvg + bigAvg) / 2;
         } else if (smallArr.count == 0) {
                 return Util.average(bigArr);
         } else if (bigArr.count == 0) {

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD04048D27A4916A00225264 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04048B27A4916A00225264 /* AppSettings+CoreDataClass.swift */; };
-		DD04048E27A4916A00225264 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04048B27A4916A00225264 /* AppSettings+CoreDataClass.swift */; };
-		DD04048F27A4916A00225264 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04048C27A4916A00225264 /* AppSettings+CoreDataProperties.swift */; };
-		DD04049027A4916A00225264 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD04048C27A4916A00225264 /* AppSettings+CoreDataProperties.swift */; };
 		DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
+		DD10EA8B27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */; };
+		DD10EA8C27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */; };
+		DD10EA8D27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */; };
+		DD10EA8E27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */; };
 		DD22EE26278B3E9700C3024B /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */; };
 		DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE29278B430600C3024B /* FirstLaunchView.swift */; };
 		DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39350426A9C92500917E06 /* ExamViewController.swift */; };
@@ -104,9 +104,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DD04048B27A4916A00225264 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataClass.swift"; path = "lib/CoreData/AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DD04048C27A4916A00225264 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataProperties.swift"; path = "lib/CoreData/AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DD0B86D327667E3F00DCC61F /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
 		DD22EE29278B430600C3024B /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -312,8 +312,8 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DD04048B27A4916A00225264 /* AppSettings+CoreDataClass.swift */,
-				DD04048C27A4916A00225264 /* AppSettings+CoreDataProperties.swift */,
+				DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */,
+				DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */,
 				DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */,
 				DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */,
 				DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */,
@@ -515,13 +515,13 @@
 			files = (
 				DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
-				DD04048E27A4916A00225264 /* AppSettings+CoreDataClass.swift in Sources */,
+				DD10EA8C27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
 				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
 				DDBB97C72757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
-				DD04049027A4916A00225264 /* AppSettings+CoreDataProperties.swift in Sources */,
+				DD10EA8E27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
 				DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
 			);
@@ -547,7 +547,7 @@
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
 				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
-				DD04048F27A4916A00225264 /* AppSettings+CoreDataProperties.swift in Sources */,
+				DD10EA8D27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
@@ -564,7 +564,7 @@
 				DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD6878DF261901A400BF2B48 /* SceneDelegate.swift in Sources */,
 				DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */,
-				DD04048D27A4916A00225264 /* AppSettings+CoreDataClass.swift in Sources */,
+				DD10EA8B27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD6BD08E262B81AB008E95B2 /* SetupSubject.swift in Sources */,
 				DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */,
 			);
