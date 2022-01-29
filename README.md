@@ -26,7 +26,7 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![Grades](https://media.discordapp.net/attachments/867129329363976212/936730395087601664/unknown.png?width=309&height=670)
   
 ![Exams](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
-![Settings](https://media.discordapp.net/attachments/867129329363976212/936643000052887562/unknown.png?width=309&height=670)
+![Settings](https://media.discordapp.net/attachments/867129329363976212/937014189170503720/unknown.png?width=309&height=670)
 </details>
 
 <details open>
