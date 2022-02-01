@@ -1,45 +1,54 @@
-# Calq-iOS
-Abitur grades calculator for iOs 14 or higher.
-Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/blob/master/README.de.md)
+[![Size](https://img.shields.io/github/repo-size/AKORA-Studios/Calq?color=428FE3&label=SIZE&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[![Issues](https://img.shields.io/github/issues/AKORA-Studios/Calq?color=428FE3&label=Issues&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[![Last Commit](https://img.shields.io/github/last-commit/AKORA-Studios/Calq/master?color=428FE3&label=lastcommit&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 
-## Features
-* Calculate high school graduation average
-* Calculate subject average
-* Export data as JSON (note: does not include final exams)
-* (optional) Automatic subject colors
-* Calculate impact of new grade
-* Disable half-years
+
+# Calq-iOS
+Abiturnoten Rchner für iOs 14 oder höher.
+ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
+
+### [Appstore Link](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+<br>
+
+## Funktionen
+* Abiturschnitt berechnen
+* Fächerdurchschnitt berechnen
+* Daten als JSON exportieren und importieren
+* (optional) Automatische Fächerfarben
+* Berechnung Auswirkung neuer Note
+* Deaktivieren von Halbjahren
+* Custom Gewichtung von Klausuren und Tests
 
 
 ## Showcase
 <details open>
-<summary>Showcase Light Mode</summary>
+<summary>Showcase Hell</summary>
 <br>
   
-![Overview1](https://media.discordapp.net/attachments/867129329363976212/936641961639694346/unknown.png?width=309&height=670)
-![Overview2](https://media.discordapp.net/attachments/867129329363976212/936641988613259325/unknown.png?width=309&height=670)
+![Kurse1](https://media.discordapp.net/attachments/867129329363976212/936641961639694346/unknown.png?width=309&height=670)
+![Kurse2](https://media.discordapp.net/attachments/867129329363976212/936641988613259325/unknown.png?width=309&height=670)
 
-![Subejctoverview](https://media.discordapp.net/attachments/867129329363976212/936642987201527848/unknown.png?width=309&height=670)
-![New Grade](https://media.discordapp.net/attachments/867129329363976212/936730372769738843/unknown.png?width=309&height=670)
+![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/936642987201527848/unknown.png?width=309&height=670)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/936730372769738843/unknown.png?width=309&height=670)
 
-![SubjectInfo](https://media.discordapp.net/attachments/867129329363976212/936642048696647690/unknown.png?width=309&height=670)
-![Grades](https://media.discordapp.net/attachments/867129329363976212/936730395087601664/unknown.png?width=309&height=670)
+![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/936642048696647690/unknown.png?width=309&height=670)
+![Noten](https://media.discordapp.net/attachments/867129329363976212/936730395087601664/unknown.png?width=309&height=670)
   
-![Exams](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
-![Settings](https://media.discordapp.net/attachments/867129329363976212/937014189170503720/unknown.png?width=309&height=670)
+![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
+![Einstellung](https://media.discordapp.net/attachments/867129329363976212/937014189170503720/unknown.png?width=309&height=6700)
 </details>
 
 <details open>
 <summary>Showcase Widget</summary>
 <br>
-
-![Dark](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=309&height=670)
-![Light](https://media.discordapp.net/attachments/867129329363976212/936730718237761586/unknown.png?width=309&height=670)
+  
+![Dunkel](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=309&height=670)
+![Hell](https://media.discordapp.net/attachments/867129329363976212/936730718237761586/unknown.png?width=309&height=670)
 </details
 <br>
 
 ## Feature Requests
-[Future features](https://github.com/AKORA-Studios/Calq/projects/2) are listed in our repos projects. you have a feature request? For this you can open issue [right here](https://github.com/AKORA-Studios/Calq/issues). Additionally we have a [widget project](https://github.com/AKORA-Studios/Calq/projects/1).
+[Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen. Für das [Widget](https://github.com/AKORA-Studios/Calq/projects/1) besteht ein extra Projekt.
 
 # License
 Calq is available under the MIT license. See the [LICENSE](https://github.com/AKORA-Studios/Calq-iOS/blob/main/LICENSE) file for more info.
