@@ -35,7 +35,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/936730395087601664/unknown.png?width=309&height=670)
   
 ![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/936642066354675742/unknown.png?width=309&height=670)
-![Einstellung](https://media.discordapp.net/attachments/867129329363976212/937014189170503720/unknown.png?width=309&height=6700)
+![Einstellung](https://media.discordapp.net/attachments/867129329363976212/937014189170503720/unknown.png?width=309&height=670)
 </details>
 
 <details open>
