@@ -22,6 +22,7 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
         
         demoAlert.addAction(UIAlertAction(title: "Oki", style: .default, handler: nil))
         self.navigationItem.title = "Alle Kurse"
+       
         update()
       
         if #available(iOS 15.0, *) {
@@ -42,9 +43,20 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
     
     func update() {
         self.settings = Util.getSettings()
-        self.models = [];
-        configure();
-        self.tableView.reloadData();
+        self.models = []
+        configure()
+        self.tableView.reloadData()
+        
+        if(Util.getAllSubjects().count != 0){
+            self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Notentabelle", style: .plain, target: self, action: #selector(navigateToTableOverview))
+        }
+    }
+    
+    @objc func navigateToTableOverview(_ sender:UIButton) {
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: "TableOverview") as! TableOverview
+        
+        let navController = UINavigationController(rootViewController: newView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

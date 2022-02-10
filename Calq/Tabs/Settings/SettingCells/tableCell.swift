@@ -9,7 +9,6 @@ class TableCell: UITableViewCell {
         return label
     }()
     
-    //Halfyear labels
     private let lab1: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -56,15 +55,12 @@ class TableCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size : CGFloat = contentView.frame.size.height - 12
-        iconContainer.frame = CGRect(x: 15, y: 6, width: 50, height: size)
+        label.frame = CGRect(x: 25, y: 0, width: contentView.frame.size.width-20, height: contentView.frame.size.height)
         
-        label.frame = CGRect(x: 25+iconContainer.frame.size.width, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
-        
-        lab1.frame = CGRect(x: 25+iconContainer.frame.size.width - 105, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
-        lab2.frame = CGRect(x: 25+iconContainer.frame.size.width - 75, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
-        lab3.frame = CGRect(x: 25+iconContainer.frame.size.width - 45, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
-        lab4.frame = CGRect(x: 25+iconContainer.frame.size.width - 15, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
+        lab1.frame = CGRect(x: 25 - 105, y: 0, width: contentView.frame.size.width-30, height: contentView.frame.size.height)
+        lab2.frame = CGRect(x: 25 - 75, y: 0, width: contentView.frame.size.width-30, height: contentView.frame.size.height)
+        lab3.frame = CGRect(x: 25 - 45, y: 0, width: contentView.frame.size.width-30, height: contentView.frame.size.height)
+        lab4.frame = CGRect(x: 25 - 15, y: 0, width: contentView.frame.size.width-30, height: contentView.frame.size.height)
     }
  
     override func prepareForReuse() {
@@ -92,5 +88,8 @@ class TableCell: UITableViewCell {
         lab2.text =  array[1]
         lab3.text =  array[2]
         lab4.text =  array[3]
+        
+        self.selectionStyle = .none
+        self.accessoryType = .none
     }
 }

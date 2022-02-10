@@ -61,6 +61,8 @@
 		DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC22B4D261DDF730001B27C /* SettingsView.swift */; };
 		DDC89037261F902100A93178 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC89036261F902100A93178 /* SettingsCell.swift */; };
 		DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */; };
+		DDEBB40027B5A2A7004D80BB /* TableOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBB3FF27B5A2A7004D80BB /* TableOverview.swift */; };
+		DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBB40127B5A624004D80BB /* TableCell.swift */; };
 		DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
 		DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF83D082639BE5300E995BC /* NewSubjectView.swift */; };
 /* End PBXBuildFile section */
@@ -164,6 +166,8 @@
 		DDC22B4D261DDF730001B27C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDC89036261F902100A93178 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsCell.swift; sourceTree = "<group>"; };
+		DDEBB3FF27B5A2A7004D80BB /* TableOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOverview.swift; sourceTree = "<group>"; };
+		DDEBB40127B5A624004D80BB /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DDF83D082639BE5300E995BC /* NewSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +284,7 @@
 				DD95D6A627358C5B00399615 /* HalfyearCell.swift */,
 				DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */,
 				DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */,
+				DDEBB40127B5A624004D80BB /* TableCell.swift */,
 			);
 			path = SettingCells;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */,
 				DD39350426A9C92500917E06 /* ExamViewController.swift */,
 				DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */,
+				DDEBB3FF27B5A2A7004D80BB /* TableOverview.swift */,
 				DDB9012D276272E600E799FD /* PredictSelect.swift */,
 				DD687940261BAD2E00BF2B48 /* SingleSubjectView.swift */,
 				DD68793B261B9BC600BF2B48 /* AddViewController.swift */,
@@ -551,7 +557,9 @@
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
+				DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
+				DDEBB40027B5A2A7004D80BB /* TableOverview.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */,
 				DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */,

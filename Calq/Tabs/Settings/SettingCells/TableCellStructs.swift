@@ -62,15 +62,14 @@ struct YearOption{
 // Structs TableCell
 struct Section3 {
     let title: String
-    let options: [SettingsOptionType3]
+    let options: [TableSectionOption]
 }
 
-enum TableSectionOption3{
+enum TableSectionOption{
     case tableCell(model: TableOption)
 }
 
 struct TableOption{
     let title: String
     let subtitle: String?
-    let selectHandler: (()-> Void)
 }
