@@ -1,26 +1,11 @@
 import UIKit
 
-class HalfyearCell: UITableViewCell {
-    static let identifier = "HalfyearCell"
-    
-    private let iconContainer: UIView = {
-        let view = UIView()
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
-        return view
-    }()
+class TableCell: UITableViewCell {
+    static let identifier = "TableCell"
     
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        return label
-    }()
-    
-    private let pointLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.textAlignment = .center
         return label
     }()
     
@@ -61,8 +46,6 @@ class HalfyearCell: UITableViewCell {
         contentView.addSubview(lab2)
         contentView.addSubview(lab3)
         contentView.addSubview(lab4)
-        contentView.addSubview(iconContainer)
-        iconContainer.addSubview(pointLabel)
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
@@ -74,11 +57,7 @@ class HalfyearCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let size : CGFloat = contentView.frame.size.height - 12
-        iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
-        
-        let imageSize: CGFloat = size/1.5
-        
-        pointLabel.frame = CGRect(x: (size-imageSize)/2, y: (size-imageSize)/2, width: imageSize, height: imageSize)
+        iconContainer.frame = CGRect(x: 15, y: 6, width: 50, height: size)
         
         label.frame = CGRect(x: 25+iconContainer.frame.size.width, y: 0, width: contentView.frame.size.width-20-iconContainer.frame.size.width, height: contentView.frame.size.height)
         
@@ -95,15 +74,13 @@ class HalfyearCell: UITableViewCell {
         lab2.text = nil
         lab3.text = nil
         lab4.text = nil
-        pointLabel.text = nil
-        iconContainer.backgroundColor = nil
         
         for label in [lab1,lab2,lab3,lab4]{
             label.textColor = .systemGray2
         }
     }
     
-    public func configure(with model: YearOption){
+    public func configure(with model: TableOption){
         var array =  model.subtitle?.components(separatedBy: " ") ?? ["--","--","--","--"]
      
         while array.count <= 4 {
@@ -115,18 +92,5 @@ class HalfyearCell: UITableViewCell {
         lab2.text =  array[1]
         lab3.text =  array[2]
         lab4.text =  array[3]
-        pointLabel.text = model.points != nil ? model.points : "0"
-        iconContainer.backgroundColor = model.iconBackgroundColor
-        
-        if((model.inactive) != nil){
-            let labelArray = [lab1,lab2,lab3,lab4]
-            for num in model.inactive!.components(separatedBy: " "){
-                if(num == ""){continue}
-                let number = (Int(num)) ?? 4
-            
-                let label: UILabel = labelArray[number - 1]
-                label.textColor = .systemRed
-            }
-        }
     }
 }

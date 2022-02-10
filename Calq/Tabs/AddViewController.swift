@@ -72,7 +72,8 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         
         self.navigationItem.title = "Note hinzufügen"
         self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
-        
+        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Neue Note", style: .plain, target: self, action: #selector(addnewGrade))
+
         gradeName.delegate = self
         pointViewer.text = "9"
         pointSlider.value = 9.0
@@ -102,6 +103,10 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
       }
     
     @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
+    }
+
+        @objc func addnewGrade(_ sender:UIButton) {
        self.dismiss(animated: true, completion: nil)
     }
     

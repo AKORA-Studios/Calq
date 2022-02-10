@@ -57,3 +57,20 @@ struct YearOption{
     let inactive: String?
     let selectHandler: (()-> Void)
 }
+
+
+// Structs TableCell
+struct Section3 {
+    let title: String
+    let options: [SettingsOptionType3]
+}
+
+enum TableSectionOption3{
+    case tableCell(model: TableOption)
+}
+
+struct TableOption{
+    let title: String
+    let subtitle: String?
+    let selectHandler: (()-> Void)
+}
