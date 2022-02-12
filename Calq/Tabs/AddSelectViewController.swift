@@ -127,7 +127,7 @@ class AddSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
                             })
                 )
             }
-            let title = subjectArr.count == 0 ? "Du hast noch keine Kurse hinzugefügt" : "Wähle einen Kurs"
+            let title = subjectArr.count == 0 ? "Du hast noch keine Kurse hinzugefügt" : ""
             models.append(Section(title: title, options: arr))
     }
 }
