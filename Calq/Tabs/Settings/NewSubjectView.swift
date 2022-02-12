@@ -33,7 +33,7 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
         colorChanger.backgroundColor = UIColor.accentColor
         subjectTypeSegment.selectedSegmentIndex = 1
         
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.title = "Neuer Kurs"
         
         if #available(iOS 15.0, *) {

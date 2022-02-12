@@ -46,7 +46,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             self.callback()
         }))
         
-            self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+            self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
             self.navigationItem.title = "Notenübersicht"
             
             if #available(iOS 15.0, *) {

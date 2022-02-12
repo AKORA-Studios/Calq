@@ -14,6 +14,7 @@
 		DD10EA8E27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */; };
 		DD22EE26278B3E9700C3024B /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */; };
 		DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE29278B430600C3024B /* FirstLaunchView.swift */; };
+		DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */; };
 		DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39350426A9C92500917E06 /* ExamViewController.swift */; };
 		DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D62DA27382A01008BF2AF /* CircularProgress.swift */; };
 		DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
@@ -48,7 +49,6 @@
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
 		DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA78E42708D8350071DFAE /* GradeCell.swift */; };
-		DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9012D276272E600E799FD /* PredictSelect.swift */; };
 		DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB965C82765408600F89D0C /* YearBarChart.swift */; };
 		DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
 		DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
@@ -111,6 +111,7 @@
 		DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
 		DD22EE29278B430600C3024B /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
+		DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectViewController.swift; sourceTree = "<group>"; };
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DD32890326A9B0D7000DFD73 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,7 +158,6 @@
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
 		DDAA78E42708D8350071DFAE /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
-		DDB9012D276272E600E799FD /* PredictSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictSelect.swift; sourceTree = "<group>"; };
 		DDB965C82765408600F89D0C /* YearBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearBarChart.swift; sourceTree = "<group>"; };
 		DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -348,9 +348,9 @@
 				DD39350426A9C92500917E06 /* ExamViewController.swift */,
 				DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */,
 				DDEBB3FF27B5A2A7004D80BB /* TableOverview.swift */,
-				DDB9012D276272E600E799FD /* PredictSelect.swift */,
 				DD687940261BAD2E00BF2B48 /* SingleSubjectView.swift */,
 				DD68793B261B9BC600BF2B48 /* AddViewController.swift */,
+				DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */,
 				DD6BD11F2634C859008E95B2 /* Settings */,
 			);
 			path = Tabs;
@@ -540,6 +540,7 @@
 				DDBB97C42757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				DDBB97C62757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
+				DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */,
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
 				DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
@@ -551,7 +552,6 @@
 				DD7E635B277A3C73005F53D5 /* SubjectTableView.swift in Sources */,
 				DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */,
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
-				DDB9012E276272E600E799FD /* PredictSelect.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
 				DD10EA8D27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,

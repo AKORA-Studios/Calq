@@ -48,7 +48,7 @@ class SingleSubjectView: UIViewController  {
         super.viewDidLoad()
         self.update()
 
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Notenliste", style: .plain, target: self, action: #selector(navigateToGrades))
         self.navigationItem.title = self.subject.name
         self.yearSwitch.tintColor = self.pastelColor

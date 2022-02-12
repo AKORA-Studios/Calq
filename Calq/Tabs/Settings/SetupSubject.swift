@@ -48,7 +48,7 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
         colorDisplay.backgroundColor = UIColor.init(hexString: subject.color!)
         subjectTypeSegment.selectedSegmentIndex = self.subject.lk ? 0 : 1
         
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.title = "Kurs bearbeiten"
         
         if #available(iOS 15.0, *) {

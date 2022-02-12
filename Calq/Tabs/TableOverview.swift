@@ -20,7 +20,7 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         update();
         self.navigationItem.title = "Notentabelle"
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         
         if #available(iOS 15.0, *) {
             let appearence2 =  UINavigationBarAppearance()

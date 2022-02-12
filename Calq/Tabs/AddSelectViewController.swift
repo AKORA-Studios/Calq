@@ -1,8 +1,15 @@
+//
+//  AddSelectViewController.swift
+//  Calq
+//
+//  Created by Kiara on 12.02.22.
+//
+
 import UIKit
 import CoreData
 import WidgetKit
 
-class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
+class AddSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
     private let tableView : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
@@ -102,7 +109,7 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
     
     func configure(){
         var arr: [SettingsOptionType] = []
-        let subjectArr = Util.getAllSubjects().sorted(by: {$0.name! < $1.name! })
+        let subjectArr = Util.getAllSubjects()
     
             for sub in subjectArr {
                 let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
@@ -124,3 +131,4 @@ class PredictSelect: ViewController, UITableViewDelegate, UITableViewDataSource 
             models.append(Section(title: title, options: arr))
     }
 }
+

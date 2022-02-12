@@ -872,8 +872,8 @@
                                         <rect key="frame" x="18" y="518" width="380" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" name="AccentColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="54"/>
-                                        <state key="normal" title="+">
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Hinzufügen">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -910,10 +910,10 @@
             </objects>
             <point key="canvasLocation" x="782.60869565217399" y="-887.27678571428567"/>
         </scene>
-        <!--Predict Select-->
+        <!--Add Select-->
         <scene sceneID="5GE-dT-n2P">
             <objects>
-                <viewController restorationIdentifier="PredictSelect" storyboardIdentifier="PredictSelect" id="rHL-66-6w1" customClass="PredictSelect" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddSelect" storyboardIdentifier="AddSelect" id="rHL-66-6w1" customClass="AddSelect" customModule="Calq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Gj-7n-5Au">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

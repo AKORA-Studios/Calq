@@ -71,8 +71,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         scrollView.isDirectionalLockEnabled = false
         
         self.navigationItem.title = "Note hinzufügen"
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
-        self.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "Neue Note", style: .plain, target: self, action: #selector(addnewGrade))
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
 
         gradeName.delegate = self
         pointViewer.text = "9"
