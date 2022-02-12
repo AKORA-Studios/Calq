@@ -48,7 +48,7 @@ struct CalqWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color(UIColor.widgetColor))
+              //  .background(Color(UITraitCollection.current.userInterfaceStyle == .light ? UIColor.white : UIColor.systemGray5))
         }
         .configurationDisplayName("Durchschnitt Widget")
         .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
@@ -66,7 +66,7 @@ struct BarChartWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
-                .background(Color(UIColor.widgetColor))
+           //     .background(Color(UITraitCollection.current.userInterfaceStyle == .light ? UIColor.white : UIColor.systemGray5))
         }
         .configurationDisplayName("BarChart Widget")
         .description("Aktueller Durchschnitt aller Fächer")
