@@ -20,6 +20,13 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         update();
         self.navigationItem.title = "Notentabelle"
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
+        
+        if #available(iOS 15.0, *) {
+            let appearence2 =  UINavigationBarAppearance()
+            appearence2.configureWithDefaultBackground()
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence2
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,21 +37,16 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        
-        if #available(iOS 15.0, *) {
-            let appearence =  UITabBarAppearance()
-            appearence.configureWithDefaultBackground()
-            self.tabBarController?.tabBar.scrollEdgeAppearance = appearence
-            let appearence2 =  UINavigationBarAppearance()
-            appearence2.configureWithDefaultBackground()
-            self.navigationController?.navigationBar.scrollEdgeAppearance = appearence2
-        }
     }
     
     func update() {
         self.models = []
         self.configure()
         self.tableView.reloadData()
+    }
+    
+    @objc func backButtonPressed(_ sender:UIButton) {
+       self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Table Setup
