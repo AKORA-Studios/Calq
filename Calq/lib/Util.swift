@@ -540,7 +540,6 @@ struct Util {
 // MARK: - UIColor Extension
 extension UIColor {
     static var accentColor: UIColor {return UIColor(named: "AccentColor") ??  UIColor.init(hexString: "428FE3")}
-    static var widgetColor: UIColor {return UIColor(named: "WidgetColorSet") ??  UIColor.init(hexString: "000000")}
 }
 
 extension UIColor {

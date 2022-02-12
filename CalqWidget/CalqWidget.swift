@@ -66,6 +66,7 @@ struct BarChartWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
+                .background(Color(UIColor.widgetColor))
         }
         .configurationDisplayName("BarChart Widget")
         .description("Aktueller Durchschnitt aller Fächer")
