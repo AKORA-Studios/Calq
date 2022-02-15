@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
-		DD10EA8B27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */; };
-		DD10EA8C27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */; };
-		DD10EA8D27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */; };
-		DD10EA8E27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */; };
 		DD22EE26278B3E9700C3024B /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */; };
 		DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22EE29278B430600C3024B /* FirstLaunchView.swift */; };
 		DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */; };
@@ -49,15 +45,19 @@
 		DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */; };
 		DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */; };
 		DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA78E42708D8350071DFAE /* GradeCell.swift */; };
+		DDAB8FC427BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FBE27BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift */; };
+		DDAB8FC527BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FBE27BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift */; };
+		DDAB8FC627BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FBF27BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift */; };
+		DDAB8FC727BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FBF27BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift */; };
+		DDAB8FC827BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC027BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift */; };
+		DDAB8FC927BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC027BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift */; };
+		DDAB8FCA27BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC127BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift */; };
+		DDAB8FCB27BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC127BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift */; };
+		DDAB8FCC27BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC227BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift */; };
+		DDAB8FCD27BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC227BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift */; };
+		DDAB8FCE27BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC327BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift */; };
+		DDAB8FCF27BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB8FC327BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift */; };
 		DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB965C82765408600F89D0C /* YearBarChart.swift */; };
-		DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
-		DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */; };
-		DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */; };
-		DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */; };
-		DDBB97C42757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */; };
-		DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */; };
-		DDBB97C62757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */; };
-		DDBB97C72757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */; };
 		DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC22B4D261DDF730001B27C /* SettingsView.swift */; };
 		DDC89037261F902100A93178 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC89036261F902100A93178 /* SettingsCell.swift */; };
 		DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */; };
@@ -107,8 +107,6 @@
 
 /* Begin PBXFileReference section */
 		DD0B86D327667E3F00DCC61F /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
-		DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
 		DD22EE29278B430600C3024B /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 		DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectViewController.swift; sourceTree = "<group>"; };
@@ -158,11 +156,13 @@
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
 		DDAA78E42708D8350071DFAE /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
+		DDAB8FBE27BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DDAB8FBF27BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		DDAB8FC027BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DDAB8FC127BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		DDAB8FC227BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		DDAB8FC327BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDB965C82765408600F89D0C /* YearBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearBarChart.swift; sourceTree = "<group>"; };
-		DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserTest+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		DDC22B4D261DDF730001B27C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDC89036261F902100A93178 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		DDC8903B261FA0A500A93178 /* SwitchSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsCell.swift; sourceTree = "<group>"; };
@@ -317,12 +317,12 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DD10EA8927A5847D00D48E66 /* AppSettings+CoreDataClass.swift */,
-				DD10EA8A27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift */,
-				DDBB97B62757D28E00491231 /* UserTest+CoreDataClass.swift */,
-				DDBB97B72757D28E00491231 /* UserTest+CoreDataProperties.swift */,
-				DDBB97BA2757D28E00491231 /* UserSubject+CoreDataClass.swift */,
-				DDBB97BB2757D28E00491231 /* UserSubject+CoreDataProperties.swift */,
+				DDAB8FBE27BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift */,
+				DDAB8FBF27BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift */,
+				DDAB8FC027BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift */,
+				DDAB8FC127BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift */,
+				DDAB8FC227BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift */,
+				DDAB8FC327BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift */,
 				DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
 			);
@@ -519,17 +519,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDBB97BD2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
+				DDAB8FC527BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
-				DD10EA8C27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */,
+				DDAB8FC727BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift in Sources */,
+				DDAB8FCF27BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
-				DDBB97BF2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
 				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
+				DDAB8FC927BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
-				DDBB97C72757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
-				DD10EA8E27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
-				DDBB97C52757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
+				DDAB8FCD27BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift in Sources */,
+				DDAB8FCB27BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,26 +537,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDBB97C42757D28E00491231 /* UserSubject+CoreDataClass.swift in Sources */,
+				DDAB8FC627BC1B7300FFD5F9 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
-				DDBB97C62757D28E00491231 /* UserSubject+CoreDataProperties.swift in Sources */,
 				DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */,
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
-				DDBB97BE2757D28E00491231 /* UserTest+CoreDataProperties.swift in Sources */,
+				DDAB8FCC27BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift in Sources */,
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
 				DD70E112261F30870092815F /* ViewController.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				DDC89037261F902100A93178 /* SettingsCell.swift in Sources */,
 				DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */,
+				DDAB8FC827BC1B7300FFD5F9 /* UserSubject+CoreDataClass.swift in Sources */,
 				DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */,
 				DD7E635B277A3C73005F53D5 /* SubjectTableView.swift in Sources */,
 				DDAA78E52708D8350071DFAE /* GradeCell.swift in Sources */,
 				DD6878842617B1A900BF2B48 /* AppDelegate.swift in Sources */,
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
-				DD10EA8D27A5847D00D48E66 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */,
+				DDAB8FCA27BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
+				DDAB8FCE27BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift in Sources */,
 				DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
 				DDEBB40027B5A2A7004D80BB /* TableOverview.swift in Sources */,
@@ -565,14 +566,13 @@
 				DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
 				DD8D4DC026AD795F00AC289A /* AppOnly.swift in Sources */,
+				DDAB8FC427BC1B7300FFD5F9 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				DD68793C261B9BC600BF2B48 /* AddViewController.swift in Sources */,
 				DD3D62DB27382A01008BF2AF /* CircularProgress.swift in Sources */,
-				DDBB97BC2757D28E00491231 /* UserTest+CoreDataClass.swift in Sources */,
 				DD6878DF261901A400BF2B48 /* SceneDelegate.swift in Sources */,
 				DD95D6A727358C5B00399615 /* HalfyearCell.swift in Sources */,
-				DD10EA8B27A5847D00D48E66 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD6BD08E262B81AB008E95B2 /* SetupSubject.swift in Sources */,
 				DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */,
 			);
