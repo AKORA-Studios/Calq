@@ -43,7 +43,6 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         update()
         super.viewWillAppear(true)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
