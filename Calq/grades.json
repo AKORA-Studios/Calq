@@ -137,6 +137,13 @@
                 "year": 4,
                 "big": false,
                 "date": "1647943001"
+            },
+              {
+                "name": "Test Teil B",
+                "grade": 11,
+                "year": 4,
+                "big": false,
+                "date": "1648554893"
             }
         ]
     },
@@ -831,6 +838,13 @@
                 "year": 4,
                 "big": false,
                 "date": "1647527023"
+            },
+               {
+                "name": "Stundenleistung",
+                "grade": 13,
+                "year": 4,
+                "big": false,
+                "date": "1648727693"
             }
         ]
     },
