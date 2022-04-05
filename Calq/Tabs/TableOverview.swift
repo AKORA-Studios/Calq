@@ -103,7 +103,7 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
             if(arr.count == 0) {str += "-- ";continue}
             
             if(!Util.checkinactiveYears(Util.getinactiveYears(subject), i)){ str += "/ ";continue}
-            var points = Int(round(Util.testAverage(arr)))
+            let points = Int(round(Util.testAverage(arr)))
 
             str += String(points)
             if(i != 4){ str += " "}
