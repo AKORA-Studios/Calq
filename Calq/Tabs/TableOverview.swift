@@ -81,8 +81,8 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let subjects = Util.getAllSubjects()
 
             for sub in subjects {
-                let str = (Util.averageString(sub))
-                
+                let str = (averageString(sub))
+                    
                 arr.append(
                     .tableCell(model:
                             TableOption(title: sub.name!, subtitle: str)
@@ -92,7 +92,24 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
         models.append(Section3(title: "", options: arr))
     }
     
-    
+    /// Generates a convient String that shows the grades of the subject.
+    private func averageString(_ subject: UserSubject) -> String{
+        var str: String = ""
+        if(subject.subjecttests == nil) {return str}
+        let tests = subject.subjecttests!.allObjects as! [UserTest]
+        
+        for i in 1...4 {
+            let arr = tests.filter({$0.year == i});
+            if(arr.count == 0) {str += "-- ";continue}
+            
+            if(!Util.checkinactiveYears(Util.getinactiveYears(subject), i)){ str += "/ ";continue}
+            var points = Int(round(Util.testAverage(arr)))
+
+            str += String(points)
+            if(i != 4){ str += " "}
+        }
+        return str
+    }
     
     
 
