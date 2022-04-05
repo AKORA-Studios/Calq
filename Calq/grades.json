@@ -590,6 +590,13 @@
                 "year": 4,
                 "big": false,
                 "date": "1645476215"
+            },
+              {
+                "name": "Test Bevölkerungsentwiklung",
+                "grade": 10,
+                "year": 4,
+                "big": false,
+                "date": "1648817231"
             }
         ]
     },
