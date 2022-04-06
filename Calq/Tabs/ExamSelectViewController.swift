@@ -134,6 +134,8 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     
             for sub in subjectArr {
                 if(sub.examtype != 0 ){ continue}
+                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                
                 arr.append(
                     .staticCell(
                         model:
@@ -141,7 +143,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
                                 title: sub.name!,
                                 subtitle: "",
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
-                                iconBackgroundColor:  UIColor.accentColor
+                                iconBackgroundColor: color
                             ){
                                 self.navigateBacktoExamView(sub.objectID)
                             })
@@ -152,7 +154,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
         if(oldSub.count != 0){
             arr.append(.staticCell(model: SettingsOption(
                 title: "Prüfung löschen",
-                subtitle: "",// delete.forward.fill
+                subtitle: "",
                 icon: UIImage(systemName: "xmark.bin.fill"),
                 iconBackgroundColor:  UIColor.red
             ){
