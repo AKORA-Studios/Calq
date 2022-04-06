@@ -112,7 +112,6 @@
 		DD2DBCCD27B86FAA00497D21 /* AddSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectViewController.swift; sourceTree = "<group>"; };
 		DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		DD32890326A9B0D7000DFD73 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD37556C279F3D36005DCB83 /* CalqWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		DD37556D279F3D90005DCB83 /* CalqRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqRelease.entitlements; sourceTree = "<group>"; };
 		DD39350426A9C92500917E06 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
@@ -148,10 +147,7 @@
 		DD8813782764D58B00EB6BD8 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		DD8D4D8D26ACC43600AC289A /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		DD8D4DBA26AD78C000AC289A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8D4DBF26AD795F00AC289A /* AppOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnly.swift; sourceTree = "<group>"; };
-		DD8F9854273043F50002CC2A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD8F985827304A660002CC2A /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD95D6A627358C5B00399615 /* HalfyearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfyearCell.swift; sourceTree = "<group>"; };
 		DDA06813272C5EA6001E2EE8 /* TableCellStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellStructs.swift; sourceTree = "<group>"; };
 		DDA0681D272D807D001E2EE8 /* ExamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSelectViewController.swift; sourceTree = "<group>"; };
@@ -209,10 +205,6 @@
 		787FEEECA5C14AA0667800A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD8F985827304A660002CC2A /* Charts.framework */,
-				DD8F9854273043F50002CC2A /* Charts.framework */,
-				DD8D4DBA26AD78C000AC289A /* Charts.framework */,
-				DD32890326A9B0D7000DFD73 /* Charts.framework */,
 				DD3288EF26A9AA7F000DFD73 /* WidgetKit.framework */,
 				DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */,
 				DD8D4D8D26ACC43600AC289A /* Intents.framework */,
