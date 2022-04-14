@@ -222,6 +222,13 @@
                 "year": 4,
                 "big": true,
                 "date": "1647270378"
+            },
+               {
+                "name": "Textgebunde Erörterung",
+                "grade": 11,
+                "year": 4,
+                "big": false,
+                "date": "1649851283"
             }
         ]
     },
@@ -448,6 +455,13 @@
                 "year": 4,
                 "big": false,
                 "date": "1647770201"
+            },
+            {
+                "name": "Vortrag Soziales Problem",
+                "grade": 14,
+                "year": 4,
+                "big": false,
+                "date": "1649851283"
             }
         ]
     },
@@ -592,11 +606,18 @@
                 "date": "1645476215"
             },
               {
-                "name": "Test Bevölkerungsentwiklung",
+                "name": "Test Bevölkerungsentwicklung",
                 "grade": 10,
                 "year": 4,
                 "big": false,
                 "date": "1648817231"
+            },
+            {
+                "name": "Test Stadtentwicklung",
+                "grade": 11,
+                "year": 4,
+                "big": false,
+                "date": "1649851283"
             }
         ]
     },
