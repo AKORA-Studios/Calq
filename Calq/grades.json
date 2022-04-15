@@ -371,12 +371,19 @@
                 "big": false,
                 "date": "1644418358"
             },
-                 {
+                {
                 "name": "Vorabitur",
                 "grade": 11,
                 "year": 4,
                 "big": true,
                 "date": "1646661978"
+            },
+            {
+                "name": "Exkursionsnote",
+                "grade": 14,
+                "year": 4,
+                "big": false,
+                "date": "1650046257"
             }
         ]
     },
@@ -1057,6 +1064,13 @@
                 "year": 4,
                 "big": false,
                 "date": "1648465001"
+            },
+            {
+                "name": "Spielnote Basketball",
+                "grade": 9,
+                "year": 4,
+                "big": false,
+                "date": "1649952657"
             }
         ]
     },
