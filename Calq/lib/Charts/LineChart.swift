@@ -91,7 +91,7 @@ class LineChart: UIView {
 
         let yValue = (self.frame.height - ((y * 100 / maxYValue)) * self.frame.height / 100) + 2
        
-        return CGPoint(x: xValue + 20, y: yValue)
+        return CGPoint(x: xValue + 17, y: yValue)
     }
     
     private func drawPoint(_ Point: CGPoint,_ color: UIColor){
