@@ -455,7 +455,7 @@
         "name": "Ethik",
         "lk": false,
         "color": "#c6bd79",
-        "inactiveYears": "",
+        "inactiveYears": "1",
         "subjecttests": [
             {
                 "name": "Kommentar massentierhaltung",
@@ -859,7 +859,7 @@
         "name": "Spanisch",
         "lk": false,
         "color": "#9079c6",
-        "inactiveYears": "",
+        "inactiveYears": "1 4",
         "subjecttests": [
             {
                 "name": "Test Andalucia",
@@ -940,7 +940,7 @@
             },
              {
                 "name": "Test Chile",
-                "grade": 13,
+                "grade": 8,
                 "year": 4,
                 "big": false,
                 "date": "1648465001"
@@ -951,7 +951,7 @@
         "name": "Sport",
         "lk": false,
         "color": "#c6a979",
-        "inactiveYears": "1 3 4",
+        "inactiveYears": "3 4",
         "subjecttests": [
             {
                 "name": "Volleyball Angaben",
