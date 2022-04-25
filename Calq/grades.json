@@ -887,7 +887,7 @@
         "name": "Spanisch",
         "lk": false,
         "color": "#9079c6",
-        "inactiveYears": "",
+        "inactiveYears": "1 4",
         "subjecttests": [
             {
                 "name": "Test Andalucia",
@@ -968,7 +968,7 @@
             },
              {
                 "name": "Test Chile",
-                "grade": 13,
+                "grade": 8,
                 "year": 4,
                 "big": false,
                 "date": "1648465001"
