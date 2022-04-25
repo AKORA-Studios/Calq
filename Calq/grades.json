@@ -394,7 +394,7 @@
         "inactiveYears": "",
         "subjecttests": [
             {
-                "name": "Test 1",
+                "name": "Test Modern Media",
                 "grade": 10,
                 "year": 1,
                 "big": false,
@@ -408,7 +408,7 @@
                 "date": "1612952040"
             },
             {
-                "name": "Klausur 1",
+                "name": "Klausur Modern Media",
                 "grade": 12,
                 "year": 1,
                 "big": true,
@@ -1102,7 +1102,7 @@
                 "date": "1611915240"
             },
             {
-                "name": "Klausur 1",
+                "name": "Klausur Berufswahlentscheidungsprozess",
                 "grade": 9,
                 "year": 1,
                 "big": true,
