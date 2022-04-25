@@ -2,7 +2,6 @@
 [![Issues](https://img.shields.io/github/issues/AKORA-Studios/Calq?color=428FE3&label=Issues&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 [![Last Commit](https://img.shields.io/github/last-commit/AKORA-Studios/Calq/master?color=428FE3&label=lastcommit&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 
-
 # Calq-iOS
 Abiturnoten Rchner für iOs 14 oder höher.
 ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
@@ -42,8 +41,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Widget</summary>
 <br>
   
-![Dunkel](https://media.discordapp.net/attachments/819922260424785920/926869048753549372/unknown.png?width=309&height=670)
-![Hell](https://media.discordapp.net/attachments/867129329363976212/936730718237761586/unknown.png?width=309&height=670)
+![Dunkel](https://media.discordapp.net/attachments/867129329363976212/961320549760499802/unknown.png?width=309&height=670)
+![Hell](https://media.discordapp.net/attachments/867129329363976212/961320571247927306/unknown.png?width=309&height=670)
 </details
 <br>
 
