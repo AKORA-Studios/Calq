@@ -13,28 +13,28 @@ class TableCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .right
-    label.textColor = .systemGray4
+    label.textColor = .systemGray
         return label
     }()
     private let lab2: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .right
-        label.textColor = .systemGray4
+        label.textColor = .systemGray
         return label
     }()
     private let lab3: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .right
-        label.textColor = .systemGray4
+        label.textColor = .systemGray
         return label
     }()
     private let lab4: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .right
-       label.textColor = .systemGray4
+       label.textColor = .systemGray
         return label
     }()
     
@@ -77,6 +77,7 @@ class TableCell: UITableViewCell {
     }
     
     public func configure(with model: TableOption){
+        let labelArr = [lab1, lab2, lab3, lab4]
         var array =  model.subtitle?.components(separatedBy: " ") ?? ["--","--","--","--"]
      
         while array.count <= 4 {
@@ -84,10 +85,12 @@ class TableCell: UITableViewCell {
         }
         
         label.text =  model.title.count > 23 ? String(model.title.prefix(21)) + "..." : model.title
-        lab1.text =  array[0]
-        lab2.text =  array[1]
-        lab3.text =  array[2]
-        lab4.text =  array[3]
+        
+        for i in 0...3{
+            labelArr[i].text = array[i]
+            if(array[i] == "/"){
+                labelArr[i].textColor = .systemGray4         }
+        }
         
         self.selectionStyle = .none
         self.accessoryType = .none
