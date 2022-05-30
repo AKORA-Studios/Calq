@@ -59,6 +59,17 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBAction func PointChartTap(_ sender: Any) {
+        let infoAlert = UIAlertController(title: "Info Fächerschnitt", message: "Der Durchschnitt aller Fächer in allen Halbjahren ohne Prüfungsnoten.", preferredStyle: .actionSheet)
+        infoAlert.addAction(UIAlertAction(title: "ok", style: .cancel))
+        self.present(infoAlert, animated: true)
+    }
+    @IBAction func GradechartTap(_ sender: Any) {
+        let infoAlert = UIAlertController(title: "Info Abischnitt", message: "Notendurchschnitt mit Prüfungsnoten einbezogen. Wenn keine Prüfungne eingetragen sind wird von 0 Notenpunkten ausgegangen", preferredStyle: .actionSheet)
+        infoAlert.addAction(UIAlertAction(title: "ok", style: .cancel))
+        self.present(infoAlert, animated: true)
+    }
+    
     func update() {
         self.settings = Util.getSettings()
         

@@ -95,11 +95,19 @@
                                                 <rect key="frame" x="56" y="54" width="121" height="113"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="uRi-2L-c7m" appends="YES" id="Yo5-Lo-8cP"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-AT-vkF" customClass="CircularProgressView" customModule="Calq" customModuleProvider="target">
                                                 <rect key="frame" x="202" y="54" width="128" height="113"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="8uf-tK-HmK" appends="YES" id="3AP-NB-muM"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -124,6 +132,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8W-Xy-M6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uRi-2L-c7m">
+                    <connections>
+                        <action selector="PointChartTap:" destination="uKq-Hg-K5m" id="A9r-WC-8B8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8uf-tK-HmK">
+                    <connections>
+                        <action selector="GradechartTap:" destination="uKq-Hg-K5m" id="Qmw-nV-gfX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="521.65178571428567"/>
         </scene>
