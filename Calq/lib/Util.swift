@@ -474,18 +474,20 @@ struct Util {
             if(sub.subjecttests == nil) {continue}
             let SubTests = filterTests(sub)
             if(SubTests.count == 0){continue}
+     
+            let multiplier = sub.lk ? 2.0 : 1.0
             
             for e in 1...4 {
                 let tests = SubTests.filter{($0.year == e)}
                 if(tests.count == 0)  {continue}
-                
-                sum += Util.testAverage(tests)
-                count += 1.0
+      
+                sum += multiplier * Double(Int(round(Util.testAverage(tests))))
+                count += multiplier * 1.0
             }
         }
         
         if(sum == 0 ) {return 0.0}
-        return Double((sum / count) * 40.0)
+        return Double(round((round(sum) / count) * 40.0))
     }
         
         /// Calc points block II
