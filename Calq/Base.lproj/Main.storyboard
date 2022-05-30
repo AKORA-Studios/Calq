@@ -1270,6 +1270,10 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="l7v-SS-5KF" appends="YES" id="B9A-uC-b24"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TXm-D8-gvx"/>
@@ -1299,6 +1303,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8h-an-2O9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="l7v-SS-5KF">
+                    <connections>
+                        <action selector="blockViewTap:" destination="EC1-ym-I3d" id="rzb-BR-piq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="1268.9732142857142"/>
         </scene>

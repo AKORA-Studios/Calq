@@ -64,6 +64,12 @@ class ExamViewController: ViewController {
         update()
     }
     
+    @IBAction func blockViewTap(_ sender: Any) {
+        let infoAlert = UIAlertController(title: "Info Berechnung", message: "Block 1: Summe Durschnitt Halbjahre / Anzahl Halbjahre * 40 \n(Leistungskurse werden dopppelt gewertet)\n\nBlock 2: Summe der Prüfungspunktzahl * 4", preferredStyle: .actionSheet)
+        infoAlert.addAction(UIAlertAction(title: "ok", style: .cancel))
+        self.present(infoAlert, animated: true)
+    }
+    
     func update() {
         let subjects = Util.getAllExamSubjects()
         if(subjects.count != 0){
