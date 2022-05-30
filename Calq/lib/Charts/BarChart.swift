@@ -38,7 +38,7 @@ class BarChart: UIView {
         
         //draw averageline
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-        drawAxe((((15.0 - average) * 100/15)*zeroLineValue)/100, "⌀",.systemGray3)
+        drawAxe((((15.0 - average) * 100/15)*zeroLineValue)/100, "⌀",.averageColor)
         
         //create bars
         for i in 0..<self.values.count  {

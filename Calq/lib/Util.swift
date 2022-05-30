@@ -539,6 +539,7 @@ struct Util {
 // MARK: - UIColor Extension
 extension UIColor {
     static var accentColor: UIColor {return UIColor(named: "AccentColor") ??  UIColor.init(hexString: "428FE3")}
+    static var averageColor: UIColor {return  UIColor.init(hexString: "6584a5")}
 }
 
 extension UIColor {
