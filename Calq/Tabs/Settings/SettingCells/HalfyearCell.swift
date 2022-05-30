@@ -118,10 +118,10 @@ class HalfyearCell: UITableViewCell {
         pointLabel.text = model.points != nil ? model.points : "0"
         iconContainer.backgroundColor = model.iconBackgroundColor
         
-        if(model.points == "∑"){
+        /*if(model.points == "∑"){
             self.selectionStyle = .none
             self.accessoryType = .none
-        }
+        }*/
         
         if((model.inactive) != nil){
             let labelArray = [lab1,lab2,lab3,lab4]
