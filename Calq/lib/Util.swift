@@ -214,9 +214,10 @@ struct Util {
             if(sub.subjecttests == nil){continue}
             let tests = filterTests(sub).filter{Int($0.year) == year}
             if(tests.count == 0){continue}
+            let multiplier = sub.lk ? 2.0 : 1.0
           
-            count += 1
-            grades += round(Util.testAverage(tests))
+            count += multiplier * 1
+            grades += multiplier * round(Util.testAverage(tests))
         }
         if(grades == 0.0){ return 0.0}
         return grades / count
