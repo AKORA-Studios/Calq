@@ -540,6 +540,20 @@
                 "year": 4,
                 "big": false,
                 "date": "1646143578"
+            },
+                 {
+                "name": "Podcast",
+                "grade": 14,
+                "year": 4,
+                "big": false,
+                "date": "1650724567"
+            },
+                 {
+                "name": "Kommentar aktuelle ethische Debatte",
+                "grade": 14,
+                "year": 4,
+                "big": false,
+                "date": "1651329367"
             }
         ]
     },
