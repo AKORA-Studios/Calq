@@ -208,7 +208,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
         models.append(Section(title: "Allgemein", options: [
             .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.init(hexString: "#63d3bd"))
                         {
-                            let url = URL(string: "https://github.com/AKORA-Studios/Calq-iOS")
+                            let url = URL(string: "https://github.com/AKORA-Studios/Calq")
                             UIApplication.shared.open(url!)
                         }),
             
