@@ -35,7 +35,6 @@
 		DD6BD08E262B81AB008E95B2 /* SetupSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD08D262B81AB008E95B2 /* SetupSubject.swift */; };
 		DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD1152634C27E008E95B2 /* gradeTableView.swift */; };
 		DD6BD11B2634C83E008E95B2 /* editGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BD11A2634C83E008E95B2 /* editGradeView.swift */; };
-		DD70E112261F30870092815F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E111261F30870092815F /* ViewController.swift */; };
 		DD7E635B277A3C73005F53D5 /* SubjectTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */; };
 		DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81835426820EA100FBC3D8 /* OverviewController.swift */; };
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
@@ -65,6 +64,7 @@
 		DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBB40127B5A624004D80BB /* TableCell.swift */; };
 		DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
 		DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF83D082639BE5300E995BC /* NewSubjectView.swift */; };
+		F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B033AA295F426900B8BA93 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +140,6 @@
 		DD6BD08D262B81AB008E95B2 /* SetupSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSubject.swift; sourceTree = "<group>"; };
 		DD6BD1152634C27E008E95B2 /* gradeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeTableView.swift; sourceTree = "<group>"; };
 		DD6BD11A2634C83E008E95B2 /* editGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editGradeView.swift; sourceTree = "<group>"; };
-		DD70E111261F30870092815F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/marvinjacob/Documents/Projects/Calq/Calq/ViewController.swift; sourceTree = "<absolute>"; };
 		DD7E635A277A3C73005F53D5 /* SubjectTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableView.swift; sourceTree = "<group>"; };
 		DD81835426820EA100FBC3D8 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		DD81F6822759091600B4A43B /* JSONUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		DDEBB40127B5A624004D80BB /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DDF83D082639BE5300E995BC /* NewSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubjectView.swift; sourceTree = "<group>"; };
+		F1B033AA295F426900B8BA93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,13 +250,13 @@
 		DD6878822617B1A900BF2B48 /* Calq */ = {
 			isa = PBXGroup;
 			children = (
+				F1B033AA295F426900B8BA93 /* ViewController.swift */,
 				DD37556D279F3D90005DCB83 /* CalqRelease.entitlements */,
 				DD4F97B427524F7000D3CC57 /* CalqDebug.entitlements */,
 				DD70E116261F315E0092815F /* lib */,
 				DDB4B235261C77D50022163C /* Tabs */,
 				DD6878832617B1A900BF2B48 /* AppDelegate.swift */,
 				DD6878DE261901A400BF2B48 /* SceneDelegate.swift */,
-				DD70E111261F30870092815F /* ViewController.swift */,
 				DD22EE29278B430600C3024B /* FirstLaunchView.swift */,
 				DD22EE25278B3E9700C3024B /* FirstLaunch.storyboard */,
 				DD6878892617B1A900BF2B48 /* Main.storyboard */,
@@ -535,7 +535,6 @@
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
 				DDAB8FCC27BC1B7300FFD5F9 /* UserTest+CoreDataClass.swift in Sources */,
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
-				DD70E112261F30870092815F /* ViewController.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				DDC89037261F902100A93178 /* SettingsCell.swift in Sources */,
 				DD6BD1162634C27E008E95B2 /* gradeTableView.swift in Sources */,
@@ -550,6 +549,7 @@
 				DDAB8FCA27BC1B7300FFD5F9 /* UserSubject+CoreDataProperties.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
 				DDAB8FCE27BC1B7300FFD5F9 /* UserTest+CoreDataProperties.swift in Sources */,
+				F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */,
 				DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */,
 				DDC22B4E261DDF740001B27C /* SettingsView.swift in Sources */,
 				DDEBB40027B5A2A7004D80BB /* TableOverview.swift in Sources */,
