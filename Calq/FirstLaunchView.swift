@@ -13,8 +13,6 @@ class FirstLaunch: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabelBig: UILabel!
     @IBOutlet weak var stepperLabelSmall: UILabel!
-    @IBOutlet weak var pointSlider: UISlider!
-    @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var backgroundView: UIView!
     
@@ -28,9 +26,6 @@ class FirstLaunch: UIViewController {
         stepperLabelBig.text = String(oldWeight! * 100)
         stepperLabelSmall.text = String((1 - oldWeight!) * 100)
         
-        let oldGoal = Int(settings!.goalGrade)
-        pointLabel.text = String(oldGoal)
-        pointSlider.value = Float(oldGoal)
         
         view.backgroundColor = .clear
         backgroundView.backgroundColor = .clear
@@ -41,7 +36,6 @@ class FirstLaunch: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        settings?.goalGrade = Int16(pointSlider.value)
         settings?.weightBigGrades = String(Double(stepperLabelBig.text!)! / 100)
         try! CoreDataStack.shared.managedObjectContext.save()
         WidgetCenter.shared.reloadAllTimelines()
@@ -49,11 +43,6 @@ class FirstLaunch: UIViewController {
     }
     @IBAction func navigateBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func sliderChanged(_ sender: UISlider) {
-        sender.value =  round(sender.value)
-        pointLabel.text = String(Int(pointSlider.value))
     }
     
     @IBAction func stpperChanged(_ sender: UIStepper) {
