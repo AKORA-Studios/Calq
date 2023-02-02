@@ -85,7 +85,7 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     
                 arr.append(
                     .tableCell(model:
-                            TableOption(title: sub.name!, subtitle: str)
+                            TableOption(title: sub.name, subtitle: str)
                         )
                 )
             }

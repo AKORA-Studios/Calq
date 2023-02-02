@@ -118,8 +118,8 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
         let newView = self.storyboard?.instantiateViewController(withIdentifier: "SingleSubjectView") as! SingleSubjectView
         
         newView.title = subject.name
-        newView.subject = subject;
-        newView.callback = { self.update();}
+       // newView.subject = subject;
+     //   newView.callback = { self.update();}
         
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)
@@ -132,13 +132,13 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
             for sub in subjects {
                 let str = (Util.averageString(sub))
                 let subAverage = Util.getSubjectAverage(sub)
-                let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) : UIColor.init(hexString: sub.color)
            
                 arr.append(
                     .yearCell(
                         model:
                             YearOption(
-                                title: sub.name!,
+                                title: sub.name,
                                 subtitle: str,
                                 points: String(format: "%.0f", round(subAverage)),
                                 iconBackgroundColor: color,

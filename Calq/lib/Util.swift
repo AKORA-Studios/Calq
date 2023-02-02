@@ -22,6 +22,54 @@ class backView: UIView {
     }
 }
 
+
+func getSettings()-> AppSettings?{
+    let context = CoreDataStack.shared.managedObjectContext
+    
+    var items: [AppSettings]
+    do {
+        items = try context.fetch(AppSettings.fetchRequest())
+        
+        if(items.count == 0){
+            let item =  AppSettings(context: context)
+            item.colorfulCharts = false
+            
+            try! context.save()
+            WidgetCenter.shared.reloadAllTimelines()
+            return item
+        }
+        return items[0]
+    }
+    catch{ }
+    return nil
+}
+
+
+ func getAllSubjects()-> [UserSubject]{
+    let context = CoreDataStack.shared.managedObjectContext
+    
+    var  allSubjects: [UserSubject] = []
+    do {
+        let result = try context.fetch(AppSettings.fetchRequest())
+        if(result.count == 0) { return []}
+        if(result[0].usersubjects != nil){
+            allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
+            return sortSubjects(allSubjects)
+        }else {return [] }
+    }catch {}
+    
+    return []
+}
+
+/// sort all subjects sorted after type and name
+  func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
+    let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name < $1.name })
+    let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name < $1.name })
+    return arr1+arr2
+}
+
+
+
 struct Util {
     static func checkString(_ str: String) -> Bool{
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
@@ -87,7 +135,7 @@ struct Util {
     
     static func getPastelColorByIndex(_ name: String) -> UIColor{
         let subjects = Util.getAllSubjects()
-        let subjectIndex = subjects.firstIndex(where:{$0.name! == name}) ?? 0
+        let subjectIndex = subjects.firstIndex(where:{$0.name == name}) ?? 0
         return getPastelColorByIndex(subjectIndex)
     }
     
@@ -133,7 +181,7 @@ struct Util {
     
     /// Returns the average of an array of tests.
     static func testAverage(_ tests: [UserTest]) -> Double {
-        let weigth = Double(Util.getSettings()!.weightBigGrades!)!
+        let weigth = Double(Util.getSettings()!.weightBigGrades)!
      
         let smallArr = tests.filter{!$0.big}.map{Int($0.grade)},
             bigArr = tests.filter{$0.big}.map{Int($0.grade)};
@@ -303,8 +351,8 @@ struct Util {
     
     /// sort all subjects sorted after type and name
     private static func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
-        let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name! < $1.name! })
-        let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name! < $1.name! })
+        let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name < $1.name })
+        let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name < $1.name })
         return arr1+arr2
     }
     
@@ -317,7 +365,7 @@ struct Util {
             let result = try context.fetch(AppSettings.fetchRequest())
             if(result[0].usersubjects != nil){
                 allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-                allSubjects  = allSubjects.filter{$0.examtype != 0}.sorted(by: {$0.name! < $1.name! })
+                allSubjects  = allSubjects.filter{$0.examtype != 0}.sorted(by: {$0.name < $1.name })
                 return allSubjects
             }else {return [] }
         }catch {}
@@ -357,7 +405,7 @@ struct Util {
     /// Returns all inactive Years in one array of strings
     static func getinactiveYears(_ sub: UserSubject)-> [String]{
         if(sub.inactiveYears == nil){return []}
-        let arr: [String] = sub.inactiveYears!.components(separatedBy: " ")
+        let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
         return arr
     }
     
@@ -416,7 +464,7 @@ struct Util {
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
             .map{
                 $0.map{
-                    $0.date!.timeIntervalSince1970
+                    $0.date.timeIntervalSince1970
                 }.sorted(by: {$0 > $1})[0]
             }
         if(allDates.count == 0) {return Date(timeIntervalSince1970: 0.0)}
@@ -433,7 +481,7 @@ struct Util {
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
             .map{
                 $0.map{
-                    $0.date!.timeIntervalSince1970
+                    $0.date.timeIntervalSince1970
                 }.sorted(by: {$0 < $1})[0]
             }
         if(allDates.count == 0) { return Date(timeIntervalSince1970: 0.0) }
@@ -460,8 +508,8 @@ struct Util {
     ///Returns all Subjectnames
     static func getAllSubjectNames() -> [String] {
         var subjects = Util.getAllSubjects()
-        subjects = subjects.sorted(by: {$0.name! < $1.name! })
-        return subjects.map{$0.name!}
+        subjects = subjects.sorted(by: {$0.name < $1.name })
+        return subjects.map{$0.name}
     }
     
     /// Calc points block I
@@ -535,6 +583,8 @@ struct Util {
     }
     
 }
+
+
 
 // MARK: - UIColor Extension
 extension UIColor {

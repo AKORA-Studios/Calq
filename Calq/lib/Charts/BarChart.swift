@@ -44,7 +44,7 @@ class BarChart: UIView {
         for i in 0..<self.values.count  {
             let subject = values[i]
             let value = Util.getSubjectAverage(subject)
-            let color =  Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)
+            let color =  Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color)
             let yPosition = self.frame.maxY - self.frame.origin.y
             
             let text = UILabel()
@@ -71,7 +71,7 @@ class BarChart: UIView {
             let labelheight = 1.5 * Double(textheight)
             let barlabel = UILabel()
             barlabel.frame = CGRect(x: num, y: yPosition, width: barwidth, height: labelheight)
-            barlabel.text = String(subject.name!.prefix(3)).uppercased()
+            barlabel.text = String(subject.name.prefix(3)).uppercased()
             barlabel.adjustsFontSizeToFitWidth = true
             barlabel.textAlignment = .center
             

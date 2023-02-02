@@ -30,7 +30,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         } else {
             
         let newTest = UserTest(context: CoreDataStack.shared.managedObjectContext)
-        newTest.name = name
+            newTest.name = name ?? ""
         newTest.grade =  Int16(pointSlider.value)
         newTest.date = datePicker.date
         newTest.big = bigGrade
@@ -114,14 +114,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         self.subject = Util.getSubject(self.subject!.objectID)
         
         addButton.backgroundColor = .accentColor
-        gradeTypeSelect.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
-        yearSegment.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color!)
-        pointSlider.tintColor = UIColor.init(hexString: self.subject!.color!)
+        gradeTypeSelect.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color)
+        yearSegment.selectedSegmentTintColor = UIColor.init(hexString: self.subject!.color)
+        pointSlider.tintColor = UIColor.init(hexString: self.subject!.color)
         
         if(Util.getSettings()!.colorfulCharts) {
-        gradeTypeSelect.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
-        yearSegment.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name!)
-        pointSlider.tintColor = Util.getPastelColorByIndex(self.subject!.name!)
+            gradeTypeSelect.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name)
+            yearSegment.selectedSegmentTintColor = Util.getPastelColorByIndex(self.subject!.name)
+            pointSlider.tintColor = Util.getPastelColorByIndex(self.subject!.name)
         }
         setImpactSegemnts()
     }
@@ -240,7 +240,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UITextFieldDele
         }
         
         //calculation old grade
-        let weigth = Double(Util.getSettings()!.weightBigGrades!)!
+        let weigth = Double(Util.getSettings()!.weightBigGrades)!
         let weightSmall = 1 - weigth
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         

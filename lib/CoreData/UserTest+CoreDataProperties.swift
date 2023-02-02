@@ -2,7 +2,7 @@
 //  UserTest+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Akora on 15.02.22.
+//  Created by Kiara on 02.02.23.
 //
 //
 
@@ -17,11 +17,11 @@ extension UserTest {
     }
 
     @NSManaged public var big: Bool
-    @NSManaged public var date: Date?
+    @NSManaged public var date: Date
     @NSManaged public var grade: Int16
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var year: Int16
-    @NSManaged public var testtosubbject: UserSubject?
+    @NSManaged public var testtosubbject: UserSubject
 
 }
 

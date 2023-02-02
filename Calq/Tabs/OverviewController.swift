@@ -95,8 +95,8 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         var DataAr: [ChartEntrySet] = []
         
         for sub in Util.getAllSubjects(){
-            let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) :
-            UIColor.init(hexString: sub.color!)
+            let color = settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) :
+            UIColor.init(hexString: sub.color)
             DataAr.append( ChartEntrySet(color, getChartData(sub))  )
         }
         
@@ -110,15 +110,15 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         let tests =  sub.subjecttests!.allObjects as! [UserTest]
         if(tests.count == 0){return  []}
         
-        let maxDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
-        let minDate = (tests.sorted(by: {$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970})[0].date?.timeIntervalSince1970)! / 1000
+    //    let maxDate = (tests.sorted(by: {$0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970})[0].date.timeIntervalSince1970)! / 1000
+  //      let minDate = (tests.sorted(by: {$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970})[0].date.timeIntervalSince1970)! / 1000
         
         var arr: [ChartEntry] = []
-        for test in tests {
-            let x =  (test.date!.timeIntervalSince1970 / 1000) - minDate
+      /*  for test in tests {
+            let x =  (test.date.timeIntervalSince1970 / 1000) - minDate
             arr.append((Double(x), Double(test.grade)))
-        }
-        self.maxDataLineChart.append(maxDate - minDate)
+        }*/
+      //  self.maxDataLineChart.append(maxDate - minDate)
 
         return arr.sorted(by: {$0.0 > $1.0})
     }

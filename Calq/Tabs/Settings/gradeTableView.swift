@@ -159,7 +159,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date! < $1.date! })
+        let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date })
           
         for i in 1...4 {
             var name = "";
@@ -174,7 +174,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
             let tests =  Alltests.filter{$0.year == i};
             if (tests.count < 1) {continue;}
             
-            models.append(
+           /* models.append(
                 Section(title: name + " Halbjahr",
                         options: tests.enumerated().map(
                             {(ind, t) in
@@ -183,11 +183,11 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                                         model:
                                             GradeOption(
                                                 title: t.name ?? "Unknown Name",
-                                                subtitle: dateFormatter.string(from: t.date!),
+                                                subtitle: dateFormatter.string(from: t.date),
                                                 points: String(t.grade),
                                     
-                                                iconBackgroundColor:settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :
-                                                    UIColor.init(hexString: self.subject.color!),
+                                                iconBackgroundColor:settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name) :
+                                                    UIColor.init(hexString: self.subject.color),
                                                 hideIcon: t.big
                                             ){
                                                  self.navigateGrade(t)
@@ -199,7 +199,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
                              }
                         )
                        )
-            )
+            )*/
         }
         
     }

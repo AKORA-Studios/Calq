@@ -81,7 +81,7 @@ class ExamViewController: ViewController {
                     field = examFields[Int(sub.examtype)-1],
                     label = examLabels[Int(sub.examtype)-1]
                 
-                let subColor = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                let subColor = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) : UIColor.init(hexString: sub.color)
                 field.backgroundColor = subColor
                 slider.tintColor = subColor
                 field.setTitle(sub.name, for: .normal)

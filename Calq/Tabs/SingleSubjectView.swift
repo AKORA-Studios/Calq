@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class SingleSubjectView: UIViewController  {
-    
+    /*
     @IBOutlet weak var yearSegment: UISegmentedControl!
     @IBOutlet weak var CircularProgress: CircularProgressView!
     @IBOutlet weak var yearSwitch: UISwitch!
@@ -156,5 +156,6 @@ class SingleSubjectView: UIViewController  {
      
         let navController = UINavigationController(rootViewController: newView)
         self.navigationController?.present(navController, animated: true, completion: nil)
-    }
+    }*/
 }
+

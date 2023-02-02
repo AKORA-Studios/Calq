@@ -25,14 +25,14 @@ class editGradeView: UIViewController, UITextFieldDelegate {
         gradeName.delegate = self
         
         self.gradeTypeSegemnt.selectedSegmentIndex = Int(truncating: NSNumber(value: self.test.big));
-        self.gradeDate.date = self.test.date!;
+        self.gradeDate.date = self.test.date
         self.yearSegment.selectedSegmentIndex = Int(self.test.year) - 1;
         self.gradeName.text = self.test.name
         self.pointSlider.value = Float(self.test.grade)
         self.pointLabel.text = String(self.test.grade)
         
-        gradeTypeSegemnt.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
-        yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name!) :UIColor.init(hexString: self.subject.color!)
+        gradeTypeSegemnt.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name) :UIColor.init(hexString: self.subject.color)
+        yearSegment.selectedSegmentTintColor = settings!.colorfulCharts ? Util.getPastelColorByIndex(self.subject.name) :UIColor.init(hexString: self.subject.color)
         
         self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))
         self.navigationItem.title = "Note bearbeiten"

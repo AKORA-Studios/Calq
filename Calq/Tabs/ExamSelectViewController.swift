@@ -130,17 +130,17 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     func configure(){
         var arr: [SettingsOptionType] = []
-        let subjectArr = self.subjects.sorted(by: {$0.name! < $1.name! })
+        let subjectArr = self.subjects.sorted(by: {$0.name < $1.name })
     
             for sub in subjectArr {
                 if(sub.examtype != 0 ){ continue}
-                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) : UIColor.init(hexString: sub.color)
                 
                 arr.append(
                     .staticCell(
                         model:
                             SettingsOption(
-                                title: sub.name!,
+                                title: sub.name,
                                 subtitle: "",
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
                                 iconBackgroundColor: color

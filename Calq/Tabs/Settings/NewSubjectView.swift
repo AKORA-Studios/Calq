@@ -82,7 +82,7 @@ class NewSubjectView: UIViewController, UITextFieldDelegate, UIColorPickerViewCo
     func createSubject(){
         let sub = UserSubject(context: CoreDataStack.shared.managedObjectContext)
         
-        sub.name = SubjectTitle.text == "" ?  "Neuer Kurs" : SubjectTitle.text
+        sub.name = ((SubjectTitle.text ?? "").isEmpty ?  "Neuer Kurs" : SubjectTitle.text)!
         sub.color = colorPicker.selectedColor.toHexString()
         sub.lk = subjectTypeSegment.selectedSegmentIndex == 1 ? false : true
         

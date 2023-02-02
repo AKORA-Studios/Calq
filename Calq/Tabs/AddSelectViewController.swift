@@ -112,13 +112,13 @@ class AddSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
         let subjectArr = Util.getAllSubjects()
     
             for sub in subjectArr {
-                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                let color = Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) : UIColor.init(hexString: sub.color)
                 
                 arr.append(
                     .staticCell(
                         model:
                             SettingsOption(
-                                title: sub.name!,
+                                title: sub.name,
                                 subtitle: "",
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
                                 iconBackgroundColor:  color

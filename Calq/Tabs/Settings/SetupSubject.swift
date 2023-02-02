@@ -44,8 +44,8 @@ class SetupSubject: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         }))
         
-        colorPicker.selectedColor = UIColor.init(hexString: subject.color!)
-        colorDisplay.backgroundColor = UIColor.init(hexString: subject.color!)
+        colorPicker.selectedColor = UIColor.init(hexString: subject.color)
+        colorDisplay.backgroundColor = UIColor.init(hexString: subject.color)
         subjectTypeSegment.selectedSegmentIndex = self.subject.lk ? 0 : 1
         
         self.navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "《 Zurück", style: .plain, target: self, action: #selector(backButtonPressed))

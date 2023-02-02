@@ -181,10 +181,10 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                     .staticCell(
                         model:
                             SettingsOption(
-                                title: sub.name!,
+                                title: sub.name,
                                 subtitle: "",
                                 icon: sub.lk ? UIImage(systemName: "bookmark.fill") :  UIImage(systemName: "bookmark"),
-                                iconBackgroundColor:  settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name!) : UIColor.init(hexString: sub.color!)
+                                iconBackgroundColor:  settings!.colorfulCharts ? Util.getPastelColorByIndex(sub.name) : UIColor.init(hexString: sub.color)
                             ){
                                 self.navigateSubjectSettings(sub.objectID)
                             })
