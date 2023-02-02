@@ -22,6 +22,7 @@ class backView: UIView {
     }
 }
 
+let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
 func getSettings()-> AppSettings?{
     let context = CoreDataStack.shared.managedObjectContext

@@ -11,6 +11,7 @@ struct SettingsScreen: View {
     @Environment(\.managedObjectContext) var coreDataContext
     @StateObject var settings: AppSettings = getSettings()!
     @State var subjects: [UserSubject] = getAllSubjects()
+
     
     var body: some View {
         
@@ -39,6 +40,10 @@ struct SettingsScreen: View {
                     subjectView(subjects[i], i)
                 }
                 SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
+            }
+            
+            Section(){
+                Text(appVersion ?? "0.0.0").foregroundColor(.gray)
             }
         }
     }
