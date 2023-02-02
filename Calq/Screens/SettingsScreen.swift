@@ -37,10 +37,10 @@ struct SettingsScreen: View {
             Section(header: Text("Subjects")){
                 ForEach(subjects.indices) { i in
                     subjectView(subjects[i], i)
-                    SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
                 }
+                SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
             }
-        }.navigationTitle("Settings")
+        }
     }
     
     @ViewBuilder
