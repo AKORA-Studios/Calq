@@ -10,7 +10,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
         return table
     }()
     
-    var models = [Section]()
+    var models = [Section1]()
     var subject: UserSubject!
     var callback: (() -> Void)!
  
@@ -145,7 +145,7 @@ class gradeTableView: ViewController, UITableViewDelegate, UITableViewDataSource
     
     func configure(){
         
-            models.append(Section(title: "", options: [
+            models.append(Section1(title: "", options: [
                 .staticCell(model: SettingsOption(
                     title: "Alle löschen", subtitle: "",
                     icon: UIImage(systemName: "archivebox"),

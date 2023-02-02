@@ -16,7 +16,7 @@ class AddSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
         return table
     }()
   
-    var models = [Section]()
+    var models = [Section1]()
     var callback: (() -> Void)!;
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,7 +128,7 @@ class AddSelect: ViewController, UITableViewDelegate, UITableViewDataSource {
                 )
             }
             let title = subjectArr.count == 0 ? "Du hast noch keine Kurse hinzugefügt" : ""
-            models.append(Section(title: title, options: arr))
+            models.append(Section1(title: title, options: arr))
     }
 }
 

@@ -27,7 +27,9 @@ struct TabbarView: View {
                    Image(systemName: "text.book.closed.fill")
                }
                
-               SettingsScreen().tabItem{
+               SettingsScreen()
+                .navigationTitle("Settings")
+                .tabItem{
                     Image(systemName: "gearshape.fill")
                }
            }

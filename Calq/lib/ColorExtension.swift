@@ -34,3 +34,20 @@ extension Color {
         self.init(red:red, green:green, blue:blue)
     }
 }
+
+let pastelColors = ["#ed8080",
+                           "#edaf80",
+                           "#edd980",
+                           "#caed80",
+                           "#90ed80",
+                           "#80edb8",
+                           "#80caed",
+                           "#809ded",
+                           "#9980ed",
+                           "#ca80ed",
+                           "#ed80e4",
+                           "#ed80a4"].map{Color.init(hexString: $0)}
+
+func getPastelColorByIndex(_ index: Int) -> Color{
+    return pastelColors[index%(pastelColors.count-1)]
+}

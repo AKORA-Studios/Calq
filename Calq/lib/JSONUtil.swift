@@ -13,6 +13,7 @@ struct JSON {
 
 ///Loads the demo data from grades.json
 static func loadDemoData(){
+    log("lload demo")
     let context = CoreDataStack.shared.managedObjectContext
     
     let settings: AppSettings = Util.deleteSettings()

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct Section {
+struct Section1 {
     let title: String
     let options: [SettingsOptionType]
 }

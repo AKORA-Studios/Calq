@@ -12,7 +12,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     var callback: (() -> Void)!;
     var subjects: [UserSubject]!
     var examtype: Int = 1
-    var models = [Section]()
+    var models = [Section1]()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
@@ -162,6 +162,6 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
             }
                 ))
         }
-            models.append(Section(title: "Wähle einen Kurs als Prüfungsfach", options: arr))
+            models.append(Section1(title: "Wähle einen Kurs als Prüfungsfach", options: arr))
     }
 }

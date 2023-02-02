@@ -69,6 +69,7 @@
 		F17F445B298C552C000A3993 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F444F298C5402000A3993 /* UserSubject+CoreDataClass.swift */; };
 		F17F445C298C552F000A3993 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4450298C5402000A3993 /* UserSubject+CoreDataProperties.swift */; };
 		F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
+		F17F4460298C5AAC000A3993 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445F298C5AAC000A3993 /* Log.swift */; };
 		F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B033AA295F426900B8BA93 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,7 @@
 		F17F444F298C5402000A3993 /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSubject+CoreDataClass.swift"; path = "lib/CoreData/UserSubject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F17F4450298C5402000A3993 /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSubject+CoreDataProperties.swift"; path = "lib/CoreData/UserSubject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F17F445D298C59B3000A3993 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		F17F445F298C5AAC000A3993 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F1B033AA295F426900B8BA93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +321,7 @@
 				DD687945261C530000BF2B48 /* Util.swift */,
 				DD81F6822759091600B4A43B /* JSONUtil.swift */,
 				F17F445D298C59B3000A3993 /* ColorExtension.swift */,
+				F17F445F298C5AAC000A3993 /* Log.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 			files = (
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */,
+				F17F4460298C5AAC000A3993 /* Log.swift in Sources */,
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,

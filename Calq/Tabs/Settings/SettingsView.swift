@@ -14,7 +14,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
     }()
     
     var settings: AppSettings?
-    var models = [Section]()
+    var models = [Section1]()
     var switches = [SwitchSettingsCell]()
     
     let demoAlert = UIAlertController(title: "Bist du dir sicher?", message: "ALLE Daten werden unwiderruflich gelöscht", preferredStyle: .alert)
@@ -205,7 +205,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                     })
         )
      
-        models.append(Section(title: "Allgemein", options: [
+        models.append(Section1(title: "Allgemein", options: [
             .staticCell(model:SettingsOption(title: "Github", subtitle: "", icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColor: UIColor.init(hexString: "#63d3bd"))
                         {
                             let url = URL(string: "https://github.com/AKORA-Studios/Calq")
@@ -266,7 +266,7 @@ class SettingsView: ViewController,  UITableViewDelegate, UITableViewDataSource,
                             }),
         ] ))
         
-        models.append(Section(title: "Kurse", options: arr))
+        models.append(Section1(title: "Kurse", options: arr))
     }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){

@@ -14,9 +14,12 @@ struct Calq: App {
     
     var body: some Scene {
         WindowGroup {
+            NavigationView{
             TabbarView()
                 .environment(\.managedObjectContext, persistenceController.workingContext)
                // .environmentObject(util)
+                
+            }
         }
     }
 }
