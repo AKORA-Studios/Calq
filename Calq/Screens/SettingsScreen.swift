@@ -64,7 +64,7 @@ struct SettingsScreen: View {
                 Section(){
                     Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
                 }
-            }.navigationTitle("Einstelungen")
+            }.navigationTitle("Einstellungen")
         }
     }
     

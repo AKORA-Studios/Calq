@@ -12,21 +12,22 @@ struct ExamScreen: View {
     @State var examSubejcts: [UserSubject] = getAllExamSubjects()
     
     var body: some View {
-        VStack{
-            Text("ExamScreen")
-            BlockView() //TODO: change points on exam select ect.
-            
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
-                VStack{
-                    ForEach(1...5, id: \.self){ i in
-                        ExamView(subject: getExam(i), type: i).environmentObject(settings)
+        NavigationView {
+            VStack{
+                BlockView() //TODO: change points on exam select ect.
+                ZStack{
+                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
+                    VStack{
+                        ForEach(1...5, id: \.self){ i in
+                            ExamView(subject: getExam(i), type: i).environmentObject(settings)
+                        }
                     }
                 }
+                Spacer()
             }
-            
-            Spacer()
-        }.padding()
+            .padding()
+            .navigationTitle("Prüfungen")
+        }
     }
 }
 

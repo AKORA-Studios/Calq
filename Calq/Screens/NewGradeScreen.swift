@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NewGradeScreen: View {
     var body: some View {
-        Text("NewGradeScreen")
+        NavigationView {
+            Text("NewGradeScreen").navigationTitle("Neue Note")
+        }
     }
 }

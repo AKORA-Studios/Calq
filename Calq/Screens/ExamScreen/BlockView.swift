@@ -29,7 +29,7 @@ struct BlockView: View {
                     Text("\(points2) von 300").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 1/3 - 20)
             }.padding(10)
-        }.frame(height: 60)
+        }.frame(height: 50)
         }
     }
 }

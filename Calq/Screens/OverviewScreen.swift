@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OverviewScreen: View {
     var body: some View {
-        Text("OverviewScreen")
+        NavigationView {
+            Text("OverviewScreen").navigationTitle("Übersicht")
+        }
     }
 }
-

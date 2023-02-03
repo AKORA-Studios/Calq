@@ -369,6 +369,7 @@
 		F10D66B0298D57AA00993237 /* ExamScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F17F4445298C4EC3000A3993 /* ExamScreen.swift */,
 				F10D66B1298D57BD00993237 /* BlockView.swift */,
 				F10D66B3298D66C200993237 /* ExamVM.swift */,
 			);
@@ -381,7 +382,6 @@
 				F10D66B0298D57AA00993237 /* ExamScreen */,
 				F17F443E298C4DCE000A3993 /* OverviewScreen.swift */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
-				F17F4445298C4EC3000A3993 /* ExamScreen.swift */,
 				F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */,
 				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 			);
