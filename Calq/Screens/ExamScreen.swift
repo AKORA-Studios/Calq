@@ -32,7 +32,6 @@ struct ExamScreen: View {
 
 
 struct ExamView: View {
-    @Environment(\.managedObjectContext) var coreDataContext
     @State var subjects: [UserSubject] = getAllSubjects()
     @EnvironmentObject var settings: AppSettings
     @State var subject: UserSubject?
@@ -64,11 +63,11 @@ struct ExamView: View {
                             Text("Entfernen/keines").foregroundColor(.red)
                         }
                     }
-                   
+                    
                 }label: {
                     RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
-
+                
                 Text((subject != nil) ? subject!.name : "keines ausgewählt")
             }
             HStack {
@@ -78,8 +77,8 @@ struct ExamView: View {
                     subject?.exampoints = Int16(sliderValue)
                     saveCoreData()
                 })
-                    .accentColor(subColor())
-                    .disabled(subject == nil)
+                .accentColor(subColor())
+                .disabled(subject == nil)
             }
         }
         .padding(.horizontal, 10)
