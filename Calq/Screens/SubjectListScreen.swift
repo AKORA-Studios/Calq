@@ -20,7 +20,13 @@ struct SubjectListScreen: View {
                     }
                 }
                 Section{
-                    SummaryCell(inActiveYears: calcInactiveYearsCount(), activeMax: subjects.count * 4)
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(width: 30, height: 30)
+                            Text("∑")
+                        }
+                        Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) aktiv")
+                    }
                 }
             }
         }
@@ -40,7 +46,6 @@ struct SubjectListScreen: View {
         return count
     }
     
-    
 }
 
 
@@ -50,11 +55,15 @@ struct SubjectYearCell: View {
     @StateObject var settings: AppSettings = getSettings()!
     var subjects: [UserSubject] = getAllSubjects()
     @State var subject: UserSubject
-    @State var colors: [Color] = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]//getcolorArr
+    @State var colors: [Color] = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
+    @State var average: Double = 99.9
     
     var body: some View {
         HStack {
-            SubejctGradeIcon(color: subColor(), grade: 11)
+            ZStack{
+                RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(width: 30, height: 30)
+                Text(String(format: "%.0f", round(average)))
+            }
             Text(subject.name)
             Spacer()
             HStack{
@@ -65,6 +74,7 @@ struct SubjectYearCell: View {
             }
         }.onAppear{
             getcolorArr()
+            average = Util.testAverage(filterTests(subject))
         }
     }
     
@@ -74,8 +84,8 @@ struct SubjectYearCell: View {
             if(year.isEmpty){return}
             colors[Int(year)! - 1] = Color.red
         }
-        
     }
+    
     
     func subColor() -> Color{
         if(settings.colorfulCharts) {
@@ -83,32 +93,5 @@ struct SubjectYearCell: View {
             return  getPastelColorByIndex(index)
         }
         return Color(hexString: subject.color)
-    }
-}
-
-
-struct SubejctGradeIcon: View {
-    @State var color: Color
-    @State var grade: Int
-    var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 8).fill(color).frame(width: 30, height: 30)
-            Text(String(grade))
-        }
-    }
-}
-
-struct SummaryCell: View {
-    @State var inActiveYears: Int
-    @State var activeMax: Int
-    
-    var body: some View {
-        HStack{
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(width: 30, height: 30)
-                Text("∑")
-            }
-            Text("\(activeMax - inActiveYears) von \(activeMax) aktiv")
-        }
     }
 }
