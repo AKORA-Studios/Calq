@@ -2,7 +2,7 @@
 //  UserTest+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 02.02.23.
+//  Created by Kiara on 03.02.23.
 //
 //
 

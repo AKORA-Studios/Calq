@@ -496,6 +496,17 @@ struct Util {
     WidgetCenter.shared.reloadAllTimelines()
 }
 
+
+/*func getExamArr() -> [UserSubject]? {
+    let settings = getSettings()
+    if(settings == nil){return []}
+    var arr: [UserSubject] = []
+    arr.append(settings!.exam1 != nil ? settings!.exam1 : nil)
+   
+    return arr
+}*/
+
+
 /// Delete exam
  func deleteExam(_ type: Int){
     let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
@@ -525,75 +536,6 @@ func filterTests(_ sub: UserSubject)-> [UserTest]{
 }
 
 
-/// Calc points block I
- func generateBlockOne() -> Int{
-    let subjects = Util.getAllSubjects()
-    var sum = 0
-    var count = 0
-    if(subjects.count == 0) {return 0}
-    
-    for sub in subjects {
-        if(sub.subjecttests == nil) {continue}
-        let SubTests = filterTests(sub)
-        if(SubTests.count == 0){continue}
- 
-        let multiplier = sub.lk ? 2 : 1
-        
-        for e in 1...4 {
-            let tests = SubTests.filter{($0.year == e)}
-            if(tests.count == 0)  {continue}
-  
-            sum += multiplier * Int(round(Util.testAverage(tests)))
-            count += multiplier * 1
-        }
-    }
-    
-    if(sum == 0 ) {return 0}
-     return Int((sum / count) * 40)
-}
-    
-    /// Calc points block II
-     func generateBlockTwo() -> Int{
-        let subjects = getAllExamSubjects()
-        if(subjects.count == 0){return 0}
-        
-        var sum: Double = 0
-        
-        for sub in subjects {
-            sum += Double(Int(sub.exampoints) * 4)
-        }
-        
-         return Int(sum)
-}
-/// Calc Maxpoints block I
- func generatePossibleBlockOne() -> Int{
-    let subjects = Util.getAllSubjects()
-    var sum = 0
-    var count = 0
-    if(subjects.count == 0) {return 0}
-    
-    for i in 0..<subjects.count {
-        let sub = subjects[i]
-        if(sub.subjecttests == nil) {continue}
-        let SubTests = sub.subjecttests!.allObjects as! [UserTest]
-        
-        for e in 1...4 {
-            let tests = SubTests.filter{($0.year == e)}
-            if(tests.count == 0)  {continue}
-            
-            if(sub.lk){
-                sum += 2 * 15
-                count += 2
-            } else {
-                sum += 15
-                count += 1
-            }
-        }
-    }
-    
-    if(sum == 0 ) {return 0}
-     return Int(Double((sum / count) * 40))
-}
 
 
 // MARK: - UIColor Extension

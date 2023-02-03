@@ -19,8 +19,8 @@ struct ExamScreen: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
                 VStack{
-                    ForEach(0...4, id: \.self){ i in
-                        ExamView(type: i).environmentObject(settings)
+                    ForEach(1...5, id: \.self){ i in
+                        ExamView(subject: getExam(i), type: i).environmentObject(settings)
                     }
                 }
             }
@@ -32,6 +32,7 @@ struct ExamScreen: View {
 
 
 struct ExamView: View {
+    @Environment(\.managedObjectContext) var coreDataContext
     @State var subjects: [UserSubject] = getAllSubjects()
     @EnvironmentObject var settings: AppSettings
     @State var subject: UserSubject?
@@ -40,6 +41,7 @@ struct ExamView: View {
     @State var sliderText: String = "0"
     @State var sliderValue: Float = 0
     var type: Int
+    
     
     var body: some View {
         VStack{
@@ -50,11 +52,16 @@ struct ExamView: View {
                             
                             Button(sub.name) {
                                 subject = sub
+                                saveExam(type, sub)
                             }
                         }
                     }
                     Section {
                         Button {
+                            removeExam(type)
+                            do {try coreDataContext.save() }
+                            catch(let err) {coreDataError("remove exam", err)}
+                                
                             subject = nil
                         } label: {
                             Text("Entfernen/keines").foregroundColor(.red)
@@ -82,7 +89,9 @@ struct ExamView: View {
         .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }.onDisappear{
-         //   updateExampoints(<#T##type: Int##Int#>, <#T##points: Int##Int#>)
+            if(subject != nil){
+                setExamPoints(Int(sliderValue), subject!)
+            }
         }
     }
     

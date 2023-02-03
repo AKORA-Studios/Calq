@@ -11,7 +11,7 @@ struct SettingsScreen: View {
     @Environment(\.managedObjectContext) var coreDataContext
     @StateObject var settings: AppSettings = getSettings()!
     @State var subjects: [UserSubject] = getAllSubjects()
-
+    
     
     var body: some View {
         
@@ -26,7 +26,10 @@ struct SettingsScreen: View {
                 
                 HStack {
                     SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "auto. farben")
-                    Toggle(isOn: $settings.colorfulCharts){}
+                    Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
+                        let context = CoreDataStack.shared.managedObjectContext
+                        try! context.save()
+                    }
                 }
                 
                 SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")

@@ -3,6 +3,11 @@
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="colorfulCharts" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="weightBigGrades" attributeType="String" defaultValueString="0.5"/>
+        <relationship name="exam1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject"/>
+        <relationship name="exam2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject"/>
+        <relationship name="exam3" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject"/>
+        <relationship name="exam4" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject"/>
+        <relationship name="exam5" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject"/>
         <relationship name="usersubjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttosettings" inverseEntity="UserSubject"/>
     </entity>
     <entity name="UserSubject" representedClassName="UserSubject" syncable="YES">

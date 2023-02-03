@@ -11,3 +11,9 @@ import Foundation
 func log(_ str: String){
     print(">>> ", str)
 }
+
+
+func coreDataError(_ str: String, _ err: Error?){
+    print("❤️ Core Data Error \n ", str)
+    if(err != nil){print(err as Any)}
+}
