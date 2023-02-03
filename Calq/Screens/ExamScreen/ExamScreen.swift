@@ -13,9 +13,9 @@ struct ExamScreen: View {
     
     var body: some View {
         NavigationView {
-            VStack{
+            VStack(alignment: .leading){
                 BlockView()//.frame(height: 70) //TODO: change points on exam select ect.
-              //  Text("Prüfungsfächer")
+                Text("Prüfungsfächer").font(.headline)
                 ZStack{
                     RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     VStack{
@@ -27,7 +27,7 @@ struct ExamScreen: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Prüfungen")
+            .navigationTitle("Prüfungsübersicht")
         }
     }
 }
@@ -84,7 +84,7 @@ struct ExamView: View {
             }
         }
         .padding(.horizontal, 10)
-        .padding(.vertical, 10)
+        .padding(.vertical, 5)
         .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }
