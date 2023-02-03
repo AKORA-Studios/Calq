@@ -49,6 +49,7 @@
 		DDEBB40227B5A624004D80BB /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBB40127B5A624004D80BB /* TableCell.swift */; };
 		DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
 		DDF83D092639BE5300E995BC /* NewSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF83D082639BE5300E995BC /* NewSubjectView.swift */; };
+		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443C298C4DA7000A3993 /* CalqApp.swift */; };
 		F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443E298C4DCE000A3993 /* OverviewScreen.swift */; };
 		F17F4442298C4DDF000A3993 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4441298C4DDF000A3993 /* TabView.swift */; };
@@ -162,6 +163,7 @@
 		DDEBB40127B5A624004D80BB /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DDF83D082639BE5300E995BC /* NewSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubjectView.swift; sourceTree = "<group>"; };
+		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F17F443C298C4DA7000A3993 /* CalqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqApp.swift; sourceTree = "<group>"; };
 		F17F443E298C4DCE000A3993 /* OverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewScreen.swift; sourceTree = "<group>"; };
 		F17F4441298C4DDF000A3993 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
@@ -362,9 +364,18 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		F10D66B0298D57AA00993237 /* ExamScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F10D66B1298D57BD00993237 /* BlockView.swift */,
+			);
+			path = ExamScreen;
+			sourceTree = "<group>";
+		};
 		F17F4440298C4DD2000A3993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F10D66B0298D57AA00993237 /* ExamScreen */,
 				F17F443E298C4DCE000A3993 /* OverviewScreen.swift */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F17F4445298C4EC3000A3993 /* ExamScreen.swift */,
@@ -571,6 +582,7 @@
 				DD687941261BAD2E00BF2B48 /* SingleSubjectView.swift in Sources */,
 				DD39350526A9C92600917E06 /* ExamViewController.swift in Sources */,
 				F17F4452298C5402000A3993 /* AppSettings+CoreDataProperties.swift in Sources */,
+				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				DD22EE2A278B430600C3024B /* FirstLaunchView.swift in Sources */,
 				DDA06814272C5EA6001E2EE8 /* TableCellStructs.swift in Sources */,
 				F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */,
