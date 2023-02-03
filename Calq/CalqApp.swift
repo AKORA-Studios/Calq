@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct Calq: App {
     let persistenceController = CoreDataStack.shared
-    let util = Util()
     
     var body: some Scene {
         WindowGroup {
@@ -18,7 +17,6 @@ struct Calq: App {
             TabbarView()
                 .environment(\.managedObjectContext, persistenceController.workingContext)
                // .environmentObject(util)
-                
             }
         }
     }
