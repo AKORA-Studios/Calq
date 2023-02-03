@@ -73,6 +73,7 @@
 		F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F17F4460298C5AAC000A3993 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445F298C5AAC000A3993 /* Log.swift */; };
 		F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B033AA295F426900B8BA93 /* ViewController.swift */; };
+		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		F17F445D298C59B3000A3993 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		F17F445F298C5AAC000A3993 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F1B033AA295F426900B8BA93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				F17F4447298C4ED3000A3993 /* NewGradeSubjectScreen.swift */,
+				F1F568C7298DA72100227F88 /* ImpactSegment.swift */,
 			);
 			path = NewGradeScreen;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				F17F4460298C5AAC000A3993 /* Log.swift in Sources */,
 				DDB965C92765408600F89D0C /* YearBarChart.swift in Sources */,
 				DDA0681E272D807D001E2EE8 /* ExamSelectViewController.swift in Sources */,
+				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				DDC89037261F902100A93178 /* SettingsCell.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,

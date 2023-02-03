@@ -94,9 +94,9 @@ struct NewGradeView: View {
                                 Slider(value: $points, in: 0...15, onEditingChanged: { _ in
                                     points = points.rounded()
                                 })
-                                .accentColor(getColor())
+                                .accentColor(Color.accentColor)
                             }
-                            ImpactSegment()
+                            ImpactSegment(subject: $subject, gradeType: $bigGrade)
                         }.padding()
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                     
@@ -111,77 +111,8 @@ struct NewGradeView: View {
         }
     }
     
-    
-    func getColor() -> Color {
-        return .green
-    }
-    
-    
     func saveGrade(){
-        
+        //TODO: save grade
         dismiss = false
-    }
-}
-
-
-struct ImpactSegment: View {
-    let colors: [Color] = get15colors()
-    
-    var body: some View {
-        GeometryReader {geo in
-            ZStack{
-                HStack(spacing: 0){
-                    ForEach( 0...14, id: \.self ){i in
-                        GradeSegment(colors: colors, width: geo.size.width/15, index: i)
-                    }
-                }.padding(0)
-               
-            }.frame(height: 20)
-        }
-    }
-    
-    
-    func generateColors() {
-        
-    }
-}
-
-struct GradeSegment: View {
-    var colors: [Color]
-    var width: CGFloat
-    var index: Int
-    
-    var body: some View {
-        ZStack{
-            Rectangle().fill((colors[index])).frame(width: width)
-            Text(String(index+1))
-        }.padding(0)
-       
-    }
-}
-
-
-struct HalfRoundedShape: Shape {
-    var style: RoundedCornerStyle
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 8, height: 8))
-        return Path(path.cgPath)
-    }
-}
-
-func get15colors()-> [Color]{
-    var arr: [Color] = []
-    for _ in 1...15 {
-        arr.append(Color.purple)
-    }
-    return arr
-}
-
-
-struct ImpactSegmentPreview: PreviewProvider{
-    
-   static var previews: some View {
-        ImpactSegment()
     }
 }
