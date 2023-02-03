@@ -16,12 +16,19 @@ struct ImpactSegment: View {
     var body: some View {
         GeometryReader {geo in
             VStack(spacing: 4){
+                //Upper sEgemnt
                 HStack(spacing: 0){
                     ForEach( 0...14, id: \.self ){i in
                         GradeSegment(colors: $colors, values: $values, width: geo.size.width/15, index: i)
                     }
                 }.padding(0)
-                LowerSegment(values: $values).frame(height: 10)
+                
+                //Lower Segment
+                HStack(spacing: 0){
+                    ForEach(values, id: \.self) { value in
+                        Text(value).frame(width: geo.size.width/15, height: 10)
+                    }
+                }.padding(0)
             }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0).onChange(of: gradeType) { _ in
                 generateColors()
             }
@@ -93,18 +100,6 @@ struct ImpactSegment: View {
     }
 }
 
-struct LowerSegment: View {
-    @Binding var values: [String]
-    
-    var body: some View {
-        HStack{
-            ForEach(values, id: \.self) { value in
-                Text(value)
-            }
-        }
-    }
-}
-
 struct GradeSegment: View {
     @Binding var colors: [Color]
     @Binding var values: [String]
@@ -140,7 +135,7 @@ func get15colors()-> [Color]{
 func get15Values() -> [String]{
     var arr: [String] = []
     for _ in 1...15 {
-        arr.append("")
+        arr.append(" ")
     }
     return arr
 }
