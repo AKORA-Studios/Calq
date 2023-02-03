@@ -39,6 +39,7 @@ struct NewGradeScreen: View {
 }
 
 
+//TODO: Dimiss button qwq
 struct NewGradeView: View {
     @Binding var subject: UserSubject?
     @Binding var dismiss: Bool
@@ -47,6 +48,7 @@ struct NewGradeView: View {
     @State var year = 1
     @State var points: Float = 9
     @State var date = Date()
+    @State var isAlertRPesented = false
     
     var body: some View {
         NavigationView {
@@ -96,9 +98,11 @@ struct NewGradeView: View {
                                 })
                                 .accentColor(Color.accentColor)
                             }
-                            ImpactSegment(subject: $subject, gradeType: $bigGrade)
+                            ImpactSegment(subject: $subject, gradeType: $bigGrade).frame(height: 35)
                         }.padding()
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    
+                    Spacer()
                     
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
@@ -106,13 +110,29 @@ struct NewGradeView: View {
                     }.onTapGesture {
                         saveGrade()
                     }
-                }.navigationTitle("Neue Note").padding()
+                }.navigationTitle("Neue Note").padding().alert(isPresented: $isAlertRPesented){
+                    Alert(title: Text("Oh no"), message: Text("Diese Note gibt es bereis oder der Name ist ungültig"))
+                }
             }
         }
     }
     
     func saveGrade(){
-        //TODO: save grade
+        if(Util.checkString(gradeName) || gradeName.isEmpty){
+            isAlertRPesented = true
+            return
+        }
+        
+        let newTest = UserTest(context: CoreDataStack.shared.managedObjectContext)
+        newTest.name = gradeName
+        newTest.grade =  Int16(points)
+        newTest.date = date
+        newTest.big = bigGrade == 1 ? false : true
+        newTest.year = Int16(year)
+        self.subject!.addToSubjecttests(newTest)
+        saveCoreData()
+        
         dismiss = false
     }
+    
 }

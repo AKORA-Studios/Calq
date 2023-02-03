@@ -7,12 +7,6 @@
 
 import Foundation
 
-
-func saveCoreData(){
-    let context = CoreDataStack.shared.managedObjectContext
-    try! context.save()
-}
-
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
     let settings = getSettings()

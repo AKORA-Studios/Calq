@@ -5,6 +5,12 @@ import SwiftUI
 import WidgetKit
 
 
+func saveCoreData(){
+    let context = CoreDataStack.shared.managedObjectContext
+    try! context.save()
+    WidgetCenter.shared.reloadAllTimelines()
+}
+
 public var NoDataText = "Keine Daten für diesen Graph vorhanden"
 
 enum UtilErrors: Error {
