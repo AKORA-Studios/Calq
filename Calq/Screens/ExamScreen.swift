@@ -14,7 +14,7 @@ struct ExamScreen: View {
     var body: some View {
         VStack{
             Text("ExamScreen")
-            BlockView()
+            BlockView() //TODO: change points on exam select ect.
             
             ZStack{
                 RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
@@ -37,7 +37,7 @@ struct ExamView: View {
     @EnvironmentObject var settings: AppSettings
     @State var subject: UserSubject?
     
-    @State var subjectName = "keines ausgewählt" //TODO: pickers???
+    @State var subjectName = "keines ausgewählt"
     @State var sliderText: String = "0"
     @State var sliderValue: Float = 0
     var type: Int
@@ -59,9 +59,6 @@ struct ExamView: View {
                     Section {
                         Button {
                             removeExam(type)
-                            do {try coreDataContext.save() }
-                            catch(let err) {coreDataError("remove exam", err)}
-                                
                             subject = nil
                         } label: {
                             Text("Entfernen/keines").foregroundColor(.red)
@@ -79,6 +76,7 @@ struct ExamView: View {
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
                     sliderValue = sliderValue.rounded()
                     subject?.exampoints = Int16(sliderValue)
+                    saveCoreData()
                 })
                     .accentColor(subColor())
                     .disabled(subject == nil)
@@ -88,11 +86,11 @@ struct ExamView: View {
         .padding(.vertical, 10)
         .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
-        }.onDisappear{
+        }/*.onDisappear{
             if(subject != nil){
                 setExamPoints(Int(sliderValue), subject!)
             }
-        }
+        }*/
     }
     
     func subColor() -> Color{

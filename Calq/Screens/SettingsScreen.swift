@@ -27,8 +27,7 @@ struct SettingsScreen: View {
                 HStack {
                     SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "auto. farben")
                     Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
-                        let context = CoreDataStack.shared.managedObjectContext
-                        try! context.save()
+                        saveCoreData()
                     }
                 }
                 

@@ -8,6 +8,11 @@
 import Foundation
 
 
+func saveCoreData(){
+    let context = CoreDataStack.shared.managedObjectContext
+    try! context.save()
+}
+
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
     let settings = getSettings()
@@ -31,7 +36,6 @@ func getExam(_ type: Int)-> UserSubject? {
 
 func saveExam(_ type: Int, _ subject: UserSubject){
     let settings = getSettings()
-    let context = CoreDataStack.shared.managedObjectContext
     
     if(type < 1 || type > 5){return}
     switch type {
@@ -48,19 +52,17 @@ func saveExam(_ type: Int, _ subject: UserSubject){
     default:
         return
     }
-    try! context.save()
+    saveCoreData()
 }
 
 
 func setExamPoints(_ points: Int, _ subject: UserSubject){
-    let context = CoreDataStack.shared.managedObjectContext
     subject.exampoints = Int16(points)
-    try! context.save()
+    saveCoreData()
 }
 
 
 func removeExam(_ type: Int){
-    let context = CoreDataStack.shared.managedObjectContext
     let settings = getSettings()
     
     switch type {
@@ -77,7 +79,7 @@ func removeExam(_ type: Int){
     default:
         return
     }
-    try! context.save()
+    saveCoreData()
 }
 
 
