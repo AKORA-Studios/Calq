@@ -14,9 +14,10 @@ struct ExamScreen: View {
     var body: some View {
         NavigationView {
             VStack{
-                BlockView() //TODO: change points on exam select ect.
+                BlockView()//.frame(height: 70) //TODO: change points on exam select ect.
+              //  Text("Prüfungsfächer")
                 ZStack{
-                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
+                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     VStack{
                         ForEach(1...5, id: \.self){ i in
                             ExamView(subject: getExam(i), type: i).environmentObject(settings)
