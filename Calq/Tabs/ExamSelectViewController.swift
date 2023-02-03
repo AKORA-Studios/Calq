@@ -101,7 +101,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func navigateBacktoExamView(_ id: NSManagedObjectID){
-        let subject = Util.getSubject(id)
+      /*  let subject = Util.getSubject(id)
         let allSubjects = Util.getAllExamSubjects()
         
         let oldSub = allSubjects.filter{$0.examtype == Int16(examtype)}
@@ -118,14 +118,14 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
         
         self.dismiss(animated: true, completion: ({
             self.callback();
-        }))
+        }))*/
     }
     
     func deleteExam(){
-        Util.deleteExam(self.examtype)
+      /*  Util.deleteExam(self.examtype)
         self.dismiss(animated: true, completion: ({
             self.callback();
-        }))
+        }))*/
     }
     
     func configure(){
@@ -150,7 +150,7 @@ class ExamSelectView: ViewController, UITableViewDelegate, UITableViewDataSource
                 )
             }
         
-        let oldSub = Util.getAllExamSubjects().filter{$0.examtype == Int16(self.examtype)}
+        let oldSub = getAllExamSubjects().filter{$0.examtype == Int16(self.examtype)}
         if(oldSub.count != 0){
             arr.append(.staticCell(model: SettingsOption(
                 title: "Prüfung löschen",

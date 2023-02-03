@@ -347,51 +347,7 @@ struct Util {
         return arr1+arr2
     }
     
-    /// Returns all Subjects as Array
-    static func getAllExamSubjects()-> [UserSubject]{
-        let context = CoreDataStack.shared.managedObjectContext
-        
-        var  allSubjects: [UserSubject] = []
-        do {
-            let result = try context.fetch(AppSettings.fetchRequest())
-            if(result[0].usersubjects != nil){
-                allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-                allSubjects  = allSubjects.filter{$0.examtype != 0}.sorted(by: {$0.name < $1.name })
-                return allSubjects
-            }else {return [] }
-        }catch {}
-        
-        return []
-    }
-    
-    /// Updates the exam points on a subject
-    static func updateExampoints(_ type: Int, _ points: Int){
-        let subjects = Util.getAllExamSubjects().filter{$0.examtype == Int16(type)}
-        if(subjects.count == 0) {return}
-        let sub = Util.getSubject(subjects[0].objectID)
-        if(sub == nil){return}
-        
-        if(sub?.exampoints == Int16(points)){return}
-        sub!.exampoints = Int16(points)
-        
-        try! CoreDataStack.shared.managedObjectContext.save()
-        WidgetCenter.shared.reloadAllTimelines()
-    }
-    
-    /// Delete exam
-    static func deleteExam(_ type: Int){
-        let subjects = Util.getAllExamSubjects().filter{$0.examtype == Int16(type)}
-        if(subjects.count == 0) {return}
-        
-        let sub = Util.getSubject(subjects[0].objectID)
-        if(sub == nil){return}
-        
-        sub!.exampoints = 0
-        sub!.examtype = 0
-        
-        try! CoreDataStack.shared.managedObjectContext.save()
-        WidgetCenter.shared.reloadAllTimelines()
-    }
+   
     
     /// Returns all inactive Years in one array of strings
     static func getinactiveYears(_ sub: UserSubject)-> [String]{
@@ -508,6 +464,54 @@ struct Util {
 }
 
 
+
+/// Returns all Subjects as Array
+ func getAllExamSubjects()-> [UserSubject]{
+    let context = CoreDataStack.shared.managedObjectContext
+    
+    var  allSubjects: [UserSubject] = []
+    do {
+        let result = try context.fetch(AppSettings.fetchRequest())
+        if(result[0].usersubjects != nil){
+            allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
+            allSubjects  = allSubjects.filter{$0.examtype != 0}.sorted(by: {$0.name < $1.name })
+            return allSubjects
+        }else {return [] }
+    }catch {}
+    
+    return []
+}
+
+/// Updates the exam points on a subject
+ func updateExampoints(_ type: Int, _ points: Int){
+    let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
+    if(subjects.count == 0) {return}
+    let sub = Util.getSubject(subjects[0].objectID)
+    if(sub == nil){return}
+    
+    if(sub?.exampoints == Int16(points)){return}
+    sub!.exampoints = Int16(points)
+    
+    try! CoreDataStack.shared.managedObjectContext.save()
+    WidgetCenter.shared.reloadAllTimelines()
+}
+
+/// Delete exam
+ func deleteExam(_ type: Int){
+    let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
+    if(subjects.count == 0) {return}
+    
+    let sub = Util.getSubject(subjects[0].objectID)
+    if(sub == nil){return}
+    
+    sub!.exampoints = 0
+    sub!.examtype = 0
+    
+    try! CoreDataStack.shared.managedObjectContext.save()
+    WidgetCenter.shared.reloadAllTimelines()
+}
+
+
 func filterTests(_ sub: UserSubject)-> [UserTest]{
     if(sub.subjecttests == nil){return []}
     var tests = sub.subjecttests!.allObjects as! [UserTest]
@@ -550,7 +554,7 @@ func filterTests(_ sub: UserSubject)-> [UserTest]{
     
     /// Calc points block II
      func generateBlockTwo() -> Int{
-        let subjects = Util.getAllExamSubjects()
+        let subjects = getAllExamSubjects()
         if(subjects.count == 0){return 0}
         
         var sum: Double = 0

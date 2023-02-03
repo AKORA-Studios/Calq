@@ -71,7 +71,7 @@ class ExamViewController: ViewController {
     }
     
     func update() {
-        let subjects = Util.getAllExamSubjects()
+        let subjects = getAllExamSubjects()
         if(subjects.count != 0){
             
             for sub in subjects.filter({$0.examtype > 0}) {
@@ -176,7 +176,7 @@ class ExamViewController: ViewController {
       
         let activeLabel: UILabel = examLabels[index]
         let examtype: Int = index + 1
-        let examSubjectArr = Util.getAllExamSubjects().filter{$0.examtype == Int16(examtype)}
+        let examSubjectArr = getAllExamSubjects().filter{$0.examtype == Int16(examtype)}
 
         if(examSubjectArr.count == 0) {
             num = "0"
@@ -187,7 +187,7 @@ class ExamViewController: ViewController {
         sender.value = round(sender.value)
         activeLabel.text = num
   
-        Util.updateExampoints(examtype, Int(sender.value))
+        updateExampoints(examtype, Int(sender.value))
         update()
     }
     
