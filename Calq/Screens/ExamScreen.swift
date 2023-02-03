@@ -16,14 +16,19 @@ struct ExamScreen: View {
             Text("ExamScreen")
             BlockView()
             
-            ForEach(0...4, id: \.self){ i in
-                //examSubejcts
-                ExamView().environmentObject(settings)
+            ZStack{
+                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.3))
+                VStack{
+                    ForEach(0...4, id: \.self){ i in
+                        ExamView(type: i).environmentObject(settings)
+                    }
+                }
             }
+            
+            Spacer()
         }.padding()
     }
 }
-
 
 
 struct ExamView: View {
@@ -34,33 +39,50 @@ struct ExamView: View {
     @State var subjectName = "keines ausgewählt" //TODO: pickers???
     @State var sliderText: String = "0"
     @State var sliderValue: Float = 0
+    var type: Int
     
     var body: some View {
         VStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
-                Picker(selection: $subjectName) {
-                    ForEach(subjects, id: \.self.objectID){sub in
-                        Text(sub.name).tag(sub.objectID)
+                Menu {
+                    Section {
+                        ForEach(subjects){sub in
+                            
+                            Button(sub.name) {
+                                subject = sub
+                            }
+                        }
                     }
-                    HStack{
-                        Image(systemName: "exclamationmark.triangle.fill")
-                        Text("keines")
+                    Section {
+                        Button {
+                            subject = nil
+                        } label: {
+                            Text("Entfernen/keines").foregroundColor(.red)
+                        }
                     }
-                } label: {
-                    Text("hi")
-                }.onChange(of: subjectName) { newValue in
-                    subject = subjects.first(where: {$0.name == subjectName})
+                   
+                }label: {
+                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
 
-                Text((subject != nil) ? subject!.name : "")
+                Text((subject != nil) ? subject!.name : "keines ausgewählt")
             }
             HStack {
-                Text(String(sliderValue))
-                Slider(value: $sliderValue, in: 0...15).foregroundColor(subColor()).disabled(subject == nil)
+                Text(String(sliderValue.rounded()))
+                Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
+                    sliderValue = sliderValue.rounded()
+                    subject?.exampoints = Int16(sliderValue)
+                })
+                    .accentColor(subColor())
+                    .disabled(subject == nil)
             }
-        }.onAppear{
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
+        .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
+        }.onDisappear{
+         //   updateExampoints(<#T##type: Int##Int#>, <#T##points: Int##Int#>)
         }
     }
     
@@ -73,5 +95,4 @@ struct ExamView: View {
         return Color(hexString: subject!.color)
     }
 }
-
 
