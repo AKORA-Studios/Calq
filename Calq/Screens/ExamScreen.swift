@@ -86,11 +86,7 @@ struct ExamView: View {
         .padding(.vertical, 10)
         .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
-        }/*.onDisappear{
-            if(subject != nil){
-                setExamPoints(Int(sliderValue), subject!)
-            }
-        }*/
+        }
     }
     
     func subColor() -> Color{
