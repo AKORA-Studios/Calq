@@ -25,7 +25,7 @@ struct SubjectListScreen: View {
                             RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(width: 30, height: 30)
                             Text("∑")
                         }
-                        Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) aktiv")
+                        Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) Halbjahren aktiv")
                     }
                 }
             }
