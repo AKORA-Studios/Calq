@@ -11,8 +11,7 @@ struct SubjectListScreen: View {
     @State var subjects: [UserSubject] = getAllSubjects()
     
     var body: some View {
-        VStack{
-            Text("SubjectListScreen")
+        NavigationView{
             List{
                 Section{
                     ForEach(subjects){sub in
@@ -28,7 +27,7 @@ struct SubjectListScreen: View {
                         Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) Halbjahren aktiv")
                     }
                 }
-            }
+            }.navigationTitle("Kursliste")
         }
     }
     
