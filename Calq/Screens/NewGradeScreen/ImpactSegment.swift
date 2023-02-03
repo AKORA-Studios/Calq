@@ -15,14 +15,16 @@ struct ImpactSegment: View {
     
     var body: some View {
         GeometryReader {geo in
-            VStack(spacing: 1){
+            VStack(spacing: 4){
                 HStack(spacing: 0){
                     ForEach( 0...14, id: \.self ){i in
                         GradeSegment(colors: $colors, values: $values, width: geo.size.width/15, index: i)
                     }
                 }.padding(0)
-                LowerSegment(values: values, colors: colors).frame(height: 10)
-            }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0)
+                LowerSegment(values: $values).frame(height: 10)
+            }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0).onChange(of: gradeType) { _ in
+                generateColors()
+            }
         }
     }
     
@@ -71,19 +73,19 @@ struct ImpactSegment: View {
             var str = "\(newAverage)"
             //push colors
             if(averageOld > newAverage){
-                if(worseLast == newAverage) {str = ""}
+                if(worseLast == newAverage) {str = " "}
                 colors[i] = .red
                 values[i] = str
                 worseLast = newAverage
                 
             } else if(newAverage > averageOld ){
-                if(betterLast == newAverage) {str = ""}
+                if(betterLast == newAverage) {str = " "}
                 colors[i] = .green
                 values[i] = str
                 betterLast = newAverage
             }
             else {
-                if( sameLast == averageOld) {str = ""}
+                if( sameLast == averageOld) {str = " "}
                 sameLast = averageOld
                 values[i] = str
             }
@@ -92,22 +94,12 @@ struct ImpactSegment: View {
 }
 
 struct LowerSegment: View {
-    var values: [String]
-    var colors: [Color]
+    @Binding var values: [String]
     
     var body: some View {
         HStack{
             ForEach(values, id: \.self) { value in
                 Text(value)
-                /*if(!value.isEmpty){
-                    ZStack(alignment: .leading ) {
-                        Text(value)
-                        Rectangle().fill(Color.purple).frame(width: 3)
-                    }
-                } else {
-                    Text(value)
-                }*/
-              
             }
         }
     }
