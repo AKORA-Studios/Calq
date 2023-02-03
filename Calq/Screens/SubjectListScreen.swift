@@ -9,13 +9,18 @@ import SwiftUI
 
 struct SubjectListScreen: View {
     @State var subjects: [UserSubject] = getAllSubjects()
+    @State var isSubjectDetailPResented = false
+    @State var selectedSubejct: UserSubject?
     
     var body: some View {
         NavigationView{
             List{
                 Section{
                     ForEach(subjects){sub in
-                        SubjectYearCell(subjects: subjects, subject: sub)
+                        SubjectYearCell(subjects: subjects, subject: sub).onTapGesture {
+                            selectedSubejct = sub
+                            isSubjectDetailPResented = true
+                        }
                     }
                 }
                 Section{
@@ -27,7 +32,9 @@ struct SubjectListScreen: View {
                         Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) Halbjahren aktiv")
                     }
                 }
-            }.navigationTitle("Kursliste")
+            }.navigationTitle("Kursliste").sheet(isPresented: $isSubjectDetailPResented) {
+                SubjectDetailScreen(subject: $selectedSubejct)
+            }
         }
     }
     
