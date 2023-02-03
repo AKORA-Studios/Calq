@@ -102,7 +102,7 @@ class TableOverview: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let arr = tests.filter({$0.year == i});
             if(arr.count == 0) {str += "-- ";continue}
             
-            if(!Util.checkinactiveYears(Util.getinactiveYears(subject), i)){ str += "- ";continue}
+            if(!Util.checkinactiveYears(getinactiveYears(subject), i)){ str += "- ";continue}
             let points = Int(round(Util.testAverage(arr)))
 
             str += String(points)

@@ -349,12 +349,7 @@ struct Util {
     
    
     
-    /// Returns all inactive Years in one array of strings
-    static func getinactiveYears(_ sub: UserSubject)-> [String]{
-        if(sub.inactiveYears == nil){return []}
-        let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
-        return arr
-    }
+   
     
     /// Check if year is inactive
     static func checkinactiveYears(_ arr: [String], _ num: Int)-> Bool {
@@ -382,21 +377,7 @@ struct Util {
         return sub
     }
     
-    /// Calculate count of inactive Halfyears
-    static func calcInactiveYearsCount()-> Int{
-        let subjects = Util.getAllSubjects()
-        if(subjects.count == 0) {return 0}
-        var count: Int = 0
-        
-        for sub in subjects {
-            let arr = Util.getinactiveYears(sub)
-            for num in arr {
-                if(num == "") {continue}
-                if Int(num) != nil { count += 1}
-            }
-        }
-        return count
-    }
+
                                        
     private static func arrToString(_ arr: [String]) -> String{
         return arr.joined(separator: " ")
@@ -464,6 +445,13 @@ struct Util {
 }
 
 
+ func getinactiveYears(_ sub: UserSubject)-> [String]{
+     if(sub.inactiveYears.isEmpty){return []}
+    let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
+    return arr
+}
+ 
+
 
 /// Returns all Subjects as Array
  func getAllExamSubjects()-> [UserSubject]{
@@ -528,7 +516,7 @@ func filterTests(_ sub: UserSubject)-> [UserTest]{
     var tests = sub.subjecttests!.allObjects as! [UserTest]
     
     for year in [1,2,3,4]{
-        if(!Util.checkinactiveYears(Util.getinactiveYears(sub), year)){
+        if(!Util.checkinactiveYears(getinactiveYears(sub), year)){
             tests = tests.filter{$0.year != year}
         }
     }

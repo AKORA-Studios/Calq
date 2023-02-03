@@ -25,7 +25,7 @@ struct SettingsScreen: View {
                     }
                 
                 HStack {
-                    SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "auto. farben")
+                    SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "Regenbogen")
                     Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
                         saveCoreData()
                     }

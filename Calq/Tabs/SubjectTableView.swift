@@ -152,7 +152,7 @@ class SubjectTableView: ViewController, UITableViewDelegate, UITableViewDataSour
             models.append(Section2(title: title, options: arr))
         
         if(subjects.count != 0){
-            let inactives = Util.calcInactiveYearsCount()
+            let inactives = 5//calcInactiveYearsCount()
             let halfyears = subjects.count * 4
  
             models.append( Section2(title: "", options: [.yearCell(model: YearOption(title: "\(halfyears - inactives) von \(halfyears) aktiv", subtitle: "", points: "∑", iconBackgroundColor: .accentColor, inactive: "", selectHandler: {
