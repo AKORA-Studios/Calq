@@ -18,14 +18,31 @@ struct SettingsScreen: View {
         List{
             Section(header: Text("General")){
                 SettingsIcon(color: Color.blue, icon: "info.circle.fill", text: "Github")
+                    .onTapGesture {
+                        if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
                 
-                SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "automatische farben")
+                HStack {
+                    SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "auto. farben")
+                    Toggle(isOn: $settings.colorfulCharts){}
+                }
                 
                 SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
+                    .onTapGesture {
+                        //TODO: w
+                    }
                 
                 SettingsIcon(color: Color.blue, icon: "square.and.arrow.up.fill", text: "noten exportieren")
+                    .onTapGesture {
+                   // JSON.exportJSON()//TODO: w
+                }
                 
                 SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "wertung ändern")
+                    .onTapGesture {
+                    print("wertung ändern") //TODO: w
+                }
                 
                 SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Load demo data")
                     .onTapGesture {
@@ -43,7 +60,7 @@ struct SettingsScreen: View {
             }
             
             Section(){
-                Text(appVersion ?? "0.0.0").foregroundColor(.gray)
+                Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
             }
         }
     }
@@ -76,4 +93,7 @@ struct SettingsPreview: PreviewProvider {
         SettingsScreen()
     }
 }
+
+
+
 
