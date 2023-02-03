@@ -203,7 +203,7 @@ class ExamViewController: ViewController {
     }
     
     func setBlocks(){
-        let block1points = Util.generateBlockOne()
+      /*  let block1points = Util.generateBlockOne()
         if(block1points < 200){
             Block1.tintColor = .red
             block1Label.textColor = .red
@@ -231,6 +231,6 @@ class ExamViewController: ViewController {
         }else {
             let points = ( 100.0 * Double(block2points) ) / Double(possibleblock2points)
             Block2.progress = Float( points / 100.0)
-        }
+        }*/
     }
 }

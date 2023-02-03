@@ -80,10 +80,10 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         let subjects = Util.getAllSubjects()
         
         if (subjects.count > 0){
-            let blocks = Util.generateBlockOne() + Util.generateBlockTwo()
+            let blocks = generateBlockOne() + generateBlockTwo()
             let blockGrade = Util.grade(number: Double(blocks * 15 / 900))
             
-            gradeChart.setprogress(blocks/900, .accentColor, String(format: "%.2f", blockGrade), "⌀")
+            gradeChart.setprogress(Double(blocks/900), .accentColor, String(format: "%.2f", blockGrade), "⌀")
             pointChart.setprogress(Util.generalAverage()/15, .accentColor, String(format: "%.2f",Util.generalAverage()), grade)
         } else {
             gradeChart.setprogress(0.0, .accentColor, "0", "6.0")

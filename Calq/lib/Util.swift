@@ -204,7 +204,7 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double{
-       let tests = Util.filterTests(sub)
+       let tests = filterTests(sub)
        if(tests.count == 0){return 0.0}
        
        var count = 0.0
@@ -240,17 +240,7 @@ struct Util {
     }
     
     /// Filtering the tests so you get only the ones which are in active halfyears
-    static func filterTests(_ sub: UserSubject)-> [UserTest]{
-        if(sub.subjecttests == nil){return []}
-        var tests = sub.subjecttests!.allObjects as! [UserTest]
-        
-        for year in [1,2,3,4]{
-            if(!checkinactiveYears(getinactiveYears(sub), year)){
-                tests = tests.filter{$0.year != year}
-            }
-        }
-        return tests
-    }
+
     
     /// Returns the average of all grades from all subjects in a specific halfyear
     static func generalAverage(_ year: Int) -> Double{
@@ -513,78 +503,93 @@ struct Util {
         return subjects.map{$0.name}
     }
     
-    /// Calc points block I
-    static func generateBlockOne() -> Double{
-        let subjects = Util.getAllSubjects()
-        var sum = 0.0
-        var count = 0.0
-        if(subjects.count == 0) {return 0.0}
-        
-        for sub in subjects {
-            if(sub.subjecttests == nil) {continue}
-            let SubTests = filterTests(sub)
-            if(SubTests.count == 0){continue}
-     
-            let multiplier = sub.lk ? 2.0 : 1.0
-            
-            for e in 1...4 {
-                let tests = SubTests.filter{($0.year == e)}
-                if(tests.count == 0)  {continue}
-      
-                sum += multiplier * Double(Int(round(Util.testAverage(tests))))
-                count += multiplier * 1.0
-            }
-        }
-        
-        if(sum == 0 ) {return 0.0}
-        return Double(round((round(sum) / count) * 40.0))
-    }
-        
-        /// Calc points block II
-        static func generateBlockTwo() -> Double{
-            let subjects = Util.getAllExamSubjects()
-            if(subjects.count == 0){return 0.0}
-            
-            var sum: Double = 0.0
-            
-            for sub in subjects {
-                sum += Double(Int(sub.exampoints) * 4)
-            }
-            
-        return sum
-    }
-    /// Calc Maxpoints block I
-    static func generatePossibleBlockOne() -> Double{
-        let subjects = Util.getAllSubjects()
-        var sum = 0.0
-        var count = 0.0
-        if(subjects.count == 0) {return 0.0}
-        
-        for i in 0..<subjects.count {
-            let sub = subjects[i]
-            if(sub.subjecttests == nil) {continue}
-            let SubTests = sub.subjecttests!.allObjects as! [UserTest]
-            
-            for e in 1...4 {
-                let tests = SubTests.filter{($0.year == e)}
-                if(tests.count == 0)  {continue}
-                
-                if(sub.lk){
-                    sum += 2.0 * 15
-                    count += 2.0
-                } else {
-                    sum += 15
-                    count += 1.0
-                }
-            }
-        }
-        
-        if(sum == 0.0 ) {return 0.0}
-        return Double((sum / count) * 40.0)
-    }
+   
     
 }
 
+
+func filterTests(_ sub: UserSubject)-> [UserTest]{
+    if(sub.subjecttests == nil){return []}
+    var tests = sub.subjecttests!.allObjects as! [UserTest]
+    
+    for year in [1,2,3,4]{
+        if(!Util.checkinactiveYears(Util.getinactiveYears(sub), year)){
+            tests = tests.filter{$0.year != year}
+        }
+    }
+    return tests
+}
+
+
+/// Calc points block I
+ func generateBlockOne() -> Int{
+    let subjects = Util.getAllSubjects()
+    var sum = 0
+    var count = 0
+    if(subjects.count == 0) {return 0}
+    
+    for sub in subjects {
+        if(sub.subjecttests == nil) {continue}
+        let SubTests = filterTests(sub)
+        if(SubTests.count == 0){continue}
+ 
+        let multiplier = sub.lk ? 2 : 1
+        
+        for e in 1...4 {
+            let tests = SubTests.filter{($0.year == e)}
+            if(tests.count == 0)  {continue}
+  
+            sum += multiplier * Int(round(Util.testAverage(tests)))
+            count += multiplier * 1
+        }
+    }
+    
+    if(sum == 0 ) {return 0}
+     return Int((sum / count) * 40)
+}
+    
+    /// Calc points block II
+     func generateBlockTwo() -> Int{
+        let subjects = Util.getAllExamSubjects()
+        if(subjects.count == 0){return 0}
+        
+        var sum: Double = 0
+        
+        for sub in subjects {
+            sum += Double(Int(sub.exampoints) * 4)
+        }
+        
+         return Int(sum)
+}
+/// Calc Maxpoints block I
+ func generatePossibleBlockOne() -> Int{
+    let subjects = Util.getAllSubjects()
+    var sum = 0
+    var count = 0
+    if(subjects.count == 0) {return 0}
+    
+    for i in 0..<subjects.count {
+        let sub = subjects[i]
+        if(sub.subjecttests == nil) {continue}
+        let SubTests = sub.subjecttests!.allObjects as! [UserTest]
+        
+        for e in 1...4 {
+            let tests = SubTests.filter{($0.year == e)}
+            if(tests.count == 0)  {continue}
+            
+            if(sub.lk){
+                sum += 2 * 15
+                count += 2
+            } else {
+                sum += 15
+                count += 1
+            }
+        }
+    }
+    
+    if(sum == 0 ) {return 0}
+     return Int(Double((sum / count) * 40))
+}
 
 
 // MARK: - UIColor Extension
@@ -641,7 +646,7 @@ func checkChartData()-> Bool {
     
     var n = 0
     for sub in arr {
-        let tests = Util.filterTests(sub)
+        let tests = filterTests(sub)
         if(sub.subjecttests?.count == 0 || tests.count == 0) {
             n += 1;
         }
