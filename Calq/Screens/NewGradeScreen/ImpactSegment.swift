@@ -158,4 +158,8 @@ extension View {
     func rightCorner() -> some View {
         clipShape(RoundedCorner(corners: [.topRight, .bottomRight]))
     }
+    
+    func topCorner() -> some View {
+        clipShape(RoundedCorner(corners: [.topLeft, .topRight]))
+    }
 }

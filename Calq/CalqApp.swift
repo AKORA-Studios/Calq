@@ -15,7 +15,6 @@ struct Calq: App {
         WindowGroup {
             TabbarView()
                 .environment(\.managedObjectContext, persistenceController.workingContext)
-               // .environmentObject(util)
         }
     }
 }

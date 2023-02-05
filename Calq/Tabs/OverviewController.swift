@@ -4,7 +4,7 @@ import CoreData
 class OverviewController:  ViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var halfyearChart: CalqYearBarChartView!
-    @IBOutlet weak var barChart: BarChart!
+   // @IBOutlet weak var barChart: BarChart!
     @IBOutlet weak var timeChart: LineChart!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pointChart: CircularProgressView!
@@ -71,7 +71,7 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
     }
     
     func update() {
-        self.settings = Util.getSettings()
+      /*  self.settings = Util.getSettings()
         
         barChart.drawChart(Util.getAllSubjects(), Util.generalAverage())
         halfyearChart.drawChart()
@@ -103,11 +103,11 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         timeChart.drawChart(self.maxDataLineChart.sorted(by: {$0 > $1})[0])
         for data in DataAr {
             timeChart.addDataSet(data.1, data.0)
-        }
+        }*/
     }
     
-    func getChartData(_ sub: UserSubject) -> [ChartEntry]{
-        let tests =  sub.subjecttests!.allObjects as! [UserTest]
+   // func getChartData(_ sub: UserSubject) -> [ChartEntry]{
+       /* let tests =  sub.subjecttests!.allObjects as! [UserTest]
         if(tests.count == 0){return  []}
         
     //    let maxDate = (tests.sorted(by: {$0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970})[0].date.timeIntervalSince1970)! / 1000
@@ -120,6 +120,6 @@ class OverviewController:  ViewController, UIScrollViewDelegate {
         }*/
       //  self.maxDataLineChart.append(maxDate - minDate)
 
-        return arr.sorted(by: {$0.0 > $1.0})
-    }
+        return arr.sorted(by: {$0.0 > $1.0})*/
+   // }
 }

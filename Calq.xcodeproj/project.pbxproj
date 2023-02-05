@@ -74,6 +74,7 @@
 		F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F17F4460298C5AAC000A3993 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445F298C5AAC000A3993 /* Log.swift */; };
 		F1B033AB295F426900B8BA93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B033AA295F426900B8BA93 /* ViewController.swift */; };
+		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,7 @@
 		F17F445D298C59B3000A3993 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		F17F445F298C5AAC000A3993 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F1B033AA295F426900B8BA93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1E8BFE229900C5500486A6D /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 				DD8813782764D58B00EB6BD8 /* BarChart.swift */,
 				DD0B86D327667E3F00DCC61F /* LineChart.swift */,
 				DDB965C82765408600F89D0C /* YearBarChart.swift */,
+				F1E8BFE229900C5500486A6D /* CircleChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -383,14 +386,22 @@
 		F17F4440298C4DD2000A3993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F1E8BFE1299004AA00486A6D /* Overview */,
 				F10D66B0298D57AA00993237 /* ExamScreen */,
-				F17F443E298C4DCE000A3993 /* OverviewScreen.swift */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F1F568C6298D912D00227F88 /* NewGradeScreen */,
 				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		F1E8BFE1299004AA00486A6D /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				F17F443E298C4DCE000A3993 /* OverviewScreen.swift */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 		F1F568C6298D912D00227F88 /* NewGradeScreen */ = {
@@ -583,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				DD2DBCCE27B86FAA00497D21 /* AddSelectViewController.swift in Sources */,
 				F17F4460298C5AAC000A3993 /* Log.swift in Sources */,
