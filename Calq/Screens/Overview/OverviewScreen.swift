@@ -45,14 +45,16 @@ struct OverviewScreen: View {
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))//.frame(height: 100)
                     }
                 }
-            }.padding().onAppear{
-            subjectValues = createSubjectBarData()
-            }
+            }.padding(.horizontal)
+                .navigationTitle("Übersicht")
+                .onAppear{
+                    subjectValues = createSubjectBarData()
+                }
         }
     }
     
     func grade()->String{
-       
+        
         return String(format: "%.2f", Util.grade(number: average))
     }
     
