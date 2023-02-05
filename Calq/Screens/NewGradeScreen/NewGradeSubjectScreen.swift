@@ -82,7 +82,6 @@ struct NewGradeView: View {
                             }.pickerStyle(.segmented)
                             
                             HStack {
-                                Text("Datum")
                                 DatePicker("Datum", selection: $date, displayedComponents: [.date])
                             }
                         }.padding()
