@@ -16,6 +16,9 @@ struct SettingsScreen: View {
     @State var importedJson: String = ""
     @State var importeJsonURL: URL = URL(fileURLWithPath: "")
     
+    @State var deleteAlert = false
+    @State var importAlert = false
+    
     var body: some View {
         NavigationView {
             List{
@@ -36,8 +39,7 @@ struct SettingsScreen: View {
                     
                     SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
                         .onTapGesture {
-                            presentDocumentPicker = true
-                            //TODO: w
+                            importAlert = true
                         }
                     
                     SettingsIcon(color: Color.blue, icon: "square.and.arrow.up.fill", text: "noten exportieren")
@@ -60,9 +62,8 @@ struct SettingsScreen: View {
                     
                     SettingsIcon(color: Color.blue, icon: "trash.fill", text: "daten löschen")
                         .onTapGesture {
-                            _ = Util.deleteSettings()
-                            subjects = []
-                            reloadAndSave()
+                            deleteAlert = true
+                           
                         }
                 }
                 Section(header: Text("Subjects")){
@@ -81,6 +82,17 @@ struct SettingsScreen: View {
                 .sheet(isPresented: $presentDocumentPicker) {
                     DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
                 }
+                
+        }
+        .alert(isPresented: $deleteAlert) {
+            Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                deleteData()
+            }))
+        }
+        .alert(isPresented: $importAlert) {
+            Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden überschrieben"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                presentDocumentPicker = true
+            }))
         }
     }
     
@@ -90,10 +102,16 @@ struct SettingsScreen: View {
         settings.colorfulCharts = getSettings()!.colorfulCharts
     }
     
+    func deleteData(){
+        _ = Util.deleteSettings()
+        subjects = []
+        reloadAndSave()
+    }
+    
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
-        let index = 1
-        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(subjects.firstIndex(where: {$0.objectID == sub.objectID})!) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+        let index = subjects.firstIndex(where: {$0.objectID == sub.objectID})!
+        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(index) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
     }
 }
 
@@ -113,13 +131,8 @@ struct SettingsIcon: View {
     }
 }
 
-
 struct SettingsPreview: PreviewProvider {
     static var previews: some View {
         SettingsScreen()
     }
 }
-
-
-
-
