@@ -33,7 +33,9 @@ struct SubjectListScreen: View {
                     }
                 }
             }.navigationTitle("Kursliste").sheet(isPresented: $isSubjectDetailPResented) {
+                NavigationView{
                 SubjectDetailScreen(subject: $selectedSubejct)
+                }
             }
         }
     }

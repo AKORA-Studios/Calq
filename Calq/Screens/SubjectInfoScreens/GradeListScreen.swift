@@ -12,18 +12,24 @@ struct GradeListScreen: View {
     var subject: UserSubject
     
     var body: some View {
-        NavigationView {
             List{
+                let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+                if(!Alltests.isEmpty){
+                    Section{
+                        SettingsIcon(color: .red, icon: "archivebox", text: "Alle löschen").onTapGesture {
+                            //TODO: delete all grades + alert
+                        }
+                    }
+                }
                 ForEach(1...4, id:\.self){i in
                     Section(header: Text("\(i). Halbjahr")){
-                        let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+                       
                         let tests =  Alltests.filter{$0.year == i};
                         ForEach(tests){test in
                             GradeIcon(test: test, color: color())
                         }
                     }
-                }
-            }.navigationTitle("Notenliste").padding(0) //TODO: padding? looks weird idk
+                }.navigationTitle("Notenliste")
         }
     }
     

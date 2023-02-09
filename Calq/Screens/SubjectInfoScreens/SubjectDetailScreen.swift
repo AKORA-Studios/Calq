@@ -15,7 +15,6 @@ struct SubjectDetailScreen: View {
     @State var slectedYear = 1
     
     var body: some View {
-        NavigationView {
             if(subject !=  nil){
                 VStack{
                     Text("insert inechart here xd") //TODO: linechart, notenliste<
@@ -57,11 +56,17 @@ struct SubjectDetailScreen: View {
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
                     
                     
-                }.navigationTitle(subject!.name)
+                    Button {
+                        isGradeTablePresented = true
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 30)
+                            Text("Notenliste ansehen").foregroundColor(.white)
+                        }
+                    }.padding()
+                    
+                .navigationTitle(subject!.name)
             }
         }
     }
 }
-
-
-

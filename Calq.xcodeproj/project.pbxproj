@@ -393,6 +393,7 @@
 		F1138E5329959664008E7FD8 /* SubjectInfoScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
 				F1138E5429959677008E7FD8 /* GradeListScreen.swift */,
 			);
@@ -406,7 +407,6 @@
 				F10D66B0298D57AA00993237 /* ExamScreen */,
 				F1138E5229959627008E7FD8 /* SettingsScreen */,
 				F1F568C6298D912D00227F88 /* NewGradeScreen */,
-				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F1138E5329959664008E7FD8 /* SubjectInfoScreens */,
 			);
 			path = Screens;
