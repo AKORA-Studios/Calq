@@ -379,13 +379,21 @@
 			path = ExamScreen;
 			sourceTree = "<group>";
 		};
+		F1138E5229959627008E7FD8 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
+				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
 		F17F4440298C4DD2000A3993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				F1E8BFE1299004AA00486A6D /* Overview */,
 				F10D66B0298D57AA00993237 /* ExamScreen */,
-				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
-				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
+				F1138E5229959627008E7FD8 /* SettingsScreen */,
 				F1F568C6298D912D00227F88 /* NewGradeScreen */,
 				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,

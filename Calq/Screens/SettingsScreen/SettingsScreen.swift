@@ -23,7 +23,7 @@ struct SettingsScreen: View {
         NavigationView {
             List{
                 Section(header: Text("General")){
-                    SettingsIcon(color: Color.blue, icon: "info.circle.fill", text: "Github")
+                    SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github")
                         .onTapGesture {
                             if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
                                 UIApplication.shared.open(url)
@@ -31,7 +31,7 @@ struct SettingsScreen: View {
                         }
                     
                     HStack {
-                        SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "Regenbogen")
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen")
                         Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
                             reloadAndSave()
                         }
@@ -42,7 +42,7 @@ struct SettingsScreen: View {
                             importAlert = true
                         }
                     
-                    SettingsIcon(color: Color.blue, icon: "square.and.arrow.up.fill", text: "noten exportieren")
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "noten exportieren")
                         .onTapGesture {
                             let data = JSON.exportJSON()
                             let url = JSON.writeJSON(data)
@@ -60,14 +60,14 @@ struct SettingsScreen: View {
                             reloadAndSave()
                         }
                     
-                    SettingsIcon(color: Color.blue, icon: "trash.fill", text: "daten löschen")
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "daten löschen")
                         .onTapGesture {
                             deleteAlert = true
-                           
+                            
                         }
                 }
                 Section(header: Text("Subjects")){
-                  
+                    
                     ForEach(subjects) { sub in
                         subjectView(sub)
                     }
@@ -82,7 +82,7 @@ struct SettingsScreen: View {
                 .sheet(isPresented: $presentDocumentPicker) {
                     DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
                 }
-                
+            
         }
         .alert(isPresented: $deleteAlert) {
             Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {

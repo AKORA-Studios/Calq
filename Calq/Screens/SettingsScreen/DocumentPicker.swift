@@ -23,7 +23,7 @@ struct DocumentPicker: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<DocumentPicker>) {
-
+        
     }
 }
 
@@ -47,19 +47,19 @@ class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate {
 //Export View
 extension View {
     func showShareSheet(url: URL) {
-    guard let source = UIApplication.shared.windows.last?.rootViewController else {
-      return
+        guard let source = UIApplication.shared.windows.last?.rootViewController else {
+            return
+        }
+        
+        let activityVC = UIActivityViewController(
+            activityItems: [url],
+            applicationActivities: nil)
+        
+        if let popoverController = activityVC.popoverPresentationController {
+            popoverController.sourceView = source.view
+            popoverController.sourceRect = CGRect(x: source.view.bounds.midX, y: source.view.bounds.midY,width: .zero, height: .zero)
+            popoverController.permittedArrowDirections = []
+        }
+        source.present(activityVC, animated: true)
     }
-
-    let activityVC = UIActivityViewController(
-      activityItems: [url],
-      applicationActivities: nil)
-
-    if let popoverController = activityVC.popoverPresentationController {
-      popoverController.sourceView = source.view
-      popoverController.sourceRect = CGRect(x: source.view.bounds.midX, y: source.view.bounds.midY,width: .zero, height: .zero)
-      popoverController.permittedArrowDirections = []
-    }
-    source.present(activityVC, animated: true)
-  }
 }
