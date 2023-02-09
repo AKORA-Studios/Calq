@@ -17,11 +17,7 @@ struct SubjectDetailScreen: View {
     var body: some View {
             if(subject !=  nil){
                 VStack{
-                    Text("insert inechart here xd") //TODO: linechart, notenliste<
-                    
-                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("Notenliste")
-                    }
+                    Text("insert inechart here xd") //TODO: linechart
                     
                     VStack{
                         //Year picker
@@ -36,29 +32,23 @@ struct SubjectDetailScreen: View {
                                 }.pickerStyle(.segmented)
                             }.padding()
                         }
+                        
                         //Year toggle
                         HStack{
                             Toggle(isOn: $halfyearActive) {
                                 Text("Halbjahr einbringen")
                             }
-                            
                         } .padding()
-                        
-                        //average chart
-                        
-                        
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                         .padding()
                     
+                    //average chart
                     VStack(spacing: 5){
                         Text("Durchschnitt des Halbjahres")
                         CircleChart(perrcent: 0.5, upperText: String(format: "%.2f", 0.5)).frame(height: 150)
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
                     
-                    
-                    Button {
-                        isGradeTablePresented = true
-                    } label: {
+                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 30)
                             Text("Notenliste ansehen").foregroundColor(.white)
