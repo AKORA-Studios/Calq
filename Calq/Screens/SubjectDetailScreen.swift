@@ -18,8 +18,11 @@ struct SubjectDetailScreen: View {
         NavigationView {
             if(subject !=  nil){
                 VStack{
-                    Text("insert inechart here xd") //TODO: linechart, notenliste
+                    Text("insert inechart here xd") //TODO: linechart, notenliste<
                     
+                    NavigationLink(destination: EmptyView()) {
+                        Text("Notenliste")
+                    }
                     
                     VStack{
                         //Year picker

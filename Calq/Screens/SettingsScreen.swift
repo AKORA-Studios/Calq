@@ -12,6 +12,9 @@ struct SettingsScreen: View {
     @StateObject var settings: AppSettings = getSettings()!
     @State var subjects: [UserSubject] = getAllSubjects()
     
+    @State var presentDocumentPicker = false
+    @State var importedJson: String = ""
+    @State var importeJsonURL: URL = URL(fileURLWithPath: "")
     
     var body: some View {
         NavigationView {
@@ -27,18 +30,21 @@ struct SettingsScreen: View {
                     HStack {
                         SettingsIcon(color: Color.blue, icon: "chart.bar.fill", text: "Regenbogen")
                         Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
-                            saveCoreData()
+                            reloadAndSave()
                         }
                     }
                     
                     SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
                         .onTapGesture {
+                            presentDocumentPicker = true
                             //TODO: w
                         }
                     
                     SettingsIcon(color: Color.blue, icon: "square.and.arrow.up.fill", text: "noten exportieren")
                         .onTapGesture {
-                            // JSON.exportJSON()//TODO: w
+                            let data = JSON.exportJSON()
+                            let url = JSON.writeJSON(data)
+                            showShareSheet(url: url)
                         }
                     
                     SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "wertung ändern")
@@ -49,15 +55,22 @@ struct SettingsScreen: View {
                     SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Load demo data")
                         .onTapGesture {
                             JSON.loadDemoData()
-                            subjects = getAllSubjects()
+                            reloadAndSave()
                         }
                     
                     SettingsIcon(color: Color.blue, icon: "trash.fill", text: "daten löschen")
+                        .onTapGesture {
+                            _ = Util.deleteSettings()
+                            subjects = []
+                            reloadAndSave()
+                        }
                 }
                 Section(header: Text("Subjects")){
-                    ForEach(subjects.indices) { i in
-                        subjectView(subjects[i], i)
+                  
+                    ForEach(subjects) { sub in
+                        subjectView(sub)
                     }
+                    
                     SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
                 }
                 
@@ -65,12 +78,22 @@ struct SettingsScreen: View {
                     Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
                 }
             }.navigationTitle("Einstellungen")
+                .sheet(isPresented: $presentDocumentPicker) {
+                    DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
+                }
         }
     }
     
+    func reloadAndSave(){
+        saveCoreData()
+        subjects = getAllSubjects()
+        settings.colorfulCharts = getSettings()!.colorfulCharts
+    }
+    
     @ViewBuilder
-    func subjectView(_ sub: UserSubject, _ index: Int) -> SettingsIcon {
-        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(index) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+    func subjectView(_ sub: UserSubject) -> SettingsIcon {
+        let index = 1
+        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(subjects.firstIndex(where: {$0.objectID == sub.objectID})!) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
     }
 }
 

@@ -50,6 +50,7 @@
 		F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */; };
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
+		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443C298C4DA7000A3993 /* CalqApp.swift */; };
 		F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443E298C4DCE000A3993 /* OverviewScreen.swift */; };
 		F17F4442298C4DDF000A3993 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4441298C4DDF000A3993 /* TabView.swift */; };
@@ -166,6 +167,7 @@
 		F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailScreen.swift; sourceTree = "<group>"; };
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
+		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F17F443C298C4DA7000A3993 /* CalqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqApp.swift; sourceTree = "<group>"; };
 		F17F443E298C4DCE000A3993 /* OverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewScreen.swift; sourceTree = "<group>"; };
 		F17F4441298C4DDF000A3993 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				F1E8BFE1299004AA00486A6D /* Overview */,
 				F10D66B0298D57AA00993237 /* ExamScreen */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
+				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F1F568C6298D912D00227F88 /* NewGradeScreen */,
 				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
@@ -616,6 +619,7 @@
 				F17F4451298C5402000A3993 /* AppSettings+CoreDataClass.swift in Sources */,
 				DDEBB40027B5A2A7004D80BB /* TableOverview.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
+				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				DDC8903C261FA0A500A93178 /* SwitchSettingsCell.swift in Sources */,
 				DD81835526820EA100FBC3D8 /* OverviewController.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,

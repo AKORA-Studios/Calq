@@ -10,7 +10,7 @@ import SwiftUI
 struct BlockView: View {
     @State var points1 = generateBlockOne()
     @State var points2 = generateBlockTwo()
-    @State var maxpoints1 = generatePossibleBlockOne()
+    @State var maxpoints = generatePossibleBlockOne()
     
     var body: some View {
         GeometryReader { geo in
@@ -19,8 +19,8 @@ struct BlockView: View {
             HStack(alignment: .center){
                 VStack(alignment: .leading){
                     Text("Block 1").fontWeight(.bold)
-                    RoundProgressBar(value: (points1 * 100 / maxpoints1))
-                    Text("\(points1) von \(maxpoints1)").foregroundColor(.accentColor).fontWeight(.light)
+                    RoundProgressBar(value: maxpoints != 0 ? (points1 * 100 / maxpoints) : 0)
+                    Text("\(points1) von \(maxpoints)").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 2/3 - 20)
                 Spacer()
                 VStack(alignment: .leading){
