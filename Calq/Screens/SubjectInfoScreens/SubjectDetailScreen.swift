@@ -20,7 +20,7 @@ struct SubjectDetailScreen: View {
                 VStack{
                     Text("insert inechart here xd") //TODO: linechart, notenliste<
                     
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
                         Text("Notenliste")
                     }
                     
@@ -62,3 +62,6 @@ struct SubjectDetailScreen: View {
         }
     }
 }
+
+
+
