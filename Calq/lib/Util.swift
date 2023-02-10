@@ -395,6 +395,17 @@ struct Util {
         return sub
     }
     
+    /// returns last active year of a subject
+    static func lastActiveYear(_ sub: UserSubject) -> Int{
+        var num = 1
+        
+        for i in 1...4 {
+            let tests = filterTests(sub).filter{$0.year == i}
+            if(tests.count > 0){ num = i}
+        }
+        return num
+    }
+    
     
     
     private static func arrToString(_ arr: [String]) -> String{

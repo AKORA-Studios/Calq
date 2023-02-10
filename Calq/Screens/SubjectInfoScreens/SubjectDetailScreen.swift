@@ -83,8 +83,9 @@ struct SubjectDetailScreen: View {
         }
     }
     
-    func update(){ //TODO: set selected year to last year with grade
+    func update(){
         withAnimation {
+            selectedYear = Util.lastActiveYear(subject!)
             let average = Util.getSubjectAverage(subject!, year: selectedYear, filterinactve: false)
             yearAverage = average / 15.0
             yearAverageText = String(format: "%.2f", average)
