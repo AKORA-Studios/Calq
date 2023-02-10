@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LineChart: View {//TODO: axis
+struct LineChart: View {
     @Binding var subjects: [UserSubject]
     @State var maxDate = 0.0
     @State var minDate =  0.0
