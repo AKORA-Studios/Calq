@@ -11,15 +11,18 @@ struct SubjectListScreen: View {
     @State var subjects: [UserSubject] = getAllSubjects()
     @State var selectedSubejct: UserSubject?
     
-    @State var graeTablePresented = false
+    @State var gradeTablePresented = false
     @State var isSubjectDetailPResented = false
+    
+    @State var inactiveCount = 0
+    @State var subjectCount = 0
     
     var body: some View {
         NavigationView{
             List{
                 Section{
                     ForEach(subjects){sub in
-                        SubjectYearCell(subjects: subjects, subject: sub).onTapGesture {
+                        SubjectYearCell(subjects: $subjects, subject: Binding.constant(sub)).onTapGesture {
                             selectedSubejct = sub
                             isSubjectDetailPResented = true
                         }
@@ -31,29 +34,35 @@ struct SubjectListScreen: View {
                             RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(width: 30, height: 30)
                             Text("∑")
                         }
-                        Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) Halbjahren aktiv")
+                        Text("\(inactiveCount) von \(subjectCount) Halbjahren aktiv")
                     }
                 }
             }.navigationTitle("Kursliste")
                 .toolbar {
                     Button("Notentabelle") {
-                        graeTablePresented = true
+                        gradeTablePresented = true
                     }
                 }
                 .sheet(isPresented: $isSubjectDetailPResented) {
                     NavigationView{
-                        SubjectDetailScreen(subject: $selectedSubejct)
+                        SubjectDetailScreen(subject: $selectedSubejct).onDisappear(perform: update)
                     }
                 }
-                .sheet(isPresented: $graeTablePresented) {
+                .sheet(isPresented: $gradeTablePresented) {
                     NavigationView{
                         GradeTableOverviewScreen(subjects: subjects)
                     }
                 }
                 .onAppear{
-                    subjects = getAllSubjects()
+                    update()
                 }
         }
+    }
+    
+    func update(){
+        subjects = getAllSubjects()
+        inactiveCount = (subjects.count * 4) - calcInactiveYearsCount()
+        subjectCount = subjects.count * 4
     }
     
     func calcInactiveYearsCount()-> Int{
@@ -77,10 +86,11 @@ struct SubjectListScreen: View {
 
 struct SubjectYearCell: View {
     @StateObject var settings: AppSettings = getSettings()!
-    var subjects: [UserSubject] = getAllSubjects()
-    @State var subject: UserSubject
+    @Binding var subjects: [UserSubject]
+    @Binding var subject: UserSubject
     @State var colors: [Color] = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
     @State var average: Double = 99.9
+    @State var averageArr: [String] = ["-","-","-","-"]
     
     var body: some View {
         HStack {
@@ -91,14 +101,20 @@ struct SubjectYearCell: View {
             Text(subject.name)
             Spacer()
             HStack{
-                Text("11").foregroundColor(colors[0])
-                Text("11").foregroundColor(colors[1])
-                Text("11").foregroundColor(colors[2])
-                Text("11").foregroundColor(colors[3])
+                ForEach(0...3, id: \.self) { i in
+                    Text(averageArr[i]).foregroundColor(colors[i]).frame(width: 25)
+                }
             }
         }.onAppear{
-            getcolorArr()
             average = Util.testAverage(filterTests(subject))
+            setAverages()
+            getcolorArr()
+        }
+    }
+    
+    func setAverages(){
+        for i in 0...3{
+            averageArr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1))
         }
     }
     
