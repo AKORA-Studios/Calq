@@ -8,43 +8,56 @@
 import SwiftUI
 
 struct GradeListScreen: View {
+    @Environment(\.presentationMode) var presentationMode
     var subject: UserSubject
-    @State var Alltests: [UserTest] = []
     @State var years: [[UserTest]] = [[],[],[],[]]
+    @State var Alltests: [UserTest] = []
+    @State var deleteAlert = false
     
     var body: some View {
         List{
-            let Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
             if(!Alltests.isEmpty){
                 Section{
                     SettingsIcon(color: .red, icon: "archivebox", text: "Alle löschen").onTapGesture {
-                        //TODO: delete all grades + alert
+                        deleteAlert = true
                     }
                 }
-            }
-            ForEach(0...3, id:\.self){i in
-                Section(header: Text("\(i + 1). Halbjahr")){
-                    
-                    let tests =  years[i]
-                    ForEach(tests){test in
-                        let color = getSubjectColor(subject)
+                
+                ForEach(0...3, id:\.self){i in
+                    Section(header: Text("\(i + 1). Halbjahr")){
                         
-                        NavigationLink {
-                            EditGradeScreen(test: test, color: color)
-                        } label: {
-                            GradeIcon(test: test, color: color)
+                        let tests =  years[i]
+                        ForEach(tests){test in
+                            let color = getSubjectColor(subject)
+                            
+                            NavigationLink {
+                                EditGradeScreen(test: test, color: color)
+                            } label: {
+                                GradeIcon(test: test, color: color)
+                            }
+                            
                         }
-                        
                     }
                 }
-            }.navigationTitle("Notenliste")
-        }.onAppear{
+            } else {
+                Text("oh no keine noten da :c")
+            }
+          
+        }.navigationTitle("Notenliste")
+        .onAppear{
             Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
             
             years[0] = Alltests.filter{$0.year == 1};
             years[1] = Alltests.filter{$0.year == 2};
             years[2] = Alltests.filter{$0.year == 3};
             years[3] = Alltests.filter{$0.year == 4};
+        }
+        .alert(isPresented: $deleteAlert) {
+            Alert(title: Text("Sure? >.>"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                subject.subjecttests = []
+                saveCoreData()
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
 }

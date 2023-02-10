@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CircleChart: View {
-    @State var perrcent: Double
+    @Binding var perrcent: Double
     var maxValue: Int = 15
     var color: Color = .accentColor
     
-    @State var upperText: String = ""
-    @State var lowerText: String = ""
+    @Binding var upperText: String //= ""
+    @Binding var lowerText: String //= ""
     
     var body: some View {
         GeometryReader { geo in
@@ -36,7 +36,7 @@ struct CircleChart: View {
                         .fontWeight(.bold)
                         .foregroundColor(color)
                     if(!lowerText.isEmpty){
-                        Text(lowerText)
+                        Text(lowerText )
                             .foregroundColor(color)
                     }
                 }

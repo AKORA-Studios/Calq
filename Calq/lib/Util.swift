@@ -57,7 +57,7 @@ func deleteSubject(_ subject: UserSubject){
 }
 
 
- func getAllSubjects()-> [UserSubject]{
+func getAllSubjects()-> [UserSubject]{
     let context = CoreDataStack.shared.managedObjectContext
     
     var  allSubjects: [UserSubject] = []
@@ -74,7 +74,7 @@ func deleteSubject(_ subject: UserSubject){
 }
 
 /// sort all subjects sorted after type and name
-  func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
+func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
     let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name < $1.name })
     let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name < $1.name })
     return arr1+arr2
@@ -194,7 +194,7 @@ struct Util {
     /// Returns the average of an array of tests.
     static func testAverage(_ tests: [UserTest]) -> Double {
         let weigth = Double(Util.getSettings()!.weightBigGrades)!
-     
+        
         let smallArr = tests.filter{!$0.big}.map{Int($0.grade)},
             bigArr = tests.filter{$0.big}.map{Int($0.grade)};
         
@@ -204,9 +204,9 @@ struct Util {
             
             return weigth * bigAvg + (1.0 - weigth) * smallAvg
             
-          //  return (smallAvg + bigAvg) / 2;
+            //  return (smallAvg + bigAvg) / 2;
         } else if (smallArr.count == 0) {
-                return Util.average(bigArr);
+            return Util.average(bigArr);
         } else if (bigArr.count == 0) {
             return Util.average(smallArr)
         }
@@ -215,21 +215,28 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double{
-       let tests = filterTests(sub)
-       if(tests.count == 0){return 0.0}
-       
-       var count = 0.0
-       var subaverage = 0.0
-       
-       for e in 1...4 {
-           let yearTests = tests.filter{$0.year == Int16(e)}
-           if(yearTests.count == 0) {continue}
-           count += 1
-           subaverage += Util.testAverage(yearTests)
-       }
-       let average = (subaverage / count)
-       return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0))!
-   }
+        let tests = filterTests(sub)
+        if(tests.count == 0){return 0.0}
+        
+        var count = 0.0
+        var subaverage = 0.0
+        
+        for e in 1...4 {
+            let yearTests = tests.filter{$0.year == Int16(e)}
+            if(yearTests.count == 0) {continue}
+            count += 1
+            subaverage += Util.testAverage(yearTests)
+        }
+        let average = (subaverage / count)
+        return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0))!
+    }
+    
+    /// Returns the average of all grades from one subject
+    static func getSubjectAverage(_ sub: UserSubject, year: Int) -> Double{
+        let tests = filterTests(sub).filter{$0.year == year};
+        if(tests.count == 0){return 0.0}
+        return testAverage(tests)
+    }
     
     /// Returns the average of all grades from all subjects.
     static func generalAverage() -> Double{
@@ -251,7 +258,7 @@ struct Util {
     }
     
     /// Filtering the tests so you get only the ones which are in active halfyears
-
+    
     
     /// Returns the average of all grades from all subjects in a specific halfyear
     static func generalAverage(_ year: Int) -> Double{
@@ -265,7 +272,7 @@ struct Util {
             let tests = filterTests(sub).filter{Int($0.year) == year}
             if(tests.count == 0){continue}
             let multiplier = sub.lk ? 2.0 : 1.0
-          
+            
             count += multiplier * 1
             grades += multiplier * round(Util.testAverage(tests))
         }
@@ -358,9 +365,9 @@ struct Util {
         return arr1+arr2
     }
     
-   
     
-   
+    
+    
     
     /// Check if year is inactive
     static func checkinactiveYears(_ arr: [String], _ num: Int)-> Bool {
@@ -380,19 +387,19 @@ struct Util {
     /// Add inactive halfyear
     static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
         var arr = getinactiveYears(sub)
-
+        
         arr.append(String(num))
         sub.inactiveYears = arrToString(arr)
         try! CoreDataStack.shared.managedObjectContext.save()
-            WidgetCenter.shared.reloadAllTimelines()
+        WidgetCenter.shared.reloadAllTimelines()
         return sub
     }
     
-
-                                       
+    
+    
     private static func arrToString(_ arr: [String]) -> String{
         return arr.joined(separator: " ")
-        }
+    }
     
     /// Returns the last date when a grade was added
     static func calcMaxDate() throws -> Date {
@@ -424,7 +431,7 @@ struct Util {
                 }.sorted(by: {$0 < $1})[0]
             }
         if(allDates.count == 0) { return Date(timeIntervalSince1970: 0.0) }
-
+        
         return Date(timeIntervalSince1970: allDates.sorted(by: {$0 < $1})[0])
     }
     
@@ -451,21 +458,21 @@ struct Util {
         return subjects.map{$0.name}
     }
     
-   
+    
     
 }
 
 
- func getinactiveYears(_ sub: UserSubject)-> [String]{
-     if(sub.inactiveYears.isEmpty){return []}
+func getinactiveYears(_ sub: UserSubject)-> [String]{
+    if(sub.inactiveYears.isEmpty){return []}
     let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
     return arr
 }
- 
+
 
 
 /// Returns all Subjects as Array
- func getAllExamSubjects()-> [UserSubject]{
+func getAllExamSubjects()-> [UserSubject]{
     let context = CoreDataStack.shared.managedObjectContext
     
     var  allSubjects: [UserSubject] = []
@@ -482,7 +489,7 @@ struct Util {
 }
 
 /// Updates the exam points on a subject
- func updateExampoints(_ type: Int, _ points: Int){
+func updateExampoints(_ type: Int, _ points: Int){
     let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
     if(subjects.count == 0) {return}
     let sub = Util.getSubject(subjects[0].objectID)
@@ -497,17 +504,17 @@ struct Util {
 
 
 /*func getExamArr() -> [UserSubject]? {
-    let settings = getSettings()
-    if(settings == nil){return []}
-    var arr: [UserSubject] = []
-    arr.append(settings!.exam1 != nil ? settings!.exam1 : nil)
-   
-    return arr
-}*/
+ let settings = getSettings()
+ if(settings == nil){return []}
+ var arr: [UserSubject] = []
+ arr.append(settings!.exam1 != nil ? settings!.exam1 : nil)
+ 
+ return arr
+ }*/
 
 
 /// Delete exam
- func deleteExam(_ type: Int){
+func deleteExam(_ type: Int){
     let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
     if(subjects.count == 0) {return}
     
