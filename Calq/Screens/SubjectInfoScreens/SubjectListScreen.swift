@@ -50,7 +50,6 @@ struct SubjectListScreen: View {
                             selectedSubejct = sub
                             isSubjectDetailPResented = true
                         }
-                        
                     }
                 }
                 Section{

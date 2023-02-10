@@ -232,8 +232,8 @@ struct Util {
     }
     
     /// Returns the average of all grades from one subject
-    static func getSubjectAverage(_ sub: UserSubject, year: Int) -> Double{
-        let tests = filterTests(sub).filter{$0.year == year};
+    static func getSubjectAverage(_ sub: UserSubject, year: Int, filterinactve: Bool = true) -> Double{
+        let tests = filterTests(sub, checkinactive: filterinactve).filter{$0.year == year};
         if(tests.count == 0){return 0.0}
         return testAverage(tests)
     }
@@ -529,17 +529,22 @@ func deleteExam(_ type: Int){
 }
 
 
-func filterTests(_ sub: UserSubject)-> [UserTest]{
+func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
     if(sub.subjecttests == nil){return []}
     var tests = sub.subjecttests!.allObjects as! [UserTest]
     
     for year in [1,2,3,4]{
-        if(!Util.checkinactiveYears(getinactiveYears(sub), year)){
-            tests = tests.filter{$0.year != year}
+        if(checkinactive){
+            if(!Util.checkinactiveYears(getinactiveYears(sub), year)){
+                tests = tests.filter{$0.year != year}
+            }
         }
+       
     }
     return tests
 }
+
+
 
 
 

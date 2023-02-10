@@ -22,7 +22,7 @@ struct SubjectDetailScreen: View {
         if(subject !=  nil){
             let color = getSubjectColor(subject!)
             
-            VStack{//TODO: subjectlist halfyearvalues not correct + all gardes deleted does not update grades
+            VStack{//TODO: subjectlist all gardes deleted does not update grades ??idk if still problem
                 Text("insert inechart here xd") //TODO: linechart
                 
                 VStack{
@@ -50,7 +50,7 @@ struct SubjectDetailScreen: View {
                         let backroundColor = halfyearActive ? .red : color
                         RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
                         Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
-                    }.padding()//TODO: show newly deactivated yaers in subject list
+                    }.padding()
                         .onTapGesture {
                             if(halfyearActive){ //deactivate
                                 _ = Util.addYear(subject!, selectedYear)
@@ -83,9 +83,9 @@ struct SubjectDetailScreen: View {
         }
     }
     
-    func update(){
+    func update(){ //TODO: set selected year to last year with grade
         withAnimation {
-            let average = Util.getSubjectAverage(subject!, year: selectedYear)
+            let average = Util.getSubjectAverage(subject!, year: selectedYear, filterinactve: false)
             yearAverage = average / 15.0
             yearAverageText = String(format: "%.2f", average)
             halfyearActive = Util.checkinactiveYears(getinactiveYears(subject!), selectedYear)
