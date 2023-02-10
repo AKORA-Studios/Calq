@@ -36,6 +36,7 @@ struct EditSubjectScreen: View {
                             Text("Grundkurs").tag(0)
                             Text("Leistungskurs").tag(1)
                         }.pickerStyle(.segmented)
+                            .colorMultiply(color)
                             .onChange(of: lkSubject) { newValue in
                                 subject!.lk = lkSubject == 1 ? true : false
                                 saveCoreData()

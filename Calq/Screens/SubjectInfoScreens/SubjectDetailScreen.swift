@@ -16,6 +16,7 @@ struct SubjectDetailScreen: View {
     
     var body: some View {
             if(subject !=  nil){
+                let color = Color(hexString: subject!.color)
                 VStack{
                     Text("insert inechart here xd") //TODO: linechart
                     
@@ -30,6 +31,7 @@ struct SubjectDetailScreen: View {
                                     Text("3").tag(3)
                                     Text("4").tag(4)
                                 }.pickerStyle(.segmented)
+                                    .colorMultiply(color)
                             }.padding()
                         }
                         
@@ -45,12 +47,12 @@ struct SubjectDetailScreen: View {
                     //average chart
                     VStack(spacing: 5){
                         Text("Durchschnitt des Halbjahres")
-                        CircleChart(perrcent: 0.5, upperText: String(format: "%.2f", 0.5)).frame(height: 150)
+                        CircleChart(perrcent: 0.5, color: color, upperText: String(format: "%.2f", 0.5)).frame(height: 150)
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
                     
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
                         ZStack{
-                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 30)
+                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                             Text("Notenliste ansehen").foregroundColor(.white)
                         }
                     }.padding()
