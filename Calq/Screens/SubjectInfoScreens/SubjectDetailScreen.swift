@@ -22,14 +22,18 @@ struct SubjectDetailScreen: View {
         if(subject !=  nil){
             let color = getSubjectColor(subject!)
             
-            VStack{
+            VStack{//TODO: subjectlist halfyearvalues not correct + all gardes deleted does not update grades
                 Text("insert inechart here xd") //TODO: linechart
                 
                 VStack{
                     //Year picker
                     ZStack{
                         VStack(alignment: .leading){
-                            Text("Halbjahr")
+                            HStack{
+                                Text("Halbjahr")
+                                Spacer()
+                                Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
+                            }
                             Picker("", selection: $slectedYear) {
                                 Text("1").tag(1)
                                 Text("2").tag(2)
@@ -44,11 +48,21 @@ struct SubjectDetailScreen: View {
                     }
                     
                     //Year toggle
-                    HStack{
-                        Toggle(isOn: $halfyearActive) {
-                            Text("Halbjahr einbringen") //TODO: check if active
-                        }.toggleStyle(SwitchToggleStyle(tint: color))
-                    } .padding()
+                    
+                    ZStack{
+                        let backroundColor = halfyearActive ? .red : color
+                        RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
+                        Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
+                    }.padding()
+                        .onTapGesture {
+                            if(halfyearActive){ //deactivate
+                                _ = Util.addYear(subject!, slectedYear)
+                            } else { //activate
+                                _ = Util.removeYear(subject!, slectedYear)
+                            }
+                            saveCoreData()
+                            halfyearActive.toggle()
+                        }
                 }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                     .padding()
                 
@@ -77,6 +91,7 @@ struct SubjectDetailScreen: View {
             let average = Util.getSubjectAverage(subject!, year: slectedYear)
             yearAverage = average / 15.0
             yearAverageText = String(format: "%.2f", average)
+            halfyearActive = Util.checkinactiveYears(getinactiveYears(subject!), slectedYear)
         }
     }
 }
