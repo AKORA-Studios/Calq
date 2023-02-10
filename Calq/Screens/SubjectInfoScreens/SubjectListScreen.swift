@@ -22,10 +22,26 @@ struct SubjectListScreen: View {
             List{
                 Section{
                     ForEach(subjects){sub in
-                        SubjectYearCell(subjects: $subjects, subject: Binding.constant(sub)).onTapGesture {
+                        HStack{
+                            SubjectYearCell(subject: Binding.constant(sub))
+                            Spacer()
+                            HStack{
+                                var colors: [Color] = getcolorArr(subject: sub)
+                                var averageArr: [String] = setAverages(subject: sub)
+                                
+                                ForEach(0...3, id: \.self) { i in
+                                    Text(averageArr[i]).foregroundColor(colors[i]).frame(width: 25) .onAppear{
+                                        colors = getcolorArr(subject: sub)
+                                        averageArr = setAverages(subject: sub)
+                                    }
+                                }
+                            }
+                        }
+                        .onTapGesture {
                             selectedSubejct = sub
                             isSubjectDetailPResented = true
                         }
+                       
                     }
                 }
                 Section{
@@ -79,18 +95,32 @@ struct SubjectListScreen: View {
         return count
     }
     
+    func setAverages(subject: UserSubject) -> [String]{
+        var arr = ["-","-","-","-"]
+        for i in 0...3{
+            arr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1))
+        }
+        return arr
+    }
+    
+    func getcolorArr(subject: UserSubject) -> [Color]{
+        var arr = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
+        let inactiveYears = getinactiveYears(subject)
+        //  print(subject.name, inactiveYears)
+        inactiveYears.forEach { year in
+            if(year.isEmpty){return}
+            arr[Int(year)! - 1] = Color.red
+        }
+        return arr
+    }
+    
 }
 
 
 
-
 struct SubjectYearCell: View {
-    @StateObject var settings: AppSettings = getSettings()!
-    @Binding var subjects: [UserSubject]
     @Binding var subject: UserSubject
-    @State var colors: [Color] = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
     @State var average: Double = 99.9
-    @State var averageArr: [String] = ["-","-","-","-"]
     
     var body: some View {
         HStack {
@@ -99,30 +129,9 @@ struct SubjectYearCell: View {
                 Text(String(format: "%.0f", round(average)))
             }
             Text(subject.name)
-            Spacer()
-            HStack{
-                ForEach(0...3, id: \.self) { i in
-                    Text(averageArr[i]).foregroundColor(colors[i]).frame(width: 25)
-                }
-            }
+            
         }.onAppear{
             average = Util.testAverage(filterTests(subject))
-            setAverages()
-            getcolorArr()
-        }
-    }
-    
-    func setAverages(){
-        for i in 0...3{
-            averageArr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1))
-        }
-    }
-    
-    func getcolorArr(){
-        let inactiveYears = getinactiveYears(subject)
-        inactiveYears.forEach { year in
-            if(year.isEmpty){return}
-            colors[Int(year)! - 1] = Color.red
         }
     }
 }
