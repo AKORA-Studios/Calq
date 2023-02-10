@@ -67,7 +67,7 @@ struct ExamView: View {
                     }
                     
                 }label: {
-                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
+                    RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(subject)).frame(height: 30) //TODO: what if no subject qwq
                 }
                 
                 Text((subject != nil) ? subject!.name : "keines ausgewählt")
@@ -79,7 +79,7 @@ struct ExamView: View {
                     subject?.exampoints = Int16(sliderValue)
                     saveCoreData()
                 })
-                .accentColor(subColor())
+                .accentColor(getSubjectColor(subject))
                 .disabled(subject == nil)
             }
         }
@@ -89,14 +89,4 @@ struct ExamView: View {
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }
     }
-    
-    func subColor() -> Color{
-        if(subject == nil){return Color.gray}
-        if(settings.colorfulCharts) {
-            let index = subjects.firstIndex(where: {$0.objectID == subject!.objectID}) ?? 0
-            return  getPastelColorByIndex(index)
-        }
-        return Color(hexString: subject!.color)
-    }
 }
-

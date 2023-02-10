@@ -37,7 +37,7 @@ struct SettingsScreen: View {
                         SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen")
                         Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
                             reloadAndSave()
-                        }
+                        }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     
                     SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
@@ -122,7 +122,7 @@ struct SettingsScreen: View {
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
         let index = subjects.firstIndex(where: {$0.objectID == sub.objectID})!
-        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(index) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
     }
 }
 

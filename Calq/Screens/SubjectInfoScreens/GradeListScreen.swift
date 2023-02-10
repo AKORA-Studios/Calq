@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GradeListScreen: View {
-    @StateObject var settings: AppSettings = getSettings()!
     var subject: UserSubject
     
     var body: some View {
@@ -26,16 +25,11 @@ struct GradeListScreen: View {
                        
                         let tests =  Alltests.filter{$0.year == i};
                         ForEach(tests){test in
-                            GradeIcon(test: test, color: color())
+                            GradeIcon(test: test, color: getSubjectColor(subject))
                         }
                     }
                 }.navigationTitle("Notenliste")
         }
-    }
-    
-    func color()->Color{
-        let index = getAllSubjects().firstIndex(where: {$0.objectID == subject.objectID})!
-        return settings.colorfulCharts ? getPastelColorByIndex(index) : Color(hexString: subject.color)
     }
 }
 

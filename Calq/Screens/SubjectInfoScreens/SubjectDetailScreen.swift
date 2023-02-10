@@ -16,7 +16,8 @@ struct SubjectDetailScreen: View {
     
     var body: some View {
             if(subject !=  nil){
-                let color = Color(hexString: subject!.color)
+                let color = getSubjectColor(subject!)
+
                 VStack{
                     Text("insert inechart here xd") //TODO: linechart
                     
@@ -39,14 +40,14 @@ struct SubjectDetailScreen: View {
                         HStack{
                             Toggle(isOn: $halfyearActive) {
                                 Text("Halbjahr einbringen")
-                            }
+                            }.toggleStyle(SwitchToggleStyle(tint: color))
                         } .padding()
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                         .padding()
                     
                     //average chart
                     VStack(spacing: 5){
-                        Text("Durchschnitt des Halbjahres")
+                        Text("Durchschnitt des Halbjahres").padding(.top)
                         CircleChart(perrcent: 0.5, color: color, upperText: String(format: "%.2f", 0.5)).frame(height: 150)
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
                     

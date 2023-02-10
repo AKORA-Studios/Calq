@@ -82,7 +82,7 @@ struct SubjectYearCell: View {
     var body: some View {
         HStack {
             ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(width: 30, height: 30)
+                RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(subject)).frame(width: 30, height: 30)
                 Text(String(format: "%.0f", round(average)))
             }
             Text(subject.name)
@@ -105,14 +105,5 @@ struct SubjectYearCell: View {
             if(year.isEmpty){return}
             colors[Int(year)! - 1] = Color.red
         }
-    }
-    
-    
-    func subColor() -> Color{
-        if(settings.colorfulCharts) {
-            let index = subjects.firstIndex(where: {$0.objectID == subject.objectID}) ?? 0
-            return  getPastelColorByIndex(index)
-        }
-        return Color(hexString: subject.color)
     }
 }

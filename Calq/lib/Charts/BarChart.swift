@@ -72,15 +72,10 @@ struct BarEntry: Hashable{
 
 func createSubjectBarData() -> [BarEntry] {
     var arr: [BarEntry] = []
-    let rainbow: Bool = getSettings()!.colorfulCharts
     let subjects = getAllSubjects()
     
     for sub in subjects{
-        var color = Color(hexString: sub.color)
-        if(rainbow){
-            let index = subjects.firstIndex(where: {$0.objectID == sub.objectID}) ?? 0
-            color = getPastelColorByIndex(index)
-        }
+        var color = getSubjectColor(sub)
         arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub)))
     }
     
