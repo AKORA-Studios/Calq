@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LineChart: View {//TODO: First launch screen
+struct LineChart: View {//TODO: axis
     @Binding var subjects: [UserSubject]
     @State var maxDate = 0.0
     @State var minDate =  0.0
@@ -15,15 +15,20 @@ struct LineChart: View {//TODO: First launch screen
     
     var body: some View {
         ZStack {
-            ForEach(subjects){sub in
-                let color = getSubjectColor(sub)
-                let values = generateData(subject: sub)
-                if(values.count > 0){LineShape(values: values).stroke(color, lineWidth: 2.0)}
-            }
+            YAxis()
+            YAxisLines()
+                ZStack {
+                    ForEach(subjects){sub in
+                        let color = getSubjectColor(sub)
+                        let values = generateData(subject: sub)
+                        if(values.count > 0){LineShape(values: values).stroke(color, lineWidth: 2.0)}
+                    }
+                }
         }.frame(height: heigth)
             .onAppear{
                 setDates()
             }
+            .padding()
     }
     func setDates(){
         let allSubjects = subjects.filter{$0.subjecttests?.count != 0}
@@ -68,4 +73,54 @@ struct LineShape: Shape {
 struct LineChartValue {
     var value: Double
     var date: Double
+}
+var ticks: [LineChartValue] = [LineChartValue(value: 15, date: 1),LineChartValue(value: 10, date: 2/3),LineChartValue(value: 5, date: 1/3),LineChartValue(value: 0, date: 0)]
+
+struct YAxis: View {
+ 
+    var body: some View {
+        GeometryReader{geo in
+            let fullHeight = geo.size.height
+            let fullWidth = geo.size.width
+            
+            ZStack{
+                //y line
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 1)
+                    .offset(x: -15)
+                //ticks
+                ForEach(ticks, id:\.self.value){tick in
+                    HStack(spacing: 2){
+                      // Spacer()
+                        Text(String(Int(tick.value))).font(.footnote)
+                        Rectangle().fill(Color.black).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
+                    }.offset(y: fullHeight/2 - (fullHeight * tick.date)).offset(x: -20)
+                }
+            }
+        }
+    }
+}
+
+
+struct YAxisLines: View {
+
+    var body: some View {
+        
+        GeometryReader{geo in
+            let fullHeight = geo.size.height
+            let fullWidth = geo.size.width
+            
+            ZStack{
+                //ticks
+                ForEach(ticks, id:\.self.value){tick in
+                    HStack(spacing: 2){
+                      // Spacer()
+                        Text(String(Int(tick.value))).font(.footnote)
+                        Rectangle().fill(Color.gray).frame(width: fullWidth, height: 1)//.offset(x: 15)
+                    }.offset(y: fullHeight - (fullHeight * tick.date) - 17).offset(x: -5)
+                }
+            }
+        }
+    }
 }
