@@ -51,6 +51,11 @@ func getSettings()-> AppSettings?{
     return nil
 }
 
+func deleteSubject(_ subject: UserSubject){
+    let context = CoreDataStack.shared.managedObjectContext
+    context.delete(subject)
+}
+
 
  func getAllSubjects()-> [UserSubject]{
     let context = CoreDataStack.shared.managedObjectContext
@@ -563,8 +568,6 @@ extension UIColor {
         
         self.init(red:red, green:green, blue:blue, alpha:1)
     }
-    
-   
 }
 
 

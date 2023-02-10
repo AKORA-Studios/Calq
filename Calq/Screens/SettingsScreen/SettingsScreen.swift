@@ -90,7 +90,7 @@ struct SettingsScreen: View {
                 }
                 .sheet(isPresented: $editSubjectPresented) {
                     NavigationView {
-                        EditSubjectScreen(subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
+                        EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
                     }
                 }
             
@@ -104,6 +104,9 @@ struct SettingsScreen: View {
             Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden überschrieben"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
                 presentDocumentPicker = true
             }))
+        }
+        .onAppear{
+            subjects = getAllSubjects()
         }
     }
     
@@ -121,7 +124,6 @@ struct SettingsScreen: View {
     
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
-        let index = subjects.firstIndex(where: {$0.objectID == sub.objectID})!
         SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
     }
 }

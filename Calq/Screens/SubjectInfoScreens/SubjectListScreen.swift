@@ -50,6 +50,9 @@ struct SubjectListScreen: View {
                         GradeTableOverviewScreen(subjects: subjects)
                     }
                 }
+                .onAppear{
+                    subjects = getAllSubjects()
+                }
         }
     }
     

@@ -29,6 +29,9 @@ struct NewGradeScreen: View {
         }.sheet(isPresented: $isSheetPresented, onDismiss: {selectedSubject = nil}) {
             NewGradeView(subject: $selectedSubject, dismiss: $isSheetPresented)
         }
+        .onAppear{
+            subjects = getAllSubjects()
+        }
     }
     
     

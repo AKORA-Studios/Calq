@@ -9,10 +9,15 @@ import SwiftUI
 
 
 struct EditSubjectScreen: View {
+    @Environment(\.managedObjectContext) var coreDataContext
+    @Binding var editSubjectPresented: Bool
+    
     @Binding var subject: UserSubject?
     @State var subjectName = ""
     @State var lkSubject = 0
     @State var selectedColor: Color = .accentColor
+    
+    @State var deleteAlert = false
     
     var body: some View{
         if(subject != nil) {
@@ -74,9 +79,18 @@ struct EditSubjectScreen: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
                     Text("Fach löschen").foregroundColor(.white)
+                }.onTapGesture {
+                    deleteAlert = true
                 }
                 
-            }.padding()
+            }.alert(isPresented: $deleteAlert) {
+                Alert(title: Text("Sure? >.>"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                    editSubjectPresented = false
+                    deleteSubject(subject!)
+                    subject = nil
+                }))
+            }
+            .padding()
                 .navigationTitle("Kurs bearbeiten")
                 .onAppear{
                     subjectName = subject!.name
