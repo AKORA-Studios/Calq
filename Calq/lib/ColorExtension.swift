@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 extension Color {
     init(hexString:String) {
         let hexString:String = hexString.trimmingCharacters(

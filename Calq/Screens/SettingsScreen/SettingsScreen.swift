@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsScreen: View {
+struct SettingsScreen: View {//TODO: kinda fix load demo data
     @Environment(\.managedObjectContext) var coreDataContext
     @StateObject var settings: AppSettings = getSettings()!
     @State var subjects: [UserSubject] = getAllSubjects()

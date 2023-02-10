@@ -33,7 +33,7 @@ struct OverviewView: View {
                         let grade =  (Util.getSubjectAverage(subj) * 100) / 15.0
                         
                         let name = (subj.name.isEmpty ? "\(subject + 1)" : subj.name.prefix(2)).uppercased()
-                        let color = settings!.colorfulCharts ? Color(Util.getPastelColorByIndex(subject)) : Color(.accentColor)
+                        let color = getSubjectColor(subjects[subject])//TODO: pls change array :cry:
                         
                         BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
                     }
@@ -72,7 +72,7 @@ struct BarView: View{
 }
 
 struct CustomCircularProgressViewStyle: ProgressViewStyle {
-    let color: Color = Color(.accentColor)
+    let color: Color = .accentColor
     let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
     
     func makeBody(configuration: Configuration) -> some View {

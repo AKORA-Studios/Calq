@@ -56,6 +56,7 @@
 		F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */; };
 		F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */; };
 		F1B0B17029968D5100F3D1FD /* ChangeWeightScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16F29968D5100F3D1FD /* ChangeWeightScreen.swift */; };
+		F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
@@ -515,6 +516,7 @@
 				F17F4457298C5523000A3993 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
 				F17F4459298C5528000A3993 /* UserTest+CoreDataClass.swift in Sources */,
+				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F17F4458298C5525000A3993 /* AppSettings+CoreDataProperties.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				F17F445A298C552A000A3993 /* UserTest+CoreDataProperties.swift in Sources */,

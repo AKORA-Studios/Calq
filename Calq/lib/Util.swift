@@ -127,29 +127,7 @@ struct Util {
         );
     }
     
-    static let pastelColors = ["#ed8080",
-                               "#edaf80",
-                               "#edd980",
-                               "#caed80",
-                               "#90ed80",
-                               "#80edb8",
-                               "#80caed",
-                               "#809ded",
-                               "#9980ed",
-                               "#ca80ed",
-                               "#ed80e4",
-                               "#ed80a4"].map{UIColor.init(hexString: $0)}
     
-    
-    static func getPastelColorByIndex(_ index: Int) -> UIColor{
-        return pastelColors[index%(pastelColors.count-1)]
-    }
-    
-    static func getPastelColorByIndex(_ name: String) -> UIColor{
-        let subjects = Util.getAllSubjects()
-        let subjectIndex = subjects.firstIndex(where:{$0.name == name}) ?? 0
-        return getPastelColorByIndex(subjectIndex)
-    }
     
     // MARK: Average Functions
     static func average (_ values: [Int]) -> Double {
@@ -413,9 +391,9 @@ struct Util {
     }
     
     /// Returns the last date when a grade was added
-    static func calcMaxDate() throws -> Date {
+    static func calcMaxDate() -> Date {
         let allSubjects = self.getAllSubjects().filter{$0.subjecttests?.count != 0}
-        if(allSubjects.count == 0) { throw UtilErrors.NoSubjects }
+        if(allSubjects.count == 0) {return Date()}
         
         let allDates = allSubjects.map{
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
@@ -430,9 +408,9 @@ struct Util {
     }
     
     /// Returns the first date when a grade was added
-    static func calcMinDate() throws -> Date {
+    static func calcMinDate() -> Date {
         let allSubjects = self.getAllSubjects().filter{$0.subjecttests?.count != 0}
-        if(allSubjects.count == 0) { throw UtilErrors.NoSubjects }
+        if(allSubjects.count == 0){return Date()}
         
         let allDates = allSubjects.map{
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
@@ -555,67 +533,6 @@ func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
     return tests
 }
 
-
-
-
-
-
-// MARK: - UIColor Extension
-extension UIColor {
-    static var accentColor: UIColor {return UIColor(named: "AccentColor") ??  UIColor.init(hexString: "428FE3")}
-    static var averageColor: UIColor {return  UIColor.init(hexString: "6584a5")}
-}
-
-extension UIColor {
-    convenience init(hexString:String) {
-        let hexString:String = hexString.trimmingCharacters(
-            in: CharacterSet.whitespacesAndNewlines
-        )
-        var scanner            = Scanner(string: hexString)
-        
-        if (hexString.hasPrefix("#")) {
-            scanner = Scanner(string: String(hexString.split(separator: "#")[0]))
-        }
-        
-        var color:UInt64 = 0
-        scanner.scanHexInt64(&color)
-        
-        let mask = 0x000000FF
-        let r = Int(color >> 16) & mask
-        let g = Int(color >> 8) & mask
-        let b = Int(color) & mask
-        
-        let red   = CGFloat(r) / 255.0
-        let green = CGFloat(g) / 255.0
-        let blue  = CGFloat(b) / 255.0
-        
-        self.init(red:red, green:green, blue:blue, alpha:1)
-    }
-}
-
-
-/// This function returns `true` if there is at least one `test` in at least one `subject`
-func checkChartData()-> Bool {
-    let arr = Util.getAllSubjects()
-    if(arr.count == 0) {return false}
-    
-    var n = 0
-    for sub in arr {
-        let tests = filterTests(sub)
-        if(sub.subjecttests?.count == 0 || tests.count == 0) {
-            n += 1;
-        }
-    }
-    return (n != arr.count)
-}
-
-
-// MARK: - UIStoyboard Extension
-extension UIStoryboard {
-    func getView(_ identifier: String) -> UIViewController {
-        return self.instantiateViewController(withIdentifier: identifier);
-    }
-}
 
 extension Double {
     /// Rounds the double to decimal places value

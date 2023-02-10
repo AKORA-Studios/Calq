@@ -17,6 +17,7 @@ struct OverviewScreen: View {
     @State var gradeText = ""
     @State var blockCircleText = ""
     @State var blockPercent = 0.0
+    @State var subjects = Util.getAllSubjects()
     
     var body: some View {
         NavigationView {
@@ -28,7 +29,15 @@ struct OverviewScreen: View {
                     }
                     
                     ZStack{
-                        VStack(spacing: 5){
+                        VStack(alignment: .leading, spacing: 5){
+                        Text("Verlauf")
+                        LineChart(subjects: $subjects)
+                        }.padding()
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+                    }
+                    
+                    ZStack{
+                        VStack(alignment: .leading, spacing: 5){
                             Text("Halbjahre")
                             BarChart(values: $halfyears, heigth: 150)
                         }.padding()
@@ -52,6 +61,7 @@ struct OverviewScreen: View {
             }.padding(.horizontal)
                 .navigationTitle("Übersicht")
                 .onAppear{
+                    subjects = Util.getAllSubjects()
                     gradeText = grade()
                     blockCircleText = getGradeData()
                     subjectValues = createSubjectBarData()
