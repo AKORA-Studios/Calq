@@ -52,7 +52,7 @@ struct gradeTableCell: View {
         let tests = subject.subjecttests!.allObjects as! [UserTest]
         
         for i in 0...3 {
-            let arr = tests.filter({$0.year == i+1});//TODO: check if inactive form 0..3 or 1..4
+            let arr = tests.filter({$0.year == i+1});
             if(arr.count == 0){continue}
             
             if(!Util.checkinactiveYears(getinactiveYears(subject), i+1)){continue}

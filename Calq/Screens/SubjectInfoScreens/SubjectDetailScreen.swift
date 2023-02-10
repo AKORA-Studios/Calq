@@ -21,9 +21,16 @@ struct SubjectDetailScreen: View {
     var body: some View {
         if(subject !=  nil){
             let color = getSubjectColor(subject!)
-            
-            VStack{//TODO: subjectlist all gardes deleted does not update grades ??idk if still problem
-                Text("insert inechart here xd") //TODO: linechart
+            ScrollView(showsIndicators: false){
+                VStack{//TODO: subjectlist all gardes deleted does not update grades ??idk if still problem
+                Spacer()
+                ZStack{
+                    VStack(alignment: .leading, spacing: 5){
+                        Text("Verlauf")
+                        LineChart(subjects: Binding.constant([subject!]), heigth: 80).frame(height: 80)
+                    }.padding()
+                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+                }.padding(.horizontal)
                 
                 VStack{
                     //Year picker
@@ -61,21 +68,21 @@ struct SubjectDetailScreen: View {
                             halfyearActive.toggle()
                         }
                 }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
-                    .padding()
+                        .padding(.horizontal)
                 
                 //average chart
                 VStack(spacing: 5){
                     Text("Durchschnitt des Halbjahres").padding(.top)
                     CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 150)
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
+                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding(.horizontal)
                 
                 NavigationLink(destination: GradeListScreen(subject: subject!)) {
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                         Text("Notenliste ansehen").foregroundColor(.white)
                     }
-                }.padding()
-                
+                }.padding(.horizontal)
+            }
                     .navigationTitle(subject!.name)
             }.onAppear{
                 update()

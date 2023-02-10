@@ -21,7 +21,7 @@ struct LineChart: View {
                     ForEach(subjects){sub in
                         let color = getSubjectColor(sub)
                         let values = generateData(subject: sub)
-                        if(values.count > 0){LineShape(values: values).stroke(color, lineWidth: 2.0)}
+                        if(values.count > 0){LineShape(values: values, frame: $heigth).stroke(color, lineWidth: 2.0)}
                     }
                 }
         }.frame(height: heigth)
@@ -53,14 +53,15 @@ struct LineChart: View {
 
 struct LineShape: Shape {
     @State var values: [LineChartValue]
+    @Binding var frame: CGFloat
     
     func path(in rect: CGRect) -> Path {
         let valuesSorted = values.sorted(by: {$0.date < $1.date})
         var path = Path()
-        path.move(to: CGPoint(x: 0.0, y: 150 - valuesSorted[0].value * Double(rect.height)))
+        path.move(to: CGPoint(x: 0.0, y: frame - valuesSorted[0].value * Double(rect.height)))
         
         for i in 1..<valuesSorted.count {
-            let y = 150 - (valuesSorted[i].value * Double(rect.height))
+            let y = frame - (valuesSorted[i].value * Double(rect.height))
             let x = (valuesSorted[i].date * Double(rect.width))
             let pt = CGPoint(x: x, y: y)
             
