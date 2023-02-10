@@ -19,7 +19,7 @@ struct NewGradeScreen: View {
                 if(subjects.isEmpty){
                     Text("Oh no keine Fächer vorhanden :c") //TODO: other not data messages qwq
                 }
-                ForEach(subjects.indices) { i in
+                ForEach(subjects.indices) { i in //TODO: change index variant yk
                     subjectView(subjects[i], i).onTapGesture {
                         selectedSubject = subjects[i]
                         isSheetPresented = true

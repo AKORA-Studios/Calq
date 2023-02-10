@@ -12,6 +12,9 @@ struct SettingsScreen: View {
     @StateObject var settings: AppSettings = getSettings()!
     @State var subjects: [UserSubject] = getAllSubjects()
     
+    @State var editSubjectPresented = false
+    @State var selectedSubjet: UserSubject?
+    
     @State var presentDocumentPicker = false
     @State var importedJson: String = ""
     @State var importeJsonURL: URL = URL(fileURLWithPath: "")
@@ -69,7 +72,10 @@ struct SettingsScreen: View {
                 Section(header: Text("Subjects")){
                     
                     ForEach(subjects) { sub in
-                        subjectView(sub)
+                        subjectView(sub).onTapGesture {
+                            editSubjectPresented = true
+                            selectedSubjet = sub
+                        }
                     }
                     
                     SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
@@ -81,6 +87,11 @@ struct SettingsScreen: View {
             }.navigationTitle("Einstellungen")
                 .sheet(isPresented: $presentDocumentPicker) {
                     DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
+                }
+                .sheet(isPresented: $editSubjectPresented) {
+                    NavigationView {
+                        EditSubjectScreen(subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
+                    }
                 }
             
         }
