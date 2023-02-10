@@ -24,7 +24,7 @@ struct OverviewScreen: View {
             ScrollView(showsIndicators: false){
                 VStack{
                     ZStack{
-                        BarChart(values: $subjectValues, heigth: 300, average: generalAverage, round: true).padding()
+                        BarChart(values: $subjectValues, heigth: 200, average: generalAverage, round: true).padding()
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     }
                     
