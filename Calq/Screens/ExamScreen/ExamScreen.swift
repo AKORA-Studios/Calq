@@ -44,7 +44,7 @@ struct ExamView: View {
     var type: Int
     
     
-    var body: some View { //TODO: selction filtr after lk/gk etc.
+    var body: some View { //TODO: seelction filtr after lk/gk etc.
         VStack{
             ZStack{
                 Menu {

@@ -12,7 +12,7 @@ struct SubjectDetailScreen: View {
     @State var isGradeTablePresented = false
     
     @State var halfyearActive = false
-    @State var slectedYear = 1
+    @State var selectedYear = 1
     @State var tests: [UserTest] = []
     
     @State var yearAverage = 0.0
@@ -34,31 +34,28 @@ struct SubjectDetailScreen: View {
                                 Spacer()
                                 Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
                             }
-                            Picker("", selection: $slectedYear) {
+                            Picker("", selection: $selectedYear) {
                                 Text("1").tag(1)
                                 Text("2").tag(2)
                                 Text("3").tag(3)
                                 Text("4").tag(4)
                             }.pickerStyle(.segmented)
                                 .colorMultiply(color)
-                                .onChange(of: slectedYear) { newValue in
+                                .onChange(of: selectedYear) { newValue in
                                     update()
                                 }
                         }.padding()
                     }
-                    
-                    //Year toggle
-                    
                     ZStack{
                         let backroundColor = halfyearActive ? .red : color
                         RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
                         Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
-                    }.padding()
+                    }.padding()//TODO: show newly deactivated yaers in subject list
                         .onTapGesture {
                             if(halfyearActive){ //deactivate
-                                _ = Util.addYear(subject!, slectedYear)
+                                _ = Util.addYear(subject!, selectedYear)
                             } else { //activate
-                                _ = Util.removeYear(subject!, slectedYear)
+                                _ = Util.removeYear(subject!, selectedYear)
                             }
                             saveCoreData()
                             halfyearActive.toggle()
@@ -88,10 +85,10 @@ struct SubjectDetailScreen: View {
     
     func update(){
         withAnimation {
-            let average = Util.getSubjectAverage(subject!, year: slectedYear)
+            let average = Util.getSubjectAverage(subject!, year: selectedYear)
             yearAverage = average / 15.0
             yearAverageText = String(format: "%.2f", average)
-            halfyearActive = Util.checkinactiveYears(getinactiveYears(subject!), slectedYear)
+            halfyearActive = Util.checkinactiveYears(getinactiveYears(subject!), selectedYear)
         }
     }
 }
