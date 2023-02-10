@@ -12,8 +12,7 @@ struct EditSubjectScreen: View {
     @Binding var subject: UserSubject?
     @State var subjectName = ""
     @State var lkSubject = 0
-    
-    @State var showColorPicker = false
+    @State var selectedColor: Color = .accentColor
     
     var body: some View{
         if(subject != nil) {
@@ -48,17 +47,17 @@ struct EditSubjectScreen: View {
                 ZStack{
                     VStack(alignment: .leading){
                         Text("Kursfarbe")
+                        
                         HStack{
                             ZStack{
-                                RoundedRectangle(cornerRadius: 8).fill(color).frame(width: 30, height: 30)
+                                RoundedRectangle(cornerRadius: 8).fill(selectedColor).frame(width: 30, height: 30)
                                 Image(systemName: "paintpalette")
-                            }//.padding()
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 8).fill(color).frame(height: 30)
-                                Text("Farbe ändern")
                             }
-                        }.onTapGesture {
-                            showColorPicker = true //TODO: Color picker
+                            
+                            ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
+                                subject!.color = UIColor(selectedColor).toHexString()
+                                saveCoreData()
+                            }
                         }
                     }.padding()
                 }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
@@ -70,18 +69,19 @@ struct EditSubjectScreen: View {
                         RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                         Text("Noten bearbeiten").foregroundColor(.white)
                     }
-                }//.padding()
+                }
                 
                 ZStack{
                     RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
                     Text("Fach löschen").foregroundColor(.white)
-                }//.padding()
+                }
                 
             }.padding()
                 .navigationTitle("Kurs bearbeiten")
                 .onAppear{
                     subjectName = subject!.name
                     lkSubject = subject!.lk ? 1 : 0
+                    selectedColor = color
                 }
         }
     }

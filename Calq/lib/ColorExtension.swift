@@ -35,18 +35,35 @@ extension Color {
     }
 }
 
+extension UIColor {
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return String(format:"#%06x", rgb)
+    }
+}
+
+
+//MARK: pastell/subject Colors
 let pastelColors = ["#ed8080",
-                           "#edaf80",
-                           "#edd980",
-                           "#caed80",
-                           "#90ed80",
-                           "#80edb8",
-                           "#80caed",
-                           "#809ded",
-                           "#9980ed",
-                           "#ca80ed",
-                           "#ed80e4",
-                           "#ed80a4"].map{Color.init(hexString: $0)}
+                    "#edaf80",
+                    "#edd980",
+                    "#caed80",
+                    "#90ed80",
+                    "#80edb8",
+                    "#80caed",
+                    "#809ded",
+                    "#9980ed",
+                    "#ca80ed",
+                    "#ed80e4",
+                    "#ed80a4"].map{Color.init(hexString: $0)}
 
 func getPastelColorByIndex(_ index: Int) -> Color{
     return pastelColors[index%(pastelColors.count-1)]
