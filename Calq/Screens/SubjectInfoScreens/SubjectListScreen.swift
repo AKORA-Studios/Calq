@@ -9,8 +9,10 @@ import SwiftUI
 
 struct SubjectListScreen: View {
     @State var subjects: [UserSubject] = getAllSubjects()
-    @State var isSubjectDetailPResented = false
     @State var selectedSubejct: UserSubject?
+    
+    @State var graeTablePresented = false
+    @State var isSubjectDetailPResented = false
     
     var body: some View {
         NavigationView{
@@ -32,11 +34,22 @@ struct SubjectListScreen: View {
                         Text("\((subjects.count * 4) - calcInactiveYearsCount()) von \(subjects.count * 4) Halbjahren aktiv")
                     }
                 }
-            }.navigationTitle("Kursliste").sheet(isPresented: $isSubjectDetailPResented) {
-                NavigationView{
-                SubjectDetailScreen(subject: $selectedSubejct)
+            }.navigationTitle("Kursliste")
+                .toolbar {
+                    Button("Notentabelle") {
+                        graeTablePresented = true
+                    }
                 }
-            }
+                .sheet(isPresented: $isSubjectDetailPResented) {
+                    NavigationView{
+                        SubjectDetailScreen(subject: $selectedSubejct)
+                    }
+                }
+                .sheet(isPresented: $graeTablePresented) {
+                    NavigationView{
+                        GradeTableOverviewScreen(subjects: subjects)
+                    }
+                }
         }
     }
     
