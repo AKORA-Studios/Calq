@@ -1,6 +1,6 @@
 //
 //  BarChartView.swift
-//  TestBarChart
+//  Calq
 //
 //  Created by Kiara on 11.12.21.
 //

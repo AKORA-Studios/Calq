@@ -1,6 +1,6 @@
 //
 //  LineChart.swift
-//  TestBarChart
+//  Calq
 //
 //  Created by Kiara on 10.02.23.
 //
