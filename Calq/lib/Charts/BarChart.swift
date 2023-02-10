@@ -75,7 +75,7 @@ func createSubjectBarData() -> [BarEntry] {
     let subjects = getAllSubjects()
     
     for sub in subjects{
-        var color = getSubjectColor(sub)
+        let color = getSubjectColor(sub)
         arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub)))
     }
     

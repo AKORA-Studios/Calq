@@ -23,7 +23,7 @@ struct SubjectListScreen: View {
                 Section{
                     ForEach(subjects){sub in
                         HStack{
-                            var average = Util.testAverage(filterTests(sub))
+                            let average = Util.testAverage(filterTests(sub))
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(sub)).frame(width: 30, height: 30)

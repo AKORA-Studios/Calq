@@ -17,7 +17,7 @@
 		DD4F979B27515CA800D3CC57 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3288F126A9AA7F000DFD73 /* SwiftUI.framework */; };
 		DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F979D27515CA800D3CC57 /* CalqWidget.swift */; };
 		DD4F97A027515CAC00D3CC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F979F27515CAC00D3CC57 /* Assets.xcassets */; };
-		DD4F97A427515CAC00D3CC57 /* CalqWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DD4F979927515CA800D3CC57 /* CalqWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD4F97A427515CAC00D3CC57 /* CalqWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD4F979927515CA800D3CC57 /* CalqWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DD4F97A827515CC600D3CC57 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD687945261C530000BF2B48 /* Util.swift */; };
 		DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
 		DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
@@ -106,15 +106,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DD32890226A9AA82000DFD73 /* Embed App Extensions */ = {
+		DD32890226A9AA82000DFD73 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				DD4F97A427515CAC00D3CC57 /* CalqWidgetExtension.appex in Embed App Extensions */,
+				DD4F97A427515CAC00D3CC57 /* CalqWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -465,7 +465,7 @@
 				DD68787C2617B1A900BF2B48 /* Sources */,
 				DD68787D2617B1A900BF2B48 /* Frameworks */,
 				DD68787E2617B1A900BF2B48 /* Resources */,
-				DD32890226A9AA82000DFD73 /* Embed App Extensions */,
+				DD32890226A9AA82000DFD73 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -520,7 +520,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					DD4F979827515CA800D3CC57 = {
 						CreatedOnToolsVersion = 13.1;
@@ -900,7 +900,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
