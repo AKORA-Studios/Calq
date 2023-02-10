@@ -23,8 +23,16 @@ struct SubjectListScreen: View {
                 Section{
                     ForEach(subjects){sub in
                         HStack{
-                            SubjectYearCell(subject: Binding.constant(sub))
+                            var average = Util.testAverage(filterTests(sub))
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(sub)).frame(width: 30, height: 30)
+                                Text(String(format: "%.0f", round(average)))
+                            }
+                            Text(sub.name)
+                            
                             Spacer()
+                            
                             HStack{
                                 var colors: [Color] = getcolorArr(subject: sub)
                                 var averageArr: [String] = setAverages(subject: sub)
@@ -33,6 +41,7 @@ struct SubjectListScreen: View {
                                     Text(averageArr[i]).foregroundColor(colors[i]).frame(width: 25) .onAppear{
                                         colors = getcolorArr(subject: sub)
                                         averageArr = setAverages(subject: sub)
+                                        
                                     }
                                 }
                             }
@@ -41,7 +50,7 @@ struct SubjectListScreen: View {
                             selectedSubejct = sub
                             isSubjectDetailPResented = true
                         }
-                       
+                        
                     }
                 }
                 Section{
@@ -112,26 +121,5 @@ struct SubjectListScreen: View {
             arr[Int(year)! - 1] = Color.red
         }
         return arr
-    }
-    
-}
-
-
-
-struct SubjectYearCell: View {
-    @Binding var subject: UserSubject
-    @State var average: Double = 99.9
-    
-    var body: some View {
-        HStack {
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(subject)).frame(width: 30, height: 30)
-                Text(String(format: "%.0f", round(average)))
-            }
-            Text(subject.name)
-            
-        }.onAppear{
-            average = Util.testAverage(filterTests(subject))
-        }
     }
 }
