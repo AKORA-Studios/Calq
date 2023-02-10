@@ -44,7 +44,7 @@ struct ExamView: View {
     var type: Int
     
     
-    var body: some View {
+    var body: some View { //TODO: selction filtr after lk/gk etc.
         VStack{
             ZStack{
                 Menu {
@@ -67,7 +67,7 @@ struct ExamView: View {
                     }
                     
                 }label: {
-                    RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(subject)).frame(height: 30) //TODO: what if no subject qwq
+                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30) //TODO: what if no subject qwq
                 }
                 
                 Text((subject != nil) ? subject!.name : "keines ausgewählt")
@@ -79,7 +79,7 @@ struct ExamView: View {
                     subject?.exampoints = Int16(sliderValue)
                     saveCoreData()
                 })
-                .accentColor(getSubjectColor(subject))
+                .accentColor(subColor())
                 .disabled(subject == nil)
             }
         }
@@ -88,5 +88,10 @@ struct ExamView: View {
         .onAppear{
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }
+    }
+    
+    func subColor()-> Color{
+        if(subject == nil){return Color.gray}
+       return getSubjectColor(subject)
     }
 }
