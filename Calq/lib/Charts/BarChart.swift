@@ -16,7 +16,7 @@ struct BarChart: View {
     var body: some View {
         GeometryReader{ geo in
             let fullHeigth = geo.size.height - 15
-            let fullWidth = geo.size.width
+         //   let fullWidth = geo.size.width
         
             ZStack {
                 //grid

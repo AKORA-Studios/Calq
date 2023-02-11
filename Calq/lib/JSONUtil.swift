@@ -101,7 +101,7 @@ private static func loadJSON() ->[SubjectStruct]{
      var subCount: Int = 0
      
      for sub in subjects {
-         string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears ?? "")\", \"subjecttests\": ["
+         string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"subjecttests\": ["
 
          if(sub.subjecttests == nil){continue}
          let tests = sub.subjecttests!.allObjects as! [UserTest]

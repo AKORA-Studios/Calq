@@ -94,7 +94,6 @@ struct YAxis: View {
     var body: some View {
         GeometryReader{geo in
             let fullHeight = geo.size.height
-            let fullWidth = geo.size.width
             
             ZStack{
                 //y line
