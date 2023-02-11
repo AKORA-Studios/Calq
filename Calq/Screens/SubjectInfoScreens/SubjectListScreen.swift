@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+struct SubjectlistData: Hashable{
+    var subject: UserSubject
+    var yearString: [String]
+    var colors: [Color]
+}
+
 struct SubjectListScreen: View {
-    @State var subjects: [UserSubject] = getAllSubjects()
+    @State var subjects: [UserSubject] = []
     @State var selectedSubejct: UserSubject?
     
     @State var gradeTablePresented = false
@@ -17,37 +23,34 @@ struct SubjectListScreen: View {
     @State var inactiveCount = 0
     @State var subjectCount = 0
     
+    
+    @State var data: [SubjectlistData] = []
+    
     var body: some View {
         NavigationView{
             List{
                 Section{
-                    ForEach(subjects){sub in
+                    ForEach(data, id: \.self){entry in
                         HStack{
-                            let average = Util.testAverage(filterTests(sub))
+                            let color = getSubjectColor(entry.subject)
+                            let average = Util.testAverage(filterTests(entry.subject))
                             
                             ZStack{
-                                RoundedRectangle(cornerRadius: 8).fill(getSubjectColor(sub)).frame(width: 30, height: 30)
+                                RoundedRectangle(cornerRadius: 8).fill(color).frame(width: 30, height: 30)
                                 Text(String(format: "%.0f", round(average)))
                             }
-                            Text(sub.name)
+                            Text(entry.subject.name)
                             
                             Spacer()
                             
                             HStack{
-                                var colors: [Color] = getcolorArr(subject: sub)
-                                var averageArr: [String] = setAverages(subject: sub)
-                                
                                 ForEach(0...3, id: \.self) { i in
-                                    Text(averageArr[i]).foregroundColor(colors[i]).frame(width: 25) .onAppear{
-                                        colors = getcolorArr(subject: sub)
-                                        averageArr = setAverages(subject: sub)
-                                        
-                                    }
+                                    Text(entry.yearString[i]).foregroundColor(entry.colors[i]).frame(width: 25)
                                 }
                             }
                         }
                         .onTapGesture {
-                            selectedSubejct = sub
+                            selectedSubejct = entry.subject
                             isSubjectDetailPResented = true
                         }
                     }
@@ -78,6 +81,11 @@ struct SubjectListScreen: View {
                     }
                 }
                 .onAppear{
+                    update()
+                    data = []
+                    subjects.forEach { sub in
+                        data.append(SubjectlistData(subject: sub, yearString: setAverages(subject: sub), colors: getcolorArr(subject: sub)))
+                    }
                     update()
                 }
         }
