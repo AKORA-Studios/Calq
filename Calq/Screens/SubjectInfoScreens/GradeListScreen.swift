@@ -80,9 +80,16 @@ struct GradeIcon: View {
             Spacer()
             Text(date).foregroundColor(.gray).fontWeight(.light)
         }.onAppear{
+           
             color =  test.big ? color : Color.clear
             name = test.name
-            date = formatDate(date: test.date)
+            print(test)
+            print(test.date)
+          /*  if let d = test.date {
+                date = formatDate(date: test.date)
+            }*/
+         //   print(test.date)
+           
             points = String(test.grade)
         }
     }

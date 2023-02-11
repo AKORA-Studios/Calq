@@ -452,6 +452,13 @@ struct Util {
 }
 
 
+
+func deleteTest(_ test: UserTest){
+    test.testtosubbject.removeFromSubjecttests(test)
+    saveCoreData()
+}
+
+
 func getinactiveYears(_ sub: UserSubject)-> [String]{
     if(sub.inactiveYears.isEmpty){return []}
     let arr: [String] = sub.inactiveYears.components(separatedBy: " ")

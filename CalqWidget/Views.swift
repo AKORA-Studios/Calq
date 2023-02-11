@@ -33,7 +33,7 @@ struct OverviewView: View {
                         let grade =  (Util.getSubjectAverage(subj) * 100) / 15.0
                         
                         let name = (subj.name.isEmpty ? "\(subject + 1)" : subj.name.prefix(2)).uppercased()
-                        let color = getSubjectColor(subjects[subject])//TODO: pls change array :cry:
+                        let color = getSubjectColor(subjects[subject])
                         
                         BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
                     }

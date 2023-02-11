@@ -19,6 +19,8 @@ struct EditGradeScreen: View {
     @State var testDate = Date()
     @State var testPoints: Float = 9
     
+    @State var deleteAlert = false
+    
     var body: some View{
         VStack{
             VStack {
@@ -81,7 +83,7 @@ struct EditGradeScreen: View {
                 RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
                 Text("Note löschen")
             }.onTapGesture {
-                deleteGrade()//TODO: delete grade
+                deleteAlert = true
             }
         }.padding()
             .navigationTitle("Note bearbeiten") //TODO: localization
@@ -92,9 +94,16 @@ struct EditGradeScreen: View {
                 testPoints = Float(test.grade)
                 testType = test.big ? 1 : 0
             }
+            .alert(isPresented: $deleteAlert) {
+                Alert(title: Text("Sure? >.>"), message: Text("Möchtest du diese Note wirklich löschen?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                    deleteGrade()
+                }))
+            }
     }
     
     func deleteGrade(){
+        self.presentationMode.wrappedValue.dismiss()
+        deleteTest(test)
         
     }
     
