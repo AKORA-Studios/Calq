@@ -19,9 +19,9 @@ struct NewGradeScreen: View {
                 if(subjects.isEmpty){
                     Text("Oh no keine Fächer vorhanden :c") //TODO: other not data messages qwq
                 }
-                ForEach(subjects.indices) { i in //TODO: change index variant yk
-                    subjectView(subjects[i], i).onTapGesture {
-                        selectedSubject = subjects[i]
+                ForEach(subjects) { sub in
+                    subjectView(sub).onTapGesture {
+                        selectedSubject = sub
                         isSheetPresented = true
                     }
                 }
@@ -36,8 +36,8 @@ struct NewGradeScreen: View {
     
     
     @ViewBuilder
-    func subjectView(_ sub: UserSubject, _ index: Int) -> SettingsIcon {
-        SettingsIcon(color: settings.colorfulCharts ? getPastelColorByIndex(index) : Color(hexString: sub.color), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+    func subjectView(_ sub: UserSubject) -> SettingsIcon {
+        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
     }
 }
 
