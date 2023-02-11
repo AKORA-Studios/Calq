@@ -15,35 +15,40 @@ struct BarChart: View {
     
     var body: some View {
         GeometryReader{ geo in
-            let fullHeigth = geo.size.height
+            let fullHeigth = geo.size.height - 15
             let fullWidth = geo.size.width
-            
+        
             ZStack {
                 //grid
                 //Rectangle().fill(Color.black).frame(height: 2).offset(x: -2,y: (fullHeigth/2)) //x axis
                 //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - heigth - 2) //tick 15
                 //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m10() - 2) //tick 10
                 // Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m5() - 2) //tick 5
-                if(average != 0.0){
-                     Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
-                }
+             /*   if(average != 0.0){
+                    Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
+                }*/
                 // Rectangle().fill(Color.gray).frame(width:1).offset(x: (fullWidth/2) - fullWidth - 2, y: 1) // y axis
                 
                 //bars
                 HStack {
                     ForEach(values, id:\.self){ val in
-                        ZStack(alignment: .bottom){
-                            Rectangle().frame( height: geo.size.height).foregroundColor(Color(.systemGray4)).topCorner()
-                            Rectangle().frame( height: (geo.size.height * val.value / 15.0)).foregroundColor(val.color).topCorner()
-                            Text(getDescription(val.value))
-                                .font(.footnote)
-                                .fontWeight(.light)
-                                .foregroundColor(.black)
+                        VStack(spacing: 0){
+                            ZStack(alignment: .bottom){
+                                Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
+                                Rectangle().frame( height: (fullHeigth * val.value / 15.0)).foregroundColor(val.color).topCorner()
+                                Text(getDescription(val.value))
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.black)
+                            }
+                            Text(val.text.prefix(3).uppercased()).font(.system(size: 10)).frame(height: 15)
                         }
                     }
-                    //   Text(subName).font(.system(size: 10)).fontWeight(.light).frame(width: 17, height: 3)
+                    //   Text(subName)
                 }
-            }
+        
+                
+        }
         }.frame(height: heigth)
     }
     
@@ -68,6 +73,7 @@ struct BarChart: View {
 struct BarEntry: Hashable{
     var color: Color = .accentColor
     var value: Double = 0.5
+    var text: String = ""
 }
 
 func createSubjectBarData() -> [BarEntry] {
@@ -76,7 +82,7 @@ func createSubjectBarData() -> [BarEntry] {
     
     for sub in subjects{
         let color = getSubjectColor(sub)
-        arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub)))
+        arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
     }
     
     return arr
