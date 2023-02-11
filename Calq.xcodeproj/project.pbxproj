@@ -35,7 +35,7 @@
 		F17F4442298C4DDF000A3993 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4441298C4DDF000A3993 /* TabView.swift */; };
 		F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4443298C4E7D000A3993 /* SettingsScreen.swift */; };
 		F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4445298C4EC3000A3993 /* ExamScreen.swift */; };
-		F17F4448298C4ED3000A3993 /* NewGradeSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4447298C4ED3000A3993 /* NewGradeSubjectScreen.swift */; };
+		F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */; };
 		F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */; };
 		F17F4451298C5402000A3993 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F444B298C5402000A3993 /* AppSettings+CoreDataClass.swift */; };
 		F17F4452298C5402000A3993 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F444C298C5402000A3993 /* AppSettings+CoreDataProperties.swift */; };
@@ -137,7 +137,7 @@
 		F17F4441298C4DDF000A3993 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		F17F4443298C4E7D000A3993 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		F17F4445298C4EC3000A3993 /* ExamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamScreen.swift; sourceTree = "<group>"; };
-		F17F4447298C4ED3000A3993 /* NewGradeSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeSubjectScreen.swift; sourceTree = "<group>"; };
+		F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeScreen.swift; sourceTree = "<group>"; };
 		F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListScreen.swift; sourceTree = "<group>"; };
 		F17F444B298C5402000A3993 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataClass.swift"; path = "lib/CoreData/AppSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F17F444C298C5402000A3993 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings+CoreDataProperties.swift"; path = "lib/CoreData/AppSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		F1F568C6298D912D00227F88 /* NewGradeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F17F4447298C4ED3000A3993 /* NewGradeSubjectScreen.swift */,
+				F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */,
 				F1F568C7298DA72100227F88 /* ImpactSegment.swift */,
 			);
 			path = NewGradeScreen;
@@ -559,7 +559,7 @@
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
-				F17F4448298C4ED3000A3993 /* NewGradeSubjectScreen.swift in Sources */,
+				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
