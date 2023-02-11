@@ -41,7 +41,7 @@ struct BarChart: View {
                                     .fontWeight(.light)
                                     .foregroundColor(.black)
                             }
-                            Text(val.text.prefix(3).uppercased()).font(.system(size: 10)).frame(height: 15)
+                            Text(val.text.prefix(3).uppercased()).font(.system(size: 9)).frame(height: 15)
                         }
                     }
                     //   Text(subName)
