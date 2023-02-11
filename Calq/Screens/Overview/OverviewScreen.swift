@@ -31,7 +31,7 @@ struct OverviewScreen: View {
                     ZStack{
                         VStack(alignment: .leading, spacing: 5){
                         Text("Verlauf")
-                        LineChart(subjects: $subjects)
+                        LineChart(subjects: subjects)
                         }.padding()
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     }

@@ -7,26 +7,39 @@
 
 import SwiftUI
 
+struct LineChartValue: Hashable {
+    var value: Double
+    var date: Double
+    var color: Color = .accentColor
+}
+
 struct LineChart: View {
-    @Binding var subjects: [UserSubject]
+    @State var subjects: [UserSubject]
     @State var maxDate = 0.0
     @State var minDate =  0.0
     @State var heigth: CGFloat = 150
+    
+    @State var values: [[LineChartValue]] = [[]]
+    @State var colors: [Color] = []
     
     var body: some View {
         ZStack {
             YAxis()
             YAxisLines()
                 ZStack {
-                    ForEach(subjects){sub in
-                        let color = getSubjectColor(sub)
-                        let values = generateData(subject: sub)
-                        if(values.count > 0){LineShape(values: values, frame: $heigth).stroke(color, lineWidth: 2.0)}
+                    ForEach(values, id: \.self){v in
+                        if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
                     }
                 }
         }.frame(height: heigth)
             .onAppear{
+                values = []
+                colors = []
                 setDates()
+                subjects.forEach { sub in
+                    values.append(generateData(subject: sub))
+                   
+                }
             }
             .padding()
     }
@@ -41,11 +54,14 @@ struct LineChart: View {
     }
     
     func generateData(subject: UserSubject) -> [LineChartValue]{
+        let color = getSubjectColor(subject)
+        colors.append(color)
+        
         var arr: [LineChartValue] = []
         let tests = filterTests(subject, checkinactive : false)
         for test in tests {
             let time = ((test.date.timeIntervalSince1970 / 1000)  - minDate)/maxDate
-            arr.append(.init(value: Double(test.grade) / 15.0, date: time))
+            arr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
         }
         return arr
     }
@@ -71,10 +87,6 @@ struct LineShape: Shape {
     }
 }
 
-struct LineChartValue {
-    var value: Double
-    var date: Double
-}
 var ticks: [LineChartValue] = [LineChartValue(value: 15, date: 1),LineChartValue(value: 10, date: 2/3),LineChartValue(value: 5, date: 1/3),LineChartValue(value: 0, date: 0)]
 
 struct YAxis: View {

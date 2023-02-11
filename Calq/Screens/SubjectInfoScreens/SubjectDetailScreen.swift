@@ -27,7 +27,7 @@ struct SubjectDetailScreen: View {
                 ZStack{
                     VStack(alignment: .leading, spacing: 5){
                         Text("Verlauf")
-                        LineChart(subjects: Binding.constant([subject!]), heigth: 80).frame(height: 80)
+                        OneEntryLineChart(subject: subject!, heigth: 80).frame(height: 80)
                     }.padding()
                     RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                 }.padding(.horizontal)
