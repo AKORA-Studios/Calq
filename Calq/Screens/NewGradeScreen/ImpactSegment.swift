@@ -30,12 +30,12 @@ struct ImpactSegment: View {
                         Text(value).frame(width: geo.size.width/15, height: 10)
                     }
                 }.padding(0)
-            }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0)
+            }.frame(height: 30).onAppear(perform: setData).padding(.vertical, 0)
                 .onChange(of: gradeType) { _ in
-                    generateColors()
+                    setData()
                 }
-                .onChange(of: year) { newValue in
-                    generateColors()
+                .onChange(of: year) { _ in
+                    setData()
                 }
         }
     }
@@ -45,7 +45,7 @@ struct ImpactSegment: View {
         values = get15Values()
     }
     
-    func generateColors() {
+    func setData() {
         if(subject == nil){return reset()}
         if(filterTests(subject!).isEmpty){return reset()}
         let allTests = filterTests(subject!, checkinactive: false)
