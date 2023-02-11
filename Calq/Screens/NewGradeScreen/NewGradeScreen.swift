@@ -17,7 +17,7 @@ struct NewGradeScreen: View {
         NavigationView {
             List{
                 if(subjects.isEmpty){
-                    Text("Oh no keine Fächer vorhanden :c") //TODO: other not data messages qwq
+                    Text("Oh no keine Fächer vorhanden :c")
                 }
                 ForEach(subjects) { sub in
                     subjectView(sub).onTapGesture {

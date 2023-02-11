@@ -54,7 +54,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     
                     SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "wertung ändern")
                         .onTapGesture {
-                            print("wertung ändern") //TODO: w
+                            print("wertung ändern") //TODO: wertung
                         }
                     
                     SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Load demo data")

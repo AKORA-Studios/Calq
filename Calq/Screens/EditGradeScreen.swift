@@ -52,7 +52,7 @@ struct EditGradeScreen: View {
                         Text("4").tag(4)
                     }.pickerStyle(.segmented).colorMultiply(color)
                     
-                    HStack { //TODO: date picker format duh
+                    HStack {
                         DatePicker("Datum", selection: $testDate, displayedComponents: [.date])
                     }
                 }.padding()
@@ -86,7 +86,7 @@ struct EditGradeScreen: View {
                 deleteAlert = true
             }
         }.padding()
-            .navigationTitle("Note bearbeiten") //TODO: localization
+            .navigationTitle("Note bearbeiten")
             .onAppear{
                 testName = test.name
                 testYear = Int(test.year)
