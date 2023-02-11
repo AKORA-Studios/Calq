@@ -33,7 +33,7 @@ struct ExamScreen: View {
 }
 
 
-struct ExamView: View {
+struct ExamView: View { //TODO: filter out already added ones qwq
     @State var subjects: [UserSubject] = getAllSubjects()
     @EnvironmentObject var settings: AppSettings
     @State var subject: UserSubject?
@@ -44,13 +44,14 @@ struct ExamView: View {
     var type: Int
     
     
-    var body: some View { //TODO: seelction filtr after lk/gk etc.
+    var body: some View {
         VStack{
             ZStack{
                 Menu {
+                    let options = getOptions(lk: (type == 1 || type == 2))
+                    if(!options.isEmpty){
                     Section {
-                        ForEach(subjects){sub in
-                            
+                        ForEach(options){sub in
                             Button(sub.name) {
                                 subject = sub
                                 saveExam(type, sub)
@@ -65,9 +66,9 @@ struct ExamView: View {
                             Text("Entfernen/keines").foregroundColor(.red)
                         }
                     }
-                    
+                    }
                 }label: {
-                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30) //TODO: what if no subject qwq
+                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
                 
                 Text((subject != nil) ? subject!.name : "keines ausgewählt")
@@ -86,6 +87,7 @@ struct ExamView: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .onAppear{
+            subjects = getAllSubjects()
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }
     }
@@ -93,5 +95,10 @@ struct ExamView: View {
     func subColor()-> Color{
         if(subject == nil){return Color.gray}
        return getSubjectColor(subject)
+    }
+    
+    
+    func getOptions(lk: Bool = true)-> [UserSubject]{
+        return subjects.filter{$0.lk == lk}
     }
 }
