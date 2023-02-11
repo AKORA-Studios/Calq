@@ -23,7 +23,7 @@ struct OverviewScreen: View {
         NavigationView {
             ScrollView(showsIndicators: false){
                 VStack{
-                    ZStack{//TODO: show subject name prefix
+                    ZStack{
                         BarChart(values: $subjectValues, heigth: 200, average: generalAverage, round: true).padding()
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     }
