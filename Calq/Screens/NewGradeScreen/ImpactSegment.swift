@@ -58,31 +58,34 @@ struct ImpactSegment: View {
         let weightSmall = 1 - weigth
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         
-        let big =  Util.testAverage(tests.filter{$0.big})
-        let small = Util.testAverage(tests.filter{!$0.big})
+        let bigTests = tests.filter{$0.big}.map{Int($0.grade)}
+        let smallTests = tests.filter{!$0.big}.map{Int($0.grade)}
+        
+        let big =  Util.average(bigTests)
+        let small = Util.average(smallTests)
         
         var worseLast: Int = 99
-        var betterLast: Int = 99
+        var betterLast: Int = 0
         var sameLast: Int = 99
         
         for i in 0...14 {
             var newAverage: Int = 0
             
             if(gradeType == 1){ //small
-                var gradeArr = tests.filter{!$0.big}.map{Int($0.grade)}
+                var gradeArr = smallTests
                 gradeArr.append(i)
                 
-                if(tests.filter{$0.big}.count == 0) {
+                if(bigTests.isEmpty) {
                     newAverage = Int(round(Util.average(gradeArr)))
                 } else {
                     newAverage = Int(round(weigth * big + weightSmall * Util.average(gradeArr)))
                 }
                 
             }else { //big
-                var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
+                var gradeArr = bigTests
                 gradeArr.append(i)
                 
-                if(tests.filter{!$0.big}.count == 0) {
+                if(smallTests.isEmpty) {
                     newAverage = Int(round(Util.average(gradeArr)))
                 } else {
                     newAverage = Int(round(weigth * Util.average(gradeArr) + weightSmall * small))
@@ -92,20 +95,21 @@ struct ImpactSegment: View {
             var str = "\(newAverage)"
             //push colors
             if(averageOld > newAverage){
-                if(worseLast == newAverage) {str = " "}
+                if(worseLast == newAverage){str = " "}
                 colors[i] = .red
                 values[i] = str
                 worseLast = newAverage
                 
             } else if(newAverage > averageOld ){
-                if(betterLast == newAverage) {str = " "}
+                if(betterLast == newAverage){str = " "}
                 colors[i] = .green
                 values[i] = str
                 betterLast = newAverage
             }
             else {
-                if( sameLast == averageOld) {str = " "}
+                if(sameLast == averageOld){str = " "}
                 sameLast = averageOld
+                colors[i] = .gray
                 values[i] = str
             }
         }
