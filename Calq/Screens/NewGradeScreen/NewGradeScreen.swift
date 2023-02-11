@@ -100,7 +100,7 @@ struct NewGradeView: View {
                                 })
                                 .accentColor(Color.accentColor)
                             }
-                            ImpactSegment(subject: $subject, gradeType: $bigGrade).frame(height: 35)
+                            ImpactSegment(subject: $subject, gradeType: $bigGrade, year: $year).frame(height: 35)
                         }.padding()
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                     

@@ -12,6 +12,7 @@ struct ImpactSegment: View {
     @State var values: [String] = get15Values()
     @Binding var subject: UserSubject?
     @Binding var gradeType: Int
+    @Binding var year: Int
     
     var body: some View {
         GeometryReader {geo in
@@ -29,17 +30,28 @@ struct ImpactSegment: View {
                         Text(value).frame(width: geo.size.width/15, height: 10)
                     }
                 }.padding(0)
-            }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0).onChange(of: gradeType) { _ in
-                generateColors()
-            }
+            }.frame(height: 30).onAppear(perform: generateColors).padding(.vertical, 0)
+                .onChange(of: gradeType) { _ in
+                    generateColors()
+                }
+                .onChange(of: year) { newValue in
+                    generateColors()
+                }
         }
     }
     
+    func reset(){
+        colors = get15colors()
+        values = get15Values()
+    }
     
     func generateColors() {
-        if(subject == nil){ return }
-        if(filterTests(subject!).isEmpty){return}
-        let tests = filterTests(subject!)
+        if(subject == nil){return reset()}
+        if(filterTests(subject!).isEmpty){return reset()}
+        let allTests = filterTests(subject!, checkinactive: false)
+        if(allTests.isEmpty){return reset()}
+        let tests = allTests.filter{$0.year == year}
+        if(tests.isEmpty){return reset()}
         
         //calculation old grade
         let weigth = Double(Util.getSettings()!.weightBigGrades)!
@@ -63,8 +75,8 @@ struct ImpactSegment: View {
                 if(tests.filter{$0.big}.count == 0) {
                     newAverage = Int(round(Util.average(gradeArr)))
                 } else {
-                        newAverage = Int(round(weigth * big + weightSmall * Util.average(gradeArr)))
-                    }
+                    newAverage = Int(round(weigth * big + weightSmall * Util.average(gradeArr)))
+                }
                 
             }else { //big
                 var gradeArr = tests.filter{$0.big}.map{Int($0.grade)}
@@ -107,19 +119,19 @@ struct GradeSegment: View {
     var index: Int
     
     var body: some View {
-            ZStack{
-                if(index == 0){
-                    Rectangle().fill((colors[index])).frame(width: width).leftcorner()
-                }
-                if(index == 14){
-                    Rectangle().fill((colors[index])).frame(width: width).rightCorner()
-                }
-                if(index != 0 && index != 14){
-                    Rectangle().fill((colors[index])).frame(width: width)
-                }
-                Text(String(index+1))
+        ZStack{
+            if(index == 0){
+                Rectangle().fill((colors[index])).frame(width: width).leftcorner()
             }
+            if(index == 14){
+                Rectangle().fill((colors[index])).frame(width: width).rightCorner()
+            }
+            if(index != 0 && index != 14){
+                Rectangle().fill((colors[index])).frame(width: width)
+            }
+            Text(String(index+1))
         }
+    }
 }
 
 //Populate arrays
