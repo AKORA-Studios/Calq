@@ -22,68 +22,68 @@ struct SubjectDetailScreen: View {
         if(subject !=  nil){
             let color = getSubjectColor(subject!)
             ScrollView(showsIndicators: false){
-                VStack{//TODO: subjectlist all gardes deleted does not update grades ??idk if still problem
-                Spacer()
-                ZStack{
-                    VStack(alignment: .leading, spacing: 5){
-                        Text("Verlauf")
-                        OneEntryLineChart(subject: subject!, heigth: 80).frame(height: 80)
-                    }.padding()
-                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
-                }.padding(.horizontal)
-                
                 VStack{
-                    //Year picker
+                    Spacer()
                     ZStack{
-                        VStack(alignment: .leading){
-                            HStack{
-                                Text("Halbjahr")
-                                Spacer()
-                                Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
-                            }
-                            Picker("", selection: $selectedYear) {
-                                Text("1").tag(1)
-                                Text("2").tag(2)
-                                Text("3").tag(3)
-                                Text("4").tag(4)
-                            }.pickerStyle(.segmented)
-                                .colorMultiply(color)
-                                .onChange(of: selectedYear) { newValue in
-                                    update()
-                                }
+                        VStack(alignment: .leading, spacing: 5){
+                            Text("Verlauf")
+                            OneEntryLineChart(subject: subject!, heigth: 80).frame(height: 80)
                         }.padding()
-                    }
-                    ZStack{
-                        let backroundColor = halfyearActive ? .red : color
-                        RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
-                        Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
-                    }.padding()
-                        .onTapGesture {
-                            if(halfyearActive){ //deactivate
-                                _ = Util.addYear(subject!, selectedYear)
-                            } else { //activate
-                                _ = Util.removeYear(subject!, selectedYear)
-                            }
-                            saveCoreData()
-                            halfyearActive.toggle()
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+                    }.padding(.horizontal)
+                    
+                    VStack{
+                        //Year picker
+                        ZStack{
+                            VStack(alignment: .leading){
+                                HStack{
+                                    Text("Halbjahr")
+                                    Spacer()
+                                    Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
+                                }
+                                Picker("", selection: $selectedYear) {
+                                    Text("1").tag(1)
+                                    Text("2").tag(2)
+                                    Text("3").tag(3)
+                                    Text("4").tag(4)
+                                }.pickerStyle(.segmented)
+                                    .colorMultiply(color)
+                                    .onChange(of: selectedYear) { newValue in
+                                        update()
+                                    }
+                            }.padding()
                         }
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                        ZStack{
+                            let backroundColor = halfyearActive ? .red : color
+                            RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
+                            Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
+                        }.padding()
+                            .onTapGesture {
+                                if(halfyearActive){ //deactivate
+                                    _ = Util.addYear(subject!, selectedYear)
+                                } else { //activate
+                                    _ = Util.removeYear(subject!, selectedYear)
+                                }
+                                saveCoreData()
+                                halfyearActive.toggle()
+                            }
+                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                         .padding(.horizontal)
-                
-                //average chart
-                VStack(spacing: 5){
-                    Text("Durchschnitt des Halbjahres").padding(.top)
-                    CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 150)
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding(.horizontal)
-                
-                NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                        Text("Notenliste ansehen").foregroundColor(.white)
-                    }
-                }.padding(.horizontal)
-            }
-                    .navigationTitle(subject!.name)
+                    
+                    //average chart
+                    VStack(spacing: 5){
+                        Text("Durchschnitt des Halbjahres").padding(.top)
+                        CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 150)
+                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding(.horizontal)
+                    
+                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
+                            Text("Notenliste ansehen").foregroundColor(.white)
+                        }
+                    }.padding(.horizontal)
+                }
+                .navigationTitle(subject!.name)
             }.onAppear{
                 selectedYear = Util.lastActiveYear(subject!)
                 update()
