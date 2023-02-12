@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChangeWeightScreen: View {//TODO: change weigth screen
+struct ChangeWeightScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var stepperValue = 50
