@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FirstLaunchScreen: View {//TODO: First launch screen
+struct FirstLaunchScreen: View {
     @Binding var firstLaunch: Bool
     
     var body: some View {
