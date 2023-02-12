@@ -2,7 +2,7 @@
 //  AppSettings+CoreDataClass.swift
 //  Calq
 //
-//  Created by Kiara on 02.02.23.
+//  Created by Kiara on 12.02.23.
 //
 //
 
@@ -12,4 +12,4 @@ import CoreData
 @objc(AppSettings)
 public class AppSettings: NSManagedObject {
 
-} 
+}

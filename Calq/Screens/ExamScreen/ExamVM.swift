@@ -9,43 +9,30 @@ import Foundation
 
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
-    let settings = getSettings()
-    if(type < 1 || type > 5){return nil}
-    switch type {
-    case 1:
-        return settings!.exam1
-    case 2:
-        return settings!.exam2
-    case 3:
-        return settings!.exam3
-    case 4:
-        return settings!.exam4
-    case 5:
-        return settings!.exam5
-    default:
-        return nil
-    }
+    let subjects = getAllSubjects()
+    let sub =  subjects.filter{$0.examtype == Int16(type)}
+    return subjects.filter{$0.examtype == Int16(type)}.first
 }
 
+func getExamOptions(_ subjects: [UserSubject])-> [UserSubject] {
+    return subjects.filter{$0.examtype == 0}
+}
+
+func resetExams(){
+    let subjects = getAllSubjects()
+    subjects.forEach { sub in
+        sub.examtype = Int16(0)
+    }
+    saveCoreData()
+}
 
 func saveExam(_ type: Int, _ subject: UserSubject){
-    let settings = getSettings()
-    
-    if(type < 1 || type > 5){return}
-    switch type {
-    case 1:
-         settings!.exam1 = subject
-    case 2:
-         settings!.exam2 = subject
-    case 3:
-         settings!.exam3 = subject
-    case 4:
-         settings!.exam4 = subject
-    case 5:
-         settings!.exam5 = subject
-    default:
-        return
+    let subjects = getAllSubjects()
+    subjects.forEach { sub in
+        if(sub.examtype == type){ sub.examtype = 0}
     }
+    
+    subject.examtype = Int16(type)
     saveCoreData()
 }
 
@@ -56,26 +43,17 @@ func setExamPoints(_ points: Int, _ subject: UserSubject){
 }
 
 
-func removeExam(_ type: Int){
-    let settings = getSettings()
-    
-    switch type {
-    case 1:
-        settings!.exam1 = nil
-    case 2:
-        settings!.exam2 = nil
-    case 3:
-        settings!.exam3 = nil
-    case 4:
-        settings!.exam4 = nil
-    case 5:
-        settings!.exam5 = nil
-    default:
-        return
-    }
+func removeExam(_ type: Int,  _ subject: UserSubject){
+    subject.examtype = Int16(0)
     saveCoreData()
 }
 
+
+/// Returns all Subjects as Array
+func getAllExamSubjects()-> [UserSubject]{
+    let subjects = getAllSubjects()
+    return getExamOptions(subjects)
+}
 
 
 //MARK: Bock Calculations

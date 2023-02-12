@@ -452,7 +452,6 @@ struct Util {
 }
 
 
-
 func deleteTest(_ test: UserTest){
     test.testtosubbject.removeFromSubjecttests(test)
     saveCoreData()
@@ -464,66 +463,6 @@ func getinactiveYears(_ sub: UserSubject)-> [String]{
     let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
     return arr
 }
-
-
-
-/// Returns all Subjects as Array
-func getAllExamSubjects()-> [UserSubject]{
-    let context = CoreDataStack.shared.managedObjectContext
-    
-    var  allSubjects: [UserSubject] = []
-    do {
-        let result = try context.fetch(AppSettings.fetchRequest())
-        if(result[0].usersubjects != nil){
-            allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-            allSubjects  = allSubjects.filter{$0.examtype != 0}.sorted(by: {$0.name < $1.name })
-            return allSubjects
-        }else {return [] }
-    }catch {}
-    
-    return []
-}
-
-/// Updates the exam points on a subject
-func updateExampoints(_ type: Int, _ points: Int){
-    let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
-    if(subjects.count == 0) {return}
-    let sub = Util.getSubject(subjects[0].objectID)
-    if(sub == nil){return}
-    
-    if(sub?.exampoints == Int16(points)){return}
-    sub!.exampoints = Int16(points)
-    
-    try! CoreDataStack.shared.managedObjectContext.save()
-    WidgetCenter.shared.reloadAllTimelines()
-}
-
-
-/*func getExamArr() -> [UserSubject]? {
- let settings = getSettings()
- if(settings == nil){return []}
- var arr: [UserSubject] = []
- arr.append(settings!.exam1 != nil ? settings!.exam1 : nil)
- 
- return arr
- }*/
-
-
-/// Delete exam
-func deleteExam(_ type: Int){
-    let subjects = getAllExamSubjects().filter{$0.examtype == Int16(type)}
-    if(subjects.count == 0) {return}
-    
-    let sub = Util.getSubject(subjects[0].objectID)
-    if(sub == nil){return}
-    
-    sub!.exampoints = 0
-    sub!.examtype = 0
-    
-    try! CoreDataStack.shared.managedObjectContext.save()
-    WidgetCenter.shared.reloadAllTimelines()
-}
-
 
 func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
     if(sub.subjecttests == nil){return []}

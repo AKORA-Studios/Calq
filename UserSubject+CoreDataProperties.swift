@@ -2,7 +2,7 @@
 //  UserSubject+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 03.02.23.
+//  Created by Kiara on 12.02.23.
 //
 //
 
