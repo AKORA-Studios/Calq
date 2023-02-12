@@ -10,14 +10,14 @@ import SwiftUI
 @main
 struct Calq: App {
     let persistenceController = CoreDataStack.shared
-    
+   
     var body: some Scene {
         WindowGroup {
-            TabbarView()
-                .environment(\.managedObjectContext, persistenceController.workingContext)
+                TabbarView()
+                    .environment(\.managedObjectContext, persistenceController.workingContext)
+                    .onAppear{
+                        UserDefaults.standard.register(defaults: ["firstLaunch": true])
+                    }
         }
     }
 }
-
-
-
