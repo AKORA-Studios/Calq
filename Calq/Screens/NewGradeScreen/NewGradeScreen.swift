@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct NewGradeScreen: View {
-    @State var subjects: [UserSubject] = getAllSubjects()
-    @StateObject var settings: AppSettings = getSettings()!
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
+    @StateObject var settings: AppSettings = Util.getSettings()!
     @State var isSheetPresented = false
     @State var selectedSubject: UserSubject?
     
@@ -30,7 +30,7 @@ struct NewGradeScreen: View {
             NewGradeView(subject: $selectedSubject, dismiss: $isSheetPresented)
         }
         .onAppear{
-            subjects = getAllSubjects()
+            subjects = Util.getAllSubjects()
         }
     }
     

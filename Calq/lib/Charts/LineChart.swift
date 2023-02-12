@@ -58,7 +58,7 @@ struct LineChart: View {
         colors.append(color)
         
         var arr: [LineChartValue] = []
-        let tests = filterTests(subject, checkinactive : false)
+        let tests = Util.filterTests(subject, checkinactive : false)
         for test in tests {
             let time = ((test.date.timeIntervalSince1970 / 1000)  - minDate)/maxDate
             arr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))

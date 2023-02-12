@@ -96,7 +96,7 @@ struct SubjectDetailScreen: View {
             let average = Util.getSubjectAverage(subject!, year: selectedYear, filterinactve: false)
             yearAverage = average / 15.0
             yearAverageText = String(format: "%.2f", average)
-            halfyearActive = Util.checkinactiveYears(getinactiveYears(subject!), selectedYear)
+            halfyearActive = Util.checkinactiveYears(Util.getinactiveYears(subject!), selectedYear)
         }
     }
 }

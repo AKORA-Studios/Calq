@@ -5,80 +5,25 @@ import SwiftUI
 import WidgetKit
 
 
+let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+
+enum UtilErrors: Error {
+    case NoSubjects
+}
+
 func saveCoreData(){
     let context = CoreDataStack.shared.managedObjectContext
     try! context.save()
     WidgetCenter.shared.reloadAllTimelines()
 }
 
-public var NoDataText = "Keine Daten für diesen Graph vorhanden"
-
-enum UtilErrors: Error {
-    case NoSubjects
-}
-
-public let nameCharctersAlert = UIAlertController(title: "Ungültiges Zeichen", message: "Dieser Name beinhaltet ein ungültiges Zeichen. Nur zeichen von a-z sind möglich ^^", preferredStyle: .alert)
-public let noTestsAlert = UIAlertController(title: "Keine Noten", message: "Dieses Fach hat noch keine eingetragenen Noten", preferredStyle: .alert)
-
-class backView: UIView {
-    override func layoutSubviews() {
-        self.layer.cornerRadius = 5.0
-        self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
-        self.backgroundColor = .systemGray6
-    }
-}
-
-let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-
-func getSettings()-> AppSettings?{
-    let context = CoreDataStack.shared.managedObjectContext
-    
-    var items: [AppSettings]
-    do {
-        items = try context.fetch(AppSettings.fetchRequest())
-        
-        if(items.count == 0){
-            let item =  AppSettings(context: context)
-            item.colorfulCharts = false
-            
-            try! context.save()
-            WidgetCenter.shared.reloadAllTimelines()
-            return item
-        }
-        return items[0]
-    }
-    catch{ }
-    return nil
-}
-
-func deleteSubject(_ subject: UserSubject){
-    let context = CoreDataStack.shared.managedObjectContext
-    context.delete(subject)
-}
 
 
-func getAllSubjects()-> [UserSubject]{
-    let context = CoreDataStack.shared.managedObjectContext
-    
-    var  allSubjects: [UserSubject] = []
-    do {
-        let result = try context.fetch(AppSettings.fetchRequest())
-        if(result.count == 0) { return []}
-        if(result[0].usersubjects != nil){
-            allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-            return sortSubjects(allSubjects)
-        }else {return [] }
-    }catch {}
-    
-    return []
-}
 
-/// sort all subjects sorted after type and name
-func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
-    let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name < $1.name })
-    let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name < $1.name })
-    return arr1+arr2
-}
+
+
+
+
 
 
 
@@ -94,40 +39,6 @@ struct Util {
         let range = NSRange(location: 0, length: str.utf16.count)
         return regex.stringByReplacingMatches(in: str, options: [], range: range, withTemplate: "")
     }
-    
-    // MARK: Colors & Gradients
-    static func generateColorGradient(
-        _ count: Int,
-        sat: CGFloat = 1.0,
-        bright: CGFloat = 1.0,
-        alpha: CGFloat = 1.0
-    ) -> [UIColor]  {
-        var arr: [UIColor] = [];
-        
-        for i in 0..<count {
-            arr.append(
-                UIColor(
-                    hue: CGFloat(i)/CGFloat(count),
-                    saturation: sat,
-                    brightness: bright,
-                    alpha: alpha
-                )
-            )
-        }
-        return arr;
-    }
-    
-    /// Returns a color between red and green depending on the amount of points.
-    static func gradeColor(_ points: Int) -> UIColor  {
-        return UIColor(
-            hue: CGFloat((Float(points)/15.0) / 3),
-            saturation: 0.73,
-            brightness: 0.92,
-            alpha: 1
-        );
-    }
-    
-    
     
     // MARK: Average Functions
     static func average (_ values: [Int]) -> Double {
@@ -295,7 +206,6 @@ struct Util {
         return Util.getSettings()!
     }
     
-    
     ///Returns the apps settings
     static func getSettings()-> AppSettings?{
         let context = CoreDataStack.shared.managedObjectContext
@@ -318,6 +228,13 @@ struct Util {
         return nil
     }
     
+    static func saveWeigth(_ num: Int){
+        let settings = getSettings()
+        settings!.weightBigGrades = String(num/10)
+        saveCoreData()
+    }
+    
+    
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
@@ -336,16 +253,50 @@ struct Util {
         return []
     }
     
+    
     /// sort all subjects sorted after type and name
-    private static func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
+    static func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
         let arr1 = subs.filter{$0.lk}.sorted(by: {$0.name < $1.name })
         let arr2 = subs.filter{!$0.lk}.sorted(by: {$0.name < $1.name })
         return arr1+arr2
     }
     
+    /// Returns one Subject
+    static func getSubject(_ subject: UserSubject) -> UserSubject? {
+        let all = self.getAllSubjects()
+        let filtered = all.filter{$0.objectID == subject.objectID}
+        if (filtered.count < 1) {return nil}
+        return filtered[0]
+    }
+    
+    /// Returns one Subject after ID
+    static func getSubject(_ id: NSManagedObjectID) -> UserSubject? {
+        let all = self.getAllSubjects()
+        let filtered = all.filter{$0.objectID == id}
+        if (filtered.count < 1) {return nil}
+        return filtered[0]
+    }
+    
+    ///Returns all Subjectnames
+    static func getAllSubjectNames() -> [String] {
+        var subjects = Util.getAllSubjects()
+        subjects = subjects.sorted(by: {$0.name < $1.name })
+        return subjects.map{$0.name}
+    }
     
     
+    static func deleteSubject(_ subject: UserSubject){
+        let context = CoreDataStack.shared.managedObjectContext
+        context.delete(subject)
+    }
     
+    
+    //MARK: Years
+    static func getinactiveYears(_ sub: UserSubject)-> [String]{
+        if(sub.inactiveYears.isEmpty){return []}
+        let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
+        return arr
+    }
     
     /// Check if year is inactive
     static func checkinactiveYears(_ arr: [String], _ num: Int)-> Bool {
@@ -390,6 +341,7 @@ struct Util {
         return arr.joined(separator: " ")
     }
     
+    //MARK: Dates
     /// Returns the last date when a grade was added
     static func calcMaxDate() -> Date {
         let allSubjects = self.getAllSubjects().filter{$0.subjecttests?.count != 0}
@@ -424,60 +376,40 @@ struct Util {
         return Date(timeIntervalSince1970: allDates.sorted(by: {$0 < $1})[0])
     }
     
-    /// Returns one Subject
-    static func getSubject(_ subject: UserSubject) -> UserSubject? {
-        let all = self.getAllSubjects()
-        let filtered = all.filter{$0.objectID == subject.objectID}
-        if (filtered.count < 1) {return nil}
-        return filtered[0]
-    }
-    
-    /// Returns one Subject after ID
-    static func getSubject(_ id: NSManagedObjectID) -> UserSubject? {
-        let all = self.getAllSubjects()
-        let filtered = all.filter{$0.objectID == id}
-        if (filtered.count < 1) {return nil}
-        return filtered[0]
-    }
-    
-    ///Returns all Subjectnames
-    static func getAllSubjectNames() -> [String] {
-        var subjects = Util.getAllSubjects()
-        subjects = subjects.sorted(by: {$0.name < $1.name })
-        return subjects.map{$0.name}
-    }
-    
-    
-    
-}
 
-
-func deleteTest(_ test: UserTest){
-    test.testtosubbject.removeFromSubjecttests(test)
-    saveCoreData()
-}
-
-
-func getinactiveYears(_ sub: UserSubject)-> [String]{
-    if(sub.inactiveYears.isEmpty){return []}
-    let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
-    return arr
-}
-
-func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
-    if(sub.subjecttests == nil){return []}
-    var tests = sub.subjecttests!.allObjects as! [UserTest]
     
-    for year in [1,2,3,4]{
-        if(checkinactive){
-            if(!Util.checkinactiveYears(getinactiveYears(sub), year)){
-                tests = tests.filter{$0.year != year}
+    //MARK: Tests
+    static func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
+        if(sub.subjecttests == nil){return []}
+        var tests = sub.subjecttests!.allObjects as! [UserTest]
+        
+        for year in [1,2,3,4]{
+            if(checkinactive){
+                if(!checkinactiveYears(getinactiveYears(sub), year)){
+                    tests = tests.filter{$0.year != year}
+                }
             }
+           
         }
-       
+        return tests
     }
-    return tests
+    
+    
+    static func deleteTest(_ test: UserTest){
+        test.testtosubbject.removeFromSubjecttests(test)
+        saveCoreData()
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
 
 
 extension Double {

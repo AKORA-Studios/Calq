@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SettingsScreen: View {//TODO: kinda fix load demo data
     @Environment(\.managedObjectContext) var coreDataContext
-    @StateObject var settings: AppSettings = getSettings()!
-    @State var subjects: [UserSubject] = getAllSubjects()
+    @StateObject var settings: AppSettings = Util.getSettings()!
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
     
     @State var editSubjectPresented = false
     @State var selectedSubjet: UserSubject?
+    
+    @State var weightSheetPresented = false
     
     @State var presentDocumentPicker = false
     @State var importedJson: String = ""
@@ -54,7 +56,8 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     
                     SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "wertung ändern")
                         .onTapGesture {
-                            print("wertung ändern") //TODO: wertung
+                            weightSheetPresented = true
+                             //TODO: wertung
                         }
                     
                     SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Load demo data")
@@ -88,6 +91,11 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 .sheet(isPresented: $presentDocumentPicker) {
                     DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
                 }
+                .sheet(isPresented: $weightSheetPresented) {
+                    NavigationView {
+                    ChangeWeightScreen()
+                    }
+                }
                 .sheet(isPresented: $editSubjectPresented) {
                     NavigationView {
                         EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
@@ -106,14 +114,14 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
             }))
         }
         .onAppear{
-            subjects = getAllSubjects()
+            subjects = Util.getAllSubjects()
         }
     }
     
     func reloadAndSave(){
         saveCoreData()
-        subjects = getAllSubjects()
-        settings.colorfulCharts = getSettings()!.colorfulCharts
+        subjects = Util.getAllSubjects()
+        settings.colorfulCharts = Util.getSettings()!.colorfulCharts
     }
     
     func deleteData(){

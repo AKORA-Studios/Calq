@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
-    let subjects = getAllSubjects()
+    let subjects = Util.getAllSubjects()
     return subjects.filter{$0.examtype == Int16(type)}.first
 }
 
@@ -18,7 +18,7 @@ func getExamOptions(_ subjects: [UserSubject])-> [UserSubject] {
 }
 
 func resetExams(){
-    let subjects = getAllSubjects()
+    let subjects = Util.getAllSubjects()
     subjects.forEach { sub in
         sub.examtype = Int16(0)
     }
@@ -26,7 +26,7 @@ func resetExams(){
 }
 
 func saveExam(_ type: Int, _ subject: UserSubject){
-    let subjects = getAllSubjects()
+    let subjects = Util.getAllSubjects()
     subjects.forEach { sub in
         if(sub.examtype == type){ sub.examtype = 0}
     }
@@ -50,7 +50,7 @@ func removeExam(_ type: Int,  _ subject: UserSubject){
 
 /// Returns all Subjects as Array
 func getAllExamSubjects()-> [UserSubject]{
-    let subjects = getAllSubjects()
+    let subjects = Util.getAllSubjects()
     return getExamOptions(subjects)
 }
 
@@ -65,7 +65,7 @@ func generateBlockOne() -> Int{
     
     for sub in subjects {
         if(sub.subjecttests == nil) {continue}
-        let SubTests = filterTests(sub)
+        let SubTests = Util.filterTests(sub)
         if(SubTests.count == 0){continue}
         
         let multiplier = sub.lk ? 2 : 1

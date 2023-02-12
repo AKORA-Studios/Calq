@@ -31,7 +31,7 @@ struct OneEntryLineChart: View {
     }
     
     func setDates(){
-        let allTests = filterTests(subject, checkinactive: false).sorted{$0.date < $1.date}
+        let allTests = Util.filterTests(subject, checkinactive: false).sorted{$0.date < $1.date}
         if(allTests.count != 0)  {
             minDate = allTests.first!.date.timeIntervalSince1970 / 1000
             maxDate = allTests.last!.date.timeIntervalSince1970 / 1000 - minDate
@@ -43,7 +43,7 @@ struct OneEntryLineChart: View {
     func generateData() -> [LineChartValue]{
         //let color = getSubjectColor(subject)
         var arr: [LineChartValue] = []
-        let tests = filterTests(subject, checkinactive : false)
+        let tests = Util.filterTests(subject, checkinactive : false)
         for test in tests {
             let time = ((test.date.timeIntervalSince1970 / 1000)  - minDate)/maxDate
             arr.append(.init(value: Double(test.grade) / 15.0, date: time))

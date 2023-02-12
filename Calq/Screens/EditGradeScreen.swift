@@ -103,8 +103,7 @@ struct EditGradeScreen: View {
     
     func deleteGrade(){
         self.presentationMode.wrappedValue.dismiss()
-        deleteTest(test)
-        
+        Util.deleteTest(test)
     }
     
     func saveGrade(){

@@ -86,7 +86,7 @@ struct EditSubjectScreen: View {
             }.alert(isPresented: $deleteAlert) {
                 Alert(title: Text("Sure? >.>"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
                     editSubjectPresented = false
-                    deleteSubject(subject!)
+                    Util.deleteSubject(subject!)
                     subject = nil
                 }))
             }

@@ -55,7 +55,7 @@ struct gradeTableCell: View {
             let arr = tests.filter({$0.year == i+1});
             if(arr.count == 0){continue}
             
-            if(!Util.checkinactiveYears(getinactiveYears(subject), i+1)){continue}
+            if(!Util.checkinactiveYears(Util.getinactiveYears(subject), i+1)){continue}
             let points = Int(round(Util.testAverage(arr)))
             
             str[i] = String(points)

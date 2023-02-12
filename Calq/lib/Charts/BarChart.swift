@@ -78,7 +78,7 @@ struct BarEntry: Hashable{
 
 func createSubjectBarData() -> [BarEntry] {
     var arr: [BarEntry] = []
-    let subjects = getAllSubjects()
+    let subjects = Util.getAllSubjects()
     
     for sub in subjects{
         let color = getSubjectColor(sub)

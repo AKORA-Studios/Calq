@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExamScreen: View {
-    @State var subjects: [UserSubject] = getAllSubjects()
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
     @State var options: [UserSubject] = []
     
     var body: some View {
@@ -27,11 +27,11 @@ struct ExamScreen: View {
                 Spacer()
             }.onAppear{
                 //resetExams() //if broken to debug ig
-                subjects = getAllSubjects()
+                subjects = Util.getAllSubjects()
                 options = subjects.filter{$0.examtype == 0}
             }
             .onChange(of: subjects, perform: { _ in
-                subjects = getAllSubjects()
+                subjects = Util.getAllSubjects()
                 options = subjects.filter{$0.examtype == 0}
             })
             .padding()

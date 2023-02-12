@@ -33,7 +33,7 @@ struct SubjectListScreen: View {
                     ForEach(data, id: \.self){entry in
                         HStack{
                             let color = getSubjectColor(entry.subject)
-                            let average = Util.testAverage(filterTests(entry.subject))
+                            let average = Util.testAverage(Util.filterTests(entry.subject))
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 8).fill(color).frame(width: 30, height: 30)
@@ -92,7 +92,7 @@ struct SubjectListScreen: View {
     }
     
     func update(){
-        subjects = getAllSubjects()
+        subjects = Util.getAllSubjects()
         inactiveCount = (subjects.count * 4) - calcInactiveYearsCount()
         subjectCount = subjects.count * 4
     }
@@ -102,7 +102,7 @@ struct SubjectListScreen: View {
         var count: Int = 0
         
         for sub in subjects {
-            let arr = getinactiveYears(sub)
+            let arr = Util.getinactiveYears(sub)
             for num in arr {
                 if(num == "") {continue}
                 if Int(num) != nil { count += 1}
@@ -121,7 +121,7 @@ struct SubjectListScreen: View {
     
     func getcolorArr(subject: UserSubject) -> [Color]{
         var arr = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
-        let inactiveYears = getinactiveYears(subject)
+        let inactiveYears = Util.getinactiveYears(subject)
         //  print(subject.name, inactiveYears)
         inactiveYears.forEach { year in
             if(year.isEmpty){return}
