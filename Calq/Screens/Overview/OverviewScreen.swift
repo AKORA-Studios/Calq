@@ -19,6 +19,10 @@ struct OverviewScreen: View {
     @State var blockPercent = 0.0
     @State var subjects = Util.getAllSubjects()
     
+    
+    @State var degrees1: Double = 0.0
+    @State var degrees2: Double = 0.0
+    
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false){
@@ -45,17 +49,18 @@ struct OverviewScreen: View {
                     }
                     
                     ZStack{
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))//.frame(height: 100)
                         HStack{
                             VStack(spacing: 5){
                                 Text("Fächerschnitt")
-                                CircleChart(perrcent: $averagePercent, upperText: $averageText, lowerText: $gradeText).frame(height: 150)
+                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $gradeText).frame(height: 150)
                             }
                             VStack(spacing: 5){
                                 Text("Abischnitt")
-                                CircleChart(perrcent: $blockPercent, upperText: $blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                                CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                             }
                         }.padding()
-                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))//.frame(height: 100)
+                       
                     }
                 }
             }.padding(.horizontal)
