@@ -82,7 +82,7 @@ struct ExamView: View {
                     RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
                 
-                Text((subject != nil) ? subject!.name : "keines ausgewählt")
+                Text((subject != nil) ? subject!.name : "Prüfung auswählen")
             }
             HStack {
                 Text(String(sliderValue.rounded()))
