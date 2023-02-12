@@ -17,6 +17,7 @@ struct ChangeWeightScreen: View {//TODO: change weigth screen
             Text("Wähle die Wertung der Noten in % aus")
             
             ZStack{
+                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)).frame(height: 70)
                 HStack{
                     VStack{
                         Text("Klausur")
@@ -34,7 +35,6 @@ struct ChangeWeightScreen: View {//TODO: change weigth screen
                     }
 
                 }.padding()
-                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)).frame(height: 70)
             }
             
             Spacer()
@@ -47,6 +47,9 @@ struct ChangeWeightScreen: View {//TODO: change weigth screen
             }
         }.padding()
             .navigationTitle("Wertung ändern")
+            .onAppear{
+                stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 10)
+            }
         
         
     }
