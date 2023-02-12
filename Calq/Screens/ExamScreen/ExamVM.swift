@@ -10,7 +10,6 @@ import Foundation
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
     let subjects = getAllSubjects()
-    let sub =  subjects.filter{$0.examtype == Int16(type)}
     return subjects.filter{$0.examtype == Int16(type)}.first
 }
 
