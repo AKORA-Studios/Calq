@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabbarView: View {
+    @State var firstLaunch: Bool = !UserDefaults.standard.bool(forKey: "notFirstLaunch")
     
     var body: some View {
         TabView {
@@ -25,6 +26,8 @@ struct TabbarView: View {
             
             SettingsScreen()
                 .tabItem{Image(systemName: "gearshape.fill")}
+        }.sheet(isPresented: $firstLaunch) {
+            FirstLaunchScreen(firstLaunch: $firstLaunch)
         }
     }
 }

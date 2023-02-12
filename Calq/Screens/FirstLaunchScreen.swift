@@ -8,7 +8,34 @@
 import SwiftUI
 
 struct FirstLaunchScreen: View {//TODO: First launch screen
+    @Binding var firstLaunch: Bool
+    
     var body: some View {
-        Text("this is a FirstLaunchScreen")
+        VStack{
+            Spacer()
+            Text("Welcome to Calq").font(.title)
+            
+            
+            
+            Text("Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)").multilineTextAlignment(.center)
+            
+          
+            Spacer()
+            
+            ZStack{
+                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
+                Text("Oki")
+            }.onTapGesture {
+                print("hey")
+                UserDefaults.standard.set(true, forKey: "notFirstLaunch")
+                firstLaunch = false
+            }
+            
+            Spacer()
+            Text("Version: \(appVersion ?? "?.?.?")").font(.footnote)
+        }.padding()
+            .onAppear{
+                Util.saveWeigth(50)
+            }
     }
 }

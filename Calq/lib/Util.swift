@@ -1,3 +1,10 @@
+//
+//  Util.swift
+//  Calq
+//
+//  Created by Kiara on 10.02.23.
+//
+
 import UIKit
 import Foundation
 import CoreData
@@ -16,14 +23,6 @@ func saveCoreData(){
     try! context.save()
     WidgetCenter.shared.reloadAllTimelines()
 }
-
-
-
-
-
-
-
-
 
 
 
