@@ -28,35 +28,38 @@ struct OverviewScreen: View {
             ScrollView(showsIndicators: false){
                 VStack{
                     ZStack{
-                        BarChart(values: $subjectValues, heigth: 200, average: generalAverage, round: true).padding()
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+                        BarChart(values: $subjectValues, heigth: 200, average: generalAverage, round: true).padding()
                     }
                     
                     ZStack{
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                         VStack(alignment: .leading, spacing: 5){
                         Text("Verlauf")
                         LineChart(subjects: subjects)
                         }.padding()
-                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     }
                     
                     ZStack{
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                         VStack(alignment: .leading, spacing: 5){
                             Text("Halbjahre")
                             BarChart(values: $halfyears, heigth: 150)
                         }.padding()
-                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     }
                     
                     ZStack{
-                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))//.frame(height: 100)
-                        HStack{
-                            VStack(spacing: 5){
-                                Text("Fächerschnitt")
-                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $gradeText).frame(height: 150)
+                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+                        VStack{
+                                GeometryReader{ geo in
+                                    HStack(alignment: .center){
+                                    Text("Fächerschnitt").frame(width: geo.size.width/3)
+                                    Spacer()
+                                    Text("Abischnitt").frame(width: geo.size.width/3)
+                                }
                             }
-                            VStack(spacing: 5){
-                                Text("Abischnitt")
+                            HStack(alignment: .center, spacing: 5){
+                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $gradeText).frame(height: 150)
                                 CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                             }
                         }.padding()
