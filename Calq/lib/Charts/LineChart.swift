@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let grayColor = Color.gray.opacity(0.3)
+
 struct LineChartValue: Hashable {
     var value: Double
     var date: Double
@@ -98,15 +100,15 @@ struct YAxis: View {
             ZStack{
                 //y line
                 Rectangle()
-                    .fill(Color.black)
+                    .fill(Color.gray)
                     .frame(width: 1)
                     .offset(x: -15)
                 //ticks
                 ForEach(ticks, id:\.self.value){tick in
                     HStack(spacing: 2){
                       // Spacer()
-                        Text(String(Int(tick.value))).font(.footnote)
-                        Rectangle().fill(Color.black).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
+                        Text(String(Int(tick.value))).font(.footnote).foregroundColor(Color.gray)
+                        Rectangle().fill(Color.gray).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
                     }.offset(y: fullHeight/2 - (fullHeight * tick.date)).offset(x: -20)
                 }
             }
@@ -129,7 +131,7 @@ struct YAxisLines: View {
                     HStack(spacing: 2){
                       // Spacer()
                         Text(String(Int(tick.value))).font(.footnote)
-                        Rectangle().fill(Color.gray).frame(width: fullWidth, height: 1)//.offset(x: 15)
+                        Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)//.offset(x: 15)
                     }.offset(y: fullHeight - (fullHeight * tick.date) - 17).offset(x: -5)
                 }
             }
