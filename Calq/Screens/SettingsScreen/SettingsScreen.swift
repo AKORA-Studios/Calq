@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum alertAction{
+    case importData
+    case deleteData
+    case loadDemo
+    case none
+}
+
 struct SettingsScreen: View {//TODO: kinda fix load demo data
     @Environment(\.managedObjectContext) var coreDataContext
     @StateObject var settings: AppSettings = Util.getSettings()!
@@ -22,12 +29,12 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
     @State var importeJsonURL: URL = URL(fileURLWithPath: "")
     
     @State var deleteAlert = false
-    @State var importAlert = false
+    @State var alertActiontype: alertAction = .none
     
     var body: some View {
         NavigationView {
             List{
-                Section(header: Text("General")){
+                Section(header: Text("Allgemein")){
                     SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github")
                         .onTapGesture {
                             if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
@@ -44,34 +51,35 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     
                     SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
                         .onTapGesture {
-                            importAlert = true
+                            alertActiontype = .importData
+                            deleteAlert = true
                         }
                     
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "noten exportieren")
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren")
                         .onTapGesture {
                             let data = JSON.exportJSON()
                             let url = JSON.writeJSON(data)
                             showShareSheet(url: url)
                         }
                     
-                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "wertung ändern")
+                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern")
                         .onTapGesture {
                             weightSheetPresented = true
                         }
                     
-                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Load demo data")
+                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden")
                         .onTapGesture {
-                            JSON.loadDemoData()
-                            reloadAndSave()
+                            alertActiontype = .loadDemo
+                            deleteAlert = true
                         }
                     
-                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "daten löschen")
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen")
                         .onTapGesture {
+                            alertActiontype = .deleteData
                             deleteAlert = true
-                            
                         }
                 }
-                Section(header: Text("Subjects")){
+                Section(header: Text("Fächer")){
                     
                     ForEach(subjects) { sub in
                         subjectView(sub).onTapGesture {
@@ -80,7 +88,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                         }
                     }
                     
-                    SettingsIcon(color: .green, icon: "plus", text: "neues Fach")
+                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach")
                 }
                 
                 Section(){
@@ -104,13 +112,22 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
         }
         .alert(isPresented: $deleteAlert) {
             Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
-                deleteData()
-            }))
-        }
-        .alert(isPresented: $importAlert) {
-            Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden überschrieben"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
-                presentDocumentPicker = true
-            }))
+                switch alertActiontype {
+                    
+                case .importData:
+                    presentDocumentPicker = true
+                case .deleteData:
+                    deleteData()
+                case .loadDemo:
+                    JSON.loadDemoData()
+                    reloadAndSave()
+                case .none:
+                    break
+                }
+                alertActiontype = .none
+                deleteAlert = false
+            }
+          ))
         }
         .onAppear{
             subjects = Util.getAllSubjects()
