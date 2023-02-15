@@ -44,10 +44,12 @@ struct BarChart: View {
                             Text(val.text.prefix(3).uppercased()).font(.system(size: 9)).frame(height: 15)
                         }
                     }
-                    //   Text(subName)
+                    if(values.isEmpty){
+                        Spacer()
+                        Text("Keine Daten vorhanden :c")
+                        Spacer()
+                    }
                 }
-        
-                
         }
         }.frame(height: heigth)
     }
