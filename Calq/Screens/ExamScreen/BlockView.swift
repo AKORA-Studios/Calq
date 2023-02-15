@@ -19,25 +19,30 @@ struct BlockView: View {
             HStack(alignment: .center){
                 VStack(alignment: .leading){
                     Text("Block 1").fontWeight(.bold)
-                    RoundProgressBar(value: maxpoints != 0 ? (points1 * 100 / maxpoints) : 0)
+                    RoundProgressBar(value: $points1, max: $maxpoints)
                     Text("\(points1) von \(maxpoints)").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 2/3 - 20)
                 Spacer()
                 VStack(alignment: .leading){
                     Text("Block 2").fontWeight(.bold)
-                    RoundProgressBar(value: (points2 * 100 / 300))
+                    RoundProgressBar(value: $points2, max: Binding.constant(300))
                     Text("\(points2) von 300").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 1/3 - 20)
             }.padding(10)
         }.frame(height: 50)
+        }.onAppear{
+            points1 = generateBlockOne()
+            points2 = generateBlockTwo()
+            maxpoints = generatePossibleBlockOne()
         }
     }
 }
 
 
 
-struct RoundProgressBar: View {
-    @State var value: Int
+struct RoundProgressBar: View { //TODO: does not update on delte/load =.=
+    @Binding var value: Int
+    @Binding var max: Int
     
     var body: some View {
         GeometryReader { geo in
@@ -45,7 +50,8 @@ struct RoundProgressBar: View {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.gray)
                 
-                RoundedRectangle(cornerRadius: 8).frame(width: (CGFloat(value) * geo.size.width)/100, height: 8)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(width: (CGFloat(max != 0 ? (value * 100 / max) : 0) * geo.size.width)/100, height: 8)
                     .foregroundColor(.accentColor)
             }.frame( height: 8)
         }
