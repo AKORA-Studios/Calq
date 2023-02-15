@@ -40,11 +40,11 @@ struct LineChart: View {
                 setDates()
                 subjects.forEach { sub in
                     values.append(generateData(subject: sub))
-                   
                 }
             }
             .padding()
     }
+    
     func setDates(){
         let allSubjects = subjects.filter{$0.subjecttests?.count != 0}
         if(allSubjects.count != 0)  {
@@ -56,7 +56,7 @@ struct LineChart: View {
     }
     
     func generateData(subject: UserSubject) -> [LineChartValue]{
-        let color = getSubjectColor(subject)
+        let color = getSubjectColor(subject, subjects: subjects)
         colors.append(color)
         
         var arr: [LineChartValue] = []

@@ -68,9 +68,15 @@ func getPastelColorByIndex(_ index: Int) -> Color{
     return pastelColors[index%(pastelColors.count-1)]
 }
 
-func getSubjectColor(_ subject:UserSubject?)-> Color{
+func getSubjectColor(_ subject: UserSubject?)-> Color{
     if(subject == nil){return .accentColor}
     let index = Util.getAllSubjects().firstIndex(where: {$0.objectID == subject!.objectID})
     if(index == nil){return Color.gray}
-    return Util.getSettings()!.colorfulCharts ?  getPastelColorByIndex(index!) : Color(hexString: subject!.color)
+    return Util.getSettings()!.colorfulCharts ? getPastelColorByIndex(index!) : Color(hexString: subject!.color)
+}
+
+func getSubjectColor(_ subject: UserSubject, subjects: [UserSubject])-> Color{
+    let index = subjects.firstIndex(where: {$0.objectID == subject.objectID})
+    if(index == nil){return Color.gray}
+    return Util.getSettings()!.colorfulCharts ? getPastelColorByIndex(index!) : Color(hexString: subject.color)
 }
