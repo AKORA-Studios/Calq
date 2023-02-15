@@ -14,11 +14,7 @@ import WidgetKit
 
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
-enum UtilErrors: Error {
-    case NoSubjects
-}
-
-
+let nameInvalid =  Alert(title: Text("Name ungültig"), message: Text("Name darf keine Sonderzeichen/Zahlen etc. enthalten"))
 
 let context = CoreDataStack.shared.managedObjectContext
 

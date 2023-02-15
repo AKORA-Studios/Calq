@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum editAlertType {
+    case delete
+    case nameInvalid
+}
 
 struct EditSubjectScreen: View {
     @Environment(\.managedObjectContext) var coreDataContext
@@ -18,6 +22,7 @@ struct EditSubjectScreen: View {
     @State var selectedColor: Color = .accentColor
     
     @State var deleteAlert = false
+    @State var alertType: editAlertType = .nameInvalid
     
     var body: some View{
         if(subject != nil) {
@@ -27,8 +32,14 @@ struct EditSubjectScreen: View {
                     VStack(alignment: .leading){
                         Text("Kursname")
                         TextField("Name", text: $subjectName).onChange(of: subjectName) { _ in
-                            subject?.name = subjectName
-                            saveCoreData()
+                            if(Util.checkString(subjectName)){
+                                alertType = .nameInvalid
+                                subjectName = subject!.name
+                                deleteAlert = true
+                            }else {
+                                subject?.name = subjectName
+                                saveCoreData()
+                            }
                         }
                     }.padding()
                 }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
@@ -80,15 +91,22 @@ struct EditSubjectScreen: View {
                     RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
                     Text("Fach löschen").foregroundColor(.white)
                 }.onTapGesture {
+                    alertType = .delete
                     deleteAlert = true
                 }
                 
             }.alert(isPresented: $deleteAlert) {
-                Alert(title: Text("Sure? >.>"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
-                    editSubjectPresented = false
-                    Util.deleteSubject(subject!)
-                    subject = nil
-                }))
+                switch alertType {
+                    
+                case .delete:
+                    return Alert(title: Text("Sure? >.>"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                        editSubjectPresented = false
+                        Util.deleteSubject(subject!)
+                        subject = nil
+                    }))
+                case .nameInvalid:
+                    return nameInvalid
+                }
             }
             .padding()
                 .navigationTitle("Kurs bearbeiten")

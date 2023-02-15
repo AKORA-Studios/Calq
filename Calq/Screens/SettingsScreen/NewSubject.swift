@@ -58,7 +58,6 @@ struct NewSubjectScreen: View {
                 RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                 Text("Speichern").foregroundColor(.white)
             }  .onTapGesture {//TODO: chekc name on edit
-                print("hi")
                 if(subjectName.isEmpty){
                     alertMessage = "Name darf nicht leer sein"
                     nameAlert = true
@@ -91,3 +90,6 @@ struct NewSubjectScreen: View {
         self.presentationMode.wrappedValue.dismiss()
     }
 }
+
+
+
