@@ -10,18 +10,19 @@ import SwiftUI
 struct OverviewScreen: View {
     @State var blockPoints: Double = Double(generateBlockOne()) + Double(generateBlockTwo())
     @State var averagePercent: Double = Util.generalAverage() / 15
-    @State var averageText: String = String(format: "%.2f", Util.generalAverage())
-    @State var halfyears = [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
-    @State var generalAverage = Util.generalAverage()
-    @State var subjectValues: [BarEntry] = createSubjectBarData()
+    
     @State var gradeText = ""
     @State var blockCircleText = ""
     @State var blockPercent = 0.0
+    @State var averageText: String = String(format: "%.2f", Util.generalAverage())
+    
+    
+    @State var halfyears = getHalfyears()
+    @State var generalAverage = Util.generalAverage()
+    @State var subjectValues: [BarEntry] = createSubjectBarData()
+   
     @State var subjects = Util.getAllSubjects()
     
-    
-    @State var degrees1: Double = 0.0
-    @State var degrees2: Double = 0.0
     
     var body: some View {
         NavigationView {
@@ -69,11 +70,15 @@ struct OverviewScreen: View {
             }.padding(.horizontal)
                 .navigationTitle("Übersicht")
                 .onAppear{
+                    halfyears = getHalfyears()
                     subjects = Util.getAllSubjects()
-                    gradeText = grade()
-                    blockCircleText = getGradeData()
+                    
                     subjectValues = createSubjectBarData()
+                    
                     blockPercent = Double((blockPoints/900.0))
+                    blockCircleText = getGradeData()
+                    averagePercent = Util.generalAverage() / 15
+                    gradeText = grade()
                 }
         }
     }
@@ -86,4 +91,8 @@ struct OverviewScreen: View {
         let blockGrade = Util.grade(number: Double(blockPoints * 15 / 900))
         return  String(format: "%.2f", blockGrade)
     }
+}
+
+func getHalfyears() -> [BarEntry]{
+   return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
 }
