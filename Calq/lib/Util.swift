@@ -18,13 +18,14 @@ enum UtilErrors: Error {
     case NoSubjects
 }
 
+
+
+let context = CoreDataStack.shared.managedObjectContext
+
 func saveCoreData(){
-    let context = CoreDataStack.shared.managedObjectContext
     try! context.save()
     WidgetCenter.shared.reloadAllTimelines()
 }
-
-
 
 struct Util {
     static func checkString(_ str: String) -> Bool{
@@ -192,24 +193,19 @@ struct Util {
     //MARK: Get Settings
     ///Returns fresh new settings and deletes everything
     static func deleteSettings()-> AppSettings{
-        let context = CoreDataStack.shared.managedObjectContext
-        
         do {
             let items = try context.fetch(AppSettings.fetchRequest())
             context.delete(items[0])
         }
         catch{
         }
-        try! context.save()
-        WidgetCenter.shared.reloadAllTimelines()
+        saveCoreData()
         return Util.getSettings()!
     }
     
     ///Returns the apps settings
     static func getSettings()-> AppSettings?{
-        let context = CoreDataStack.shared.managedObjectContext
-        
-        var items: [AppSettings]
+       var items: [AppSettings]
         do {
             items = try context.fetch(AppSettings.fetchRequest())
             
@@ -217,8 +213,7 @@ struct Util {
                 let item =  AppSettings(context: context)
                 item.colorfulCharts = false
                 
-                try! context.save()
-                WidgetCenter.shared.reloadAllTimelines()
+                saveCoreData()
                 return item
             }
             return items[0]
@@ -237,9 +232,7 @@ struct Util {
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
-        let context = CoreDataStack.shared.managedObjectContext
-        
-        var  allSubjects: [UserSubject] = []
+       var  allSubjects: [UserSubject] = []
         do {
             let result = try context.fetch(AppSettings.fetchRequest())
             if(result.count == 0) { return []}
@@ -285,7 +278,6 @@ struct Util {
     
     
     static func deleteSubject(_ subject: UserSubject){
-        let context = CoreDataStack.shared.managedObjectContext
         context.delete(subject)
     }
     
@@ -307,8 +299,7 @@ struct Util {
         let arr = getinactiveYears(sub)
         
         sub.inactiveYears = arrToString(arr.filter{$0 != String(num)})
-        try! CoreDataStack.shared.managedObjectContext.save()
-        WidgetCenter.shared.reloadAllTimelines()
+        saveCoreData()
         return sub
     }
     
@@ -318,8 +309,7 @@ struct Util {
         
         arr.append(String(num))
         sub.inactiveYears = arrToString(arr)
-        try! CoreDataStack.shared.managedObjectContext.save()
-        WidgetCenter.shared.reloadAllTimelines()
+        saveCoreData()
         return sub
     }
     

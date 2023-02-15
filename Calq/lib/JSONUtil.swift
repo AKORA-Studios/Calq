@@ -13,8 +13,7 @@ struct JSON {
 
 ///Loads the demo data from grades.json
 static func loadDemoData(){
-    log("lload demo")
-    let context = CoreDataStack.shared.managedObjectContext
+    log("load demo")
     
     let settings: AppSettings = Util.deleteSettings()
     settings.colorfulCharts = true
@@ -41,16 +40,13 @@ static func loadDemoData(){
             settings.addToUsersubjects(sub)
         }
     }
-    try! context.save()
-    WidgetCenter.shared.reloadAllTimelines()
+    saveCoreData()
 }
 
 // MARK: Load Default Data
 /// Loads the default data (3 subjects without grades)
 static func loadDefaultData() {
-    let context = CoreDataStack.shared.managedObjectContext
-    
-    var settings: AppSettings
+   var settings: AppSettings
     do {
         let items = try context.fetch(AppSettings.fetchRequest())
         settings = items[0]
@@ -73,8 +69,7 @@ static func loadDefaultData() {
             settings.addToUsersubjects(sub)
         }
     } catch {}
-    try! context.save()
-    WidgetCenter.shared.reloadAllTimelines()
+    saveCoreData()
 }
 
 // MARK: Load Json data
@@ -159,7 +154,6 @@ static func writeJSON(_ data: String) -> URL{
             throw loadErrors.parseJSON
         }
 
-        let context = CoreDataStack.shared.managedObjectContext
         let set: AppSettings = Util.deleteSettings()
         set.colorfulCharts = newSettings.colorfulCharts
         
@@ -187,8 +181,7 @@ static func writeJSON(_ data: String) -> URL{
       //  }
         }
       
-        try! context.save()
-        WidgetCenter.shared.reloadAllTimelines()
+        saveCoreData()
  //   }
 }
 }

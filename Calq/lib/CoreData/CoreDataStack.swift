@@ -3,6 +3,16 @@ import CoreData
 class CoreDataStack {
     static let shared = CoreDataStack()
     
+    var workingContext: NSManagedObjectContext {
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        context.parent = managedObjectContext
+        return context
+    }
+    
+    var managedObjectContext: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
+    
     private init() {}
     
     private var persistentContainer: NSPersistentContainer = {
@@ -20,26 +30,7 @@ class CoreDataStack {
            })
            return container
        }()
-}
-
-public extension URL {
     
-    static func storeURL() -> URL {
-        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner") else {
-            fatalError("Shared file container could not be created")
-        }
-        return fileContainer.appendingPathComponent("Model.sqlite")
-    }
-}
-
-
-
-// MARK: - Main context
-extension CoreDataStack {
-    var managedObjectContext: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-
     func saveContext() {
         managedObjectContext.performAndWait {
             if managedObjectContext.hasChanges {
@@ -53,34 +44,12 @@ extension CoreDataStack {
     }
 }
 
-// MARK: - Working context
-extension CoreDataStack {
-    var workingContext: NSManagedObjectContext {
-        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        context.parent = managedObjectContext
-        return context
-    }
-
-    func saveWorkingContext(context: NSManagedObjectContext) {
-        do {
-            try context.save()
-            saveContext()
-        } catch {
-            print(error.localizedDescription)
+public extension URL {
+    
+    static func storeURL() -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner") else {
+            fatalError("Shared file container could not be created")
         }
-    }
-}
-
-/// Taken from: https://stackoverflow.com/a/60266079/8697793
-extension NSManagedObjectContext {
-    /// Executes the given `NSBatchDeleteRequest` and directly merges the changes to bring the given managed object context up to date.
-    ///
-    /// - Parameter batchDeleteRequest: The `NSBatchDeleteRequest` to execute.
-    /// - Throws: An error if anything went wrong executing the batch deletion.
-    public func executeAndMergeChanges(_ batchDeleteRequest: NSBatchDeleteRequest) throws {
-        batchDeleteRequest.resultType = .resultTypeObjectIDs
-        let result = try execute(batchDeleteRequest) as? NSBatchDeleteResult
-        let changes: [AnyHashable: Any] = [NSDeletedObjectsKey: result?.result as? [NSManagedObjectID] ?? []]
-        NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [self])
+        return fileContainer.appendingPathComponent("Model.sqlite")
     }
 }
