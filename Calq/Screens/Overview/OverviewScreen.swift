@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct OverviewScreen: View {
-    @State var blockPoints: Double = Double(generateBlockOne()) + Double(generateBlockTwo())
-    @State var averagePercent: Double = Util.generalAverage() / 15
-    
     @State var gradeText = ""
     @State var blockCircleText = ""
+    @State var blockPoints: Double = Double(generateBlockOne()) + Double(generateBlockTwo())
     @State var blockPercent = 0.0
-    @State var averageText: String = String(format: "%.2f", Util.generalAverage())
     
+    @State var averageText: String = String(format: "%.2f", Util.generalAverage())
+    @State var averagePercent: Double = Util.generalAverage() / 15
     
     @State var halfyears = getHalfyears()
     @State var generalAverage = Util.generalAverage()
@@ -75,9 +74,12 @@ struct OverviewScreen: View {
                     
                     subjectValues = createSubjectBarData()
                     
+                    blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())
                     blockPercent = Double((blockPoints/900.0))
                     blockCircleText = getGradeData()
+                    
                     averagePercent = Util.generalAverage() / 15
+                    averageText = String(format: "%.2f", Util.generalAverage())
                     gradeText = grade()
                 }
         }
