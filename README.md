@@ -25,10 +25,10 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <br>
   
 ![Kurse1](https://media.discordapp.net/attachments/867129329363976212/1075423171869675631/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_10_04.png?width=309&height=669)
-![Kurse2](https://media.discordapp.net/attachments/867129329363976212/1075423172184260629/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_10_10.png?width=309&height=669)
+![Kurse2](https://media.discordapp.net/attachments/867129329363976212/1075432909852381234/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_13_22.png?width=309&height=669)
 
 ![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/1075423170997260389/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_12_50.png?width=309&height=669)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/936730372769738843/unknown.png?width=309&height=670)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/1075432909491679253/simulator_screenshot_36F6B44E-54EE-4902-952A-C98A936B511F.png?width=309&height=669)
 
 ![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/1075423172775645244/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_11.png?width=309&height=669)
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/1075423173002149948/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_17.png?width=309&height=669)
