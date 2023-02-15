@@ -51,7 +51,6 @@ struct NewGradeView: View {
     @State var year = 1
     @State var points: Float = 9
     @State var date = Date()
-    @State var isAlertRPesented = false
     
     var body: some View {
         NavigationView {
@@ -112,9 +111,8 @@ struct NewGradeView: View {
                     }.onTapGesture {
                         saveGrade()
                     }
-                }.navigationTitle("Neue Note").padding().alert(isPresented: $isAlertRPesented){
-                    Alert(title: Text("Oh no"), message: Text("Diese Note gibt es bereis oder der Name ist ungültig"))
-                }
+                }.navigationTitle("Neue Note")
+                .padding()
             }
         }
     }
