@@ -85,7 +85,7 @@ struct ExamView: View {
                 Text((subject != nil) ? subject!.name : "Prüfung auswählen")
             }
             HStack {
-                Text(String(sliderValue.rounded()))
+                Text(String(Int(sliderValue.rounded())))
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
                     sliderValue = sliderValue.rounded()
                     subject?.exampoints = Int16(sliderValue)

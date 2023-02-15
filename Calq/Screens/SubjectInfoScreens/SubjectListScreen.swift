@@ -114,7 +114,7 @@ struct SubjectListScreen: View {
     func setAverages(subject: UserSubject) -> [String]{
         var arr = ["-","-","-","-"]
         for i in 0...3{
-            arr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1))
+            arr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1, filterinactve: false))
         }
         return arr
     }
