@@ -1,4 +1,5 @@
 [![Size](https://img.shields.io/github/repo-size/AKORA-Studios/Calq?color=428FE3&label=SIZE&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[![Version](https://img.shields.io/github/v/release/AKORA-Studios/Calq?color=428FE3&label=Version&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 [![Issues](https://img.shields.io/github/issues/AKORA-Studios/Calq?color=428FE3&label=Issues&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 [![Last Commit](https://img.shields.io/github/last-commit/AKORA-Studios/Calq/master?color=428FE3&label=lastcommit&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 
