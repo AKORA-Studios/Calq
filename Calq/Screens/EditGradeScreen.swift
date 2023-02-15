@@ -95,7 +95,7 @@ struct EditGradeScreen: View {
                 testType = test.big ? 1 : 0
             }
             .alert(isPresented: $deleteAlert) {
-                Alert(title: Text("Sure? >.>"), message: Text("Möchtest du diese Note wirklich löschen?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                Alert(title: Text("Sicher?"), message: Text("Möchtest du diese Note wirklich löschen?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
                     deleteGrade()
                 }))
             }

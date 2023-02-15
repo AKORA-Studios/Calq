@@ -120,7 +120,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
             
         }
         .alert(isPresented: $deleteAlert) {
-            Alert(title: Text("Sure? >.>"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+            Alert(title: Text("Sicher?"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
                 switch alertActiontype {
                     
                 case .importData:

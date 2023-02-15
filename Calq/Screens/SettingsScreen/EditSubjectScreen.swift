@@ -99,7 +99,7 @@ struct EditSubjectScreen: View {
                 switch alertType {
                     
                 case .delete:
-                    return Alert(title: Text("Sure? >.>"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                    return Alert(title: Text("Sicher?"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
                         editSubjectPresented = false
                         Util.deleteSubject(subject!)
                         subject = nil

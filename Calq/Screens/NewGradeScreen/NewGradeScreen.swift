@@ -51,6 +51,7 @@ struct NewGradeView: View {
     @State var year = 1
     @State var points: Float = 9
     @State var date = Date()
+    @State var isAlertRPesented = false
     
     var body: some View {
         NavigationView {
@@ -113,12 +114,15 @@ struct NewGradeView: View {
                     }
                 }.navigationTitle("Neue Note")
                 .padding()
+                .alert(isPresented: $isAlertRPesented){
+                    Alert(title: Text("Ungültiger Name"), message: Text("Der Name darf nicht leer sein"))
+                }
             }
         }
     }
     
     func saveGrade(){
-        if(Util.checkString(gradeName) || gradeName.isEmpty){
+        if(gradeName.isEmpty){
             isAlertRPesented = true
             return
         }

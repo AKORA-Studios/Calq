@@ -53,7 +53,7 @@ struct GradeListScreen: View {
             years[3] = Alltests.filter{$0.year == 4};
         }
         .alert(isPresented: $deleteAlert) {
-            Alert(title: Text("Sure? >.>"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+            Alert(title: Text("Sicher?"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
                 subject.subjecttests = []
                 saveCoreData()
                 self.presentationMode.wrappedValue.dismiss()
