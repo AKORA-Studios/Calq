@@ -17,11 +17,16 @@ struct OverviewView: View {
     var body: some View {
         GeometryReader { geo in
             let fullHeigth = geo.size.height - 30
-            VStack {
+            VStack(alignment: .center) {
+                
             if self.subjects.isEmpty {
-                   Spacer()
-                    Text("Du hast noch keine Noten hinzugefügt qwq")
-                    Spacer()
+             Spacer()
+                HStack{
+                    Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
+                    Text("Du hast noch keine Noten hinzugefügt qwq").multilineTextAlignment(.center)
+                    Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
+                }.frame(width: geo.size.width - 20)
+                Spacer()
                /* HStack{
                     ForEach(testData, id: \.self) { subj in
                         let grade =  Double(subj) / 15.0
