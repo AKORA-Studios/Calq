@@ -10,64 +10,60 @@ struct AverageView: View {
 }
 
 struct OverviewView: View {
-    var subjects: [UserSubject] = Util.getAllSubjects()
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
+    var testData = [12,9,3,8]
     var settings = Util.getSettings()
     
     var body: some View {
-        
         GeometryReader { geo in
+            let fullHeigth = geo.size.height - 30
+            VStack {
             if self.subjects.isEmpty {
-                VStack {
-                    Spacer()
+                   Spacer()
                     Text("Du hast noch keine Noten hinzugefügt qwq")
                     Spacer()
-                }.padding(5)
-                
-            } else {
-                HStack () {
-                    ForEach(0..<subjects.count, id: \.self) { subject in
-                        Spacer()
-                        let height = geo.size.height - 30
+               /* HStack{
+                    ForEach(testData, id: \.self) { subj in
+                        let grade =  Double(subj) / 15.0
+                        let color = Color.red
                         
-                        let subj = subjects[subject]
-                        let grade =  (Util.getSubjectAverage(subj) * 100) / 15.0
+                        VStack(spacing: 0){
+                            ZStack(alignment: .bottom){
+                                Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
+                                Rectangle().frame( height: (fullHeigth * (grade))).foregroundColor(color).topCorner()
+                                Text("11")
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.black)
+                            }
+                            Text("AA").font(.system(size: 9)).frame(height: 10)
+                        }
                         
-                        let name = (subj.name.isEmpty ? "\(subject + 1)" : subj.name.prefix(2)).uppercased()
-                        let color = getSubjectColor(subjects[subject])
-                        
-                        BarView(value: (grade * height) / 100, cornerRadius: CGFloat(4), text: String(format: "%.0f",round(Util.getSubjectAverage(subj))), height:height, color: color, subName: name)
                     }
-                    Spacer()
+                }*/
+            } else {
+                HStack{
+                    ForEach(subjects, id: \.self) { subj in
+                        let average = Util.getSubjectAverage(subj)
+                        let grade =  (average * 100) / 15.0
+                        let color = getSubjectColor(subj)
+                        
+                        VStack(spacing: 0){
+                            ZStack(alignment: .bottom){
+                                Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
+                                Rectangle().frame( height: (fullHeigth * (grade / 100.0))).foregroundColor(color).topCorner()
+                                Text(String(Int(average)))
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.black)
+                            }
+                            Text(subj.name.prefix(2).uppercased()).font(.system(size: 9)).frame(height: 10)
+                        }
+                    }
                 }
             }
+            }.padding(10)
         }
-    }
-}
-
-struct BarView: View{
-    var value: CGFloat
-    var cornerRadius: CGFloat
-    var text: String
-    var height: CGFloat
-    var color: Color
-    var subName: String
-    
-    var body: some View {
-        VStack {
-            ZStack (alignment: .bottom) {
-                ZStack (alignment: .bottom) {
-                    
-                    Text("--") .foregroundColor(.black)
-                    RoundedRectangle(cornerRadius: cornerRadius).frame(width: 17, height: height).foregroundColor(Color(.systemGray4))
-                    RoundedRectangle(cornerRadius: cornerRadius).frame(width: 17, height: value).foregroundColor(color)
-                    Text(text)
-                        .font(.footnote)
-                        .fontWeight(.light)
-                        .foregroundColor(.black)
-                }
-            }.padding(.top, 10)
-            Text(subName).font(.system(size: 10)).fontWeight(.light).frame(width: 17, height: 3)
-        }.padding(.bottom, 20)
     }
 }
 
