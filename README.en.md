@@ -46,7 +46,7 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 <br>
 
 ## Feature Requests
-[Future features](https://github.com/AKORA-Studios/Calq/projects/2) are listed in our repos projects. you have a feature request? For this you can open issue [right here](https://github.com/AKORA-Studios/Calq/issues). Additionally we have a [widget project](https://github.com/AKORA-Studios/Calq/projects/1).
+[Future features](https://github.com/AKORA-Studios/Calq/projects/2) are listed in our repos projects. you have a feature request? For this you can open issue [right here](https://github.com/AKORA-Studios/Calq/issues).
 
 # License
 Calq is available under the MIT license. See the [LICENSE](https://github.com/AKORA-Studios/Calq-iOS/blob/main/LICENSE) file for more info.
