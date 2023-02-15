@@ -24,6 +24,8 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
     
     @State var weightSheetPresented = false
     
+    @State var newSubjectSheetPresented = false
+    
     @State var presentDocumentPicker = false
     @State var importedJson: String = ""
     @State var importeJsonURL: URL = URL(fileURLWithPath: "")
@@ -101,6 +103,11 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 .sheet(isPresented: $weightSheetPresented) {
                     NavigationView {
                     ChangeWeightScreen()
+                    }
+                }
+                .sheet(isPresented: $newSubjectSheetPresented) {
+                    NavigationView {
+                    NewSubjectScreen()
                     }
                 }
                 .sheet(isPresented: $editSubjectPresented) {

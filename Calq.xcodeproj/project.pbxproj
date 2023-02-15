@@ -39,6 +39,7 @@
 		F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */; };
 		F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F17F4460298C5AAC000A3993 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445F298C5AAC000A3993 /* Log.swift */; };
+		F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD23299D10CB0077B905 /* NewSubject.swift */; };
 		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
 		F1B0A7142999102900A9BF8C /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0A70E2999102900A9BF8C /* UserSubject+CoreDataClass.swift */; };
 		F1B0A7152999102900A9BF8C /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0A70E2999102900A9BF8C /* UserSubject+CoreDataClass.swift */; };
@@ -56,7 +57,7 @@
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
 		F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */; };
 		F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */; };
-		F1B0B17029968D5100F3D1FD /* ChangeWeightScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16F29968D5100F3D1FD /* ChangeWeightScreen.swift */; };
+		F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */; };
 		F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
@@ -141,6 +142,7 @@
 		F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListScreen.swift; sourceTree = "<group>"; };
 		F17F445D298C59B3000A3993 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		F17F445F298C5AAC000A3993 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		F192DD23299D10CB0077B905 /* NewSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubject.swift; sourceTree = "<group>"; };
 		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
 		F1B0A70E2999102900A9BF8C /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1B0A70F2999102900A9BF8C /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -152,7 +154,7 @@
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
 		F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableOverviewScreen.swift; sourceTree = "<group>"; };
 		F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchScreen.swift; sourceTree = "<group>"; };
-		F1B0B16F29968D5100F3D1FD /* ChangeWeightScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWeightScreen.swift; sourceTree = "<group>"; };
+		F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeightScreen.swift; sourceTree = "<group>"; };
 		F1E8BFE229900C5500486A6D /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,10 +307,11 @@
 		F1138E5229959627008E7FD8 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F1B0B16F29968D5100F3D1FD /* ChangeWeightScreen.swift */,
+				F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */,
 				F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
+				F192DD23299D10CB0077B905 /* NewSubject.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -541,7 +544,7 @@
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				F1B0A7162999102900A9BF8C /* UserSubject+CoreDataProperties.swift in Sources */,
-				F1B0B17029968D5100F3D1FD /* ChangeWeightScreen.swift in Sources */,
+				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
@@ -561,6 +564,7 @@
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F1B0A7182999102900A9BF8C /* AppSettings+CoreDataClass.swift in Sources */,
+				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
