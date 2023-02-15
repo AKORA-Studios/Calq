@@ -90,7 +90,9 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                         }
                     }
                     
-                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach")
+                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach").onTapGesture {
+                        newSubjectSheetPresented = true
+                    }
                 }
                 
                 Section(){
@@ -107,13 +109,13 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 }
                 .sheet(isPresented: $newSubjectSheetPresented) {
                     NavigationView {
-                    NewSubjectScreen()
+                    NewSubjectScreen().onDisappear(perform: reloadAndSave)
+                    }
                     }
                 }
                 .sheet(isPresented: $editSubjectPresented) {
                     NavigationView {
                         EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
-                    }
                 }
             
         }
