@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GradeTableOverviewScreen: View {
+    @Environment(\.presentationMode) var presentationMode
     var subjects: [UserSubject]
     
     var body: some View{
@@ -21,7 +22,11 @@ struct GradeTableOverviewScreen: View {
                 }
             }
         }.navigationTitle("Notentabelle")
-        
+        .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+    }
+    
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SubjectDetailScreen: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @Binding var subject: UserSubject?
     @State var isGradeTablePresented = false
     
@@ -84,6 +86,7 @@ struct SubjectDetailScreen: View {
                     }.padding(.horizontal)
                 }
                 .navigationTitle(subject!.name)
+                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             }.onAppear{
                 selectedYear = Util.lastActiveYear(subject!)
                 update()
@@ -98,5 +101,9 @@ struct SubjectDetailScreen: View {
             yearAverageText = String(format: "%.2f", average)
             halfyearActive = Util.checkinactiveYears(Util.getinactiveYears(subject!), selectedYear)
         }
+    }
+    
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
     }
 }

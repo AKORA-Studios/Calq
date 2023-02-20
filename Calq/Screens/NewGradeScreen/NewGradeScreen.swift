@@ -44,6 +44,8 @@ struct NewGradeScreen: View {
 
 //TODO: Dimiss button qwq
 struct NewGradeView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @Binding var subject: UserSubject?
     @Binding var dismiss: Bool
     @State var gradeName = ""
@@ -113,6 +115,7 @@ struct NewGradeView: View {
                         saveGrade()
                     }
                 }.navigationTitle("Neue Note")
+                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                 .padding()
                 .alert(isPresented: $isAlertRPesented){
                     Alert(title: Text("Ungültiger Name"), message: Text("Der Name darf nicht leer sein"))
@@ -139,4 +142,7 @@ struct NewGradeView: View {
         dismiss = false
     }
     
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
+    }
 }

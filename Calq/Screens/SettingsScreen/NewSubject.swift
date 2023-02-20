@@ -70,6 +70,7 @@ struct NewSubjectScreen: View {
             }
             
         }.navigationTitle("Neues Fach")
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .alert(isPresented: $nameAlert) {
                 Alert(title: Text("Name ungültig"), message: Text(alertMessage))
             }
@@ -87,9 +88,10 @@ struct NewSubjectScreen: View {
         settings!.addToUsersubjects(subject)
         
         saveCoreData()
+        dismissSheet()
+    }
+    
+    func dismissSheet(){
         self.presentationMode.wrappedValue.dismiss()
     }
 }
-
-
-

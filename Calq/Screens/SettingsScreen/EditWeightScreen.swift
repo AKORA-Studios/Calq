@@ -47,6 +47,7 @@ struct ChangeWeightScreen: View {
             }
         }.padding()
             .navigationTitle("Wertung ändern")
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 10)
             }
@@ -56,6 +57,10 @@ struct ChangeWeightScreen: View {
     
    func saveChanges(){
        Util.saveWeigth(stepperValue)
-       self.presentationMode.wrappedValue.dismiss()
+       dismissSheet()
+    }
+    
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
     }
 }

@@ -13,7 +13,7 @@ enum editAlertType {
 }
 
 struct EditSubjectScreen: View {
-    @Environment(\.managedObjectContext) var coreDataContext
+    @Environment(\.presentationMode) var presentationMode
     @Binding var editSubjectPresented: Bool
     
     @Binding var subject: UserSubject?
@@ -110,11 +110,16 @@ struct EditSubjectScreen: View {
             }
             .padding()
                 .navigationTitle("Kurs bearbeiten")
+                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                 .onAppear{
                     subjectName = subject!.name
                     lkSubject = subject!.lk ? 1 : 0
                     selectedColor = color
                 }
         }
+    }
+    
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
     }
 }

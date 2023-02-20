@@ -87,6 +87,7 @@ struct EditGradeScreen: View {
             }
         }.padding()
             .navigationTitle("Note bearbeiten")
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 testName = test.name
                 testYear = Int(test.year)
@@ -102,7 +103,7 @@ struct EditGradeScreen: View {
     }
     
     func deleteGrade(){
-        self.presentationMode.wrappedValue.dismiss()
+        dismissSheet()
         Util.deleteTest(test)
     }
     
@@ -113,6 +114,10 @@ struct EditGradeScreen: View {
         test.grade = Int16(testPoints)
         test.big = testType == 1
         saveCoreData()
+        self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func dismissSheet(){
         self.presentationMode.wrappedValue.dismiss()
     }
 }

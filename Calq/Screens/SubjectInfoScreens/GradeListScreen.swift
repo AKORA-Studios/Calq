@@ -44,6 +44,7 @@ struct GradeListScreen: View {
             }
           
         }.navigationTitle("Notenliste")
+        .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
         .onAppear{
             Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
             
@@ -56,9 +57,13 @@ struct GradeListScreen: View {
             Alert(title: Text("Sicher?"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
                 subject.subjecttests = []
                 saveCoreData()
-                self.presentationMode.wrappedValue.dismiss()
+                dismissSheet()
             }))
         }
+    }
+    
+    func dismissSheet(){
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
@@ -93,7 +98,3 @@ struct GradeIcon: View {
         return dateFormatter.string(from: date)
     }
 }
-
-
-
-
