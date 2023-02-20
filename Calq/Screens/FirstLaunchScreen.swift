@@ -15,18 +15,14 @@ struct FirstLaunchScreen: View {
             Spacer()
             Text("Welcome to Calq").font(.title)
             
-            
-            
             Text("Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)").multilineTextAlignment(.center)
             
-          
             Spacer()
             
             ZStack{
                 RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                 Text("Oki")
             }.onTapGesture {
-                print("hey")
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
                 firstLaunch = false
             }
