@@ -16,17 +16,17 @@ struct BarChart: View {
     var body: some View {
         GeometryReader{ geo in
             let fullHeigth = geo.size.height - 15
-         //   let fullWidth = geo.size.width
-        
+            //   let fullWidth = geo.size.width
+            
             ZStack {
                 //grid
                 //Rectangle().fill(Color.black).frame(height: 2).offset(x: -2,y: (fullHeigth/2)) //x axis
                 //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - heigth - 2) //tick 15
                 //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m10() - 2) //tick 10
                 // Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m5() - 2) //tick 5
-             /*   if(average != 0.0){
-                    Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
-                }*/
+                /*   if(average != 0.0){
+                 Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
+                 }*/
                 // Rectangle().fill(Color.gray).frame(width:1).offset(x: (fullWidth/2) - fullWidth - 2, y: 1) // y axis
                 
                 //bars
@@ -50,7 +50,7 @@ struct BarChart: View {
                         Spacer()
                     }
                 }
-        }
+            }
         }.frame(height: heigth)
     }
     

@@ -59,7 +59,6 @@ struct EditSubjectScreen: View {
                     }.padding()
                 }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                 
-                
                 ZStack{
                     VStack(alignment: .leading){
                         Text("Kursfarbe")
@@ -109,13 +108,13 @@ struct EditSubjectScreen: View {
                 }
             }
             .padding()
-                .navigationTitle("Kurs bearbeiten")
-                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-                .onAppear{
-                    subjectName = subject!.name
-                    lkSubject = subject!.lk ? 1 : 0
-                    selectedColor = color
-                }
+            .navigationTitle("Kurs bearbeiten")
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+            .onAppear{
+                subjectName = subject!.name
+                lkSubject = subject!.lk ? 1 : 0
+                selectedColor = color
+            }
         }
     }
     

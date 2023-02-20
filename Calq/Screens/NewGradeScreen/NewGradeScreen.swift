@@ -34,7 +34,6 @@ struct NewGradeScreen: View {
         }
     }
     
-    
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
         SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
@@ -115,11 +114,11 @@ struct NewGradeView: View {
                         saveGrade()
                     }
                 }.navigationTitle("Neue Note")
-                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-                .padding()
-                .alert(isPresented: $isAlertRPesented){
-                    Alert(title: Text("Ungültiger Name"), message: Text("Der Name darf nicht leer sein"))
-                }
+                    .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+                    .padding()
+                    .alert(isPresented: $isAlertRPesented){
+                        Alert(title: Text("Ungültiger Name"), message: Text("Der Name darf nicht leer sein"))
+                    }
             }
         }
     }

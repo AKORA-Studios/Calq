@@ -23,10 +23,8 @@ struct DocumentPicker: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<DocumentPicker>) {
-        
     }
 }
-
 
 class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate {
     @Binding var fileURL: URL

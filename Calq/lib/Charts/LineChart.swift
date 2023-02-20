@@ -28,11 +28,11 @@ struct LineChart: View {
         ZStack {
             YAxis()
             YAxisLines()
-                ZStack {
-                    ForEach(values, id: \.self){v in
-                        if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
-                    }
+            ZStack {
+                ForEach(values, id: \.self){v in
+                    if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
                 }
+            }
         }.frame(height: heigth)
             .onAppear{
                 subjects = Util.getAllSubjects()
@@ -93,7 +93,7 @@ struct LineShape: Shape {
 var ticks: [LineChartValue] = [LineChartValue(value: 15, date: 1),LineChartValue(value: 10, date: 2/3),LineChartValue(value: 5, date: 1/3),LineChartValue(value: 0, date: 0)]
 
 struct YAxis: View {
- 
+    
     var body: some View {
         GeometryReader{geo in
             let fullHeight = geo.size.height
@@ -107,7 +107,7 @@ struct YAxis: View {
                 //ticks
                 ForEach(ticks, id:\.self.value){tick in
                     HStack(spacing: 2){
-                      // Spacer()
+                        // Spacer()
                         Text(String(Int(tick.value))).font(.footnote).foregroundColor(Color.gray)
                         Rectangle().fill(Color.gray).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
                     }.offset(y: fullHeight/2 - (fullHeight * tick.date)).offset(x: -20)
@@ -119,7 +119,7 @@ struct YAxis: View {
 
 
 struct YAxisLines: View {
-
+    
     var body: some View {
         
         GeometryReader{geo in
@@ -130,7 +130,7 @@ struct YAxisLines: View {
                 //ticks
                 ForEach(ticks, id:\.self.value){tick in
                     HStack(spacing: 2){
-                      // Spacer()
+                        // Spacer()
                         Text(String(Int(tick.value))).font(.footnote)
                         Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)//.offset(x: 15)
                     }.offset(y: fullHeight - (fullHeight * tick.date) - 17).offset(x: -5)

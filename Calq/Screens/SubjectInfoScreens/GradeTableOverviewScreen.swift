@@ -22,7 +22,7 @@ struct GradeTableOverviewScreen: View {
                 }
             }
         }.navigationTitle("Notentabelle")
-        .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
     }
     
     func dismissSheet(){

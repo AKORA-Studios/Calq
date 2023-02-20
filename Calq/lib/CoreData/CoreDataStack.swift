@@ -21,15 +21,15 @@ class CoreDataStack {
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         storeDescription.shouldMigrateStoreAutomatically = true
         container.persistentStoreDescriptions = [storeDescription]
-    
         
-           container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-               if let error = error as NSError? {
-                   fatalError("Unresolved error \(error), \(error.userInfo)")
-               }
-           })
-           return container
-       }()
+        
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
     
     func saveContext() {
         managedObjectContext.performAndWait {

@@ -104,20 +104,19 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 }
                 .sheet(isPresented: $weightSheetPresented) {
                     NavigationView {
-                    ChangeWeightScreen()
+                        ChangeWeightScreen()
                     }
                 }
                 .sheet(isPresented: $newSubjectSheetPresented) {
                     NavigationView {
-                    NewSubjectScreen().onDisappear(perform: reloadAndSave)
-                    }
+                        NewSubjectScreen().onDisappear(perform: reloadAndSave)
                     }
                 }
-                .sheet(isPresented: $editSubjectPresented) {
-                    NavigationView {
-                        EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
-                }
-            
+        }
+        .sheet(isPresented: $editSubjectPresented) {
+            NavigationView {
+                EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
+            }
         }
         .alert(isPresented: $deleteAlert) {
             Alert(title: Text("Sicher?"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
@@ -136,7 +135,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 alertActiontype = .none
                 deleteAlert = false
             }
-          ))
+                                                                                                                                                    ))
         }
         .onAppear{
             subjects = Util.getAllSubjects()

@@ -5,8 +5,6 @@
 //  Created by Kiara on 10.02.23.
 //
 
-import UIKit
-import Foundation
 import CoreData
 import SwiftUI
 import WidgetKit
@@ -30,12 +28,6 @@ struct Util {
         return regex.firstMatch(in: str, options: [], range: range) == nil
     }
     
-    static func replaceString(_ str: String)->String{
-        let regex = try! NSRegularExpression(pattern: "[^a-zA-Z\\s]")
-        let range = NSRange(location: 0, length: str.utf16.count)
-        return regex.stringByReplacingMatches(in: str, options: [], range: range, withTemplate: "")
-    }
-    
     // MARK: Average Functions
     static func average (_ values: [Int]) -> Double {
         if (values.count < 1) {return 0}
@@ -44,7 +36,6 @@ struct Util {
         for i in 0..<values.count {
             avg += values[i];
         }
-        
         return (Double(avg) / Double(values.count))
     }
     
@@ -55,7 +46,6 @@ struct Util {
         for i in 0..<values.count {
             avg += values[i];
         }
-        
         return (Double(avg) / Double(values.count))
     }
     
@@ -201,7 +191,7 @@ struct Util {
     
     ///Returns the apps settings
     static func getSettings()-> AppSettings?{
-       var items: [AppSettings]
+        var items: [AppSettings]
         do {
             items = try context.fetch(AppSettings.fetchRequest())
             
@@ -224,11 +214,10 @@ struct Util {
         saveCoreData()
     }
     
-    
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
-       var  allSubjects: [UserSubject] = []
+        var  allSubjects: [UserSubject] = []
         do {
             let result = try context.fetch(AppSettings.fetchRequest())
             if(result.count == 0) { return []}
@@ -240,7 +229,6 @@ struct Util {
         
         return []
     }
-    
     
     /// sort all subjects sorted after type and name
     static func sortSubjects(_ subs: [UserSubject])-> [UserSubject]{
@@ -272,11 +260,9 @@ struct Util {
         return subjects.map{$0.name}
     }
     
-    
     static func deleteSubject(_ subject: UserSubject){
         context.delete(subject)
     }
-    
     
     //MARK: Years
     static func getinactiveYears(_ sub: UserSubject)-> [String]{
@@ -320,8 +306,6 @@ struct Util {
         return num
     }
     
-    
-    
     private static func arrToString(_ arr: [String]) -> String{
         return arr.joined(separator: " ")
     }
@@ -361,8 +345,6 @@ struct Util {
         return Date(timeIntervalSince1970: allDates.sorted(by: {$0 < $1})[0])
     }
     
-
-    
     //MARK: Tests
     static func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
         if(sub.subjecttests == nil){return []}
@@ -374,33 +356,13 @@ struct Util {
                     tests = tests.filter{$0.year != year}
                 }
             }
-           
         }
         return tests
     }
-    
     
     static func deleteTest(_ test: UserTest){
         test.testtosubbject.removeFromSubjecttests(test)
         saveCoreData()
     }
     
-    
-}
-
-
-
-
-
-
-
-
-
-
-extension Double {
-    /// Rounds the double to decimal places value
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
 }

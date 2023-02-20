@@ -19,7 +19,7 @@ struct OverviewScreen: View {
     @State var halfyears = getHalfyears()
     @State var generalAverage = Util.generalAverage()
     @State var subjectValues: [BarEntry] = createSubjectBarData()
-   
+    
     @State var subjects = Util.getAllSubjects()
     
     
@@ -35,8 +35,8 @@ struct OverviewScreen: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                         VStack(alignment: .leading, spacing: 5){
-                        Text("Verlauf")
-                        LineChart(subjects: $subjects)
+                            Text("Verlauf")
+                            LineChart(subjects: $subjects)
                         }.padding()
                     }
                     
@@ -51,8 +51,8 @@ struct OverviewScreen: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                         VStack{
-                                GeometryReader{ geo in
-                                    HStack(alignment: .center){
+                            GeometryReader{ geo in
+                                HStack(alignment: .center){
                                     Text("Fächerschnitt").frame(width: geo.size.width/3)
                                     Spacer()
                                     Text("Abischnitt").frame(width: geo.size.width/3)
@@ -63,7 +63,6 @@ struct OverviewScreen: View {
                                 CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                             }
                         }.padding()
-                       
                     }
                 }
             }.padding(.horizontal)
@@ -96,5 +95,5 @@ struct OverviewScreen: View {
 }
 
 func getHalfyears() -> [BarEntry]{
-   return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
+    return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
 }

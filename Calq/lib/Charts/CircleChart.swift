@@ -28,8 +28,6 @@ struct CircleChart: View {
                         Text(textDescription)
                             .font(.footnote)
                             .multilineTextAlignment(.center)
-                            
-                            
                     }
                 }else {
                     Circle()

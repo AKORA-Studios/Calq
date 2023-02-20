@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct EditGradeScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @State var test: UserTest

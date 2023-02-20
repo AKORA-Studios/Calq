@@ -23,7 +23,6 @@ struct SubjectListScreen: View {
     @State var inactiveCount = 0
     @State var subjectCount = 0
     
-    
     @State var data: [SubjectlistData] = []
     
     var body: some View {

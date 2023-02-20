@@ -23,7 +23,7 @@ struct ChangeWeightScreen: View {
                         Text("Klausur")
                         Text("Test")
                     }.frame(width: 100)
-             
+                    
                     VStack {
                         Text(String(stepperValue) + " %")
                         Text(String(100 - stepperValue) + " %")
@@ -33,7 +33,6 @@ struct ChangeWeightScreen: View {
                     } onDecrement: {
                         stepperValue -= stepperValue == 0 ? 0 : 10
                     }
-
                 }.padding()
             }
             
@@ -51,13 +50,11 @@ struct ChangeWeightScreen: View {
             .onAppear{
                 stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 10)
             }
-        
-        
     }
     
-   func saveChanges(){
-       Util.saveWeigth(stepperValue)
-       dismissSheet()
+    func saveChanges(){
+        Util.saveWeigth(stepperValue)
+        dismissSheet()
     }
     
     func dismissSheet(){

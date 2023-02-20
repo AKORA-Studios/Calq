@@ -25,7 +25,6 @@ struct GradeListScreen: View {
                 
                 ForEach(0...3, id:\.self){i in
                     Section(header: Text("\(i + 1). Halbjahr")){
-                        
                         let tests =  years[i]
                         ForEach(tests){test in
                             let color = getSubjectColor(subject)
@@ -35,31 +34,30 @@ struct GradeListScreen: View {
                             } label: {
                                 GradeIcon(test: test, color: color)
                             }
-                            
                         }
                     }
                 }
             } else {
                 Text("oh no keine noten da :c")
             }
-          
-        }.navigationTitle("Notenliste")
-        .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-        .onAppear{
-            Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
             
-            years[0] = Alltests.filter{$0.year == 1};
-            years[1] = Alltests.filter{$0.year == 2};
-            years[2] = Alltests.filter{$0.year == 3};
-            years[3] = Alltests.filter{$0.year == 4};
-        }
-        .alert(isPresented: $deleteAlert) {
-            Alert(title: Text("Sicher?"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
-                subject.subjecttests = []
-                saveCoreData()
-                dismissSheet()
-            }))
-        }
+        }.navigationTitle("Notenliste")
+            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+            .onAppear{
+                Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+                
+                years[0] = Alltests.filter{$0.year == 1};
+                years[1] = Alltests.filter{$0.year == 2};
+                years[2] = Alltests.filter{$0.year == 3};
+                years[3] = Alltests.filter{$0.year == 4};
+            }
+            .alert(isPresented: $deleteAlert) {
+                Alert(title: Text("Sicher?"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                    subject.subjecttests = []
+                    saveCoreData()
+                    dismissSheet()
+                }))
+            }
     }
     
     func dismissSheet(){

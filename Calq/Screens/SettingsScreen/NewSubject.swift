@@ -26,7 +26,6 @@ struct NewSubjectScreen: View {
                 }.padding()
             }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
             
-            
             ZStack{
                 VStack(alignment: .leading){
                     Text("Typ")
@@ -53,7 +52,6 @@ struct NewSubjectScreen: View {
                 }.padding()
             }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
             
-            
             ZStack{
                 RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                 Text("Speichern").foregroundColor(.white)
@@ -68,7 +66,6 @@ struct NewSubjectScreen: View {
                     addSubject()
                 }
             }
-            
         }.navigationTitle("Neues Fach")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .alert(isPresented: $nameAlert) {
@@ -76,7 +73,6 @@ struct NewSubjectScreen: View {
             }
             .padding()
     }
-    
     
     func addSubject(){
         let subject = UserSubject(context: context)

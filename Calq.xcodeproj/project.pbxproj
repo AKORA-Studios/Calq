@@ -38,7 +38,6 @@
 		F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */; };
 		F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */; };
 		F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
-		F17F4460298C5AAC000A3993 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445F298C5AAC000A3993 /* Log.swift */; };
 		F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD23299D10CB0077B905 /* NewSubject.swift */; };
 		F192DD25299D2CD00077B905 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
 		F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
@@ -56,6 +55,7 @@
 		F192DD6E299D366A0077B905 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD63299D366A0077B905 /* UserSubject+CoreDataProperties.swift */; };
 		F192DD6F299D366A0077B905 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD63299D366A0077B905 /* UserSubject+CoreDataProperties.swift */; };
 		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
+		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
 		F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */; };
@@ -144,7 +144,6 @@
 		F17F4447298C4ED3000A3993 /* NewGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeScreen.swift; sourceTree = "<group>"; };
 		F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListScreen.swift; sourceTree = "<group>"; };
 		F17F445D298C59B3000A3993 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		F17F445F298C5AAC000A3993 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F192DD23299D10CB0077B905 /* NewSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubject.swift; sourceTree = "<group>"; };
 		F192DD27299D2DEC0077B905 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		F192DD5E299D366A0077B905 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -154,6 +153,7 @@
 		F192DD62299D366A0077B905 /* UserSubject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F192DD63299D366A0077B905 /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
+		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
 		F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableOverviewScreen.swift; sourceTree = "<group>"; };
@@ -267,8 +267,8 @@
 				DD687945261C530000BF2B48 /* Util.swift */,
 				DD81F6822759091600B4A43B /* JSONUtil.swift */,
 				F17F445D298C59B3000A3993 /* ColorExtension.swift */,
-				F17F445F298C5AAC000A3993 /* Log.swift */,
 				F192DD27299D2DEC0077B905 /* ViewExtension.swift */,
+				F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -547,7 +547,6 @@
 			files = (
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
-				F17F4460298C5AAC000A3993 /* Log.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
 				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
@@ -558,6 +557,7 @@
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				F10D66B4298D66C200993237 /* ExamVM.swift in Sources */,
 				F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */,
+				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,
 				F192DD66299D366A0077B905 /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,

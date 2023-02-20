@@ -18,10 +18,10 @@ struct OneEntryLineChart: View {
         ZStack {
             YAxis()
             YAxisLines()
-                ZStack {
-                    let color = getSubjectColor(subject)
-                        if(values.count > 0){LineShape(values: values, frame: $heigth).stroke(color, lineWidth: 2.0)}
-                }
+            ZStack {
+                let color = getSubjectColor(subject)
+                if(values.count > 0){LineShape(values: values, frame: $heigth).stroke(color, lineWidth: 2.0)}
+            }
         }.frame(height: heigth)
             .onAppear{
                 setDates()

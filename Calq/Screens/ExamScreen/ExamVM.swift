@@ -35,25 +35,21 @@ func saveExam(_ type: Int, _ subject: UserSubject){
     saveCoreData()
 }
 
-
 func setExamPoints(_ points: Int, _ subject: UserSubject){
     subject.exampoints = Int16(points)
     saveCoreData()
 }
-
 
 func removeExam(_ type: Int,  _ subject: UserSubject){
     subject.examtype = Int16(0)
     saveCoreData()
 }
 
-
 /// Returns all Subjects as Array
 func getAllExamSubjects()-> [UserSubject]{
     let subjects = Util.getAllSubjects()
     return getExamOptions(subjects)
 }
-
 
 //MARK: Bock Calculations
 /// Calc points block I
