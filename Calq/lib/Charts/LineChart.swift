@@ -16,7 +16,7 @@ struct LineChartValue: Hashable {
 }
 
 struct LineChart: View {
-    @State var subjects: [UserSubject]
+    @Binding var subjects: [UserSubject]
     @State var maxDate = 0.0
     @State var minDate =  0.0
     @State var heigth: CGFloat = 150
@@ -35,6 +35,7 @@ struct LineChart: View {
                 }
         }.frame(height: heigth)
             .onAppear{
+                subjects = Util.getAllSubjects()
                 values = []
                 colors = []
                 setDates()
