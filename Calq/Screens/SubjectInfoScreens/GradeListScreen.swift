@@ -18,9 +18,9 @@ struct GradeListScreen: View {
         List{
             if(!Alltests.isEmpty){
                 Section{
-                    SettingsIcon(color: .red, icon: "archivebox", text: "Alle löschen").onTapGesture {
+                    SettingsIcon(color: .red, icon: "archivebox", text: "Alle löschen", completation: {
                         deleteAlert = true
-                    }
+                    })
                 }
                 
                 ForEach(0...3, id:\.self){i in

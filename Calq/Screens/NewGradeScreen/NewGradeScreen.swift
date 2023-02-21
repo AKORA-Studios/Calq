@@ -20,10 +20,7 @@ struct NewGradeScreen: View {
                     Text("Oh no keine Fächer vorhanden :c")
                 }
                 ForEach(subjects) { sub in
-                    subjectView(sub).onTapGesture {
-                        selectedSubject = sub
-                        isSheetPresented = true
-                    }
+                    subjectView(sub)
                 }
             }.navigationTitle("Neue Note")
         }.sheet(isPresented: $isSheetPresented, onDismiss: {selectedSubject = nil}) {
@@ -36,7 +33,10 @@ struct NewGradeScreen: View {
     
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
-        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
+            selectedSubject = sub
+            isSheetPresented = true
+        })
     }
 }
 

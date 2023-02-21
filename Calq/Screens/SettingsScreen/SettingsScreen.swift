@@ -37,62 +37,53 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
         NavigationView {
             List{
                 Section(header: Text("Allgemein")){
-                    SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github")
-                        .onTapGesture {
-                            if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
-                                UIApplication.shared.open(url)
-                            }
+                    SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
+                        if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
+                            UIApplication.shared.open(url)
                         }
+                    })
                     
                     HStack {
-                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen")
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen", completation: {})
                         Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
                             reloadAndSave()
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     
-                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren")
-                        .onTapGesture {
-                            alertActiontype = .importData
-                            deleteAlert = true
-                        }
+                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren", completation: {
+                        alertActiontype = .importData
+                        deleteAlert = true
+                    })
                     
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren")
-                        .onTapGesture {
-                            let data = JSON.exportJSON()
-                            let url = JSON.writeJSON(data)
-                            showShareSheet(url: url)
-                        }
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren", completation: {
+                        let data = JSON.exportJSON()
+                        let url = JSON.writeJSON(data)
+                        showShareSheet(url: url)
+                    })
                     
-                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern")
-                        .onTapGesture {
-                            weightSheetPresented = true
-                        }
+                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern", completation: {
+                        weightSheetPresented = true
+                    })
                     
-                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden")
-                        .onTapGesture {
-                            alertActiontype = .loadDemo
-                            deleteAlert = true
-                        }
+                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden", completation: {
+                        alertActiontype = .loadDemo
+                        deleteAlert = true
+                    })
                     
-                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen")
-                        .onTapGesture {
-                            alertActiontype = .deleteData
-                            deleteAlert = true
-                        }
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen", completation: {
+                        alertActiontype = .deleteData
+                        deleteAlert = true
+                    })
                 }
                 Section(header: Text("Fächer")){
                     
                     ForEach(subjects) { sub in
-                        subjectView(sub).onTapGesture {
-                            editSubjectPresented = true
-                            selectedSubjet = sub
-                        }
+                        subjectView(sub)
                     }
                     
-                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach").onTapGesture {
+                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach", completation: {
                         newSubjectSheetPresented = true
-                    }
+                    })
                 }
                 
                 Section(){
@@ -135,7 +126,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 alertActiontype = .none
                 deleteAlert = false
             }
-                                                                                                                                                    ))
+                                                                                                                ))
         }
         .onAppear{
             subjects = Util.getAllSubjects()
@@ -156,7 +147,10 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
     
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
-        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name)
+        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
+            editSubjectPresented = true
+            selectedSubjet = sub
+        })
     }
 }
 
@@ -164,14 +158,24 @@ struct SettingsIcon: View {
     var color: Color
     var icon: String
     var text: String
+    var completation:  () -> Void
     
     var body: some View {
-        HStack{
-            ZStack{
-                RoundedRectangle(cornerRadius: 8.0).fill(color).frame(width: 30, height: 30)
-                Image(systemName: icon).foregroundColor(.white)
+        GeometryReader { geo in
+                HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .fill(color)
+                        .frame(width: 30, height: 30)
+                    Image(systemName: icon)
+                        .foregroundColor(.white)
+                }
+                Text(text)
             }
-            Text(text)
+        .frame(width: geo.size.width, height: 30, alignment: .leading)
+        .onTapGesture {
+            completation()
+        }
         }
     }
 }
