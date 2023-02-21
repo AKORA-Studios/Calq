@@ -35,7 +35,9 @@ struct SubjectListScreen: View {
                             let average = Util.testAverage(Util.filterTests(entry.subject))
                             
                             ZStack{
-                                RoundedRectangle(cornerRadius: 8).fill(color).frame(width: 30, height: 30)
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(color)
+                                    .frame(width: 30, height: 30)
                                 Text(String(format: "%.0f", round(average)))
                             }
                             Text(entry.subject.name)
@@ -44,7 +46,9 @@ struct SubjectListScreen: View {
                             
                             HStack{
                                 ForEach(0...3, id: \.self) { i in
-                                    Text(entry.yearString[i]).foregroundColor(entry.colors[i]).frame(width: 25)
+                                    Text(entry.yearString[i])
+                                        .foregroundColor(entry.colors[i])
+                                        .frame(width: 25)
                                 }
                             }
                         }
@@ -57,8 +61,12 @@ struct SubjectListScreen: View {
                 Section{
                     HStack{
                         ZStack{
-                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(width: 30, height: 30)
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.accentColor)
+                                .frame(width: 30, height: 30)
                             Text("∑")
+                                .frame(width: 30, height: 30)
+                                .frame(alignment: .center)
                         }
                         Text("\(inactiveCount) von \(subjectCount) Halbjahren aktiv")
                     }
