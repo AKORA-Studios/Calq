@@ -12,6 +12,8 @@ struct BlockView: View {
     @State var points2 = generateBlockTwo()
     @State var maxpoints = generatePossibleBlockOne()
     
+    @Binding var updateblock2: Bool
+    
     var body: some View {
         GeometryReader { geo in
             ZStack{
@@ -30,6 +32,9 @@ struct BlockView: View {
                     }.frame(width: geo.size.width * 1/3 - 20)
                 }.padding(10)
             }.frame(height: 50)
+                .onChange(of: updateblock2) { _ in
+                    points2 = generateBlockTwo()
+                }
         }.onAppear{
             points1 = generateBlockOne()
             points2 = generateBlockTwo()

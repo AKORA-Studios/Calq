@@ -11,16 +11,18 @@ struct ExamScreen: View {
     @State var subjects: [UserSubject] = Util.getAllSubjects()
     @State var options: [UserSubject] = []
     
+    @State var updateBlock2 = true
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
-                BlockView()//.frame(height: 70)
+                BlockView(updateblock2: $updateBlock2)//.frame(height: 70)
                 Text("Prüfungsfächer").font(.headline)
                 ZStack{
                     RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     VStack{
                         ForEach(1...5, id: \.self){ i in
-                            ExamView(subjects: $subjects, subject: getExam(i), type: i, options: $options)
+                            ExamView(subjects: $subjects, subject: getExam(i), type: i, options: $options, updateblock2: $updateBlock2)
                         }
                     }
                 }
@@ -50,6 +52,7 @@ struct ExamView: View {
     @State var sliderValue: Float = 0
     var type: Int
     @Binding var options: [UserSubject]
+    @Binding var updateblock2: Bool
     
     
     var body: some View {
@@ -64,6 +67,7 @@ struct ExamView: View {
                                     saveExam(type, sub)
                                     options = subjects.filter{$0.examtype == 0}
                                     sliderValue = 0
+                                    updateblock2.toggle()
                                 }
                             }
                         }
@@ -73,6 +77,7 @@ struct ExamView: View {
                                 options = subjects.filter{$0.examtype == 0}
                                 subject = nil
                                 sliderValue = 0
+                                updateblock2.toggle()
                             } label: {
                                 Text("Entfernen/keines")
                             }
@@ -89,6 +94,7 @@ struct ExamView: View {
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
                     sliderValue = sliderValue.rounded()
                     subject?.exampoints = Int16(sliderValue)
+                    updateblock2.toggle()
                     saveCoreData()
                 })
                 .accentColor(subColor())

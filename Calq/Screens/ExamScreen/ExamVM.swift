@@ -45,12 +45,6 @@ func removeExam(_ type: Int,  _ subject: UserSubject){
     saveCoreData()
 }
 
-/// Returns all Subjects as Array
-func getAllExamSubjects()-> [UserSubject]{
-    let subjects = Util.getAllSubjects()
-    return getExamOptions(subjects)
-}
-
 //MARK: Bock Calculations
 /// Calc points block I
 func generateBlockOne() -> Int{
@@ -81,13 +75,12 @@ func generateBlockOne() -> Int{
 
 /// Calc points block II
 func generateBlockTwo() -> Int{
-    let subjects = getAllExamSubjects()
+    let subjects = Util.getAllSubjects().filter{$0.examtype != 0}
     if(subjects.count == 0){return 0}
-    
     var sum: Double = 0
     
     for sub in subjects {
-        sum += Double(Int(sub.exampoints) * 4)
+            sum += Double(Int(sub.exampoints) * 4)
     }
     
     return Int(sum)
