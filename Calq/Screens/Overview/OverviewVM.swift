@@ -11,6 +11,9 @@ import Foundation
 class OverViewViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = []
     
+    @Published var gradeText = ""
+    @Published var blockCircleText = ""
+    
     func updateViews(){
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()

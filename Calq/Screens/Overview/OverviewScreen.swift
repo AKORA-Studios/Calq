@@ -9,8 +9,6 @@ import SwiftUI
 
 struct OverviewScreen: View {
     @ObservedObject var vm: OverViewViewModel
-    @State var gradeText = ""
-    @State var blockCircleText = ""
     @State var blockPoints: Double = Double(generateBlockOne()) + Double(generateBlockTwo())
     @State var blockPercent = 0.0
     
@@ -99,8 +97,8 @@ struct OverviewScreen: View {
                                 }
                             }
                             HStack(alignment: .center, spacing: 5){
-                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $gradeText).frame(height: 150)
-                                CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $vm.gradeText).frame(height: 150)
+                                CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                             }
                         }.padding()
                     }
@@ -116,11 +114,11 @@ struct OverviewScreen: View {
                     
                     blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())
                     blockPercent = Double((blockPoints/900.0))
-                    blockCircleText = getGradeData()
+                    vm.blockCircleText = getGradeData()
                     
                     averagePercent = Util.generalAverage() / 15
                     averageText = String(format: "%.2f", Util.generalAverage())
-                    gradeText = grade()
+                    vm.gradeText = grade()
                 }
             
         }
