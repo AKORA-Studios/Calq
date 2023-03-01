@@ -9,20 +9,6 @@ import SwiftUI
 
 struct OverviewScreen: View {
     @ObservedObject var vm: OverViewViewModel
-    @State var blockPoints: Double = Double(generateBlockOne()) + Double(generateBlockTwo())
-    @State var blockPercent = 0.0
-    
-    @State var averageText: String = String(format: "%.2f", Util.generalAverage())
-    @State var averagePercent: Double = Util.generalAverage() / 15
-    
-    @State var halfyears = getHalfyears()
-    @State var generalAverage = Util.generalAverage()
-    @State var subjectValues: [BarEntry] = createSubjectBarData()
-    
-    @State var subjects = Util.getAllSubjects()
-    
-    @State var showGraphEdit = false
-    
     
     var body: some View {
         NavigationView {
@@ -30,7 +16,7 @@ struct OverviewScreen: View {
                 VStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
-                        BarChart(values: $subjectValues, heigth: 200, average: generalAverage, round: true).padding()
+                        BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true).padding()
                     }
                     
                     ZStack{
@@ -39,14 +25,14 @@ struct OverviewScreen: View {
                             HStack{
                                 Text("Verlauf")
                                 Spacer()
-                                Image(systemName: "gearshape").onTapGesture{showGraphEdit.toggle()}
-                                    .disabled(subjects.count == 0)
-                                    .foregroundColor(subjects.count == 0 ? .gray : Color(UIColor.label))
+                                Image(systemName: "gearshape").onTapGesture{vm.showGraphEdit.toggle()}
+                                    .disabled(vm.subjects.count == 0)
+                                    .foregroundColor(vm.subjects.count == 0 ? .gray : Color(UIColor.label))
                             }
                             
                             LineChart(subjects: $vm.subjects)
                             
-                            if(showGraphEdit){
+                            if(vm.showGraphEdit){
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack {
                                         
@@ -55,7 +41,6 @@ struct OverviewScreen: View {
                                             ZStack{
                                                 Text(sub.name)
                                                     .padding(5)
-                                                
                                                     .font(.footnote)
                                                     .background(
                                                         RoundedRectangle(cornerRadius: 8)
@@ -82,7 +67,7 @@ struct OverviewScreen: View {
                         RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                         VStack(alignment: .leading, spacing: 5){
                             Text("Halbjahre")
-                            BarChart(values: $halfyears, heigth: 150)
+                            BarChart(values: $vm.halfyears, heigth: 150)
                         }.padding()
                     }
                     
@@ -97,8 +82,8 @@ struct OverviewScreen: View {
                                 }
                             }
                             HStack(alignment: .center, spacing: 5){
-                                CircleChart(perrcent: $averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $averageText, lowerText: $vm.gradeText).frame(height: 150)
-                                CircleChart(perrcent: $blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                                CircleChart(perrcent: $vm.averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
+                                CircleChart(perrcent: $vm.blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                             }
                         }.padding()
                     }
@@ -106,34 +91,8 @@ struct OverviewScreen: View {
             }.padding(.horizontal)
                 .navigationTitle("Übersicht")
                 .onAppear{
-                    halfyears = getHalfyears()
-                    subjects = Util.getAllSubjects()
                     vm.updateViews()
-                    
-                    subjectValues = createSubjectBarData()
-                    
-                    blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())
-                    blockPercent = Double((blockPoints/900.0))
-                    vm.blockCircleText = getGradeData()
-                    
-                    averagePercent = Util.generalAverage() / 15
-                    averageText = String(format: "%.2f", Util.generalAverage())
-                    vm.gradeText = grade()
                 }
-            
         }
     }
-    
-    func grade()->String{
-        return String(format: "%.2f", Util.grade(number: Util.generalAverage()))
-    }
-    
-    func getGradeData()-> String{
-        let blockGrade = Util.grade(number: Double(blockPoints * 15 / 900))
-        return  String(format: "%.2f", blockGrade)
-    }
-}
-
-func getHalfyears() -> [BarEntry]{
-    return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
 }
