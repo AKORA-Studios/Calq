@@ -12,7 +12,7 @@ struct TabbarView: View {
     
     var body: some View {
         TabView {
-            OverviewScreen()
+            OverviewScreen(vm: OverViewViewModel())
                 .tabItem{Image(systemName: "chart.bar.fill")}
             
             SubjectListScreen()

@@ -12,6 +12,7 @@
         <attribute name="inactiveYears" attributeType="String" defaultValueString=""/>
         <attribute name="lk" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="showInLineGraph" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <relationship name="subjecttests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserTest" inverseName="testtosubbject" inverseEntity="UserTest"/>
         <relationship name="subjecttosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="usersubjects" inverseEntity="AppSettings"/>
     </entity>

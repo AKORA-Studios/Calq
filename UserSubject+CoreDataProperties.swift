@@ -2,7 +2,7 @@
 //  UserSubject+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 15.02.23.
+//  Created by Kiara on 01.03.23.
 //
 //
 
@@ -22,6 +22,7 @@ extension UserSubject {
     @NSManaged public var inactiveYears: String
     @NSManaged public var lk: Bool
     @NSManaged public var name: String
+    @NSManaged public var showInLineGraph: Bool
     @NSManaged public var subjecttests: NSSet?
     @NSManaged public var subjecttosettings: AppSettings
 

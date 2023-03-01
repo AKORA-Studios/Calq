@@ -17,36 +17,35 @@ struct LineChartValue: Hashable {
 
 struct LineChart: View {
     @Binding var subjects: [UserSubject]
-    @State var maxDate = 0.0
-    @State var minDate =  0.0
     @State var heigth: CGFloat = 150
-    
-    @State var values: [[LineChartValue]] = [[]]
-    @State var colors: [Color] = []
     
     var body: some View {
         ZStack {
             YAxis()
             YAxisLines()
             ZStack {
-                ForEach(values, id: \.self){v in
+                ForEach(values(), id: \.self){v in
                     if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
                 }
             }
-        }.frame(height: heigth)
-            .onAppear{
-                subjects = Util.getAllSubjects()
-                values = []
-                colors = []
-                setDates()
-                subjects.forEach { sub in
-                    values.append(generateData(subject: sub))
-                }
-            }
-            .padding()
+        }
+        .frame(height: heigth)
+        .padding()
     }
     
-    func setDates(){
+    func values() -> [[LineChartValue]] {
+        // (minDate, maxDate)
+        let dateRange = getDates();
+        
+        return subjects.map { sub in
+            generateData(dateRange: dateRange, subject: sub)
+        }
+    }
+    
+    func getDates() -> (Double, Double) {
+        var maxDate = 0.0
+        var minDate =  0.0
+        
         let allSubjects = subjects.filter{$0.subjecttests?.count != 0}
         if(allSubjects.count != 0)  {
             minDate = Util.calcMinDate().timeIntervalSince1970 / 1000
@@ -54,11 +53,15 @@ struct LineChart: View {
         } else {            maxDate = 0.0
             minDate = 0.0
         }
+        
+        return (minDate, maxDate)
     }
     
-    func generateData(subject: UserSubject) -> [LineChartValue]{
+    func generateData(dateRange: (Double, Double), subject: UserSubject) -> [LineChartValue]{
+        if(!subject.showInLineGraph){return []}
         let color = getSubjectColor(subject, subjects: subjects)
-        colors.append(color)
+        
+        let (minDate, maxDate) = dateRange;
         
         var arr: [LineChartValue] = []
         let tests = Util.filterTests(subject, checkinactive : false)
