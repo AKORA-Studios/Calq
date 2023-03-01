@@ -2,7 +2,7 @@
 //  UserTest+CoreDataClass.swift
 //  Calq
 //
-//  Created by Akora on 15.02.22.
+//  Created by Kiara on 01.03.23.
 //
 //
 

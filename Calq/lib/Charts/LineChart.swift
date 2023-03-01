@@ -1,146 +1,144 @@
 //
-//  LineChartView.swift
-//  TestBarChart
+//  LineChart.swift
+//  Calq
 //
-//  Created by Kiara on 12.12.21.
+//  Created by Kiara on 10.02.23.
 //
 
-import UIKit
+import SwiftUI
 
-class LineChart: UIView {
-    typealias ChartEntry = (Double, Double)
-    
-    var maxYValue: Double = 15.0
-    var maxXValue: Double = 100.0
-    
-    var pointColor = UIColor.blue
-    var lineColor = UIColor.systemGray3
-    var markAxes: [Double] = []
-    
-    var lineWidth: Double = 3.0
-    var pointWidth: Double = 4.0
-    var drawPoints: Bool = true
-    var axeColor: UIColor = .systemGray4
+let grayColor = Color.gray.opacity(0.3)
 
-    public func clearView(){
-        self.subviews.forEach({$0.removeFromSuperview()})
-        self.layer.sublayers?.forEach({$0.removeFromSuperlayer()})
-    }
+struct LineChartValue: Hashable {
+    var value: Double
+    var date: Double
+    var color: Color = .accentColor
+}
+
+struct LineChart: View {
+    @Binding var subjects: [UserSubject]
+    @State var heigth: CGFloat = 150
     
-    public func drawChart(_ max: Double, _ markAxes: [Double] = []){
-        self.maxXValue = max
-        self.markAxes = markAxes
-        clearView()
-        self.backgroundColor = .clear
-        
-        if(Util.getAllSubjects().count == 0){
-            let centerPoint =  CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
-            let label = UILabel()
-            label.frame = self.frame
-            label.text = "Keine Daten vorhanden"
-            label.textAlignment = .center
-            label.center = centerPoint
-            label.adjustsFontSizeToFitWidth = true
-            return self.addSubview(label)
-        }
-        drawAxes()
-        
-        if(markAxes.count != 0){
-            for axe in markAxes {
-                let xValue = ((( axe  * 100.0) / maxXValue) *  self.frame.width - 30.0) / 100
-                drawMarkAxes(xValue)
-            }
-        }
-    }
-    
-    public func addDataSet(_ values: [ChartEntry], _ color: UIColor){
-        var points: [CGPoint] = []
-        //create points
-            for value in values  {
-            points.append(createPoint(value.0, value.1))
-            }
-    
-            // draw line between points
-            for i in 0..<points.count{
-                if(i + 1 == points.count) {continue}
-                let point = points[i]
-                let newPoint = points[i + 1]
-                drawLine(point, newPoint, color)
+    var body: some View {
+        ZStack {
+            YAxis()
+            YAxisLines()
+            ZStack {
+                ForEach(values(), id: \.self){v in
+                    if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
                 }
-            
-            // draw points
-        if(self.drawPoints)   {  for point in points{drawPoint(point, color)   }}
+            }
+        }
+        .frame(height: heigth)
+        .padding()
     }
     
-    private func drawLine(_ newPoint: CGPoint, _ oldPoint: CGPoint, _ color: UIColor){
-        let freeform = UIBezierPath()
-        freeform.move(to: CGPoint(x: oldPoint.x + 2, y: oldPoint.y + 2))
-        freeform.addLine(to: CGPoint(x: newPoint.x + 2, y: newPoint.y + 2))
-        freeform.close()
-  
-        let layer =  CAShapeLayer()
-        layer.path = freeform.cgPath
-        layer.strokeColor = color.cgColor
-        layer.lineWidth = self.lineWidth
-        self.layer.addSublayer(layer)
+    func values() -> [[LineChartValue]] {
+        // (minDate, maxDate)
+        let dateRange = getDates();
+        
+        return subjects.map { sub in
+            generateData(dateRange: dateRange, subject: sub)
+        }
     }
     
-    private  func createPoint(_ x: Double,_ y: Double) -> CGPoint{
-        let width = self.frame.width - 25.0
-        let xValue = ((( x  * 100.0) / maxXValue) * width) / 100
+    func getDates() -> (Double, Double) {
+        var maxDate = 0.0
+        var minDate =  0.0
+        
+        let allSubjects = subjects.filter{$0.subjecttests?.count != 0}
+        if(allSubjects.count != 0)  {
+            minDate = Util.calcMinDate().timeIntervalSince1970 / 1000
+            maxDate = Util.calcMaxDate().timeIntervalSince1970 / 1000 - minDate
+        } else {            maxDate = 0.0
+            minDate = 0.0
+        }
+        
+        return (minDate, maxDate)
+    }
+    
+    func generateData(dateRange: (Double, Double), subject: UserSubject) -> [LineChartValue]{
+        if(!subject.showInLineGraph){return []}
+        let color = getSubjectColor(subject, subjects: subjects)
+        
+        let (minDate, maxDate) = dateRange;
+        
+        var arr: [LineChartValue] = []
+        let tests = Util.filterTests(subject, checkinactive : false)
+        for test in tests {
+            let time = ((test.date.timeIntervalSince1970 / 1000)  - minDate)/maxDate
+            arr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
+        }
+        return arr
+    }
+}
 
-        let yValue = (self.frame.height - ((y * 100 / maxYValue)) * self.frame.height / 100) + 2
-       
-        return CGPoint(x: xValue + 17, y: yValue)
+struct LineShape: Shape {
+    @State var values: [LineChartValue]
+    @Binding var frame: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        let valuesSorted = values.sorted(by: {$0.date < $1.date})
+        var path = Path()
+        path.move(to: CGPoint(x: 0.0, y: frame - valuesSorted[0].value * Double(rect.height)))
+        
+        for i in 1..<valuesSorted.count {
+            let y = frame - (valuesSorted[i].value * Double(rect.height))
+            let x = (valuesSorted[i].date * Double(rect.width))
+            let pt = CGPoint(x: x, y: y)
+            
+            path.addLine(to: pt)
+        }
+        return path
     }
+}
+
+var ticks: [LineChartValue] = [LineChartValue(value: 15, date: 1),LineChartValue(value: 10, date: 2/3),LineChartValue(value: 5, date: 1/3),LineChartValue(value: 0, date: 0)]
+
+struct YAxis: View {
     
-    private func drawPoint(_ Point: CGPoint,_ color: UIColor){
-        let path = UIBezierPath(ovalIn: CGRect(x: Point.x, y: Point.y, width: self.pointWidth, height: self.pointWidth))
-        let layer =  CAShapeLayer()
-        layer.path = path.cgPath
-        layer.strokeColor = color.cgColor
-        self.layer.addSublayer(layer)
+    var body: some View {
+        GeometryReader{geo in
+            let fullHeight = geo.size.height
+            
+            ZStack{
+                //y line
+                Rectangle()
+                    .fill(Color.gray)
+                    .frame(width: 1)
+                    .offset(x: -15)
+                //ticks
+                ForEach(ticks, id:\.self.value){tick in
+                    HStack(spacing: 2){
+                        // Spacer()
+                        Text(String(Int(tick.value))).font(.footnote).foregroundColor(Color.gray)
+                        Rectangle().fill(Color.gray).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
+                    }.offset(y: fullHeight/2 - (fullHeight * tick.date)).offset(x: -20)
+                }
+            }
+        }
     }
+}
+
+
+struct YAxisLines: View {
     
-    private func drawAxes(){
-        let yAxis = UIView()
-        yAxis.frame = CGRect(x: 17.0, y: 0.0, width: 1.0, height: self.frame.height)
-        yAxis.backgroundColor = .systemGray4
-        self.addSubview(yAxis)
-   
-        let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-    
-        drawAxe(0.0, "15")
-        drawAxe(((500/15) * zeroLineValue) / 100, "10")
-        drawAxe(((1000/15) * zeroLineValue) / 100, "5")
-        drawAxe((self.frame.height - 5.0), "0")
-    }
-    
-    private func drawMarkAxes(_ value: Double){
-        let Axe = UIView()
-        Axe.frame = CGRect(x: value, y: 0.0, width: 1.0, height: self.frame.height)
-        Axe.backgroundColor = axeColor
-        self.addSubview(Axe)
-    }
-    
-    private  func drawAxe(_ height: Double, _ title: String){
-        let line3 = UIView()
-        line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
-        line3.backgroundColor = axeColor
-        self.addSubview(line3)
-        let label3 = UILabel()
-        label3.frame = CGRect(x: 0.0, y: height , width: 15.0, height: 15.0)
-        label3.text = title
-        label3.adjustsFontSizeToFitWidth = true
-        label3.textColor = axeColor
-        self.addSubview(label3)
-    }
-    
-    public override init(frame: CGRect){
-        super.init(frame: frame)
-    }
-    
-    public required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
+    var body: some View {
+        
+        GeometryReader{geo in
+            let fullHeight = geo.size.height
+            let fullWidth = geo.size.width
+            
+            ZStack{
+                //ticks
+                ForEach(ticks, id:\.self.value){tick in
+                    HStack(spacing: 2){
+                        // Spacer()
+                        Text(String(Int(tick.value))).font(.footnote)
+                        Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)//.offset(x: 15)
+                    }.offset(y: fullHeight - (fullHeight * tick.date) - 17).offset(x: -5)
+                }
+            }
+        }
     }
 }

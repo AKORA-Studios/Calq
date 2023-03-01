@@ -1,0 +1,187 @@
+//
+//  SettingsScreen.swift
+//  Calq
+//
+//  Created by Kiara on 02.02.23.
+//
+
+import SwiftUI
+
+enum alertAction{
+    case importData
+    case deleteData
+    case loadDemo
+    case none
+}
+
+struct SettingsScreen: View {//TODO: kinda fix load demo data
+    @Environment(\.managedObjectContext) var coreDataContext
+    @StateObject var settings: AppSettings = Util.getSettings()!
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
+    
+    @State var editSubjectPresented = false
+    @State var selectedSubjet: UserSubject?
+    
+    @State var weightSheetPresented = false
+    
+    @State var newSubjectSheetPresented = false
+    
+    @State var presentDocumentPicker = false
+    @State var importedJson: String = ""
+    @State var importeJsonURL: URL = URL(fileURLWithPath: "")
+    
+    @State var deleteAlert = false
+    @State var alertActiontype: alertAction = .none
+    
+    var body: some View {
+        NavigationView {
+            List{
+                Section(header: Text("Allgemein")){
+                    SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
+                        if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
+                            UIApplication.shared.open(url)
+                        }
+                    })
+                    
+                    HStack {
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen", completation: {})
+                        Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
+                            reloadAndSave()
+                        }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                    }
+                    
+                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren", completation: {
+                        alertActiontype = .importData
+                        deleteAlert = true
+                    })
+                    
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren", completation: {
+                        let data = JSON.exportJSON()
+                        let url = JSON.writeJSON(data)
+                        showShareSheet(url: url)
+                    })
+                    
+                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern", completation: {
+                        weightSheetPresented = true
+                    })
+                    
+                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden", completation: {
+                        alertActiontype = .loadDemo
+                        deleteAlert = true
+                    })
+                    
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen", completation: {
+                        alertActiontype = .deleteData
+                        deleteAlert = true
+                    })
+                }
+                Section(header: Text("Fächer")){
+                    
+                    ForEach(subjects) { sub in
+                        subjectView(sub)
+                    }
+                    
+                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach", completation: {
+                        newSubjectSheetPresented = true
+                    })
+                }
+                
+                Section(){
+                    Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
+                }
+            }.navigationTitle("Einstellungen")
+                .sheet(isPresented: $presentDocumentPicker) {
+                    DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
+                }
+                .sheet(isPresented: $weightSheetPresented) {
+                    NavigationView {
+                        ChangeWeightScreen()
+                    }
+                }
+                .sheet(isPresented: $newSubjectSheetPresented) {
+                    NavigationView {
+                        NewSubjectScreen().onDisappear(perform: reloadAndSave)
+                    }
+                }
+        }
+        .sheet(isPresented: $editSubjectPresented) {
+            NavigationView {
+                EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
+            }
+        }
+        .alert(isPresented: $deleteAlert) {
+            Alert(title: Text("Sicher?"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                switch alertActiontype {
+                    
+                case .importData:
+                    presentDocumentPicker = true
+                case .deleteData:
+                    deleteData()
+                case .loadDemo:
+                    JSON.loadDemoData()
+                    reloadAndSave()
+                case .none:
+                    break
+                }
+                alertActiontype = .none
+                deleteAlert = false
+            }
+                                                                                                                ))
+        }
+        .onAppear{
+            subjects = Util.getAllSubjects()
+        }
+    }
+    
+    func reloadAndSave(){
+        saveCoreData()
+        subjects = Util.getAllSubjects()
+        settings.colorfulCharts = Util.getSettings()!.colorfulCharts
+    }
+    
+    func deleteData(){
+        _ = Util.deleteSettings()
+        subjects = []
+        reloadAndSave()
+    }
+    
+    @ViewBuilder
+    func subjectView(_ sub: UserSubject) -> SettingsIcon {
+        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
+            editSubjectPresented = true
+            selectedSubjet = sub
+        })
+    }
+}
+
+struct SettingsIcon: View {
+    var color: Color
+    var icon: String
+    var text: String
+    var completation:  () -> Void
+    
+    var body: some View {
+        GeometryReader { geo in
+                HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .fill(color)
+                        .frame(width: 30, height: 30)
+                    Image(systemName: icon)
+                        .foregroundColor(.white)
+                }
+                Text(text)
+            }
+        .frame(width: geo.size.width, height: 30, alignment: .leading)
+        .onTapGesture {
+            completation()
+        }
+        }
+    }
+}
+
+struct SettingsPreview: PreviewProvider {
+    static var previews: some View {
+        SettingsScreen()
+    }
+}

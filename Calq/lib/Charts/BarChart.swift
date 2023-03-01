@@ -1,122 +1,91 @@
 //
 //  BarChartView.swift
-//  TestBarChart
+//  Calq
 //
 //  Created by Kiara on 11.12.21.
 //
 
-import UIKit
+import SwiftUI
 
-class BarChart: UIView {
-    private var values: [UserSubject] = []
+struct BarChart: View {
+    @Binding var values: [BarEntry]
+    @State var heigth: CGFloat = 300
+    @State var average: Double = 0.0
+    @State var round: Bool = false
     
-    private func clearView(){
-        self.subviews.forEach({$0.removeFromSuperview()})
+    var body: some View {
+        GeometryReader{ geo in
+            let fullHeigth = geo.size.height - 15
+            //   let fullWidth = geo.size.width
+            
+            ZStack {
+                //grid
+                //Rectangle().fill(Color.black).frame(height: 2).offset(x: -2,y: (fullHeigth/2)) //x axis
+                //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - heigth - 2) //tick 15
+                //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m10() - 2) //tick 10
+                // Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m5() - 2) //tick 5
+                /*   if(average != 0.0){
+                 Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
+                 }*/
+                // Rectangle().fill(Color.gray).frame(width:1).offset(x: (fullWidth/2) - fullWidth - 2, y: 1) // y axis
+                
+                //bars
+                HStack {
+                    ForEach(values, id:\.self){ val in
+                        VStack(spacing: 0){
+                            ZStack(alignment: .bottom){
+                                Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
+                                Rectangle().frame( height: (fullHeigth * val.value / 15.0)).foregroundColor(val.color).topCorner()
+                                Text(getDescription(val.value))
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.black)
+                            }
+                            Text(val.text.prefix(3).uppercased()).font(.system(size: 9)).frame(height: 15)
+                        }
+                    }
+                    if(values.isEmpty){
+                        Spacer()
+                        Text("Keine Daten vorhanden :c")
+                        Spacer()
+                    }
+                }
+            }
+        }.frame(height: heigth)
     }
     
-    public func drawChart(_ values: [UserSubject], _ average: Double){
-        self.values = values
-        clearView()
-        self.backgroundColor = .clear
-        
-        if(self.values.count == 0){
-            let centerPoint =  CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
-            let label = UILabel()
-            label.frame = self.frame
-            label.text = "Keine Daten vorhanden"
-            label.textAlignment = .center
-            label.center = centerPoint
-            label.adjustsFontSizeToFitWidth = true
-            return self.addSubview(label)
-        }
-        drawAxes()
-        
-        let width = (self.frame.width - 20.0) / Double(values.count)
-        var num = 20.0
-        let spacer = Double(( 20 * width ) / 100)
-        let barwidth = width - spacer
-        
-        //draw averageline
-        let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-        drawAxe((((15.0 - average) * 100/15)*zeroLineValue)/100, "⌀",.averageColor)
-        
-        //create bars
-        for i in 0..<self.values.count  {
-            let subject = values[i]
-            let value = Util.getSubjectAverage(subject)
-            let color =  Util.getSettings()!.colorfulCharts ? Util.getPastelColorByIndex(i): UIColor.init(hexString: subject.color!)
-            let yPosition = self.frame.maxY - self.frame.origin.y
-            
-            let text = UILabel()
-            let view = UIView()
-            view.backgroundColor = color
-            
-            let frameHeight = self.frame.height
-            let barHeight = ((Double(value * 100 ) / 15) * self.frame.height) / 100 - 5
-            let textheight = (Double((1 * 100 ) / 15) * self.frame.height) / 100
-         
-            view.frame = CGRect(x: num, y: yPosition, width: barwidth, height: (frameHeight-(frameHeight + barHeight)) )
-            view.layer.cornerRadius = 5.0
-            view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-            
-        
-            text.frame = CGRect(x: num + 1.0, y: yPosition, width: barwidth - 2.0, height: -textheight)
-            text.text = String(format: "%.0f", round(value))
-       
-            text.textAlignment = .center
-            text.adjustsFontSizeToFitWidth = true
-            text.textColor = .black
-            
-            //Bar description
-            let labelheight = 1.5 * Double(textheight)
-            let barlabel = UILabel()
-            barlabel.frame = CGRect(x: num, y: yPosition, width: barwidth, height: labelheight)
-            barlabel.text = String(subject.name!.prefix(3)).uppercased()
-            barlabel.adjustsFontSizeToFitWidth = true
-            barlabel.textAlignment = .center
-            
-            //draw everything
-            self.addSubview(view)
-            self.addSubview(text)
-            self.addSubview(barlabel)
-            
-            num += barwidth + spacer
-        }
+    func getDescription(_ value: Double) -> String{
+        return String(format: (round ? "%.0f" : "%.2f"), value)
     }
     
-    private func drawAxes(){
-        //Y-Axis
-        let yAxis = UIView()
-        yAxis.frame = CGRect(x: 17.0, y: 0.0, width: 1.0, height: self.frame.height)
-        yAxis.backgroundColor = .systemGray4
-        self.addSubview(yAxis)
-        
-        let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
-        
-        drawAxe(0, "15")
-        drawAxe(((500/15)*zeroLineValue)/100, "10")
-        drawAxe(((1000/15)*zeroLineValue)/100, "5")
+    func m10()-> CGFloat{
+        return CGFloat(heigth * 2/3)
     }
     
-    func drawAxe(_ height: Double, _ title: String, _ color: UIColor = .systemGray4){
-            let line3 = UIView()
-            line3.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
-            line3.backgroundColor = color
-            self.addSubview(line3)
-     
-        let label3 = UILabel()
-        label3.frame = CGRect(x: 0.0, y: height , width: 15.0, height: 15.0)
-        label3.text = title
-        label3.adjustsFontSizeToFitWidth = true
-        label3.textColor = color
-        self.addSubview(label3)
+    func m5()-> CGFloat{
+        return CGFloat(heigth * 1/3)
     }
     
-    public override init(frame: CGRect){
-        super.init(frame: frame)
+    func av()->CGFloat{
+        return CGFloat(heigth * (average / 15.0))
+    }
+}
+
+
+struct BarEntry: Hashable{
+    var color: Color = .accentColor
+    var value: Double = 0.5
+    var text: String = ""
+}
+
+func createSubjectBarData() -> [BarEntry] {
+    var arr: [BarEntry] = []
+    let subjects = Util.getAllSubjects()
+    
+    for sub in subjects{
+        let color = getSubjectColor(sub)
+        arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
     }
     
-    public required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
-    }
+    return arr
 }

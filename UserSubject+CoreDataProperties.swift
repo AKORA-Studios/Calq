@@ -2,7 +2,7 @@
 //  UserSubject+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Akora on 15.02.22.
+//  Created by Kiara on 01.03.23.
 //
 //
 
@@ -16,14 +16,15 @@ extension UserSubject {
         return NSFetchRequest<UserSubject>(entityName: "UserSubject")
     }
 
-    @NSManaged public var color: String?
+    @NSManaged public var color: String
     @NSManaged public var exampoints: Int16
     @NSManaged public var examtype: Int16
-    @NSManaged public var inactiveYears: String?
+    @NSManaged public var inactiveYears: String
     @NSManaged public var lk: Bool
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
+    @NSManaged public var showInLineGraph: Bool
     @NSManaged public var subjecttests: NSSet?
-    @NSManaged public var subjecttosettings: AppSettings?
+    @NSManaged public var subjecttosettings: AppSettings
 
 }
 

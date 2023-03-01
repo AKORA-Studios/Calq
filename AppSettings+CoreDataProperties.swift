@@ -2,7 +2,7 @@
 //  AppSettings+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Akora on 15.02.22.
+//  Created by Kiara on 01.03.23.
 //
 //
 
@@ -17,8 +17,7 @@ extension AppSettings {
     }
 
     @NSManaged public var colorfulCharts: Bool
-    @NSManaged public var goalGrade: Int16
-    @NSManaged public var weightBigGrades: String?
+    @NSManaged public var weightBigGrades: String
     @NSManaged public var usersubjects: NSSet?
 
 }

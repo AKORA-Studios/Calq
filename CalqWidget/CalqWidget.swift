@@ -26,11 +26,9 @@ private struct SimpleEntry: TimelineEntry {
 }
 
 private struct CalqWidgetEntryView: View {
-    var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-        
         switch family {
         case .systemSmall: ZStack { return AverageView()}
         case .systemMedium: ZStack { return OverviewView()}
@@ -46,9 +44,8 @@ struct CalqWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CalqWidgetEntryView(entry: entry)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-              //  .background(Color(UITraitCollection.current.userInterfaceStyle == .light ? UIColor.white : UIColor.systemGray5))
+            CalqWidgetEntryView()
+                //.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .configurationDisplayName("Durchschnitt Widget")
         .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
@@ -65,8 +62,7 @@ struct BarChartWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CalqWidgetEntryView(entry: entry)
-           //     .background(Color(UITraitCollection.current.userInterfaceStyle == .light ? UIColor.white : UIColor.systemGray5))
+            CalqWidgetEntryView()
         }
         .configurationDisplayName("BarChart Widget")
         .description("Aktueller Durchschnitt aller Fächer")
@@ -82,5 +78,16 @@ struct CalqWidgetBundle: WidgetBundle {
     var body: some Widget{
         CalqWidget()
         BarChartWidget()
+    }
+}
+
+
+struct widgets_Previews: PreviewProvider {
+    static var previews: some View {
+        CalqWidgetEntryView()
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        
+        CalqWidgetEntryView()
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
