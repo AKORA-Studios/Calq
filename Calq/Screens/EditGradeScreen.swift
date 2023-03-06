@@ -27,7 +27,7 @@ struct EditGradeScreen: View {
                     Text("Notenname")
                     TextField("Notenname", text: $testName)
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             
             ZStack{
@@ -38,7 +38,7 @@ struct EditGradeScreen: View {
                         Text("Klausur").tag(1)
                     }.pickerStyle(.segmented).colorMultiply(color)
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             
             ZStack{
@@ -55,7 +55,7 @@ struct EditGradeScreen: View {
                         DatePicker("Datum", selection: $testDate, displayedComponents: [.date])
                     }
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             
             ZStack{
@@ -69,7 +69,7 @@ struct EditGradeScreen: View {
                         .accentColor(Color.accentColor)
                     }
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             
             Button("Änderungen speichern") {

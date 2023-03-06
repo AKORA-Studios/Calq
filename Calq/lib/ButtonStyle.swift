@@ -29,3 +29,10 @@ struct DestructiveStyle: ButtonStyle {
             .cornerRadius(8)
     }
 }
+
+
+struct CardView: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+    }
+}

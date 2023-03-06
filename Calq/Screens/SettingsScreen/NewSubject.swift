@@ -24,7 +24,7 @@ struct NewSubjectScreen: View {
                     Text("Kursname")
                     TextField("Name", text: $subjectName)
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             ZStack{
                 VStack(alignment: .leading){
@@ -35,7 +35,7 @@ struct NewSubjectScreen: View {
                     }.pickerStyle(.segmented)
                         .colorMultiply(selectedColor)
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
             ZStack{
                 VStack(alignment: .leading){
@@ -50,12 +50,9 @@ struct NewSubjectScreen: View {
                         ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false)
                     }
                 }.padding()
-            }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+            }.background(CardView())
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                Text("Speichern").foregroundColor(.white)
-            }  .onTapGesture {//TODO: chekc name on edit
+            Button("Speichern") {
                 if(subjectName.isEmpty){
                     alertMessage = "Name darf nicht leer sein"
                     nameAlert = true
@@ -65,7 +62,8 @@ struct NewSubjectScreen: View {
                 }else {
                     addSubject()
                 }
-            }
+            }.buttonStyle(PrimaryStyle())
+            
         }.navigationTitle("Neues Fach")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .alert(isPresented: $nameAlert) {

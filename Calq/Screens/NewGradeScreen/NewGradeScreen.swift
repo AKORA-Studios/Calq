@@ -63,7 +63,7 @@ struct NewGradeView: View {
                             Text("Notenname")
                             TextField("Notenname", text: $gradeName)
                         }.padding()
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
@@ -73,7 +73,7 @@ struct NewGradeView: View {
                                 Text("Klausur").tag(2)
                             }.pickerStyle(.segmented)
                         }.padding()
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
@@ -89,7 +89,7 @@ struct NewGradeView: View {
                                 DatePicker("Datum", selection: $date, displayedComponents: [.date])
                             }
                         }.padding()
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
@@ -103,7 +103,7 @@ struct NewGradeView: View {
                             }
                             ImpactSegment(subject: $subject, gradeType: $bigGrade, year: $year).frame(height: 35)
                         }.padding()
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    }.background(CardView())
                     
                     
                     Button("Note hinzufügen") {

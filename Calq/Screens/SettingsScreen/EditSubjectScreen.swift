@@ -42,7 +42,7 @@ struct EditSubjectScreen: View {
                             }
                         }
                     }.padding()
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                }.background(CardView())
                 
                 ZStack{
                     VStack(alignment: .leading){
@@ -57,7 +57,7 @@ struct EditSubjectScreen: View {
                                 saveCoreData()
                             }
                     }.padding()
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                }.background(CardView())
                 
                 ZStack{
                     VStack(alignment: .leading){
@@ -75,7 +75,7 @@ struct EditSubjectScreen: View {
                             }
                         }
                     }.padding()
-                }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                }.background(CardView())
                 
                 Spacer().frame(height: 20)
                 

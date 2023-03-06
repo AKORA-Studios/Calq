@@ -69,14 +69,15 @@ struct SubjectDetailScreen: View {
                                 saveCoreData()
                                 halfyearActive.toggle()
                             }
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
+                    }.background(CardView())
                         .padding(.horizontal)
                     
                     //average chart
                     VStack(alignment: .leading, spacing: 5){
                         Text("Durchschnitt des Halbjahres").padding()
                         CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 120)
-                    }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
+                    }.background(CardView())
+                        .padding()
                     
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
                         Text("Notenliste ansehen").foregroundColor(.white)
