@@ -21,7 +21,7 @@ struct TabbarView: View {
             NewGradeScreen()
                 .tabItem{Image(systemName: "plus.app.fill")}
             
-            ExamScreen()
+            ExamScreen(vm: ExamViewModel())
                 .tabItem{ Image(systemName: "text.book.closed.fill")}
             
             SettingsScreen()

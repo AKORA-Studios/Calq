@@ -7,6 +7,17 @@
 
 import Foundation
 
+class ExamViewModel: ObservableObject {
+    @Published var subjects: [UserSubject] = []
+    @Published var options: [UserSubject] = []
+    
+    func updateViews(){
+        self.objectWillChange.send()
+        subjects = Util.getAllSubjects()
+        options = subjects.filter{$0.examtype == 0}
+    }
+}
+
 //MARK: Exam Managment
 func getExam(_ type: Int)-> UserSubject? {
     let subjects = Util.getAllSubjects()

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ExamScreen: View {
-    @State var subjects: [UserSubject] = Util.getAllSubjects()
-    @State var options: [UserSubject] = []
-    
+    @ObservedObject var vm: ExamViewModel
     @State var updateBlock2 = true
     
     var body: some View {
@@ -22,20 +20,15 @@ struct ExamScreen: View {
                     RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     VStack{
                         ForEach(1...5, id: \.self){ i in
-                            ExamView(subjects: $subjects, subject: getExam(i), type: i, options: $options, updateblock2: $updateBlock2)
+                            ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
                         }
                     }
                 }
                 Spacer()
             }.onAppear{
+                vm.updateViews()
                 //resetExams() //if broken to debug ig
-                subjects = Util.getAllSubjects()
-                options = subjects.filter{$0.examtype == 0}
             }
-            .onChange(of: subjects, perform: { _ in
-                subjects = Util.getAllSubjects()
-                options = subjects.filter{$0.examtype == 0}
-            })
             .padding()
             .navigationTitle("Prüfungsübersicht")
         }
