@@ -15,6 +15,7 @@ struct PrimaryStyle: ButtonStyle {
             .padding()
             .background(Color.accentColor)
             .cornerRadius(8)
+            .foregroundColor(.white)
     }
 }
 
@@ -25,8 +26,9 @@ struct DestructiveStyle: ButtonStyle {
             .frame(height: 15)
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color.red)
+            .background(Color.red.opacity(0.5))
             .cornerRadius(8)
+            .foregroundColor(.red)
     }
 }
 

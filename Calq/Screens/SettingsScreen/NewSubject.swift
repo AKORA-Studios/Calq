@@ -42,11 +42,7 @@ struct NewSubjectScreen: View {
                     Text("Kursfarbe")
                     
                     HStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 8).fill(selectedColor).frame(width: 30, height: 30)
-                            Image(systemName: "paintpalette")
-                        }
-                        
+                        Image(systemName: "paintpalette")
                         ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false)
                     }
                 }.padding()

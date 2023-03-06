@@ -25,36 +25,36 @@ struct SubjectDetailScreen: View {
             let color = getSubjectColor(subject!)
             ScrollView(showsIndicators: false){
                 VStack{
+                    
                     Spacer()
-                    ZStack{
-                        VStack(alignment: .leading, spacing: 5){
-                            Text("Verlauf")
-                            OneEntryLineChart(subject: subject!, heigth: 80).frame(height: 80)
-                        }.padding()
-                        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
-                    }.padding(.horizontal)
+                    
+                    VStack(alignment: .leading, spacing: 5){
+                        Text("Verlauf")
+                        OneEntryLineChart(subject: subject!, heigth: 80)
+                    }
+                    .padding(.horizontal)
+                    .background(CardView())
+                    .padding(.horizontal)
                     
                     VStack{
-                        //Year picker
-                        ZStack{
-                            VStack(alignment: .leading){
-                                HStack{
-                                    Text("Halbjahr")
-                                    Spacer()
-                                    Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
+                        VStack(alignment: .leading){
+                            HStack{
+                                Text("Halbjahr")
+                                Spacer()
+                                Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
+                            }
+                            Picker("", selection: $selectedYear) {
+                                Text("1").tag(1)
+                                Text("2").tag(2)
+                                Text("3").tag(3)
+                                Text("4").tag(4)
+                            }.pickerStyle(.segmented)
+                                .colorMultiply(color)
+                                .onChange(of: selectedYear) { newValue in
+                                    update()
                                 }
-                                Picker("", selection: $selectedYear) {
-                                    Text("1").tag(1)
-                                    Text("2").tag(2)
-                                    Text("3").tag(3)
-                                    Text("4").tag(4)
-                                }.pickerStyle(.segmented)
-                                    .colorMultiply(color)
-                                    .onChange(of: selectedYear) { newValue in
-                                        update()
-                                    }
-                            }.padding()
-                        }
+                        }.padding()
+                        
                         ZStack{
                             let backroundColor = halfyearActive ? .red : color
                             RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)

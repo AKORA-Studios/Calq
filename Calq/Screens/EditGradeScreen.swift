@@ -77,7 +77,7 @@ struct EditGradeScreen: View {
             }.buttonStyle(PrimaryStyle())
                 .padding(.top, 20)
             
-            Button("Note Note") {
+            Button("Note löschen") {
                 deleteAlert = true
             }.buttonStyle(DestructiveStyle())
             

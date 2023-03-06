@@ -16,8 +16,6 @@ struct ChangeWeightScreen: View {
         VStack{
             Text("Wähle die Wertung der Noten in % aus")
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)).frame(height: 70)
                 HStack{
                     VStack{
                         Text("Klausur")
@@ -34,16 +32,14 @@ struct ChangeWeightScreen: View {
                         stepperValue -= stepperValue == 0 ? 0 : 10
                     }
                 }.padding()
-            }
-            
+                    .background(CardView())
+                
             Spacer()
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                Text("Speichern").foregroundColor(.white)
-            }.onTapGesture {
+            Button("Speichern") {
                 saveChanges()
-            }
+            }.buttonStyle(PrimaryStyle())
+            
         }.padding()
             .navigationTitle("Wertung ändern")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}

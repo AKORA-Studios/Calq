@@ -64,10 +64,7 @@ struct EditSubjectScreen: View {
                         Text("Kursfarbe")
                         
                         HStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 8).fill(selectedColor).frame(width: 30, height: 30)
-                                Image(systemName: "paintpalette")
-                            }
+                            Image(systemName: "paintpalette")
                             
                             ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
                                 subject!.color = UIColor(selectedColor).toHexString()
@@ -80,19 +77,13 @@ struct EditSubjectScreen: View {
                 Spacer().frame(height: 20)
                 
                 NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
                         Text("Noten bearbeiten").foregroundColor(.white)
-                    }
-                }
+                }.buttonStyle(PrimaryStyle())
                 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
-                    Text("Fach löschen").foregroundColor(.white)
-                }.onTapGesture {
+                Button("Fach löschen") {
                     alertType = .delete
                     deleteAlert = true
-                }
+                }.buttonStyle(DestructiveStyle())
                 
             }.alert(isPresented: $deleteAlert) {
                 switch alertType {

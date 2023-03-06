@@ -19,13 +19,11 @@ struct FirstLaunchScreen: View {
             
             Spacer()
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                Text("Oki")
-            }.onTapGesture {
+            
+            Button("Oki") {
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
                 firstLaunch = false
-            }
+            }.buttonStyle(PrimaryStyle())
             
             Spacer()
             Text("Version: \(appVersion ?? "?.?.?")").font(.footnote)

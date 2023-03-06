@@ -16,8 +16,7 @@ struct BlockView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
+            VStack{
                 HStack(alignment: .center){
                     VStack(alignment: .leading){
                         Text("Block 1").fontWeight(.bold)
@@ -31,7 +30,8 @@ struct BlockView: View {
                         Text("\(points2) von 300").foregroundColor(.accentColor).fontWeight(.light)
                     }.frame(width: geo.size.width * 1/3 - 20)
                 }.padding(10)
-            }.frame(height: 50)
+            }.background(CardView())
+            .frame(height: 50)
                 .onChange(of: updateblock2) { _ in
                     points2 = generateBlockTwo()
                 }

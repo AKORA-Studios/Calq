@@ -16,14 +16,11 @@ struct ExamScreen: View {
             VStack(alignment: .leading){
                 BlockView(updateblock2: $updateBlock2)//.frame(height: 70)
                 Text("Prüfungsfächer").font(.headline)
-                ZStack{
-                    RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
                     VStack{
                         ForEach(1...5, id: \.self){ i in
                             ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
                         }
-                    }
-                }
+                    }.background(CardView())
                 Spacer()
             }.onAppear{
                 vm.updateViews()
@@ -76,7 +73,7 @@ struct ExamView: View {
                             }
                         }
                     }
-                }label: {
+                }label: {//TODO: button qwq
                     RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
                 
