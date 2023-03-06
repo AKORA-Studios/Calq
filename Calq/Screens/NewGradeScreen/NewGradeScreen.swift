@@ -105,14 +105,12 @@ struct NewGradeView: View {
                         }.padding()
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
                     
-                    Spacer()
                     
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                        Text("Note hinzufügen")
-                    }.onTapGesture {
+                    Button("Note hinzufügen") {
                         saveGrade()
-                    }
+                    }.buttonStyle(PrimaryStyle())
+                        .padding(.top, 20)
+                    
                 }.navigationTitle("Neue Note")
                     .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                     .padding()

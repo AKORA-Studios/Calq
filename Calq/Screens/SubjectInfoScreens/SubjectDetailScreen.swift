@@ -79,11 +79,9 @@ struct SubjectDetailScreen: View {
                     }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))).padding()
                     
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                            Text("Notenliste ansehen").foregroundColor(.white)
-                        }
+                        Text("Notenliste ansehen").foregroundColor(.white)
                     }.padding(.horizontal)
+                        .buttonStyle(PrimaryStyle())
                 }
                 .navigationTitle(subject!.name)
                 .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}

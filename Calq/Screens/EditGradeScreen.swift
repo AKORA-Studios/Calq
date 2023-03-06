@@ -71,19 +71,16 @@ struct EditGradeScreen: View {
                 }.padding()
             }.background(RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2)))
             
-            Spacer()
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.accentColor).frame(height: 40)
-                Text("Änderungen speichern")
-            }.onTapGesture {saveGrade()}
+            Button("Änderungen speichern") {
+                saveGrade()
+            }.buttonStyle(PrimaryStyle())
+                .padding(.top, 20)
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 8).fill(Color.red).frame(height: 40)
-                Text("Note löschen")
-            }.onTapGesture {
+            Button("Note Note") {
                 deleteAlert = true
-            }
+            }.buttonStyle(DestructiveStyle())
+            
         }.padding()
             .navigationTitle("Note bearbeiten")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
