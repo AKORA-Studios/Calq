@@ -38,36 +38,6 @@ struct JSON {
                 settings.addToUsersubjects(sub)
             }
         }
-        saveCoreData()
-    }
-    
-    // MARK: Load Default Data
-    /// Loads the default data (3 subjects without grades)
-    static func loadDefaultData() {
-        var settings: AppSettings
-        do {
-            let items = try context.fetch(AppSettings.fetchRequest())
-            settings = items[0]
-            
-            struct sub{
-                var name: String
-                var color: String
-                var lk: Bool
-            }
-            let data = [sub(name: "Deutsch", color: "#db1c1c", lk: true),
-                        sub(name: "Mathe", color: "#1c6fdb", lk: false),
-                        sub(name: "Bio", color: "#78db1c", lk: true)
-            ]
-            for subject in data {
-                let sub = UserSubject(context: context)
-                sub.name = subject.name
-                sub.color = subject.color
-                sub.lk = subject.lk
-                
-                settings.addToUsersubjects(sub)
-            }
-        } catch {}
-        saveCoreData()
     }
     
     // MARK: Load Json data
@@ -178,8 +148,6 @@ struct JSON {
             set.addToUsersubjects(sub)
             //  }
         }
-        
-        saveCoreData()
         //   }
     }
 }
