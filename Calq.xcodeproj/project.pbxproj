@@ -16,7 +16,6 @@
 		DD4F97A827515CC600D3CC57 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD687945261C530000BF2B48 /* Util.swift */; };
 		DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
 		DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
-		DD4F97B2275165F900D3CC57 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97B1275165F900D3CC57 /* Views.swift */; };
 		DD60BA552715B69A00048FA4 /* grades.json in Resources */ = {isa = PBXBuildFile; fileRef = DD60BA542715B69A00048FA4 /* grades.json */; };
 		DD6878902617B1AB00BF2B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD68788F2617B1AB00BF2B48 /* Assets.xcassets */; };
 		DD6878932617B1AB00BF2B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6878912617B1AB00BF2B48 /* LaunchScreen.storyboard */; };
@@ -65,6 +64,7 @@
 		F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2732329B5F53900E841F4 /* ButtonStyle.swift */; };
 		F1C04B5029BA363A00DAC128 /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
+		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
@@ -117,7 +117,6 @@
 		DD4F979927515CA800D3CC57 /* CalqWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalqWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F979D27515CA800D3CC57 /* CalqWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqWidget.swift; sourceTree = "<group>"; };
 		DD4F97A127515CAC00D3CC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD4F97B1275165F900D3CC57 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		DD4F97B327524F5200D3CC57 /* CalqWidgetExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqWidgetExtensionDebug.entitlements; sourceTree = "<group>"; };
 		DD4F97B427524F7000D3CC57 /* CalqDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalqDebug.entitlements; sourceTree = "<group>"; };
 		DD60BA542715B69A00048FA4 /* grades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grades.json; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeightScreen.swift; sourceTree = "<group>"; };
 		F1B2732329B5F53900E841F4 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
+		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
 		F1E8BFE229900C5500486A6D /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,8 +218,8 @@
 			children = (
 				DD4F979D27515CA800D3CC57 /* CalqWidget.swift */,
 				DD4F97A127515CAC00D3CC57 /* Info.plist */,
-				DD4F97B1275165F900D3CC57 /* Views.swift */,
 				F1C04B5129BA376800DAC128 /* MediumBarChart.swift */,
+				F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */,
 			);
 			path = CalqWidget;
 			sourceTree = "<group>";
@@ -530,7 +530,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4F97B2275165F900D3CC57 /* Views.swift in Sources */,
 				F19B10A129AF726600B11C82 /* UserTest+CoreDataClass.swift in Sources */,
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F19B109D29AF726600B11C82 /* AppSettings+CoreDataClass.swift in Sources */,
@@ -542,6 +541,7 @@
 				F19B109B29AF726600B11C82 /* UserSubject+CoreDataProperties.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
 				F19B10A329AF726600B11C82 /* UserTest+CoreDataProperties.swift in Sources */,
+				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
 				F19B109929AF726600B11C82 /* UserSubject+CoreDataClass.swift in Sources */,
 				F1C04B5029BA363A00DAC128 /* JSONUtil.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,

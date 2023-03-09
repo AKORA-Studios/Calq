@@ -1,6 +1,11 @@
-import Foundation
+//
+//  SmallCircleChart.swift
+//  CalqWidgetExtension
+//
+//  Created by Kiara on 09.03.23.
+//
+
 import SwiftUI
-import CoreData
 
 struct AverageView: View {
     var body: some View {
@@ -8,8 +13,6 @@ struct AverageView: View {
             .progressViewStyle(CustomCircularProgressViewStyle())
     }
 }
-
-
 
 struct CustomCircularProgressViewStyle: ProgressViewStyle {
     let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))

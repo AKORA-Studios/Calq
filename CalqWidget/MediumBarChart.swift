@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct BarChartWidgetView: View {
-    @State var subjects: [UserSubject] = previewSubejcts
-    var testData = [12,9,3,8]
+    @State var subjects: [UserSubject] = Util.getAllSubjects()
     var settings = Util.getSettings()
     
     var body: some View {

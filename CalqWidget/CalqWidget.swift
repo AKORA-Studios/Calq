@@ -6,23 +6,22 @@ let previewSubejcts = JSON.createWidgetPreviewData()
 
 private struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData())
+        SimpleEntry(date: Date())
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData())
+        let entry = SimpleEntry(date: Date())
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        let timeline = Timeline(entries: [SimpleEntry(date: Date(), subjects: Util.getAllSubjects())], policy: .atEnd)
+        let timeline = Timeline(entries: [SimpleEntry(date: Date())], policy: .atEnd)
         completion(timeline)
     }
 }
 
 private struct SimpleEntry: TimelineEntry {
     let date: Date
-    let subjects: [UserSubject]
 }
 
 private struct CalqWidgetEntryView: View {
@@ -32,7 +31,7 @@ private struct CalqWidgetEntryView: View {
     var body: some View {
         switch family {
         case .systemSmall: AverageView()
-        case .systemMedium: BarChartWidgetView(subjects: entry.subjects)
+        case .systemMedium: BarChartWidgetView()
         default: AverageView()
         }
     }
@@ -40,7 +39,7 @@ private struct CalqWidgetEntryView: View {
 
 struct CalqWidget: Widget {
     let kind: String = "AverageWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
@@ -48,8 +47,6 @@ struct CalqWidget: Widget {
         .configurationDisplayName("Kreisdiagramm")
         .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
         .supportedFamilies([.systemSmall])
-        
-        
     }
 }
 
@@ -79,14 +76,14 @@ struct CalqWidgetBundle: WidgetBundle {
     }
 }
 
-
+//MARK: Preview
 struct widgets_Previews: PreviewProvider {
     static var previews: some View {
-        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData()))
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("BarChart")
         
-        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), subjects: previewSubejcts))
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("CircleChart")
     }
