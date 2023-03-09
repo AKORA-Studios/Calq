@@ -1,4 +1,10 @@
-import CoreData
+//
+//  CalqWidget.swift
+//  CalqWidgetExtension
+//
+//  Created by Kiara on 09.03.23.
+//
+
 import SwiftUI
 import WidgetKit
 
@@ -30,9 +36,9 @@ private struct CalqWidgetEntryView: View {
     
     var body: some View {
         switch family {
-        case .systemSmall: AverageView()
+        case .systemSmall: CircleChartWidgetView()
         case .systemMedium: BarChartWidgetView()
-        default: AverageView()
+        default: CircleChartWidgetView()
         }
     }
 }
@@ -66,7 +72,7 @@ struct CalqWidget: Widget {
     }
 }
 
-struct lineWidget: Widget {
+struct LineChartWidget: Widget {
     let kind: String = "LineChartWidget"
     
     var body: some WidgetConfiguration {
@@ -101,7 +107,7 @@ struct CalqWidgetBundle: WidgetBundle {
     var body: some Widget{
         CalqWidget()
         BarChartWidget()
-        lineWidget()
+        LineChartWidget()
     }
 }
 

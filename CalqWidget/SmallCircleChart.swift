@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AverageView: View {
+struct CircleChartWidgetView: View {
     var body: some View {
         ProgressView("Loading...", value: Util.generalAverage(), total: 15)
             .progressViewStyle(CustomCircularProgressViewStyle())
