@@ -2,52 +2,50 @@ import CoreData
 import SwiftUI
 import WidgetKit
 
+let previewSubejcts = JSON.createWidgetPreviewData()
+
 private struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData())
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        let midnight = Calendar.current.startOfDay(for: Date())
-        let nextMidnight = Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
-        let entries = [SimpleEntry(date: midnight)]
-        let timeline = Timeline(entries: entries, policy: .after(nextMidnight))
+        let timeline = Timeline(entries: [SimpleEntry(date: Date(), subjects: Util.getAllSubjects())], policy: .atEnd)
         completion(timeline)
     }
 }
 
 private struct SimpleEntry: TimelineEntry {
     let date: Date
+    let subjects: [UserSubject]
 }
 
 private struct CalqWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
+    var entry: SimpleEntry
     
     var body: some View {
         switch family {
-        case .systemSmall: ZStack { return AverageView()}
-        case .systemMedium: ZStack { return OverviewView()}
-        default: ZStack { return AverageView()}
+        case .systemSmall: AverageView()
+        case .systemMedium: BarChartWidgetView(subjects: entry.subjects)
+        default: AverageView()
         }
     }
 }
-
-
 
 struct CalqWidget: Widget {
     let kind: String = "AverageWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CalqWidgetEntryView()
-                //.frame(maxWidth: .infinity, maxHeight: .infinity)
+            CalqWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Durchschnitt Widget")
+        .configurationDisplayName("Kreisdiagramm")
         .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
         .supportedFamilies([.systemSmall])
         
@@ -62,9 +60,9 @@ struct BarChartWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CalqWidgetEntryView()
+            CalqWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("BarChart Widget")
+        .configurationDisplayName("Balkendiagramm")
         .description("Aktueller Durchschnitt aller Fächer")
         .supportedFamilies([.systemMedium])
     }
@@ -84,10 +82,12 @@ struct CalqWidgetBundle: WidgetBundle {
 
 struct widgets_Previews: PreviewProvider {
     static var previews: some View {
-        CalqWidgetEntryView()
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), subjects: JSON.createWidgetPreviewData()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("BarChart")
         
-        CalqWidgetEntryView()
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), subjects: previewSubejcts))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDisplayName("CircleChart")
     }
 }
