@@ -16,7 +16,7 @@ struct BarChartWidgetView: View {
             let fullHeigth = geo.size.height - 30
             VStack(alignment: .center) {
                 if subjects.isEmpty {
-                    emptyView(width: geo.size.width - 20)
+                    EmptyMediumView()
                 } else {
                     HStack{
                         ForEach(subjects, id: \.self) { subj in
@@ -41,15 +41,19 @@ struct BarChartWidgetView: View {
             }.padding(10)
         }
     }
-    
-    @ViewBuilder
-    func emptyView(width: CGFloat) -> some View {
-        Spacer()
-        HStack{
-            Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
-            Text("Du hast noch keine Noten hinzugefügt qwq").multilineTextAlignment(.center)
-            Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
-        }.frame(width: width)
-        Spacer()
+}
+
+struct EmptyMediumView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack{
+                Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
+                Text("Du hast noch keine Noten hinzugefügt qwq").multilineTextAlignment(.center)
+                Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
+            }
+            Spacer()
+        }
+        .padding()
     }
 }

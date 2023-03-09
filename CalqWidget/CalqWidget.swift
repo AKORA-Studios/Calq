@@ -37,6 +37,22 @@ private struct CalqWidgetEntryView: View {
     }
 }
 
+private struct CalqWidgetEntryView2: View {
+    var entry: SimpleEntry
+    let subjects = Util.getAllSubjects()
+    
+    var body: some View {
+        GeometryReader{geo in
+            if(subjects.isEmpty){
+                EmptyMediumView()
+            } else {
+                LineChart(subjects: Binding.constant(subjects), heigth: geo.size.height - 50)
+                    .padding()
+            }
+        }
+    }
+}
+
 struct CalqWidget: Widget {
     let kind: String = "AverageWidget"
     
@@ -50,6 +66,18 @@ struct CalqWidget: Widget {
     }
 }
 
+struct lineWidget: Widget {
+    let kind: String = "LineChartWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            CalqWidgetEntryView2(entry: entry)
+        }
+        .configurationDisplayName("Liniendiagramm")
+        .description("Notenverlauf aller Fächer")
+        .supportedFamilies([.systemMedium])
+    }
+}
 
 //MARK: Medium BarChart Widget
 struct BarChartWidget: Widget {
@@ -73,6 +101,7 @@ struct CalqWidgetBundle: WidgetBundle {
     var body: some Widget{
         CalqWidget()
         BarChartWidget()
+        lineWidget()
     }
 }
 
@@ -86,5 +115,9 @@ struct widgets_Previews: PreviewProvider {
         CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("CircleChart")
+        
+        CalqWidgetEntryView2(entry: SimpleEntry(date: Date()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("LineChart")
     }
 }

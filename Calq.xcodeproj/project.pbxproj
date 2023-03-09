@@ -65,6 +65,7 @@
 		F1C04B5029BA363A00DAC128 /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
+		F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
@@ -532,6 +533,7 @@
 			files = (
 				F19B10A129AF726600B11C82 /* UserTest+CoreDataClass.swift in Sources */,
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
+				F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */,
 				F19B109D29AF726600B11C82 /* AppSettings+CoreDataClass.swift in Sources */,
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				F19B109F29AF726600B11C82 /* AppSettings+CoreDataProperties.swift in Sources */,
