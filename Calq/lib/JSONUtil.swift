@@ -41,7 +41,7 @@ struct JSON {
     }
     
     // MARK: Load Json data
-    private static func loadJSON() ->[SubjectStruct]{
+    static func loadJSON() ->[SubjectStruct]{
         var values: [SubjectStruct] = [ ]
         do {
             if let file = Bundle.main.path(forResource: "grades", ofType: "json"){
@@ -150,6 +150,33 @@ struct JSON {
         }
         //   }
     }
+    
+    static func createWidgetPreviewData() -> [UserSubject]{
+        var exmapleSubjects: [UserSubject] = []
+        let data = loadJSON()
+        
+        for subject in data {
+            let sub = UserSubject(context: context)
+            sub.name = subject.name
+            sub.color = subject.color
+            sub.lk = subject.lk
+            sub.inactiveYears = subject.inactiveYears
+            
+            for test in subject.subjecttests {
+                let t = UserTest(context: context)
+                t.name = test.name
+                t.year = Int16(test.year)
+                t.grade = Int16(test.grade)
+                t.big = test.big
+                let timestamp = Int(test.date) ?? 1635417527 / 1000
+                t.date = Date(timeIntervalSince1970: Double(timestamp))
+                sub.addToSubjecttests(t)
+            }
+            exmapleSubjects.append(sub)
+        }
+        return exmapleSubjects
+    }
+
 }
 
 private func checkGrade(_ num: Int) -> Int16 {
