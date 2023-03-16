@@ -21,36 +21,38 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     })
                     
                     HStack {
-                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen", completation: {})
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen"){}
                         Toggle(isOn: $vm.settings.colorfulCharts){}.onChange(of: vm.settings.colorfulCharts) { newValue in
                             vm.reloadAndSave()
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     
-                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren", completation: {
+                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren") {
                         vm.alertActiontype = .importData
                         vm.deleteAlert = true
-                    })
+                    }
                     
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren", completation: {
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren"){
+                        vm.isLoading = true
                         let data = JSON.exportJSON()
                         let url = JSON.writeJSON(data)
+                        vm.isLoading = false
                         showShareSheet(url: url)
-                    })
+                    }
                     
-                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern", completation: {
+                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern") {
                         vm.weightSheetPresented = true
-                    })
+                    }
                     
-                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden", completation: {
+                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden") {
                         vm.alertActiontype = .loadDemo
                         vm.deleteAlert = true
-                    })
+                    }
                     
-                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen", completation: {
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen") {
                         vm.alertActiontype = .deleteData
                         vm.deleteAlert = true
-                    })
+                    }
                 }
                 Section(header: Text("Fächer")){
                     
@@ -58,15 +60,16 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                         subjectView(sub)
                     }
                     
-                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach", completation: {
+                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach") {
                         vm.newSubjectSheetPresented = true
-                    })
+                    }
                 }
                 
                 Section(){
                     Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
                 }
             }.navigationTitle("Einstellungen")
+                .overlay(loadingView())
                 .sheet(isPresented: $vm.presentDocumentPicker) {
                     DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear{ vm.reloadAndSave()}
                 }
@@ -81,6 +84,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     }
                 }
         }
+        .disabled(vm.isLoading)
         .sheet(isPresented: $vm.editSubjectPresented) {
             NavigationView {
                 EditSubjectScreen(editSubjectPresented: $vm.editSubjectPresented, subject: $vm.selectedSubjet).onDisappear(perform: vm.reloadAndSave)
@@ -116,6 +120,17 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
             vm.editSubjectPresented = true
             vm.selectedSubjet = sub
         })
+    }
+    
+    @ViewBuilder
+    func loadingView() -> some View {
+        ZStack {
+            Rectangle()
+                .opacity(0.3)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            ProgressView()
+        }.opacity(vm.isLoading ? 1 : 0)
+            .allowsHitTesting(false)
     }
 }
 
