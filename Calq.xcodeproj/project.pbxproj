@@ -66,6 +66,7 @@
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
 		F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
+		F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D3433C29C37024002ED7DE /* SettingsVM.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,7 @@
 		F1B2732329B5F53900E841F4 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
+		F1D3433C29C37024002ED7DE /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F1E8BFE229900C5500486A6D /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +326,7 @@
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F192DD23299D10CB0077B905 /* NewSubject.swift */,
+				F1D3433C29C37024002ED7DE /* SettingsVM.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				F19B10A029AF726600B11C82 /* UserTest+CoreDataClass.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
+				F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */,
 				F10D66B4298D66C200993237 /* ExamVM.swift in Sources */,
 				F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */,
 				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,

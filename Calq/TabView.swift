@@ -24,7 +24,7 @@ struct TabbarView: View {
             ExamScreen(vm: ExamViewModel())
                 .tabItem{ Image(systemName: "text.book.closed.fill")}
             
-            SettingsScreen()
+            SettingsScreen(vm: SettingsViewModel())
                 .tabItem{Image(systemName: "gearshape.fill")}
         }.sheet(isPresented: $firstLaunch) {
             FirstLaunchScreen(firstLaunch: $firstLaunch)

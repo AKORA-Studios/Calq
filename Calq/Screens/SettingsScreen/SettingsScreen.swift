@@ -7,31 +7,8 @@
 
 import SwiftUI
 
-enum alertAction{
-    case importData
-    case deleteData
-    case loadDemo
-    case none
-}
-
 struct SettingsScreen: View {//TODO: kinda fix load demo data
-    @Environment(\.managedObjectContext) var coreDataContext
-    @StateObject var settings: AppSettings = Util.getSettings()!
-    @State var subjects: [UserSubject] = Util.getAllSubjects()
-    
-    @State var editSubjectPresented = false
-    @State var selectedSubjet: UserSubject?
-    
-    @State var weightSheetPresented = false
-    
-    @State var newSubjectSheetPresented = false
-    
-    @State var presentDocumentPicker = false
-    @State var importedJson: String = ""
-    @State var importeJsonURL: URL = URL(fileURLWithPath: "")
-    
-    @State var deleteAlert = false
-    @State var alertActiontype: alertAction = .none
+    @ObservedObject var vm: SettingsViewModel
     
     var body: some View {
         NavigationView {
@@ -45,14 +22,14 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     
                     HStack {
                         SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen", completation: {})
-                        Toggle(isOn: $settings.colorfulCharts){}.onChange(of: settings.colorfulCharts) { newValue in
-                            reloadAndSave()
+                        Toggle(isOn: $vm.settings.colorfulCharts){}.onChange(of: vm.settings.colorfulCharts) { newValue in
+                            vm.reloadAndSave()
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     
                     SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren", completation: {
-                        alertActiontype = .importData
-                        deleteAlert = true
+                        vm.alertActiontype = .importData
+                        vm.deleteAlert = true
                     })
                     
                     SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren", completation: {
@@ -62,27 +39,27 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     })
                     
                     SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern", completation: {
-                        weightSheetPresented = true
+                        vm.weightSheetPresented = true
                     })
                     
                     SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden", completation: {
-                        alertActiontype = .loadDemo
-                        deleteAlert = true
+                        vm.alertActiontype = .loadDemo
+                        vm.deleteAlert = true
                     })
                     
                     SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen", completation: {
-                        alertActiontype = .deleteData
-                        deleteAlert = true
+                        vm.alertActiontype = .deleteData
+                        vm.deleteAlert = true
                     })
                 }
                 Section(header: Text("Fächer")){
                     
-                    ForEach(subjects) { sub in
+                    ForEach(vm.subjects) { sub in
                         subjectView(sub)
                     }
                     
                     SettingsIcon(color: .green, icon: "plus", text: "Neues Fach", completation: {
-                        newSubjectSheetPresented = true
+                        vm.newSubjectSheetPresented = true
                     })
                 }
                 
@@ -90,66 +67,54 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
                 }
             }.navigationTitle("Einstellungen")
-                .sheet(isPresented: $presentDocumentPicker) {
-                    DocumentPicker(fileURL: $importeJsonURL).onDisappear{ reloadAndSave()}
+                .sheet(isPresented: $vm.presentDocumentPicker) {
+                    DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear{ vm.reloadAndSave()}
                 }
-                .sheet(isPresented: $weightSheetPresented) {
+                .sheet(isPresented: $vm.weightSheetPresented) {
                     NavigationView {
                         ChangeWeightScreen()
                     }
                 }
-                .sheet(isPresented: $newSubjectSheetPresented) {
+                .sheet(isPresented: $vm.newSubjectSheetPresented) {
                     NavigationView {
-                        NewSubjectScreen().onDisappear(perform: reloadAndSave)
+                        NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                     }
                 }
         }
-        .sheet(isPresented: $editSubjectPresented) {
+        .sheet(isPresented: $vm.editSubjectPresented) {
             NavigationView {
-                EditSubjectScreen(editSubjectPresented: $editSubjectPresented, subject: $selectedSubjet).onDisappear(perform: reloadAndSave)
+                EditSubjectScreen(editSubjectPresented: $vm.editSubjectPresented, subject: $vm.selectedSubjet).onDisappear(perform: vm.reloadAndSave)
             }
         }
-        .alert(isPresented: $deleteAlert) {
+        .alert(isPresented: $vm.deleteAlert) {
             Alert(title: Text("Sicher?"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
-                switch alertActiontype {
+                switch vm.alertActiontype {
                     
                 case .importData:
-                    presentDocumentPicker = true
+                    vm.presentDocumentPicker = true
                 case .deleteData:
-                    deleteData()
+                    vm.deleteData()
                 case .loadDemo:
                     JSON.loadDemoData()
-                    reloadAndSave()
+                    vm.reloadAndSave()
                 case .none:
                     break
                 }
-                alertActiontype = .none
-                deleteAlert = false
+                vm.alertActiontype = .none
+                vm.deleteAlert = false
             }
-                                                                                                                ))
+                                                                                                                                                    ))
         }
         .onAppear{
-            subjects = Util.getAllSubjects()
+            vm.subjects = Util.getAllSubjects()
         }
-    }
-    
-    func reloadAndSave(){
-        saveCoreData()
-        subjects = Util.getAllSubjects()
-        settings.colorfulCharts = Util.getSettings()!.colorfulCharts
-    }
-    
-    func deleteData(){
-        _ = Util.deleteSettings()
-        subjects = []
-        reloadAndSave()
     }
     
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
         SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
-            editSubjectPresented = true
-            selectedSubjet = sub
+            vm.editSubjectPresented = true
+            vm.selectedSubjet = sub
         })
     }
 }
@@ -162,7 +127,7 @@ struct SettingsIcon: View {
     
     var body: some View {
         GeometryReader { geo in
-                HStack{
+            HStack{
                 ZStack {
                     RoundedRectangle(cornerRadius: 8.0)
                         .fill(color)
@@ -172,16 +137,16 @@ struct SettingsIcon: View {
                 }
                 Text(text)
             }
-        .frame(width: geo.size.width, height: 30, alignment: .leading)
-        .onTapGesture {
-            completation()
-        }
+            .frame(width: geo.size.width, height: 30, alignment: .leading)
+            .onTapGesture {
+                completation()
+            }
         }
     }
 }
 
 struct SettingsPreview: PreviewProvider {
     static var previews: some View {
-        SettingsScreen()
+        SettingsScreen(vm: SettingsViewModel())
     }
 }

@@ -178,7 +178,7 @@ struct Util {
     
     //MARK: Get Settings
     ///Returns fresh new settings and deletes everything
-    static func deleteSettings()-> AppSettings{
+    @discardableResult static func deleteSettings()-> AppSettings{
         do {
             let items = try context.fetch(AppSettings.fetchRequest())
             context.delete(items[0])
