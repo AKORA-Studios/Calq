@@ -210,7 +210,7 @@ struct Util {
     
     static func saveWeigth(_ num: Int){
         let settings = getSettings()
-        settings!.weightBigGrades = String(num/100)
+        settings!.weightBigGrades = String(Float(num) / 100)
         saveCoreData()
     }
     

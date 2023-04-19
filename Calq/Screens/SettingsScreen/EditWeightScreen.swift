@@ -44,7 +44,7 @@ struct ChangeWeightScreen: View {
             .navigationTitle("Wertung ändern")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
-                stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 10)
+                stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 100)
             }
     }
     
