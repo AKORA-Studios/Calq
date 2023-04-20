@@ -21,7 +21,7 @@ struct OverviewScreen: View {
                     
                     VStack(alignment: .leading, spacing: 5){
                         HStack{
-                            Text("Verlauf")
+                            Text("OverviewTimeChartTitle")
                             Spacer()
                             Image(systemName: "gearshape").onTapGesture{vm.showGraphEdit.toggle()}
                                 .disabled(vm.subjects.count == 0)
@@ -63,7 +63,7 @@ struct OverviewScreen: View {
                     .background(CardView())
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text("Halbjahre")
+                        Text("OverViewHalfyearChartTitle")
                         BarChart(values: $vm.halfyears, heigth: 150)
                     }
                     .padding()
@@ -72,11 +72,11 @@ struct OverviewScreen: View {
                     VStack{
                         GeometryReader{ geo in
                             HStack(alignment: .center){
-                                Text("Fächerschnitt").frame(width: geo.size.width/3)
+                                Text("OverviewPieChartSubjects").frame(width: geo.size.width/3)
                                 Spacer()
-                                Text("Abischnitt").frame(width: geo.size.width/3)
+                                Text("OverviewPieChartSum").frame(width: geo.size.width/3)
                             }
-                        }
+                        }//TODO: Localize
                         HStack(alignment: .center, spacing: 5){
                             CircleChart(perrcent: $vm.averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
                             CircleChart(perrcent: $vm.blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
@@ -86,7 +86,7 @@ struct OverviewScreen: View {
                     .background(CardView())
                 }
             }.padding(.horizontal)
-                .navigationTitle("Übersicht")
+                .navigationTitle("OverViewTitle")
                 .onAppear{
                     vm.updateViews()
                 }

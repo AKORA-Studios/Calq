@@ -15,7 +15,7 @@ struct ExamScreen: View {
         NavigationView {
             VStack(alignment: .leading){
                 BlockView(updateblock2: $updateBlock2)//.frame(height: 70)
-                Text("Prüfungsfächer").font(.headline)
+                Text("ExamViewSubjects").font(.headline)
                     VStack{
                         ForEach(1...5, id: \.self){ i in
                             ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
@@ -27,7 +27,7 @@ struct ExamScreen: View {
                 //resetExams() //if broken to debug ig
             }
             .padding()
-            .navigationTitle("Prüfungsübersicht")
+            .navigationTitle("ExamViewTitle")
         }
     }
 }
@@ -37,13 +37,11 @@ struct ExamView: View {
     @Binding var subjects: [UserSubject]
     @State var subject: UserSubject?
     
-    @State var subjectName = "keines ausgewählt"
     @State var sliderText: String = "0"
     @State var sliderValue: Float = 0
     var type: Int
     @Binding var options: [UserSubject]
     @Binding var updateblock2: Bool
-    
     
     var body: some View {
         VStack{
@@ -69,7 +67,7 @@ struct ExamView: View {
                                 sliderValue = 0
                                 updateblock2.toggle()
                             } label: {
-                                Text("Entfernen/keines")
+                                Text("ExamViewSubRemove")
                             }
                         }
                     }
@@ -77,7 +75,11 @@ struct ExamView: View {
                     RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
                 
-                Text((subject != nil) ? subject!.name : "Prüfung auswählen")
+                if subject != nil {
+                    Text(subject!.name)
+                } else {
+                    Text("ExamViewSubSelect")
+                }
             }
             HStack {
                 Text(String(Int(sliderValue.rounded())))
