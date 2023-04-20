@@ -29,7 +29,7 @@
 
 "OverViewTitle"="Overview";
 "OverviewTimeChartTitle"="Time Chart";
-"OverViewHalfyearChartTitle"="Halbjahre";
+"OverViewHalfyearChartTitle"="Halfyears";
 "OverviewPieChartSubjects"="Subjectaverage";
 "OverviewPieChartSubjectsDesc"="Grade without final exams";
 "OverviewPieChartSum"="Abigrade";
@@ -93,3 +93,5 @@
 "subjectDetailActivate"="activate Halfyear";
 
 "firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";
+
+"gradeTableDelete"="Delete all Grades";

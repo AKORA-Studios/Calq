@@ -18,13 +18,13 @@ struct GradeListScreen: View {
         List{
             if(!Alltests.isEmpty){
                 Section{
-                    SettingsIcon(color: .red, icon: "archivebox", text: "ToastDeleteAll", completation: {
+                    SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
                         deleteAlert = true
                     })
                 }
                 
                 ForEach(0...3, id:\.self){i in
-                    Section(header: Text("\(i + 1). gradeHalfyear")){
+                    Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")){
                         let tests =  years[i]
                         ForEach(tests){test in
                             let color = getSubjectColor(subject)
