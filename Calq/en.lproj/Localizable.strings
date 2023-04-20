@@ -21,6 +21,7 @@
 "ToastOki"="Oki";
 "ToastDeleteAll"="All your Data will be deleted";
 "ToastDesc"="All Subject Data will be deleted";
+"ToastNoSubjects"="Oh no there are no subjects :c";
 
 "OverViewTitle"="Overview";
 "OverviewTimeChartTitle"="Time Chart";
@@ -57,3 +58,16 @@
 "editSubjectNameInvalid"="Name invalid";
 "editSubjecNameInvalidEmpty"="Name cannot be empty";
 "editSubjecNameInvalidChars"="Name should not include special characters";
+
+"gradeNew"="New Grade";
+"gradeName"="Gradename";
+"gradeType"="Type";
+"gradeYear"="Year";
+"gradeDate"="Date";
+"gradePoints"="Points";
+"gradeType1"="Test";
+"gradeType2"="Exam";
+"gradeHalfyear"="Halfyear";
+"gradeNewAdd"="Add Grade";
+"gradeInvalidName"="Invalid Name";
+"gradeInvalidNameDesc"="Name cannot be empty";

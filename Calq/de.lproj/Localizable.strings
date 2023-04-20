@@ -21,6 +21,7 @@
 "ToastOki"="Oki";
 "ToastOki"="Alle deine Daten werden gelöscht";
 "ToastDesc"="Alle Kursdaten werrden gelöscht";
+"ToastNoSubjects"="Oh no keine Fächer vorhanden :c";
 
 "OverViewTitle"="Übersicht";
 "OverviewTimeChartTitle"="Verlauf";
@@ -57,3 +58,16 @@
 "editSubjectNameInvalid"="Name ungültig";
 "editSubjecNameInvalidEmpty"="Name darf nicht leer sein";
 "editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten";
+
+"gradeNew"="Neue Note";
+"gradeName"="Notenname";
+"gradeType"="Typ";
+"gradeYear"="Jahr";
+"gradeDate"="Datum";
+"gradePoints"="Punkte";
+"gradeType1"="Test";
+"gradeType2"="Klausur";
+"gradeHalfyear"="Halbjahr";
+"gradeNewAdd"="Note hinzufügen";
+"gradeInvalidName"="Ungültiger Name";
+"gradeInvalidNameDesc"="Der Name darf nicht leer sein";
