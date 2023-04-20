@@ -68,12 +68,12 @@ struct SubjectListScreen: View {
                                 .frame(width: 30, height: 30)
                                 .frame(alignment: .center)
                         }
-                        Text("\(inactiveCount) von \(subjectCount) Halbjahren aktiv")
+                        Text("\(inactiveCount) subjectListYears \(subjectCount)")
                     }
                 }
-            }.navigationTitle("Kursliste")
+            }.navigationTitle("subjectListTitle")
                 .toolbar {
-                    Button("Notentabelle") {
+                    Button("subjectListTable") {
                         gradeTablePresented = true
                     }
                 }

@@ -71,3 +71,7 @@
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
 "gradeInvalidNameDesc"="Name cannot be empty";
+
+"subjectListTitle"="Subjectlist";
+"subjectListTable"="Gradetable";
+"%lld subjectListYears %lld"="%lld of %lld Halfyears active";

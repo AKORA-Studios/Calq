@@ -71,3 +71,7 @@
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
 "gradeInvalidNameDesc"="Der Name darf nicht leer sein";
+
+"subjectListTitle"="Kursliste";
+"subjectListTable"="Notentabelle";
+"%lld subjectListYears %lld"="%lld von %lld Halbjahren aktiv";
