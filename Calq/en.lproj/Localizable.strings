@@ -83,3 +83,13 @@
 "gradeEdit"="Edit Grade";
 "gradeDelete"="Delete Grade";
 "gradeSave"="Save changes";
+
+"subjectDetailGradeList"="View Grades";
+"subjectDetailAverageHalfyear"="Halfyear Average";
+"subjectDetailTime"="Time Chart";
+"subjectDetailActive"="Active";
+"subjectDetailInactive"="Inactive";
+"subjectDetailDeactivate"="deactivate Halfyear";
+"subjectDetailActivate"="activate Halfyear";
+
+"firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";

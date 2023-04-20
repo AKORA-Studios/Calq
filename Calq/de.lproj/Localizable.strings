@@ -83,3 +83,13 @@
 "gradeEdit"="Note bearbeiten";
 "gradeDelete"="Note löschen";
 "gradeSave"="Änderungen speichern";
+
+"subjectDetailGradeList"="Notenliste ansehen";
+"subjectDetailAverageHalfyear"="Durchschnitt des Halbjahres";
+"subjectDetailTime"="Verlauf";
+"subjectDetailActive"="Aktiv";
+"subjectDetailInactive"="Inaktiv";
+"subjectDetailDeactivate"="Halbjahr deaktivieren";
+"subjectDetailActivate"=" Halbjahr aktivieren";
+
+"firstLaunchDesc"="Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)";

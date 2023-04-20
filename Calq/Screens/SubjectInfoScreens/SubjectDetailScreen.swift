@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubjectDetailScreen: View { //TODO: Localization
+struct SubjectDetailScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var subject: UserSubject?
@@ -29,7 +29,7 @@ struct SubjectDetailScreen: View { //TODO: Localization
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text("Verlauf")
+                        Text("subjectDetailTime")
                         OneEntryLineChart(subject: subject!, heigth: 80)
                     }
                     .padding(.horizontal)
@@ -39,9 +39,9 @@ struct SubjectDetailScreen: View { //TODO: Localization
                     VStack{
                         VStack(alignment: .leading){
                             HStack{
-                                Text("Halbjahr")
+                                Text("gradeHalfyear")
                                 Spacer()
-                                Text(halfyearActive ? "Aktiv": "inaktiv").foregroundColor(halfyearActive ? color : .gray)
+                                Text(halfyearActive ? "subjectDetailActive": "subjectDetailInactive").foregroundColor(halfyearActive ? color : .gray)
                             }
                             Picker("", selection: $selectedYear) {
                                 Text("1").tag(1)
@@ -58,7 +58,7 @@ struct SubjectDetailScreen: View { //TODO: Localization
                         ZStack{
                             let backroundColor = halfyearActive ? .red : color
                             RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
-                            Text("Halbjahr \(halfyearActive ? "deaktivieren" : "aktivieren")").foregroundColor(halfyearActive ? .red : .white)
+                            Text(halfyearActive ? "subjectDetailDeactivate" : "subjectDetailActivate").foregroundColor(halfyearActive ? .red : .white)
                         }.padding()
                             .onTapGesture {
                                 if(halfyearActive){ //deactivate
@@ -74,13 +74,13 @@ struct SubjectDetailScreen: View { //TODO: Localization
                     
                     //average chart
                     VStack(alignment: .leading, spacing: 5){
-                        Text("Durchschnitt des Halbjahres").padding()
+                        Text("subjectDetailAverageHalfyear").padding()
                         CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 120)
                     }.background(CardView())
                         .padding()
                     
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("Notenliste ansehen").foregroundColor(.white)
+                        Text("subjectDetailGradeList").foregroundColor(.white)
                     }.padding(.horizontal)
                         .buttonStyle(PrimaryStyle())
                 }

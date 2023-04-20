@@ -15,12 +15,12 @@ struct FirstLaunchScreen: View {
             Spacer()
             Text("Welcome to Calq").font(.title)
             
-            Text("Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)").multilineTextAlignment(.center)
+            Text("firstLaunchDesc").multilineTextAlignment(.center)
             
             Spacer()
             
             
-            Button("Oki") {
+            Button("ToastOki") {
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
                 firstLaunch = false
             }.buttonStyle(PrimaryStyle())
