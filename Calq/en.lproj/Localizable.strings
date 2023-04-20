@@ -14,9 +14,12 @@
 "name"="Name";
 "typeLK"="Leistungskurs*";
 "typeGK"="Leistungskurs*";
+"newSub"= "New Subject";
 
 "ToastDelete"="Delete";
 "ToastTitle"="Sure?";
+"ToastOki"="Oki";
+"ToastDeleteAll"="All your Data will be deleted";
 "ToastDesc"="All Subject Data will be deleted";
 
 "OverViewTitle"="Overview";
@@ -40,3 +43,14 @@
 "editSubGrades"="Edit Grades";
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
+
+"settingsSection1"="General";
+"settingsSection2"="Subjects";
+"settingsTitle"="Settings";
+"settingsImport"= "Import Grades";
+"settingsExport"= "Export Grades";
+"settingsRainbow"= "Rainbow";
+"settingsWeight"= "Change Weigth";
+"settingsLoadDemo"= "Load Demo Data";
+"settingsDelete"= "Delete Data";
+

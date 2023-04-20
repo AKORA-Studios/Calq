@@ -14,9 +14,12 @@
 "name"="Name";
 "typeLK"="Leistungskurs";
 "typeGK"="Leistungskurs";
+"newSub"= "Neues Fach";
 
 "ToastDelete"="Löschen";
 "ToastTitle"="Sicher?";
+"ToastOki"="Oki";
+"ToastOki"="Alle deine Daten werden gelöscht";
 "ToastDesc"="Alle Kursdaten werrden gelöscht";
 
 "OverViewTitle"="Übersicht";
@@ -40,3 +43,13 @@
 "editSubGrades"="Noten bearbeiten";
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
+
+"settingsSection1"="Allgemein";
+"settingsSection2"="Fächer";
+"settingsTitle"="Einstellungen";
+"settingsImport"= "Noten importieren";
+"settingsExport"= "Noten exportieren";
+"settingsRainbow"= "Regenbogen";
+"settingsWeight"= "Wertung ändern";
+"settingsLoadDemo"= "Demo Daten laden";
+"settingsDelete"= "Daten löschen";
