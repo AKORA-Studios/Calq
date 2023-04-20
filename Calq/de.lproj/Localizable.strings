@@ -5,6 +5,20 @@
   Created by Kiara on 20.04.23.
   
 */
+
+"saveData"="Speichern";
+"subjectExam"="Klausur";
+"subjectTest"="Test";
+"subjectType"="Typ";
+"subjectName"="Kursname";
+"name"="Name";
+"typeLK"="Leistungskurs";
+"typeGK"="Leistungskurs";
+
+"ToastDelete"="Löschen";
+"ToastTitle"="Sicher?";
+"ToastDesc"="Alle Kursdaten werrden gelöscht";
+
 "OverViewTitle"="Übersicht";
 "OverviewTimeChartTitle"="Verlauf";
 "OverViewHalfyearChartTitle"="Halbjahre";
@@ -17,3 +31,12 @@
 "ExamViewSubjects"="Prüfungsfächer";
 "ExamViewSubRemove"="Entfernen/keines";
 "ExamViewSubSelect"="Prüfung auswählen";
+
+"EditWeigthTitle"="Wertung ändern";
+"EditWeigthDesc"="Wähle die Wertung der Noten in % aus";
+
+"editSubject"="Kurs bearbeiten";
+"editSubDelete"="Fach löschen";
+"editSubGrades"="Noten bearbeiten";
+"editSubColor"="Kursfarbe";
+"editSubEditColor"="Farbe ändern";

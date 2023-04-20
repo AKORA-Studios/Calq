@@ -5,6 +5,20 @@
   Created by Kiara on 20.04.23.
   
 */
+
+"saveData"="Save";
+"subjectExam"="Exam";
+"subjectTest"="Test";
+"subjectType"="Type";
+"subjectName"="Subjecttitle";
+"name"="Name";
+"typeLK"="Leistungskurs*";
+"typeGK"="Leistungskurs*";
+
+"ToastDelete"="Delete";
+"ToastTitle"="Sure?";
+"ToastDesc"="All Subject Data will be deleted";
+
 "OverViewTitle"="Overview";
 "OverviewTimeChartTitle"="Time Chart";
 "OverViewHalfyearChartTitle"="Halbjahre";
@@ -17,3 +31,12 @@
 "ExamViewSubjects"="Exam Subjects";
 "ExamViewSubRemove"="Remove/None";
 "ExamViewSubSelect"="Select Subject";
+
+"EditWeigthTitle"="Change Weight";
+"EditWeigthDesc"="Change the gardes weight in %";
+
+"editSubject"="Edit Subject";
+"editSubDelete"="Delete Subject";
+"editSubGrades"="Edit Grades";
+"editSubColor"="Kursfarbe";
+"editSubEditColor"="Farbe ändern";

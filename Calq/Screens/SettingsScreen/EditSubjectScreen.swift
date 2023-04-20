@@ -30,8 +30,8 @@ struct EditSubjectScreen: View {
             VStack{
                 ZStack{
                     VStack(alignment: .leading){
-                        Text("Kursname")
-                        TextField("Name", text: $subjectName).onChange(of: subjectName) { _ in
+                        Text("subjectName")
+                        TextField("name", text: $subjectName).onChange(of: subjectName) { _ in
                             if(Util.checkString(subjectName)){
                                 alertType = .nameInvalid
                                 subjectName = subject!.name
@@ -46,10 +46,10 @@ struct EditSubjectScreen: View {
                 
                 ZStack{
                     VStack(alignment: .leading){
-                        Text("Typ")
-                        Picker("Typ", selection: $lkSubject) {
-                            Text("Grundkurs").tag(0)
-                            Text("Leistungskurs").tag(1)
+                        Text("subjectType")
+                        Picker("subjectType", selection: $lkSubject) {
+                            Text("typeGK").tag(0)
+                            Text("typeLK").tag(1)
                         }.pickerStyle(.segmented)
                             .colorMultiply(color)
                             .onChange(of: lkSubject) { newValue in
@@ -61,12 +61,12 @@ struct EditSubjectScreen: View {
                 
                 ZStack{
                     VStack(alignment: .leading){
-                        Text("Kursfarbe")
+                        Text("editSubColor")
                         
                         HStack{
                             Image(systemName: "paintpalette")
                             
-                            ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
+                            ColorPicker("editSubEditColor", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
                                 subject!.color = UIColor(selectedColor).toHexString()
                                 saveCoreData()
                             }
@@ -77,10 +77,10 @@ struct EditSubjectScreen: View {
                 Spacer().frame(height: 20)
                 
                 NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("Noten bearbeiten").foregroundColor(.white)
+                        Text("editSubGrades").foregroundColor(.white)
                 }.buttonStyle(PrimaryStyle())
                 
-                Button("Fach löschen") {
+                Button("editSubDelete") {
                     alertType = .delete
                     deleteAlert = true
                 }.buttonStyle(DestructiveStyle())
@@ -89,7 +89,7 @@ struct EditSubjectScreen: View {
                 switch alertType {
                     
                 case .delete:
-                    return Alert(title: Text("Sicher?"), message: Text("Alle Kursdaten werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                    return Alert(title: Text("ToastTitle"), message: Text("ToastDesc"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"),action: {
                         editSubjectPresented = false
                         Util.deleteSubject(subject!)
                         subject = nil
@@ -99,7 +99,7 @@ struct EditSubjectScreen: View {
                 }
             }
             .padding()
-            .navigationTitle("Kurs bearbeiten")
+            .navigationTitle("editSubject")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 subjectName = subject!.name
