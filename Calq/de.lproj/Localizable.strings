@@ -16,12 +16,16 @@
 "typeGK"="Leistungskurs";
 "newSub"= "Neues Fach";
 
+"ToastDeleteAll"="Alle löschen";
 "ToastDelete"="Löschen";
 "ToastTitle"="Sicher?";
 "ToastOki"="Oki";
 "ToastOki"="Alle deine Daten werden gelöscht";
 "ToastDesc"="Alle Kursdaten werrden gelöscht";
 "ToastNoSubjects"="Oh no keine Fächer vorhanden :c";
+"ToastDeleteGrades"="Alle Noten dieses Fachs werrden gelöscht";
+"noGrades"="oh no keine noten da :c";
+"ToastDeleteGrade"="Möchtest du diese Note wirklich löschen?";
 
 "OverViewTitle"="Übersicht";
 "OverviewTimeChartTitle"="Verlauf";
@@ -75,3 +79,7 @@
 "subjectListTitle"="Kursliste";
 "subjectListTable"="Notentabelle";
 "%lld subjectListYears %lld"="%lld von %lld Halbjahren aktiv";
+
+"gradeEdit"="Note bearbeiten";
+"gradeDelete"="Note löschen";
+"gradeSave"="Änderungen speichern";

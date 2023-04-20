@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubjectDetailScreen: View {
+struct SubjectDetailScreen: View { //TODO: Localization
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var subject: UserSubject?

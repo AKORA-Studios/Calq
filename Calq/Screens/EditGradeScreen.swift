@@ -24,18 +24,18 @@ struct EditGradeScreen: View {
         VStack{
             VStack {
                 VStack(alignment: .leading){
-                    Text("Notenname")
-                    TextField("Notenname", text: $testName)
+                    Text("gradeName")
+                    TextField("gradeName", text: $testName)
                 }.padding()
             }.background(CardView())
             
             
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Typ")
-                    Picker("Typ", selection: $testType) {
-                        Text("Test").tag(0)
-                        Text("Klausur").tag(1)
+                    Text("gradeType")
+                    Picker("gradeType", selection: $testType) {
+                        Text("gradeType1").tag(0)
+                        Text("gradeType2").tag(1)
                     }.pickerStyle(.segmented).colorMultiply(color)
                 }.padding()
             }.background(CardView())
@@ -43,8 +43,8 @@ struct EditGradeScreen: View {
             
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Halbjahr")
-                    Picker("Jahr", selection: $testYear) {
+                    Text("gradeHalfyear")
+                    Picker("gradeYear", selection: $testYear) {
                         Text("1").tag(1)
                         Text("2").tag(2)
                         Text("3").tag(3)
@@ -52,7 +52,7 @@ struct EditGradeScreen: View {
                     }.pickerStyle(.segmented).colorMultiply(color)
                     
                     HStack {
-                        DatePicker("Datum", selection: $testDate, displayedComponents: [.date])
+                        DatePicker("gradeDate", selection: $testDate, displayedComponents: [.date])
                     }
                 }.padding()
             }.background(CardView())
@@ -60,7 +60,7 @@ struct EditGradeScreen: View {
             
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Punkte")
+                    Text("gradePoints")
                     HStack {
                         Text(String(Int(testPoints)))
                         Slider(value: $testPoints, in: 0...15, onEditingChanged: { _ in
@@ -72,17 +72,17 @@ struct EditGradeScreen: View {
             }.background(CardView())
             
             
-            Button("Änderungen speichern") {
+            Button("gradeSave") {
                 saveGrade()
             }.buttonStyle(PrimaryStyle())
                 .padding(.top, 20)
             
-            Button("Note löschen") {
+            Button("gradeDelete") {
                 deleteAlert = true
             }.buttonStyle(DestructiveStyle())
             
         }.padding()
-            .navigationTitle("Note bearbeiten")
+            .navigationTitle("gradeEdit")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 testName = test.name
@@ -92,7 +92,7 @@ struct EditGradeScreen: View {
                 testType = test.big ? 1 : 0
             }
             .alert(isPresented: $deleteAlert) {
-                Alert(title: Text("Sicher?"), message: Text("Möchtest du diese Note wirklich löschen?"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
                     deleteGrade()
                 }))
             }
