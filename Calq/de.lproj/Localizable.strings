@@ -53,3 +53,7 @@
 "settingsWeight"= "Wertung ändern";
 "settingsLoadDemo"= "Demo Daten laden";
 "settingsDelete"= "Daten löschen";
+
+"editSubjectNameInvalid"="Name ungültig";
+"editSubjecNameInvalidEmpty"="Name darf nicht leer sein";
+"editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten";

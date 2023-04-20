@@ -41,8 +41,8 @@
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";
 "editSubGrades"="Edit Grades";
-"editSubColor"="Kursfarbe";
-"editSubEditColor"="Farbe ändern";
+"editSubColor"="Subject Color";
+"editSubEditColor"="Change Color";
 
 "settingsSection1"="General";
 "settingsSection2"="Subjects";
@@ -54,3 +54,6 @@
 "settingsLoadDemo"= "Load Demo Data";
 "settingsDelete"= "Delete Data";
 
+"editSubjectNameInvalid"="Name invalid";
+"editSubjecNameInvalidEmpty"="Name cannot be empty";
+"editSubjecNameInvalidChars"="Name should not include special characters";
