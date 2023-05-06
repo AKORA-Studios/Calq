@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Calq
+
+  Created by Kiara on 20.04.23.
+  
+*/
+"OverViewTitle"="Overview";
+"OverviewTimeChartTitle"="Time Chart";
+"OverViewHalfyearChartTitle"="Halbjahre";
+"OverviewPieChartSubjects"="Subjectaverage";
+"OverviewPieChartSubjectsDesc"="Grade without final exams";
+"OverviewPieChartSum"="Abigrade";
+"OverviewPieChartSumDesc"="Grade with final exams";
+
+"ExamViewTitle"="Examoverview";
+"ExamViewSubjects"="Exam Subjects";
+"ExamViewSubRemove"="Remove/None";
+"ExamViewSubSelect"="Select Subject";

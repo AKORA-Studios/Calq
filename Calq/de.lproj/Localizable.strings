@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Calq
+
+  Created by Kiara on 20.04.23.
+  
+*/
+"OverViewTitle"="Übersicht";
+"OverviewTimeChartTitle"="Verlauf";
+"OverViewHalfyearChartTitle"="Halbjahre";
+"OverviewPieChartSubjects"="Fächerschnitt";
+"OverviewPieChartSubjectsDesc"="Durchschnitt aller Fächer ohne Prüfungsnoten";
+"OverviewPieChartSum"="Abischnitt";
+"OverviewPieChartSumDesc"="Durchschnitt mit Prüfungsnoten";
+
+"ExamViewTitle"="Prüfungsübersicht";
+"ExamViewSubjects"="Prüfungsfächer";
+"ExamViewSubRemove"="Entfernen/keines";
+"ExamViewSubSelect"="Prüfung auswählen";
