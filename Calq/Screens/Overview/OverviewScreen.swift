@@ -72,9 +72,9 @@ struct OverviewScreen: View {
                     VStack{
                         GeometryReader{ geo in
                             HStack(alignment: .center){
-                                Text("OverviewPieChartSubjects").frame(width: geo.size.width/3)
+                                Text("OverviewPieChartSubjects").frame(width: geo.size.width/2)
                                 Spacer()
-                                Text("OverviewPieChartSum").frame(width: geo.size.width/3)
+                                Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
                             }
                         }//TODO: Localize
                         HStack(alignment: .center, spacing: 5){
