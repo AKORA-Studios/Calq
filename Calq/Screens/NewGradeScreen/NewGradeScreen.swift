@@ -17,12 +17,12 @@ struct NewGradeScreen: View {
         NavigationView {
             List{
                 if(subjects.isEmpty){
-                    Text("Oh no keine Fächer vorhanden :c")
+                    Text("ToastNoSubjects")
                 }
                 ForEach(subjects) { sub in
                     subjectView(sub)
                 }
-            }.navigationTitle("Neue Note")
+            }.navigationTitle("gradeNew")
         }.sheet(isPresented: $isSheetPresented, onDismiss: {selectedSubject = nil}) {
             NewGradeView(subject: $selectedSubject, dismiss: $isSheetPresented)
         }
@@ -60,25 +60,25 @@ struct NewGradeView: View {
                 VStack{
                     ZStack{
                         VStack(alignment: .leading){
-                            Text("Notenname")
-                            TextField("Notenname", text: $gradeName)
+                            Text("gradeName")
+                            TextField("gradeName", text: $gradeName)
                         }.padding()
                     }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
-                            Text("Typ")
-                            Picker("Jahr", selection: $bigGrade) {
-                                Text("Test").tag(1)
-                                Text("Klausur").tag(2)
+                            Text("gradeType")
+                            Picker("gradeYear", selection: $bigGrade) {
+                                Text("gradeType1").tag(1)
+                                Text("gradeType2").tag(2)
                             }.pickerStyle(.segmented)
                         }.padding()
                     }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
-                            Text("Halbjahr")
-                            Picker("Jahr", selection: $year) {
+                            Text("gradeHalfyear")
+                            Picker("gradeYear", selection: $year) {
                                 Text("1").tag(1)
                                 Text("2").tag(2)
                                 Text("3").tag(3)
@@ -86,14 +86,14 @@ struct NewGradeView: View {
                             }.pickerStyle(.segmented)
                             
                             HStack {
-                                DatePicker("Datum", selection: $date, displayedComponents: [.date])
+                                DatePicker("gradeDate", selection: $date, displayedComponents: [.date])
                             }
                         }.padding()
                     }.background(CardView())
                     
                     ZStack{
                         VStack(alignment: .leading){
-                            Text("Punkte")
+                            Text("gradePoints")
                             HStack {
                                 Text(String(Int(points)))
                                 Slider(value: $points, in: 0...15, onEditingChanged: { _ in
@@ -106,16 +106,16 @@ struct NewGradeView: View {
                     }.background(CardView())
                     
                     
-                    Button("Note hinzufügen") {
+                    Button("gradeNewAdd") {
                         saveGrade()
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                     
-                }.navigationTitle("Neue Note")
+                }.navigationTitle("gradeNew")
                     .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                     .padding()
                     .alert(isPresented: $isAlertRPesented){
-                        Alert(title: Text("Ungültiger Name"), message: Text("Der Name darf nicht leer sein"))
+                        Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
                     }
             }
         }

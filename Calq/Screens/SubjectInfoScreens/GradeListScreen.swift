@@ -18,13 +18,13 @@ struct GradeListScreen: View {
         List{
             if(!Alltests.isEmpty){
                 Section{
-                    SettingsIcon(color: .red, icon: "archivebox", text: "Alle löschen", completation: {
+                    SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
                         deleteAlert = true
                     })
                 }
                 
                 ForEach(0...3, id:\.self){i in
-                    Section(header: Text("\(i + 1). Halbjahr")){
+                    Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")){
                         let tests =  years[i]
                         ForEach(tests){test in
                             let color = getSubjectColor(subject)
@@ -38,10 +38,10 @@ struct GradeListScreen: View {
                     }
                 }
             } else {
-                Text("oh no keine noten da :c")
+                Text("noGrades")
             }
             
-        }.navigationTitle("Notenliste")
+        }.navigationTitle("subjectListTitle")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
@@ -52,7 +52,7 @@ struct GradeListScreen: View {
                 years[3] = Alltests.filter{$0.year == 4};
             }
             .alert(isPresented: $deleteAlert) {
-                Alert(title: Text("Sicher?"), message: Text("Alle Noten dieses Fachs werrden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Löschen"),action: {
+                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrades"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"),action: {
                     subject.subjecttests = []
                     saveCoreData()
                     dismissSheet()

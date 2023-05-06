@@ -13,7 +13,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
     var body: some View {
         NavigationView {
             List{
-                Section(header: Text("Allgemein")){
+                Section(header: Text("settingsSection1")){
                     SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
                         if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
                             UIApplication.shared.open(url)
@@ -21,18 +21,18 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                     })
                     
                     HStack {
-                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "Regenbogen"){}
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow"){}
                         Toggle(isOn: $vm.settings.colorfulCharts){}.onChange(of: vm.settings.colorfulCharts) { newValue in
                             vm.reloadAndSave()
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
                     
-                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "Noten importieren") {
+                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "settingsImport") {
                         vm.alertActiontype = .importData
                         vm.deleteAlert = true
                     }
                     
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "Noten exportieren"){
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport"){
                         vm.isLoading = true
                         let data = JSON.exportJSON()
                         let url = JSON.writeJSON(data)
@@ -40,27 +40,27 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                         showShareSheet(url: url)
                     }
                     
-                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "Wertung ändern") {
+                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "settingsWeight") {
                         vm.weightSheetPresented = true
                     }
                     
-                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "Demo Daten laden") {
+                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "settingsLoadDemo") {
                         vm.alertActiontype = .loadDemo
                         vm.deleteAlert = true
                     }
                     
-                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "Daten löschen") {
+                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "settingsDelete") {
                         vm.alertActiontype = .deleteData
                         vm.deleteAlert = true
                     }
                 }
-                Section(header: Text("Fächer")){
+                Section(header: Text("settingsSection2")){
                     
                     ForEach(vm.subjects) { sub in
                         subjectView(sub)
                     }
                     
-                    SettingsIcon(color: .green, icon: "plus", text: "Neues Fach") {
+                    SettingsIcon(color: .green, icon: "plus", text: "newSub") {
                         vm.newSubjectSheetPresented = true
                     }
                 }
@@ -68,7 +68,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 Section(){
                     Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
                 }
-            }.navigationTitle("Einstellungen")
+            }.navigationTitle("settingsTitle")
                 .overlay(loadingView())
                 .sheet(isPresented: $vm.presentDocumentPicker) {
                     DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear{ vm.reloadAndSave()}
@@ -91,7 +91,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
             }
         }
         .alert(isPresented: $vm.deleteAlert) {
-            Alert(title: Text("Sicher?"), message: Text("Alle deine Daten werden gelöscht"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Oki"),action: {
+            Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
                 switch vm.alertActiontype {
                     
                 case .importData:
@@ -150,7 +150,7 @@ struct SettingsIcon: View {
                     Image(systemName: icon)
                         .foregroundColor(.white)
                 }
-                Text(text)
+                Text(LocalizedStringKey(text))
             }
             .frame(width: geo.size.width, height: 30, alignment: .leading)
             .onTapGesture {

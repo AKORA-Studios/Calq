@@ -21,17 +21,17 @@ struct NewSubjectScreen: View {
         VStack{
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Kursname")
-                    TextField("Name", text: $subjectName)
+                    Text("subjectName")
+                    TextField("name", text: $subjectName)
                 }.padding()
             }.background(CardView())
             
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Typ")
-                    Picker("Typ", selection: $lkSubject) {
-                        Text("Grundkurs").tag(0)
-                        Text("Leistungskurs").tag(1)
+                    Text("subjectType")
+                    Picker("subjectType", selection: $lkSubject) {
+                        Text("typeGK").tag(0)
+                        Text("typeLK").tag(1)
                     }.pickerStyle(.segmented)
                         .colorMultiply(selectedColor)
                 }.padding()
@@ -39,31 +39,31 @@ struct NewSubjectScreen: View {
             
             ZStack{
                 VStack(alignment: .leading){
-                    Text("Kursfarbe")
+                    Text("editSubColor")
                     
                     HStack{
                         Image(systemName: "paintpalette")
-                        ColorPicker("Farbe ändern", selection: $selectedColor, supportsOpacity: false)
+                        ColorPicker("editSubEditColor", selection: $selectedColor, supportsOpacity: false)
                     }
                 }.padding()
             }.background(CardView())
             
-            Button("Speichern") {
+            Button("saveData") {
                 if(subjectName.isEmpty){
-                    alertMessage = "Name darf nicht leer sein"
+                    alertMessage = "editSubjecNameInvalidEmpty"
                     nameAlert = true
                 } else if (Util.checkString(subjectName)){
-                    alertMessage = "Name darf keine Sonderzeichen/Zahlen etc. enthalten"
+                    alertMessage = "editSubjecNameInvalidChars"
                     nameAlert = true
                 }else {
                     addSubject()
                 }
             }.buttonStyle(PrimaryStyle())
             
-        }.navigationTitle("Neues Fach")
+        }.navigationTitle("newSub")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .alert(isPresented: $nameAlert) {
-                Alert(title: Text("Name ungültig"), message: Text(alertMessage))
+                Alert(title: Text("editSubjectNameInvalid"), message: Text(LocalizedStringKey(alertMessage)))
             }
             .padding()
     }

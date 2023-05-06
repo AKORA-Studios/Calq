@@ -14,14 +14,14 @@ struct GradeTableOverviewScreen: View {
     var body: some View{
         VStack {
             if(subjects.isEmpty){
-                Text("keine fächer? :c")
+                Text("ToastNoSubjects")
             }
             List {
                 ForEach(subjects) { sub in
                     gradeTableCell(subject: sub)
                 }
             }
-        }.navigationTitle("Notentabelle")
+        }.navigationTitle("subjectListTable")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
     }
     

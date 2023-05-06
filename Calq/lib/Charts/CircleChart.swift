@@ -25,7 +25,7 @@ struct CircleChart: View {
                 if(showText && !textDescription.isEmpty){
                     ZStack{
                         RoundedRectangle(cornerRadius: 8).fill(Color.accentColor.opacity(0.5)).frame(width: geo.size.width - 50, height: geo.size.width - 50)
-                        Text(textDescription)
+                        Text(LocalizedStringKey(textDescription))
                             .font(.footnote)
                             .multilineTextAlignment(.center)
                     }
@@ -44,11 +44,11 @@ struct CircleChart: View {
                         .frame(width: geo.size.width - 50)
                     
                     VStack{
-                        Text(upperText)
+                        Text(LocalizedStringKey(upperText))
                             .fontWeight(.bold)
                             .foregroundColor(color)
                         if(!lowerText.isEmpty){
-                            Text(lowerText )
+                            Text(LocalizedStringKey(lowerText))
                                 .foregroundColor(color)
                         }
                     }

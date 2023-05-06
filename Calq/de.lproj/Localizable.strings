@@ -5,6 +5,30 @@
   Created by Kiara on 20.04.23.
   
 */
+
+"saveData"="Speichern";
+"subjectExam"="Klausur";
+"subjectTest"="Test";
+"subjectType"="Typ";
+"subjectName"="Kursname";
+"name"="Name";
+"typeLK"="Leistungskurs";
+"typeGK"="Grundkurs";
+"newSub"= "Neues Fach";
+
+"ToastDeleteAll"="Alle löschen";
+"ToastDelete"="Löschen";
+"ToastTitle"="Sicher?";
+"ToastOki"="Oki";
+"ToastDeleteAll"="Alle deine Daten werden gelöscht";
+"ToastDesc"="Alle Kursdaten werden gelöscht";
+"ToastNoSubjects"="Oh no keine Fächer vorhanden :c";
+"ToastDeleteGrades"="Alle Noten dieses Fachs werden gelöscht";
+"noGrades"="oh no keine noten da :c";
+"ToastDeleteGrade"="Möchtest du diese Note wirklich löschen?";
+
+"EmptyBarChart"="Keine Daten vorhanden :c";
+
 "OverViewTitle"="Übersicht";
 "OverviewTimeChartTitle"="Verlauf";
 "OverViewHalfyearChartTitle"="Halbjahre";
@@ -17,3 +41,59 @@
 "ExamViewSubjects"="Prüfungsfächer";
 "ExamViewSubRemove"="Entfernen/keines";
 "ExamViewSubSelect"="Prüfung auswählen";
+
+"EditWeigthTitle"="Wertung ändern";
+"EditWeigthDesc"="Wähle die Wertung der Noten in % aus";
+
+"editSubject"="Kurs bearbeiten";
+"editSubDelete"="Fach löschen";
+"editSubGrades"="Noten bearbeiten";
+"editSubColor"="Kursfarbe";
+"editSubEditColor"="Farbe ändern";
+
+"settingsSection1"="Allgemein";
+"settingsSection2"="Fächer";
+"settingsTitle"="Einstellungen";
+"settingsImport"= "Noten importieren";
+"settingsExport"= "Noten exportieren";
+"settingsRainbow"= "Regenbogen";
+"settingsWeight"= "Wertung ändern";
+"settingsLoadDemo"= "Demo Daten laden";
+"settingsDelete"= "Daten löschen";
+
+"editSubjectNameInvalid"="Name ungültig";
+"editSubjecNameInvalidEmpty"="Name darf nicht leer sein";
+"editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten";
+
+"gradeNew"="Neue Note";
+"gradeName"="Notenname";
+"gradeType"="Typ";
+"gradeYear"="Jahr";
+"gradeDate"="Datum";
+"gradePoints"="Punkte";
+"gradeType1"="Test";
+"gradeType2"="Klausur";
+"gradeHalfyear"="Halbjahr";
+"gradeNewAdd"="Note hinzufügen";
+"gradeInvalidName"="Ungültiger Name";
+"gradeInvalidNameDesc"="Der Name darf nicht leer sein";
+
+"subjectListTitle"="Kursliste";
+"subjectListTable"="Notentabelle";
+"%lld subjectListYears %lld"="%lld von %lld Halbjahren aktiv";
+
+"gradeEdit"="Note bearbeiten";
+"gradeDelete"="Note löschen";
+"gradeSave"="Änderungen speichern";
+
+"subjectDetailGradeList"="Notenliste ansehen";
+"subjectDetailAverageHalfyear"="Durchschnitt des Halbjahres";
+"subjectDetailTime"="Verlauf";
+"subjectDetailActive"="Aktiv";
+"subjectDetailInactive"="Inaktiv";
+"subjectDetailDeactivate"="Halbjahr deaktivieren";
+"subjectDetailActivate"=" Halbjahr aktivieren";
+
+"firstLaunchDesc"="Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)";
+
+"gradeTableDelete"="Alle Noten löschen";

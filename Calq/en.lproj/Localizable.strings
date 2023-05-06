@@ -5,9 +5,33 @@
   Created by Kiara on 20.04.23.
   
 */
+
+"saveData"="Save";
+"subjectExam"="Exam";
+"subjectTest"="Test";
+"subjectType"="Type";
+"subjectName"="Subjecttitle";
+"name"="Name";
+"typeLK"="Leistungskurs*";
+"typeGK"="Grundkurs*";
+"newSub"= "New Subject";
+
+"ToastDeleteAll"="Delete All";
+"ToastDelete"="Delete";
+"ToastTitle"="Sure?";
+"ToastOki"="Oki";
+"ToastDeleteAll"="All your Data will be deleted";
+"ToastDesc"="All Subject Data will be deleted";
+"ToastNoSubjects"="Oh no there are no subjects :c";
+"ToastDeleteGrades"="All Grades of this subject will be deleted";
+"noGrades"="oh no, there are no grades :c";
+"ToastDeleteGrade"="Do you want to delete this grade?";
+
+"EmptyBarChart"="No data :c";
+
 "OverViewTitle"="Overview";
 "OverviewTimeChartTitle"="Time Chart";
-"OverViewHalfyearChartTitle"="Halbjahre";
+"OverViewHalfyearChartTitle"="Halfyears";
 "OverviewPieChartSubjects"="Subjectaverage";
 "OverviewPieChartSubjectsDesc"="Grade without final exams";
 "OverviewPieChartSum"="Abigrade";
@@ -17,3 +41,59 @@
 "ExamViewSubjects"="Exam Subjects";
 "ExamViewSubRemove"="Remove/None";
 "ExamViewSubSelect"="Select Subject";
+
+"EditWeigthTitle"="Change Weight";
+"EditWeigthDesc"="Change the gardes weight in %";
+
+"editSubject"="Edit Subject";
+"editSubDelete"="Delete Subject";
+"editSubGrades"="Edit Grades";
+"editSubColor"="Subject Color";
+"editSubEditColor"="Change Color";
+
+"settingsSection1"="General";
+"settingsSection2"="Subjects";
+"settingsTitle"="Settings";
+"settingsImport"= "Import Grades";
+"settingsExport"= "Export Grades";
+"settingsRainbow"= "Rainbow";
+"settingsWeight"= "Change Weigth";
+"settingsLoadDemo"= "Load Demo Data";
+"settingsDelete"= "Delete Data";
+
+"editSubjectNameInvalid"="Name invalid";
+"editSubjecNameInvalidEmpty"="Name cannot be empty";
+"editSubjecNameInvalidChars"="Name should not include special characters";
+
+"gradeNew"="New Grade";
+"gradeName"="Gradename";
+"gradeType"="Type";
+"gradeYear"="Year";
+"gradeDate"="Date";
+"gradePoints"="Points";
+"gradeType1"="Test";
+"gradeType2"="Exam";
+"gradeHalfyear"="Halfyear";
+"gradeNewAdd"="Add Grade";
+"gradeInvalidName"="Invalid Name";
+"gradeInvalidNameDesc"="Name cannot be empty";
+
+"subjectListTitle"="Subjectlist";
+"subjectListTable"="Gradetable";
+"%lld subjectListYears %lld"="%lld of %lld Halfyears active";
+
+"gradeEdit"="Edit Grade";
+"gradeDelete"="Delete Grade";
+"gradeSave"="Save changes";
+
+"subjectDetailGradeList"="View Grades";
+"subjectDetailAverageHalfyear"="Halfyear Average";
+"subjectDetailTime"="Time Chart";
+"subjectDetailActive"="Active";
+"subjectDetailInactive"="Inactive";
+"subjectDetailDeactivate"="deactivate Halfyear";
+"subjectDetailActivate"="activate Halfyear";
+
+"firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";
+
+"gradeTableDelete"="Delete all Grades";

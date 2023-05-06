@@ -78,8 +78,8 @@ struct OverviewScreen: View {
                             }
                         }//TODO: Localize
                         HStack(alignment: .center, spacing: 5){
-                            CircleChart(perrcent: $vm.averagePercent, textDescription: "Durchschnitt aller Fächer ohne Prüfungsnoten", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
-                            CircleChart(perrcent: $vm.blockPercent, textDescription: "Durchschnitt mit Prüfungsnoten)", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                            CircleChart(perrcent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
+                            CircleChart(perrcent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                         }
                     }
                     .padding()

@@ -14,12 +14,12 @@ struct ChangeWeightScreen: View {
     
     var body: some View {
         VStack{
-            Text("Wähle die Wertung der Noten in % aus")
+            Text("EditWeigthDesc")
             
                 HStack{
                     VStack{
-                        Text("Klausur")
-                        Text("Test")
+                        Text("subjectExam")
+                        Text("subjectTest")
                     }.frame(width: 100)
                     
                     VStack {
@@ -36,12 +36,12 @@ struct ChangeWeightScreen: View {
                 
             Spacer()
             
-            Button("Speichern") {
+            Button("saveData") {
                 saveChanges()
             }.buttonStyle(PrimaryStyle())
             
         }.padding()
-            .navigationTitle("Wertung ändern")
+            .navigationTitle("EditWeigthTitle")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 stepperValue = Int(Double(Util.getSettings()!.weightBigGrades)! * 100)
