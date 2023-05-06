@@ -46,7 +46,7 @@ struct BarChart: View {
                     }
                     if(values.isEmpty){
                         Spacer()
-                        Text("Keine Daten vorhanden :c")
+                        Text("EmptyBarChart")
                         Spacer()
                     }
                 }

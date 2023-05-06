@@ -91,7 +91,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
             }
         }
         .alert(isPresented: $vm.deleteAlert) {
-            Alert(title: Text("ToastTitle?"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
+            Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
                 switch vm.alertActiontype {
                     
                 case .importData:
