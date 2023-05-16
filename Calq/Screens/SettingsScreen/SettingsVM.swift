@@ -30,7 +30,7 @@ class SettingsViewModel: ObservableObject {
     
     @Published var isLoading = false
     
-    //mport&export
+    //import&export
     @Published var importedJson: String = ""
     @Published var importeJsonURL: URL = URL(fileURLWithPath: "")
     

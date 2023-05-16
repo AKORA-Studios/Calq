@@ -19,7 +19,6 @@ struct FirstLaunchScreen: View {
             
             Spacer()
             
-            
             Button("ToastOki") {
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
                 firstLaunch = false

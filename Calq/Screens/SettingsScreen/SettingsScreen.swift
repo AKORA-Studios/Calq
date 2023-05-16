@@ -107,7 +107,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 vm.alertActiontype = .none
                 vm.deleteAlert = false
             }
-                                                                                                                                                    ))
+                                                                                                                                     ))
         }
         .onAppear{
             vm.subjects = Util.getAllSubjects()
