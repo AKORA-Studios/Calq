@@ -92,7 +92,7 @@ struct JSON {
                 str += "\"exam\(index)\(exam.name)\": \(exam.exampoints),"
             }
         }
-        return str == "" ? "," : str
+        return str
     }
     
     static func writeJSON(_ data: String) -> URL{
@@ -114,16 +114,17 @@ struct JSON {
     }
     
     //MARK: Import JSON
-    static func importJSONfromDevice(_ URL: URL)throws {
+    static func importJSONfromDevice(_ URL: URL) throws {
         var json: Data
+        var jsonDict: [String:Any] = [:]
         
         do {
-            
             json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
+            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String : Any]
         } catch {
             throw loadErrors.failedToloadData
         }
-        
+    
         var newSettings: AppStruct
         let decoder = JSONDecoder()
         
@@ -144,6 +145,14 @@ struct JSON {
             sub.color = subject.color
             sub.lk = subject.lk
             sub.inactiveYears = subject.inactiveYears
+            
+            //check for exams
+            for index in 1...5 {
+                if let code = jsonDict["exam\(index)\(sub.name)"] as? Int {
+                    sub.examtype = Int16(index)
+                    sub.exampoints = Int16(code)
+                }
+            }
             
             //    if(sub.subjecttests.count != 0){
             for newTest in subject.subjecttests {
