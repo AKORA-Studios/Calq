@@ -176,7 +176,7 @@ struct JSON {
         }
         return exmapleSubjects
     }
-
+    
 }
 
 private func checkGrade(_ num: Int) -> Int16 {

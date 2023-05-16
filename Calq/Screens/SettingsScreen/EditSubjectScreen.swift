@@ -77,7 +77,7 @@ struct EditSubjectScreen: View {
                 Spacer().frame(height: 20)
                 
                 NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("editSubGrades").foregroundColor(.white)
+                    Text("editSubGrades").foregroundColor(.white)
                 }.buttonStyle(PrimaryStyle())
                 
                 Button("editSubDelete") {

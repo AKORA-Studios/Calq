@@ -16,24 +16,24 @@ struct ChangeWeightScreen: View {
         VStack{
             Text("EditWeigthDesc")
             
-                HStack{
-                    VStack{
-                        Text("subjectExam")
-                        Text("subjectTest")
-                    }.frame(width: 100)
-                    
-                    VStack {
-                        Text(String(stepperValue) + " %")
-                        Text(String(100 - stepperValue) + " %")
-                    }.foregroundColor(.accentColor)
-                    Stepper("") {
-                        stepperValue += stepperValue == 100 ? 0 : 10
-                    } onDecrement: {
-                        stepperValue -= stepperValue == 0 ? 0 : 10
-                    }
-                }.padding()
-                    .background(CardView())
+            HStack{
+                VStack{
+                    Text("subjectExam")
+                    Text("subjectTest")
+                }.frame(width: 100)
                 
+                VStack {
+                    Text(String(stepperValue) + " %")
+                    Text(String(100 - stepperValue) + " %")
+                }.foregroundColor(.accentColor)
+                Stepper("") {
+                    stepperValue += stepperValue == 100 ? 0 : 10
+                } onDecrement: {
+                    stepperValue -= stepperValue == 0 ? 0 : 10
+                }
+            }.padding()
+                .background(CardView())
+            
             Spacer()
             
             Button("saveData") {

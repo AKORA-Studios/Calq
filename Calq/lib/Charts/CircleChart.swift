@@ -24,11 +24,11 @@ struct CircleChart: View {
             ZStack{
                 if(showText && !textDescription.isEmpty){
                     ZStack{
-                        RoundedRectangle(cornerRadius: 8).fill(Color.accentColor.opacity(0.5)).frame(width: geo.size.width - 50, height: geo.size.width - 50)
                         Text(LocalizedStringKey(textDescription))
                             .font(.footnote)
                             .multilineTextAlignment(.center)
                     }
+                    .frame(width: geo.size.width - 50, height: geo.size.width - 50)
                 }else {
                     Circle()
                         .trim(from: 0.0, to: 1.0)

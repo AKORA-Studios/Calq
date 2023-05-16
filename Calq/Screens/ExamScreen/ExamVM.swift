@@ -91,7 +91,7 @@ func generateBlockTwo() -> Int{
     var sum: Double = 0
     
     for sub in subjects {
-            sum += Double(Int(sub.exampoints) * 4)
+        sum += Double(Int(sub.exampoints) * 4)
     }
     
     return Int(sum)
