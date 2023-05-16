@@ -58,7 +58,7 @@ struct JSON {
     ///Export userdata as json
     static func exportJSON()-> String{
         let data = Util.getSettings()
-        var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \"usersubjects\": ["
+        var string = "{\"colorfulCharts\": \(data?.colorfulCharts ?? true), \(getExamJSONData()) \"usersubjects\": ["
         
         let subjects = Util.getAllSubjects()
         var subCount: Int = 0
@@ -81,6 +81,18 @@ struct JSON {
         }
         string += "]}"
         return string
+    }
+    
+    static func getExamJSONData() -> String {
+        var str = ""
+        let subjects = Util.getAllSubjects()
+        
+        for index in 1...5 {
+            if let exam = subjects.filter({$0.examtype == Int16(index)}).first {
+                str += "\"exam\(index)\(exam.name)\": \(exam.exampoints),"
+            }
+        }
+        return str == "" ? "," : str
     }
     
     static func writeJSON(_ data: String) -> URL{
