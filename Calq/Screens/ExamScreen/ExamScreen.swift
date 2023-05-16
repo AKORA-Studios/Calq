@@ -14,22 +14,22 @@ struct ExamScreen: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                    BlockView(updateblock2: $updateBlock2)
-                        .padding(.bottom, 20)
+                BlockView(updateblock2: $updateBlock2)
+                    .padding(.bottom, 20)
                 
                 Text("ExamViewSubjects")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                 
-                    VStack{
-                        ForEach(1...5, id: \.self){ i in
-                            ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
-                        }
-                    }.background(CardView())
+                VStack{
+                    ForEach(1...5, id: \.self){ i in
+                        ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
+                    }
+                }.background(CardView())
                 
-                    Spacer()
-          
+                Spacer()
+                
             }.onAppear{
                 vm.updateViews()
                 //resetExams() //if broken to debug ig
