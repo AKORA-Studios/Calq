@@ -15,14 +15,12 @@
 		DD4F97A427515CAC00D3CC57 /* CalqWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD4F979927515CA800D3CC57 /* CalqWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DD4F97A827515CC600D3CC57 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD687945261C530000BF2B48 /* Util.swift */; };
 		DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
-		DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
 		DD60BA552715B69A00048FA4 /* grades.json in Resources */ = {isa = PBXBuildFile; fileRef = DD60BA542715B69A00048FA4 /* grades.json */; };
 		DD6878902617B1AB00BF2B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD68788F2617B1AB00BF2B48 /* Assets.xcassets */; };
 		DD6878932617B1AB00BF2B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6878912617B1AB00BF2B48 /* LaunchScreen.storyboard */; };
 		DD687946261C530000BF2B48 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD687945261C530000BF2B48 /* Util.swift */; };
 		DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
-		DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */; };
 		F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */; };
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
@@ -60,6 +58,8 @@
 		F1AAEF2E2A1BD717000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */; };
 		F1A771F92A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */; };
 		F1A771FA2A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */; };
+		F1A771FC2A178EBF004B8DCC /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */; };
+		F1A771FD2A178EBF004B8DCC /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
@@ -139,7 +139,6 @@
 		DD8813782764D58B00EB6BD8 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		DD8D4D8D26ACC43600AC289A /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		DD8D4D9826ACC43600AC289A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailScreen.swift; sourceTree = "<group>"; };
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		F1AAEF2A2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWidgetViewmodel.swift; sourceTree = "<group>"; };
 		F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model_v2.xcdatamodel; sourceTree = "<group>"; };
+		F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
@@ -299,6 +299,7 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */,
 				F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */,
 				F19B109229AF726600B11C82 /* UserSubject+CoreDataClass.swift */,
 				F19B109329AF726600B11C82 /* UserSubject+CoreDataProperties.swift */,
@@ -306,7 +307,6 @@
 				F19B109529AF726600B11C82 /* AppSettings+CoreDataProperties.swift */,
 				F19B109629AF726600B11C82 /* UserTest+CoreDataClass.swift */,
 				F19B109729AF726600B11C82 /* UserTest+CoreDataProperties.swift */,
-				DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -560,8 +560,8 @@
 				DD4F97A927515CCA00D3CC57 /* CoreDataStack.swift in Sources */,
 				F19B109F29AF726600B11C82 /* AppSettings+CoreDataProperties.swift in Sources */,
 				F192DD25299D2CD00077B905 /* BarChart.swift in Sources */,
+				F1A771FD2A178EBF004B8DCC /* Model.xcdatamodel in Sources */,
 				F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */,
-				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
 				F19B109B29AF726600B11C82 /* UserSubject+CoreDataProperties.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
 				F1AAEF2B2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift in Sources */,
@@ -583,7 +583,6 @@
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
-				DDEC40372703912F00C6C9E8 /* Model.xcdatamodeld in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
@@ -598,6 +597,7 @@
 				F1A771F92A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */,
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
+				F1A771FC2A178EBF004B8DCC /* Model.xcdatamodel in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1AAEF2D2A1BD6BC000CD044 /* LineChartBase.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
@@ -1037,19 +1037,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		DDEC40352703912F00C6C9E8 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */,
-			);
-			currentVersion = DDEC40362703912F00C6C9E8 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = DD6878782617B1A900BF2B48 /* Project object */;
 }
