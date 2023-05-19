@@ -226,13 +226,6 @@ struct Util {
         saveCoreData()
     }
     
-    @available(*, deprecated, renamed: "notsureyet")
-    static func saveWeigth(_ num: Int){
-        let settings = getSettings()
-        settings!.weightBigGrades = String(Float(num) / 100)
-        saveCoreData()
-    }
-    
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{

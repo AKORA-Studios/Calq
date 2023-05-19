@@ -51,7 +51,7 @@ struct NewGradeView: View {
     @State var year = 1
     @State var points: Float = 9
     @State var date = Date()
-    @State var isAlertRPesented = false
+    @State var isAlertPresented = false
     
     var body: some View {
         NavigationView {
@@ -114,7 +114,7 @@ struct NewGradeView: View {
                 }.navigationTitle("gradeNew")
                     .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                     .padding()
-                    .alert(isPresented: $isAlertRPesented){
+                    .alert(isPresented: $isAlertPresented){
                         Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
                     }
             }
@@ -123,7 +123,7 @@ struct NewGradeView: View {
     
     func saveGrade(){
         if(gradeName.isEmpty){
-            isAlertRPesented = true
+            isAlertPresented = true
             return
         }
         
