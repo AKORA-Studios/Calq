@@ -185,8 +185,6 @@ extension JSON {
                 test.date = Date(timeIntervalSince1970: Double(timestamp))
                 test.type = newTest.big ? 1 : 0
                 
-                //      //TODO: qwq
-                
                 sub.addToSubjecttests(test)
             }
             set.addToUsersubjects(sub)
