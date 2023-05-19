@@ -76,7 +76,7 @@ struct OverviewScreen: View {
                                 Spacer()
                                 Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
                             }
-                        }//TODO: Localize
+                        }
                         HStack(alignment: .center, spacing: 5){
                             CircleChart(perrcent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
                             CircleChart(perrcent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
