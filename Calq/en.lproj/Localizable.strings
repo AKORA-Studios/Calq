@@ -80,6 +80,7 @@
 
 "subjectListTitle"="Subjectlist";
 "subjectListTable"="Gradetable";
+"subjectGradeList"="Gradelist";
 "%lld subjectListYears %lld"="%lld of %lld Halfyears active";
 
 "gradeEdit"="Edit Grade";

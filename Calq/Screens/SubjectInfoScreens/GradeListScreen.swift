@@ -41,7 +41,7 @@ struct GradeListScreen: View {
                 Text("noGrades")
             }
             
-        }.navigationTitle("subjectListTitle")
+        }.navigationTitle("subjectGradeList")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})

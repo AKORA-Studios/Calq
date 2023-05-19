@@ -80,6 +80,7 @@
 
 "subjectListTitle"="Kursliste";
 "subjectListTable"="Notentabelle";
+"subjectGradeList"="Notenliste";
 "%lld subjectListYears %lld"="%lld von %lld Halbjahren aktiv";
 
 "gradeEdit"="Note bearbeiten";
