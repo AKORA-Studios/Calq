@@ -17,8 +17,9 @@ extension GradeType {
     }
 
     @NSManaged public var id: Int16
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var weigth: Int16
+    @NSManaged public var gradetosettings: AppSettings?
 
 }
 

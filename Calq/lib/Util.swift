@@ -376,4 +376,23 @@ struct Util {
         saveCoreData()
     }
     
+    // MARK: Managed GradeTypes
+    static func addType(name: String, weigth: Int) {
+        let existingTypes = getTypes().map{$0.id}
+        var newType = GradeType(context: context)
+        newType.name = name
+        newType.weigth = Int16(weigth)
+        newType.id = existingTypes.min() ?? 2
+        saveCoreData()
+    }
+    
+    static func deleteType(type: GradeType) {
+        type.gradetosettings?.removeFromGradetypes(type)
+        saveCoreData()
+    }
+    
+    static func getTypes() -> [GradeType] {
+        return getSettings()?.gradetypes!.allObjects as! [GradeType]
+    }
+    
 }
