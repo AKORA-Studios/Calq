@@ -83,7 +83,6 @@ struct GradeIcon: View {
             Spacer()
             Text(date).foregroundColor(.gray).fontWeight(.light)
         }.onAppear{
-            print(test.type)
             color =  test.type == Util.highestType() ?  color : Color.clear
             name = test.name
             date = formatDate(date: test.date)
