@@ -36,6 +36,8 @@ class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         fileURL = urls[0]
         
+        Util.deleteSettings()
+        
         do { try JSON.importJSONfromDevice(urls[0])}catch {
             print("failed to import json")
         }
