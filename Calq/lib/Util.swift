@@ -195,14 +195,11 @@ struct Util {
                 
                 item.colorfulCharts = false
                 setTypes(item)
-                saveCoreData()
-                
                 return item
             }
             
             if items[0].gradetypes?.count == 0 {
                 setTypes(items[0])
-                saveCoreData()
             }
             return items[0]
         }
@@ -211,7 +208,7 @@ struct Util {
     }
     
     /// add default grade types
-    static func setTypes(_ settings: AppSettings){
+    static func setTypes(_ settings: AppSettings,_ deleted: Bool = false){
         let type1 = GradeType(context: context)
         type1.id = 0
         type1.name = "Test"

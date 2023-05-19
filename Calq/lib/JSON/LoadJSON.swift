@@ -76,6 +76,9 @@ extension JSON {
         }
         
         let set = Util.getSettings()!
+        for t in set.gradetypes!.allObjects as! [GradeType] {
+            set.removeFromGradetypes(t)
+        }
         set.colorfulCharts = data.colorfulCharts
         
         //add types
