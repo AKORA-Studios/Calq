@@ -58,7 +58,7 @@ struct JSON {
                 t.name = test.name
                 t.year = Int16(test.year)
                 t.grade = Int16(test.grade)
-                //   t.big = test.big     //     test.big = newTest.big //TODO: qwq
+                t.type = test.big ? 1 : 0
                 let timestamp = Int(test.date) ?? 1635417527 / 1000
                 t.date = Date(timeIntervalSince1970: Double(timestamp))
                 sub.addToSubjecttests(t)
