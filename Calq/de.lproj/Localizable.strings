@@ -71,8 +71,6 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
-"gradeType1"="Test";
-"gradeType2"="Klausur";
 "gradeHalfyear"="Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
