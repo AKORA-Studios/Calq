@@ -60,6 +60,7 @@
 		F1A771FA2A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */; };
 		F1A771FC2A178EBF004B8DCC /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */; };
 		F1A771FD2A178EBF004B8DCC /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */; };
+		F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772072A17940B004B8DCC /* MigrationPolicy.swift */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
@@ -169,6 +170,7 @@
 		F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model_v2.xcdatamodel; sourceTree = "<group>"; };
 		F1A771FB2A178EBF004B8DCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F1A772072A17940B004B8DCC /* MigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationPolicy.swift; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				F19B109629AF726600B11C82 /* UserTest+CoreDataClass.swift */,
 				F19B109729AF726600B11C82 /* UserTest+CoreDataProperties.swift */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
+				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
 				F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */,
 				F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */,
+				F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
