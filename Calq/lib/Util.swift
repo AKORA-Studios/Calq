@@ -71,8 +71,8 @@ struct Util {
     static func testAverage(_ tests: [UserTest]) -> Double {
         let weigth = Double(Util.getSettings()!.weightBigGrades)!
         
-        let smallArr = tests.filter{!$0.big}.map{Int($0.grade)},
-            bigArr = tests.filter{$0.big}.map{Int($0.grade)};
+        let smallArr = tests.filter{!($0.type == 0)}.map{Int($0.grade)},
+            bigArr = tests.filter{$0.type == 0}.map{Int($0.grade)};
         
         if (smallArr.count > 0 && bigArr.count > 0) {
             let smallAvg = Util.average(smallArr),
@@ -184,8 +184,7 @@ struct Util {
             let items = try context.fetch(AppSettings.fetchRequest())
             context.delete(items[0])
         }
-        catch{
-        }
+        catch {}
         saveCoreData()
         return Util.getSettings()!
     }
@@ -200,12 +199,23 @@ struct Util {
                 let item =  AppSettings(context: context)
                 item.colorfulCharts = false
                 
+                //add default grade types
+                var grundKurs = GradeType(context: context)
+                grundKurs.id = 0
+                grundKurs.name = "Grundkurs"
+                grundKurs.weigth = 50
+                
+                var leistungsKurs = GradeType(context: context)
+                leistungsKurs.id = 1
+                leistungsKurs.name = "Leistungskurs"
+                leistungsKurs.weigth = 50
+                
                 saveCoreData()
                 return item
             }
             return items[0]
         }
-        catch{        }
+        catch {}
         return nil
     }
     
@@ -362,7 +372,7 @@ struct Util {
     }
     
     static func deleteTest(_ test: UserTest){
-        test.testtosubbject.removeFromSubjecttests(test)
+        test.testtosubbject!.removeFromSubjecttests(test) //TODO: idk if !
         saveCoreData()
     }
     

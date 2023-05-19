@@ -58,8 +58,8 @@ struct ImpactSegment: View {
         let weightSmall = 1 - weigth
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         
-        let bigTests = tests.filter{$0.big}.map{Int($0.grade)}
-        let smallTests = tests.filter{!$0.big}.map{Int($0.grade)}
+        let bigTests: [Int] = []//tests.filter{$0.big}.map{Int($0.grade)}//TODO: h
+        let smallTests: [Int] = []//tests.filter{!$0.big}.map{Int($0.grade)}//TODO: h
         
         let big =  Util.average(bigTests)
         let small = Util.average(smallTests)
