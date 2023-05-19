@@ -7,6 +7,7 @@
         <relationship name="usersubjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttosettings" inverseEntity="UserSubject"/>
     </entity>
     <entity name="GradeType" representedClassName="GradeType" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="weigth" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
