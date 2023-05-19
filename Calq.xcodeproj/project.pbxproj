@@ -55,6 +55,8 @@
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
+		F1A771F92A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */; };
+		F1A771FA2A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
@@ -161,6 +163,7 @@
 		F19F8E4529F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
+		F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model_v2.xcdatamodel; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 		DD7A4A6F26AF297B00CBF7D8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F1A771F82A178DF0004B8DCC /* Model_v2.xcdatamodel */,
 				F19B109229AF726600B11C82 /* UserSubject+CoreDataClass.swift */,
 				F19B109329AF726600B11C82 /* UserSubject+CoreDataProperties.swift */,
 				F19B109429AF726600B11C82 /* AppSettings+CoreDataClass.swift */,
@@ -557,6 +561,7 @@
 				F19B109929AF726600B11C82 /* UserSubject+CoreDataClass.swift in Sources */,
 				F1C04B5029BA363A00DAC128 /* JSONUtil.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
+				F1A771FA2A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +586,7 @@
 				F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */,
 				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,
 				F19B10A229AF726600B11C82 /* UserTest+CoreDataProperties.swift in Sources */,
+				F1A771F92A178DF0004B8DCC /* Model_v2.xcdatamodel in Sources */,
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
