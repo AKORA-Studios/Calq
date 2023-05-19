@@ -200,12 +200,12 @@ struct Util {
                 item.colorfulCharts = false
                 
                 //add default grade types
-                var grundKurs = GradeType(context: context)
+                let grundKurs = GradeType(context: context)
                 grundKurs.id = 0
                 grundKurs.name = "Grundkurs"
                 grundKurs.weigth = 50
                 
-                var leistungsKurs = GradeType(context: context)
+                let leistungsKurs = GradeType(context: context)
                 leistungsKurs.id = 1
                 leistungsKurs.name = "Leistungskurs"
                 leistungsKurs.weigth = 50
@@ -372,14 +372,14 @@ struct Util {
     }
     
     static func deleteTest(_ test: UserTest){
-        test.testtosubbject!.removeFromSubjecttests(test) //TODO: idk if !
+        test.testtosubbject.removeFromSubjecttests(test)
         saveCoreData()
     }
     
     // MARK: Managed GradeTypes
     static func addType(name: String, weigth: Int) {
         let existingTypes = getTypes().map{$0.id}
-        var newType = GradeType(context: context)
+        let newType = GradeType(context: context)
         newType.name = name
         newType.weigth = Int16(weigth)
         newType.id = existingTypes.min() ?? 2

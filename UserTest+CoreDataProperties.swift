@@ -21,7 +21,7 @@ extension UserTest {
     @NSManaged public var name: String
     @NSManaged public var year: Int16
     @NSManaged public var type: Int16
-    @NSManaged public var testtosubbject: UserSubject?
+    @NSManaged public var testtosubbject: UserSubject
 
 }
 
