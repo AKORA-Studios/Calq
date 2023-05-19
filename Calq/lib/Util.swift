@@ -68,25 +68,21 @@ struct Util {
     }
     
     /// Returns the average of an array of tests.
-    static func testAverage(_ tests: [UserTest]) -> Double {//TODO: h
-        let weigth = Double(Util.getSettings()!.weightBigGrades)!
+    static func testAverage(_ tests: [UserTest]) -> Double {
+        var gradeWeigths = 0.0
+        var avgArr: [Double] = []
         
-        let smallArr = tests.filter{!($0.type == 0)}.map{Int($0.grade)},
-            bigArr = tests.filter{$0.type == 0}.map{Int($0.grade)};
-        
-        if (smallArr.count > 0 && bigArr.count > 0) {
-            let smallAvg = Util.average(smallArr),
-                bigAvg = Util.average(bigArr)
-            
-            return weigth * bigAvg + (1.0 - weigth) * smallAvg
-            
-            //  return (smallAvg + bigAvg) / 2;
-        } else if (smallArr.count == 0) {
-            return Util.average(bigArr);
-        } else if (bigArr.count == 0) {
-            return Util.average(smallArr)
+        for type in getTypes() {
+            let filteredTests = tests.filter {$0.type == type.id}
+            if !filteredTests.isEmpty {
+                let weigth = Double(Double(type.weigth)/100)
+                gradeWeigths += weigth
+                let avg = Util.average(filteredTests.map{Int($0.grade)})
+                avgArr.append(Double(avg * weigth))
+            }
         }
-        return 0.0;
+        let num = avgArr.reduce(0, +)/gradeWeigths
+        return num
     }
     
     /// Returns the average of all grades from one subject
