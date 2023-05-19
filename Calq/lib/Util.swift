@@ -393,7 +393,13 @@ struct Util {
         newType.name = name
         newType.weigth = Int16(weigth)
         newType.id = existingTypes.min() ?? 2
+        
+        let new = getTypes().map {Int($0.weigth)}.reduce(0, +)
+        if new + weigth > 100 {
+            newType.weigth = 0
+        }
         saveCoreData()
+        //TODO: check so not over 100??
     }
     
     static func deleteType(type: GradeType) {
@@ -402,6 +408,15 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
+        let types = getSettings()?.gradetypes!.allObjects as! [GradeType]
+        if types.count >= 2 { return types}
+        
+        if types.count == 1 {
+            addType(name: "default type", weigth: 0)
+        } else if types.isEmpty {
+            setTypes(Util.getSettings()!)
+        }
+        saveCoreData()
         return getSettings()?.gradetypes!.allObjects as! [GradeType]
     }
     
