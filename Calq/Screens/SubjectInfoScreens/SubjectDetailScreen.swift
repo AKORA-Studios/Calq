@@ -29,8 +29,8 @@ struct SubjectDetailScreen: View {
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 5){
-                        Text("subjectDetailTime")
-                        OneEntryLineChart(subject: subject!, heigth: 80)
+                        Text("subjectDetailTime").padding(.top, 10)
+                        OneEntryLineChart(subject: subject!, heigth: 90)
                     }
                     .padding(.horizontal)
                     .background(CardView())
