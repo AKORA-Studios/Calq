@@ -27,8 +27,5 @@ struct FirstLaunchScreen: View {
             Spacer()
             Text("Version: \(appVersion ?? "?.?.?")").font(.footnote)
         }.padding()
-            .onAppear{
-                Util.saveWeigth(50)
-            }
     }
 }

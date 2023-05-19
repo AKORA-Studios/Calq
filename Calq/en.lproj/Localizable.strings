@@ -43,7 +43,10 @@
 "ExamViewSubSelect"="Select Subject";
 
 "EditWeigthTitle"="Change Weight";
-"EditWeigthDesc"="Change the gardes weight in %";
+"EditWeigthDesc"="Change the grades weight in %";
+"EditWeigthSum%lld"="Sum: %lld %";
+"EditWeigthAlertTitle"="Invalid sum";
+"EditWeigthAlertText"="The maximum sum should be 100";
 
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";

@@ -44,6 +44,9 @@
 
 "EditWeigthTitle"="Wertung ändern";
 "EditWeigthDesc"="Wähle die Wertung der Noten in % aus";
+"EditWeigthSum%lld"="Gesamt: %lld %";
+"EditWeigthAlertTitle"="Summe ungültig";
+"EditWeigthAlertText"="Die Summe sollte 100% betragen";
 
 "editSubject"="Kurs bearbeiten";
 "editSubDelete"="Fach löschen";
