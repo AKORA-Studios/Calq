@@ -131,7 +131,7 @@ struct NewGradeView: View {
         newTest.name = gradeName
         newTest.grade =  Int16(points)
         newTest.date = date
-        newTest.big = bigGrade == 1 ? false : true
+       // newTest.big = bigGrade == 1 ? false : true //TODO: h
         newTest.year = Int16(year)
         self.subject!.addToSubjecttests(newTest)
         saveCoreData()

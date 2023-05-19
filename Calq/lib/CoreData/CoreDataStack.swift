@@ -19,9 +19,9 @@ class CoreDataStack {
         let container = NSPersistentContainer(name: "Model")
         let storeURL = URL.storeURL()
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        storeDescription.shouldInferMappingModelAutomatically = true
         storeDescription.shouldMigrateStoreAutomatically = true
         container.persistentStoreDescriptions = [storeDescription]
-        
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {

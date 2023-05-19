@@ -20,7 +20,4 @@ class MigrationV0toV1: NSEntityMigrationPolicy {
         return isLK ? 1 : 0;
     }
 }
-
-
-//FUNCTION($entityPolicy, "typeForWithisLK:", $source.big)
-//FUNCTION($entityPolicy, "convertWithisLK:", $source.big)
+//FUNCTION($entityPolicy, "typeForisLK:", $source.big)

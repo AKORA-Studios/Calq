@@ -89,7 +89,7 @@ struct EditGradeScreen: View {
                 testYear = Int(test.year)
                 testDate = test.date
                 testPoints = Float(test.grade)
-                testType = test.big ? 1 : 0
+             //   testType = test.big ? 1 : 0 //TODO: h
             }
             .alert(isPresented: $deleteAlert) {
                 Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
@@ -108,7 +108,7 @@ struct EditGradeScreen: View {
         test.year = Int16(testYear)
         test.date = testDate
         test.grade = Int16(testPoints)
-        test.big = testType == 1
+       // test.big = testType == 1//TODO: h
         saveCoreData()
         self.presentationMode.wrappedValue.dismiss()
     }

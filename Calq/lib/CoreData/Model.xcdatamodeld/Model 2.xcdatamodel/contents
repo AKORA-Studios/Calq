@@ -6,10 +6,10 @@
         <relationship name="gradetypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GradeType"/>
         <relationship name="usersubjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttosettings" inverseEntity="UserSubject"/>
     </entity>
-    <entity name="GradeType" representedClassName="GradeType" syncable="YES" codeGenerationType="class">
+    <entity name="GradeType" representedClassName="GradeType" syncable="YES">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" attributeType="String" defaultValueString=""/>
-        <attribute name="weigth" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="weigth" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="UserSubject" representedClassName="UserSubject" syncable="YES">
         <attribute name="color" attributeType="String" defaultValueString=""/>
@@ -26,7 +26,7 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="grade" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
-        <attribute name="type" attributeType="Integer 16" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="year" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="testtosubbject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttests" inverseEntity="UserSubject"/>
     </entity>

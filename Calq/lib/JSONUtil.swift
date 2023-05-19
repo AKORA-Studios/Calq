@@ -30,7 +30,7 @@ struct JSON {
                     t.name = test.name
                     t.year = Int16(test.year)
                     t.grade = Int16(test.grade)
-                    t.big = test.big
+                   // t.big = test.big   //TODO: qwq
                     let timestamp = Int(test.date) ?? 1635417527 / 1000
                     t.date = Date(timeIntervalSince1970: Double(timestamp))
                     sub.addToSubjecttests(t)
@@ -72,8 +72,8 @@ struct JSON {
             
             for test in tests{
                 testCount += 1
-                string += "{\"name\": \"\(test.name)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \"\(test.date.timeIntervalSince1970)\", \"big\": \(test.big)} \(tests.count == testCount ? "": ",")"
-                
+                string += "{\"name\": \"\(test.name)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \"\(test.date.timeIntervalSince1970)\", \"big\": \(false)} \(tests.count == testCount ? "": ",")"
+                //     test.big = newTest.big //TODO: qwq
             }
             subCount += 1
             string += "]} \(subjects.count == subCount ? "" : ",")"
@@ -162,7 +162,7 @@ struct JSON {
                 test.grade = checkGrade(newTest.grade)
                 let timestamp = Double(newTest.date) ?? 1635417527 / 1000
                 test.date = Date(timeIntervalSince1970: Double(timestamp))
-                test.big = newTest.big
+           //     test.big = newTest.big //TODO: qwq
                 
                 sub.addToSubjecttests(test)
             }//}
@@ -188,7 +188,7 @@ struct JSON {
                 t.name = test.name
                 t.year = Int16(test.year)
                 t.grade = Int16(test.grade)
-                t.big = test.big
+             //   t.big = test.big     //     test.big = newTest.big //TODO: qwq
                 let timestamp = Int(test.date) ?? 1635417527 / 1000
                 t.date = Date(timeIntervalSince1970: Double(timestamp))
                 sub.addToSubjecttests(t)
