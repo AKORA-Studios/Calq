@@ -212,18 +212,18 @@ struct Util {
     
     /// add default grade types
     static func setTypes(_ settings: AppSettings){
-        let grundKurs = GradeType(context: context)
-        grundKurs.id = 0
-        grundKurs.name = "Grundkurs"
-        grundKurs.weigth = 50
+        let type1 = GradeType(context: context)
+        type1.id = 0
+        type1.name = "Test"
+        type1.weigth = 50
         
-        let leistungsKurs = GradeType(context: context)
-        leistungsKurs.id = 1
-        leistungsKurs.name = "Leistungskurs"
-        leistungsKurs.weigth = 50
+        let type2 = GradeType(context: context)
+        type2.id = 1
+        type2.name = "Klausur"
+        type2.weigth = 50
         
-        settings.addToGradetypes(grundKurs)
-        settings.addToGradetypes(leistungsKurs)
+        settings.addToGradetypes(type1)
+        settings.addToGradetypes(type2)
         
         saveCoreData()
     }
