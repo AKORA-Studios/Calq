@@ -197,21 +197,17 @@ struct Util {
             
             if(items.count == 0){
                 let item =  AppSettings(context: context)
+                
                 item.colorfulCharts = false
-                
-                //add default grade types
-                let grundKurs = GradeType(context: context)
-                grundKurs.id = 0
-                grundKurs.name = "Grundkurs"
-                grundKurs.weigth = 50
-                
-                let leistungsKurs = GradeType(context: context)
-                leistungsKurs.id = 1
-                leistungsKurs.name = "Leistungskurs"
-                leistungsKurs.weigth = 50
-                
+                setTypes(item)
                 saveCoreData()
+                
                 return item
+            }
+            
+            if items[0].gradetypes?.count == 0 {
+                setTypes(items[0])
+                saveCoreData()
             }
             return items[0]
         }
@@ -219,6 +215,25 @@ struct Util {
         return nil
     }
     
+    /// add default grade types
+    static func setTypes(_ settings: AppSettings){
+        let grundKurs = GradeType(context: context)
+        grundKurs.id = 0
+        grundKurs.name = "Grundkurs"
+        grundKurs.weigth = 50
+        
+        let leistungsKurs = GradeType(context: context)
+        leistungsKurs.id = 1
+        leistungsKurs.name = "Leistungskurs"
+        leistungsKurs.weigth = 50
+        
+        settings.addToGradetypes(grundKurs)
+        settings.addToGradetypes(leistungsKurs)
+        
+        saveCoreData()
+    }
+    
+    @available(*, deprecated, renamed: "notsureyet")
     static func saveWeigth(_ num: Int){
         let settings = getSettings()
         settings!.weightBigGrades = String(Float(num) / 100)
@@ -393,6 +408,10 @@ struct Util {
     
     static func getTypes() -> [GradeType] {
         return getSettings()?.gradetypes!.allObjects as! [GradeType]
+    }
+    
+    static func highestType() -> Int16 {
+        return getTypes().sorted(by: {$0.id > $1.id})[0].id
     }
     
 }
