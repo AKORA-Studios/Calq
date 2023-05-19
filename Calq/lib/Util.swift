@@ -40,7 +40,7 @@ struct Util {
         return (Double(avg) / Double(values.count))
     }
     
-    static func average (_ values: [Double]) -> Double {
+    static private func average (_ values: [Double]) -> Double {
         if (values.count < 1) {return 0}
         
         var avg = Double(0);
@@ -50,11 +50,11 @@ struct Util {
         return (Double(avg) / Double(values.count))
     }
     
-    static func average (_ values: [Int], from: Int = 0, to: Int = -1) -> Double {
+    static private func average (_ values: [Int], from: Int = 0, to: Int = -1) -> Double {
         return self.average(values.map { Double($0)} as [Double], from: from, to: to)
     }
     
-    static func average (_ values: [Double], from: Int = 0, to: Int = -1) -> Double {
+    static private func average (_ values: [Double], from: Int = 0, to: Int = -1) -> Double {
         if (from > values.count) {return 0;}
         
         var sum = Double(0);
@@ -68,7 +68,7 @@ struct Util {
     }
     
     /// Returns the average of an array of tests.
-    static func testAverage(_ tests: [UserTest]) -> Double {
+    static func testAverage(_ tests: [UserTest]) -> Double {//TODO: h
         let weigth = Double(Util.getSettings()!.weightBigGrades)!
         
         let smallArr = tests.filter{!($0.type == 0)}.map{Int($0.grade)},

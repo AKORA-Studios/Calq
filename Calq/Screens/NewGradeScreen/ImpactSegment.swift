@@ -11,7 +11,7 @@ struct ImpactSegment: View {
     @State var colors: [Color] = get15colors()
     @State var values: [String] = get15Values()
     @Binding var subject: UserSubject?
-    @Binding var gradeType: Int
+    @Binding var gradeType: Int16
     @Binding var year: Int
     
     var body: some View {
@@ -58,6 +58,7 @@ struct ImpactSegment: View {
         let weightSmall = 1 - weigth
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         
+        //calc new grade
         let bigTests: [Int] = []//tests.filter{$0.big}.map{Int($0.grade)}//TODO: h
         let smallTests: [Int] = []//tests.filter{!$0.big}.map{Int($0.grade)}//TODO: h
         
