@@ -51,7 +51,7 @@ struct BlockView: View {
 
 
 
-struct RoundProgressBar: View { //TODO: does not update on delte/load =.=
+struct RoundProgressBar: View {
     @Binding var value: Int
     @Binding var max: Int
     
