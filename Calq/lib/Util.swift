@@ -382,14 +382,28 @@ struct Util {
         let newType = GradeType(context: context)
         newType.name = name
         newType.weigth = Int16(weigth)
-        newType.id = existingTypes.min() ?? 2
+        newType.id = getNewIDQwQ(existingTypes)
         
         let new = getTypes().map {Int($0.weigth)}.reduce(0, +)
         if new + weigth > 100 {
             newType.weigth = 0
         }
+        let settings = Util.getSettings()
+        settings?.addToGradetypes(newType)
         saveCoreData()
-        //TODO: check so not over 100??
+    }
+    
+    private static func getNewIDQwQ(_ ids: [Int16]) -> Int16 {
+        for i in 0...(ids.max() ?? Int16(ids.count)) {
+            if !ids.contains(Int16(i)) { return Int16(i) }
+        }
+        return Int16(ids.count + 1)
+    }
+    
+    static func deleteType(type: Int16) {
+        let t = getTypes().filter{$0.id == type}[0]
+        t.gradetosettings!.removeFromGradetypes(t)
+        saveCoreData()
     }
     
     static func deleteType(type: GradeType) {
@@ -412,6 +426,17 @@ struct Util {
     
     static func highestType() -> Int16 {
         return getTypes().sorted(by: {$0.id > $1.id})[0].id
+    }
+    
+    static func getTypeGrades(_ type: Int16) -> [UserTest] {
+        var arr: [UserTest] = []
+        for sub in Util.getAllSubjects() {
+            for test in sub.subjecttests!.allObjects as! [UserTest] {
+                if test.type != type { continue }
+                arr.append(test)
+            }
+        }
+        return arr
     }
     
 }
