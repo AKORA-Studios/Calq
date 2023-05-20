@@ -78,6 +78,20 @@ struct BarEntry: Hashable{
     var text: String = ""
 }
 
+extension BarEntry {
+    static let exmaple = [
+        BarEntry(color: pastelColors[0], value: 10, text: "DE"),
+        BarEntry(color: pastelColors[1], value: 11, text: "EN"),
+        BarEntry(color: pastelColors[2], value: 13, text: "MA"),
+        BarEntry(color: pastelColors[3], value: 8, text: "Geo"),
+        BarEntry(color: pastelColors[4], value: 9, text: "lat"),
+        BarEntry(color: pastelColors[5], value: 10, text: "spo"),
+        BarEntry(color: pastelColors[6], value: 11, text: "grw"),
+        BarEntry(color: pastelColors[7], value: 9, text: "abc"),
+        BarEntry(color: pastelColors[8], value: 12, text: "def"),
+    ]
+}
+
 func createSubjectBarData() -> [BarEntry] {
     var arr: [BarEntry] = []
     let subjects = Util.getAllSubjects()
