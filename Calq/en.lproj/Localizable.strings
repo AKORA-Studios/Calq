@@ -95,5 +95,7 @@
 "subjectDetailActivate"="activate Halfyear";
 
 "firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";
+"firstLaunchLoadDemo"="load Demo Data";
+"firstLaunchGo"="Continue";
 
 "gradeTableDelete"="Delete all Grades";
