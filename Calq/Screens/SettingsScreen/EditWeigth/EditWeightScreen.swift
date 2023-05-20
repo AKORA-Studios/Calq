@@ -5,7 +5,6 @@
 //  Created by Kiara on 10.02.23.
 //
 
-import Combine
 import SwiftUI
 
 struct ChangeWeightScreen: View {
@@ -16,7 +15,7 @@ struct ChangeWeightScreen: View {
         VStack{
             Text("EditWeigthDesc")
             
-            List { // TODO: list background
+            List {
                 Section {
                     ForEach(Util.getTypes()) {type in
                         HStack {
@@ -37,13 +36,13 @@ struct ChangeWeightScreen: View {
                             Text("\(type.id)").foregroundColor(Color.gray).frame(width: 30)
                         }
                     }
-                }
+                }.listRowBackground(Color.gray.opacity(0.1))
                 Section {
                     Text("EditWeigthNew")
                         .foregroundColor(Color.green)
                         .onTapGesture { addWeigth()}
-                }
-            }
+                }.listRowBackground(Color.gray.opacity(0.1))
+            }.modifier(ListBackgroundModifier())
             
             Spacer()
             Text("EditWeigthSum\(vm.summedUp)")
@@ -66,6 +65,15 @@ struct ChangeWeightScreen: View {
                     return  Alert(title: Text("EditWeigthAlertTitle"), message: Text("EditWeigthAlertText"))
                 }
             }
+    }
+    
+    init() {
+        if #available(iOS 16.0, *) {
+            // use ListBackgroundModifier
+        } else {
+            UITableView.appearance().backgroundColor = .clear
+        }
+        
     }
     
     func saveChanges(){
@@ -99,71 +107,4 @@ struct ChangeWeightScreen: View {
 }
 
 
-enum alertType{
-    case deleteGrades
-    case wrongPercentage
-}
 
-class WeigthViewmodel: ObservableObject {
-    @Published var typeArr: [GradeType: Int16] = [:]
-    @Published var summedUp: Int = 0
-    
-    @Published var selectedDelete: Int16 = 0
-    @Published var isAlertPresented = false
-    @Published var alertActiontype: alertType = .wrongPercentage
-    
-    init() {
-        load()
-        reload()
-    }
-    
-    func load(){
-        for type in Util.getTypes() {
-            typeArr[type] = type.weigth
-            typeArrNames[type.id] = type.name
-        }
-    }
-    
-    func getGradesType() -> [UserTest] {
-        return Util.getTypeGrades(selectedDelete)
-    }
-    
-    func increment(_ type: GradeType){
-        typeArr[type]! += typeArr[type] == 100 ? 0 : 10
-        reload()
-    }
-    
-    func decrement(_ type: GradeType){
-        typeArr[type]! -= typeArr[type] == 100 ? 0 : 10
-        reload()
-    }
-    
-    func reload(){
-        summedUp = Int(Array(typeArr.values).reduce(0, +))
-    }
-    
-    func saveWeigths(){
-        for type in Util.getTypes() {
-            type.weigth = typeArr[type]!
-            type.name = typeArrNames[type.id]!
-        }
-        saveCoreData()
-    }
-    
-    // MARK: Binding
-    let didChange = PassthroughSubject<Void, Never>()
-    
-    var typeArrNames: Dictionary<Int16, String> = [:] {
-        didSet {
-            didChange.send(())
-        }
-    }
-    
-    func binding(for key: Int16) -> Binding<String> {
-        return Binding(get: {
-            return self.typeArrNames[key] ?? "AAAAA"
-        }, set: {
-            self.typeArrNames[key] = $0
-        })
-    }
-}

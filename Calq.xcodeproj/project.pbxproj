@@ -41,6 +41,8 @@
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
+		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
+		F1A53D032A196C220045C5B0 /* WeigthViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */; };
 		F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772072A17940B004B8DCC /* MigrationPolicy.swift */; };
 		F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
 		F1A772132A1794F0004B8DCC /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1A772122A1794F0004B8DCC /* Model.xcmappingmodel */; };
@@ -165,6 +167,8 @@
 		F19F8E4529F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
+		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
+		F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewmodel.swift; sourceTree = "<group>"; };
 		F1A772072A17940B004B8DCC /* MigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationPolicy.swift; sourceTree = "<group>"; };
 		F1A7720F2A17947A004B8DCC /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		F1A772102A17947A004B8DCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 				F192DD27299D2DEC0077B905 /* ViewExtension.swift */,
 				F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */,
 				F1B2732329B5F53900E841F4 /* ButtonStyle.swift */,
+				F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -350,7 +355,7 @@
 		F1138E5229959627008E7FD8 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */,
+				F1A53D012A196C0E0045C5B0 /* EditWeigth */,
 				F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */,
 				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
@@ -383,6 +388,15 @@
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		F1A53D012A196C0E0045C5B0 /* EditWeigth */ = {
+			isa = PBXGroup;
+			children = (
+				F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */,
+				F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */,
+			);
+			path = EditWeigth;
 			sourceTree = "<group>";
 		};
 		F1D29E772A17B8A50001D469 /* JSON */ = {
@@ -644,7 +658,9 @@
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
 				F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */,
+				F1A53D032A196C220045C5B0 /* WeigthViewmodel.swift in Sources */,
 				F1A772392A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
+				F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */,
 				F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */,
 				F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */,
 				F1A772132A1794F0004B8DCC /* Model.xcmappingmodel in Sources */,
