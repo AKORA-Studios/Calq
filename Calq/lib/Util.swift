@@ -10,7 +10,8 @@ import SwiftUI
 import WidgetKit
 
 
-let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
+let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
 
 let nameInvalid =  Alert(title: Text("Name ungültig"), message: Text("Name darf keine Sonderzeichen/Zahlen etc. enthalten"))
 
