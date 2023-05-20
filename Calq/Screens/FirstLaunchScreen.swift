@@ -31,7 +31,14 @@ struct FirstLaunchScreen: View {
             }.buttonStyle(PrimaryStyle())
             
             Spacer()
-            Text("Version: \(appVersion ?? "?.?.?")").font(.footnote)
+            Text("Version: \(appVersion) Build: \(buildVersion)").font(.footnote)
         }.padding()
+    }
+}
+
+
+struct FirstLaunchScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        FirstLaunchScreen(firstLaunch: Binding.constant(true))
     }
 }

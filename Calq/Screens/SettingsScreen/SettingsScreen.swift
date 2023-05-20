@@ -66,7 +66,7 @@ struct SettingsScreen: View {//TODO: kinda fix load demo data
                 }
                 
                 Section(){
-                    Text("Version: \(appVersion ?? "0.0.0")").foregroundColor(.gray)
+                    Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
             }.navigationTitle("settingsTitle")
                 .overlay(loadingView())
