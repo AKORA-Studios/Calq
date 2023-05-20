@@ -32,7 +32,7 @@ struct GradeListScreen: View {
                             NavigationLink {
                                 EditGradeScreen(test: test, color: color)
                             } label: {
-                                GradeIcon(test: test, color: color)
+                                gradeIcon(test: test, color: color)
                             }
                         }
                     }
@@ -63,30 +63,16 @@ struct GradeListScreen: View {
     func dismissSheet(){
         self.presentationMode.wrappedValue.dismiss()
     }
-}
-
-
-struct GradeIcon: View {
-    @State var test: UserTest
-    @State var color: Color
-    @State var name = ""
-    @State var date = ""
-    @State var points = "-"
     
-    var body: some View {
+    func gradeIcon(test: UserTest, color: Color) -> some View {
         HStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 8.0).fill(color).frame(width: 30, height: 30)
-                Text(points)
+                RoundedRectangle(cornerRadius: 8.0).fill(test.big ? color : Color.clear).frame(width: 30, height: 30)
+                Text(String(test.grade))
             }
-            Text(name).lineLimit(1)
+            Text(test.name).lineLimit(1)
             Spacer()
-            Text(date).foregroundColor(.gray).fontWeight(.light)
-        }.onAppear{
-            color =  test.big ? color : Color.clear
-            name = test.name
-            date = formatDate(date: test.date)
-            points = String(test.grade)
+            Text(formatDate(date: test.date)).foregroundColor(.gray).fontWeight(.light)
         }
     }
     
