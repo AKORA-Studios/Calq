@@ -95,5 +95,7 @@
 "subjectDetailActivate"=" Halbjahr aktivieren";
 
 "firstLaunchDesc"="Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)";
+"firstLaunchLoadDemo"="Demo Daten laden";
+"firstLaunchGo"="Fortfahren";
 
 "gradeTableDelete"="Alle Noten löschen";

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FirstLaunchScreen: View {
     @Binding var firstLaunch: Bool
+    @State var loadDemoData = false
     
     var body: some View {
         VStack{
@@ -19,7 +20,12 @@ struct FirstLaunchScreen: View {
             
             Spacer()
             
-            Button("ToastOki") {
+            Button("firstLaunchLoadDemo") {
+                JSON.loadDemoData()
+                firstLaunch = false
+            }.buttonStyle(SecondaryStyle())
+            
+            Button("firstLaunchGo") {
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
                 firstLaunch = false
             }.buttonStyle(PrimaryStyle())
@@ -27,8 +33,5 @@ struct FirstLaunchScreen: View {
             Spacer()
             Text("Version: \(appVersion ?? "?.?.?")").font(.footnote)
         }.padding()
-            .onAppear{
-                Util.saveWeigth(50)
-            }
     }
 }
