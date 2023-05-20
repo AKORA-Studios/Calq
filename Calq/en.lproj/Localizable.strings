@@ -47,6 +47,9 @@
 "EditWeigthSum%lld"="Sum: %lld %";
 "EditWeigthAlertTitle"="Invalid sum";
 "EditWeigthAlertText"="The maximum sum should be 100";
+"EditWeigthWarning %@"="Pls change the type of the following grades to something else: %@";
+"EditWeigthWarningTitle"="Wuah wait";
+"EditWeigthNew"="Add new type";
 
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";
