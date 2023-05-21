@@ -14,16 +14,22 @@ struct FirstLaunchScreen: View {
     var body: some View {
         VStack{
             Spacer()
-            Text("Welcome to Calq").font(.title)
+            Text("Welcome to Calq").font(.title).padding(.bottom)
             
             Text("firstLaunchDesc").multilineTextAlignment(.center)
             
             Spacer()
             
-            Button("firstLaunchLoadDemo") {
-                JSON.loadDemoData()
-                firstLaunch = false
-            }.buttonStyle(SecondaryStyle())
+            VStack {
+                BarChart(values: Binding.constant(BarEntry.exmaple))
+                Button("firstLaunchLoadDemo") {
+                    JSON.loadDemoData()
+                    firstLaunch = false
+                }.buttonStyle(SecondaryStyle())
+                
+            } .padding().background(CardView())
+            
+            Spacer()
             
             Button("firstLaunchGo") {
                 UserDefaults.standard.set(true, forKey: "notFirstLaunch")
@@ -33,6 +39,14 @@ struct FirstLaunchScreen: View {
             Spacer()
             Text("Version: \(appVersion) Build: \(buildVersion)").font(.footnote)
         }.padding()
+            .onAppear {
+                setupAppearance()
+            }
+    }
+    
+    func setupAppearance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
     }
 }
 
