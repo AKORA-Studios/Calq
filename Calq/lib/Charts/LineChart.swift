@@ -17,10 +17,10 @@ struct LineChartValue: Hashable {
 
 extension LineChartValue {
     static let example = [
-        LineChartValue(value: 2, date: 0, color: Color.orange),
-        LineChartValue(value: 11, date: 2, color: Color.orange),
-        LineChartValue(value: 9, date: 4, color: Color.orange),
-        LineChartValue(value: 13, date: 5, color: Color.orange)
+        LineChartValue(value: 1.0, date: 1685614799, color: Color.orange),
+        LineChartValue(value: 0.4, date: 1686046799, color: Color.orange),
+        LineChartValue(value: 0.9, date: 1686565199, color: Color.orange),
+        LineChartValue(value: 0.5, date: 1687256399, color: Color.orange)
     ]
 }
 
@@ -51,13 +51,13 @@ struct LineChartNew: View {
             }
         }
         let sorted = arrV.sorted(by: {$0.date > $1.date})
-        let dateRange = (sorted.last, sorted.first )
+       let dateRange = (sorted.last?.date ?? 1.0, sorted.first?.date ?? 1.0) 
         var arr: [[LineChartValue]] = []
         
         for x in data {
             var arrD: [LineChartValue] = []
             for e in x {
-                arrD.append( LineChartValue(value: e.value, date: e.date - dateRange.1!.date ?? 0.0, color: e.color))
+                arrD.append( LineChartValue(value: e.value, date: e.date / dateRange.0, color: e.color))
             }
             arr.append(arrD)
         }
@@ -66,12 +66,12 @@ struct LineChartNew: View {
 }
 
 
-
 struct LineShape: Shape {
     @State var values: [LineChartValue]
     @Binding var frame: CGFloat
     
     func path(in rect: CGRect) -> Path {
+        print(values)
         let valuesSorted = values.sorted(by: {$0.date < $1.date})
         var path = Path()
         path.move(to: CGPoint(x: 0.0, y: frame - valuesSorted[0].value * Double(rect.height)))
@@ -80,7 +80,7 @@ struct LineShape: Shape {
             let y = frame - (valuesSorted[i].value * Double(rect.height))
             let x = (valuesSorted[i].date * Double(rect.width))
             let pt = CGPoint(x: x, y: y)
-            
+            print(x)
             path.addLine(to: pt)
         }
         return path
