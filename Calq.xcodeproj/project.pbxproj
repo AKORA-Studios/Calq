@@ -40,7 +40,6 @@
 		F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
-		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeigthViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */; };
 		F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772072A17940B004B8DCC /* MigrationPolicy.swift */; };
@@ -167,7 +166,6 @@
 		F19F8E4329F18E03006142B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F19F8E4529F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewmodel.swift; sourceTree = "<group>"; };
 		F1A772072A17940B004B8DCC /* MigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationPolicy.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 				DD8813782764D58B00EB6BD8 /* BarChart.swift */,
 				DD0B86D327667E3F00DCC61F /* LineChart.swift */,
 				F1E8BFE229900C5500486A6D /* CircleChart.swift */,
-				F1A1150429984F58004A26AA /* SingleLineChart.swift */,
 				F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */,
 			);
 			path = Charts;
@@ -659,7 +656,6 @@
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
-				F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */,
 				F1A53D032A196C220045C5B0 /* WeigthViewmodel.swift in Sources */,
 				F1A772392A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
 				F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */,
