@@ -81,7 +81,11 @@ struct Util {
                 avgArr.append(Double(avg * weigth))
             }
         }
+        
+        if avgArr.isEmpty { return 0 }
         let num = avgArr.reduce(0, +)/gradeWeigths
+        
+        if num.isNaN { return 0 }
         return num
     }
     
