@@ -636,7 +636,6 @@
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
-				F1AAEF2D2A1BD6BC000CD044 /* LineChartBase.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
 				F1A7723D2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
