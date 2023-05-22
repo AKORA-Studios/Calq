@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BarChart: View {
-    @Binding var values: [BarEntry]
+    @Binding var values: [BarChartEntry]
     @State var heigth: CGFloat = 300
     @State var average: Double = 0.0
     @State var round: Bool = false
@@ -16,19 +16,8 @@ struct BarChart: View {
     var body: some View {
         GeometryReader{ geo in
             let fullHeigth = geo.size.height - 15
-            //   let fullWidth = geo.size.width
             
             ZStack {
-                //grid
-                //Rectangle().fill(Color.black).frame(height: 2).offset(x: -2,y: (fullHeigth/2)) //x axis
-                //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - heigth - 2) //tick 15
-                //  Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m10() - 2) //tick 10
-                // Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - m5() - 2) //tick 5
-                /*   if(average != 0.0){
-                 Rectangle().fill(Color.gray).frame(height: 1).offset(y: (fullHeigth/2) - av() - 2)
-                 }*/
-                // Rectangle().fill(Color.gray).frame(width:1).offset(x: (fullWidth/2) - fullWidth - 2, y: 1) // y axis
-                
                 //bars
                 HStack {
                     ForEach(values, id:\.self){ val in
@@ -71,35 +60,34 @@ struct BarChart: View {
     }
 }
 
+func createSubjectBarData() -> [BarChartEntry] {
+    var arr: [BarChartEntry] = []
+    let subjects = Util.getAllSubjects()
+    
+    for sub in subjects{
+        let color = getSubjectColor(sub)
+        arr.append(BarChartEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
+    }
+    
+    return arr
+}
 
-struct BarEntry: Hashable{
+struct BarChartEntry: Hashable{
     var color: Color = .accentColor
     var value: Double = 0.5
     var text: String = ""
 }
 
-extension BarEntry {
+extension BarChartEntry {
     static let exmaple = [
-        BarEntry(color: pastelColors[0], value: 10, text: "DE"),
-        BarEntry(color: pastelColors[1], value: 11, text: "EN"),
-        BarEntry(color: pastelColors[2], value: 13, text: "MA"),
-        BarEntry(color: pastelColors[3], value: 8, text: "Geo"),
-        BarEntry(color: pastelColors[4], value: 9, text: "lat"),
-        BarEntry(color: pastelColors[5], value: 10, text: "spo"),
-        BarEntry(color: pastelColors[6], value: 11, text: "grw"),
-        BarEntry(color: pastelColors[7], value: 9, text: "abc"),
-        BarEntry(color: pastelColors[8], value: 12, text: "def"),
+        BarChartEntry(color: pastelColors[0], value: 10, text: "DE"),
+        BarChartEntry(color: pastelColors[1], value: 11, text: "EN"),
+        BarChartEntry(color: pastelColors[2], value: 13, text: "MA"),
+        BarChartEntry(color: pastelColors[3], value: 8, text: "Geo"),
+        BarChartEntry(color: pastelColors[4], value: 9, text: "lat"),
+        BarChartEntry(color: pastelColors[5], value: 10, text: "spo"),
+        BarChartEntry(color: pastelColors[6], value: 11, text: "grw"),
+        BarChartEntry(color: pastelColors[7], value: 9, text: "abc"),
+        BarChartEntry(color: pastelColors[8], value: 12, text: "def"),
     ]
-}
-
-func createSubjectBarData() -> [BarEntry] {
-    var arr: [BarEntry] = []
-    let subjects = Util.getAllSubjects()
-    
-    for sub in subjects{
-        let color = getSubjectColor(sub)
-        arr.append(BarEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
-    }
-    
-    return arr
 }

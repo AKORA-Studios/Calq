@@ -55,6 +55,9 @@
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A1150529984F58004A26AA /* SingleLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1150429984F58004A26AA /* SingleLineChart.swift */; };
+		F1AAEF2B2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2A2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift */; };
+		F1AAEF2D2A1BD6BC000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */; };
+		F1AAEF2E2A1BD717000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
@@ -161,6 +164,8 @@
 		F19F8E4529F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1A1150429984F58004A26AA /* SingleLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineChart.swift; sourceTree = "<group>"; };
+		F1AAEF2A2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWidgetViewmodel.swift; sourceTree = "<group>"; };
+		F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
@@ -227,6 +232,7 @@
 				DD4F97A127515CAC00D3CC57 /* Info.plist */,
 				F1C04B5129BA376800DAC128 /* MediumBarChart.swift */,
 				F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */,
+				F1AAEF2A2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift */,
 			);
 			path = CalqWidget;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				DD0B86D327667E3F00DCC61F /* LineChart.swift */,
 				F1E8BFE229900C5500486A6D /* CircleChart.swift */,
 				F1A1150429984F58004A26AA /* SingleLineChart.swift */,
+				F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -542,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F19B10A129AF726600B11C82 /* UserTest+CoreDataClass.swift in Sources */,
+				F1AAEF2E2A1BD717000CD044 /* LineChartBase.swift in Sources */,
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */,
 				F19B109D29AF726600B11C82 /* AppSettings+CoreDataClass.swift in Sources */,
@@ -552,6 +560,7 @@
 				DD4F97B027515D9700D3CC57 /* Model.xcdatamodeld in Sources */,
 				F19B109B29AF726600B11C82 /* UserSubject+CoreDataProperties.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
+				F1AAEF2B2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift in Sources */,
 				F19B10A329AF726600B11C82 /* UserTest+CoreDataProperties.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
 				F19B109929AF726600B11C82 /* UserSubject+CoreDataClass.swift in Sources */,
@@ -584,6 +593,7 @@
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
+				F1AAEF2D2A1BD6BC000CD044 /* LineChartBase.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
 				F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,

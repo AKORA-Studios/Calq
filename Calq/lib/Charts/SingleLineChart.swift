@@ -12,7 +12,7 @@ struct OneEntryLineChart: View {
     @State var maxDate = 0.0
     @State var minDate =  0.0
     @State var heigth: CGFloat = 150
-    @State var values: [LineChartValue] = []
+    @State var values: [LineChartEntry] = []
     
     var body: some View {
         ZStack {
@@ -40,9 +40,9 @@ struct OneEntryLineChart: View {
         }
     }
     
-    func generateData() -> [LineChartValue]{
+    func generateData() -> [LineChartEntry]{
         //let color = getSubjectColor(subject)
-        var arr: [LineChartValue] = []
+        var arr: [LineChartEntry] = []
         let tests = Util.filterTests(subject, checkinactive : false)
         for test in tests {
             let time = ((test.date.timeIntervalSince1970 / 1000)  - minDate)/maxDate
