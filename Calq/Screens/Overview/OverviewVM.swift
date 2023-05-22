@@ -17,6 +17,7 @@ class OverViewViewModel: ObservableObject {
     
     @Published var subjectValues: [BarEntry] = []
     @Published var halfyears: [BarEntry] = []
+    @Published var lineChartEntries: [[LineChartValue]] = []
     
     @Published var averageText: String = ""
     @Published var averagePercent: Double = 0.0
@@ -34,6 +35,7 @@ class OverViewViewModel: ObservableObject {
         
         subjectValues = createSubjectBarData()
         halfyears = getHalfyears()
+        lineChartEntries = lineChartData()
         
         averageText = String(format: "%.2f", Util.generalAverage())
         averagePercent = Util.generalAverage() / 15
@@ -54,4 +56,21 @@ class OverViewViewModel: ObservableObject {
     func getHalfyears() -> [BarEntry]{
         return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
     }
+    
+    func lineChartData() -> [[LineChartValue]] {
+        var arr: [[LineChartValue]] = []
+        for sub in subjects {
+            var subArr: [LineChartValue] = []
+            let tests = Util.filterTests(sub, checkinactive : false)
+            let color = getSubjectColor(sub, subjects: subjects)
+            
+            for test in tests {
+                let time = (test.date.timeIntervalSince1970 / 1000)
+                subArr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
+            }
+            arr.append(subArr)
+        }
+        return arr
+    }
+
 }
