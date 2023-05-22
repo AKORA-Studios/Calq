@@ -21,7 +21,7 @@ struct FirstLaunchScreen: View {
             Spacer()
             
             VStack {
-                LineChartNew(data: [LineChartValue.example])
+                LineChart(data: Binding.constant([LineChartValue.example]))
                 Button("firstLaunchLoadDemo") {
                     JSON.loadDemoData()
                     firstLaunch = false

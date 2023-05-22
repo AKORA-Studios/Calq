@@ -44,17 +44,16 @@ private struct CalqWidgetEntryView: View {
 }
 
 private struct CalqWidgetEntryView2: View {
+    @ObservedObject var vm =  LineChartWidgetViewmodel ()
     var entry: SimpleEntry
-    let subjects = Util.getAllSubjects()
     
     var body: some View {
-        GeometryReader{geo in
-            if(subjects.isEmpty){
-                EmptyMediumView()
-            } else {
-                LineChart(subjects: Binding.constant(subjects), heigth: geo.size.height - 50)
-                    .padding()
-            }
+        GeometryReader { geo in
+            LineChart(data: $vm.lineChartEntries, heigth: geo.size.height - 50)
+                .padding()
+                .onAppear{
+                    vm.updateViews()
+                }
         }
     }
 }

@@ -24,7 +24,7 @@ extension LineChartValue {
     ]
 }
 
-struct LineChartNew: View {
+struct LineChart: View {
     @Binding var data: [[LineChartValue]]
     @State var heigth: CGFloat = 150
     
@@ -43,21 +43,25 @@ struct LineChartNew: View {
     }
     
     func values() -> [[LineChartValue]] {
-        // (minDate, maxDate)
+     
         var arrV: [LineChartValue] = []
         for v in data {
             for e in v {
                 arrV.append(e)
             }
         }
+        
+        // (minDate, maxDate)
         let sorted = arrV.sorted(by: {$0.date > $1.date})
-       let dateRange = (sorted.last?.date ?? 1.0, sorted.first?.date ?? 1.0) 
+        var dateRange = (sorted.last?.date ?? 1.0, sorted.first?.date ?? 1.0)
+        dateRange = (dateRange.0, dateRange.1-dateRange.0)
+        
         var arr: [[LineChartValue]] = []
         
         for x in data {
             var arrD: [LineChartValue] = []
             for e in x {
-                arrD.append( LineChartValue(value: e.value, date: e.date / dateRange.0, color: e.color))
+                arrD.append(LineChartValue(value: e.value, date: (e.date - dateRange.0) / dateRange.1, color: e.color))
             }
             arr.append(arrD)
         }
@@ -80,7 +84,6 @@ struct LineShape: Shape {
             let y = frame - (valuesSorted[i].value * Double(rect.height))
             let x = (valuesSorted[i].date * Double(rect.width))
             let pt = CGPoint(x: x, y: y)
-            print(x)
             path.addLine(to: pt)
         }
         return path

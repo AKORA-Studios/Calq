@@ -28,7 +28,7 @@ struct OverviewScreen: View {
                                 .foregroundColor(vm.subjects.count == 0 ? .gray : Color(UIColor.label))
                         }
                         
-                        LineChart(subjects: $vm.subjects)
+                        LineChart(data: $vm.lineChartEntries)
                         
                         if(vm.showGraphEdit){
                             ScrollView(.horizontal, showsIndicators: false) {
