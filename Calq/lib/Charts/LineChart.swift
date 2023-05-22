@@ -18,45 +18,14 @@ struct LineChartValue: Hashable {
 extension LineChartValue {
     static let example = [
         LineChartValue(value: 2, date: 0, color: Color.orange),
-         LineChartValue(value: 11, date: 2, color: Color.orange),
-          LineChartValue(value: 9, date: 4, color: Color.orange),
-           LineChartValue(value: 13, date: 5, color: Color.orange)
+        LineChartValue(value: 11, date: 2, color: Color.orange),
+        LineChartValue(value: 9, date: 4, color: Color.orange),
+        LineChartValue(value: 13, date: 5, color: Color.orange)
     ]
 }
 
 struct LineChartNew: View {
     @Binding var data: [[LineChartValue]]
-    @State var heigth: CGFloat = 150
-
- var body: some View {
-     ZStack {
-            YAxis()
-            YAxisLines()
-            ZStack {
-                ForEach(values(), id: \.self){v in
-                    if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
-                }
-            }
-        }
-        .frame(height: heigth)
-        .padding()
- }
-
-   func values() -> [[LineChartValue]] {
-        // (minDate, maxDate)
-        let sorted = values.sorted(by: {$0.date > $1.date})
-        let dateRange = (sorted.last, sorted.first )
-        var arr: [LineChartValue] = []
-
-        for v in value {
-            arr.append( LineChartValue(value: v.value, date: v.date - dateRange.1, color: v.color))
-        }
-        return arr
-    }
-}
-
-struct LineChart: View {
-    @Binding var subjects: [UserSubject]
     @State var heigth: CGFloat = 150
     
     var body: some View {
@@ -72,7 +41,31 @@ struct LineChart: View {
         .frame(height: heigth)
         .padding()
     }
+    
+    func values() -> [[LineChartValue]] {
+        // (minDate, maxDate)
+        var arrV: [LineChartValue] = []
+        for v in data {
+            for e in v {
+                arrV.append(e)
+            }
+        }
+        let sorted = arrV.sorted(by: {$0.date > $1.date})
+        let dateRange = (sorted.last, sorted.first )
+        var arr: [[LineChartValue]] = []
+        
+        for x in data {
+            var arrD: [LineChartValue] = []
+            for e in x {
+                arrD.append( LineChartValue(value: e.value, date: e.date - dateRange.1!.date ?? 0.0, color: e.color))
+            }
+            arr.append(arrD)
+        }
+        return arr
+    }
 }
+
+
 
 struct LineShape: Shape {
     @State var values: [LineChartValue]
