@@ -15,9 +15,9 @@ class OverViewViewModel: ObservableObject {
     @Published var gradeText = ""
     @Published var blockCircleText = ""
     
-    @Published var subjectValues: [BarEntry] = []
-    @Published var halfyears: [BarEntry] = []
-    @Published var lineChartEntries: [[LineChartValue]] = []
+    @Published var subjectValues: [BarChartEntry] = []
+    @Published var halfyears: [BarChartEntry] = []
+    @Published var lineChartEntries: [[LineChartEntry]] = []
     
     @Published var averageText: String = ""
     @Published var averagePercent: Double = 0.0
@@ -53,25 +53,7 @@ class OverViewViewModel: ObservableObject {
         return  String(format: "%.2f", blockGrade)
     }
     
-    func getHalfyears() -> [BarEntry]{
-        return [BarEntry(value: Util.generalAverage(1)),BarEntry(value: Util.generalAverage(2)),BarEntry(value: Util.generalAverage(3)),BarEntry(value: Util.generalAverage(4))]
+    func getHalfyears() -> [BarChartEntry]{
+        return [BarChartEntry(value: Util.generalAverage(1)),BarChartEntry(value: Util.generalAverage(2)),BarChartEntry(value: Util.generalAverage(3)),BarChartEntry(value: Util.generalAverage(4))]
     }
-    
-    func lineChartData() -> [[LineChartValue]] {
-        var arr: [[LineChartValue]] = []
-        for sub in subjects {
-            if !sub.showInLineGraph { continue }
-            var subArr: [LineChartValue] = []
-            let tests = Util.filterTests(sub, checkinactive : false)
-            let color = getSubjectColor(sub, subjects: subjects)
-            
-            for test in tests {
-                let time = (test.date.timeIntervalSince1970 / 1000)
-                subArr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
-            }
-            arr.append(subArr)
-        }
-        return arr
-    }
-
 }
