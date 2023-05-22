@@ -75,7 +75,6 @@ struct LineShape: Shape {
     @Binding var frame: CGFloat
     
     func path(in rect: CGRect) -> Path {
-        print(values)
         let valuesSorted = values.sorted(by: {$0.date < $1.date})
         var path = Path()
         path.move(to: CGPoint(x: 0.0, y: frame - valuesSorted[0].value * Double(rect.height)))
