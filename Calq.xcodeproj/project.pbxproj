@@ -63,6 +63,8 @@
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
 		F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
+		F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
+		F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
@@ -180,6 +182,7 @@
 		F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 1.xcmappingmodel"; sourceTree = "<group>"; };
+		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
@@ -248,7 +251,6 @@
 				DD4F97A127515CAC00D3CC57 /* Info.plist */,
 				F1C04B5129BA376800DAC128 /* MediumBarChart.swift */,
 				F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */,
-				F1AAEF2A2A1BD2EC000CD044 /* LineChartWidgetViewmodel.swift */,
 			);
 			path = CalqWidget;
 			sourceTree = "<group>";
@@ -336,7 +338,7 @@
 				DD0B86D327667E3F00DCC61F /* LineChart.swift */,
 				F1E8BFE229900C5500486A6D /* CircleChart.swift */,
 				F1A1150429984F58004A26AA /* SingleLineChart.swift */,
-				F1AAEF2C2A1BD6BC000CD044 /* LineChartBase.swift */,
+				F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -591,6 +593,7 @@
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */,
 				F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
+				F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */,
 				F1A7723C2A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */,
 				F1A772402A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
@@ -619,6 +622,7 @@
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
+				F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */,
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,

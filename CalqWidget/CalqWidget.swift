@@ -43,8 +43,17 @@ private struct CalqWidgetEntryView: View {
     }
 }
 
+class LineChartWidgetViewmodel: ObservableObject {
+    @Published var lineChartEntries: [[LineChartEntry]] = []
+    
+    func updateViews(){
+        self.objectWillChange.send()
+        lineChartEntries = lineChartData()
+    }
+}
+
 private struct CalqWidgetEntryView2: View {
-    @ObservedObject var vm =  LineChartWidgetViewmodel ()
+    @ObservedObject var vm =  LineChartWidgetViewmodel()
     var entry: SimpleEntry
     
     var body: some View {

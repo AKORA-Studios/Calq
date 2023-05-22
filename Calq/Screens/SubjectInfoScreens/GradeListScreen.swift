@@ -66,8 +66,8 @@ struct GradeListScreen: View {
     
     func gradeIcon(test: UserTest, color: Color) -> some View {
         HStack{
-            ZStack{
-                RoundedRectangle(cornerRadius: 8.0).fill(test.big ? color : Color.clear).frame(width: 30, height: 30)
+            ZStack{ //TODO: primary grade type
+                RoundedRectangle(cornerRadius: 8.0).fill(test.type == 1 ? color : Color.clear).frame(width: 30, height: 30)
                 Text(String(test.grade))
             }
             Text(test.name).lineLimit(1)
