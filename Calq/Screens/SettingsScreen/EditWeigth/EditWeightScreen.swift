@@ -49,11 +49,6 @@ struct ChangeWeightScreen: View {
                                 .onTapGesture {vm.selectedDelete = type.id;removeWeigth()}
                             Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
                         }
-                        .onTapGesture {}.onLongPressGesture(minimumDuration: 0.2) {
-                            Util.setPrimaryType(type.id)
-                            vm.load()
-                        }
-                        
                     }
                 }.listRowBackground(Color.gray.opacity(0.1))
                 Section {
