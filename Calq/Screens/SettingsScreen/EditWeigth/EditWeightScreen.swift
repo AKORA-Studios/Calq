@@ -15,12 +15,26 @@ struct ChangeWeightScreen: View {
         VStack{
             Text("EditWeigthDesc")
             
+            Text("EditWeigthPrimaryHint").font(.footnote)
+                .multilineTextAlignment(.center)
+                .padding(.top, 5)
+            
             List {
                 Section {
                     ForEach(Util.getTypes()) {type in
                         HStack {
-                            Text("\(vm.typeArr[type]!)").frame(width: 30)
-                            
+                            HStack{
+                                if Util.isPrimaryType(type){
+                                    Image(systemName: "star.fill")
+                                } else {
+                                    Image(systemName: "star")
+                                }
+                            }   .onTapGesture {}.onLongPressGesture(minimumDuration: 0.2) {
+                                Util.setPrimaryType(type.id)
+                                vm.load()
+                            }
+                          
+                            Text("\(vm.typeArr[type]!)").frame(width: 20).font(.footnote)
                             
                             TextField("", text: vm.binding(for: type.id))
                             Spacer()
@@ -33,7 +47,7 @@ struct ChangeWeightScreen: View {
                             
                             Image(systemName: "trash").foregroundColor(Color.red)
                                 .onTapGesture {vm.selectedDelete = type.id;removeWeigth()}
-                            Text("\(type.id)").foregroundColor(Color.gray).frame(width: 30)
+                            Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
                         }
                     }
                 }.listRowBackground(Color.gray.opacity(0.1))
@@ -43,6 +57,7 @@ struct ChangeWeightScreen: View {
                         .onTapGesture { addWeigth()}
                 }.listRowBackground(Color.gray.opacity(0.1))
             }.modifier(ListBackgroundModifier())
+                .padding(0)
             
             Spacer()
             Text("EditWeigthSum\(vm.summedUp)")
@@ -105,6 +120,3 @@ struct ChangeWeightScreen: View {
         vm.load()
     }
 }
-
-
-

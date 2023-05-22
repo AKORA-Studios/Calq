@@ -47,15 +47,16 @@
 "EditWeigthSum%lld"="Gesamt: %lld %";
 "EditWeigthAlertTitle"="Summe ungültig";
 "EditWeigthAlertText"="Die Summe sollte 100% betragen";
+"EditWeigthWarning %@"="Bitte ändere den Typ dieser Noten: %@";
+"EditWeigthWarningTitle"="Wuah warte";
+"EditWeigthNew"="Neuen Typ hinzufügen";
+"EditWeigthPrimaryHint"="Tippe lang auf den Stern um den hervorgehobenen Notentypen auszuwählen";
 
 "editSubject"="Kurs bearbeiten";
 "editSubDelete"="Fach löschen";
 "editSubGrades"="Noten bearbeiten";
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
-"EditWeigthWarning %@"="Bitte ändere den Typ dieser Noten: %@";
-"EditWeigthWarningTitle"="Wuah warte";
-"EditWeigthNew"="Neuen Typ hinzufügen";
 
 "settingsSection1"="Allgemein";
 "settingsSection2"="Fächer";

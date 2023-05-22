@@ -38,7 +38,7 @@ struct FirstLaunchScreen: View {
             Spacer()
             
             Button("firstLaunchGo") {
-                UserDefaults.standard.set(true, forKey: "notFirstLaunch")
+                UserDefaults.standard.set(true, forKey: UD_firstLaunchKey)
                 firstLaunch = false
             }.buttonStyle(PrimaryStyle())
             

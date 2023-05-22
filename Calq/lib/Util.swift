@@ -10,6 +10,9 @@ import SwiftUI
 import WidgetKit
 
 
+let UD_firstLaunchKey = "notFirstLaunch"
+let UD_primaryType = "primaryGradeType"
+
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
 
@@ -444,4 +447,18 @@ struct Util {
         return arr
     }
     
+    static func isPrimaryType(_ type: GradeType) -> Bool {
+        return isPrimaryType(type.id)
+    }
+    
+    static func isPrimaryType(_ type: Int16) -> Bool {
+        let types = getTypes().map { $0.id}
+        if !types.contains(type) {setPrimaryType(types[0])}
+        return type == UserDefaults.standard.integer(forKey: UD_primaryType)
+    }
+    
+    static func setPrimaryType(_ type: Int16) {
+        UserDefaults.standard.set(type, forKey: UD_primaryType)
+    }
+
 }
