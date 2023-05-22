@@ -60,6 +60,7 @@ class OverViewViewModel: ObservableObject {
     func lineChartData() -> [[LineChartValue]] {
         var arr: [[LineChartValue]] = []
         for sub in subjects {
+            if !sub.showInLineGraph { continue }
             var subArr: [LineChartValue] = []
             let tests = Util.filterTests(sub, checkinactive : false)
             let color = getSubjectColor(sub, subjects: subjects)
