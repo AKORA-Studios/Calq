@@ -8,8 +8,13 @@
 import CoreData
 
 class MigrationV0toV1: NSEntityMigrationPolicy {
-    @objc func typeFor(isLK:Bool) -> Int16 {
-        return isLK ? 1 : 0
-     }
+    
+    @objc func typeFor(isSaved:NSNumber) -> NSNumber {
+        if isSaved.boolValue {
+            return NSNumber(integerLiteral: 1)
+        } else {
+            return NSNumber(integerLiteral: 0)
+        }
+    }
 }
-//FUNCTION($entityPolicy, "typeForisLK:", $source.big)
+//FUNCTION($entityPolicy, "typeForIsSaved:", $source.big)
