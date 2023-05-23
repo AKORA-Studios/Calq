@@ -12,7 +12,7 @@ struct EditGradeScreen: View {
     @State var test: UserTest
     var color: Color = .accentColor
     
-    @State var testType = 0
+    @State var testType = Util.getTypes()[0].id
     @State var testName = ""
     @State var testYear = 1
     @State var testDate = Date()
@@ -34,8 +34,9 @@ struct EditGradeScreen: View {
                 VStack(alignment: .leading){
                     Text("gradeType")
                     Picker("gradeType", selection: $testType) {
-                        Text("gradeType1").tag(0)
-                        Text("gradeType2").tag(1)
+                        ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { index, type in
+                            Text(type.name).tag(type.id)
+                        }
                     }.pickerStyle(.segmented).colorMultiply(color)
                 }.padding()
             }.background(CardView())
@@ -89,7 +90,7 @@ struct EditGradeScreen: View {
                 testYear = Int(test.year)
                 testDate = test.date
                 testPoints = Float(test.grade)
-                testType = test.big ? 1 : 0
+                testType = test.type
             }
             .alert(isPresented: $deleteAlert) {
                 Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
@@ -108,7 +109,7 @@ struct EditGradeScreen: View {
         test.year = Int16(testYear)
         test.date = testDate
         test.grade = Int16(testPoints)
-        test.big = testType == 1
+        test.type = testType
         saveCoreData()
         self.presentationMode.wrappedValue.dismiss()
     }

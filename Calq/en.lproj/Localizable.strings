@@ -43,7 +43,14 @@
 "ExamViewSubSelect"="Select Subject";
 
 "EditWeigthTitle"="Change Weight";
-"EditWeigthDesc"="Change the gardes weight in %";
+"EditWeigthDesc"="Change the grades weight in %";
+"EditWeigthSum%lld"="Sum: %lld %";
+"EditWeigthAlertTitle"="Invalid sum";
+"EditWeigthAlertText"="The maximum sum should be 100";
+"EditWeigthWarning %@"="Pls change the type of the following grades to something else: %@";
+"EditWeigthWarningTitle"="Wuah wait";
+"EditWeigthNew"="Add new type";
+"EditWeigthPrimaryHint"="Press long on the star icon to change the which grade type should be highlited";
 
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";
@@ -71,8 +78,6 @@
 "gradeYear"="Year";
 "gradeDate"="Date";
 "gradePoints"="Points";
-"gradeType1"="Test";
-"gradeType2"="Exam";
 "gradeHalfyear"="Halfyear";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
@@ -80,6 +85,7 @@
 
 "subjectListTitle"="Subjectlist";
 "subjectListTable"="Gradetable";
+"subjectGradeList"="Gradelist";
 "%lld subjectListYears %lld"="%lld of %lld Halfyears active";
 
 "gradeEdit"="Edit Grade";

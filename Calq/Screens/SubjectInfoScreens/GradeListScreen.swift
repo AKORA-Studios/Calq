@@ -41,7 +41,7 @@ struct GradeListScreen: View {
                 Text("noGrades")
             }
             
-        }.navigationTitle("subjectListTitle")
+        }.navigationTitle("subjectGradeList")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
             .onAppear{
                 Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
@@ -67,7 +67,7 @@ struct GradeListScreen: View {
     func gradeIcon(test: UserTest, color: Color) -> some View {
         HStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 8.0).fill(test.big ? color : Color.clear).frame(width: 30, height: 30)
+                RoundedRectangle(cornerRadius: 8.0).fill(Util.isPrimaryType(test.type) ? color : Color.clear).frame(width: 30, height: 30)
                 Text(String(test.grade))
             }
             Text(test.name).lineLimit(1)

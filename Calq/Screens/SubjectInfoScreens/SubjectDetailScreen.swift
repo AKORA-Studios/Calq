@@ -30,7 +30,7 @@ struct SubjectDetailScreen: View {
                     
                     VStack(alignment: .leading, spacing: 5){
                         Text("subjectDetailTime").padding(.top, 10)
-                        OneEntryLineChart(subject: subject!, heigth: 90)
+                        LineChart(data: Binding.constant(lineChartData()), heigth: 90)
                     }
                     .padding(.horizontal)
                     .background(CardView())
@@ -104,5 +104,21 @@ struct SubjectDetailScreen: View {
     
     func dismissSheet(){
         self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func lineChartData() -> [[LineChartEntry]] {
+        if subject == nil { return [] }
+        var arr: [[LineChartEntry]] = []
+        var subArr: [LineChartEntry] = []
+        
+        let tests = Util.filterTests(subject!, checkinactive : false)
+        let color = getSubjectColor(subject!)
+        
+        for test in tests {
+            let time = (test.date.timeIntervalSince1970 / 1000)
+            subArr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
+        }
+        arr.append(subArr)
+        return arr
     }
 }

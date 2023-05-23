@@ -11,7 +11,7 @@ struct ImpactSegment: View {
     @State var colors: [Color] = get15colors()
     @State var values: [String] = get15Values()
     @Binding var subject: UserSubject?
-    @Binding var gradeType: Int
+    @Binding var gradeType: Int16
     @Binding var year: Int
     
     var body: some View {
@@ -53,45 +53,38 @@ struct ImpactSegment: View {
         let tests = allTests.filter{$0.year == year}
         if(tests.isEmpty){return reset()}
         
-        //calculation old grade
-        let weigth = Double(Util.getSettings()!.weightBigGrades)!
-        let weightSmall = 1 - weigth
         let averageOld: Int = Int(round(Util.testAverage(tests)))
-        
-        let bigTests = tests.filter{$0.big}.map{Int($0.grade)}
-        let smallTests = tests.filter{!$0.big}.map{Int($0.grade)}
-        
-        let big =  Util.average(bigTests)
-        let small = Util.average(smallTests)
         
         var worseLast: Int = 99
         var betterLast: Int = 0
         var sameLast: Int = 99
         
+        let types = Util.getTypes()
+        
+        //calc new average
         for i in 0...14 {
             var newAverage: Int = 0
+            var gradeWeigths = 0.0
+            var avgArr: [Double] = []
             
-            if(gradeType == 1){ //small
-                var gradeArr = smallTests
-                gradeArr.append(i)
+            for x in types {
+                var filtered = tests.filter{$0.type == x.id}.map{Int($0.grade)}
+               
+                let weigth = Double(Double(x.weigth)/100)
+                gradeWeigths += weigth
                 
-                if(bigTests.isEmpty) {
-                    newAverage = Int(round(Util.average(gradeArr)))
-                } else {
-                    newAverage = Int(round(weigth * big + weightSmall * Util.average(gradeArr)))
+                if x.id == 1 {
+                    filtered.append(i)
                 }
                 
-            }else { //big
-                var gradeArr = bigTests
-                gradeArr.append(i)
-                
-                if(smallTests.isEmpty) {
-                    newAverage = Int(round(Util.average(gradeArr)))
-                } else {
-                    newAverage = Int(round(weigth * Util.average(gradeArr) + weightSmall * small))
-                }
+                let avg = Util.average(filtered)
+                avgArr.append(Double(avg * weigth))
             }
             
+            let num = avgArr.reduce(0, +)/gradeWeigths
+            newAverage = Int(round(num))
+        
+            // display numbers
             var str = "\(newAverage)"
             //push colors
             if(averageOld > newAverage){

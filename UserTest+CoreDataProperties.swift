@@ -2,7 +2,7 @@
 //  UserTest+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 01.03.23.
+//  Created by Kiara on 19.05.23.
 //
 //
 
@@ -16,11 +16,11 @@ extension UserTest {
         return NSFetchRequest<UserTest>(entityName: "UserTest")
     }
 
-    @NSManaged public var big: Bool
     @NSManaged public var date: Date
     @NSManaged public var grade: Int16
     @NSManaged public var name: String
     @NSManaged public var year: Int16
+    @NSManaged public var type: Int16
     @NSManaged public var testtosubbject: UserSubject
 
 }

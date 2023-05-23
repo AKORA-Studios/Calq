@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabbarView: View {
-    @State var firstLaunch: Bool = !UserDefaults.standard.bool(forKey: "notFirstLaunch")
+    @State var firstLaunch: Bool = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
     
     var body: some View {
         TabView {
