@@ -41,18 +41,17 @@ struct NewGradeScreen: View {
 }
 
 
-//TODO: Dimiss button qwq
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var subject: UserSubject?
     @Binding var dismiss: Bool
     @State var gradeName = ""
-    @State var bigGrade = 1
+    @State var gradeType = Util.getTypes()[0].id
     @State var year = 1
     @State var points: Float = 9
     @State var date = Date()
-    @State var isAlertRPesented = false
+    @State var isAlertPresented = false
     
     var body: some View {
         NavigationView {
@@ -68,9 +67,10 @@ struct NewGradeView: View {
                     ZStack{
                         VStack(alignment: .leading){
                             Text("gradeType")
-                            Picker("gradeYear", selection: $bigGrade) {
-                                Text("gradeType1").tag(1)
-                                Text("gradeType2").tag(2)
+                            Picker("gradeYear", selection: $gradeType) {
+                                ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { index, type in
+                                    Text(type.name).tag(type.id)
+                                }
                             }.pickerStyle(.segmented)
                         }.padding()
                     }.background(CardView())
@@ -101,7 +101,7 @@ struct NewGradeView: View {
                                 })
                                 .accentColor(Color.accentColor)
                             }
-                            ImpactSegment(subject: $subject, gradeType: $bigGrade, year: $year).frame(height: 35)
+                            ImpactSegment(subject: $subject, gradeType: $gradeType, year: $year).frame(height: 35)
                         }.padding()
                     }.background(CardView())
                     
@@ -114,7 +114,7 @@ struct NewGradeView: View {
                 }.navigationTitle("gradeNew")
                     .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                     .padding()
-                    .alert(isPresented: $isAlertRPesented){
+                    .alert(isPresented: $isAlertPresented){
                         Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
                     }
             }
@@ -123,7 +123,7 @@ struct NewGradeView: View {
     
     func saveGrade(){
         if(gradeName.isEmpty){
-            isAlertRPesented = true
+            isAlertPresented = true
             return
         }
         
@@ -131,8 +131,9 @@ struct NewGradeView: View {
         newTest.name = gradeName
         newTest.grade =  Int16(points)
         newTest.date = date
-        newTest.big = bigGrade == 1 ? false : true
+        newTest.type = gradeType
         newTest.year = Int16(year)
+        
         self.subject!.addToSubjecttests(newTest)
         saveCoreData()
         

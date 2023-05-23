@@ -44,6 +44,13 @@
 
 "EditWeigthTitle"="Wertung ändern";
 "EditWeigthDesc"="Wähle die Wertung der Noten in % aus";
+"EditWeigthSum%lld"="Gesamt: %lld %";
+"EditWeigthAlertTitle"="Summe ungültig";
+"EditWeigthAlertText"="Die Summe sollte 100% betragen";
+"EditWeigthWarning %@"="Bitte ändere den Typ dieser Noten: %@";
+"EditWeigthWarningTitle"="Wuah warte";
+"EditWeigthNew"="Neuen Typ hinzufügen";
+"EditWeigthPrimaryHint"="Tippe lang auf den Stern um den hervorgehobenen Notentypen auszuwählen";
 
 "editSubject"="Kurs bearbeiten";
 "editSubDelete"="Fach löschen";
@@ -71,8 +78,6 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
-"gradeType1"="Test";
-"gradeType2"="Klausur";
 "gradeHalfyear"="Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
@@ -80,6 +85,7 @@
 
 "subjectListTitle"="Kursliste";
 "subjectListTable"="Notentabelle";
+"subjectGradeList"="Notenliste";
 "%lld subjectListYears %lld"="%lld von %lld Halbjahren aktiv";
 
 "gradeEdit"="Note bearbeiten";

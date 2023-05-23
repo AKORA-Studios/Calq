@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsScreen: View {//TODO: kinda fix load demo data
+struct SettingsScreen: View {
     @ObservedObject var vm: SettingsViewModel
     
     var body: some View {

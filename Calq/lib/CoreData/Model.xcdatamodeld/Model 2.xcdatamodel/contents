@@ -3,7 +3,14 @@
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="colorfulCharts" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="weightBigGrades" attributeType="String" defaultValueString="0.5"/>
+        <relationship name="gradetypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GradeType" inverseName="gradetosettings" inverseEntity="GradeType"/>
         <relationship name="usersubjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttosettings" inverseEntity="UserSubject"/>
+    </entity>
+    <entity name="GradeType" representedClassName="GradeType" syncable="YES">
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="weigth" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="gradetosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="gradetypes" inverseEntity="AppSettings"/>
     </entity>
     <entity name="UserSubject" representedClassName="UserSubject" syncable="YES">
         <attribute name="color" attributeType="String" defaultValueString=""/>
@@ -17,10 +24,10 @@
         <relationship name="subjecttosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="usersubjects" inverseEntity="AppSettings"/>
     </entity>
     <entity name="UserTest" representedClassName="UserTest" syncable="YES">
-        <attribute name="big" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="grade" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="year" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="testtosubbject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSubject" inverseName="subjecttests" inverseEntity="UserSubject"/>
     </entity>

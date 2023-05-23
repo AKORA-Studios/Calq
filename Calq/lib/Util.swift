@@ -10,6 +10,9 @@ import SwiftUI
 import WidgetKit
 
 
+let UD_firstLaunchKey = "notFirstLaunch"
+let UD_primaryType = "primaryGradeType"
+
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
 
@@ -40,7 +43,7 @@ struct Util {
         return (Double(avg) / Double(values.count))
     }
     
-    static func average (_ values: [Double]) -> Double {
+    static private func average (_ values: [Double]) -> Double {
         if (values.count < 1) {return 0}
         
         var avg = Double(0);
@@ -50,11 +53,11 @@ struct Util {
         return (Double(avg) / Double(values.count))
     }
     
-    static func average (_ values: [Int], from: Int = 0, to: Int = -1) -> Double {
+    static private func average (_ values: [Int], from: Int = 0, to: Int = -1) -> Double {
         return self.average(values.map { Double($0)} as [Double], from: from, to: to)
     }
     
-    static func average (_ values: [Double], from: Int = 0, to: Int = -1) -> Double {
+    static private func average (_ values: [Double], from: Int = 0, to: Int = -1) -> Double {
         if (from > values.count) {return 0;}
         
         var sum = Double(0);
@@ -69,24 +72,24 @@ struct Util {
     
     /// Returns the average of an array of tests.
     static func testAverage(_ tests: [UserTest]) -> Double {
-        let weigth = Double(Util.getSettings()!.weightBigGrades)!
+        var gradeWeigths = 0.0
+        var avgArr: [Double] = []
         
-        let smallArr = tests.filter{!$0.big}.map{Int($0.grade)},
-            bigArr = tests.filter{$0.big}.map{Int($0.grade)};
-        
-        if (smallArr.count > 0 && bigArr.count > 0) {
-            let smallAvg = Util.average(smallArr),
-                bigAvg = Util.average(bigArr)
-            
-            return weigth * bigAvg + (1.0 - weigth) * smallAvg
-            
-            //  return (smallAvg + bigAvg) / 2;
-        } else if (smallArr.count == 0) {
-            return Util.average(bigArr);
-        } else if (bigArr.count == 0) {
-            return Util.average(smallArr)
+        for type in getTypes() {
+            let filteredTests = tests.filter {$0.type == type.id}
+            if !filteredTests.isEmpty {
+                let weigth = Double(Double(type.weigth)/100)
+                gradeWeigths += weigth
+                let avg = Util.average(filteredTests.map{Int($0.grade)})
+                avgArr.append(Double(avg * weigth))
+            }
         }
-        return 0.0;
+        
+        if avgArr.isEmpty { return 0 }
+        let num = avgArr.reduce(0, +)/gradeWeigths
+        
+        if num.isNaN { return 0 }
+        return num
     }
     
     /// Returns the average of all grades from one subject
@@ -184,8 +187,7 @@ struct Util {
             let items = try context.fetch(AppSettings.fetchRequest())
             context.delete(items[0])
         }
-        catch{
-        }
+        catch {}
         saveCoreData()
         return Util.getSettings()!
     }
@@ -198,20 +200,36 @@ struct Util {
             
             if(items.count == 0){
                 let item =  AppSettings(context: context)
-                item.colorfulCharts = false
                 
-                saveCoreData()
+                item.colorfulCharts = false
+                setTypes(item)
                 return item
+            }
+            
+            if items[0].gradetypes?.count == 0 {
+                setTypes(items[0])
             }
             return items[0]
         }
-        catch{        }
+        catch {}
         return nil
     }
     
-    static func saveWeigth(_ num: Int){
-        let settings = getSettings()
-        settings!.weightBigGrades = String(Float(num) / 100)
+    /// add default grade types
+    static func setTypes(_ settings: AppSettings,_ deleted: Bool = false){
+        let type1 = GradeType(context: context)
+        type1.id = 0
+        type1.name = "Test"
+        type1.weigth = 50
+        
+        let type2 = GradeType(context: context)
+        type2.id = 1
+        type2.name = "Klausur"
+        type2.weigth = 50
+        
+        settings.addToGradetypes(type1)
+        settings.addToGradetypes(type2)
+        
         saveCoreData()
     }
     
@@ -366,4 +384,81 @@ struct Util {
         saveCoreData()
     }
     
+    // MARK: Managed GradeTypes
+    static func addType(name: String, weigth: Int) {
+        let existingTypes = getTypes().map{$0.id}
+        let newType = GradeType(context: context)
+        newType.name = name
+        newType.weigth = Int16(weigth)
+        newType.id = getNewIDQwQ(existingTypes)
+        
+        let new = getTypes().map {Int($0.weigth)}.reduce(0, +)
+        if new + weigth > 100 {
+            newType.weigth = 0
+        }
+        let settings = Util.getSettings()
+        settings?.addToGradetypes(newType)
+        saveCoreData()
+    }
+    
+    private static func getNewIDQwQ(_ ids: [Int16]) -> Int16 {
+        for i in 0...(ids.max() ?? Int16(ids.count)) {
+            if !ids.contains(Int16(i)) { return Int16(i) }
+        }
+        return Int16(ids.count + 1)
+    }
+    
+    static func deleteType(type: Int16) {
+        let t = getTypes().filter{$0.id == type}[0]
+        t.gradetosettings!.removeFromGradetypes(t)
+        saveCoreData()
+    }
+    
+    static func deleteType(type: GradeType) {
+        type.gradetosettings?.removeFromGradetypes(type)
+        saveCoreData()
+    }
+    
+    static func getTypes() -> [GradeType] {
+        let types = getSettings()?.gradetypes!.allObjects as! [GradeType]
+        if types.count >= 2 { return types}
+        
+        if types.count == 1 {
+            addType(name: "default type", weigth: 0)
+        } else if types.isEmpty {
+            setTypes(Util.getSettings()!)
+        }
+        saveCoreData()
+        return getSettings()!.gradetypes!.allObjects as! [GradeType]
+    }
+    
+    static func highestType() -> Int16 {
+        return getTypes().sorted(by: {$0.id > $1.id})[0].id
+    }
+    
+    static func getTypeGrades(_ type: Int16) -> [UserTest] {
+        var arr: [UserTest] = []
+        for sub in Util.getAllSubjects() {
+            for test in sub.subjecttests!.allObjects as! [UserTest] {
+                if test.type != type { continue }
+                arr.append(test)
+            }
+        }
+        return arr
+    }
+    
+    static func isPrimaryType(_ type: GradeType) -> Bool {
+        return isPrimaryType(type.id)
+    }
+    
+    static func isPrimaryType(_ type: Int16) -> Bool {
+        let types = getTypes().map { $0.id}
+        if !types.contains(type) {setPrimaryType(types[0])}
+        return type == UserDefaults.standard.integer(forKey: UD_primaryType)
+    }
+    
+    static func setPrimaryType(_ type: Int16) {
+        UserDefaults.standard.set(type, forKey: UD_primaryType)
+    }
+
 }
