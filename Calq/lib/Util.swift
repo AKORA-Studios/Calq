@@ -162,7 +162,7 @@ struct Util {
     /// Converts the points(0-15) representation of a grade to the more common 1-6 scale.
     static func grade(number: Double) -> Double {
         if(number == 0.0){ return 0.0}
-        return ((17 - number) / 3.0)
+        return ((17 - abs(number)) / 3.0)
     }
     
     /// Generates a convient String that shows the grades of the subject.
