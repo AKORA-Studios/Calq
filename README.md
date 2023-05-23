@@ -8,6 +8,8 @@
 Abiturnoten Rchner für iOs 14 oder höher.
 ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
 
+([latest Release download](https://github.com/AKORA-Studios/Calq/releases/))
+
 ### [Appstore Link](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 
 <br>
@@ -20,7 +22,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 - (optional) Automatische Fächerfarben
 - Berechnung Auswirkung neuer Note
 - Deaktivieren von Halbjahren
-- Custom Gewichtung von Klausuren und Tests
+- mehrere Notentypen mit variabler Gewichtung
 
 ## Showcase
 
