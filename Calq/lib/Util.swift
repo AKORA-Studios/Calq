@@ -10,6 +10,11 @@ import SwiftUI
 import WidgetKit
 
 
+public enum ModelKit {
+    public static let bundle = Bundle.main
+}
+
+
 let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
 
@@ -18,14 +23,24 @@ let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? 
 
 let nameInvalid =  Alert(title: Text("Name ungültig"), message: Text("Name darf keine Sonderzeichen/Zahlen etc. enthalten"))
 
-let context = CoreDataStack.shared.managedObjectContext
+
 
 func saveCoreData(){
-    try! context.save()
+    try! Util.getContext().save()
     WidgetCenter.shared.reloadAllTimelines()
 }
 
 struct Util {
+    private static var context = CoreDataStack.sharedContext
+    
+    static func setContext(_ newContext: NSManagedObjectContext){
+        context = newContext
+    }
+    
+    static func getContext() -> NSManagedObjectContext {
+        return context
+    }
+    
     static func checkString(_ str: String) -> Bool{
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
         let range = NSRange(location: 0, length: str.utf16.count)
@@ -183,11 +198,15 @@ struct Util {
     //MARK: Get Settings
     ///Returns fresh new settings and deletes everything
     @discardableResult static func deleteSettings()-> AppSettings{
+        let request: NSFetchRequest<AppSettings> = AppSettings.fetchRequest()
+        
         do {
-            let items = try context.fetch(AppSettings.fetchRequest())
-            context.delete(items[0])
+            let items: [NSManagedObject] = try context.fetch(request)
+            items.forEach { i in
+                context.delete(i)
+            }
         }
-        catch {}
+        catch {print("Failed to delete Data")}
         saveCoreData()
         return Util.getSettings()!
     }
@@ -237,16 +256,22 @@ struct Util {
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
         var  allSubjects: [UserSubject] = []
-        do {
-            let result = try context.fetch(AppSettings.fetchRequest())
-            if(result.count == 0) { return []}
-            if(result[0].usersubjects != nil){
-                allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-                return sortSubjects(allSubjects)
-            }else {return [] }
-        }catch {}
         
-        return []
+        do {
+            let result: [NSManagedObject] = try context.fetch(AppSettings.fetchRequest())
+            if(result.count == 0) { return allSubjects }
+            
+            guard let settings = result[0] as? AppSettings else {
+                return allSubjects
+            }
+            
+            if(settings.usersubjects != nil){
+                allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
+                return sortSubjects(allSubjects)
+            } else { return allSubjects }
+        } catch { print("Failed to get allSubejcts") }
+        
+        return allSubjects
     }
     
     /// sort all subjects sorted after type and name

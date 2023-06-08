@@ -69,7 +69,7 @@ struct NewSubjectScreen: View {
     }
     
     func addSubject(){
-        let subject = UserSubject(context: context)
+        let subject = UserSubject(context: Util.getContext())
         subject.color = UIColor(selectedColor).toHexString()
         subject.name = subjectName
         subject.lk = lkSubject == 1

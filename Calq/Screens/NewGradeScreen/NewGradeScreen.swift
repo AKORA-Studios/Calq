@@ -127,7 +127,7 @@ struct NewGradeView: View {
             return
         }
         
-        let newTest = UserTest(context: CoreDataStack.shared.managedObjectContext)
+        let newTest = UserTest(context: Util.getContext())
         newTest.name = gradeName
         newTest.grade =  Int16(points)
         newTest.date = date

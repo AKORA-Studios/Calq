@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Calq
 
 final class CalqTests: XCTestCase {
     
@@ -41,5 +42,20 @@ final class CalqTests: XCTestCase {
     func testSetPrimaryType(){
         Util.setPrimaryType(1)
         XCTAssertEqual(  UserDefaults.standard.integer(forKey: UD_primaryType), 1)
+    }
+    
+    func testLoadDemoData() {
+ 
+        Util.setContext(TestCoreDataStack.sharedContext)
+      
+       // Util.deleteSettings()
+        JSON.loadDemoData()
+        TestCoreDataStack().saveContext()
+   
+        var i = Util.getAllSubjects().count
+        print(i)
+        var e = Util.getAllSubjects().count
+        print(e)
+        XCTAssertFalse(i==0)
     }
 }

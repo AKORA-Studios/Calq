@@ -1,7 +1,15 @@
+//
+//  CoreDataStack.swift
+//  CalqTests
+//
+//  Created by Kiara on 08.06.23.
+//
+
 import CoreData
 
-class CoreDataStack: ImplementsCoreDataStack {
-    static let sharedContext = CoreDataStack().workingContext
+
+class TestCoreDataStack: ImplementsCoreDataStack {
+    static let sharedContext = TestCoreDataStack().managedObjectContext
     
     var workingContext: NSManagedObjectContext {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -16,9 +24,17 @@ class CoreDataStack: ImplementsCoreDataStack {
     init() {}
     
     private var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
-        let storeURL = URL.storeURL()
-        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        
+        
+        guard let mom = NSManagedObjectModel.mergedModel(from: [ModelKit.bundle]) else {
+            fatalError("Failed to create mom")
+        }
+        let container = NSPersistentContainer(name: "Model", managedObjectModel: mom)
+        
+        
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.type = NSInMemoryStoreType // important
+        storeDescription.url = URL(fileURLWithPath: "/dev/null")
         storeDescription.shouldInferMappingModelAutomatically = false
         storeDescription.shouldMigrateStoreAutomatically = true
         container.persistentStoreDescriptions = [storeDescription]
@@ -42,30 +58,4 @@ class CoreDataStack: ImplementsCoreDataStack {
             }
         }
     }
-}
-
-public extension URL {
-    
-    static func storeURL() -> URL {
-        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.CalqRechner") else {
-            fatalError("Shared file container could not be created")
-        }
-        return fileContainer.appendingPathComponent("Model.sqlite")
-    }
-}
-
-
-protocol ImplementsCoreDataStack {
-    static var sharedContext: NSManagedObjectContext { get }
-}
-
-
-public extension NSManagedObject {
-
-    convenience init(context: NSManagedObjectContext) {
-        let name = String(describing: type(of: self))
-        let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
-        self.init(entity: entity, insertInto: context)
-    }
-
 }
