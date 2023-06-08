@@ -429,7 +429,8 @@ struct Util {
             setTypes(Util.getSettings()!)
         }
         saveCoreData()
-        return getSettings()!.gradetypes!.allObjects as! [GradeType]
+        
+        return (getSettings()!.gradetypes!.allObjects as! [GradeType]).sorted(by: {$0.weigth > $1.weigth})
     }
     
     static func highestType() -> Int16 {
