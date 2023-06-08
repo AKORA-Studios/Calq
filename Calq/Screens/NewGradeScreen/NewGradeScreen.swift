@@ -111,7 +111,11 @@ struct NewGradeView: View {
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                     
-                }.navigationTitle("gradeNew")
+                }.onAppear{
+                    //set subjects latest year
+                    year = Util.lastActiveYear(subject!)
+                }
+                .navigationTitle("gradeNew")
                     .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
                     .padding()
                     .alert(isPresented: $isAlertPresented){
