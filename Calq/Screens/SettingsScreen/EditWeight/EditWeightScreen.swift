@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChangeWeightScreen: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var vm = WeigthViewmodel()
+    @ObservedObject var vm = WeightViewmodel()
     
     var body: some View {
         VStack{
