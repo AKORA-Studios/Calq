@@ -27,13 +27,14 @@ class TestCoreDataStack: ImplementsCoreDataStack {
         guard let mom = NSManagedObjectModel.mergedModel(from: [ModelKit.bundle]) else {
             fatalError("Failed to create mom")
         }
-        let container = NSPersistentContainer(name: "Model", managedObjectModel: mom)
+        let container = NSPersistentContainer(name: "TestContainer", managedObjectModel: mom)
         
         let storeDescription = NSPersistentStoreDescription()
         storeDescription.type = NSInMemoryStoreType // important
         storeDescription.url = URL(fileURLWithPath: "/dev/null")
         storeDescription.shouldInferMappingModelAutomatically = false
         storeDescription.shouldMigrateStoreAutomatically = true
+        storeDescription.shouldAddStoreAsynchronously = false
         container.persistentStoreDescriptions = [storeDescription]
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -43,4 +44,13 @@ class TestCoreDataStack: ImplementsCoreDataStack {
         })
         return container
     }()
+}
+
+//move to nnormal coredata stack to remove warnings hm
+public extension NSManagedObject {
+    convenience init(context: NSManagedObjectContext) {
+        let name = String(describing: type(of: self))
+        let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
+        self.init(entity: entity, insertInto: context)
+    }
 }

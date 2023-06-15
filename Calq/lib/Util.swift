@@ -226,6 +226,7 @@ struct Util {
                 let settings = requestResult[0] as! AppSettings
                 if settings.gradetypes?.count == 0 {
                     setTypes(settings)
+                    saveCoreData()
                 }
                 return settings
             }

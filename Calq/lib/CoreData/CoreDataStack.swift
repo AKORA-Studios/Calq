@@ -41,12 +41,3 @@ public extension URL {
         return fileContainer.appendingPathComponent("Model.sqlite")
     }
 }
-
-//remove warning of multiple things claiming subclass
-public extension NSManagedObject {
-    convenience init(context: NSManagedObjectContext) {
-        let name = String(describing: type(of: self))
-        let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
-        self.init(entity: entity, insertInto: context)
-    }
-}
