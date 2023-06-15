@@ -15,13 +15,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <br>
 
 ## Table of Contents
+[Headers](#headers)
 
-
-## How to Install and Run the Project
-Just clone the repo and open the workspace file in xcode :3 
-
-## How to contribute
-* if you encounter any issues or have improvment suggestions open a ticket
 
 ## Funktionen
 
@@ -63,10 +58,22 @@ Just clone the repo and open the workspace file in xcode :3
 ![Hell](https://media.discordapp.net/attachments/867129329363976212/961320571247927306/unknown.png?width=309&height=670)
 </details
 <br>
+  
+## How to Install and Run the Project
+
+Just clone the repo and open the workspace file in xcode :3 
+(yes there is a podfile in this repo, but there arent any used currently)
+
+## How to contribute
+
+* if you encounter any issues or have improvment suggestions open a ticket
+* if ya want to change smth yourself or have any suggestions hos to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+
 
 ## Feature Requests
 
 [Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen.
+Alternativ schreib einfahc eine anchricht aufm Discord ;3
 
 # License
 
