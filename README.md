@@ -14,6 +14,13 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 <br>
 
+## Table of Contents
+
+## How to Install and Run the Project
+
+## How to contribute
+
+
 ## Funktionen
 
 - Abiturschnitt berechnen
