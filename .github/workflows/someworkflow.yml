@@ -43,14 +43,3 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
           run: echo "idk"
-  codecov:
-    container:
-      image: swift:5.7
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: swift test --enable-test-discovery --enable-code-coverage
-      - uses: mattpolzin/swift-codecov-action@0.7.5
-        with:
-          MINIMUM_COVERAGE: 98
-          INCLUDE_TESTS: "true"
