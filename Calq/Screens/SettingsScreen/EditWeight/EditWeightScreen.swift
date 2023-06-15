@@ -13,11 +13,20 @@ struct ChangeWeightScreen: View {
     
     var body: some View {
         VStack{
-            Text("EditWeigthDesc")
+
             
-            Text("EditWeigthPrimaryHint").font(.footnote)
-                .multilineTextAlignment(.center)
-                .padding(.top, 5)
+            HStack {
+                Text("EditWeigthDesc")
+                Image(systemName: "info.circle").onTapGesture {
+                    vm.toggleHintText()
+                }
+            }
+            
+            if vm.showHintText {
+                Text("EditWeigthPrimaryHint").font(.footnote)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 5)
+            }
             
             List {
                 Section {
@@ -47,7 +56,10 @@ struct ChangeWeightScreen: View {
                             
                             Image(systemName: "trash").foregroundColor(Color.red)
                                 .onTapGesture {vm.selectedDelete = type.id;removeWeigth()}
-                            Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
+                            
+                            if vm.showHintText {
+                                Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
+                            }
                         }
                     }
                 }.listRowBackground(Color.gray.opacity(0.1))

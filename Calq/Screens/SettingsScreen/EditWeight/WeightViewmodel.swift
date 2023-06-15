@@ -21,6 +21,8 @@ class WeightViewmodel: ObservableObject {
     @Published var isAlertPresented = false
     @Published var alertActiontype: alertType = .wrongPercentage
     
+    @Published var showHintText = false
+    
     init() {
         load()
         reload()
@@ -74,5 +76,9 @@ class WeightViewmodel: ObservableObject {
         }, set: {
             self.typeArrNames[key] = $0
         })
+    }
+    
+    func toggleHintText(){
+        showHintText.toggle()
     }
 }
