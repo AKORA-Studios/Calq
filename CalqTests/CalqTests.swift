@@ -44,9 +44,10 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(  UserDefaults.standard.integer(forKey: UD_primaryType), 1)
     }
     
+    // JSON Funcs
     func testLoadDemoData() {
         Util.setContext(TestCoreDataStack.sharedContext)
-        JSON.loadDemoData() // shuld be 12
+        JSON.loadDemoData() // should be 12
         
         let count = Util.getAllSubjects().count
      

@@ -128,7 +128,7 @@ extension JSON {
                 test.grade = JSON.checkGrade(newTest.grade)
                 let timestamp = Double(newTest.date) ?? 1635417527 / 1000
                 test.date = Date(timeIntervalSince1970: Double(timestamp))
-
+                
                 if typeIds.contains(newTest.type) {
                     test.type = Int16(newTest.type)
                 } else {
@@ -159,7 +159,7 @@ extension JSON {
         //add default types lol
         saveCoreData()
         _ = Util.getTypes()
-      
+        
         for subject in data.usersubjects {
             let sub = UserSubject(context: Util.getContext())
             sub.name = subject.name
@@ -192,5 +192,5 @@ extension JSON {
         
         saveCoreData()
     }
-   
+    
 }

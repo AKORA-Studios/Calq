@@ -215,16 +215,14 @@ struct Util {
     static func getSettings()-> AppSettings {
         do {
             let requestResult: [NSManagedObject] = try Util.getContext().fetch(AppSettings.fetchRequest())
-           
+            
             if(requestResult.isEmpty){
-                print("Create new Settings")
                 let item =  AppSettings(context: Util.getContext())
                 item.colorfulCharts = false
                 setTypes(item)
                 saveCoreData()
                 return item
             } else {
-                print("Return Settings, count: ", requestResult.count)
                 let settings = requestResult[0] as! AppSettings
                 if settings.gradetypes?.count == 0 {
                     setTypes(settings)
@@ -484,5 +482,5 @@ struct Util {
     static func setPrimaryType(_ type: Int16) {
         UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
-
+    
 }

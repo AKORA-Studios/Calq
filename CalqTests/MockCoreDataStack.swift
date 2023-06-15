@@ -24,13 +24,10 @@ class TestCoreDataStack: ImplementsCoreDataStack {
     init() {}
     
     private var persistentContainer: NSPersistentContainer = {
-        
-        
         guard let mom = NSManagedObjectModel.mergedModel(from: [ModelKit.bundle]) else {
             fatalError("Failed to create mom")
         }
         let container = NSPersistentContainer(name: "Model", managedObjectModel: mom)
-        
         
         let storeDescription = NSPersistentStoreDescription()
         storeDescription.type = NSInMemoryStoreType // important
