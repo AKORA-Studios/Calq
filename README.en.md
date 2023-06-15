@@ -7,20 +7,19 @@
 Abitur grades calculator for iOs 14 or higher.
 Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/blob/master/README.md)
 
-([latest Release download](https://github.com/AKORA-Studios/Calq/releases/))
-
-### [Appstore Link](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
-
-<br>
-
 ## Features
 
 - Calculate high school graduation average
 - Calculate subject average
-- Export data as JSON (note: does not include final exams)
+- Export data as JSON
 - (optional) Automatic subject colors
 - Calculate impact of new grade
 - Disable half-years
+- multiple gradetypes with variable weight
+- Languages: 🇩🇪 🇺🇸
+
+[<img src="resources/appstoreImage_en.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+<br>
 
 ## Showcase
 
@@ -44,7 +43,7 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 
 </details>
 
-<details open>
+<details closed>
 <summary>Showcase Widget</summary>
 <br>
 
@@ -54,9 +53,26 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 </details
 <br>
 
+## Contributors
+
+<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=AKORA-Studios/Calq"/>
+</a>
+
+## How to Install and Run the Project
+
+Just clone the repo and open the workspace file in xcode :3
+(yes there is a podfile in this repo, but there arent any used currently)
+
+## How to contribute
+
+- if you encounter any issues or have improvment suggestions open a ticket
+
+- if ya want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+
 ## Feature Requests
 
-[Future features](https://github.com/AKORA-Studios/Calq/projects/2) are listed in our repos projects. you have a feature request? For this you can open issue [right here](https://github.com/AKORA-Studios/Calq/issues).
+[Future features](https://github.com/AKORA-Studios/Calq/projects/2) are listed in our repos projects. you have a feature request? For this you can open issue [right here](https://github.com/AKORA-Studios/Calq/issues). Or you can message us via discord.
 
 # License
 

@@ -8,12 +8,6 @@
 Abiturnoten Rchner für iOs 14 oder höher.
 ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
 
-([latest Release download](https://github.com/AKORA-Studios/Calq/releases/))
-
-[<img src="resources/img/appstore-badge.png" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
-<br>
-
-
 ## Funktionen
 
 - Abiturschnitt berechnen
@@ -23,6 +17,10 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 - Berechnung Auswirkung neuer Note
 - Deaktivieren von Halbjahren
 - mehrere Notentypen mit variabler Gewichtung
+- Sprachen: 🇩🇪 🇺🇸
+
+[<img src="resources/appstoreImage.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+<br>
 
 ## Showcase
 
@@ -54,17 +52,23 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ![Hell](https://media.discordapp.net/attachments/867129329363976212/961320571247927306/unknown.png?width=309&height=670)
 </details
 <br>
-  
+
+## Contributors
+
+<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=AKORA-Studios/Calq"/>
+</a>
+
 ## How to Install and Run the Project
 
-Just clone the repo and open the workspace file in xcode :3 
+Just clone the repo and open the workspace file in xcode :3
 (yes there is a podfile in this repo, but there arent any used currently)
 
 ## How to contribute
 
-* if you encounter any issues or have improvment suggestions open a ticket
-* if ya want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+- if you encounter any issues or have improvment suggestions open a ticket
 
+- if ya want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
 
 ## Feature Requests
 
