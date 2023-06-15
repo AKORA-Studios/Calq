@@ -94,8 +94,8 @@ struct EditSubjectScreen: View {
                         Util.deleteSubject(subject!)
                         subject = nil
                     }))
-                case .nameInvalid:
-                    return nameInvalid
+                case .nameInvalid: //TODO: chekc if right???
+                    return Alert(title: Text("editSubjectNameInvalid"), message: Text("editSubjecNameInvalidChars"))
                 }
             }
             .padding()

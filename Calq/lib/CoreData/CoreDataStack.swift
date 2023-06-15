@@ -30,18 +30,6 @@ class CoreDataStack: ImplementsCoreDataStack {
         })
         return container
     }()
-    
-    func saveContext() {
-        managedObjectContext.performAndWait {
-            if managedObjectContext.hasChanges {
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
 }
 
 public extension URL {
@@ -54,18 +42,11 @@ public extension URL {
     }
 }
 
-
-protocol ImplementsCoreDataStack {
-    static var sharedContext: NSManagedObjectContext { get }
-}
-
-
+//remove warning of multiple things claiming subclass
 public extension NSManagedObject {
-
     convenience init(context: NSManagedObjectContext) {
         let name = String(describing: type(of: self))
         let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
         self.init(entity: entity, insertInto: context)
     }
-
 }

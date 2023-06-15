@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewGradeScreen: View {
     @State var subjects: [UserSubject] = Util.getAllSubjects()
-    @StateObject var settings: AppSettings = Util.getSettings()!
+    @StateObject var settings: AppSettings = Util.getSettings()
     @State var isSheetPresented = false
     @State var selectedSubject: UserSubject?
     

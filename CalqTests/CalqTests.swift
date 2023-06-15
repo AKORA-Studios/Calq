@@ -45,17 +45,12 @@ final class CalqTests: XCTestCase {
     }
     
     func testLoadDemoData() {
- 
         Util.setContext(TestCoreDataStack.sharedContext)
-      
-       // Util.deleteSettings()
-        JSON.loadDemoData()
-        TestCoreDataStack().saveContext()
-   
-        var i = Util.getAllSubjects().count
-        print(i)
-        var e = Util.getAllSubjects().count
-        print(e)
-        XCTAssertFalse(i==0)
+        JSON.loadDemoData() // shuld be 12
+        
+        let count = Util.getAllSubjects().count
+     
+        XCTAssertFalse(count == 0)
+        XCTAssertEqual(count, 12)
     }
 }

@@ -75,7 +75,7 @@ struct NewSubjectScreen: View {
         subject.lk = lkSubject == 1
         
         let settings = Util.getSettings()
-        settings!.addToUsersubjects(subject)
+        settings.addToUsersubjects(subject)
         
         saveCoreData()
         dismissSheet()

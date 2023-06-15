@@ -12,7 +12,7 @@ extension JSON {
     ///Export userdata as json
     static func exportJSON()-> String{
         let data = Util.getSettings()
-        var string = "{\"formatVersion\": 1, \"colorfulCharts\": \(data?.colorfulCharts ?? true), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
+        var string = "{\"formatVersion\": 1, \"colorfulCharts\": \(data.colorfulCharts), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
         
         let subjects = Util.getAllSubjects()
         var subCount: Int = 0

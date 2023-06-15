@@ -9,7 +9,6 @@ import CoreData
 import SwiftUI
 import WidgetKit
 
-
 public enum ModelKit {
     public static let bundle = Bundle.main
 }
@@ -21,9 +20,10 @@ let UD_primaryType = "primaryGradeType"
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
 
-let nameInvalid =  Alert(title: Text("Name ungültig"), message: Text("Name darf keine Sonderzeichen/Zahlen etc. enthalten"))
-
-
+//for testing CoreData
+protocol ImplementsCoreDataStack {
+    static var sharedContext: NSManagedObjectContext { get }
+}
 
 func saveCoreData(){
     try! Util.getContext().save()
@@ -206,32 +206,40 @@ struct Util {
                 context.delete(i)
             }
         }
-        catch {print("Failed to delete Data")}
+        catch { print("Failed to delete Data") }
         saveCoreData()
-        return Util.getSettings()!
+        return Util.getSettings()
     }
     
     ///Returns the apps settings
-    static func getSettings()-> AppSettings?{
-        var items: [AppSettings]
+    static func getSettings()-> AppSettings {
         do {
-            items = try context.fetch(AppSettings.fetchRequest())
-            
-            if(items.count == 0){
-                let item =  AppSettings(context: context)
-                
+            let requestResult: [NSManagedObject] = try Util.getContext().fetch(AppSettings.fetchRequest())
+           
+            if(requestResult.isEmpty){
+                print("Create new Settings")
+                let item =  AppSettings(context: Util.getContext())
                 item.colorfulCharts = false
                 setTypes(item)
+                saveCoreData()
                 return item
+            } else {
+                print("Return Settings, count: ", requestResult.count)
+                let settings = requestResult[0] as! AppSettings
+                if settings.gradetypes?.count == 0 {
+                    setTypes(settings)
+                }
+                return settings
             }
             
-            if items[0].gradetypes?.count == 0 {
-                setTypes(items[0])
-            }
-            return items[0]
-        }
-        catch {}
-        return nil
+        } catch (let err) { print("Failed to load settings", err) }
+        
+        print("THIS SHOULD NOT HAPPEN HELP")
+        let item =  AppSettings(context: Util.getContext())
+        item.colorfulCharts = false
+        setTypes(item)
+        saveCoreData()
+        return item
     }
     
     /// add default grade types
@@ -255,22 +263,13 @@ struct Util {
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
-        var  allSubjects: [UserSubject] = []
+        var allSubjects: [UserSubject] = []
+        let settings = Util.getSettings()
         
-        do {
-            let result: [NSManagedObject] = try context.fetch(AppSettings.fetchRequest())
-            if(result.count == 0) { return allSubjects }
-            
-            guard let settings = result[0] as? AppSettings else {
-                return allSubjects
-            }
-            
-            if(settings.usersubjects != nil){
-                allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
-                return sortSubjects(allSubjects)
-            } else { return allSubjects }
-        } catch { print("Failed to get allSubejcts") }
-        
+        if(settings.usersubjects != nil){
+            allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
+            return sortSubjects(allSubjects)
+        }
         return allSubjects
     }
     
@@ -422,7 +421,7 @@ struct Util {
             newType.weigth = 0
         }
         let settings = Util.getSettings()
-        settings?.addToGradetypes(newType)
+        settings.addToGradetypes(newType)
         saveCoreData()
     }
     
@@ -445,16 +444,16 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
-        let types = getSettings()?.gradetypes!.allObjects as! [GradeType]
+        let types = getSettings().gradetypes!.allObjects as! [GradeType]
         if types.count >= 2 { return types}
         
         if types.count == 1 {
             addType(name: "default type", weigth: 0)
         } else if types.isEmpty {
-            setTypes(Util.getSettings()!)
+            setTypes(Util.getSettings())
         }
         saveCoreData()
-        return getSettings()!.gradetypes!.allObjects as! [GradeType]
+        return getSettings().gradetypes!.allObjects as! [GradeType]
     }
     
     static func highestType() -> Int16 {

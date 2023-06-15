@@ -12,8 +12,6 @@ import CoreData
 extension JSON {
     ///Loads the demo data from grades.json
     static func loadDemoData(){
-        print(">>> load demo data")
-        
         let settings: AppSettings = Util.deleteSettings()
         settings.colorfulCharts = true
         
@@ -77,7 +75,7 @@ extension JSON {
             throw loadErrors.parseJSON
         }
         
-        let set = Util.getSettings()!
+        let set = Util.getSettings()
         for t in set.gradetypes!.allObjects as! [GradeType] {
             set.removeFromGradetypes(t)
         }
@@ -155,7 +153,7 @@ extension JSON {
             throw loadErrors.parseJSON
         }
         
-        let set = Util.getSettings()!
+        let set = Util.getSettings()
         set.colorfulCharts = data.colorfulCharts
         
         //add default types lol

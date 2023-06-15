@@ -6,7 +6,7 @@
 //
 
 import CoreData
-
+@testable import Calq
 
 class TestCoreDataStack: ImplementsCoreDataStack {
     static let sharedContext = TestCoreDataStack().managedObjectContext
@@ -46,16 +46,4 @@ class TestCoreDataStack: ImplementsCoreDataStack {
         })
         return container
     }()
-    
-    func saveContext() {
-        managedObjectContext.performAndWait {
-            if managedObjectContext.hasChanges {
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
 }

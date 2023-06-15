@@ -39,10 +39,6 @@
 		F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
-		F19CDE772A3259D0007CE947 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
-		F19CDE782A325D97007CE947 /* UserSubject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772332A1795C6004B8DCC /* UserSubject+CoreDataClass.swift */; };
-		F19CDE792A325D99007CE947 /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */; };
-		F19CDE7A2A3260F0007CE947 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeigthViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeigthViewmodel.swift */; };
@@ -61,7 +57,6 @@
 		F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */; };
 		F1A772442A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */; };
 		F1A772472A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */; };
-		F1A772482A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */; };
 		F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
@@ -76,18 +71,8 @@
 		F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16F29968D5100F3D1FD /* EditWeightScreen.swift */; };
 		F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F445D298C59B3000A3993 /* ColorExtension.swift */; };
 		F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2732329B5F53900E841F4 /* ButtonStyle.swift */; };
+		F1B292A02A3B6CD200AF2ACD /* GradeType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */; };
 		F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B386462A1CFE6800F0C5AC /* CalqTests.swift */; };
-		F1B3864E2A1CFF0000F0C5AC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD687945261C530000BF2B48 /* Util.swift */; };
-		F1B3864F2A1CFF3600F0C5AC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F97522751167000D3CC57 /* CoreDataStack.swift */; };
-		F1B386502A1CFF4A00F0C5AC /* GradeType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */; };
-		F1B386512A1CFF4C00F0C5AC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
-		F1B386522A1CFF4F00F0C5AC /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7722F2A1795C6004B8DCC /* AppSettings+CoreDataClass.swift */; };
-		F1B386532A1CFF5100F0C5AC /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772302A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift */; };
-		F1B386542A1CFF5300F0C5AC /* UserTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772312A1795C6004B8DCC /* UserTest+CoreDataClass.swift */; };
-		F1B386552A1CFF5500F0C5AC /* UserTest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772322A1795C6004B8DCC /* UserTest+CoreDataProperties.swift */; };
-		F1B52D132A3238F40082DEBE /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
-		F1B52D142A32390D0082DEBE /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */; };
-		F1B52D152A3239110082DEBE /* ExportJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D29E782A17B8AF0001D469 /* ExportJSON.swift */; };
 		F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -404,8 +389,8 @@
 		F1B386452A1CFE6800F0C5AC /* CalqTests */ = {
 			isa = PBXGroup;
 			children = (
-				F1B386462A1CFE6800F0C5AC /* CalqTests.swift */,
 				F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */,
+				F1B386462A1CFE6800F0C5AC /* CalqTests.swift */,
 			);
 			path = CalqTests;
 			sourceTree = "<group>";
@@ -589,8 +574,8 @@
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
 				F1A772422A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,
+				F1B292A02A3B6CD200AF2ACD /* GradeType+CoreDataClass.swift in Sources */,
 				DD4F97A827515CC600D3CC57 /* Util.swift in Sources */,
-				F1A772482A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */,
 				F1D29E7E2A17BCCF0001D469 /* JSONUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,7 +621,6 @@
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
-				F19CDE7A2A3260F0007CE947 /* MockCoreDataStack.swift in Sources */,
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
@@ -655,21 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */,
-				F1B386522A1CFF4F00F0C5AC /* AppSettings+CoreDataClass.swift in Sources */,
-				F1B3864F2A1CFF3600F0C5AC /* CoreDataStack.swift in Sources */,
-				F19CDE792A325D99007CE947 /* UserSubject+CoreDataProperties.swift in Sources */,
-				F1B386542A1CFF5300F0C5AC /* UserTest+CoreDataClass.swift in Sources */,
-				F1B386532A1CFF5100F0C5AC /* AppSettings+CoreDataProperties.swift in Sources */,
-				F1B386502A1CFF4A00F0C5AC /* GradeType+CoreDataClass.swift in Sources */,
-				F1B386552A1CFF5500F0C5AC /* UserTest+CoreDataProperties.swift in Sources */,
-				F19CDE772A3259D0007CE947 /* Mapping Model 1.xcmappingmodel in Sources */,
 				F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */,
-				F1B386512A1CFF4C00F0C5AC /* GradeType+CoreDataProperties.swift in Sources */,
-				F1B52D152A3239110082DEBE /* ExportJSON.swift in Sources */,
-				F1B52D132A3238F40082DEBE /* JSONUtil.swift in Sources */,
-				F19CDE782A325D97007CE947 /* UserSubject+CoreDataClass.swift in Sources */,
-				F1B3864E2A1CFF0000F0C5AC /* Util.swift in Sources */,
-				F1B52D142A32390D0082DEBE /* LoadJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
