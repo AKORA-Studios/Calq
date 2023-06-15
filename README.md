@@ -16,10 +16,12 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 ## Table of Contents
 
+
 ## How to Install and Run the Project
+Just clone the repo and open the workspace file in xcode :3 
 
 ## How to contribute
-
+* if you encounter any issues or have improvment suggestions open a ticket
 
 ## Funktionen
 
