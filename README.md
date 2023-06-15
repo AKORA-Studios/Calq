@@ -10,8 +10,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 ([latest Release download](https://github.com/AKORA-Studios/Calq/releases/))
 
-### [Appstore Link](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
-
+[<img src="resources/img/appstore-badge.png" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 <br>
 
 
