@@ -15,7 +15,7 @@ enum alertAction{
 }
 
 class SettingsViewModel: ObservableObject {
-    @Published var settings: AppSettings = Util.getSettings()!
+    @Published var settings: AppSettings = Util.getSettings()
     @Published var subjects: [UserSubject] = Util.getAllSubjects()
     @Published var selectedSubjet: UserSubject?
     
@@ -36,10 +36,10 @@ class SettingsViewModel: ObservableObject {
     
     
     func reloadAndSave(){
-        settings.colorfulCharts = Util.getSettings()!.colorfulCharts
+        settings.colorfulCharts = Util.getSettings().colorfulCharts
         saveCoreData()
         subjects = Util.getAllSubjects()
-        settings = Util.getSettings()!
+        settings = Util.getSettings()
     }
     
     func deleteData(){

@@ -47,14 +47,14 @@ struct JSON {
         let data = loadJSON()
         
         for subject in data {
-            let sub = UserSubject(context: context)
+            let sub = UserSubject(context: Util.getContext())
             sub.name = subject.name
             sub.color = subject.color
             sub.lk = subject.lk
             sub.inactiveYears = subject.inactiveYears
             
             for test in subject.subjecttests {
-                let t = UserTest(context: context)
+                let t = UserTest(context: Util.getContext())
                 t.name = test.name
                 t.year = Int16(test.year)
                 t.grade = Int16(test.grade)

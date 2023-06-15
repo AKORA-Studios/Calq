@@ -1,7 +1,7 @@
 import CoreData
 
-class CoreDataStack {
-    static let shared = CoreDataStack()
+class CoreDataStack: ImplementsCoreDataStack {
+    static let sharedContext = CoreDataStack().workingContext
     
     var workingContext: NSManagedObjectContext {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -13,7 +13,7 @@ class CoreDataStack {
         persistentContainer.viewContext
     }
     
-    private init() {}
+    init() {}
     
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
@@ -30,18 +30,6 @@ class CoreDataStack {
         })
         return container
     }()
-    
-    func saveContext() {
-        managedObjectContext.performAndWait {
-            if managedObjectContext.hasChanges {
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
 }
 
 public extension URL {
@@ -51,5 +39,14 @@ public extension URL {
             fatalError("Shared file container could not be created")
         }
         return fileContainer.appendingPathComponent("Model.sqlite")
+    }
+}
+
+//remove warning of multiple things claiming subclass
+public extension NSManagedObject {
+    convenience init(context: NSManagedObjectContext) {
+        let name = String(describing: type(of: self))
+        let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
+        self.init(entity: entity, insertInto: context)
     }
 }

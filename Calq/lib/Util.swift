@@ -9,6 +9,10 @@ import CoreData
 import SwiftUI
 import WidgetKit
 
+public enum ModelKit {
+    public static let bundle = Bundle.main
+}
+
 
 let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
@@ -16,16 +20,27 @@ let UD_primaryType = "primaryGradeType"
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
 
-let nameInvalid =  Alert(title: Text("Name ungültig"), message: Text("Name darf keine Sonderzeichen/Zahlen etc. enthalten"))
-
-let context = CoreDataStack.shared.managedObjectContext
+//for testing CoreData
+protocol ImplementsCoreDataStack {
+    static var sharedContext: NSManagedObjectContext { get }
+}
 
 func saveCoreData(){
-    try! context.save()
+    try! Util.getContext().save()
     WidgetCenter.shared.reloadAllTimelines()
 }
 
 struct Util {
+    private static var context = CoreDataStack.sharedContext
+    
+    static func setContext(_ newContext: NSManagedObjectContext){
+        context = newContext
+    }
+    
+    static func getContext() -> NSManagedObjectContext {
+        return context
+    }
+    
     static func checkString(_ str: String) -> Bool{
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
         let range = NSRange(location: 0, length: str.utf16.count)
@@ -183,36 +198,46 @@ struct Util {
     //MARK: Get Settings
     ///Returns fresh new settings and deletes everything
     @discardableResult static func deleteSettings()-> AppSettings{
+        let request: NSFetchRequest<AppSettings> = AppSettings.fetchRequest()
+        
         do {
-            let items = try context.fetch(AppSettings.fetchRequest())
-            context.delete(items[0])
+            let items: [NSManagedObject] = try context.fetch(request)
+            items.forEach { i in
+                context.delete(i)
+            }
         }
-        catch {}
+        catch { print("Failed to delete Data") }
         saveCoreData()
-        return Util.getSettings()!
+        return Util.getSettings()
     }
     
     ///Returns the apps settings
-    static func getSettings()-> AppSettings?{
-        var items: [AppSettings]
+    static func getSettings()-> AppSettings {
         do {
-            items = try context.fetch(AppSettings.fetchRequest())
+            let requestResult: [NSManagedObject] = try Util.getContext().fetch(AppSettings.fetchRequest())
             
-            if(items.count == 0){
-                let item =  AppSettings(context: context)
-                
+            if(requestResult.isEmpty){
+                let item =  AppSettings(context: Util.getContext())
                 item.colorfulCharts = false
                 setTypes(item)
+                saveCoreData()
                 return item
+            } else {
+                let settings = requestResult[0] as! AppSettings
+                if settings.gradetypes?.count == 0 {
+                    setTypes(settings)
+                }
+                return settings
             }
             
-            if items[0].gradetypes?.count == 0 {
-                setTypes(items[0])
-            }
-            return items[0]
-        }
-        catch {}
-        return nil
+        } catch (let err) { print("Failed to load settings", err) }
+        
+        print("THIS SHOULD NOT HAPPEN HELP")
+        let item =  AppSettings(context: Util.getContext())
+        item.colorfulCharts = false
+        setTypes(item)
+        saveCoreData()
+        return item
     }
     
     /// add default grade types
@@ -236,17 +261,14 @@ struct Util {
     //MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects()-> [UserSubject]{
-        var  allSubjects: [UserSubject] = []
-        do {
-            let result = try context.fetch(AppSettings.fetchRequest())
-            if(result.count == 0) { return []}
-            if(result[0].usersubjects != nil){
-                allSubjects = result[0].usersubjects!.allObjects as! [UserSubject]
-                return sortSubjects(allSubjects)
-            }else {return [] }
-        }catch {}
+        var allSubjects: [UserSubject] = []
+        let settings = Util.getSettings()
         
-        return []
+        if(settings.usersubjects != nil){
+            allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
+            return sortSubjects(allSubjects)
+        }
+        return allSubjects
     }
     
     /// sort all subjects sorted after type and name
@@ -397,7 +419,7 @@ struct Util {
             newType.weigth = 0
         }
         let settings = Util.getSettings()
-        settings?.addToGradetypes(newType)
+        settings.addToGradetypes(newType)
         saveCoreData()
     }
     
@@ -420,17 +442,16 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
-        let types = getSettings()?.gradetypes!.allObjects as! [GradeType]
+        let types = getSettings().gradetypes!.allObjects as! [GradeType]
         if types.count >= 2 { return types}
         
         if types.count == 1 {
             addType(name: "default type", weigth: 0)
         } else if types.isEmpty {
-            setTypes(Util.getSettings()!)
+            setTypes(Util.getSettings())
         }
         saveCoreData()
-        
-        return (getSettings()!.gradetypes!.allObjects as! [GradeType]).sorted(by: {$0.weigth > $1.weigth})
+        return getSettings().gradetypes!.allObjects as! [GradeType]
     }
     
     static func highestType() -> Int16 {
@@ -461,5 +482,5 @@ struct Util {
     static func setPrimaryType(_ type: Int16) {
         UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
-
+    
 }
