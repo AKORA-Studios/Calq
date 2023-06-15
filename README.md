@@ -47,7 +47,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 </details>
 
-<details open>
+<details closed>
 <summary>Showcase Widget</summary>
 <br>
   
@@ -70,7 +70,7 @@ Just clone the repo and open the workspace file in xcode :3
 ## Feature Requests
 
 [Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen.
-Alternativ schreib einfach eine anchricht aufm Discord ;3
+Alternativ schreib einfach eine Nachricht aufm Discord ;3
 
 # License
 
