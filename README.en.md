@@ -55,20 +55,31 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 
 ## Contributors
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/AKORA-Studios/Calq/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=AKORA-Studios/Calq"/>
 </a>
 
 ## How to Install and Run the Project
 
-Just clone the repo and open the workspace file in xcode :3
-(yes there is a podfile in this repo, but there arent any used currently)
+```
+git clone https://github.com/AKORA-Studios/Calq
+```
+
+- Open the workspace file in Xcode
+- Use **CMD + R** to run the app sheme
+
+(note: yes there is a podfile in this repo, but there arent any used currently)
+
+## Requirements
+
+- iOS 14.1+
+- Xcode Xcode 12.1
 
 ## How to contribute
 
-- if you encounter any issues or have improvment suggestions open a ticket
+If you encounter any issues or have improvment suggestions open a ticket
 
-- if ya want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+Or if you want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
 
 ## Feature Requests
 
