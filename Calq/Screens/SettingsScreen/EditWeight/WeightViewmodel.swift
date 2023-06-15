@@ -1,5 +1,5 @@
 //
-//  WeigthViewmodel.swift
+//  WeightViewmodel.swift
 //  Calq
 //
 //  Created by Kiara on 20.05.23.
@@ -13,13 +13,15 @@ enum alertType{
     case wrongPercentage
 }
 
-class WeigthViewmodel: ObservableObject {
+class WeightViewmodel: ObservableObject {
     @Published var typeArr: [GradeType: Int16] = [:]
     @Published var summedUp: Int = 0
     
     @Published var selectedDelete: Int16 = 0
     @Published var isAlertPresented = false
     @Published var alertActiontype: alertType = .wrongPercentage
+    
+    @Published var showHintText = false
     
     init() {
         load()
@@ -74,5 +76,9 @@ class WeigthViewmodel: ObservableObject {
         }, set: {
             self.typeArrNames[key] = $0
         })
+    }
+    
+    func toggleHintText(){
+        showHintText.toggle()
     }
 }

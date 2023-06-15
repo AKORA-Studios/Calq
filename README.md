@@ -8,12 +8,6 @@
 Abiturnoten Rchner für iOs 14 oder höher.
 ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
 
-([latest Release download](https://github.com/AKORA-Studios/Calq/releases/))
-
-### [Appstore Link](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
-
-<br>
-
 ## Funktionen
 
 - Abiturschnitt berechnen
@@ -23,6 +17,10 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 - Berechnung Auswirkung neuer Note
 - Deaktivieren von Halbjahren
 - mehrere Notentypen mit variabler Gewichtung
+- Sprachen: 🇩🇪 🇺🇸
+
+[<img src="resources/appstoreImage.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+<br>
 
 ## Showcase
 
@@ -46,7 +44,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 </details>
 
-<details open>
+<details closed>
 <summary>Showcase Widget</summary>
 <br>
   
@@ -55,9 +53,38 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 </details
 <br>
 
+## Contributors
+
+<a href = "https://github.com/AKORA-Studios/Calq/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=AKORA-Studios/Calq"/>
+</a>
+
+## How to Install and Run the Project
+
+```
+git clone https://github.com/AKORA-Studios/Calq
+```
+
+- Open the workspace file in Xcode
+- Use **CMD + R** to run the app sheme
+
+(note: yes there is a podfile in this repo, but there arent any used currently)
+
+## Requirements
+
+- iOS 14.1+
+- Xcode Xcode 12.1
+
+## How to contribute
+
+If you encounter any issues or have improvment suggestions open a ticket
+
+Or if you want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+
 ## Feature Requests
 
 [Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen.
+Alternativ schreib einfach eine Nachricht aufm Discord ;3
 
 # License
 

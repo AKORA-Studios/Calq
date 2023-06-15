@@ -87,21 +87,21 @@ struct Util {
     
     /// Returns the average of an array of tests.
     static func testAverage(_ tests: [UserTest]) -> Double {
-        var gradeWeigths = 0.0
+        var gradeWeights = 0.0
         var avgArr: [Double] = []
         
         for type in getTypes() {
             let filteredTests = tests.filter {$0.type == type.id}
             if !filteredTests.isEmpty {
-                let weigth = Double(Double(type.weigth)/100)
-                gradeWeigths += weigth
+                let weight = Double(Double(type.weigth)/100)
+                gradeWeights += weight
                 let avg = Util.average(filteredTests.map{Int($0.grade)})
-                avgArr.append(Double(avg * weigth))
+                avgArr.append(Double(avg * weight))
             }
         }
         
         if avgArr.isEmpty { return 0 }
-        let num = avgArr.reduce(0, +)/gradeWeigths
+        let num = avgArr.reduce(0, +)/gradeWeights
         
         if num.isNaN { return 0 }
         return num
