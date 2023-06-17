@@ -13,7 +13,7 @@ struct Calq: App {
         WindowGroup {
                 TabbarView()
                 .environment(\.managedObjectContext, CoreDataStack.sharedContext)
-                    .onAppear{
+                    .onAppear {
                         UserDefaults.standard.register(defaults: ["firstLaunch": true])
                     }
         }
