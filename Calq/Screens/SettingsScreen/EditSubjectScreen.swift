@@ -36,7 +36,7 @@ struct EditSubjectScreen: View {
                                 alertType = .nameInvalid
                                 subjectName = subject!.name
                                 deleteAlert = true
-                            }else {
+                            } else {
                                 subject?.name = subjectName
                                 saveCoreData()
                             }
@@ -110,6 +110,7 @@ struct EditSubjectScreen: View {
     }
     
     func dismissSheet(){
-        self.presentationMode.wrappedValue.dismiss()
+            saveCoreData()
+            self.presentationMode.wrappedValue.dismiss()
     }
 }
