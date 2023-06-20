@@ -21,6 +21,7 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 
 [<img src="resources/appstoreImage.png" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 <br>
+hm
 
 ## Showcase
 
