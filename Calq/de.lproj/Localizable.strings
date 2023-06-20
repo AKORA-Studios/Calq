@@ -57,6 +57,7 @@
 "editSubGrades"="Noten bearbeiten";
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
+"editSubGradeCount%lld"="**%lld** Noten in diesem Fach";
 
 "settingsSection1"="Allgemein";
 "settingsSection2"="Fächer";

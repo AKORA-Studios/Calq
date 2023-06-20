@@ -1,7 +1,7 @@
 import CoreData
 
 class CoreDataStack: ImplementsCoreDataStack {
-    static let sharedContext = CoreDataStack().workingContext
+    static let sharedContext = CoreDataStack().managedObjectContext
     
     var workingContext: NSManagedObjectContext {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)

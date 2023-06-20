@@ -31,12 +31,14 @@ struct EditSubjectScreen: View {
                 ZStack{
                     VStack(alignment: .leading){
                         Text("subjectName")
-                        TextField("name", text: $subjectName).onChange(of: subjectName) { _ in
+                        TextField("name", text: $subjectName)
+                            .textFieldStyle(.roundedBorder)
+                            .onChange(of: subjectName) { _ in
                             if(Util.checkString(subjectName)){
                                 alertType = .nameInvalid
                                 subjectName = subject!.name
                                 deleteAlert = true
-                            }else {
+                            } else {
                                 subject?.name = subjectName
                                 saveCoreData()
                             }
@@ -60,31 +62,37 @@ struct EditSubjectScreen: View {
                 }.background(CardView())
                 
                 ZStack{
-                    VStack(alignment: .leading){
-                        Text("editSubColor")
-                        
                         HStack{
                             Image(systemName: "paintpalette")
+                            Text("editSubColor")
                             
-                            ColorPicker("editSubEditColor", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
+                            ColorPicker("", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
                                 subject!.color = UIColor(selectedColor).toHexString()
                                 saveCoreData()
                             }
                         }
-                    }.padding()
+                    .padding()
                 }.background(CardView())
                 
-                Spacer().frame(height: 20)
                 
-                NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                    Text("editSubGrades").foregroundColor(.white)
-                }.buttonStyle(PrimaryStyle())
+                ZStack {
+                 //   CardView().frame(height:  30)
+                    HStack{
+                        Image(systemName: "info.circle")
+                        Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
+                    }
+                }.padding(.bottom, 40)
                 
-                Button("editSubDelete") {
-                    alertType = .delete
-                    deleteAlert = true
-                }.buttonStyle(DestructiveStyle())
-                
+                VStack {
+                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
+                        Text("editSubGrades").foregroundColor(.white)
+                    }.buttonStyle(PrimaryStyle())
+                    
+                    Button("editSubDelete") {
+                        alertType = .delete
+                        deleteAlert = true
+                    }.buttonStyle(DestructiveStyle())
+                }
             }.alert(isPresented: $deleteAlert) {
                 switch alertType {
                     
@@ -110,6 +118,7 @@ struct EditSubjectScreen: View {
     }
     
     func dismissSheet(){
-        self.presentationMode.wrappedValue.dismiss()
+            saveCoreData()
+            self.presentationMode.wrappedValue.dismiss()
     }
 }

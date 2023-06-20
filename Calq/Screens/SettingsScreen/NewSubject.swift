@@ -23,6 +23,7 @@ struct NewSubjectScreen: View {
                 VStack(alignment: .leading){
                     Text("subjectName")
                     TextField("name", text: $subjectName)
+                        .textFieldStyle(.roundedBorder)
                 }.padding()
             }.background(CardView())
             
@@ -38,13 +39,10 @@ struct NewSubjectScreen: View {
             }.background(CardView())
             
             ZStack{
-                VStack(alignment: .leading){
-                    Text("editSubColor")
-                    
-                    HStack{
+                    HStack {
+                        Text("editSubColor")
                         Image(systemName: "paintpalette")
-                        ColorPicker("editSubEditColor", selection: $selectedColor, supportsOpacity: false)
-                    }
+                        ColorPicker("", selection: $selectedColor, supportsOpacity: false)
                 }.padding()
             }.background(CardView())
             
