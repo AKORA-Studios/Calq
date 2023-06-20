@@ -62,9 +62,9 @@ struct SubjectDetailScreen: View {
                         }.padding()
                             .onTapGesture {
                                 if(halfyearActive){ //deactivate
-                                    _ = Util.addYear(subject!, selectedYear)
+                                    Util.addYear(subject!, selectedYear)
                                 } else { //activate
-                                    _ = Util.removeYear(subject!, selectedYear)
+                                    Util.removeYear(subject!, selectedYear)
                                 }
                                 saveCoreData()
                                 halfyearActive.toggle()

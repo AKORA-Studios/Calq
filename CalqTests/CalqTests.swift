@@ -17,6 +17,13 @@ final class CalqTests: XCTestCase {
      }*/
     
     
+    override class func setUp() {
+        // This is the setUp() class method.
+        // XCTest calls it before calling the first test method.
+        // Set up any overall initial state here.
+        Util.setContext(TestCoreDataStack.sharedContext)
+    }
+    
     func testAverage()  {
         let average = Util.average([1,2,3])
         XCTAssertEqual(average, 2.0)
@@ -41,8 +48,6 @@ final class CalqTests: XCTestCase {
     
     // MARK: CoreData
     func testDeleteData() {
-        Util.setContext(TestCoreDataStack.sharedContext)
-        JSON.loadDemoData() // should be 0
         Util.deleteSettings()
         
         let count = Util.getAllSubjects().count
@@ -53,19 +58,50 @@ final class CalqTests: XCTestCase {
     
     //MARK: JSON Funcs
     func testLoadDemoData() {
-        Util.setContext(TestCoreDataStack.sharedContext)
-        
-        JSON.loadDemoData() // should be 12
-        
+        JSON.loadDemoData()
         let count = Util.getAllSubjects().count
         
         XCTAssertFalse(count == 0)
         XCTAssertEqual(count, 12)
     }
     
+    func testExport(){
+        //TODO
+    }
+    
+    func testImportV1(){
+        //TODO
+    }
+    
+    func testImportV2(){
+        //TODO
+    }
+    
     func testAverageString(){
         let average = Util.averageString(MockDataProvider.getSubjectWithTests())
-        
         XCTAssertEqual(average, "-- 11 -- -- ")
+    }
+    
+    // MARK: Inactive Year funcs
+    func getExampleSub() -> UserSubject { //load demoData before!
+        return Util.getAllSubjects().first(where: {$0.name == "Kunst"})!
+    }
+    
+    func testDeactivateHalfyear(){ // TODO
+        JSON.loadDemoData()
+        
+        let before =  Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(before.count, 0)
+        
+        let e = Util.removeYear(getExampleSub(), 3)
+        /*     let after = Util.getinactiveYears(e)
+         print(e.inactiveYears)
+         XCTAssertEqual(before.count, 1)*/
+    }
+    
+    func testLastActiveYear(){
+        JSON.loadDemoData()
+        let lastYear =  Util.lastActiveYear(getExampleSub())
+        XCTAssertEqual(lastYear, 4)
     }
 }

@@ -320,7 +320,7 @@ struct Util {
     }
     
     /// Remove  inactive halfyear
-    static func removeYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
+    @discardableResult static func removeYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
         let arr = getinactiveYears(sub)
         
         sub.inactiveYears = arrToString(arr.filter{$0 != String(num)})
@@ -329,7 +329,7 @@ struct Util {
     }
     
     /// Add inactive halfyear
-    static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
+    @discardableResult static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
         var arr = getinactiveYears(sub)
         
         arr.append(String(num))
