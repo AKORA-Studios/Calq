@@ -102,7 +102,7 @@ struct EditSubjectScreen: View {
                         Util.deleteSubject(subject!)
                         subject = nil
                     }))
-                case .nameInvalid: //TODO: chekc if right???
+                case .nameInvalid:
                     return Alert(title: Text("editSubjectNameInvalid"), message: Text("editSubjecNameInvalidChars"))
                 }
             }
