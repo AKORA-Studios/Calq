@@ -26,7 +26,7 @@ struct EditSubjectScreen: View {
     
     var body: some View{
         if(subject != nil) {
-            let color = Color(hexString: subject!.color)
+            let color = getSubjectColor(subject!)
             VStack{
                 ZStack{
                     VStack(alignment: .leading){
@@ -112,7 +112,7 @@ struct EditSubjectScreen: View {
             .onAppear{
                 subjectName = subject!.name
                 lkSubject = subject!.lk ? 1 : 0
-                selectedColor = color
+                selectedColor = Color(hexString: subject!.color)
             }
         }
     }
