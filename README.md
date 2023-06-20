@@ -19,9 +19,8 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 - mehrere Notentypen mit variabler Gewichtung
 - Sprachen: 🇩🇪 🇺🇸
 
-[<img src="images/appstoreImage.png" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[<img src="images/appstoreImage.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 <br>
-hm
 
 ## Showcase
 
