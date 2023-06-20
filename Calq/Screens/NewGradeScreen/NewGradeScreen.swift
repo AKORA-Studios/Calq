@@ -61,6 +61,7 @@ struct NewGradeView: View {
                         VStack(alignment: .leading){
                             Text("gradeName")
                             TextField("gradeName", text: $gradeName)
+                                .textFieldStyle(.roundedBorder)
                         }.padding()
                     }.background(CardView())
                     
