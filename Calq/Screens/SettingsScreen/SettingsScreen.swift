@@ -141,8 +141,7 @@ struct SettingsIcon: View {
     var completation:  () -> Void
     
     var body: some View {
-        GeometryReader { geo in
-            HStack{
+            HStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8.0)
                         .fill(color)
@@ -152,10 +151,9 @@ struct SettingsIcon: View {
                 }
                 Text(LocalizedStringKey(text))
             }
-            .frame(width: geo.size.width, height: 30, alignment: .leading)
+            .frame( height: 30, alignment: .leading)
             .onTapGesture {
                 completation()
-            }
         }
     }
 }
