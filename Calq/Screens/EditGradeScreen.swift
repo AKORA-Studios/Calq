@@ -26,6 +26,7 @@ struct EditGradeScreen: View {
                 VStack(alignment: .leading){
                     Text("gradeName")
                     TextField("gradeName", text: $testName)
+                        .textFieldStyle(.roundedBorder)
                 }.padding()
             }.background(CardView())
             
