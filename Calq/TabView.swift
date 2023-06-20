@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabbarView: View {
     @State var firstLaunch: Bool = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
+    @State var lastVersion: String = (UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0")
     
     var body: some View {
         TabView {

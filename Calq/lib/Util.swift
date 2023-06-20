@@ -16,6 +16,7 @@ public enum ModelKit {
 
 let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
+let UD_lastVersion = "lastAppVersion"
 
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
