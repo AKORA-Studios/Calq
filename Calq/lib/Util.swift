@@ -485,4 +485,19 @@ struct Util {
         UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
     
+    static func checkIfNewVersion() -> Bool {
+        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
+        let partsOldV = oldVersion.split(separator: ".")
+        let partsNewV = appVersion.split(separator: ".")
+        print(partsOldV, partsNewV)
+        if(partsOldV.isEmpty) { return true }
+        
+        if(partsOldV[0] < partsNewV[0]){
+            return true;
+        } else if(partsOldV[0] == partsNewV[0] && partsOldV[1] < partsNewV[1]){
+            return true;
+        }
+        return false;
+    }
+    
 }

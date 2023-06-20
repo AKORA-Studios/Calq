@@ -8,10 +8,29 @@
 import SwiftUI
 
 struct TabbarView: View {
-    @State var firstLaunch: Bool = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
-    @State var lastVersion: String = (UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0")
+    @ObservedObject var vm = TabVM()
     
     var body: some View {
+        ZStack {
+            EmptyView()
+                
+            if(vm.showOverlay){
+                if(vm.firstLaunch){
+                    FirstLaunchScreen(firstLaunch: $vm.firstLaunch)
+                        .environmentObject(vm)
+                } else {
+                    WhatsNewScreen(shouldDisplay: $vm.lastVersion)
+                        .environmentObject(vm)
+                }
+            } else {
+                tabview()
+            }
+        }.onAppear(perform: vm.checkForSheets)
+        
+    }
+    
+    @ViewBuilder
+    func tabview() -> some View{
         TabView {
             OverviewScreen(vm: OverViewViewModel())
                 .tabItem{Image(systemName: "chart.bar.fill")}
@@ -27,8 +46,23 @@ struct TabbarView: View {
             
             SettingsScreen(vm: SettingsViewModel())
                 .tabItem{Image(systemName: "gearshape.fill")}
-        }.sheet(isPresented: $firstLaunch) {
-            FirstLaunchScreen(firstLaunch: $firstLaunch)
+        }
+    }
+    
+}
+
+class TabVM: ObservableObject { //TODO test
+    @Published var showOverlay = false;
+    @Published var firstLaunch = false
+    @Published var lastVersion = false
+    
+    func checkForSheets(){
+        firstLaunch = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
+        lastVersion = Util.checkIfNewVersion()
+        showOverlay = firstLaunch || lastVersion
+        
+        if lastVersion {
+            UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
         }
     }
 }
