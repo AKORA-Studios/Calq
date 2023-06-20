@@ -79,7 +79,7 @@ struct ExamView: View {
                             }
                         }
                     }
-                }label: {//TODO: button qwq
+                }label: {
                     RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
                 }
                 
