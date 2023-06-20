@@ -57,6 +57,7 @@
 "editSubGrades"="Edit Grades";
 "editSubColor"="Subject Color";
 "editSubEditColor"="Change Color";
+"editSubGradeCount%lld"="**%lld** grades in this subject";
 
 "settingsSection1"="General";
 "settingsSection2"="Subjects";

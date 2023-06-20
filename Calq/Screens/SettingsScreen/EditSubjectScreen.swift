@@ -73,7 +73,15 @@ struct EditSubjectScreen: View {
                         }
                     .padding()
                 }.background(CardView())
-                    .padding(.bottom, 40)
+                
+                
+                ZStack {
+                 //   CardView().frame(height:  30)
+                    HStack{
+                        Image(systemName: "info.circle")
+                        Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
+                    }
+                }.padding(.bottom, 40)
                 
                 VStack {
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
