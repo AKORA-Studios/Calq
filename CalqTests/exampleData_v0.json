@@ -1,0 +1,61 @@
+{"colorfulCharts:" true,
+    "usersubjects": [
+        {
+            "name": "Mathe",
+            "lk": true,
+            "color": "#7988c6",
+            "inactiveYears": "",
+            "subjecttests": [
+                {
+                    "name": "Test Grenzwerte",
+                    "grade": 6,
+                    "year": 1,
+                    "big": false,
+                    "date": "1602148440"
+                },
+                {
+                    "name": "Test Online Kurvendiskussion #2",
+                    "grade": 9,
+                    "year": 1,
+                    "big": false,
+                    "date": "1611137640"
+                },
+                {
+                    "name": "Klausur Vektorrechnung",
+                    "grade": 10,
+                    "year": 2,
+                    "big": true,
+                    "date": "1619774040"
+                },
+                {
+                    "name": "Test Lagebeziehung Vektoren",
+                    "grade": 10,
+                    "year": 2,
+                    "big": false,
+                    "date": "1623402840"
+                },
+                {
+                    "name": "Test Integrale #1",
+                    "grade": 12,
+                    "year": 3,
+                    "big": false,
+                    "date": "1633338840"
+                },
+                {
+                    "name": "Test Teil A",
+                    "grade": 5,
+                    "year": 4,
+                    "big": false,
+                    "date": "1647943001"
+                },
+                {
+                    "name": "Test Teil B",
+                    "grade": 11,
+                    "year": 4,
+                    "big": false,
+                    "date": "1648554893"
+                }
+            ]
+        }
+    ]
+}

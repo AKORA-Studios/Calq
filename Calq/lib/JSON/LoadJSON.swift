@@ -51,12 +51,12 @@ extension JSON {
         } catch {
             throw loadErrors.failedToloadData
         }
-        
+    
         var version = 0
         if (jsonDict["formatVersion"] != nil) {
             version = jsonDict["formatVersion"] as? Int ?? 0
         }
-        
+       
         if version >= 1 {
             try consctructV1(json,jsonDict)
         } else {
@@ -103,7 +103,8 @@ extension JSON {
         
         //check if two types there, if not  add default ones
         saveCoreData()
-        _ = Util.getTypes()
+        let setTypes = Util.getTypes()
+        typeIds = setTypes.map {Int($0.id)}
         
         for subject in data.usersubjects {
             let sub = UserSubject(context: Util.getContext())
