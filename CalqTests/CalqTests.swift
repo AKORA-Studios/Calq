@@ -69,7 +69,7 @@ final class CalqTests: XCTestCase {
     func testExport(){
         let data = "idk"
         let url =  JSON.writeJSON(data)
-
+        
         do {
             let fileContent = try String(contentsOf: url, encoding: .utf8)
             XCTAssertEqual(data, fileContent)
@@ -108,16 +108,29 @@ final class CalqTests: XCTestCase {
     }
     
     // MARK: Inactive Year funcs
-    func testDeactivateHalfyear(){ // TODO
+    func testDeactivateHalfyear(){
         JSON.loadDemoData()
         
-        let before =  Util.getinactiveYears(getExampleSub())
+        let before = Util.getinactiveYears(getExampleSub())
         XCTAssertEqual(before.count, 0)
         
-        let e = Util.removeYear(getExampleSub(), 3)
-        /*     let after = Util.getinactiveYears(e)
-         print(e.inactiveYears)
-         XCTAssertEqual(before.count, 1)*/
+        let e = Util.addYear(getExampleSub(), 3)
+        let after = Util.getinactiveYears(e)
+        
+        XCTAssertEqual(after.count, 1)
+    }
+    
+    func testAddInactiveHalfyearTwice(){
+        JSON.loadDemoData()
+        
+        Util.addYear(getExampleSub(), 3)
+        let FirstResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(FirstResult.count, 1)
+        
+        Util.addYear(getExampleSub(), 3)
+        
+        let SecondResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(SecondResult.count, 1)
     }
     
     func testLastActiveYear(){
