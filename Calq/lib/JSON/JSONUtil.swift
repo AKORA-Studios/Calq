@@ -39,6 +39,7 @@ struct JSON {
     
     enum loadErrors: Error {
         case failedToloadData
+        case failedToLoadDictionary
         case parseJSON
     }
     
@@ -118,13 +119,6 @@ struct AppStructV1: Codable {
 struct AppStruct: Codable {
     var colorfulCharts: Bool
     var usersubjects: [SubjectStruct]
-    var gradeTypes: [JSONTypes]
-   
-    struct JSONTypes: Codable {
-        var name: String
-        var weigth: Int
-        var id: Int
-    }
     
     struct SubjectStruct: Codable {
         var name: String

@@ -69,12 +69,29 @@ final class CalqTests: XCTestCase {
         //TODO
     }
     
-    func testImportV1(){
-        //TODO
+    func testImportV0(){
+        Util.deleteSettings()
+      
+        let testBundle = Bundle(for: type(of: self))
+        guard let ressourceURL = testBundle.url(forResource: "exampleData_v0", withExtension: "json") else {
+            return  assertionFailure("ExampleFile does not exist")
+        }
+        
+        do { try JSON.importJSONfromDevice(ressourceURL) } catch { return assertionFailure("Failed to load resource") }
+        XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
-    func testImportV2(){
-        //TODO
+    func testImportV1(){
+        Util.deleteSettings()
+      
+        let testBundle = Bundle(for: type(of: self))
+        guard let ressourceURL = testBundle.url(forResource: "exampleData_v1", withExtension: "json") else {
+            return  assertionFailure("ExampleFile does not exist")
+            
+        }
+        
+        do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
+        XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
     func testAverageString(){

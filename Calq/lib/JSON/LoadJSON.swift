@@ -44,15 +44,21 @@ extension JSON {
     static func importJSONfromDevice(_ URL: URL) throws {
         var json: Data
         var jsonDict: [String:Any] = [:]
+        var version = 0
         
         do {
             json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
-            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String : Any]
         } catch {
             throw loadErrors.failedToloadData
         }
+        
+        do {
+            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String : Any]
+        } catch {
+            try consctructV0(json,jsonDict)
+          //  throw loadErrors.failedToLoadDictionary
+        }
     
-        var version = 0
         if (jsonDict["formatVersion"] != nil) {
             version = jsonDict["formatVersion"] as? Int ?? 0
         }
@@ -147,6 +153,7 @@ extension JSON {
     static func consctructV0(_ json: Data, _ jsonDict: [String:Any]) throws{
         let decoder = JSONDecoder()
         var data: AppStruct
+        
         do {
             let importedSettings = try decoder.decode(AppStruct.self, from: json)
             data = importedSettings
