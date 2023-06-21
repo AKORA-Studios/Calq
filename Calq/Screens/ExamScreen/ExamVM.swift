@@ -11,10 +11,27 @@ class ExamViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = []
     @Published var options: [UserSubject] = []
     
+    @Published var points1 = generateBlockOne()
+    @Published var points2 = generateBlockTwo()
+    @Published var maxpoints = generatePossibleBlockOne()
+    
     func updateViews(){
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
         options = subjects.filter{$0.examtype == 0}
+        
+        updateBlocks()
+    }
+    
+    func updateBlocks() {
+        points1 = generateBlockOne()
+        points2 = generateBlockTwo()
+        maxpoints = generatePossibleBlockOne()
+    }
+    
+    func changeExamSelection(){
+        options = subjects.filter{$0.examtype == 0}
+        updateViews()
     }
 }
 
