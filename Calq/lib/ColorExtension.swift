@@ -48,7 +48,6 @@ extension UIColor {
     }
 }
 
-
 //MARK: pastell/subject Colors
 let pastelColors = ["#ed8080",
                     "#edaf80",

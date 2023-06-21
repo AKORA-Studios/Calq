@@ -26,7 +26,7 @@ struct EditSubjectScreen: View {
     
     var body: some View{
         if(subject != nil) {
-            let color = Color(hexString: subject!.color)
+            let color = getSubjectColor(subject!)
             VStack{
                 ZStack{
                     VStack(alignment: .leading){
@@ -75,13 +75,7 @@ struct EditSubjectScreen: View {
                 }.background(CardView())
                 
                 
-                ZStack {
-                 //   CardView().frame(height:  30)
-                    HStack{
-                        Image(systemName: "info.circle")
-                        Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
-                    }
-                }.padding(.bottom, 40)
+            infoTexts()
                 
                 VStack {
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
@@ -102,7 +96,7 @@ struct EditSubjectScreen: View {
                         Util.deleteSubject(subject!)
                         subject = nil
                     }))
-                case .nameInvalid: //TODO: chekc if right???
+                case .nameInvalid:
                     return Alert(title: Text("editSubjectNameInvalid"), message: Text("editSubjecNameInvalidChars"))
                 }
             }
@@ -112,9 +106,29 @@ struct EditSubjectScreen: View {
             .onAppear{
                 subjectName = subject!.name
                 lkSubject = subject!.lk ? 1 : 0
-                selectedColor = color
+                selectedColor = Color(hexString: subject!.color)
             }
         }
+    }
+    
+    @ViewBuilder
+    func infoTexts() -> some View {
+        ZStack {
+         //   CardView().frame(height:  30)
+            VStack {
+                HStack{
+                    Image(systemName: "info.circle")
+                    Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
+                }
+                if Util.isExamSubject(subject!){
+                    HStack{
+                        Image(systemName: "info.circle")
+                        Text("editSubInfoIsExam")
+                    }
+                }
+            }
+         
+        }.padding(.bottom, 40)
     }
     
     func dismissSheet(){

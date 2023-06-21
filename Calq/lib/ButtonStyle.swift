@@ -44,6 +44,40 @@ struct DestructiveStyle: ButtonStyle {
     }
 }
 
+// MARK: ExamScreen Menu Button Styles
+struct MenuPickerButton: ButtonStyle {
+    let color: Color
+    let active: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            if(!active){
+                Spacer()
+                Image(systemName: "chevron.up.chevron.down").scaledToFit()
+            }
+        }
+        .frame(height: 15)
+        .frame(maxWidth: .infinity)
+        .padding(5)
+        .background(active ? color : Color.gray)
+        .cornerRadius(8)
+        .foregroundColor(.white)
+    }
+}
+
+
+struct MenuPickerDestructive: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Image(systemName: "xmark.circle")
+            Spacer()
+            configuration.label
+        }
+        .foregroundColor(Color.red)
+    }
+}
+
 
 struct CardView: View {
     var body: some View {
