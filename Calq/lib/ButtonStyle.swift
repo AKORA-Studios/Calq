@@ -77,10 +77,3 @@ struct MenuPickerDestructive: ButtonStyle {
         .foregroundColor(Color.red)
     }
 }
-
-
-struct CardView: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: 8).fill(Color.gray.opacity(0.2))
-    }
-}
