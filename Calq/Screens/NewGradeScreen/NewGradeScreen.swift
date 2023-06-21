@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct NewGradeScreen: View {
-    @State var subjects: [UserSubject] = Util.getAllSubjects()
-    @StateObject var settings: AppSettings = Util.getSettings()
-    @State var isSheetPresented = false
-    @State var selectedSubject: UserSubject?
+    @ObservedObject var vm = NewGradeVM()
     
     var body: some View {
         NavigationView {
             List{
-                if(subjects.isEmpty){
+                if vm.subjects.isEmpty {
                     Text("ToastNoSubjects")
                 }
-                ForEach(subjects) { sub in
+                ForEach(vm.subjects) { sub in
                     subjectView(sub)
                 }
             }.navigationTitle("gradeNew")
-        }.sheet(isPresented: $isSheetPresented, onDismiss: {selectedSubject = nil}) {
-            NewGradeView(subject: $selectedSubject, dismiss: $isSheetPresented)
+        }.sheet(isPresented: $vm.isNewGradeSheetPresented, onDismiss: {vm.selectedSubject = nil}) {
+            NavigationView {
+                NewGradeView()
+                    .navigationTitle("gradeNew")
+                    .environmentObject(vm)
+            }
         }
         .onAppear{
-            subjects = Util.getAllSubjects()
+            vm.updateViews()
         }
     }
     
     @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
         SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
-            selectedSubject = sub
-            isSheetPresented = true
+            vm.selectSub(sub)
         })
     }
 }
@@ -43,24 +43,16 @@ struct NewGradeScreen: View {
 
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    @Binding var subject: UserSubject?
-    @Binding var dismiss: Bool
-    @State var gradeName = ""
-    @State var gradeType = Util.getTypes()[0].id
-    @State var year = 1
-    @State var points: Float = 9
-    @State var date = Date()
-    @State var isAlertPresented = false
+    @EnvironmentObject var vm: NewGradeVM
     
     var body: some View {
-        NavigationView {
-            if(subject != nil) {
+        ScrollView(showsIndicators: false){
+            if vm.selectedSubject != nil {
                 VStack{
                     ZStack{
                         VStack(alignment: .leading){
                             Text("gradeName")
-                            TextField("gradeName", text: $gradeName)
+                            TextField("gradeName", text: $vm.gradeName)
                                 .textFieldStyle(.roundedBorder)
                         }.padding()
                     }.background(CardView())
@@ -68,7 +60,7 @@ struct NewGradeView: View {
                     ZStack{
                         VStack(alignment: .leading){
                             Text("gradeType")
-                            Picker("gradeYear", selection: $gradeType) {
+                            Picker("gradeYear", selection: $vm.gradeType) {
                                 ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { index, type in
                                     Text(type.name).tag(type.id)
                                 }
@@ -79,7 +71,7 @@ struct NewGradeView: View {
                     ZStack{
                         VStack(alignment: .leading){
                             Text("gradeHalfyear")
-                            Picker("gradeYear", selection: $year) {
+                            Picker("gradeYear", selection: $vm.year) {
                                 Text("1").tag(1)
                                 Text("2").tag(2)
                                 Text("3").tag(3)
@@ -87,7 +79,7 @@ struct NewGradeView: View {
                             }.pickerStyle(.segmented)
                             
                             HStack {
-                                DatePicker("gradeDate", selection: $date, displayedComponents: [.date])
+                                DatePicker("gradeDate", selection: $vm.date, displayedComponents: [.date])
                             }
                         }.padding()
                     }.background(CardView())
@@ -96,53 +88,29 @@ struct NewGradeView: View {
                         VStack(alignment: .leading){
                             Text("gradePoints")
                             HStack {
-                                Text(String(Int(points)))
-                                Slider(value: $points, in: 0...15, onEditingChanged: { _ in
-                                    points = points.rounded()
+                                Text(String(Int(vm.points)))
+                                Slider(value: $vm.points, in: 0...15, onEditingChanged: { _ in
+                                    vm.points = vm.points.rounded()
                                 })
                                 .accentColor(Color.accentColor)
                             }
-                            ImpactSegment(subject: $subject, gradeType: $gradeType, year: $year).frame(height: 35)
+                            ImpactSegment(subject: $vm.selectedSubject, gradeType: $vm.gradeType, year: $vm.year).frame(height: 35)
                         }.padding()
                     }.background(CardView())
                     
                     
                     Button("gradeNewAdd") {
-                        saveGrade()
+                        vm.saveGrade()
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
-                    
-                }.onAppear{
-                    //set subjects latest year
-                    year = Util.lastActiveYear(subject!)
                 }
-                .navigationTitle("gradeNew")
-                    .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-                    .padding()
-                    .alert(isPresented: $isAlertPresented){
-                        Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
-                    }
+                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+                .padding()
+                .alert(isPresented: $vm.isAlertPresented){
+                    Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
+                }
             }
         }
-    }
-    
-    func saveGrade(){
-        if(gradeName.isEmpty){
-            isAlertPresented = true
-            return
-        }
-        
-        let newTest = UserTest(context: Util.getContext())
-        newTest.name = gradeName
-        newTest.grade =  Int16(points)
-        newTest.date = date
-        newTest.type = gradeType
-        newTest.year = Int16(year)
-        
-        self.subject!.addToSubjecttests(newTest)
-        saveCoreData()
-        
-        dismiss = false
     }
     
     func dismissSheet(){

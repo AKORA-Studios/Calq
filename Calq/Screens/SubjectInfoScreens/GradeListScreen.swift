@@ -78,7 +78,7 @@ struct GradeListScreen: View {
     
     func formatDate(date: Date)-> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.string(from: date)
     }
 }

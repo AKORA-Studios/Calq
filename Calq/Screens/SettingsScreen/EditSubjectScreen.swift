@@ -34,7 +34,7 @@ struct EditSubjectScreen: View {
                         TextField("name", text: $subjectName)
                             .textFieldStyle(.roundedBorder)
                             .onChange(of: subjectName) { _ in
-                            if(Util.checkString(subjectName)){
+                            if(Util.isStringInputInvalid(subjectName)){
                                 alertType = .nameInvalid
                                 subjectName = subject!.name
                                 deleteAlert = true

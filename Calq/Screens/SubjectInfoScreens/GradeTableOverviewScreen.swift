@@ -33,17 +33,23 @@ struct GradeTableOverviewScreen: View {
 
 struct gradeTableCell: View {
     let subject: UserSubject
-    @State var averageString = ["-","-","-","-"]
+    @State var averageString = ["-","-","-","-", "#"]
     
     var body: some View {
         HStack{
-            Text(subject.name)
+            if subject.lk  {
+                Text(subject.name).foregroundColor(.accentColor )
+            } else {
+                Text(subject.name)
+            }
             Spacer()
             HStack{
                 Text(averageString[0]).frame(width: 25)
                 Text(averageString[1]).frame(width: 25)
                 Text(averageString[2]).frame(width: 25)
                 Text(averageString[3]).frame(width: 25)
+                Text(" | ").frame(width: 10).foregroundColor(.gray)
+                Text(averageString[4]).frame(width: 25).foregroundColor(.accentColor)
             }
         }.onAppear{
             averageString = getString()
@@ -56,6 +62,8 @@ struct gradeTableCell: View {
         if(subject.subjecttests == nil) {return str}
         let tests = subject.subjecttests!.allObjects as! [UserTest]
         
+        var sum = 0;
+        
         for i in 0...3 {
             let arr = tests.filter({$0.year == i+1});
             if(arr.count == 0){continue}
@@ -64,7 +72,9 @@ struct gradeTableCell: View {
             let points = Int(round(Util.testAverage(arr)))
             
             str[i] = String(points)
+            sum += points
         }
+        str[4] = String(subject.lk ? sum*2 : sum)
         return str
     }
 }

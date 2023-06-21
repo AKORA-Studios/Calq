@@ -42,7 +42,7 @@ struct Util {
         return context
     }
     
-    static func checkString(_ str: String) -> Bool{
+    static func isStringInputInvalid(_ str: String) -> Bool{
         if(str.isEmpty){ return true }
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
         let range = NSRange(location: 0, length: str.utf16.count)
@@ -445,7 +445,7 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
-        let types = getSettings().gradetypes!.allObjects as! [GradeType]
+        var types = getSettings().gradetypes!.allObjects as! [GradeType]
         if types.count >= 2 { return types}
         
         if types.count == 1 {
@@ -454,7 +454,8 @@ struct Util {
             setTypes(Util.getSettings())
         }
         saveCoreData()
-        return getSettings().gradetypes!.allObjects as! [GradeType]
+        types = getSettings().gradetypes!.allObjects as! [GradeType]
+        return types.sorted(by: { $0.weigth > $1.weigth})
     }
     
     static func highestType() -> Int16 {

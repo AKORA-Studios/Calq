@@ -61,7 +61,7 @@ class TabVM: ObservableObject { //TODO test this qwq
         lastVersion = Util.checkIfNewVersion()
         showOverlay = firstLaunch || lastVersion
         
-        if lastVersion {
+        if lastVersion && !firstLaunch {
             UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
         }
     }

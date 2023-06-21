@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct BarChart: View {
+    @Environment(\.colorScheme) var colorScheme
     @Binding var values: [BarChartEntry]
     @State var heigth: CGFloat = 300
     @State var average: Double = 0.0
-    @State var round: Bool = false
+    @State var round: Bool = true
     
     var body: some View {
         GeometryReader{ geo in
@@ -20,11 +21,18 @@ struct BarChart: View {
             ZStack {
                 //bars
                 HStack {
-                    ForEach(values, id:\.self){ val in
-                        VStack(spacing: 0){
-                            ZStack(alignment: .bottom){
-                                Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
-                                Rectangle().frame( height: (fullHeigth * val.value / 15.0)).foregroundColor(val.color).topCorner()
+                    ForEach(values, id:\.self) { val in
+                        let barHeigth = (fullHeigth * val.value / 15.0)
+                        VStack(spacing: 0) {
+                            ZStack(alignment: .bottom) {
+                                Rectangle().frame(height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
+                                
+                                Rectangle().frame(height: barHeigth).foregroundColor(val.color).topCorner()
+                                
+                                LinearGradient(colors: [.clear, (colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.3))], startPoint: .top, endPoint: .bottom)
+                                    .clipShape(Rectangle())
+                                    .frame(height: 35)
+                                
                                 Text(getDescription(val.value))
                                     .font(.footnote)
                                     .fontWeight(.light)

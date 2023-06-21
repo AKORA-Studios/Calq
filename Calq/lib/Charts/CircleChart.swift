@@ -55,6 +55,9 @@ struct CircleChart: View {
                 }
             }
             .padding()
+            .onAppear{
+                showText = false
+            }
             .onTapGesture {
                 withAnimation {
                     if(!textDescription.isEmpty){
