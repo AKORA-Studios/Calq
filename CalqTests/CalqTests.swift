@@ -10,18 +10,19 @@ import XCTest
 
 final class CalqTests: XCTestCase {
     
-    //TODO:
-    /*func testCheckString() {
-     let strChecked = Util.checkString("33 $%&&/%/%/%(!@-*1")
-     XCTAssertEqual(strChecked, false)
-     }*/
-    
-    
     override class func setUp() {
-        // This is the setUp() class method.
-        // XCTest calls it before calling the first test method.
-        // Set up any overall initial state here.
         Util.setContext(TestCoreDataStack.sharedContext)
+    }
+    
+    func getExampleSub() -> UserSubject { //load demoData before!
+        return Util.getAllSubjects().first(where: {$0.name == "Kunst"})!
+    }
+    
+    func testCheckString() {
+        let strChecked = Util.isStringInputInvalid("33 $%&&/%/%/%(!@-*1")
+        
+        XCTAssertEqual(strChecked, true)
+        XCTAssertEqual( Util.isStringInputInvalid(""), true)
     }
     
     func testAverage()  {
@@ -53,7 +54,7 @@ final class CalqTests: XCTestCase {
         let count = Util.getAllSubjects().count
         XCTAssertEqual(count, 0)
         let types = Util.getTypes().count
-        //  XCTAssertEqual(count, 2)
+        XCTAssertEqual(types, 2)
     }
     
     //MARK: JSON Funcs
@@ -68,7 +69,7 @@ final class CalqTests: XCTestCase {
     func testExport(){
         let data = "idk"
         let url =  JSON.writeJSON(data)
-        let testBundle = Bundle(for: type(of: self))
+
         do {
             let fileContent = try String(contentsOf: url, encoding: .utf8)
             XCTAssertEqual(data, fileContent)
@@ -107,10 +108,6 @@ final class CalqTests: XCTestCase {
     }
     
     // MARK: Inactive Year funcs
-    func getExampleSub() -> UserSubject { //load demoData before!
-        return Util.getAllSubjects().first(where: {$0.name == "Kunst"})!
-    }
-    
     func testDeactivateHalfyear(){ // TODO
         JSON.loadDemoData()
         
