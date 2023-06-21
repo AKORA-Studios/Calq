@@ -71,8 +71,7 @@
 "settingsDelete"= "Daten löschen";
 
 "editSubjectNameInvalid"="Name ungültig";
-"editSubjecNameInvalidEmpty"="Name darf nicht leer sein";
-"editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten";
+"editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten oder leer sein";
 
 "gradeNew"="Neue Note";
 "gradeName"="Notenname";
@@ -83,7 +82,7 @@
 "gradeHalfyear"="Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
-"gradeInvalidNameDesc"="Der Name darf nicht leer sein";
+"gradeInvalidNameDesc"="Der Name darf keine Sonderzeichen enthalten und nicht leer sein";
 
 "subjectListTitle"="Kursliste";
 "subjectListTable"="Notentabelle";

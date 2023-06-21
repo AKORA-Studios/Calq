@@ -47,13 +47,10 @@ struct NewSubjectScreen: View {
             }.background(CardView())
             
             Button("saveData") {
-                if(subjectName.isEmpty){
-                    alertMessage = "editSubjecNameInvalidEmpty"
-                    nameAlert = true
-                } else if (Util.isStringInputInvalid(subjectName)){
+                if (Util.isStringInputInvalid(subjectName)){
                     alertMessage = "editSubjecNameInvalidChars"
                     nameAlert = true
-                }else {
+                } else {
                     addSubject()
                 }
             }.buttonStyle(PrimaryStyle())

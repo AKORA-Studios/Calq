@@ -21,6 +21,7 @@ struct EditGradeScreen: View {
     @State var deleteAlert = false
     
     var body: some View{
+        ScrollView(showsIndicators: false){
         VStack{
             VStack {
                 VStack(alignment: .leading){
@@ -82,7 +83,7 @@ struct EditGradeScreen: View {
             Button("gradeDelete") {
                 deleteAlert = true
             }.buttonStyle(DestructiveStyle())
-            
+        }
         }.padding()
             .navigationTitle("gradeEdit")
             .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}

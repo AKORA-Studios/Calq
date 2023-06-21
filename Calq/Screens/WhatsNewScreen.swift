@@ -42,7 +42,7 @@ struct WhatsNewScreen: View {
     let lang = Locale.preferredLanguages[0]
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
                 Text("Version \(appVersion)")
                     .font(.title)

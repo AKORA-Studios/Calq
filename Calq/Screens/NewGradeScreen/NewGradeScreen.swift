@@ -21,8 +21,11 @@ struct NewGradeScreen: View {
                 }
             }.navigationTitle("gradeNew")
         }.sheet(isPresented: $vm.isNewGradeSheetPresented, onDismiss: {vm.selectedSubject = nil}) {
-            NewGradeView()
-                .environmentObject(vm)
+            NavigationView {
+                NewGradeView()
+                    .navigationTitle("gradeNew")
+                    .environmentObject(vm)
+            }
         }
         .onAppear{
             vm.updateViews()
@@ -41,9 +44,9 @@ struct NewGradeScreen: View {
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: NewGradeVM
-
+    
     var body: some View {
-        NavigationView {
+        ScrollView(showsIndicators: false){
             if vm.selectedSubject != nil {
                 VStack{
                     ZStack{
@@ -101,12 +104,11 @@ struct NewGradeView: View {
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                 }
-                .navigationTitle("gradeNew")
-                    .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-                    .padding()
-                    .alert(isPresented: $vm.isAlertPresented){
-                        Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
-                    }
+                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+                .padding()
+                .alert(isPresented: $vm.isAlertPresented){
+                    Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
+                }
             }
         }
     }

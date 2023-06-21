@@ -11,7 +11,7 @@ struct BarChart: View {
     @Binding var values: [BarChartEntry]
     @State var heigth: CGFloat = 300
     @State var average: Double = 0.0
-    @State var round: Bool = false
+    @State var round: Bool = true
     
     var body: some View {
         GeometryReader{ geo in

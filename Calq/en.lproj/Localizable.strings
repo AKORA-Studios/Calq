@@ -71,8 +71,7 @@
 "settingsDelete"= "Delete Data";
 
 "editSubjectNameInvalid"="Name invalid";
-"editSubjecNameInvalidEmpty"="Name cannot be empty";
-"editSubjecNameInvalidChars"="Name should not include special characters";
+"editSubjecNameInvalidChars"="Name should not include special characters or be empty";
 
 "gradeNew"="New Grade";
 "gradeName"="Gradename";
@@ -83,7 +82,7 @@
 "gradeHalfyear"="Halfyear";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
-"gradeInvalidNameDesc"="Name cannot be empty";
+"gradeInvalidNameDesc"="Name cannot include special characters or be empty";
 
 "subjectListTitle"="Subjectlist";
 "subjectListTable"="Gradetable";
