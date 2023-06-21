@@ -58,6 +58,7 @@
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
 "editSubGradeCount%lld"="**%lld** Noten in diesem Fach";
+"editSubInfoIsExam"="Dieses Fach ist eine Prüfung";
 
 "settingsSection1"="Allgemein";
 "settingsSection2"="Fächer";

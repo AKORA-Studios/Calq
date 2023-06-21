@@ -75,13 +75,7 @@ struct EditSubjectScreen: View {
                 }.background(CardView())
                 
                 
-                ZStack {
-                 //   CardView().frame(height:  30)
-                    HStack{
-                        Image(systemName: "info.circle")
-                        Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
-                    }
-                }.padding(.bottom, 40)
+            infoTexts()
                 
                 VStack {
                     NavigationLink(destination: GradeListScreen(subject: subject!)) {
@@ -115,6 +109,26 @@ struct EditSubjectScreen: View {
                 selectedColor = Color(hexString: subject!.color)
             }
         }
+    }
+    
+    @ViewBuilder
+    func infoTexts() -> some View {
+        ZStack {
+         //   CardView().frame(height:  30)
+            VStack {
+                HStack{
+                    Image(systemName: "info.circle")
+                    Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
+                }
+                if Util.isExamSubject(subject!){
+                    HStack{
+                        Image(systemName: "info.circle")
+                        Text("editSubInfoIsExam")
+                    }
+                }
+            }
+         
+        }.padding(.bottom, 40)
     }
     
     func dismissSheet(){
