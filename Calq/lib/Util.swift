@@ -444,7 +444,7 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
-        let types = getSettings().gradetypes!.allObjects as! [GradeType]
+        var types = getSettings().gradetypes!.allObjects as! [GradeType]
         if types.count >= 2 { return types}
         
         if types.count == 1 {
@@ -453,7 +453,8 @@ struct Util {
             setTypes(Util.getSettings())
         }
         saveCoreData()
-        return getSettings().gradetypes!.allObjects as! [GradeType]
+        types = getSettings().gradetypes!.allObjects as! [GradeType]
+        return types.sorted(by: { $0.weigth > $1.weigth})
     }
     
     static func highestType() -> Int16 {
