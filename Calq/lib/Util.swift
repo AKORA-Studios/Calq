@@ -484,4 +484,8 @@ struct Util {
         UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
     
+    static func isExamSubject(_ sub: UserSubject) -> Bool {
+        return sub.examtype != 0;
+    }
+    
 }
