@@ -66,15 +66,23 @@ final class CalqTests: XCTestCase {
     }
     
     func testExport(){
-        //TODO
+        let data = "idk"
+        let url =  JSON.writeJSON(data)
+        let testBundle = Bundle(for: type(of: self))
+        do {
+            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            XCTAssertEqual(data, fileContent)
+        } catch {
+            return  assertionFailure("Exported File is empty")
+        }
     }
     
     func testImportV0(){
         Util.deleteSettings()
-      
+        
         let testBundle = Bundle(for: type(of: self))
         guard let ressourceURL = testBundle.url(forResource: "exampleData_v0", withExtension: "json") else {
-            return  assertionFailure("ExampleFile does not exist")
+            return assertionFailure("ExampleFile does not exist")
         }
         
         do { try JSON.importJSONfromDevice(ressourceURL) } catch { return assertionFailure("Failed to load resource") }
@@ -83,11 +91,10 @@ final class CalqTests: XCTestCase {
     
     func testImportV1(){
         Util.deleteSettings()
-      
+        
         let testBundle = Bundle(for: type(of: self))
         guard let ressourceURL = testBundle.url(forResource: "exampleData_v1", withExtension: "json") else {
-            return  assertionFailure("ExampleFile does not exist")
-            
+            return assertionFailure("ExampleFile does not exist")
         }
         
         do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
