@@ -44,6 +44,27 @@ struct DestructiveStyle: ButtonStyle {
     }
 }
 
+struct MenuPickerButton: ButtonStyle {
+    let color: Color
+    let active: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            if(!active){
+                Spacer()
+                Image(systemName: "chevron.up.chevron.down").scaledToFit()
+            }
+        }
+        .frame(height: 15)
+        .frame(maxWidth: .infinity)
+        .padding(5)
+        .background(active ? color : Color.gray)
+        .cornerRadius(8)
+        .foregroundColor(.white)
+    }
+}
+
 
 struct CardView: View {
     var body: some View {

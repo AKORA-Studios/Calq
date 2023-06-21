@@ -79,14 +79,15 @@ struct ExamView: View {
                             }
                         }
                     }
-                }label: {
-                    RoundedRectangle(cornerRadius: 8).fill(subColor()).frame(height: 30)
-                }
-                
-                if subject != nil {
-                    Text(subject!.name)
-                } else {
-                    Text("ExamViewSubSelect")
+                } label: {
+                    Button {
+                    } label: {
+                        if subject != nil {
+                            Text(subject!.name)
+                        } else {
+                            Text("ExamViewSubSelect")
+                        }
+                    }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
                 }
             }
             HStack {
@@ -97,7 +98,6 @@ struct ExamView: View {
                     updateblock2.toggle()
                     saveCoreData()
                 })
-                .accentColor(subColor())
                 .disabled(subject == nil)
             }
         }
@@ -107,10 +107,5 @@ struct ExamView: View {
             subject = getExam(type)
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }
-    }
-    
-    func subColor()-> Color{
-        if(subject == nil){return Color.gray}
-        return getSubjectColor(subject)
     }
 }
