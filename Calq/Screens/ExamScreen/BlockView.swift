@@ -40,18 +40,29 @@ struct BlockView: View {
     }
 }
 
+
 struct RoundProgressBar: View {
     @Binding var value: Int
     @Binding var max: Int
     
     var body: some View {
         GeometryReader { geo in
+            let barProgressWidth =  (CGFloat(max != 0 ? (value * 100 / max) : 0) * geo.size.width)/100
             ZStack(alignment: .leading){
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.gray)
                 
+                HStack(spacing: 0) {
+                    if barProgressWidth + 10 < geo.size.width {
+                        Spacer().frame(width: barProgressWidth - 5)
+                        LinearGradient(colors: [.black.opacity(0.3), .clear], startPoint: .leading, endPoint: .trailing)
+                            .clipShape(RoundedRectangle(cornerRadius: 8) )
+                            .frame(width: 15, height: 8)
+                    }
+                }
+                
                 RoundedRectangle(cornerRadius: 8)
-                    .frame(width: (CGFloat(max != 0 ? (value * 100 / max) : 0) * geo.size.width)/100, height: 8)
+                    .frame(width: barProgressWidth, height: 8)
                     .foregroundColor(.accentColor)
             }.frame( height: 8)
         }
