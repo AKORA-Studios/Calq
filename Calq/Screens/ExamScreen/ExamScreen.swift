@@ -14,7 +14,8 @@ struct ExamScreen: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                BlockView(updateblock2: $updateBlock2)
+                BlockView()
+                    .environmentObject(vm)
                     .padding(.bottom, 20)
                 
                 Text("ExamViewSubjects")
@@ -24,7 +25,8 @@ struct ExamScreen: View {
                 
                 VStack{
                     ForEach(1...5, id: \.self){ i in
-                        ExamView(subjects: $vm.subjects, subject: getExam(i), type: i, options: $vm.options, updateblock2: $updateBlock2)
+                        ExamView(subject: getExam(i), type: i)
+                            .environmentObject(vm)
                     }
                 }.background(CardView())
                 
@@ -42,38 +44,43 @@ struct ExamScreen: View {
 
 
 struct ExamView: View {
-    @Binding var subjects: [UserSubject]
+    @EnvironmentObject var vm: ExamViewModel
     @State var subject: UserSubject?
     
     @State var sliderText: String = "0"
     @State var sliderValue: Float = 0
     var type: Int
-    @Binding var options: [UserSubject]
-    @Binding var updateblock2: Bool
+    
+    init( subject: UserSubject? = nil, type: Int) {
+        self.subject = subject
+        self.type = type
+        
+        let thumbImage = UIImage(systemName: "circle.fill")
+        UISlider.appearance().setThumbImage(thumbImage, for: .normal)
+       // UISlider.appearance().thumbTintColor = .cyan//subject != nil ? UIColor(getSubjectColor(subject)) : UIColor.gray
+    }
     
     var body: some View {
         VStack{
             ZStack{
                 Menu {
-                    if(!options.isEmpty){
+                    if(!vm.options.isEmpty){
                         Section {
-                            ForEach(options){sub in
+                            ForEach(vm.options){sub in
                                 Button(sub.name) {
                                     subject = sub
                                     saveExam(type, sub)
-                                    options = subjects.filter{$0.examtype == 0}
+                                    vm.changeExamSelection()
                                     sliderValue = 0
-                                    updateblock2.toggle()
                                 }
                             }
                         }
                         Section {
                             Button {
                                 removeExam(type, subject!)
-                                options = subjects.filter{$0.examtype == 0}
+                                vm.changeExamSelection()
                                 subject = nil
                                 sliderValue = 0
-                                updateblock2.toggle()
                             } label: {
                                 Text("ExamViewSubRemove")
                             }.buttonStyle(MenuPickerDestructive())
@@ -95,7 +102,7 @@ struct ExamView: View {
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
                     sliderValue = sliderValue.rounded()
                     subject?.exampoints = Int16(sliderValue)
-                    updateblock2.toggle()
+                    vm.updateBlocks()
                     saveCoreData()
                 })
                 .disabled(subject == nil)
