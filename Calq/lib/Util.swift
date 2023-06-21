@@ -489,7 +489,7 @@ struct Util {
         let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
         let partsOldV = oldVersion.split(separator: ".")
         let partsNewV = appVersion.split(separator: ".")
-        print(partsOldV, partsNewV)
+        
         if(partsOldV.isEmpty) { return true }
         
         if(partsOldV[0] < partsNewV[0]){
@@ -498,7 +498,8 @@ struct Util {
             return true;
         }
         return false;
-
+    }
+    
     static func isExamSubject(_ sub: UserSubject) -> Bool {
         return sub.examtype != 0;
     }
