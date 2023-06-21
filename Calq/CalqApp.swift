@@ -14,7 +14,8 @@ struct Calq: App {
                 TabbarView()
                 .environment(\.managedObjectContext, CoreDataStack.sharedContext)
                     .onAppear {
-                        UserDefaults.standard.register(defaults: ["firstLaunch": true])
+                        UserDefaults.standard.register(defaults: [UD_firstLaunchKey: true])
+                        UserDefaults.standard.register(defaults: [UD_lastVersion: "0.0.0"])
                     }
         }
     }

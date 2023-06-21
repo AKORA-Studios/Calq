@@ -16,6 +16,7 @@ public enum ModelKit {
 
 let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
+let UD_lastVersion = "lastAppVersion"
 
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
@@ -484,6 +485,20 @@ struct Util {
         UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
     
+    static func checkIfNewVersion() -> Bool {
+        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
+        let partsOldV = oldVersion.split(separator: ".")
+        let partsNewV = appVersion.split(separator: ".")
+        print(partsOldV, partsNewV)
+        if(partsOldV.isEmpty) { return true }
+        
+        if(partsOldV[0] < partsNewV[0]){
+            return true;
+        } else if(partsOldV[0] == partsNewV[0] && partsOldV[1] < partsNewV[1]){
+            return true;
+        }
+        return false;
+
     static func isExamSubject(_ sub: UserSubject) -> Bool {
         return sub.examtype != 0;
     }

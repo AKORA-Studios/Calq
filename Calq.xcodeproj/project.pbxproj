@@ -24,6 +24,7 @@
 		F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */; };
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
+		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443C298C4DA7000A3993 /* CalqApp.swift */; };
@@ -144,6 +145,7 @@
 		F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailScreen.swift; sourceTree = "<group>"; };
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
+		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F17F443C298C4DA7000A3993 /* CalqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqApp.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				F1138E5329959664008E7FD8 /* SubjectInfoScreens */,
 				F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */,
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
+				F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */,
 				F1BE91C32A41DF3200E85494 /* SubjectList */,
 			);
 			path = Screens;
@@ -595,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */,
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
