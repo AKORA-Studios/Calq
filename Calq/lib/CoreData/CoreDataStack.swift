@@ -15,7 +15,7 @@ class CoreDataStack: ImplementsCoreDataStack {
     
     init() {}
     
-    private var persistentContainer: NSPersistentContainer = {
+    lazy private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         let storeURL = URL.storeURL()
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
