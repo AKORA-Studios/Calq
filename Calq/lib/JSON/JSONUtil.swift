@@ -10,14 +10,14 @@ import WidgetKit
 
 struct JSON {
     // MARK: Load Json data
-    static func loadJSON() ->[SubjectStruct]{
-        var values: [SubjectStruct] = [ ]
+    static func loadJSON() ->[AppStruct.SubjectStruct]{
+        var values: [AppStruct.SubjectStruct] = [ ]
         do {
             if let file = Bundle.main.path(forResource: "grades", ofType: "json"){
                 let json = try! String(contentsOfFile: file, encoding: String.Encoding.utf8).data(using: .utf8)!
                 
                 let decoder = JSONDecoder()
-                let products = try! decoder.decode([SubjectStruct].self, from: json)
+                let products = try! decoder.decode([AppStruct.SubjectStruct].self, from: json)
                 values = products
             }
         }
@@ -134,21 +134,5 @@ struct AppStruct: Codable {
             var date: String
             var big: Bool
         }
-    }
-}
-// Struct for loading from json
-struct SubjectStruct: Codable {
-    var name: String
-    var lk: Bool
-    var color: String
-    var inactiveYears: String
-    var subjecttests: [JSONTest]
-    
-    struct JSONTest: Codable{
-        var name: String
-        var year: Int
-        var grade: Int
-        var date: String
-        var big: Bool
     }
 }
