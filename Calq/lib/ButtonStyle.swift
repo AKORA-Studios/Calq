@@ -44,6 +44,7 @@ struct DestructiveStyle: ButtonStyle {
     }
 }
 
+// MARK: ExamScreen Menu Button Styles
 struct MenuPickerButton: ButtonStyle {
     let color: Color
     let active: Bool
@@ -62,6 +63,18 @@ struct MenuPickerButton: ButtonStyle {
         .background(active ? color : Color.gray)
         .cornerRadius(8)
         .foregroundColor(.white)
+    }
+}
+
+
+struct MenuPickerDestructive: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Image(systemName: "xmark.circle")
+            Spacer()
+            configuration.label
+        }
+        .foregroundColor(Color.red)
     }
 }
 

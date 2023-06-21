@@ -76,7 +76,7 @@ struct ExamView: View {
                                 updateblock2.toggle()
                             } label: {
                                 Text("ExamViewSubRemove")
-                            }
+                            }.buttonStyle(MenuPickerDestructive())
                         }
                     }
                 } label: {
