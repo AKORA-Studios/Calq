@@ -18,7 +18,7 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 - multiple gradetypes with variable weight
 - Languages: 🇩🇪 🇺🇸
 
-[<img src="resources/appstoreImage_en.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[<img src="images/appstoreImage_en.svg" height="50">](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 <br>
 
 ## Showcase

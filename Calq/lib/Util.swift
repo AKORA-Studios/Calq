@@ -498,6 +498,9 @@ struct Util {
             return true;
         }
         return false;
+
+    static func isExamSubject(_ sub: UserSubject) -> Bool {
+        return sub.examtype != 0;
     }
     
 }

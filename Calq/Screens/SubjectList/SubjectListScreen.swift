@@ -14,22 +14,16 @@ struct SubjectlistData: Hashable{
 }
 
 struct SubjectListScreen: View {
-    @State var subjects: [UserSubject] = []
-    @State var selectedSubejct: UserSubject?
+    @ObservedObject var vm =  SubjectListVM()
     
     @State var gradeTablePresented = false
     @State var isSubjectDetailPResented = false
-    
-    @State var inactiveCount = 0
-    @State var subjectCount = 0
-    
-    @State var data: [SubjectlistData] = []
     
     var body: some View {
         NavigationView{
             List{
                 Section{
-                    ForEach(data, id: \.self){entry in
+                    ForEach(vm.data, id: \.self){entry in
                         HStack{
                             let color = getSubjectColor(entry.subject)
                             let average = Util.testAverage(Util.filterTests(entry.subject))
@@ -53,11 +47,12 @@ struct SubjectListScreen: View {
                             }
                         }
                         .onTapGesture {
-                            selectedSubejct = entry.subject
+                            vm.selectedSubejct = entry.subject
                             isSubjectDetailPResented = true
                         }
                     }
                 }
+                
                 Section{
                     HStack{
                         ZStack{
@@ -68,7 +63,7 @@ struct SubjectListScreen: View {
                                 .frame(width: 30, height: 30)
                                 .frame(alignment: .center)
                         }
-                        Text("\(inactiveCount) subjectListYears \(subjectCount)")
+                        Text("\(vm.inactiveCount) subjectListYears \(vm.subjectCount)")
                     }
                 }
             }.navigationTitle("subjectListTitle")
@@ -79,61 +74,17 @@ struct SubjectListScreen: View {
                 }
                 .sheet(isPresented: $isSubjectDetailPResented) {
                     NavigationView{
-                        SubjectDetailScreen(subject: $selectedSubejct).onDisappear(perform: update)
+                        SubjectDetailScreen(subject: $vm.selectedSubejct).onDisappear(perform: vm.updateViews)
                     }
                 }
                 .sheet(isPresented: $gradeTablePresented) {
                     NavigationView{
-                        GradeTableOverviewScreen(subjects: subjects)
+                        GradeTableOverviewScreen(subjects: vm.subjects)
                     }
                 }
                 .onAppear{
-                    update()
-                    data = []
-                    subjects.forEach { sub in
-                        data.append(SubjectlistData(subject: sub, yearString: setAverages(subject: sub), colors: getcolorArr(subject: sub)))
-                    }
-                    update()
+                    vm.updateViews()
                 }
         }
-    }
-    
-    func update(){
-        subjects = Util.getAllSubjects()
-        inactiveCount = (subjects.count * 4) - calcInactiveYearsCount()
-        subjectCount = subjects.count * 4
-    }
-    
-    func calcInactiveYearsCount()-> Int{
-        if(subjects.count == 0) {return 0}
-        var count: Int = 0
-        
-        for sub in subjects {
-            let arr = Util.getinactiveYears(sub)
-            for num in arr {
-                if(num == "") {continue}
-                if Int(num) != nil { count += 1}
-            }
-        }
-        return count
-    }
-    
-    func setAverages(subject: UserSubject) -> [String]{
-        var arr = ["-","-","-","-"]
-        for i in 0...3{
-            arr[i] = String(format: "%.0f", Util.getSubjectAverage(subject, year: i+1, filterinactve: false))
-        }
-        return arr
-    }
-    
-    func getcolorArr(subject: UserSubject) -> [Color]{
-        var arr = [Color.gray, Color.gray, Color.gray, Color.gray, Color.gray]
-        let inactiveYears = Util.getinactiveYears(subject)
-        //  print(subject.name, inactiveYears)
-        inactiveYears.forEach { year in
-            if(year.isEmpty){return}
-            arr[Int(year)! - 1] = Color.red
-        }
-        return arr
     }
 }
