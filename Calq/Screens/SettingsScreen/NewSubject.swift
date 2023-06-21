@@ -50,7 +50,7 @@ struct NewSubjectScreen: View {
                 if(subjectName.isEmpty){
                     alertMessage = "editSubjecNameInvalidEmpty"
                     nameAlert = true
-                } else if (Util.checkString(subjectName)){
+                } else if (Util.isStringInputInvalid(subjectName)){
                     alertMessage = "editSubjecNameInvalidChars"
                     nameAlert = true
                 }else {
