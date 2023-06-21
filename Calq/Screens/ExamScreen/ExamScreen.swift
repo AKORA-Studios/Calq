@@ -64,7 +64,7 @@ struct ExamView: View {
         VStack{
             ZStack{
                 Menu {
-                    if(!vm.options.isEmpty){
+                    if !vm.options.isEmpty {
                         Section {
                             ForEach(vm.options){sub in
                                 Button(sub.name) {
@@ -75,8 +75,10 @@ struct ExamView: View {
                                 }
                             }
                         }
+                        
+                        if subject != nil {
                         Section {
-                            Button {
+                            Button { 
                                 removeExam(type, subject!)
                                 vm.changeExamSelection()
                                 subject = nil
@@ -84,6 +86,7 @@ struct ExamView: View {
                             } label: {
                                 Text("ExamViewSubRemove")
                             }.buttonStyle(MenuPickerDestructive())
+                        }
                         }
                     }
                 } label: {
