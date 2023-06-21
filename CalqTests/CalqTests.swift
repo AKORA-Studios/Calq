@@ -133,6 +133,19 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(SecondResult.count, 1)
     }
     
+    func testRemoveNotAddedInactiveHalfyear(){
+        JSON.loadDemoData()
+        
+        Util.addYear(getExampleSub(), 3)
+        let FirstResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(FirstResult.count, 1)
+
+        Util.removeYear(getExampleSub(), 4)
+        
+        let SecondResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(SecondResult.count, 1)
+    }
+    
     func testLastActiveYear(){
         JSON.loadDemoData()
         let lastYear =  Util.lastActiveYear(getExampleSub())
