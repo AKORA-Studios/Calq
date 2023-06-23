@@ -16,10 +16,10 @@ struct TabbarView: View {
                 
             if(vm.showOverlay){
                 if(vm.firstLaunch){
-                    FirstLaunchScreen(firstLaunch: $vm.firstLaunch)
+                    FirstLaunchScreen()
                         .environmentObject(vm)
                 } else {
-                    WhatsNewScreen(shouldDisplay: $vm.lastVersion)
+                    WhatsNewScreen()
                         .environmentObject(vm)
                 }
             } else {
@@ -61,8 +61,21 @@ class TabVM: ObservableObject { //TODO test this qwq
         lastVersion = Util.checkIfNewVersion()
         showOverlay = firstLaunch || lastVersion
         
-        if lastVersion && !firstLaunch {
+        if lastVersion {
             UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
         }
+    }
+    
+    func showedFirstlaunch(){
+        showOverlay = false
+        firstLaunch = false
+        UserDefaults.standard.set(true, forKey: UD_firstLaunchKey)
+    }
+    
+    
+    func showedNewVersion(){
+        showOverlay = false
+        lastVersion = false
+        UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
     }
 }

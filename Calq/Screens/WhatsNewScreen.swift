@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WhatsNewScreen: View {
-    @Binding var shouldDisplay: Bool
     @EnvironmentObject var vm: TabVM
     
     let newFuncs = [
@@ -53,7 +52,7 @@ struct WhatsNewScreen: View {
                 }
                 
                 Button("ToastOki") {
-                    vm.checkForSheets()
+                    vm.showedNewVersion()
                 }.buttonStyle(PrimaryStyle())
                     .padding(.top, 10)
             }

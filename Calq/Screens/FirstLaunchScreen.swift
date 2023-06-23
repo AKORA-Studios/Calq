@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FirstLaunchScreen: View {
-    @Binding var firstLaunch: Bool
-    @State var loadDemoData = false
+    @EnvironmentObject var vm: TabVM
     
     var body: some View {
         VStack{
@@ -30,7 +29,7 @@ struct FirstLaunchScreen: View {
                
                 Button("firstLaunchLoadDemo") {
                     JSON.loadDemoData()
-                    firstLaunch = false
+                    vm.showedFirstlaunch()
                 }.buttonStyle(SecondaryStyle())
                 
             } .padding().background(CardView())
@@ -38,8 +37,7 @@ struct FirstLaunchScreen: View {
             Spacer()
             
             Button("firstLaunchGo") {
-                UserDefaults.standard.set(true, forKey: UD_firstLaunchKey)
-                firstLaunch = false
+                vm.showedFirstlaunch()
             }.buttonStyle(PrimaryStyle())
             
             Spacer()
@@ -59,6 +57,6 @@ struct FirstLaunchScreen: View {
 
 struct FirstLaunchScreen_Preview: PreviewProvider {
     static var previews: some View {
-        FirstLaunchScreen(firstLaunch: Binding.constant(true))
+        FirstLaunchScreen()
     }
 }
