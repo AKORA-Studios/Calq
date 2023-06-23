@@ -26,7 +26,7 @@ final class CalqTests: XCTestCase {
     }
     
     func testAverage() {
-        let average = Util.average([1, 2,3 ])
+        let average = Util.average([1, 2, 3])
         XCTAssertEqual(average, 2.0)
     }
     

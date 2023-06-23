@@ -20,32 +20,30 @@ struct EditGradeScreen: View {
     
     @State var deleteAlert = false
     
-    var body: some View{
-        ScrollView(showsIndicators: false){
-        VStack{
+    var body: some View {
+        ScrollView(showsIndicators: false) {
+        VStack {
             VStack {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("gradeName")
                     TextField("gradeName", text: $testName)
                         .textFieldStyle(.roundedBorder)
                 }.padding()
             }.background(CardView())
             
-            
-            ZStack{
-                VStack(alignment: .leading){
+            ZStack {
+                VStack(alignment: .leading) {
                     Text("gradeType")
                     Picker("gradeType", selection: $testType) {
-                        ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { index, type in
+                        ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { _, type in
                             Text(type.name).tag(type.id)
                         }
                     }.pickerStyle(.segmented).colorMultiply(color)
                 }.padding()
             }.background(CardView())
             
-            
-            ZStack{
-                VStack(alignment: .leading){
+            ZStack {
+                VStack(alignment: .leading) {
                     Text("gradeHalfyear")
                     Picker("gradeYear", selection: $testYear) {
                         Text("1").tag(1)
@@ -60,9 +58,8 @@ struct EditGradeScreen: View {
                 }.padding()
             }.background(CardView())
             
-            
-            ZStack{
-                VStack(alignment: .leading){
+            ZStack {
+                VStack(alignment: .leading) {
                     Text("gradePoints")
                     HStack {
                         Text(String(Int(testPoints)))
@@ -73,7 +70,6 @@ struct EditGradeScreen: View {
                     }
                 }.padding()
             }.background(CardView())
-            
             
             Button("gradeSave") {
                 saveGrade()
@@ -86,8 +82,8 @@ struct EditGradeScreen: View {
         }
         }.padding()
             .navigationTitle("gradeEdit")
-            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-            .onAppear{
+            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
+            .onAppear {
                 testName = test.name
                 testYear = Int(test.year)
                 testDate = test.date
@@ -95,18 +91,18 @@ struct EditGradeScreen: View {
                 testType = test.type
             }
             .alert(isPresented: $deleteAlert) {
-                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
+                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
                     deleteGrade()
                 }))
             }
     }
     
-    func deleteGrade(){
+    func deleteGrade() {
         dismissSheet()
         Util.deleteTest(test)
     }
     
-    func saveGrade(){
+    func saveGrade() {
         test.name = testName
         test.year = Int16(testYear)
         test.date = testDate
@@ -116,7 +112,7 @@ struct EditGradeScreen: View {
         self.presentationMode.wrappedValue.dismiss()
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
 }

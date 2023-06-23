@@ -18,17 +18,17 @@ struct NewSubjectScreen: View {
     @State var alertMessage = ""
     
     var body: some View {
-        VStack{
-            ZStack{
-                VStack(alignment: .leading){
+        VStack {
+            ZStack {
+                VStack(alignment: .leading) {
                     Text("subjectName")
                     TextField("name", text: $subjectName)
                         .textFieldStyle(.roundedBorder)
                 }.padding()
             }.background(CardView())
             
-            ZStack{
-                VStack(alignment: .leading){
+            ZStack {
+                VStack(alignment: .leading) {
                     Text("subjectType")
                     Picker("subjectType", selection: $lkSubject) {
                         Text("typeGK").tag(0)
@@ -38,7 +38,7 @@ struct NewSubjectScreen: View {
                 }.padding()
             }.background(CardView())
             
-            ZStack{
+            ZStack {
                     HStack {
                         Text("editSubColor")
                         Image(systemName: "paintpalette")
@@ -47,7 +47,7 @@ struct NewSubjectScreen: View {
             }.background(CardView())
             
             Button("saveData") {
-                if (Util.isStringInputInvalid(subjectName)){
+                if Util.isStringInputInvalid(subjectName) {
                     alertMessage = "editSubjecNameInvalidChars"
                     nameAlert = true
                 } else {
@@ -56,14 +56,14 @@ struct NewSubjectScreen: View {
             }.buttonStyle(PrimaryStyle())
             
         }.navigationTitle("newSub")
-            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
             .alert(isPresented: $nameAlert) {
                 Alert(title: Text("editSubjectNameInvalid"), message: Text(LocalizedStringKey(alertMessage)))
             }
             .padding()
     }
     
-    func addSubject(){
+    func addSubject() {
         let subject = UserSubject(context: Util.getContext())
         subject.color = UIColor(selectedColor).toHexString()
         subject.name = subjectName
@@ -76,7 +76,7 @@ struct NewSubjectScreen: View {
         dismissSheet()
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
 }

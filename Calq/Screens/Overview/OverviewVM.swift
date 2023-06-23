@@ -25,8 +25,7 @@ class OverViewViewModel: ObservableObject {
     
     @Published var showGraphEdit = false
     
-    
-    func updateViews(){
+    func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
         blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())
@@ -43,17 +42,19 @@ class OverViewViewModel: ObservableObject {
         gradeText = grade()
     }
     
-    func grade()->String{
+    func grade() -> String {
         return String(format: "%.2f", Util.grade(number: Util.generalAverage()))
     }
     
-    
-    func getGradeData()-> String{
+    func getGradeData() -> String {
         let blockGrade = Util.grade(number: Double(blockPoints * 15 / 900))
         return  String(format: "%.2f", blockGrade)
     }
     
-    func getHalfyears() -> [BarChartEntry]{
-        return [BarChartEntry(value: Util.generalAverage(1)),BarChartEntry(value: Util.generalAverage(2)),BarChartEntry(value: Util.generalAverage(3)),BarChartEntry(value: Util.generalAverage(4))]
+    func getHalfyears() -> [BarChartEntry] {
+        return [BarChartEntry(value: Util.generalAverage(1)),
+                BarChartEntry(value: Util.generalAverage(2)),
+                BarChartEntry(value: Util.generalAverage(3)),
+                BarChartEntry(value: Util.generalAverage(4))]
     }
 }

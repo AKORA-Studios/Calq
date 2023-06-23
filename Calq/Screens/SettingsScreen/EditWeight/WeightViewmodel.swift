@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-enum alertType{
+enum AlertType {
     case deleteGrades
     case wrongPercentage
 }
@@ -19,7 +19,7 @@ class WeightViewmodel: ObservableObject {
     
     @Published var selectedDelete: Int16 = 0
     @Published var isAlertPresented = false
-    @Published var alertActiontype: alertType = .wrongPercentage
+    @Published var alertActiontype: AlertType = .wrongPercentage
     
     @Published var showHintText = false
     
@@ -28,7 +28,7 @@ class WeightViewmodel: ObservableObject {
         reload()
     }
     
-    func load(){
+    func load() {
         for type in Util.getTypes() {
             typeArr[type] = type.weigth
             typeArrNames[type.id] = type.name
@@ -39,22 +39,22 @@ class WeightViewmodel: ObservableObject {
         return Util.getTypeGrades(selectedDelete)
     }
     
-    func increment(_ type: GradeType){
+    func increment(_ type: GradeType) {
         typeArr[type]! += typeArr[type] == 100 ? 0 : 10
         reload()
     }
     
-    func decrement(_ type: GradeType){
+    func decrement(_ type: GradeType) {
         typeArr[type]! -= typeArr[type] == 100 ? 0 : 10
         if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
     }
     
-    func reload(){
+    func reload() {
         summedUp = Int(Array(typeArr.values).reduce(0, +))
     }
     
-    func saveWeigths(){
+    func saveWeigths() {
         for type in Util.getTypes() {
             type.weigth = typeArr[type]!
             type.name = typeArrNames[type.id]!
@@ -65,7 +65,7 @@ class WeightViewmodel: ObservableObject {
     // MARK: Binding
     let didChange = PassthroughSubject<Void, Never>()
     
-    var typeArrNames: Dictionary<Int16, String> = [:] {
+    var typeArrNames: [Int16: String] = [:] {
         didSet {
             didChange.send(())
         }
@@ -79,7 +79,7 @@ class WeightViewmodel: ObservableObject {
         })
     }
     
-    func toggleHintText(){
+    func toggleHintText() {
         showHintText.toggle()
     }
 }

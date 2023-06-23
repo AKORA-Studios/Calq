@@ -10,7 +10,7 @@ import Foundation
 class LineChartWidgetViewmodel: ObservableObject {
     @Published var lineChartEntries: [[LineChartEntry]] = []
     
-    func updateViews(){
+    func updateViews() {
         self.objectWillChange.send()
         lineChartEntries = lineChartData()
     }

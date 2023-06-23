@@ -12,8 +12,8 @@ struct SettingsScreen: View {
     
     var body: some View {
         NavigationView {
-            List{
-                Section(header: Text("settingsSection1")){
+            List {
+                Section(header: Text("settingsSection1")) {
                     SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
                         if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
                             UIApplication.shared.open(url)
@@ -21,8 +21,8 @@ struct SettingsScreen: View {
                     })
                     
                     HStack {
-                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow"){}
-                        Toggle(isOn: $vm.settings.colorfulCharts){}.onChange(of: vm.settings.colorfulCharts) { newValue in
+                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
+                        Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                             vm.reloadAndSave()
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                     }
@@ -32,7 +32,7 @@ struct SettingsScreen: View {
                         vm.deleteAlert = true
                     }
                     
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport"){
+                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport") {
                         vm.isLoading = true
                         let data = JSON.exportJSON()
                         let url = JSON.writeJSON(data)
@@ -54,7 +54,7 @@ struct SettingsScreen: View {
                         vm.deleteAlert = true
                     }
                 }
-                Section(header: Text("settingsSection2")){
+                Section(header: Text("settingsSection2")) {
                     
                     ForEach(vm.subjects) { sub in
                         subjectView(sub)
@@ -65,13 +65,13 @@ struct SettingsScreen: View {
                     }
                 }
                 
-                Section(){
+                Section {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
             }.navigationTitle("settingsTitle")
                 .overlay(loadingView())
                 .sheet(isPresented: $vm.presentDocumentPicker) {
-                    DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear{ vm.reloadAndSave()}
+                    DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear {vm.reloadAndSave()}
                 }
                 .sheet(isPresented: $vm.weightSheetPresented) {
                     NavigationView {
@@ -91,7 +91,7 @@ struct SettingsScreen: View {
             }
         }
         .alert(isPresented: $vm.deleteAlert) {
-            Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"),action: {
+            Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
                 switch vm.alertActiontype {
                     
                 case .importData:
@@ -109,7 +109,7 @@ struct SettingsScreen: View {
             }
                                                                                                                                      ))
         }
-        .onAppear{
+        .onAppear {
             vm.subjects = Util.getAllSubjects()
         }
     }
@@ -138,7 +138,7 @@ struct SettingsIcon: View {
     var color: Color
     var icon: String
     var text: String
-    var completation:  () -> Void
+    var completation: () -> Void
     
     var body: some View {
             HStack {

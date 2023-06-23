@@ -38,14 +38,14 @@ class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate {
         
         Util.deleteSettings()
         
-        do { try JSON.importJSONfromDevice(urls[0])}catch {
+        do { try JSON.importJSONfromDevice(urls[0])} catch {
             print("failed to import json")
         }
         saveCoreData()
     }
 }
 
-//Export View
+// Export View
 extension View {
     func showShareSheet(url: URL) {
         guard let source = UIApplication.shared.windows.last?.rootViewController else {
@@ -58,7 +58,7 @@ extension View {
         
         if let popoverController = activityVC.popoverPresentationController {
             popoverController.sourceView = source.view
-            popoverController.sourceRect = CGRect(x: source.view.bounds.midX, y: source.view.bounds.midY,width: .zero, height: .zero)
+            popoverController.sourceRect = CGRect(x: source.view.bounds.midX, y: source.view.bounds.midY, width: .zero, height: .zero)
             popoverController.permittedArrowDirections = []
         }
         source.present(activityVC, animated: true)

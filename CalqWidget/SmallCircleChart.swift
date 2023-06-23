@@ -15,7 +15,7 @@ struct CircleChartWidgetView: View {
 }
 
 struct CustomCircularProgressViewStyle: ProgressViewStyle {
-    let grade = String(format: "%.2f",Util.grade(number: Util.generalAverage()))
+    let grade = String(format: "%.2f", Util.grade(number: Util.generalAverage()))
     
     func makeBody(configuration: Configuration) -> some View {
         VStack {

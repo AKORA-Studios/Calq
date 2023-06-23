@@ -11,7 +11,7 @@ struct FirstLaunchScreen: View {
     @EnvironmentObject var vm: TabVM
     
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
             Text("Welcome to Calq").font(.title).padding(.bottom)
             
@@ -53,7 +53,6 @@ struct FirstLaunchScreen: View {
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
     }
 }
-
 
 struct FirstLaunchScreen_Preview: PreviewProvider {
     static var previews: some View {

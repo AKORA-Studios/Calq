@@ -21,13 +21,13 @@ struct WhatsNewScreen: View {
         "🌸 dieser screen hier c:",
         "🌸 Der Slider bei 'neue Noten hinzufügen' starte bei dem Fachschnitt",
         "🌸 'Notenliste' zeigt nun nur noch zwei Jahreszahlen an um längere Notennamen darstellen zu können",
-        "🌸 'Notenübersicht' zeigt nun die Summe der der Fächer an",
+        "🌸 'Notenübersicht' zeigt nun die Summe der der Fächer an"
     ]
     
     let newFuncsGeneral = [
         "📤 import/export exams",
         "🗒️ custom gradetypes",
-        "🇺🇸 new language available: english" ,
+        "🇺🇸 new language available: english",
         "📥 option to load demo data at first launch",
         "ℹ️ show grade count and if subeject is exam in 'editSubject'",
         "🌸 fix some UI bugs",
@@ -35,7 +35,7 @@ struct WhatsNewScreen: View {
         "🌸 this screen c:",
         "🌸 in 'add new grade' the slider is now set to subject average on appear",
         "🌸 'gradelist' now shows only two year numbers to display longer test names",
-        "🌸 'gradeoverview' now displays the sum of each subject",
+        "🌸 'gradeoverview' now displays the sum of each subject"
     ]
     
     let lang = Locale.preferredLanguages[0]
@@ -47,7 +47,7 @@ struct WhatsNewScreen: View {
                     .font(.title)
                     .padding(.bottom, 20)
                 
-                ForEach(lang == "de-US" ? newFuncs : newFuncsGeneral, id:\.self) { feature in
+                ForEach(lang == "de-US" ? newFuncs : newFuncsGeneral, id: \.self) { feature in
                     Text(feature).padding(.bottom, 10)
                 }
                 

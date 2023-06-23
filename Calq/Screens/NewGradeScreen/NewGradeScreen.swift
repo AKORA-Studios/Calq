@@ -12,7 +12,7 @@ struct NewGradeScreen: View {
     
     var body: some View {
         NavigationView {
-            List{
+            List {
                 if vm.subjects.isEmpty {
                     Text("ToastNoSubjects")
                 }
@@ -27,7 +27,7 @@ struct NewGradeScreen: View {
                     .environmentObject(vm)
             }
         }
-        .onAppear{
+        .onAppear {
             vm.updateViews()
         }
     }
@@ -40,36 +40,35 @@ struct NewGradeScreen: View {
     }
 }
 
-
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: NewGradeVM
     
     var body: some View {
-        ScrollView(showsIndicators: false){
+        ScrollView(showsIndicators: false) {
             if vm.selectedSubject != nil {
-                VStack{
-                    ZStack{
-                        VStack(alignment: .leading){
+                VStack {
+                    ZStack {
+                        VStack(alignment: .leading) {
                             Text("gradeName")
                             TextField("gradeName", text: $vm.gradeName)
                                 .textFieldStyle(.roundedBorder)
                         }.padding()
                     }.background(CardView())
                     
-                    ZStack{
-                        VStack(alignment: .leading){
+                    ZStack {
+                        VStack(alignment: .leading) {
                             Text("gradeType")
                             Picker("gradeYear", selection: $vm.gradeType) {
-                                ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { index, type in
+                                ForEach(Array(Util.getTypes().enumerated()), id: \.offset) { _, type in
                                     Text(type.name).tag(type.id)
                                 }
                             }.pickerStyle(.segmented)
                         }.padding()
                     }.background(CardView())
                     
-                    ZStack{
-                        VStack(alignment: .leading){
+                    ZStack {
+                        VStack(alignment: .leading) {
                             Text("gradeHalfyear")
                             Picker("gradeYear", selection: $vm.year) {
                                 Text("1").tag(1)
@@ -84,8 +83,8 @@ struct NewGradeView: View {
                         }.padding()
                     }.background(CardView())
                     
-                    ZStack{
-                        VStack(alignment: .leading){
+                    ZStack {
+                        VStack(alignment: .leading) {
                             Text("gradePoints")
                             HStack {
                                 Text(String(Int(vm.points)))
@@ -103,16 +102,16 @@ struct NewGradeView: View {
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                 }
-                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
+                .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
                 .padding()
-                .alert(isPresented: $vm.isAlertPresented){
+                .alert(isPresented: $vm.isAlertPresented) {
                     Alert(title: Text("gradeInvalidName"), message: Text("gradeInvalidNameDesc"))
                 }
             }
         }
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
 }

@@ -31,7 +31,6 @@ struct SecondaryStyle: ButtonStyle {
     }
 }
 
-
 struct DestructiveStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -52,7 +51,7 @@ struct MenuPickerButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
-            if(!active){
+            if !active {
                 Spacer()
                 Image(systemName: "chevron.up.chevron.down").scaledToFit()
             }
@@ -65,7 +64,6 @@ struct MenuPickerButton: ButtonStyle {
         .foregroundColor(.white)
     }
 }
-
 
 struct MenuPickerDestructive: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {

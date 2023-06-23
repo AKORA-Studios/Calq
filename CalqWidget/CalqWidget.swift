@@ -46,7 +46,7 @@ private struct CalqWidgetEntryView: View {
 class LineChartWidgetViewmodel: ObservableObject {
     @Published var lineChartEntries: [[LineChartEntry]] = []
     
-    func updateViews(){
+    func updateViews() {
         self.objectWillChange.send()
         lineChartEntries = lineChartData()
     }
@@ -60,7 +60,7 @@ private struct CalqWidgetEntryView2: View {
         GeometryReader { geo in
             LineChart(data: $vm.lineChartEntries, heigth: geo.size.height - 50)
                 .padding()
-                .onAppear{
+                .onAppear {
                     vm.updateViews()
                 }
         }
@@ -93,7 +93,7 @@ struct LineChartWidget: Widget {
     }
 }
 
-//MARK: Medium BarChart Widget
+// MARK: Medium BarChart Widget
 struct BarChartWidget: Widget {
     let kind: String = "BarChartWidget"
     
@@ -107,20 +107,19 @@ struct BarChartWidget: Widget {
     }
 }
 
-
-//MARK: Bundle
+// MARK: Bundle
 @main
 struct CalqWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
-    var body: some Widget{
+    var body: some Widget {
         CalqWidget()
         BarChartWidget()
         LineChartWidget()
     }
 }
 
-//MARK: Preview
-struct widgets_Previews: PreviewProvider {
+// MARK: Preview
+struct Widgets_Previews: PreviewProvider {
     static var previews: some View {
         CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))

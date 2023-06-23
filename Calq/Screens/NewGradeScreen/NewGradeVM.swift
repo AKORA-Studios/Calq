@@ -12,7 +12,7 @@ class NewGradeVM: ObservableObject {
     @Published var isNewGradeSheetPresented = false
     @Published var selectedSubject: UserSubject?
     
-    //NewGradeView
+    // NewGradeView
     @Published var gradeName = ""
     @Published var gradeType = Util.getTypes()[0].id
     @Published var year = 1
@@ -20,12 +20,12 @@ class NewGradeVM: ObservableObject {
     @Published var date = Date()
     @Published var isAlertPresented = false
     
-    func updateViews(){
+    func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
     }
     
-    func selectSub(_ sub: UserSubject){
+    func selectSub(_ sub: UserSubject) {
         selectedSubject = sub
         isNewGradeSheetPresented = true
         
@@ -33,7 +33,7 @@ class NewGradeVM: ObservableObject {
         points = Float(Util.getSubjectAverage(selectedSubject!))
     }
     
-    func saveGrade(){
+    func saveGrade() {
         if Util.isStringInputInvalid(gradeName) {
             isAlertPresented = true
             return

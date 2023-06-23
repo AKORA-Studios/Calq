@@ -21,14 +21,14 @@ struct SubjectDetailScreen: View {
     @State var yearAverageText = "-"
     
     var body: some View {
-        if(subject !=  nil){
+        if subject !=  nil {
             let color = getSubjectColor(subject!)
-            ScrollView(showsIndicators: false){
-                VStack{
+            ScrollView(showsIndicators: false) {
+                VStack {
                     
                     Spacer()
                     
-                    VStack(alignment: .leading, spacing: 5){
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("subjectDetailTime").padding(.top, 10)
                         LineChart(data: Binding.constant(lineChartData()), heigth: 90)
                     }
@@ -36,9 +36,9 @@ struct SubjectDetailScreen: View {
                     .background(CardView())
                     .padding(.horizontal)
                     
-                    VStack{
-                        VStack(alignment: .leading){
-                            HStack{
+                    VStack {
+                        VStack(alignment: .leading) {
+                            HStack {
                                 Text("gradeHalfyear")
                                 Spacer()
                                 Text(halfyearActive ? "subjectDetailActive": "subjectDetailInactive").foregroundColor(halfyearActive ? color : .gray)
@@ -50,20 +50,20 @@ struct SubjectDetailScreen: View {
                                 Text("4").tag(4)
                             }.pickerStyle(.segmented)
                                 .colorMultiply(color)
-                                .onChange(of: selectedYear) { newValue in
+                                .onChange(of: selectedYear) { _ in
                                     update()
                                 }
                         }.padding()
                         
-                        ZStack{
+                        ZStack {
                             let backroundColor = halfyearActive ? .red : color
                             RoundedRectangle(cornerRadius: 8).fill(backroundColor.opacity(0.5)).frame(height: 40)
                             Text(halfyearActive ? "subjectDetailDeactivate" : "subjectDetailActivate").foregroundColor(halfyearActive ? .red : .white)
                         }.padding()
                             .onTapGesture {
-                                if(halfyearActive){ //deactivate
+                                if halfyearActive { // deactivate
                                     Util.addYear(subject!, selectedYear)
-                                } else { //activate
+                                } else { // activate
                                     Util.removeYear(subject!, selectedYear)
                                 }
                                 saveCoreData()
@@ -72,8 +72,8 @@ struct SubjectDetailScreen: View {
                     }.background(CardView())
                         .padding(.horizontal)
                     
-                    //average chart
-                    VStack(alignment: .leading, spacing: 5){
+                    // average chart
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("subjectDetailAverageHalfyear").padding()
                         CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 120)
                     }.background(CardView())
@@ -85,15 +85,15 @@ struct SubjectDetailScreen: View {
                         .buttonStyle(PrimaryStyle())
                 }
                 .navigationTitle(subject!.name)
-                .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-            }.onAppear{
+                .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
+            }.onAppear {
                 selectedYear = Util.lastActiveYear(subject!)
                 update()
             }
         }
     }
     
-    func update(){
+    func update() {
         withAnimation {
             let average = Util.getSubjectAverage(subject!, year: selectedYear, filterinactve: false)
             yearAverage = average / 15.0
@@ -102,7 +102,7 @@ struct SubjectDetailScreen: View {
         }
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -111,7 +111,7 @@ struct SubjectDetailScreen: View {
         var arr: [[LineChartEntry]] = []
         var subArr: [LineChartEntry] = []
         
-        let tests = Util.filterTests(subject!, checkinactive : false)
+        let tests = Util.filterTests(subject!, checkinactive: false)
         let color = getSubjectColor(subject!)
         
         for test in tests {

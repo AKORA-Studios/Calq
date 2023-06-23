@@ -10,10 +10,10 @@ import WidgetKit
 
 struct JSON {
     // MARK: Load Json data
-    static func loadJSON() ->[AppStruct.SubjectStruct]{
+    static func loadJSON() -> [AppStruct.SubjectStruct] {
         var values: [AppStruct.SubjectStruct] = [ ]
         do {
-            if let file = Bundle.main.path(forResource: "grades", ofType: "json"){
+            if let file = Bundle.main.path(forResource: "grades", ofType: "json") {
                 let json = try! String(contentsOfFile: file, encoding: String.Encoding.utf8).data(using: .utf8)!
                 
                 let decoder = JSONDecoder()
@@ -24,7 +24,7 @@ struct JSON {
         return values
     }
     
-    static func writeJSON(_ data: String) -> URL{
+    static func writeJSON(_ data: String) -> URL {
         let DocumentDirURL = try! FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("example").appendingPathExtension("json")
         
@@ -36,14 +36,13 @@ struct JSON {
         return DocumentDirURL
     }
     
-    
-    enum loadErrors: Error {
+    enum LoadErrors: Error {
         case failedToloadData
         case failedToLoadDictionary
         case parseJSON
     }
     
-    static func createWidgetPreviewData() -> [UserSubject]{
+    static func createWidgetPreviewData() -> [UserSubject] {
         var exmapleSubjects: [UserSubject] = []
         let data = loadJSON()
         
@@ -70,21 +69,20 @@ struct JSON {
     }
     
     static func checkGrade(_ num: Int) -> Int16 {
-        if(num >= 0 && num <= 15){return Int16(num)}
+        if num >= 0 && num <= 15 { return Int16(num) }
         return Int16(0)
     }
     
     static func checkYear(_ num: Int) -> Int16 {
-        if(num >= 1 && num <= 4){return Int16(num)}
+        if num >= 1 && num <= 4 { return Int16(num) }
         return Int16(0)
     }
     
     static func checkType(_ num: Int) -> Int16 {
-        if(num >= 1 && num <= 5){return Int16(num)}
+        if num >= 1 && num <= 5 { return Int16(num) }
         return Int16(0)
     }
 }
-
 
 // Struct for importing from json
 struct AppStructV1: Codable {
@@ -106,7 +104,7 @@ struct AppStructV1: Codable {
         var inactiveYears: String
         var subjecttests: [JSONTest]
         
-        struct JSONTest: Codable{
+        struct JSONTest: Codable {
             var name: String
             var year: Int
             var grade: Int
@@ -127,7 +125,7 @@ struct AppStruct: Codable {
         var inactiveYears: String
         var subjecttests: [JSONTest]
         
-        struct JSONTest: Codable{
+        struct JSONTest: Codable {
             var name: String
             var year: Int
             var grade: Int

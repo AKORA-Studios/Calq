@@ -15,13 +15,13 @@ struct BarChart: View {
     @State var round: Bool = true
     
     var body: some View {
-        GeometryReader{ geo in
+        GeometryReader { geo in
             let fullHeigth = geo.size.height - 15
             
             ZStack {
-                //bars
+                // bars
                 HStack {
-                    ForEach(values, id:\.self) { val in
+                    ForEach(values, id: \.self) { val in
                         let barHeigth = (fullHeigth * val.value / 15.0)
                         VStack(spacing: 0) {
                             ZStack(alignment: .bottom) {
@@ -41,7 +41,7 @@ struct BarChart: View {
                             Text(val.text.prefix(3).uppercased()).font(.system(size: 9)).frame(height: 15)
                         }
                     }
-                    if(values.isEmpty){
+                    if values.isEmpty {
                         Spacer()
                         Text("EmptyBarChart")
                         Spacer()
@@ -51,19 +51,19 @@ struct BarChart: View {
         }.frame(height: heigth)
     }
     
-    func getDescription(_ value: Double) -> String{
+    func getDescription(_ value: Double) -> String {
         return String(format: (round ? "%.0f" : "%.2f"), value)
     }
     
-    func m10()-> CGFloat{
+    func m10() -> CGFloat {
         return CGFloat(heigth * 2/3)
     }
     
-    func m5()-> CGFloat{
+    func m5() -> CGFloat {
         return CGFloat(heigth * 1/3)
     }
     
-    func av()->CGFloat{
+    func av() -> CGFloat {
         return CGFloat(heigth * (average / 15.0))
     }
 }
@@ -72,7 +72,7 @@ func createSubjectBarData() -> [BarChartEntry] {
     var arr: [BarChartEntry] = []
     let subjects = Util.getAllSubjects()
     
-    for sub in subjects{
+    for sub in subjects {
         let color = getSubjectColor(sub)
         arr.append(BarChartEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
     }
@@ -80,7 +80,7 @@ func createSubjectBarData() -> [BarChartEntry] {
     return arr
 }
 
-struct BarChartEntry: Hashable{
+struct BarChartEntry: Hashable {
     var color: Color = .accentColor
     var value: Double = 0.5
     var text: String = ""
@@ -96,6 +96,6 @@ extension BarChartEntry {
         BarChartEntry(color: pastelColors[5], value: 10, text: "spo"),
         BarChartEntry(color: pastelColors[6], value: 11, text: "grw"),
         BarChartEntry(color: pastelColors[7], value: 9, text: "abc"),
-        BarChartEntry(color: pastelColors[8], value: 12, text: "def"),
+        BarChartEntry(color: pastelColors[8], value: 12, text: "def")
     ]
 }
