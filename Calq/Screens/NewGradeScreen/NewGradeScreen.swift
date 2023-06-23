@@ -98,7 +98,6 @@ struct NewGradeView: View {
                         }.padding()
                     }.background(CardView())
                     
-                    
                     Button("gradeNewAdd") {
                         vm.saveGrade()
                     }.buttonStyle(PrimaryStyle())

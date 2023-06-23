@@ -151,7 +151,7 @@ struct SettingsIcon: View {
                 }
                 Text(LocalizedStringKey(text))
             }
-            .frame( height: 30, alignment: .leading)
+            .frame(height: 30, alignment: .leading)
             .onTapGesture {
                 completation()
         }
