@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Calq.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DD6878A32617B1AB00BF2B48"
+               BuildableName = "CalqUITests.xctest"
+               BlueprintName = "CalqUITests"
+               ReferencedContainer = "container:Calq.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -46,19 +60,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD6878982617B1AB00BF2B48"
+               BlueprintIdentifier = "F1B386432A1CFE6700F0C5AC"
                BuildableName = "CalqTests.xctest"
                BlueprintName = "CalqTests"
-               ReferencedContainer = "container:Calq.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD6878A32617B1AB00BF2B48"
-               BuildableName = "CalqUITests.xctest"
-               BlueprintName = "CalqUITests"
                ReferencedContainer = "container:Calq.xcodeproj">
             </BuildableReference>
          </TestableReference>

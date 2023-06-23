@@ -329,7 +329,7 @@ struct Util {
     }
     
     /// Add inactive halfyear
-    @discardableResult static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject{
+    @discardableResult static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject {
         var arr = getinactiveYears(sub)
         if arr.contains(String(num)){
             return sub
