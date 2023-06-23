@@ -36,10 +36,11 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![subjectinfo](https://media.discordapp.net/attachments/867129329363976212/1075423172775645244/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_11.png?width=309&height=669)
 ![grades](https://media.discordapp.net/attachments/867129329363976212/1075423173002149948/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_17.png?width=309&height=669)
 
-![exams](https://media.discordapp.net/attachments/867129329363976212/1078048575604396092/Simulator_Screen_Shot_-_iPhone_14_-_2023-02-22_at_21.19.21.png?width=309&height=670)
+![exams](https://media.discordapp.net/attachments/867129329363976212/1121754360410542090/exams.png?width=310&height=670)
 ![settings](https://media.discordapp.net/attachments/867129329363976212/1075423173220245554/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_22.png?width=309&height=669)
 
 ![ChangeWeigth](https://media.discordapp.net/attachments/867129329363976212/1110268846188806204/Simulator_Screenshot_-_iPhone_14_-_2023-05-22_at_20.10.43.png?width=310&height=670)
+![GradeTable](https://media.discordapp.net/attachments/867129329363976212/1121754360695771186/gradetable.png?width=310&height=670)
 
 </details>
 
