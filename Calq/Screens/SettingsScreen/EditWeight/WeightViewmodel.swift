@@ -46,6 +46,7 @@ class WeightViewmodel: ObservableObject {
     
     func decrement(_ type: GradeType){
         typeArr[type]! -= typeArr[type] == 100 ? 0 : 10
+        if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
     }
     
