@@ -43,7 +43,7 @@ struct Util {
     }
     
     static func isStringInputInvalid(_ str: String) -> Bool{
-        if(str.isEmpty){ return true }
+        if str.isEmpty { return true }
         let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
         let range = NSRange(location: 0, length: str.utf16.count)
         return regex.firstMatch(in: str, options: [], range: range) == nil
@@ -51,7 +51,7 @@ struct Util {
     
     // MARK: Average Functions
     static func average (_ values: [Int]) -> Double {
-        if (values.count < 1) {return 0}
+        if values.count < 1 { return 0 }
         
         var avg = 0
         for i in 0..<values.count {
@@ -61,7 +61,7 @@ struct Util {
     }
     
     static private func average (_ values: [Double]) -> Double {
-        if (values.count < 1) {return 0}
+        if values.count < 1 { return 0 }
         
         var avg = Double(0);
         for i in 0..<values.count {
@@ -75,7 +75,7 @@ struct Util {
     }
     
     static private func average (_ values: [Double], from: Int = 0, to: Int = -1) -> Double {
-        if (from > values.count) {return 0;}
+        if (from > values.count) { return 0 }
         
         var sum = Double(0);
         if (to<0){for i in from..<values.count {
@@ -112,14 +112,14 @@ struct Util {
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double{
         let tests = filterTests(sub)
-        if(tests.count == 0){return 0.0}
+        if tests.count == 0 { return 0.0 }
         
         var count = 0.0
         var subaverage = 0.0
         
         for e in 1...4 {
             let yearTests = tests.filter{$0.year == Int16(e)}
-            if(yearTests.count == 0) {continue}
+            if yearTests.count == 0 { continue }
             count += 1
             subaverage += Util.testAverage(yearTests)
         }
@@ -130,7 +130,7 @@ struct Util {
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject, year: Int, filterinactve: Bool = true) -> Double{
         let tests = filterTests(sub, checkinactive: filterinactve).filter{$0.year == year};
-        if(tests.count == 0){return 0.0}
+        if tests.count == 0 { return 0.0 }
         return testAverage(tests)
     }
     
@@ -138,18 +138,18 @@ struct Util {
     static func generalAverage() -> Double{
         let allSubjects = getAllSubjects()
         
-        if(allSubjects.count == 0) { return 0.0}
+        if allSubjects.count == 0 { return 0.0 }
         var a = 0.0
         var subjectCount = Double(allSubjects.count)
         
         for sub in allSubjects{
-            if(sub.subjecttests == nil){subjectCount-=1;continue}
+            if sub.subjecttests == nil { subjectCount-=1; continue }
             let tests = filterTests(sub)
-            if(tests.count == 0){subjectCount-=1;continue}
+            if tests.count == 0 { subjectCount-=1; continue }
             a += round(getSubjectAverage(sub))
         }
         
-        if((a / subjectCount).isNaN) {return 0.0}
+        if (a / subjectCount).isNaN { return 0.0 }
         return a / subjectCount
     }
     
@@ -159,38 +159,38 @@ struct Util {
     /// Returns the average of all grades from all subjects in a specific halfyear
     static func generalAverage(_ year: Int) -> Double{
         let allSubjects = getAllSubjects()
-        if(allSubjects.count == 0) { return 0.0}
+        if allSubjects.count == 0 { return 0.0 }
         var count = 0.0;
         var grades = 0.0;
         
         for sub in allSubjects {
-            if(sub.subjecttests == nil){continue}
+            if(sub.subjecttests == nil){ continue }
             let tests = filterTests(sub).filter{Int($0.year) == year}
-            if(tests.count == 0){continue}
+            if(tests.count == 0){ continue }
             let multiplier = sub.lk ? 2.0 : 1.0
             
             count += multiplier * 1
             grades += multiplier * round(Util.testAverage(tests))
         }
-        if(grades == 0.0){ return 0.0}
+        if grades == 0.0 { return 0.0 }
         return grades / count
     }
     
     /// Converts the points(0-15) representation of a grade to the more common 1-6 scale.
     static func grade(number: Double) -> Double {
-        if(number == 0.0){ return 0.0}
+        if number == 0.0 { return 0.0 }
         return ((17 - abs(number)) / 3.0)
     }
     
     /// Generates a convient String that shows the grades of the subject.
     static func averageString(_ subject: UserSubject) -> String{
         var str: String = ""
-        if(subject.subjecttests == nil) {return str}
+        if subject.subjecttests == nil { return str }
         let tests = subject.subjecttests!.allObjects as! [UserTest]
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i});
-            if(arr.count == 0) {str += "-- ";continue}
+            if arr.count == 0 { str += "-- "; continue }
             str += String(Int(round(Util.testAverage(arr))))
             if(i != 4){ str += " "}
         }
@@ -267,7 +267,7 @@ struct Util {
         var allSubjects: [UserSubject] = []
         let settings = Util.getSettings()
         
-        if(settings.usersubjects != nil){
+        if settings.usersubjects != nil {
             allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
             return sortSubjects(allSubjects)
         }
@@ -285,7 +285,7 @@ struct Util {
     static func getSubject(_ subject: UserSubject) -> UserSubject? {
         let all = self.getAllSubjects()
         let filtered = all.filter{$0.objectID == subject.objectID}
-        if (filtered.count < 1) {return nil}
+        if filtered.count < 1 { return nil }
         return filtered[0]
     }
     
@@ -293,7 +293,7 @@ struct Util {
     static func getSubject(_ id: NSManagedObjectID) -> UserSubject? {
         let all = self.getAllSubjects()
         let filtered = all.filter{$0.objectID == id}
-        if (filtered.count < 1) {return nil}
+        if filtered.count < 1 { return nil }
         return filtered[0]
     }
     
@@ -310,7 +310,7 @@ struct Util {
     
     //MARK: Years
     static func getinactiveYears(_ sub: UserSubject)-> [String]{
-        if(sub.inactiveYears.isEmpty){return []}
+        if sub.inactiveYears.isEmpty { return [] }
         let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
         return arr
     }
@@ -345,8 +345,8 @@ struct Util {
         var num = 1
         
         for i in 1...4 {
-            let tests = filterTests(sub, checkinactive: false).filter{$0.year == i}
-            if(tests.count > 0){ num = i}
+            let tests = filterTests(sub, checkinactive: false).filter{ $0.year == i }
+            if tests.count > 0 { num = i }
         }
         return num
     }
@@ -358,8 +358,8 @@ struct Util {
     //MARK: Dates
     /// Returns the last date when a grade was added
     static func calcMaxDate() -> Date {
-        let allSubjects = self.getAllSubjects().filter{$0.subjecttests?.count != 0}
-        if(allSubjects.count == 0) {return Date()}
+        let allSubjects = self.getAllSubjects().filter{ $0.subjecttests?.count != 0 }
+        if allSubjects.count == 0 { return Date() }
         
         let allDates = allSubjects.map{
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
@@ -368,15 +368,15 @@ struct Util {
                     $0.date.timeIntervalSince1970
                 }.sorted(by: {$0 > $1})[0]
             }
-        if(allDates.count == 0) {return Date(timeIntervalSince1970: 0.0)}
+        if allDates.count == 0 { return Date(timeIntervalSince1970: 0.0) }
         
         return Date(timeIntervalSince1970: allDates.sorted(by: {$0 > $1})[0])
     }
     
     /// Returns the first date when a grade was added
     static func calcMinDate() -> Date {
-        let allSubjects = self.getAllSubjects().filter{$0.subjecttests?.count != 0}
-        if(allSubjects.count == 0){return Date()}
+        let allSubjects = self.getAllSubjects().filter{ $0.subjecttests?.count != 0 }
+        if allSubjects.count == 0 { return Date() }
         
         let allDates = allSubjects.map{
             ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
@@ -385,14 +385,14 @@ struct Util {
                     $0.date.timeIntervalSince1970
                 }.sorted(by: {$0 < $1})[0]
             }
-        if(allDates.count == 0) { return Date(timeIntervalSince1970: 0.0) }
+        if allDates.count == 0 { return Date(timeIntervalSince1970: 0.0) }
         
         return Date(timeIntervalSince1970: allDates.sorted(by: {$0 < $1})[0])
     }
     
     //MARK: Tests
-    static func filterTests(_ sub: UserSubject, checkinactive: Bool = true)-> [UserTest]{
-        if(sub.subjecttests == nil){return []}
+    static func filterTests(_ sub: UserSubject, checkinactive: Bool = true) -> [UserTest]{
+        if sub.subjecttests == nil { return [] }
         var tests = sub.subjecttests!.allObjects as! [UserTest]
         
         for year in [1,2,3,4]{
@@ -435,7 +435,7 @@ struct Util {
     }
     
     static func deleteType(type: Int16) {
-        let t = getTypes().filter{$0.id == type}[0]
+        let t = getTypes().filter{ $0.id == type }[0]
         t.gradetosettings!.removeFromGradetypes(t)
         saveCoreData()
     }
@@ -457,10 +457,6 @@ struct Util {
         saveCoreData()
         types = getSettings().gradetypes!.allObjects as! [GradeType]
         return types.sorted(by: { $0.weigth > $1.weigth})
-    }
-    
-    static func highestType() -> Int16 {
-        return getTypes().sorted(by: {$0.id > $1.id})[0].id
     }
     
     static func getTypeGrades(_ type: Int16) -> [UserTest] {
@@ -490,11 +486,11 @@ struct Util {
     
     static func checkIfNewVersion() -> Bool {
         let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
-        if(oldVersion == "0.0.0") { return true }
+        if oldVersion == "0.0.0" { return true }
         let partsOldV = oldVersion.split(separator: ".")
         let partsNewV = appVersion.split(separator: ".")
         
-        if(partsOldV.isEmpty) { return true }
+        if partsOldV.isEmpty { return true }
         
         if(partsOldV[0] < partsNewV[0]){
             return true;

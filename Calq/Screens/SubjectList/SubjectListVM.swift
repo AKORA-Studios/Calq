@@ -48,13 +48,13 @@ class SubjectListVM: ObservableObject {
     }
     
     func calcInactiveYearsCount()-> Int{
-        if(subjects.count == 0) {return 0}
+        if(subjects.count == 0) { return 0 }
         var count: Int = 0
         
         for sub in subjects {
             let arr = Util.getinactiveYears(sub)
             for num in arr {
-                if(num == "") {continue}
+                if(num == "") { continue }
                 if Int(num) != nil { count += 1}
             }
         }

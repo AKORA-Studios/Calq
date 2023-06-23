@@ -151,4 +151,20 @@ final class CalqTests: XCTestCase {
         let lastYear =  Util.lastActiveYear(getExampleSub())
         XCTAssertEqual(lastYear, 4)
     }
+    
+    // MARK: GradeTypes
+    func testGetDefaultTypes(){
+        let types = Util.getTypes()
+        XCTAssertEqual(types.count, 2)
+        XCTAssertEqual(types.filter {$0.name == "Test" || $0.name == "Klausur"}.count, 2)
+    }
+    
+    func testEditTypes(){
+        //add type
+        Util.addType(name: "someName", weigth: 0)
+        let type = Util.getTypes().filter {$0.name == "someName"}[0]
+        //remove random type
+        Util.deleteType(type: type.id)
+        XCTAssertTrue(Util.getTypes().filter {$0.name == "someName"}.isEmpty)
+    }
 }
