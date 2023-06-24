@@ -69,8 +69,6 @@ git clone https://github.com/AKORA-Studios/Calq
 - Open the workspace file in Xcode
 - Use **CMD + R** to run the app sheme
 
-(note: yes there is a podfile in this repo, but there arent any used currently)
-
 ## Requirements
 
 - iOS 14.1+
