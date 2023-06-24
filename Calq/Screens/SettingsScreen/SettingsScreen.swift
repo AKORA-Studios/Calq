@@ -13,124 +13,120 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("settingsSection1")) {
-                    SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
-                        if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
-                            UIApplication.shared.open(url)
-                        }
-                    })
-                    
-                    HStack {
-                        SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
-                        Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
-                            vm.reloadAndSave()
-                        }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                    }
-                    
-                    SettingsIcon(color: Color.blue, icon: "folder.fill", text: "settingsImport") {
-                        vm.alertActiontype = .importData
-                        vm.deleteAlert = true
-                    }
-                    
-                    SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport") {
-                        vm.isLoading = true
-                        let data = JSON.exportJSON()
-                        let url = JSON.writeJSON(data)
-                        vm.isLoading = false
-                        showShareSheet(url: url)
-                    }
-                    
-                    SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "settingsWeight") {
-                        vm.weightSheetPresented = true
-                    }
-                    
-                    SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "settingsLoadDemo") {
-                        vm.alertActiontype = .loadDemo
-                        vm.deleteAlert = true
-                    }
-                    
-                    SettingsIcon(color: Color.red, icon: "trash.fill", text: "settingsDelete") {
-                        vm.alertActiontype = .deleteData
-                        vm.deleteAlert = true
-                    }
-                }
-                Section(header: Text("settingsSection2")) {
-                    
-                    ForEach(vm.subjects) { sub in
-                        subjectView(sub)
-                    }
-                    
-                    SettingsIcon(color: .green, icon: "plus", text: "newSub") {
-                        vm.newSubjectSheetPresented = true
-                    }
-                }
+                staticCells()
+                
+                dynamicCells()
                 
                 Section {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
-            }.navigationTitle("settingsTitle")
-                .overlay(loadingView())
-                .sheet(isPresented: $vm.presentDocumentPicker) {
-                    DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear {vm.reloadAndSave()}
+            }
+            
+            .disabled(vm.isLoading)
+            .navigationTitle("settingsTitle")
+            .sheet(isPresented: $vm.presentDocumentPicker) {
+                DocumentPicker(fileURL: $vm.importeJsonURL).onDisappear {vm.reloadAndSave()}
+            }
+            .sheet(isPresented: $vm.weightSheetPresented) {
+                NavigationView {
+                    ChangeWeightScreen()
                 }
-                .sheet(isPresented: $vm.weightSheetPresented) {
-                    NavigationView {
-                        ChangeWeightScreen()
-                    }
+            }
+            .sheet(isPresented: $vm.newSubjectSheetPresented) {
+                NavigationView {
+                    NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
-                .sheet(isPresented: $vm.newSubjectSheetPresented) {
-                    NavigationView {
-                        NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
-                    }
-                }
+            }
         }
-        .disabled(vm.isLoading)
+        
         .sheet(isPresented: $vm.editSubjectPresented) {
             NavigationView {
                 EditSubjectScreen(editSubjectPresented: $vm.editSubjectPresented, subject: $vm.selectedSubjet).onDisappear(perform: vm.reloadAndSave)
             }
         }
         .alert(isPresented: $vm.deleteAlert) {
-            Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
-                switch vm.alertActiontype {
-                    
-                case .importData:
-                    vm.presentDocumentPicker = true
-                case .deleteData:
-                    vm.deleteData()
-                case .loadDemo:
-                    JSON.loadDemoData()
-                    vm.reloadAndSave()
-                case .none:
-                    break
-                }
-                vm.alertActiontype = .none
-                vm.deleteAlert = false
-            }
-                                                                                                                                     ))
+            settingsAlert()
         }
         .onAppear {
             vm.subjects = Util.getAllSubjects()
         }
     }
     
-    @ViewBuilder
-    func subjectView(_ sub: UserSubject) -> SettingsIcon {
-        SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
-            vm.editSubjectPresented = true
-            vm.selectedSubjet = sub
-        })
+    func settingsAlert() -> Alert {
+        Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
+            switch vm.alertActiontype {
+                
+            case .importData:
+                vm.presentDocumentPicker = true
+            case .deleteData:
+                vm.deleteData()
+            case .loadDemo:
+                JSON.loadDemoData()
+                vm.reloadAndSave()
+            case .none:
+                break
+            }
+            vm.alertActiontype = .none
+            vm.deleteAlert = false
+        }))
     }
     
-    @ViewBuilder
-    func loadingView() -> some View {
-        ZStack {
-            Rectangle()
-                .opacity(0.3)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            ProgressView()
-        }.opacity(vm.isLoading ? 1 : 0)
-            .allowsHitTesting(false)
+    func staticCells() -> some View {
+        Section(header: Text("settingsSection1")) {
+            SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
+                if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
+                    UIApplication.shared.open(url)
+                }
+            })
+            
+            HStack {
+                SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
+                Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
+                    vm.reloadAndSave()
+                }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+            }
+            
+            SettingsIcon(color: Color.blue, icon: "folder.fill", text: "settingsImport") {
+                vm.alertActiontype = .importData
+                vm.deleteAlert = true
+            }
+            
+            SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport") {
+                let data = JSON.exportJSON()
+                let url = JSON.writeJSON(data)
+                showShareSheet(url: url)
+            }
+            
+            SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "settingsWeight") {
+                vm.weightSheetPresented = true
+            }
+            
+            SettingsIcon(color: Color.orange, icon: "exclamationmark.triangle.fill", text: "settingsLoadDemo") {
+                vm.alertActiontype = .loadDemo
+                vm.deleteAlert = true
+            }
+            
+            SettingsIcon(color: Color.red, icon: "trash.fill", text: "settingsDelete") {
+                vm.alertActiontype = .deleteData
+                vm.deleteAlert = true
+            }
+        }
+    }
+    
+    func dynamicCells() -> some View {
+        Section(header: Text("settingsSection2")) {
+            
+            ForEach(vm.subjects) { sub in
+                SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
+                    vm.editSubjectPresented = true
+                    vm.selectedSubjet = sub
+                })
+            }
+            
+            SettingsIcon(color: .green, icon: "plus", text: "newSub") {
+                vm.newSubjectSheetPresented = true
+            }
+        }
     }
 }
 
@@ -141,19 +137,19 @@ struct SettingsIcon: View {
     var completation: () -> Void
     
     var body: some View {
-            HStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8.0)
-                        .fill(color)
-                        .frame(width: 30, height: 30)
-                    Image(systemName: icon)
-                        .foregroundColor(.white)
-                }
-                Text(LocalizedStringKey(text))
+        HStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8.0)
+                    .fill(color)
+                    .frame(width: 30, height: 30)
+                Image(systemName: icon)
+                    .foregroundColor(.white)
             }
-            .frame(height: 30, alignment: .leading)
-            .onTapGesture {
-                completation()
+            Text(LocalizedStringKey(text))
+        }
+        .frame(height: 30, alignment: .leading)
+        .onTapGesture {
+            completation()
         }
     }
 }
