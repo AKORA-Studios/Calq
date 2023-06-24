@@ -52,7 +52,7 @@ struct RoundProgressBar: View {
                     .foregroundColor(.gray)
                 
                 HStack(spacing: 0) {
-                    if barProgressWidth + 10 < geo.size.width {
+                    if barProgressWidth + 10 < geo.size.width && barProgressWidth - 5 > 0 {
                         Spacer().frame(width: barProgressWidth - 5)
                         LinearGradient(colors: [.black.opacity(0.3), .clear], startPoint: .leading, endPoint: .trailing)
                             .clipShape(RoundedRectangle(cornerRadius: 8) )
