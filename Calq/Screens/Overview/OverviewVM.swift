@@ -40,6 +40,10 @@ class OverViewViewModel: ObservableObject {
         averagePercent = Util.generalAverage() / 15
         generalAverage = Util.generalAverage()
         gradeText = grade()
+        
+        if shouldAskForReview() { // show appstore review popup
+            askForReview()
+        }
     }
     
     func grade() -> String {

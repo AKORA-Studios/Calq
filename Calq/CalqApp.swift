@@ -16,6 +16,7 @@ struct Calq: App {
                     .onAppear {
                         UserDefaults.standard.register(defaults: [UD_firstLaunchKey: true])
                         UserDefaults.standard.register(defaults: [UD_lastVersion: "0.0.0"])
+                        UserDefaults.standard.register(defaults: [UD_lastAskedForeReview: "\(Date().timeIntervalSince1970)"])
                     }
         }
     }
