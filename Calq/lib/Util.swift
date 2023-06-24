@@ -8,7 +8,6 @@
 import CoreData
 import SwiftUI
 
-
 public enum ModelKit {
     public static let bundle = Bundle.main
 }
