@@ -19,15 +19,15 @@ struct ImpactSegment: View {
             VStack(spacing: 4) {
                 // Upper sEgemnt
                 HStack(spacing: 0) {
-                    ForEach( 0...14, id: \.self ) {i in
-                        GradeSegment(colors: $colors, values: $values, width: geo.size.width/15, index: i)
+                    ForEach( 0...15, id: \.self ) {i in
+                        GradeSegment(colors: $colors, values: $values, width: geo.size.width/16, index: i)
                     }
                 }.padding(0)
                 
                 // Lower Segment
                 HStack(spacing: 0) {
                     ForEach(values, id: \.self) { value in
-                        Text(value).frame(width: geo.size.width/15, height: 10)
+                        Text(value).frame(width: geo.size.width/16, height: 10)
                     }
                 }.padding(0)
             }.frame(height: 30).onAppear(perform: setData).padding(.vertical, 0)
@@ -73,11 +73,12 @@ struct ImpactSegment: View {
                 let weigth = Double(Double(x.weigth)/100)
                 gradeWeigths += weigth
                 
-                if x.id == 1 {
+                if x.id == gradeType {
                     filtered.append(i)
                 }
                 
                 let avg = Util.average(filtered)
+                print(i, weigth, avg)
                 avgArr.append(Double(avg * weigth))
             }
             
@@ -119,13 +120,13 @@ struct GradeSegment: View {
             if index == 0 {
                 Rectangle().fill((colors[index])).frame(width: width).leftcorner()
             }
-            if index == 14 {
+            if index == 15 {
                 Rectangle().fill((colors[index])).frame(width: width).rightCorner()
             }
-            if index != 0 && index != 14 {
+            if index != 0 && index != 15 {
                 Rectangle().fill((colors[index])).frame(width: width)
             }
-            Text(String(index+1))
+            Text(String(index))
         }
     }
 }
@@ -133,7 +134,7 @@ struct GradeSegment: View {
 // Populate arrays
 func get15colors() -> [Color] {
     var arr: [Color] = []
-    for _ in 1...15 {
+    for _ in 0...15 {
         arr.append(Color.gray)
     }
     return arr
@@ -141,7 +142,7 @@ func get15colors() -> [Color] {
 
 func get15Values() -> [String] {
     var arr: [String] = []
-    for _ in 1...15 {
+    for _ in 0...15 {
         arr.append(" ")
     }
     return arr
