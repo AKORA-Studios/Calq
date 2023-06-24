@@ -7,7 +7,7 @@
 
 import CoreData
 import SwiftUI
-import WidgetKit
+
 
 public enum ModelKit {
     public static let bundle = Bundle.main
@@ -27,7 +27,6 @@ protocol ImplementsCoreDataStack {
 
 func saveCoreData() {
     try! Util.getContext().save()
-    WidgetCenter.shared.reloadAllTimelines()
 }
 
 struct Util {

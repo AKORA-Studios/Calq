@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 class TabVM: ObservableObject {
     @Published var showOverlay = false
@@ -13,6 +14,10 @@ class TabVM: ObservableObject {
     @Published var lastVersion = false
     
     func checkForSheets() {
+        // check if app moves in background
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        
         firstLaunch = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
         lastVersion = Util.checkIfNewVersion()
         showOverlay = firstLaunch || lastVersion
@@ -32,5 +37,9 @@ class TabVM: ObservableObject {
         showOverlay = false
         lastVersion = false
         UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
+    }
+    
+    @objc func appMovedToBackground() {
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
