@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-
-var ticks: [LineChartEntry] = [LineChartEntry(value: 15, date: 1),LineChartEntry(value: 10, date: 2/3),LineChartEntry(value: 5, date: 1/3),LineChartEntry(value: 0, date: 0)]
+var ticks: [LineChartEntry] = [LineChartEntry(value: 15, date: 1),
+                               LineChartEntry(value: 10, date: 2/3),
+                               LineChartEntry(value: 5, date: 1/3),
+                               LineChartEntry(value: 0, date: 0)]
 
 struct LineShape: Shape {
     @State var values: [LineChartEntry]
@@ -31,21 +33,21 @@ struct LineShape: Shape {
 
 struct YAxis: View {
     var body: some View {
-        GeometryReader{geo in
+        GeometryReader {geo in
             let fullHeight = geo.size.height
             
-            ZStack{
-                //y line
+            ZStack {
+                // y line
                 Rectangle()
                     .fill(Color.gray)
                     .frame(width: 1)
                     .offset(x: -15)
-                //ticks
-                ForEach(ticks, id:\.self.value){tick in
-                    HStack(spacing: 2){
+                // ticks
+                ForEach(ticks, id: \.self.value) {tick in
+                    HStack(spacing: 2) {
                         // Spacer()
                         Text(String(Int(tick.value))).font(.footnote).foregroundColor(Color.gray)
-                        Rectangle().fill(Color.gray).frame(width: 5, height: 1)//.frame(height: 1).offset(x: 15)
+                        Rectangle().fill(Color.gray).frame(width: 5, height: 1)// .frame(height: 1).offset(x: 15)
                     }.offset(y: fullHeight/2 - (fullHeight * tick.date)).offset(x: -20)
                 }
             }
@@ -55,17 +57,17 @@ struct YAxis: View {
 
 struct YAxisLines: View {
     var body: some View {
-        GeometryReader{geo in
+        GeometryReader { geo in
             let fullHeight = geo.size.height
             let fullWidth = geo.size.width
             
-            ZStack{
-                //ticks
-                ForEach(ticks, id:\.self.value){tick in
-                    HStack(spacing: 2){
+            ZStack {
+                // ticks
+                ForEach(ticks, id: \.self.value) {tick in
+                    HStack(spacing: 2) {
                         // Spacer()
                         Text(String(Int(tick.value))).font(.footnote)
-                        Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)//.offset(x: 15)
+                        Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)// .offset(x: 15)
                     }.offset(y: fullHeight - (fullHeight * tick.date) - 17).offset(x: -5)
                 }
             }

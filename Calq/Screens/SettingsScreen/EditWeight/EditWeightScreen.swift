@@ -12,9 +12,8 @@ struct ChangeWeightScreen: View {
     @ObservedObject var vm = WeightViewmodel()
     
     var body: some View {
-        VStack{
+        VStack {
 
-            
             HStack {
                 Text("EditWeigthDesc")
                 Image(systemName: "info.circle").onTapGesture {
@@ -32,8 +31,8 @@ struct ChangeWeightScreen: View {
                 Section {
                     ForEach(Util.getTypes()) {type in
                         HStack {
-                            HStack{
-                                if Util.isPrimaryType(type){
+                            HStack {
+                                if Util.isPrimaryType(type) {
                                     Image(systemName: "star.fill")
                                 } else {
                                     Image(systemName: "star")
@@ -81,12 +80,12 @@ struct ChangeWeightScreen: View {
             
         }.padding()
             .navigationTitle("EditWeigthTitle")
-            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-            .alert(isPresented: $vm.isAlertPresented){
+            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
+            .alert(isPresented: $vm.isAlertPresented) {
                 switch vm.alertActiontype {
                 case .deleteGrades:
                     let grade: [UserTest] = Util.getTypeGrades(vm.selectedDelete)
-                    let str = grade.map{$0.name}.joined(separator: ", ")
+                    let str = grade.map {$0.name}.joined(separator: ", ")
                     return Alert(title: Text("EditWeigthWarningTitle"), message: Text("EditWeigthWarning \(str)"))
                 case .wrongPercentage:
                     return  Alert(title: Text("EditWeigthAlertTitle"), message: Text("EditWeigthAlertText"))
@@ -95,15 +94,12 @@ struct ChangeWeightScreen: View {
     }
     
     init() {
-        if #available(iOS 16.0, *) {
-            // use ListBackgroundModifier
-        } else {
+        if  #unavailable(iOS 16.0) {
             UITableView.appearance().backgroundColor = .clear
         }
-        
     }
     
-    func saveChanges(){
+    func saveChanges() {
         if vm.summedUp > 100 {
             vm.isAlertPresented = true
             vm.alertActiontype = .wrongPercentage
@@ -113,11 +109,11 @@ struct ChangeWeightScreen: View {
         dismissSheet()
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
     
-    func removeWeigth(){
+    func removeWeigth() {
         if vm.getGradesType().isEmpty {
             Util.deleteType(type: vm.selectedDelete)
             vm.load()
@@ -127,7 +123,7 @@ struct ChangeWeightScreen: View {
         }
     }
     
-    func addWeigth(){
+    func addWeigth() {
         Util.addType(name: "something", weigth: 0)
         vm.load()
     }

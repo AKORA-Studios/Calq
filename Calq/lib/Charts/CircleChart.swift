@@ -13,23 +13,23 @@ struct CircleChart: View {
     var color: Color = .accentColor
     var textDescription: String = ""
     
-    @Binding var upperText: String //= ""
-    @Binding var lowerText: String //= ""
+    @Binding var upperText: String
+    @Binding var lowerText: String
     
     @State var showText = false
     @State var degrees: Double = 0.0
     
     var body: some View {
         GeometryReader { geo in
-            ZStack{
-                if(showText && !textDescription.isEmpty){
-                    ZStack{
+            ZStack {
+                if showText && !textDescription.isEmpty {
+                    ZStack {
                         Text(LocalizedStringKey(textDescription))
                             .font(.footnote)
                             .multilineTextAlignment(.center)
                     }
                     .frame(width: geo.size.width - 50, height: geo.size.width - 50)
-                }else {
+                } else {
                     Circle()
                         .trim(from: 0.0, to: 1.0)
                         .stroke(Color(.systemGray4), style: StrokeStyle(lineWidth: 16.0, lineCap: .round))
@@ -43,11 +43,11 @@ struct CircleChart: View {
                         .rotationEffect(.degrees(-90))
                         .frame(width: geo.size.width - 50)
                     
-                    VStack{
+                    VStack {
                         Text(LocalizedStringKey(upperText))
                             .fontWeight(.bold)
                             .foregroundColor(color)
-                        if(!lowerText.isEmpty){
+                        if !lowerText.isEmpty {
                             Text(LocalizedStringKey(lowerText))
                                 .foregroundColor(color)
                         }
@@ -55,12 +55,12 @@ struct CircleChart: View {
                 }
             }
             .padding()
-            .onAppear{
+            .onAppear {
                 showText = false
             }
             .onTapGesture {
                 withAnimation {
-                    if(!textDescription.isEmpty){
+                    if !textDescription.isEmpty {
                         showText.toggle()
                     }
                 }

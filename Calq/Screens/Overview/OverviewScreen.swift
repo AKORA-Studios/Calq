@@ -13,30 +13,30 @@ struct OverviewScreen: View {
     var body: some View {
         
         NavigationView {
-            ScrollView(showsIndicators: false){
-                VStack{
+            ScrollView(showsIndicators: false) {
+                VStack {
                     BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
                         .padding()
                         .background(CardView())
                     
-                    VStack(alignment: .leading, spacing: 5){
-                        HStack{
+                    VStack(alignment: .leading, spacing: 5) {
+                        HStack {
                             Text("OverviewTimeChartTitle")
                             Spacer()
-                            Image(systemName: "gearshape").onTapGesture{vm.showGraphEdit.toggle()}
+                            Image(systemName: "gearshape").onTapGesture {vm.showGraphEdit.toggle()}
                                 .disabled(vm.subjects.count == 0)
                                 .foregroundColor(vm.subjects.count == 0 ? .gray : Color(UIColor.label))
                         }
                         
                         LineChart(data: $vm.lineChartEntries)
                         
-                        if(vm.showGraphEdit){
+                        if vm.showGraphEdit {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     
                                     ForEach(vm.subjects) { sub in
                                         let color = sub.showInLineGraph ? getSubjectColor(sub) : .gray
-                                        ZStack{
+                                        ZStack {
                                             Text(sub.name)
                                                 .padding(5)
                                                 .font(.footnote)
@@ -62,22 +62,22 @@ struct OverviewScreen: View {
                     .padding()
                     .background(CardView())
                     
-                    VStack(alignment: .leading, spacing: 5){
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("OverViewHalfyearChartTitle")
                         BarChart(values: $vm.halfyears, heigth: 150)
                     }
                     .padding()
                     .background(CardView())
                     
-                    VStack{
-                        GeometryReader{ geo in
-                            HStack(alignment: .center){
+                    VStack {
+                        GeometryReader { geo in
+                            HStack(alignment: .center) {
                                 Text("OverviewPieChartSubjects").frame(width: geo.size.width/2)
                                 Spacer()
                                 Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
                             }
                         }
-                        HStack(alignment: .center, spacing: 5){
+                        HStack(alignment: .center, spacing: 5) {
                             CircleChart(perrcent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
                             CircleChart(perrcent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
                         }
@@ -87,7 +87,7 @@ struct OverviewScreen: View {
                 }
             }.padding(.horizontal)
                 .navigationTitle("OverViewTitle")
-                .onAppear{
+                .onAppear {
                     vm.updateViews()
                 }
         }

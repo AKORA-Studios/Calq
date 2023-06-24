@@ -8,7 +8,6 @@
 import CoreData
 @testable import Calq
 
-
 class MockDataProvider {
     static func getSubjectWithTests() -> UserSubject {
         let settings: AppSettings = Util.deleteSettings()

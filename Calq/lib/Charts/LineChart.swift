@@ -33,8 +33,8 @@ struct LineChart: View {
             YAxis()
             YAxisLines()
             ZStack {
-                ForEach(values(), id: \.self){v in
-                    if(v.count > 0){LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
+                ForEach(values(), id: \.self) {v in
+                    if v.count > 0 {LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
                 }
             }
         }
@@ -75,7 +75,7 @@ func lineChartData() -> [[LineChartEntry]] {
     for sub in subjects {
         if !sub.showInLineGraph { continue }
         var subArr: [LineChartEntry] = []
-        let tests = Util.filterTests(sub, checkinactive : false)
+        let tests = Util.filterTests(sub, checkinactive: false)
         let color = getSubjectColor(sub, subjects: subjects)
         
         for test in tests {

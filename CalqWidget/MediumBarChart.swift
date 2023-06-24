@@ -18,14 +18,14 @@ struct BarChartWidgetView: View {
                 if subjects.isEmpty {
                     EmptyMediumView()
                 } else {
-                    HStack{
+                    HStack {
                         ForEach(subjects, id: \.self) { subj in
                             let average = Util.getSubjectAverage(subj)
                             let grade =  (average * 100) / 15.0
                             let color = getSubjectColor(subj)
                             
-                            VStack(spacing: 0){
-                                ZStack(alignment: .bottom){
+                            VStack(spacing: 0) {
+                                ZStack(alignment: .bottom) {
                                     Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
                                     Rectangle().frame( height: (fullHeigth * (grade / 100.0))).foregroundColor(color).topCorner()
                                     Text(String(Int(average)))
@@ -47,7 +47,7 @@ struct EmptyMediumView: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack{
+            HStack {
                 Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
                 Text("Du hast noch keine Noten hinzugefügt qwq").multilineTextAlignment(.center)
                 Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)

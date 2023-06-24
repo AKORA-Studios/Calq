@@ -15,10 +15,10 @@ class ExamViewModel: ObservableObject {
     @Published var points2 = generateBlockTwo()
     @Published var maxpoints = generatePossibleBlockOne()
     
-    func updateViews(){
+    func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
-        options = subjects.filter{$0.examtype == 0}
+        options = subjects.filter {$0.examtype == 0}
         
         updateBlocks()
     }
@@ -29,23 +29,23 @@ class ExamViewModel: ObservableObject {
         maxpoints = generatePossibleBlockOne()
     }
     
-    func changeExamSelection(){
-        options = subjects.filter{$0.examtype == 0}
+    func changeExamSelection() {
+        options = subjects.filter {$0.examtype == 0}
         updateViews()
     }
 }
 
-//MARK: Exam Managment
-func getExam(_ type: Int)-> UserSubject? {
+// MARK: Exam Managment
+func getExam(_ type: Int) -> UserSubject? {
     let subjects = Util.getAllSubjects()
-    return subjects.filter{$0.examtype == Int16(type)}.first
+    return subjects.filter {$0.examtype == Int16(type)}.first
 }
 
-func getExamOptions(_ subjects: [UserSubject])-> [UserSubject] {
-    return subjects.filter{$0.examtype == 0}
+func getExamOptions(_ subjects: [UserSubject]) -> [UserSubject] {
+    return subjects.filter {$0.examtype == 0}
 }
 
-func resetExams(){
+func resetExams() {
     let subjects = Util.getAllSubjects()
     subjects.forEach { sub in
         sub.examtype = Int16(0)
@@ -53,33 +53,33 @@ func resetExams(){
     saveCoreData()
 }
 
-func saveExam(_ type: Int, _ subject: UserSubject){
+func saveExam(_ type: Int, _ subject: UserSubject) {
     let subjects = Util.getAllSubjects()
     subjects.forEach { sub in
-        if(sub.examtype == type){ sub.examtype = 0}
+        if sub.examtype == type { sub.examtype = 0 }
     }
     
     subject.examtype = Int16(type)
     saveCoreData()
 }
 
-func setExamPoints(_ points: Int, _ subject: UserSubject){
+func setExamPoints(_ points: Int, _ subject: UserSubject) {
     subject.exampoints = Int16(points)
     saveCoreData()
 }
 
-func removeExam(_ type: Int,  _ subject: UserSubject){
+func removeExam(_ type: Int, _ subject: UserSubject) {
     subject.examtype = Int16(0)
     saveCoreData()
 }
 
-//MARK: Bock Calculations
+// MARK: Bock Calculations
 /// Calc points block I
-func generateBlockOne() -> Int{
+func generateBlockOne() -> Int {
     let subjects = Util.getAllSubjects()
     var sum = 0
     var count = 0
-    if(subjects.count == 0) { return 0 }
+    if subjects.count == 0 { return 0 }
     
     for sub in subjects {
         if sub.subjecttests == nil { continue }
@@ -89,7 +89,7 @@ func generateBlockOne() -> Int{
         let multiplier = sub.lk ? 2 : 1
   
         for e in 1...4 {
-            let tests = SubTests.filter{($0.year == e)}
+            let tests = SubTests.filter {($0.year == e)}
             if tests.count == 0 { continue }
             
             sum += multiplier * Int(round(Util.testAverage(tests)))
@@ -102,8 +102,8 @@ func generateBlockOne() -> Int{
 }
 
 /// Calc points block II
-func generateBlockTwo() -> Int{
-    let subjects = Util.getAllSubjects().filter{$0.examtype != 0}
+func generateBlockTwo() -> Int {
+    let subjects = Util.getAllSubjects().filter {$0.examtype != 0}
     if subjects.count == 0 { return 0 }
     var sum: Double = 0
     
@@ -114,7 +114,7 @@ func generateBlockTwo() -> Int{
     return Int(sum)
 }
 /// Calc Maxpoints block I
-func generatePossibleBlockOne() -> Int{
+func generatePossibleBlockOne() -> Int {
     let subjects = Util.getAllSubjects()
     var sum = 0
     var count = 0
@@ -126,10 +126,10 @@ func generatePossibleBlockOne() -> Int{
         let SubTests = sub.subjecttests!.allObjects as! [UserTest]
         
         for e in 1...4 {
-            let tests = SubTests.filter{($0.year == e)}
+            let tests = SubTests.filter {($0.year == e)}
             if tests.count == 0 { continue }
             
-            if(sub.lk){
+            if sub.lk {
                 sum += 2 * 15
                 count += 2
             } else {

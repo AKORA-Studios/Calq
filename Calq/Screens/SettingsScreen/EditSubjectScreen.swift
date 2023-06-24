@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum editAlertType {
+enum EditAlertType {
     case delete
     case nameInvalid
 }
@@ -22,19 +22,19 @@ struct EditSubjectScreen: View {
     @State var selectedColor: Color = .accentColor
     
     @State var deleteAlert = false
-    @State var alertType: editAlertType = .nameInvalid
+    @State var alertType: EditAlertType = .nameInvalid
     
-    var body: some View{
-        if(subject != nil) {
+    var body: some View {
+        if subject != nil {
             let color = getSubjectColor(subject!)
-            VStack{
-                ZStack{
-                    VStack(alignment: .leading){
+            VStack {
+                ZStack {
+                    VStack(alignment: .leading) {
                         Text("subjectName")
                         TextField("name", text: $subjectName)
                             .textFieldStyle(.roundedBorder)
                             .onChange(of: subjectName) { _ in
-                            if(Util.isStringInputInvalid(subjectName)){
+                            if Util.isStringInputInvalid(subjectName) {
                                 alertType = .nameInvalid
                                 subjectName = subject!.name
                                 deleteAlert = true
@@ -46,34 +46,33 @@ struct EditSubjectScreen: View {
                     }.padding()
                 }.background(CardView())
                 
-                ZStack{
-                    VStack(alignment: .leading){
+                ZStack {
+                    VStack(alignment: .leading) {
                         Text("subjectType")
                         Picker("subjectType", selection: $lkSubject) {
                             Text("typeGK").tag(0)
                             Text("typeLK").tag(1)
                         }.pickerStyle(.segmented)
                             .colorMultiply(color)
-                            .onChange(of: lkSubject) { newValue in
+                            .onChange(of: lkSubject) { _ in
                                 subject!.lk = lkSubject == 1 ? true : false
                                 saveCoreData()
                             }
                     }.padding()
                 }.background(CardView())
                 
-                ZStack{
-                        HStack{
+                ZStack {
+                        HStack {
                             Image(systemName: "paintpalette")
                             Text("editSubColor")
                             
-                            ColorPicker("", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { newValue in
+                            ColorPicker("", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { _ in
                                 subject!.color = UIColor(selectedColor).toHexString()
                                 saveCoreData()
                             }
                         }
                     .padding()
                 }.background(CardView())
-                
                 
             infoTexts()
                 
@@ -91,7 +90,7 @@ struct EditSubjectScreen: View {
                 switch alertType {
                     
                 case .delete:
-                    return Alert(title: Text("ToastTitle"), message: Text("ToastDesc"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"),action: {
+                    return Alert(title: Text("ToastTitle"), message: Text("ToastDesc"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
                         editSubjectPresented = false
                         Util.deleteSubject(subject!)
                         subject = nil
@@ -102,8 +101,8 @@ struct EditSubjectScreen: View {
             }
             .padding()
             .navigationTitle("editSubject")
-            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-            .onAppear{
+            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
+            .onAppear {
                 subjectName = subject!.name
                 lkSubject = subject!.lk ? 1 : 0
                 selectedColor = Color(hexString: subject!.color)
@@ -116,12 +115,12 @@ struct EditSubjectScreen: View {
         ZStack {
          //   CardView().frame(height:  30)
             VStack {
-                HStack{
+                HStack {
                     Image(systemName: "info.circle")
                     Text("editSubGradeCount\(subject!.subjecttests?.count ?? 0)")
                 }
-                if Util.isExamSubject(subject!){
-                    HStack{
+                if Util.isExamSubject(subject!) {
+                    HStack {
                         Image(systemName: "info.circle")
                         Text("editSubInfoIsExam")
                     }
@@ -131,7 +130,7 @@ struct EditSubjectScreen: View {
         }.padding(.bottom, 40)
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
             saveCoreData()
             self.presentationMode.wrappedValue.dismiss()
     }

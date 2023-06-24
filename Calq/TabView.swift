@@ -14,8 +14,8 @@ struct TabbarView: View {
         ZStack {
             EmptyView()
                 
-            if(vm.showOverlay){
-                if(vm.firstLaunch){
+            if vm.showOverlay {
+                if vm.firstLaunch {
                     FirstLaunchScreen()
                         .environmentObject(vm)
                 } else {
@@ -30,33 +30,33 @@ struct TabbarView: View {
     }
     
     @ViewBuilder
-    func tabview() -> some View{
+    func tabview() -> some View {
         TabView {
             OverviewScreen(vm: OverViewViewModel())
-                .tabItem{Image(systemName: "chart.bar.fill")}
+                .tabItem {Image(systemName: "chart.bar.fill")}
             
             SubjectListScreen()
-                .tabItem{Image(systemName: "books.vertical.fill")}
+                .tabItem {Image(systemName: "books.vertical.fill")}
             
             NewGradeScreen()
-                .tabItem{Image(systemName: "plus.app.fill")}
+                .tabItem {Image(systemName: "plus.app.fill")}
             
             ExamScreen(vm: ExamViewModel())
-                .tabItem{ Image(systemName: "text.book.closed.fill")}
+                .tabItem { Image(systemName: "text.book.closed.fill")}
             
             SettingsScreen(vm: SettingsViewModel())
-                .tabItem{Image(systemName: "gearshape.fill")}
+                .tabItem {Image(systemName: "gearshape.fill")}
         }
     }
     
 }
 
-class TabVM: ObservableObject { //TODO test this qwq
-    @Published var showOverlay = false;
+class TabVM: ObservableObject {
+    @Published var showOverlay = false
     @Published var firstLaunch = false
     @Published var lastVersion = false
     
-    func checkForSheets(){
+    func checkForSheets() {
         firstLaunch = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
         lastVersion = Util.checkIfNewVersion()
         showOverlay = firstLaunch || lastVersion
@@ -66,14 +66,13 @@ class TabVM: ObservableObject { //TODO test this qwq
         }
     }
     
-    func showedFirstlaunch(){
+    func showedFirstlaunch() {
         showOverlay = false
         firstLaunch = false
         UserDefaults.standard.set(true, forKey: UD_firstLaunchKey)
     }
     
-    
-    func showedNewVersion(){
+    func showedNewVersion() {
         showOverlay = false
         lastVersion = false
         UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)

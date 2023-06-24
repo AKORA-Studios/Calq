@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ListBackgroundModifier: ViewModifier {
 
     @ViewBuilder

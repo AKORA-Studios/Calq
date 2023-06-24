@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//Round left and right side
+// Round left and right side
 struct RoundedCorner: Shape {
     var corners: UIRectCorner = .allCorners
     

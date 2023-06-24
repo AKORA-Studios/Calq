@@ -23,8 +23,8 @@ struct ExamScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                 
-                VStack{
-                    ForEach(1...5, id: \.self){ i in
+                VStack {
+                    ForEach(1...5, id: \.self) { i in
                         ExamView(subject: getExam(i), type: i)
                             .environmentObject(vm)
                     }
@@ -32,16 +32,15 @@ struct ExamScreen: View {
                 
                 Spacer()
                 
-            }.onAppear{
+            }.onAppear {
                 vm.updateViews()
-                //resetExams() //if broken to debug ig
+                // resetExams() //if broken to debug ig
             }
             .padding()
             .navigationTitle("ExamViewTitle")
         }
     }
 }
-
 
 struct ExamView: View {
     @EnvironmentObject var vm: ExamViewModel
@@ -61,12 +60,12 @@ struct ExamView: View {
     }
     
     var body: some View {
-        VStack{
-            ZStack{
+        VStack {
+            ZStack {
                 Menu {
                     if !vm.options.isEmpty {
                         Section {
-                            ForEach(vm.options){sub in
+                            ForEach(vm.options) {sub in
                                 Button(sub.name) {
                                     subject = sub
                                     saveExam(type, sub)
@@ -102,7 +101,7 @@ struct ExamView: View {
             }
             HStack {
                 Text(String(Int(sliderValue.rounded())))
-                Slider(value: $sliderValue, in: 0...15, onEditingChanged: { data in
+                Slider(value: $sliderValue, in: 0...15, onEditingChanged: { _ in
                     sliderValue = sliderValue.rounded()
                     subject?.exampoints = Int16(sliderValue)
                     vm.updateBlocks()
@@ -113,7 +112,7 @@ struct ExamView: View {
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .onAppear{
+        .onAppear {
             subject = getExam(type)
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
         }

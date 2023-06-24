@@ -10,23 +10,23 @@ import SwiftUI
 struct GradeListScreen: View {
     @Environment(\.presentationMode) var presentationMode
     var subject: UserSubject
-    @State var years: [[UserTest]] = [[],[],[],[]]
+    @State var years: [[UserTest]] = [[], [], [], []]
     @State var Alltests: [UserTest] = []
     @State var deleteAlert = false
     
     var body: some View {
-        List{
-            if(!Alltests.isEmpty){
-                Section{
+        List {
+            if !Alltests.isEmpty {
+                Section {
                     SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
                         deleteAlert = true
                     })
                 }
                 
-                ForEach(0...3, id:\.self){i in
-                    Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")){
+                ForEach(0...3, id: \.self) {i in
+                    Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
                         let tests =  years[i]
-                        ForEach(tests){test in
+                        ForEach(tests) {test in
                             let color = getSubjectColor(subject)
                             
                             NavigationLink {
@@ -42,17 +42,17 @@ struct GradeListScreen: View {
             }
             
         }.navigationTitle("subjectGradeList")
-            .toolbar{Image(systemName: "xmark").onTapGesture{dismissSheet()}}
-            .onAppear{
+            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
+            .onAppear {
                 Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
                 
-                years[0] = Alltests.filter{$0.year == 1};
-                years[1] = Alltests.filter{$0.year == 2};
-                years[2] = Alltests.filter{$0.year == 3};
-                years[3] = Alltests.filter{$0.year == 4};
+                years[0] = Alltests.filter {$0.year == 1}
+                years[1] = Alltests.filter {$0.year == 2}
+                years[2] = Alltests.filter {$0.year == 3}
+                years[3] = Alltests.filter {$0.year == 4}
             }
             .alert(isPresented: $deleteAlert) {
-                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrades"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"),action: {
+                Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrades"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
                     subject.subjecttests = []
                     saveCoreData()
                     dismissSheet()
@@ -60,13 +60,13 @@ struct GradeListScreen: View {
             }
     }
     
-    func dismissSheet(){
+    func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
     }
     
     func gradeIcon(test: UserTest, color: Color) -> some View {
-        HStack{
-            ZStack{
+        HStack {
+            ZStack {
                 RoundedRectangle(cornerRadius: 8.0).fill(Util.isPrimaryType(test.type) ? color : Color.clear).frame(width: 30, height: 30)
                 Text(String(test.grade))
             }
@@ -76,7 +76,7 @@ struct GradeListScreen: View {
         }
     }
     
-    func formatDate(date: Date)-> String{
+    func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter.string(from: date)

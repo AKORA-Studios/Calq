@@ -37,7 +37,7 @@ class TestCoreDataStack: ImplementsCoreDataStack {
         storeDescription.shouldAddStoreAsynchronously = false
         container.persistentStoreDescriptions = [storeDescription]
         
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -46,7 +46,7 @@ class TestCoreDataStack: ImplementsCoreDataStack {
     }()
 }
 
-//move to nnormal coredata stack to remove warnings hm
+// move to nnormal coredata stack to remove warnings hm
 public extension NSManagedObject {
     convenience init(context: NSManagedObjectContext) {
         let name = String(describing: type(of: self))

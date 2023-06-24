@@ -8,10 +8,9 @@
 import Foundation
 import CoreData
 
-
 extension JSON {
-    ///Loads the demo data from grades.json
-    static func loadDemoData(){
+    /// Loads the demo data from grades.json
+    static func loadDemoData() {
         let settings: AppSettings = Util.deleteSettings()
         settings.colorfulCharts = true
         
@@ -40,45 +39,44 @@ extension JSON {
         saveCoreData()
     }
     
-    //MARK: Import JSON
+    // MARK: Import JSON
     static func importJSONfromDevice(_ URL: URL) throws {
         var json: Data
-        var jsonDict: [String:Any] = [:]
+        var jsonDict: [String: Any] = [:]
         var version = 0
         
         do {
             json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
         } catch {
-            throw loadErrors.failedToloadData
+            throw LoadErrors.failedToloadData
         }
         
         do {
-            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String : Any]
+            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String: Any]
         } catch {
-            try consctructV0(json,jsonDict)
+            try consctructV0(json, jsonDict)
           //  throw loadErrors.failedToLoadDictionary
         }
     
-        if (jsonDict["formatVersion"] != nil) {
+        if jsonDict["formatVersion"] != nil {
             version = jsonDict["formatVersion"] as? Int ?? 0
         }
        
         if version >= 1 {
-            try consctructV1(json,jsonDict)
+            try consctructV1(json, jsonDict)
         } else {
-            try consctructV0(json,jsonDict)
+            try consctructV0(json, jsonDict)
         }
     }
     
-    
-    static func consctructV1(_ json: Data, _ jsonDict: [String:Any]) throws {
+    static func consctructV1(_ json: Data, _ jsonDict: [String: Any]) throws {
         let decoder = JSONDecoder()
         var data: AppStructV1
         do {
             let importedSettings = try decoder.decode(AppStructV1.self, from: json)
             data = importedSettings
         } catch {
-            throw loadErrors.parseJSON
+            throw LoadErrors.parseJSON
         }
         
         let set = Util.getSettings()
@@ -87,11 +85,11 @@ extension JSON {
         }
         set.colorfulCharts = data.colorfulCharts
         
-        //add types
-        var typecheck = 0 //should stay below 100
+        // add types
+        var typecheck = 0 // should stay below 100
         var typeIds: [Int] = []
         for type in data.gradeTypes {
-            if typeIds.contains(type.id){ continue } //ids should only occur once
+            if typeIds.contains(type.id) { continue } // ids should only occur once
             
             let NewType = GradeType(context: Util.getContext())
             NewType.name = type.name
@@ -107,7 +105,7 @@ extension JSON {
             typecheck += type.weigth
         }
         
-        //check if two types there, if not  add default ones
+        // check if two types there, if not  add default ones
         saveCoreData()
         let setTypes = Util.getTypes()
         typeIds = setTypes.map {Int($0.id)}
@@ -119,7 +117,7 @@ extension JSON {
             sub.lk = subject.lk
             sub.inactiveYears = subject.inactiveYears
             
-            //check for exams
+            // check for exams
             for index in 1...5 {
                 if let code = jsonDict["exam\(index)\(sub.name)"] as? Int {
                     sub.examtype = Int16(index)
@@ -127,7 +125,7 @@ extension JSON {
                 }
             }
             
-            //add tests
+            // add tests
             for newTest in subject.subjecttests {
                 let test = UserTest(context: Util.getContext())
                 test.name = newTest.name
@@ -150,7 +148,7 @@ extension JSON {
         saveCoreData()
     }
     
-    static func consctructV0(_ json: Data, _ jsonDict: [String:Any]) throws{
+    static func consctructV0(_ json: Data, _ jsonDict: [String: Any]) throws {
         let decoder = JSONDecoder()
         var data: AppStruct
         
@@ -158,13 +156,13 @@ extension JSON {
             let importedSettings = try decoder.decode(AppStruct.self, from: json)
             data = importedSettings
         } catch {
-            throw loadErrors.parseJSON
+            throw LoadErrors.parseJSON
         }
         
         let set = Util.getSettings()
         set.colorfulCharts = data.colorfulCharts
         
-        //add default types lol
+        // add default types lol
         saveCoreData()
         _ = Util.getTypes()
         
@@ -175,7 +173,7 @@ extension JSON {
             sub.lk = subject.lk
             sub.inactiveYears = subject.inactiveYears
             
-            //check for exams
+            // check for exams
             for index in 1...5 {
                 if let code = jsonDict["exam\(index)\(sub.name)"] as? Int {
                     sub.examtype = Int16(index)
@@ -183,7 +181,7 @@ extension JSON {
                 }
             }
             
-            //add tests
+            // add tests
             for newTest in subject.subjecttests {
                 let test = UserTest(context: Util.getContext())
                 test.name = newTest.name

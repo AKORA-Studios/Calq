@@ -7,10 +7,9 @@
 
 import Foundation
 
-
 extension JSON {
-    ///Export userdata as json
-    static func exportJSON()-> String{
+    /// Export userdata as json
+    static func exportJSON() -> String {
         let data = Util.getSettings()
         var string = "{\"formatVersion\": 1, \"colorfulCharts\": \(data.colorfulCharts), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
         
@@ -20,11 +19,11 @@ extension JSON {
         for sub in subjects {
             string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"subjecttests\": ["
             
-            if(sub.subjecttests == nil){ continue }
+            if sub.subjecttests == nil { continue }
             let tests = sub.subjecttests!.allObjects as! [UserTest]
             var testCount: Int = 0
             
-            for test in tests{
+            for test in tests {
                 testCount += 1
                 string += "{\"name\": \"\(test.name)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \"\(test.date.timeIntervalSince1970)\", \"type\": \(test.type)} \(tests.count == testCount ? "": ",")"
             }
@@ -35,7 +34,6 @@ extension JSON {
         string += "]}"
         return string
     }
-    
     
     static func getExamJSONData() -> String {
         var str = ""

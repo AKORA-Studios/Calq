@@ -14,7 +14,7 @@ final class CalqTests: XCTestCase {
         Util.setContext(TestCoreDataStack.sharedContext)
     }
     
-    func getExampleSub() -> UserSubject { //load demoData before!
+    func getExampleSub() -> UserSubject { // load demoData before!
         return Util.getAllSubjects().first(where: {$0.name == "Kunst"})!
     }
     
@@ -25,16 +25,16 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual( Util.isStringInputInvalid(""), true)
     }
     
-    func testAverage()  {
-        let average = Util.average([1,2,3])
+    func testAverage() {
+        let average = Util.average([1, 2, 3])
         XCTAssertEqual(average, 2.0)
     }
     
-    func testGradeString(){
+    func testGradeString() {
         XCTAssertEqual(Util.grade(number: 11), 2.0)
     }
     
-    func testGradeStringNegative(){
+    func testGradeStringNegative() {
         XCTAssertEqual(Util.grade(number: -11), 2.0)
     }
     
@@ -42,7 +42,7 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(Util.checkinactiveYears(["1", "2"], 1), false)
     }
     
-    func testSetPrimaryType(){
+    func testSetPrimaryType() {
         Util.setPrimaryType(1)
         XCTAssertEqual(  UserDefaults.standard.integer(forKey: UD_primaryType), 1)
     }
@@ -57,7 +57,7 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(types, 2)
     }
     
-    //MARK: JSON Funcs
+    // MARK: JSON Funcs
     func testLoadDemoData() {
         JSON.loadDemoData()
         let count = Util.getAllSubjects().count
@@ -66,7 +66,7 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(count, 12)
     }
     
-    func testExport(){
+    func testExport() {
         let data = "idk"
         let url =  JSON.writeJSON(data)
         
@@ -78,7 +78,7 @@ final class CalqTests: XCTestCase {
         }
     }
     
-    func testImportV0(){
+    func testImportV0() {
         Util.deleteSettings()
         
         let testBundle = Bundle(for: type(of: self))
@@ -90,7 +90,7 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
-    func testImportV1(){
+    func testImportV1() {
         Util.deleteSettings()
         
         let testBundle = Bundle(for: type(of: self))
@@ -102,68 +102,68 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
-    func testAverageString(){
+    func testAverageString() {
         let average = Util.averageString(MockDataProvider.getSubjectWithTests())
         XCTAssertEqual(average, "-- 11 -- -- ")
     }
     
     // MARK: Inactive Year funcs
-    func testDeactivateHalfyear(){
+    func testDeactivateHalfyear() {
         JSON.loadDemoData()
         
         let before = Util.getinactiveYears(getExampleSub())
         XCTAssertEqual(before.count, 0)
         
-        let e = Util.addYear(getExampleSub(), 3)
-        let after = Util.getinactiveYears(e)
+        let subject = Util.addYear(getExampleSub(), 3)
+        let after = Util.getinactiveYears(subject)
         
         XCTAssertEqual(after.count, 1)
     }
     
-    func testAddInactiveHalfyearTwice(){
+    func testAddInactiveHalfyearTwice() {
         JSON.loadDemoData()
         
         Util.addYear(getExampleSub(), 3)
-        let FirstResult = Util.getinactiveYears(getExampleSub())
-        XCTAssertEqual(FirstResult.count, 1)
+        let firstResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(firstResult.count, 1)
         
         Util.addYear(getExampleSub(), 3)
         
-        let SecondResult = Util.getinactiveYears(getExampleSub())
-        XCTAssertEqual(SecondResult.count, 1)
+        let secondResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(secondResult.count, 1)
     }
     
-    func testRemoveNotAddedInactiveHalfyear(){
+    func testRemoveNotAddedInactiveHalfyear() {
         JSON.loadDemoData()
         
         Util.addYear(getExampleSub(), 3)
-        let FirstResult = Util.getinactiveYears(getExampleSub())
-        XCTAssertEqual(FirstResult.count, 1)
+        let firstResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(firstResult.count, 1)
 
         Util.removeYear(getExampleSub(), 4)
         
-        let SecondResult = Util.getinactiveYears(getExampleSub())
-        XCTAssertEqual(SecondResult.count, 1)
+        let secondResult = Util.getinactiveYears(getExampleSub())
+        XCTAssertEqual(secondResult.count, 1)
     }
     
-    func testLastActiveYear(){
+    func testLastActiveYear() {
         JSON.loadDemoData()
         let lastYear =  Util.lastActiveYear(getExampleSub())
         XCTAssertEqual(lastYear, 4)
     }
     
     // MARK: GradeTypes
-    func testGetDefaultTypes(){
+    func testGetDefaultTypes() {
         let types = Util.getTypes()
         XCTAssertEqual(types.count, 2)
         XCTAssertEqual(types.filter {$0.name == "Test" || $0.name == "Klausur"}.count, 2)
     }
     
-    func testEditTypes(){
-        //add type
+    func testEditTypes() {
+        // add type
         Util.addType(name: "someName", weigth: 0)
         let type = Util.getTypes().filter {$0.name == "someName"}[0]
-        //remove random type
+        // remove random type
         Util.deleteType(type: type.id)
         XCTAssertTrue(Util.getTypes().filter {$0.name == "someName"}.isEmpty)
     }

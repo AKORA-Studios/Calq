@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubjectlistData: Hashable{
+struct SubjectlistData: Hashable {
     var subject: UserSubject
     var yearString: [String]
     var colors: [Color]
@@ -20,15 +20,15 @@ struct SubjectListScreen: View {
     @State var isSubjectDetailPResented = false
     
     var body: some View {
-        NavigationView{
-            List{
-                Section{
-                    ForEach(vm.data, id: \.self){entry in
-                        HStack{
+        NavigationView {
+            List {
+                Section {
+                    ForEach(vm.data, id: \.self) {entry in
+                        HStack {
                             let color = getSubjectColor(entry.subject)
                             let average = Util.testAverage(Util.filterTests(entry.subject))
                             
-                            ZStack{
+                            ZStack {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(color)
                                     .frame(width: 30, height: 30)
@@ -38,7 +38,7 @@ struct SubjectListScreen: View {
                             
                             Spacer()
                             
-                            HStack{
+                            HStack {
                                 ForEach(0...3, id: \.self) { i in
                                     Text(entry.yearString[i])
                                         .foregroundColor(entry.colors[i])
@@ -53,9 +53,9 @@ struct SubjectListScreen: View {
                     }
                 }
                 
-                Section{
-                    HStack{
-                        ZStack{
+                Section {
+                    HStack {
+                        ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color.accentColor)
                                 .frame(width: 30, height: 30)
@@ -73,16 +73,16 @@ struct SubjectListScreen: View {
                     }
                 }
                 .sheet(isPresented: $isSubjectDetailPResented) {
-                    NavigationView{
+                    NavigationView {
                         SubjectDetailScreen(subject: $vm.selectedSubejct).onDisappear(perform: vm.updateViews)
                     }
                 }
                 .sheet(isPresented: $gradeTablePresented) {
-                    NavigationView{
+                    NavigationView {
                         GradeTableOverviewScreen(subjects: vm.subjects)
                     }
                 }
-                .onAppear{
+                .onAppear {
                     vm.updateViews()
                 }
         }
