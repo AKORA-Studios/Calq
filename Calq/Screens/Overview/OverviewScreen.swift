@@ -15,9 +15,9 @@ struct OverviewScreen: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
-                        .padding()
-                        .background(CardView())
+                    CardContainer {
+                        BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
+                    }
                     
                     VStack(alignment: .leading, spacing: 5) {
                         HStack {

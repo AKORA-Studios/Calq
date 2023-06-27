@@ -15,10 +15,25 @@ struct CardView: View {
 
 struct CardViewPreview: PreviewProvider {
     static var previews: some View {
-        
-        Rectangle().frame(width: 100, height: 100)
-            .foregroundColor(.clear)
-            .background(CardView())
-            .previewLayout(.fixed(width: 200, height: 200))
+  
+        CardContainer {
+            Text("h")
+        }
+        .previewLayout(.fixed(width: 200, height: 200))
+    }
+}
+
+struct CardContainer<Content: View>: View {
+    let content: Content
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    
+    var body: some View {
+        ZStack {
+            content
+                .padding(15)
+        }.background(CardView())
     }
 }
