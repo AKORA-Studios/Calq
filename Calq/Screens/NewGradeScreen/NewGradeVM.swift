@@ -31,6 +31,7 @@ class NewGradeVM: ObservableObject {
         
         year = Util.lastActiveYear(selectedSubject!)
         points = Float(Util.getSubjectAverage(selectedSubject!))
+        gradeName = ""
     }
     
     func saveGrade() {

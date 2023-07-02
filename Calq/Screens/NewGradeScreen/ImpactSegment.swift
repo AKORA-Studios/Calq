@@ -78,7 +78,6 @@ struct ImpactSegment: View {
                 }
                 
                 let avg = Util.average(filtered)
-                print(i, weigth, avg)
                 avgArr.append(Double(avg * weigth))
             }
             
