@@ -75,7 +75,7 @@ struct SubjectDetailScreen: View {
                     // average chart
                     VStack(alignment: .leading, spacing: 5) {
                         Text("subjectDetailAverageHalfyear").padding()
-                        CircleChart(perrcent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 120)
+                        CircleChart(percent: $yearAverage, color: color, upperText: $yearAverageText, lowerText: Binding.constant("")).frame(height: 120)
                     }.background(CardView())
                         .padding()
                     
