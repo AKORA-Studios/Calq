@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BarChart: View {
-    @Environment(\.colorScheme) var colorScheme
     @Binding var values: [BarChartEntry]
     @State var heigth: CGFloat = 300
     @State var average: Double = 0.0
@@ -29,7 +28,7 @@ struct BarChart: View {
                                 
                                 Rectangle().frame(height: barHeigth).foregroundColor(val.color).topCorner()
                                 
-                                LinearGradient(colors: [.clear, (colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.3))], startPoint: .top, endPoint: .bottom)
+                                LinearGradient(colors: [.clear, Color(.systemGray4).opacity(0.6)], startPoint: .top, endPoint: .bottom)
                                     .clipShape(Rectangle())
                                     .frame(height: 35)
                                 
