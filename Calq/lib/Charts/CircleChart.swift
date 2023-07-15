@@ -46,7 +46,7 @@ struct CircleChart: View {
                         
                         Circle() // shadow
                             .trim(from: CGFloat(abs((min(percent, 1.0))-0.001)), to: CGFloat(abs((min(percent, 1.0))-0.0005)))
-                            .stroke(Color.red, style: StrokeStyle(lineWidth: 16, lineCap: .round))
+                            .stroke(color, style: StrokeStyle(lineWidth: 16, lineCap: .round))
                             .rotationEffect(Angle(degrees: -90))
                             .shadow(color: .black, radius: 15, x: 0, y: 0)
                             .clipShape(

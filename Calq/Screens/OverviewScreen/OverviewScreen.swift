@@ -19,38 +19,44 @@ struct OverviewScreen: View {
                         BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
                     }
                     
-                    LineChartView()
-                    .padding()
-                    .background(CardView())
-                    
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("OverViewHalfyearChartTitle")
-                        BarChart(values: $vm.halfyears, heigth: 150)
+                    CardContainer {
+                        LineChartView()
                     }
-                    .padding()
-                    .background(CardView())
                     
-                    VStack {
-                        GeometryReader { geo in
-                            HStack(alignment: .center) {
-                                Text("OverviewPieChartSubjects").frame(width: geo.size.width/2)
-                                Spacer()
-                                Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
-                            }
-                        }
-                        HStack(alignment: .center, spacing: 5) {
-                            CircleChart(percent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
-                            CircleChart(percent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                    CardContainer {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("OverViewHalfyearChartTitle")
+                            BarChart(values: $vm.halfyears, heigth: 150)
                         }
                     }
-                    .padding()
-                    .background(CardView())
+                    
+                    CardContainer {
+                        CircleViews()
+                    }
+                    
                 }
             }.padding(.horizontal)
                 .navigationTitle("OverViewTitle")
                 .onAppear {
                     vm.updateViews()
                 }
+        }
+    }
+    
+    // MARK: Subviews
+    func CircleViews() -> some View {
+        VStack {
+            GeometryReader { geo in
+                HStack(alignment: .center) {
+                    Text("OverviewPieChartSubjects").frame(width: geo.size.width/2)
+                    Spacer()
+                    Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
+                }
+            }
+            HStack(alignment: .center, spacing: 5) {
+                CircleChart(percent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
+                CircleChart(percent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+            }
         }
     }
     
@@ -67,31 +73,34 @@ struct OverviewScreen: View {
             LineChart(data: $vm.lineChartEntries)
             
             if vm.showGraphEdit {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        
-                        ForEach(vm.subjects) { sub in
-                            let color = sub.showInLineGraph ? getSubjectColor(sub) : .gray
-                            ZStack {
-                                Text(sub.name)
-                                    .padding(5)
-                                    .font(.footnote)
+                GraphEditOptions()
+            }
+        }
+    }
+    
+    func GraphEditOptions() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(vm.subjects) { sub in
+                    let color = sub.showInLineGraph ? getSubjectColor(sub) : .gray
+                    ZStack {
+                        Text(sub.name)
+                            .padding(5)
+                            .font(.footnote)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(color, lineWidth: 3)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .stroke(color, lineWidth: 3)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .fill(color.opacity(0.4))
-                                            )
+                                            .fill(color.opacity(0.4))
                                     )
-                                    .onTapGesture {
-                                        sub.showInLineGraph.toggle()
-                                        saveCoreData()
-                                        vm.updateViews()
-                                    }
-                            }.padding(3)
-                        }
-                    }
+                            )
+                            .onTapGesture {
+                                sub.showInLineGraph.toggle()
+                                saveCoreData()
+                                vm.updateViews()
+                            }
+                    }.padding(3)
                 }
             }
         }

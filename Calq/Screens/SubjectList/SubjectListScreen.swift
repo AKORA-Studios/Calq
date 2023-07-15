@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SubjectListScreen: View {
     @ObservedObject var vm =  SubjectListVM()
 
