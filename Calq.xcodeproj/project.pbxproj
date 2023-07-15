@@ -45,6 +45,7 @@
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
+		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
 		F1A7102D2A43757D00255F10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102C2A43757D00255F10 /* CardView.swift */; };
 		F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A710322A437F8300255F10 /* exampleData_v1.json */; };
@@ -173,6 +174,7 @@
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
+		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
 		F1A7102C2A43757D00255F10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1A710322A437F8300255F10 /* exampleData_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v1.json; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			children = (
 				F19F8E4429F18E03006142B4 /* Localizable.strings */,
 				F17F443C298C4DA7000A3993 /* CalqApp.swift */,
+				F1A59A3D2A6347880039C95E /* ToastView.swift */,
 				F17F4440298C4DD2000A3993 /* Screens */,
 				DD37556D279F3D90005DCB83 /* CalqRelease.entitlements */,
 				DD4F97B427524F7000D3CC57 /* CalqDebug.entitlements */,
@@ -668,6 +671,7 @@
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				F1A772412A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,
 				F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */,
+				F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */,
 				F10D66B4298D66C200993237 /* ExamVM.swift in Sources */,
 				F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */,
 				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,
