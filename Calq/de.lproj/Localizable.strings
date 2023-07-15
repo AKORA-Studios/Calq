@@ -24,7 +24,6 @@
 "ToastDesc"="Alle Kursdaten werden gelöscht";
 "ToastNoSubjects"="Oh no keine Fächer vorhanden :c";
 "ToastDeleteGrades"="Alle Noten dieses Fachs werden gelöscht";
-"noGrades"="oh no keine noten da :c";
 "ToastDeleteGrade"="Möchtest du diese Note wirklich löschen?";
 
 "EmptyBarChart"="Keine Daten vorhanden :c";

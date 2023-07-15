@@ -76,9 +76,11 @@ struct EditSubjectScreen: View {
                 infoTexts()
                 
                 VStack {
-                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("editSubGrades").foregroundColor(.white)
-                    }.buttonStyle(PrimaryStyle())
+                    if (subject?.subjecttests!.allObjects as! [UserTest]).count > 0 {
+                        NavigationLink(destination: GradeListScreen(subject: subject!)) {
+                            Text("editSubGrades").foregroundColor(.white)
+                        }.buttonStyle(PrimaryStyle())
+                    }
                     
                     Button("editSubDelete") {
                         alertType = .delete

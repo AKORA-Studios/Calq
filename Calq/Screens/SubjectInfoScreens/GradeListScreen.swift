@@ -16,29 +16,25 @@ struct GradeListScreen: View {
     
     var body: some View {
         List {
-            if !Alltests.isEmpty {
-                Section {
-                    SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
-                        deleteAlert = true
-                    })
-                }
-                
-                ForEach(0...3, id: \.self) {i in
-                    Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
-                        let tests =  years[i]
-                        ForEach(tests) {test in
-                            let color = getSubjectColor(subject)
-                            
-                            NavigationLink {
-                                EditGradeScreen(test: test, color: color)
-                            } label: {
-                                gradeIcon(test: test, color: color)
-                            }
+            Section {
+                SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
+                    deleteAlert = true
+                })
+            }
+            
+            ForEach(0...3, id: \.self) {i in
+                Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
+                    let tests =  years[i]
+                    ForEach(tests) {test in
+                        let color = getSubjectColor(subject)
+                        
+                        NavigationLink {
+                            EditGradeScreen(test: test, color: color)
+                        } label: {
+                            gradeIcon(test: test, color: color)
                         }
                     }
                 }
-            } else {
-                Text("noGrades")
             }
             
         }.navigationTitle("subjectGradeList")

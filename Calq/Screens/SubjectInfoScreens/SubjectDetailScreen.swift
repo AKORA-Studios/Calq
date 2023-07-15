@@ -79,10 +79,13 @@ struct SubjectDetailScreen: View {
                     }.background(CardView())
                         .padding()
                     
-                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("subjectDetailGradeList").foregroundColor(.white)
-                    }.padding(.horizontal)
-                        .buttonStyle(PrimaryStyle())
+                    if (subject?.subjecttests!.allObjects as! [UserTest]).count > 0 {
+                        NavigationLink(destination: GradeListScreen(subject: subject!)) {
+                            Text("subjectDetailGradeList").foregroundColor(.white)
+                        }.padding(.horizontal)
+                            .buttonStyle(PrimaryStyle())
+                    }
+                   
                 }
                 .navigationTitle(subject!.name)
                 .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
