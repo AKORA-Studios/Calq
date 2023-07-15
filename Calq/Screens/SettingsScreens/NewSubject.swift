@@ -19,15 +19,15 @@ struct NewSubjectScreen: View {
     
     var body: some View {
         VStack {
-            ZStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("subjectName")
                     TextField("name", text: $subjectName)
                         .textFieldStyle(.roundedBorder)
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
-            ZStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("subjectType")
                     Picker("subjectType", selection: $lkSubject) {
@@ -35,16 +35,16 @@ struct NewSubjectScreen: View {
                         Text("typeLK").tag(1)
                     }.pickerStyle(.segmented)
                         .colorMultiply(selectedColor)
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
-            ZStack {
-                    HStack {
-                        Text("editSubColor")
-                        Image(systemName: "paintpalette")
-                        ColorPicker("", selection: $selectedColor, supportsOpacity: false)
-                }.padding()
-            }.background(CardView())
+            CardContainer {
+                HStack {
+                    Text("editSubColor")
+                    Image(systemName: "paintpalette")
+                    ColorPicker("", selection: $selectedColor, supportsOpacity: false)
+                }
+            }
             
             Button("saveData") {
                 if Util.isStringInputInvalid(subjectName) {

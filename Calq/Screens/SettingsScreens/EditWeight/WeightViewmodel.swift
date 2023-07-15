@@ -82,4 +82,19 @@ class WeightViewmodel: ObservableObject {
     func toggleHintText() {
         showHintText.toggle()
     }
+    
+    func addWeigth() {
+        Util.addType(name: "something", weigth: 0)
+        load()
+    }
+    
+    func removeWeigth() {
+        if getGradesType().isEmpty {
+            Util.deleteType(type: selectedDelete)
+            load()
+        } else {
+            isAlertPresented = true
+            alertActiontype = .deleteGrades
+        }
+    }
 }
