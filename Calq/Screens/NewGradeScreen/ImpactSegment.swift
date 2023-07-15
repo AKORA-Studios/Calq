@@ -17,7 +17,7 @@ struct ImpactSegment: View {
     var body: some View {
         GeometryReader {geo in
             VStack(spacing: 4) {
-                // Upper sEgemnt
+                // Upper Segment
                 HStack(spacing: 0) {
                     ForEach( 0...15, id: \.self ) {i in
                         GradeSegment(colors: $colors, values: $values, width: geo.size.width/16, index: i)

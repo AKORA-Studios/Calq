@@ -28,25 +28,25 @@ struct EditSubjectScreen: View {
         if subject != nil {
             let color = getSubjectColor(subject!)
             VStack {
-                ZStack {
+                CardContainer {
                     VStack(alignment: .leading) {
                         Text("subjectName")
                         TextField("name", text: $subjectName)
                             .textFieldStyle(.roundedBorder)
                             .onChange(of: subjectName) { _ in
-                            if Util.isStringInputInvalid(subjectName) {
-                                alertType = .nameInvalid
-                                subjectName = subject!.name
-                                deleteAlert = true
-                            } else {
-                                subject?.name = subjectName
-                                saveCoreData()
+                                if Util.isStringInputInvalid(subjectName) {
+                                    alertType = .nameInvalid
+                                    subjectName = subject!.name
+                                    deleteAlert = true
+                                } else {
+                                    subject?.name = subjectName
+                                    saveCoreData()
+                                }
                             }
-                        }
-                    }.padding()
-                }.background(CardView())
+                    }
+                }
                 
-                ZStack {
+                CardContainer {
                     VStack(alignment: .leading) {
                         Text("subjectType")
                         Picker("subjectType", selection: $lkSubject) {
@@ -58,28 +58,29 @@ struct EditSubjectScreen: View {
                                 subject!.lk = lkSubject == 1 ? true : false
                                 saveCoreData()
                             }
-                    }.padding()
-                }.background(CardView())
+                    }
+                }
                 
-                ZStack {
-                        HStack {
-                            Image(systemName: "paintpalette")
-                            Text("editSubColor")
-                            
-                            ColorPicker("", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { _ in
-                                subject!.color = UIColor(selectedColor).toHexString()
-                                saveCoreData()
-                            }
+                CardContainer {
+                    HStack {
+                        Image(systemName: "paintpalette")
+                        Text("editSubColor")
+                        
+                        ColorPicker("", selection: $selectedColor, supportsOpacity: false).onChange(of: selectedColor) { _ in
+                            subject!.color = UIColor(selectedColor).toHexString()
+                            saveCoreData()
                         }
-                    .padding()
-                }.background(CardView())
+                    }
+                }
                 
-            infoTexts()
+                infoTexts()
                 
                 VStack {
-                    NavigationLink(destination: GradeListScreen(subject: subject!)) {
-                        Text("editSubGrades").foregroundColor(.white)
-                    }.buttonStyle(PrimaryStyle())
+                    if (subject?.subjecttests!.allObjects as! [UserTest]).count > 0 {
+                        NavigationLink(destination: GradeListScreen(subject: subject!)) {
+                            Text("editSubGrades").foregroundColor(.white)
+                        }.buttonStyle(PrimaryStyle())
+                    }
                     
                     Button("editSubDelete") {
                         alertType = .delete
@@ -113,7 +114,7 @@ struct EditSubjectScreen: View {
     @ViewBuilder
     func infoTexts() -> some View {
         ZStack {
-         //   CardView().frame(height:  30)
+            //   CardView().frame(height:  30)
             VStack {
                 HStack {
                     Image(systemName: "info.circle")
@@ -126,12 +127,12 @@ struct EditSubjectScreen: View {
                     }
                 }
             }
-         
+            
         }.padding(.bottom, 40)
     }
     
     func dismissSheet() {
-            saveCoreData()
-            self.presentationMode.wrappedValue.dismiss()
+        saveCoreData()
+        self.presentationMode.wrappedValue.dismiss()
     }
 }

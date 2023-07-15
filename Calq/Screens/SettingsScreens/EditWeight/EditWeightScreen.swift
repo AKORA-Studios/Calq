@@ -11,6 +11,12 @@ struct ChangeWeightScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var vm = WeightViewmodel()
     
+    init() {
+        if  #unavailable(iOS 16.0) {
+            UITableView.appearance().backgroundColor = .clear
+        }
+    }
+    
     var body: some View {
         VStack {
 
@@ -54,7 +60,7 @@ struct ChangeWeightScreen: View {
                             }
                             
                             Image(systemName: "trash").foregroundColor(Color.red)
-                                .onTapGesture {vm.selectedDelete = type.id;removeWeigth()}
+                                .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
                             
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
@@ -65,7 +71,7 @@ struct ChangeWeightScreen: View {
                 Section {
                     Text("EditWeigthNew")
                         .foregroundColor(Color.green)
-                        .onTapGesture { addWeigth()}
+                        .onTapGesture { vm.addWeigth()}
                 }.listRowBackground(Color.gray.opacity(0.1))
             }.modifier(ListBackgroundModifier())
                 .padding(0)
@@ -93,12 +99,6 @@ struct ChangeWeightScreen: View {
             }
     }
     
-    init() {
-        if  #unavailable(iOS 16.0) {
-            UITableView.appearance().backgroundColor = .clear
-        }
-    }
-    
     func saveChanges() {
         if vm.summedUp > 100 {
             vm.isAlertPresented = true
@@ -111,20 +111,5 @@ struct ChangeWeightScreen: View {
     
     func dismissSheet() {
         self.presentationMode.wrappedValue.dismiss()
-    }
-    
-    func removeWeigth() {
-        if vm.getGradesType().isEmpty {
-            Util.deleteType(type: vm.selectedDelete)
-            vm.load()
-        } else {
-            vm.isAlertPresented = true
-            vm.alertActiontype = .deleteGrades
-        }
-    }
-    
-    func addWeigth() {
-        Util.addType(name: "something", weigth: 0)
-        vm.load()
     }
 }

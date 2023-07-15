@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+struct SubjectlistData: Hashable {
+    var subject: UserSubject
+    var yearString: [String]
+    var colors: [Color]
+}
+
 class SubjectListVM: ObservableObject {
     @Published var data: [SubjectlistData] = []
     @Published var  subjects: [UserSubject] = []
@@ -15,6 +21,9 @@ class SubjectListVM: ObservableObject {
     
     @Published var inactiveCount = 0
     @Published var subjectCount = 0
+    
+    @Published var gradeTablePresented = false
+    @Published var isSubjectDetailPResented = false
     
     func updateViews() {
         self.objectWillChange.send()

@@ -32,7 +32,6 @@ struct NewGradeScreen: View {
         }
     }
     
-    @ViewBuilder
     func subjectView(_ sub: UserSubject) -> SettingsIcon {
         SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
             vm.selectSub(sub)
@@ -48,15 +47,15 @@ struct NewGradeView: View {
         ScrollView(showsIndicators: false) {
             if vm.selectedSubject != nil {
                 VStack {
-                    ZStack {
+                    CardContainer {
                         VStack(alignment: .leading) {
                             Text("gradeName")
                             TextField("gradeName", text: $vm.gradeName)
                                 .textFieldStyle(.roundedBorder)
-                        }.padding()
-                    }.background(CardView())
+                        }
+                    }
                     
-                    ZStack {
+                    CardContainer {
                         VStack(alignment: .leading) {
                             Text("gradeType")
                             Picker("gradeYear", selection: $vm.gradeType) {
@@ -64,10 +63,10 @@ struct NewGradeView: View {
                                     Text(type.name).tag(type.id)
                                 }
                             }.pickerStyle(.segmented)
-                        }.padding()
-                    }.background(CardView())
+                        }
+                    }
                     
-                    ZStack {
+                    CardContainer {
                         VStack(alignment: .leading) {
                             Text("gradeHalfyear")
                             Picker("gradeYear", selection: $vm.year) {
@@ -80,10 +79,10 @@ struct NewGradeView: View {
                             HStack {
                                 DatePicker("gradeDate", selection: $vm.date, displayedComponents: [.date])
                             }
-                        }.padding()
-                    }.background(CardView())
+                        }
+                    }
                     
-                    ZStack {
+                    CardContainer {
                         VStack(alignment: .leading) {
                             Text("gradePoints")
                             HStack {
@@ -94,8 +93,8 @@ struct NewGradeView: View {
                                 .accentColor(Color.accentColor)
                             }
                             ImpactSegment(subject: $vm.selectedSubject, gradeType: $vm.gradeType, year: $vm.year).frame(height: 35)
-                        }.padding()
-                    }.background(CardView())
+                        }
+                    }
                     
                     Button("gradeNewAdd") {
                         vm.saveGrade()

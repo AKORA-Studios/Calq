@@ -358,17 +358,16 @@
 			path = ExamScreen;
 			sourceTree = "<group>";
 		};
-		F1138E5229959627008E7FD8 /* SettingsScreen */ = {
+		F1138E5229959627008E7FD8 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1A59A422A6354890039C95E /* SettingsScreen */,
 				F1A53D012A196C0E0045C5B0 /* EditWeight */,
 				F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */,
-				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F192DD23299D10CB0077B905 /* NewSubject.swift */,
-				F1D3433C29C37024002ED7DE /* SettingsVM.swift */,
 			);
-			path = SettingsScreen;
+			path = SettingsScreens;
 			sourceTree = "<group>";
 		};
 		F1138E5329959664008E7FD8 /* SubjectInfoScreens */ = {
@@ -386,9 +385,9 @@
 			children = (
 				F17F4441298C4DDF000A3993 /* TabView.swift */,
 				F14140452A47639E007E4648 /* TabViewVM.swift */,
-				F1E8BFE1299004AA00486A6D /* Overview */,
+				F1E8BFE1299004AA00486A6D /* OverviewScreen */,
 				F10D66B0298D57AA00993237 /* ExamScreen */,
-				F1138E5229959627008E7FD8 /* SettingsScreen */,
+				F1138E5229959627008E7FD8 /* SettingsScreens */,
 				F1F568C6298D912D00227F88 /* NewGradeScreen */,
 				F1138E5329959664008E7FD8 /* SubjectInfoScreens */,
 				F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */,
@@ -406,6 +405,15 @@
 				F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */,
 			);
 			path = EditWeight;
+			sourceTree = "<group>";
+		};
+		F1A59A422A6354890039C95E /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F17F4443298C4E7D000A3993 /* SettingsScreen.swift */,
+				F1D3433C29C37024002ED7DE /* SettingsVM.swift */,
+			);
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 		F1B386452A1CFE6800F0C5AC /* CalqTests */ = {
@@ -439,13 +447,13 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		F1E8BFE1299004AA00486A6D /* Overview */ = {
+		F1E8BFE1299004AA00486A6D /* OverviewScreen */ = {
 			isa = PBXGroup;
 			children = (
 				F17F443E298C4DCE000A3993 /* OverviewScreen.swift */,
 				F19B10A429AF84C000B11C82 /* OverviewVM.swift */,
 			);
-			path = Overview;
+			path = OverviewScreen;
 			sourceTree = "<group>";
 		};
 		F1F568C6298D912D00227F88 /* NewGradeScreen */ = {

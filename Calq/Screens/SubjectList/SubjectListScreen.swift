@@ -7,18 +7,9 @@
 
 import SwiftUI
 
-struct SubjectlistData: Hashable {
-    var subject: UserSubject
-    var yearString: [String]
-    var colors: [Color]
-}
-
 struct SubjectListScreen: View {
     @ObservedObject var vm =  SubjectListVM()
-    
-    @State var gradeTablePresented = false
-    @State var isSubjectDetailPResented = false
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -48,7 +39,7 @@ struct SubjectListScreen: View {
                         }
                         .onTapGesture {
                             vm.selectedSubejct = entry.subject
-                            isSubjectDetailPResented = true
+                            vm.isSubjectDetailPResented = true
                         }
                     }
                 }
@@ -69,15 +60,15 @@ struct SubjectListScreen: View {
             }.navigationTitle("subjectListTitle")
                 .toolbar {
                     Button("subjectListTable") {
-                        gradeTablePresented = true
+                        vm.gradeTablePresented = true
                     }
                 }
-                .sheet(isPresented: $isSubjectDetailPResented) {
+                .sheet(isPresented: $vm.isSubjectDetailPResented) {
                     NavigationView {
                         SubjectDetailScreen(subject: $vm.selectedSubejct).onDisappear(perform: vm.updateViews)
                     }
                 }
-                .sheet(isPresented: $gradeTablePresented) {
+                .sheet(isPresented: $vm.gradeTablePresented) {
                     NavigationView {
                         GradeTableOverviewScreen(subjects: vm.subjects)
                     }

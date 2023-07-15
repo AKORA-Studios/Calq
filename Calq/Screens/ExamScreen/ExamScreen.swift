@@ -23,19 +23,18 @@ struct ExamScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                 
-                VStack {
-                    ForEach(1...5, id: \.self) { i in
-                        ExamView(subject: getExam(i), type: i)
-                            .environmentObject(vm)
+                CardContainer {
+                    VStack {
+                        ForEach(1...5, id: \.self) { i in
+                            ExamView(subject: getExam(i), type: i)
+                                .environmentObject(vm)
+                        }
                     }
-                }.background(CardView())
+                }
                 
                 Spacer()
                 
-            }.onAppear {
-                vm.updateViews()
-                // resetExams() //if broken to debug ig
-            }
+            }.onAppear(perform: vm.updateViews)
             .padding()
             .navigationTitle("ExamViewTitle")
         }
@@ -56,7 +55,7 @@ struct ExamView: View {
         
         let thumbImage = UIImage(systemName: "circle.fill")
         UISlider.appearance().setThumbImage(thumbImage, for: .normal)
-       // UISlider.appearance().thumbTintColor = .cyan//subject != nil ? UIColor(getSubjectColor(subject)) : UIColor.gray
+        // UISlider.appearance().thumbTintColor = .cyan//subject != nil ? UIColor(getSubjectColor(subject)) : UIColor.gray
     }
     
     var body: some View {
@@ -76,16 +75,16 @@ struct ExamView: View {
                         }
                         
                         if subject != nil {
-                        Section {
-                            Button { 
-                                removeExam(type, subject!)
-                                vm.changeExamSelection()
-                                subject = nil
-                                sliderValue = 0
-                            } label: {
-                                Text("ExamViewSubRemove")
-                            }.buttonStyle(MenuPickerDestructive())
-                        }
+                            Section {
+                                Button {
+                                    removeExam(type, subject!)
+                                    vm.changeExamSelection()
+                                    subject = nil
+                                    sliderValue = 0
+                                } label: {
+                                    Text("ExamViewSubRemove")
+                                }.buttonStyle(MenuPickerDestructive())
+                            }
                         }
                     }
                 } label: {

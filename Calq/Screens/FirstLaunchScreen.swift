@@ -32,7 +32,7 @@ struct FirstLaunchScreen: View {
                     vm.showedFirstlaunch()
                 }.buttonStyle(SecondaryStyle())
                 
-            } .padding().background(CardView())
+            }.padding().background(CardView())
             
             Spacer()
             

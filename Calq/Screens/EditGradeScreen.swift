@@ -23,15 +23,15 @@ struct EditGradeScreen: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
         VStack {
-            VStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("gradeName")
                     TextField("gradeName", text: $testName)
                         .textFieldStyle(.roundedBorder)
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
-            ZStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("gradeType")
                     Picker("gradeType", selection: $testType) {
@@ -39,10 +39,10 @@ struct EditGradeScreen: View {
                             Text(type.name).tag(type.id)
                         }
                     }.pickerStyle(.segmented).colorMultiply(color)
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
-            ZStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("gradeHalfyear")
                     Picker("gradeYear", selection: $testYear) {
@@ -55,10 +55,10 @@ struct EditGradeScreen: View {
                     HStack {
                         DatePicker("gradeDate", selection: $testDate, displayedComponents: [.date])
                     }
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
-            ZStack {
+            CardContainer {
                 VStack(alignment: .leading) {
                     Text("gradePoints")
                     HStack {
@@ -68,8 +68,8 @@ struct EditGradeScreen: View {
                         })
                         .accentColor(Color.accentColor)
                     }
-                }.padding()
-            }.background(CardView())
+                }
+            }
             
             Button("gradeSave") {
                 saveGrade()
