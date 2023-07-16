@@ -21,19 +21,10 @@ struct GradeListScreen: View {
                     deleteAlert = true
                 })
             }
-            
             ForEach(0...3, id: \.self) {i in
-                Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
-                    let tests =  years[i]
-                    ForEach(tests) {test in
-                        let color = getSubjectColor(subject)
-                        
-                        NavigationLink {
-                            EditGradeScreen(test: test, color: color)
-                        } label: {
-                            gradeIcon(test: test, color: color)
-                        }
-                    }
+                let tests =  years[i]
+                if !tests.isEmpty {
+                    halfyearSection(i)
                 }
             }
             
@@ -54,6 +45,20 @@ struct GradeListScreen: View {
                     dismissSheet()
                 }))
             }
+    }
+    
+    func halfyearSection(_ i: Int) -> some View {
+        Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
+            ForEach(years[i]) {test in
+                let color = getSubjectColor(subject)
+                
+                NavigationLink {
+                    EditGradeScreen(test: test, color: color)
+                } label: {
+                    gradeIcon(test: test, color: color)
+                }
+            }
+        }
     }
     
     func dismissSheet() {
