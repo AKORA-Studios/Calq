@@ -82,6 +82,7 @@
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
 "gradeInvalidNameDesc"="Der Name darf keine Sonderzeichen enthalten und nicht leer sein";
+"gradeNewToastSuccess"="Neue Note hinzugefügt";
 
 "subjectListTitle"="Kursliste";
 "subjectListTable"="Notentabelle";

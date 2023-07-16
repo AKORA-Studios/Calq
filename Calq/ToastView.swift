@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+enum ToastStyles: String {
+    case success
+    case error
+    case info
+}
+
 class ToastControl: ObservableObject {
     @Published var isPresented = false
     
     @Published var message = "SomeMessage"
-    @Published var color = Color.accentColor
+    @Published var type: ToastStyles = .info
     
     init(isPresented: Bool = false) {
         self.isPresented = isPresented
@@ -21,13 +27,24 @@ class ToastControl: ObservableObject {
         isPresented = false
     }
     
-    func show(_ message: String = "SomeMessage", _ color: Color = .accentColor) {
-        self.message = message
-        self.color = color
+    func show(_ message: String = "SomeMessage", _ type: ToastStyles = .info) {
+        self.message = message.localized
+        self.type = type
         isPresented = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
             isPresented = false
+        }
+    }
+    
+    func color() -> Color {
+        switch type {
+        case .info:
+            return Color.accentColor
+        case .success:
+            return Color.green
+        case .error:
+            return Color.red
         }
     }
 }
@@ -36,19 +53,46 @@ struct ToastView: View {
     @EnvironmentObject var toastControl: ToastControl
     
     var body: some View {
-        ZStack {
-            if toastControl.isPresented {
-                RoundedRectangle(cornerRadius: 8).fill(toastControl.color)
-                    .frame(height: 50)
-                    .padding()
-                    .shadow(radius: 40)
-                Text(toastControl.message)
+        if toastControl.isPresented {
+            
+            bodyView()
+        } else {
+            EmptyView()
+        }
+    }
+    
+    func bodyView() -> some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+              VStack(alignment: .leading) {
+                  Text(toastControl.message)
+                        .font(.system(size: 12))
+                        .foregroundColor(Color.black.opacity(0.6))
+                }
+                
+                Spacer(minLength: 10)
+                
+                Button {
+                    toastControl.hide()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color.black)
+                }
             }
+            .padding()
         }
-        .onTapGesture {
-            toastControl.hide()
-        }
-        
+        .background(Color.white)
+        .overlay(
+            Rectangle()
+                .fill(toastControl.color())
+                .frame(width: 6)
+                .clipped()
+            , alignment: .leading
+        )
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .cornerRadius(8)
+        .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 1)
+        .padding(.horizontal, 16)
     }
 }
 

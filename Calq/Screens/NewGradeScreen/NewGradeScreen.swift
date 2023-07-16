@@ -42,6 +42,7 @@ struct NewGradeScreen: View {
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: NewGradeVM
+    @EnvironmentObject var toastControl: ToastControl
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -98,6 +99,7 @@ struct NewGradeView: View {
                     
                     Button("gradeNewAdd") {
                         vm.saveGrade()
+                        toastControl.show("gradeNewToastSuccess", .success)
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                 }
