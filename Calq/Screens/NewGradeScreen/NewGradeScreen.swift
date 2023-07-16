@@ -42,10 +42,13 @@ struct NewGradeScreen: View {
 struct NewGradeView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: NewGradeVM
+    @EnvironmentObject var toastControl: ToastControl
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             if vm.selectedSubject != nil {
+                let color = getSubjectColor(vm.selectedSubject)
+                
                 VStack {
                     CardContainer {
                         VStack(alignment: .leading) {
@@ -63,6 +66,7 @@ struct NewGradeView: View {
                                     Text(type.name).tag(type.id)
                                 }
                             }.pickerStyle(.segmented)
+                                .colorMultiply(color)
                         }
                     }
                     
@@ -75,6 +79,7 @@ struct NewGradeView: View {
                                 Text("3").tag(3)
                                 Text("4").tag(4)
                             }.pickerStyle(.segmented)
+                                .colorMultiply(color)
                             
                             HStack {
                                 DatePicker("gradeDate", selection: $vm.date, displayedComponents: [.date])
@@ -98,6 +103,7 @@ struct NewGradeView: View {
                     
                     Button("gradeNewAdd") {
                         vm.saveGrade()
+                        toastControl.show("gradeNewToastSuccess", .success)
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
                 }

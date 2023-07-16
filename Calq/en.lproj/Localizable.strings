@@ -82,6 +82,7 @@
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
 "gradeInvalidNameDesc"="Name cannot include special characters or be empty";
+"gradeNewToastSuccess"="New Grade added";
 
 "subjectListTitle"="Subjectlist";
 "subjectListTable"="Gradetable";

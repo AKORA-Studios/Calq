@@ -43,6 +43,7 @@
 		F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
+		F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A05C5E2A642670003734F2 /* StringExtension.swift */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
@@ -172,6 +173,7 @@
 		F19F8E4329F18E03006142B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F19F8E4529F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F19F8E4629F18E0D006142B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F1A05C5E2A642670003734F2 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */,
 				F1A7102C2A43757D00255F10 /* CardView.swift */,
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
+				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
+				F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
 				F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */,
