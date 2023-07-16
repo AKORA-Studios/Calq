@@ -49,7 +49,7 @@ struct RoundProgressBar: View {
             let barProgressWidth =  (CGFloat(max != 0 ? (value * 100 / max) : 0) * geo.size.width)/100
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(.systemGray4))
                 
                 HStack(spacing: 0) {
                     if barProgressWidth + 10 < geo.size.width && barProgressWidth - 5 > 0 {
