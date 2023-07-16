@@ -28,16 +28,16 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 <summary>Showcase Hell</summary>
 <br>
   
-![Kurse1](https://media.discordapp.net/attachments/867129329363976212/1075423171869675631/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_10_04.png?width=309&height=669)
+![Kurse1](https://media.discordapp.net/attachments/819922260424785920/1130145704803844268/Simulator_Screenshot_-_iPhone_14_-_2023-07-16_at_16.33.10.png?width=309&height=669)
 ![Kurse2](https://media.discordapp.net/attachments/867129329363976212/1075432909852381234/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_13_22.png?width=309&height=669)
 
 ![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/1075423170997260389/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_12_50.png?width=309&height=669)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/1075432909491679253/simulator_screenshot_36F6B44E-54EE-4902-952A-C98A936B511F.png?width=309&height=669)
+![Neue Noten](https://media.discordapp.net/attachments/819922260424785920/1130145704057262151/Simulator_Screenshot_-_iPhone_14_-_2023-07-16_at_16.34.09.png?width=309&height=669)
 
 ![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/1075423172775645244/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_11.png?width=309&height=669)
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/1075423173002149948/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_17.png?width=309&height=669)
 
-![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/1121754360410542090/exams.png?width=310&height=670)
+![Prüfungen](https://media.discordapp.net/attachments/819922260424785920/1130145704497647748/Simulator_Screenshot_-_iPhone_14_-_2023-07-16_at_16.33.04.png?width=309&height=669)
 ![Einstellung](https://media.discordapp.net/attachments/867129329363976212/1075423173220245554/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_22.png?width=309&height=669)
 
 ![GewichtungÄndern](https://media.discordapp.net/attachments/867129329363976212/1110268846188806204/Simulator_Screenshot_-_iPhone_14_-_2023-05-22_at_20.10.43.png?width=310&height=670)
