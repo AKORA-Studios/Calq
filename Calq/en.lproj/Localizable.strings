@@ -92,6 +92,7 @@
 "gradeEdit"="Edit Grade";
 "gradeDelete"="Delete Grade";
 "gradeSave"="Save changes";
+"gradeEditDelete"="Grade deleted";
 
 "subjectDetailGradeList"="View Grades";
 "subjectDetailAverageHalfyear"="Halfyear Average";

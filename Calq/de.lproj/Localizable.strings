@@ -92,6 +92,7 @@
 "gradeEdit"="Note bearbeiten";
 "gradeDelete"="Note löschen";
 "gradeSave"="Änderungen speichern";
+"gradeEditDelete"="Note gelöscht";
 
 "subjectDetailGradeList"="Notenliste ansehen";
 "subjectDetailAverageHalfyear"="Durchschnitt des Halbjahres";

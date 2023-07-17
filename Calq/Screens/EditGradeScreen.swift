@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EditGradeScreen: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var toastControl: ToastControl
+    
     @State var test: UserTest
     var color: Color = .accentColor
     
@@ -100,6 +102,7 @@ struct EditGradeScreen: View {
     func deleteGrade() {
         dismissSheet()
         Util.deleteTest(test)
+        toastControl.show("gradeEditDelete", .success)
     }
     
     func saveGrade() {
