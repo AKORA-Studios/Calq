@@ -76,6 +76,7 @@ struct ExamView: View {
                         if subject != nil && !vm.options.isEmpty {
                             Section {
                                 deleteExamButton()
+                                    .accessibilityIdentifier(Ident.ExamScreen.contextMenuExamDeleteButton)
                             }
                         }
                 } label: {
@@ -87,6 +88,7 @@ struct ExamView: View {
                             Text("ExamViewSubSelect")
                         }
                     }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+                        .accessibilityIdentifier(Ident.ExamScreen.examSelectButton)
                 }
             
             HStack {

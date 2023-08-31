@@ -77,7 +77,7 @@ struct ToastView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(Color.black)
-                }
+                }.accessibilityIdentifier(Ident.Toast.cancelButton)
             }
             .padding()
         }
