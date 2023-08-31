@@ -40,7 +40,7 @@
 "ExamViewTitle"="Prüfungsübersicht";
 "ExamViewSubjects"="Prüfungsfächer";
 "ExamViewSubRemove"="Entfernen/keines";
-"ExamViewSubSelect"="Prüfung auswählen";
+"ExamViewSubSelect"="Prüfung hinzufügen";
 
 "EditWeigthTitle"="Wertung ändern";
 "EditWeigthDesc"="Wähle die Wertung der Noten in % aus";

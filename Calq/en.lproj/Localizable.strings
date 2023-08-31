@@ -40,7 +40,7 @@
 "ExamViewTitle"="Examoverview";
 "ExamViewSubjects"="Exam Subjects";
 "ExamViewSubRemove"="Remove/None";
-"ExamViewSubSelect"="Select Subject";
+"ExamViewSubSelect"="Add Subject";
 
 "EditWeigthTitle"="Change Weight";
 "EditWeigthDesc"="Change the grades weight in %";

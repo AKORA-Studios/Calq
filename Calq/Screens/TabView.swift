@@ -24,6 +24,7 @@ struct TabbarView: View {
                 }
             } else {
                 tabview()
+                    .environmentObject(vm)
             }
         }.onAppear(perform: vm.checkForSheets)
         
@@ -31,21 +32,26 @@ struct TabbarView: View {
     
     @ViewBuilder
     func tabview() -> some View {
-        TabView {
+        TabView(selection: $vm.selectedIndex) {
             OverviewScreen(vm: OverViewViewModel())
                 .tabItem {Image(systemName: "chart.bar.fill")}
+                .tag(0)
             
             SubjectListScreen()
                 .tabItem {Image(systemName: "books.vertical.fill")}
+                .tag(1)
             
             NewGradeScreen()
                 .tabItem {Image(systemName: "plus.app.fill")}
+                .tag(2)
             
             ExamScreen(vm: ExamViewModel())
                 .tabItem { Image(systemName: "text.book.closed.fill")}
+                .tag(3)
             
             SettingsScreen(vm: SettingsViewModel())
                 .tabItem {Image(systemName: "gearshape.fill")}
+                .tag(4)
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @ObservedObject var vm: SettingsViewModel
+    @EnvironmentObject var tabBarVM: TabVM
     
     var body: some View {
         NavigationView {
@@ -131,7 +132,9 @@ struct SettingsScreen: View {
                     vm.selectedSubjet = sub
                 })
                 .contextMenu {
-                    deleteSubjectButton(sub)
+                    contextAction_addGradeButton()
+                    contextAction_addExamButton()
+                    contextAction_adeleteSubjectButton(sub)
                 }
             }
             
@@ -141,8 +144,24 @@ struct SettingsScreen: View {
         }
     }
     
+    func contextAction_addGradeButton() -> some View {
+        Button {
+            tabBarVM.selectedIndex = 2
+        } label: {
+            Label("gradeNewAdd", systemImage: "plus")
+        }
+    }
+    
+    func contextAction_addExamButton() -> some View {
+        Button {
+            tabBarVM.selectedIndex = 3
+        } label: {
+            Label("ExamViewSubSelect", systemImage: "book.closed")
+        }
+    }
+    
     @ViewBuilder
-    func deleteSubjectButton(_ sub: UserSubject) -> some View {
+    func contextAction_adeleteSubjectButton(_ sub: UserSubject) -> some View {
         if #available(iOS 15.0, *) {
             Button(role: .destructive) {
                 vm.showDeleteSubAlert(sub)
