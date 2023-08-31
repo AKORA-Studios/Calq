@@ -31,6 +31,7 @@ struct FirstLaunchScreen: View {
                     JSON.loadDemoData()
                     vm.showedFirstlaunch()
                 }.buttonStyle(SecondaryStyle())
+                    .accessibilityIdentifier(Ident.FirstLaunchScreen.loadDemoButton)
                 
             }.padding().background(CardView())
             
@@ -39,6 +40,7 @@ struct FirstLaunchScreen: View {
             Button("firstLaunchGo") {
                 vm.showedFirstlaunch()
             }.buttonStyle(PrimaryStyle())
+                .accessibilityIdentifier(Ident.FirstLaunchScreen.GoButton)
             
             Spacer()
             Text("Version: \(appVersion) Build: \(buildVersion)").font(.footnote)

@@ -54,6 +54,7 @@ struct NewSubjectScreen: View {
                     addSubject()
                 }
             }.buttonStyle(PrimaryStyle())
+                .accessibilityIdentifier(Ident.NewSubject.saveButton)
             
         }.navigationTitle("newSub")
             .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}

@@ -86,6 +86,7 @@ struct EditSubjectScreen: View {
                         alertType = .delete
                         deleteAlert = true
                     }.buttonStyle(DestructiveStyle())
+                        .accessibilityIdentifier(Ident.EditSubjectScreen.deletSubjectButton)
                 }
             }.alert(isPresented: $deleteAlert) {
                 switch alertType {

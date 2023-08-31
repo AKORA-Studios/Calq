@@ -77,10 +77,12 @@ struct EditGradeScreen: View {
                 saveGrade()
             }.buttonStyle(PrimaryStyle())
                 .padding(.top, 20)
+                .accessibilityIdentifier(Ident.EditGradeScreen.saveGradeButton)
             
             Button("gradeDelete") {
                 deleteAlert = true
             }.buttonStyle(DestructiveStyle())
+                .accessibilityIdentifier(Ident.EditGradeScreen.deleteGradeButton)
         }
         }.padding()
             .navigationTitle("gradeEdit")

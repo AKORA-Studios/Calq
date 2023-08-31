@@ -22,4 +22,45 @@ struct Ident {
         static let contextMenuExamDeleteButton = "ExamScreen/deleteExam"
     }
     
+    struct SettingsScreen {
+        static let contextMenuAddGradeButton = "SettingsScreen/addGrade"
+        static let contextMenuAddExamButton = "SettingsScreen/addExam"
+        static let contextMenuDeleteSubjectButton = "SettingsScreen/deleteSubject"
+    }
+    
+    struct EditWeightScreen {
+        static let saveButton = "EditWeightScreen/save"
+    }
+    
+    struct EditSubjectScreen {
+        static let deletSubjectButton = "EditSubjectScreen/deleteSubject"
+    }
+ 
+    struct NewSubject {
+        static let saveButton = "NewSubject/save"
+    }
+    
+    struct NewGradeView {
+        static let addGradeButton = "NewGradeView/add"
+    }
+    
+    struct EditGradeScreen {
+        static let saveGradeButton = "EditGradeScreen/save"
+        static let deleteGradeButton = "EditGradeScreen/delete"
+    }
+    
+    struct FirstLaunchScreen {
+        static let loadDemoButton = "FirstLaunchScreen/laod"
+        static let GoButton = "FirstLaunchScreen/go"
+    }
+    
+    struct WhatsNewScreen {
+        static let okButton = "WhatsNewScreen/ok"
+    }
+    
+    struct SubjectListScreen {
+        static let showGradesTableButton = "SubjectListScreen/showGradesTable"
+    }
 }
+
+//           .accessibilityIdentifier(Ident.EditWeightScreen.contextMenuAddGrade)
