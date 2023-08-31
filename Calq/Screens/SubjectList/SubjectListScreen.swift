@@ -62,6 +62,7 @@ struct SubjectListScreen: View {
                     Button("subjectListTable") {
                         vm.gradeTablePresented = true
                     }
+                    .accessibilityIdentifier(Ident.SubjectListScreen.showGradesTableButton)
                 }
                 .sheet(isPresented: $vm.isSubjectDetailPResented) {
                     NavigationView {

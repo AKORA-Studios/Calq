@@ -106,6 +106,7 @@ struct NewGradeView: View {
                         toastControl.show("gradeNewToastSuccess", .success)
                     }.buttonStyle(PrimaryStyle())
                         .padding(.top, 20)
+                        .accessibilityIdentifier(Ident.NewGradeView.addGradeButton)
                 }
                 .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
                 .padding()

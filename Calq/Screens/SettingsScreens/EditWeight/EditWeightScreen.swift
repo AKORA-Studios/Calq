@@ -19,7 +19,7 @@ struct ChangeWeightScreen: View {
     
     var body: some View {
         VStack {
-
+            
             HStack {
                 Text("EditWeigthDesc")
                 Image(systemName: "info.circle").onTapGesture {
@@ -47,7 +47,7 @@ struct ChangeWeightScreen: View {
                                 Util.setPrimaryType(type.id)
                                 vm.load()
                             }
-                          
+                            
                             Text("\(vm.typeArr[type]!)").frame(width: 20).font(.footnote)
                             
                             TextField("", text: vm.binding(for: type.id))
@@ -83,6 +83,7 @@ struct ChangeWeightScreen: View {
             Button("saveData") {
                 saveChanges()
             }.buttonStyle(PrimaryStyle())
+                .accessibilityIdentifier(Ident.EditWeightScreen.saveButton)
             
         }.padding()
             .navigationTitle("EditWeigthTitle")

@@ -144,8 +144,11 @@ struct SettingsScreen: View {
                 })
                 .contextMenu {
                     contextAction_addGradeButton()
+                        .accessibilityIdentifier(Ident.SettingsScreen.contextMenuAddGradeButton)
                     contextAction_addExamButton()
+                        .accessibilityIdentifier(Ident.SettingsScreen.contextMenuAddExamButton)
                     contextAction_adeleteSubjectButton(sub)
+                        .accessibilityIdentifier(Ident.SettingsScreen.contextMenuDeleteSubjectButton)
                 }
             }
             
