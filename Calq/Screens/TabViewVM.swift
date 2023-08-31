@@ -13,6 +13,8 @@ class TabVM: ObservableObject {
     @Published var firstLaunch = false
     @Published var lastVersion = false
     
+    @Published var selectedIndex = 0
+    
     func checkForSheets() {
         // check if app moves in background
         let notificationCenter = NotificationCenter.default

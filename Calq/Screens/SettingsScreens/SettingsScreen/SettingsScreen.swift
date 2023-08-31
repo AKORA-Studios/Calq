@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @ObservedObject var vm: SettingsViewModel
+    @EnvironmentObject var tabBarVM: TabVM
     
     var body: some View {
         NavigationView {
@@ -51,9 +52,16 @@ struct SettingsScreen: View {
             vm.subjects = Util.getAllSubjects()
         }
     }
-    
+
     func settingsAlert() -> Alert {
-        Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
+        if vm.alertActiontype == .deleteSubject {
+            return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteSubject"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
+                vm.deleteSubject()
+            }))
+        }
+        
+        // handle other cases
+        return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
             switch vm.alertActiontype {
                 
             case .importData:
@@ -64,6 +72,8 @@ struct SettingsScreen: View {
                 JSON.loadDemoData()
                 vm.reloadAndSave()
             case .none:
+                break
+            case .deleteSubject: // handled seperatly
                 break
             }
             vm.alertActiontype = .none
@@ -121,11 +131,47 @@ struct SettingsScreen: View {
                     vm.editSubjectPresented = true
                     vm.selectedSubjet = sub
                 })
+                .contextMenu {
+                    contextAction_addGradeButton()
+                    contextAction_addExamButton()
+                    contextAction_adeleteSubjectButton(sub)
+                }
             }
             
             SettingsIcon(color: .green, icon: "plus", text: "newSub") {
                 vm.newSubjectSheetPresented = true
             }
+        }
+    }
+    
+    func contextAction_addGradeButton() -> some View {
+        Button {
+            tabBarVM.selectedIndex = 2
+        } label: {
+            Label("gradeNewAdd", systemImage: "plus")
+        }
+    }
+    
+    func contextAction_addExamButton() -> some View {
+        Button {
+            tabBarVM.selectedIndex = 3
+        } label: {
+            Label("ExamViewSubSelect", systemImage: "book.closed")
+        }
+    }
+    
+    @ViewBuilder
+    func contextAction_adeleteSubjectButton(_ sub: UserSubject) -> some View {
+        if #available(iOS 15.0, *) {
+            Button(role: .destructive) {
+                vm.showDeleteSubAlert(sub)
+            } label: {
+                Label("editSubDelete", systemImage: "trash")
+            }
+        } else {
+            Button("editSubDelete") {
+                vm.showDeleteSubAlert(sub)
+            }.buttonStyle(MenuPickerDestructive())
         }
     }
 }

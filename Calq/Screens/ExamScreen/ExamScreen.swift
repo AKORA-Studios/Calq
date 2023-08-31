@@ -76,14 +76,7 @@ struct ExamView: View {
                         
                         if subject != nil {
                             Section {
-                                Button {
-                                    removeExam(type, subject!)
-                                    vm.changeExamSelection()
-                                    subject = nil
-                                    sliderValue = 0
-                                } label: {
-                                    Text("ExamViewSubRemove")
-                                }.buttonStyle(MenuPickerDestructive())
+                                deleteExamButton()
                             }
                         }
                     }
@@ -114,6 +107,29 @@ struct ExamView: View {
         .onAppear {
             subject = getExam(type)
             sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
+        }
+    }
+    
+    @ViewBuilder
+    func deleteExamButton() -> some View {
+        if #available(iOS 15.0, *) {
+            Button(role: .destructive) {
+                removeExam(type, subject!)
+                vm.changeExamSelection()
+                subject = nil
+                sliderValue = 0
+            } label: {
+                Label("ExamViewSubRemove", systemImage: "trash")
+            }
+        } else {
+            Button {
+                removeExam(type, subject!)
+                vm.changeExamSelection()
+                subject = nil
+                sliderValue = 0
+            } label: {
+                Text("ExamViewSubRemove")
+            }.buttonStyle(MenuPickerDestructive())
         }
     }
 }

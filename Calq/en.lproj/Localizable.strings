@@ -21,6 +21,7 @@
 "ToastTitle"="Sure?";
 "ToastOki"="Oki";
 "ToastDeleteAll"="All your Data will be deleted";
+"ToastDeleteSubject"="All your grades will be deleted";
 "ToastDesc"="All Subject Data will be deleted";
 "ToastNoSubjects"="Oh no there are no subjects :c";
 "ToastDeleteGrades"="All Grades of this subject will be deleted";
@@ -39,7 +40,7 @@
 "ExamViewTitle"="Examoverview";
 "ExamViewSubjects"="Exam Subjects";
 "ExamViewSubRemove"="Remove/None";
-"ExamViewSubSelect"="Select Subject";
+"ExamViewSubSelect"="Add Subject";
 
 "EditWeigthTitle"="Change Weight";
 "EditWeigthDesc"="Change the grades weight in %";

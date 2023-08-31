@@ -21,6 +21,7 @@
 "ToastTitle"="Sicher?";
 "ToastOki"="Oki";
 "ToastDeleteAll"="Alle deine Daten werden gelöscht";
+"ToastDeleteSubject"="Alle deine Noten werden mitgelöscht";
 "ToastDesc"="Alle Kursdaten werden gelöscht";
 "ToastNoSubjects"="Oh no keine Fächer vorhanden :c";
 "ToastDeleteGrades"="Alle Noten dieses Fachs werden gelöscht";
@@ -39,7 +40,7 @@
 "ExamViewTitle"="Prüfungsübersicht";
 "ExamViewSubjects"="Prüfungsfächer";
 "ExamViewSubRemove"="Entfernen/keines";
-"ExamViewSubSelect"="Prüfung auswählen";
+"ExamViewSubSelect"="Prüfung hinzufügen";
 
 "EditWeigthTitle"="Wertung ändern";
 "EditWeigthDesc"="Wähle die Wertung der Noten in % aus";

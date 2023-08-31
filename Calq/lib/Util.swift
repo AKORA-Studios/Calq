@@ -25,7 +25,14 @@ protocol ImplementsCoreDataStack {
 }
 
 func saveCoreData() {
-    try! Util.getContext().save()
+    let context = Util.getContext()
+    if context.hasChanges {
+        do {
+            try Util.getContext().save()
+        } catch {
+            print("Failed saving context with \(error)")
+        }
+    }
 }
 
 struct Util {
