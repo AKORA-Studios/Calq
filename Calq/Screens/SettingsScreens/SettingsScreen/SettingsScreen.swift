@@ -51,9 +51,16 @@ struct SettingsScreen: View {
             vm.subjects = Util.getAllSubjects()
         }
     }
-    
+
     func settingsAlert() -> Alert {
-        Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
+        if vm.alertActiontype == .deleteSubject {
+            return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteSubject"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
+                vm.deleteSubject()
+            }))
+        }
+        
+        // handle other cases
+        return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
             switch vm.alertActiontype {
                 
             case .importData:
@@ -64,6 +71,8 @@ struct SettingsScreen: View {
                 JSON.loadDemoData()
                 vm.reloadAndSave()
             case .none:
+                break
+            case .deleteSubject: // handled seperatly
                 break
             }
             vm.alertActiontype = .none
@@ -121,11 +130,29 @@ struct SettingsScreen: View {
                     vm.editSubjectPresented = true
                     vm.selectedSubjet = sub
                 })
+                .contextMenu {
+                    deleteSubjectButton(sub)
+                }
             }
             
             SettingsIcon(color: .green, icon: "plus", text: "newSub") {
                 vm.newSubjectSheetPresented = true
             }
+        }
+    }
+    
+    @ViewBuilder
+    func deleteSubjectButton(_ sub: UserSubject) -> some View {
+        if #available(iOS 15.0, *) {
+            Button(role: .destructive) {
+                vm.showDeleteSubAlert(sub)
+            } label: {
+                Label("editSubDelete", systemImage: "trash")
+            }
+        } else {
+            Button("editSubDelete") {
+                vm.showDeleteSubAlert(sub)
+            }.buttonStyle(MenuPickerDestructive())
         }
     }
 }

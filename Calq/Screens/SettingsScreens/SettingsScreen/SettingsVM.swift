@@ -10,6 +10,7 @@ import Foundation
 enum AlertAction {
     case importData
     case deleteData
+    case deleteSubject
     case loadDemo
     case none
 }
@@ -44,6 +45,21 @@ class SettingsViewModel: ObservableObject {
     func deleteData() {
         Util.deleteSettings()
         subjects = []
+        reloadAndSave()
+    }
+    
+    func showDeleteSubAlert(_ sub: UserSubject) {
+        selectedSubjet = sub
+        alertActiontype = .deleteSubject
+        deleteAlert = true
+    }
+    
+    func deleteSubject() {
+        guard let sub = selectedSubjet else { return print("Subject not selected")}
+        
+        Util.deleteSubject(sub)
+        alertActiontype = .none
+        deleteAlert = false
         reloadAndSave()
     }
 }

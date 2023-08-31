@@ -24,8 +24,8 @@ class CoreDataStack: ImplementsCoreDataStack {
         container.persistentStoreDescriptions = [storeDescription]
         
         container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+            if let error = error {
+                fatalError("Unresolved error \(error)") // crash qwq
             }
         })
         return container
