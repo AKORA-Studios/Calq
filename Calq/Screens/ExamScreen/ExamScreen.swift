@@ -35,8 +35,8 @@ struct ExamScreen: View {
                 Spacer()
                 
             }.onAppear(perform: vm.updateViews)
-            .padding()
-            .navigationTitle("ExamViewTitle")
+                .padding()
+                .navigationTitle("ExamViewTitle")
         }
     }
 }
@@ -77,6 +77,7 @@ struct ExamView: View {
                         if subject != nil {
                             Section {
                                 deleteExamButton()
+                                    .accessibilityIdentifier(Ident.ExamScreen.contextMenuExamDeleteButton)
                             }
                         }
                     }
@@ -89,6 +90,7 @@ struct ExamView: View {
                             Text("ExamViewSubSelect")
                         }
                     }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+                        .accessibilityIdentifier(Ident.ExamScreen.examSelectButton)
                 }
             }
             HStack {
