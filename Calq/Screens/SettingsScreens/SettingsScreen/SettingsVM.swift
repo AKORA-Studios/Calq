@@ -77,6 +77,5 @@ class SettingsViewModel: ObservableObject {
         subjects = Util.getAllSubjects()
         settings = Util.getSettings()
         hasFiveExams = settings.hasFiveExams ? 5 : 4
-        print(settings.hasFiveExams)
     }
 }
