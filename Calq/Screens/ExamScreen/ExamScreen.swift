@@ -24,8 +24,9 @@ struct ExamScreen: View {
                     .padding(.top, 10)
                 
                 CardContainer {
+                    let exams = vm.hasFiveExams ? 5 : 4
                     VStack {
-                        ForEach(1...5, id: \.self) { i in
+                        ForEach(1...exams, id: \.self) { i in
                             ExamView(subject: getExam(i), type: i)
                                 .environmentObject(vm)
                         }

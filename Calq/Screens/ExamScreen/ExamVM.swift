@@ -15,10 +15,13 @@ class ExamViewModel: ObservableObject {
     @Published var points2 = generateBlockTwo()
     @Published var maxpoints = generatePossibleBlockOne()
     
+    @Published var hasFiveExams = Util.getSettings().hasFiveExams
+    
     func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
         options = subjects.filter {$0.examtype == 0}
+        hasFiveExams = Util.getSettings().hasFiveExams
         
         updateBlocks()
     }
@@ -109,7 +112,7 @@ func generateBlockTwo() -> Int {
     
     for sub in subjects {
         let multiplier = Util.getSettings().hasFiveExams ? 4 : 5
-        sum += Double(Int(sub.exampoints) * 4)
+        sum += Double(Int(sub.exampoints) * multiplier)
     }
     
     return Int(sum)
