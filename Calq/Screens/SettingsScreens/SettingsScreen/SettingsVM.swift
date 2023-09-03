@@ -20,6 +20,8 @@ class SettingsViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = Util.getAllSubjects()
     @Published var selectedSubjet: UserSubject?
     
+    @Published var hasFiveExams = Util.getSettings().hasFiveExams ? 5 : 4
+    
     // sheet presnet stuff
     @Published var editSubjectPresented = false
     @Published var weightSheetPresented = false
@@ -36,8 +38,6 @@ class SettingsViewModel: ObservableObject {
     @Published var importeJsonURL: URL = URL(fileURLWithPath: "")
     
     func reloadAndSave() {
-        settings.colorfulCharts = Util.getSettings().colorfulCharts
-        saveCoreData()
         subjects = Util.getAllSubjects()
         settings = Util.getSettings()
     }
@@ -61,5 +61,15 @@ class SettingsViewModel: ObservableObject {
         alertActiontype = .none
         deleteAlert = false
         reloadAndSave()
+    }
+    
+    func updateColorfulCharts() {
+        settings.colorfulCharts = Util.getSettings().colorfulCharts
+        saveCoreData()
+    }
+    
+    func updateExamSettings() {
+        settings.hasFiveExams = hasFiveExams == 5
+        saveCoreData()
     }
 }
