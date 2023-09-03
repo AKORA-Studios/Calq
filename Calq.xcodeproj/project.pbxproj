@@ -28,6 +28,8 @@
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
+		F11583042AA4AB3500122FBB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11583032AA4AB3500122FBB /* Models.swift */; };
+		F11583052AA4AC8200122FBB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11583032AA4AB3500122FBB /* Models.swift */; };
 		F14140462A47639E007E4648 /* TabViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14140452A47639E007E4648 /* TabViewVM.swift */; };
 		F14140482A476408007E4648 /* AppStoreRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14140472A476408007E4648 /* AppStoreRating.swift */; };
 		F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443C298C4DA7000A3993 /* CalqApp.swift */; };
@@ -160,6 +162,7 @@
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 2 to 3.xcmappingmodel"; sourceTree = "<group>"; };
+		F11583032AA4AB3500122FBB /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F14140452A47639E007E4648 /* TabViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewVM.swift; sourceTree = "<group>"; };
 		F14140472A476408007E4648 /* AppStoreRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRating.swift; sourceTree = "<group>"; };
 		F17F443C298C4DA7000A3993 /* CalqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqApp.swift; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 				DD81F6822759091600B4A43B /* JSONUtil.swift */,
 				F1D29E782A17B8AF0001D469 /* ExportJSON.swift */,
 				F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */,
+				F11583032AA4AB3500122FBB /* Models.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -644,6 +648,7 @@
 				F1A772442A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
 				F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */,
 				F192DD25299D2CD00077B905 /* BarChart.swift in Sources */,
+				F11583052AA4AC8200122FBB /* Models.swift in Sources */,
 				F1A7723A2A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
 				F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */,
 				F1D29E7C2A17BCC90001D469 /* ExportJSON.swift in Sources */,
@@ -677,6 +682,7 @@
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				F1A772412A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,
+				F11583042AA4AB3500122FBB /* Models.swift in Sources */,
 				F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */,
 				F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */,
 				F10D66B4298D66C200993237 /* ExamVM.swift in Sources */,
