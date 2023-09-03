@@ -36,8 +36,8 @@ struct ExamScreen: View {
                 Spacer()
                 
             }.onAppear(perform: vm.updateViews)
-            .padding()
-            .navigationTitle("ExamViewTitle")
+                .padding()
+                .navigationTitle("ExamViewTitle")
         }
     }
 }
