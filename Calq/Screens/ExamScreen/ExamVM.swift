@@ -9,17 +9,19 @@ import Foundation
 
 class ExamViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = []
-    @Published var options: [UserSubject] = []
+    @Published var options: [UserSubject] = Util.getAllSubjects().filter {$0.examtype == 0}
     
     @Published var points1 = generateBlockOne()
     @Published var points2 = generateBlockTwo()
     @Published var maxpoints = generatePossibleBlockOne()
     
+    @Published var hasFiveExams = Util.getSettings().hasFiveExams
+    
     func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
         options = subjects.filter {$0.examtype == 0}
-        
+        hasFiveExams = Util.getSettings().hasFiveExams
         updateBlocks()
     }
     
@@ -39,10 +41,6 @@ class ExamViewModel: ObservableObject {
 func getExam(_ type: Int) -> UserSubject? {
     let subjects = Util.getAllSubjects()
     return subjects.filter {$0.examtype == Int16(type)}.first
-}
-
-func getExamOptions(_ subjects: [UserSubject]) -> [UserSubject] {
-    return subjects.filter {$0.examtype == 0}
 }
 
 func resetExams() {
@@ -108,7 +106,8 @@ func generateBlockTwo() -> Int {
     var sum: Double = 0
     
     for sub in subjects {
-        sum += Double(Int(sub.exampoints) * 4)
+        let multiplier = Util.getSettings().hasFiveExams ? 4 : 5
+        sum += Double(Int(sub.exampoints) * multiplier)
     }
     
     return Int(sum)

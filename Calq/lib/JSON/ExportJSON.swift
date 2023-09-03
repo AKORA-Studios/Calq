@@ -11,7 +11,9 @@ extension JSON {
     /// Export userdata as json
     static func exportJSON() -> String {
         let data = Util.getSettings()
-        var string = "{\"formatVersion\": 1, \"colorfulCharts\": \(data.colorfulCharts), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
+        
+        let primaryType = UserDefaults.standard.integer(forKey: UD_primaryType)
+        var string = "{\"formatVersion\": 2, \"colorfulCharts\": \(data.colorfulCharts), \"hasFiveExams\": \(data.hasFiveExams), \"highlightedType\": \(primaryType), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
         
         let subjects = Util.getAllSubjects()
         var subCount: Int = 0

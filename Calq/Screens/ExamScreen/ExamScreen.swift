@@ -24,8 +24,9 @@ struct ExamScreen: View {
                     .padding(.top, 10)
                 
                 CardContainer {
+                    let exams = vm.hasFiveExams ? 5 : 4
                     VStack {
-                        ForEach(1...5, id: \.self) { i in
+                        ForEach(1...exams, id: \.self) { i in
                             ExamView(subject: getExam(i), type: i)
                                 .environmentObject(vm)
                         }
@@ -35,8 +36,8 @@ struct ExamScreen: View {
                 Spacer()
                 
             }.onAppear(perform: vm.updateViews)
-            .padding()
-            .navigationTitle("ExamViewTitle")
+                .padding()
+                .navigationTitle("ExamViewTitle")
         }
     }
 }
@@ -60,9 +61,7 @@ struct ExamView: View {
     
     var body: some View {
         VStack {
-            ZStack {
                 Menu {
-                    if !vm.options.isEmpty {
                         Section {
                             ForEach(vm.options) {sub in
                                 Button(sub.name) {
@@ -74,12 +73,11 @@ struct ExamView: View {
                             }
                         }
                         
-                        if subject != nil {
+                        if subject != nil && !vm.options.isEmpty {
                             Section {
                                 deleteExamButton()
                             }
                         }
-                    }
                 } label: {
                     Button {
                     } label: {
@@ -90,7 +88,7 @@ struct ExamView: View {
                         }
                     }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
                 }
-            }
+            
             HStack {
                 Text(String(Int(sliderValue.rounded())))
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { _ in

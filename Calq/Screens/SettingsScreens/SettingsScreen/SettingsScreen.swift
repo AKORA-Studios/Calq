@@ -48,9 +48,7 @@ struct SettingsScreen: View {
         .alert(isPresented: $vm.deleteAlert) {
             settingsAlert()
         }
-        .onAppear {
-            vm.subjects = Util.getAllSubjects()
-        }
+        .onAppear(perform: vm.onAppear)
     }
 
     func settingsAlert() -> Alert {
@@ -90,9 +88,22 @@ struct SettingsScreen: View {
             })
             
             HStack {
+                SettingsIcon(color: Color(hexString: "5856d6"), icon: "numbersign", text: "settingsExamCount") {}
+                Spacer()
+                Picker("", selection: $vm.hasFiveExams) {
+                    Text("4").tag(4)
+                    Text("5").tag(5)
+                }.pickerStyle(.segmented)
+                    .onChange(of: vm.hasFiveExams) { _ in
+                        vm.updateExamSettings()
+                    }
+                    .frame(width: 70)
+            }
+            
+            HStack {
                 SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
-                    vm.reloadAndSave()
+                    vm.updateColorfulCharts()
                 }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
             }
             

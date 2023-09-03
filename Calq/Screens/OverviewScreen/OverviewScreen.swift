@@ -11,35 +11,52 @@ struct OverviewScreen: View {
     @ObservedObject var vm: OverViewViewModel
     
     var body: some View {
-        
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    CardContainer {
-                        BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
-                    }
-                    
-                    CardContainer {
-                        LineChartView()
-                    }
-                    
-                    CardContainer {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("OverViewHalfyearChartTitle")
-                            BarChart(values: $vm.halfyears, heigth: 150)
-                        }
-                    }
-                    
-                    CardContainer {
-                        CircleViews()
-                    }
-                    
+        if #available(iOS 15.0, *) {
+            NavigationView {
+                ScrollView(showsIndicators: false) {
+                    scrollViewBody()
                 }
-            }.padding(.horizontal)
+                .padding(.horizontal)
                 .navigationTitle("OverViewTitle")
-                .onAppear {
-                    vm.updateViews()
+                .onAppear(perform: vm.updateViews)
+            }
+            .refreshable {
+                vm.updateViews()
+            }
+            
+        } else {
+            NavigationView {
+                ScrollView(showsIndicators: false) {
+                    scrollViewBody()
                 }
+                .padding(.horizontal)
+                .navigationTitle("OverViewTitle")
+                .onAppear(perform: vm.updateViews)
+            }
+        }
+    }
+    
+    func scrollViewBody() -> some View {
+        VStack {
+            CardContainer {
+                BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
+            }
+            
+            CardContainer {
+                LineChartView()
+            }
+            
+            CardContainer {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("OverViewHalfyearChartTitle")
+                    BarChart(values: $vm.halfyears, heigth: 150)
+                }
+            }
+            
+            CardContainer {
+                CircleViews()
+            }
+            
         }
     }
     
