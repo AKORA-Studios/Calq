@@ -55,17 +55,38 @@ extension JSON {
             jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String: Any]
         } catch {
             try consctructV0(json, jsonDict)
-          //  throw loadErrors.failedToLoadDictionary
+            //  throw loadErrors.failedToLoadDictionary
         }
-    
+        
         if jsonDict["formatVersion"] != nil {
             version = jsonDict["formatVersion"] as? Int ?? 0
         }
-       
-        if version >= 1 {
+        
+        if version >= 2 {
+            try consctructV2(json, jsonDict)
+        } else if version == 1 {
             try consctructV1(json, jsonDict)
         } else {
             try consctructV0(json, jsonDict)
+        }
+    }
+    
+    static func consctructV2(_ json: Data, _ jsonDict: [String: Any]) throws {
+        try consctructV1(json, jsonDict)
+        
+        // read primaryType and exam options
+        if jsonDict["hasFiveExams"] != nil {
+            let hasFiveExams = jsonDict["hasFiveExams"] as? Bool ?? true
+            let set = Util.getSettings()
+            set.hasFiveExams = hasFiveExams
+        }
+        
+        if jsonDict["highlightedType"] != nil {
+            let num = jsonDict["highlightedType"] as? Int16
+            
+            if let num = num {
+                Util.setPrimaryType(num)
+            }
         }
     }
     
