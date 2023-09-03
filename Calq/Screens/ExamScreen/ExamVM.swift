@@ -9,7 +9,7 @@ import Foundation
 
 class ExamViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = []
-    @Published var options: [UserSubject] = []
+    @Published var options: [UserSubject] = Util.getAllSubjects().filter {$0.examtype == 0}
     
     @Published var points1 = generateBlockOne()
     @Published var points2 = generateBlockTwo()
@@ -22,7 +22,6 @@ class ExamViewModel: ObservableObject {
         subjects = Util.getAllSubjects()
         options = subjects.filter {$0.examtype == 0}
         hasFiveExams = Util.getSettings().hasFiveExams
-        
         updateBlocks()
     }
     
@@ -42,10 +41,6 @@ class ExamViewModel: ObservableObject {
 func getExam(_ type: Int) -> UserSubject? {
     let subjects = Util.getAllSubjects()
     return subjects.filter {$0.examtype == Int16(type)}.first
-}
-
-func getExamOptions(_ subjects: [UserSubject]) -> [UserSubject] {
-    return subjects.filter {$0.examtype == 0}
 }
 
 func resetExams() {

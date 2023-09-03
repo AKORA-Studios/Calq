@@ -62,8 +62,22 @@ struct ExamView: View {
     var body: some View {
         VStack {
                 Menu {
-                    Button("f") {}
-                    Button("ff") {}
+                        Section {
+                            ForEach(vm.options) {sub in
+                                Button(sub.name) {
+                                    subject = sub
+                                    saveExam(type, sub)
+                                    vm.changeExamSelection()
+                                    sliderValue = 0
+                                }
+                            }
+                        }
+                        
+                        if subject != nil && !vm.options.isEmpty {
+                            Section {
+                                deleteExamButton()
+                            }
+                        }
                 } label: {
                     Button {
                     } label: {
