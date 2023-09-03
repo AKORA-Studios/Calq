@@ -39,7 +39,7 @@ class SettingsViewModel: ObservableObject {
     
     func reloadAndSave() {
         subjects = Util.getAllSubjects()
-        settings = Util.getSettings()
+        saveCoreData()
     }
     
     func deleteData() {
@@ -71,5 +71,12 @@ class SettingsViewModel: ObservableObject {
     func updateExamSettings() {
         settings.hasFiveExams = hasFiveExams == 5
         saveCoreData()
+    }
+    
+    func onAppear() {
+        subjects = Util.getAllSubjects()
+        settings = Util.getSettings()
+        hasFiveExams = settings.hasFiveExams ? 5 : 4
+        print(settings.hasFiveExams)
     }
 }

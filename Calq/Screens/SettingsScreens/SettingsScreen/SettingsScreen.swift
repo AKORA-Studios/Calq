@@ -48,9 +48,7 @@ struct SettingsScreen: View {
         .alert(isPresented: $vm.deleteAlert) {
             settingsAlert()
         }
-        .onAppear {
-            vm.subjects = Util.getAllSubjects()
-        }
+        .onAppear(perform: vm.onAppear)
     }
 
     func settingsAlert() -> Alert {
