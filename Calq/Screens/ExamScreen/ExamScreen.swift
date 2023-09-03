@@ -61,37 +61,44 @@ struct ExamView: View {
     
     var body: some View {
         VStack {
-           // ZStack {
-                Menu {
-                    if !vm.options.isEmpty {
-                        Section {
-                            ForEach(vm.options) {sub in
-                                Button(sub.name) {
-                                    subject = sub
-                                    saveExam(type, sub)
-                                    vm.changeExamSelection()
-                                    sliderValue = 0
-                                }
-                            }
-                        }
-                        
-                        if subject != nil {
-                            Section {
-                                deleteExamButton()
+             ZStack {
+            Menu {
+                if !vm.options.isEmpty {
+                    Section {
+                        ForEach(vm.options) {sub in
+                            Button(sub.name) {
+                                subject = sub
+                                saveExam(type, sub)
+                                vm.changeExamSelection()
+                                sliderValue = 0
                             }
                         }
                     }
-                } label: {
-                    Button {
-                    } label: {
-                        if subject != nil {
-                            Text(subject!.name)
-                        } else {
-                            Text("ExamViewSubSelect")
+                    
+                    if subject != nil {
+                        Section {
+                            Button {
+                                removeExam(type, subject!)
+                                vm.changeExamSelection()
+                                subject = nil
+                                sliderValue = 0
+                            } label: {
+                                Text("ExamViewSubRemove")
+                            }.buttonStyle(MenuPickerDestructive())
                         }
-                    }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+                    }
                 }
-        //    }
+            } label: {
+                Button {
+                } label: {
+                    if subject != nil {
+                        Text(subject!.name)
+                    } else {
+                        Text("ExamViewSubSelect")
+                    }
+                }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+            }
+                }
             HStack {
                 Text(String(Int(sliderValue.rounded())))
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { _ in
