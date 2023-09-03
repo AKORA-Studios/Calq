@@ -61,7 +61,7 @@ struct ExamView: View {
     
     var body: some View {
         VStack {
-            ZStack {
+           // ZStack {
                 Menu {
                     if !vm.options.isEmpty {
                         Section {
@@ -91,7 +91,7 @@ struct ExamView: View {
                         }
                     }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
                 }
-            }
+        //    }
             HStack {
                 Text(String(Int(sliderValue.rounded())))
                 Slider(value: $sliderValue, in: 0...15, onEditingChanged: { _ in
