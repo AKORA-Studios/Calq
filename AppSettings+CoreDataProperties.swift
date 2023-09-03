@@ -2,7 +2,7 @@
 //  AppSettings+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 19.05.23.
+//  Created by Kiara on 03.09.23.
 //
 //
 
@@ -17,26 +17,10 @@ extension AppSettings {
     }
 
     @NSManaged public var colorfulCharts: Bool
-    @NSManaged public var weightBigGrades: String
-    @NSManaged public var usersubjects: NSSet?
+    @NSManaged public var weightBigGrades: String?
+    @NSManaged public var hasFiveExams: Bool
     @NSManaged public var gradetypes: NSSet?
-
-}
-
-// MARK: Generated accessors for usersubjects
-extension AppSettings {
-
-    @objc(addUsersubjectsObject:)
-    @NSManaged public func addToUsersubjects(_ value: UserSubject)
-
-    @objc(removeUsersubjectsObject:)
-    @NSManaged public func removeFromUsersubjects(_ value: UserSubject)
-
-    @objc(addUsersubjects:)
-    @NSManaged public func addToUsersubjects(_ values: NSSet)
-
-    @objc(removeUsersubjects:)
-    @NSManaged public func removeFromUsersubjects(_ values: NSSet)
+    @NSManaged public var usersubjects: NSSet?
 
 }
 
@@ -54,6 +38,23 @@ extension AppSettings {
 
     @objc(removeGradetypes:)
     @NSManaged public func removeFromGradetypes(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for usersubjects
+extension AppSettings {
+
+    @objc(addUsersubjectsObject:)
+    @NSManaged public func addToUsersubjects(_ value: UserSubject)
+
+    @objc(removeUsersubjectsObject:)
+    @NSManaged public func removeFromUsersubjects(_ value: UserSubject)
+
+    @objc(addUsersubjects:)
+    @NSManaged public func addToUsersubjects(_ values: NSSet)
+
+    @objc(removeUsersubjects:)
+    @NSManaged public func removeFromUsersubjects(_ values: NSSet)
 
 }
 

@@ -27,6 +27,7 @@
 		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
+		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
 		F14140462A47639E007E4648 /* TabViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14140452A47639E007E4648 /* TabViewVM.swift */; };
 		F14140482A476408007E4648 /* AppStoreRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14140472A476408007E4648 /* AppStoreRating.swift */; };
 		F17F443D298C4DA7000A3993 /* CalqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F443C298C4DA7000A3993 /* CalqApp.swift */; };
@@ -157,6 +158,8 @@
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
+		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 2 to 3.xcmappingmodel"; sourceTree = "<group>"; };
 		F14140452A47639E007E4648 /* TabViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewVM.swift; sourceTree = "<group>"; };
 		F14140472A476408007E4648 /* AppStoreRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRating.swift; sourceTree = "<group>"; };
 		F17F443C298C4DA7000A3993 /* CalqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqApp.swift; sourceTree = "<group>"; };
@@ -336,6 +339,7 @@
 				F1A772332A1795C6004B8DCC /* UserSubject+CoreDataClass.swift */,
 				F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */,
 				F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */,
+				F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */,
 				F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
 				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
@@ -712,6 +716,7 @@
 				F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */,
 				F1A772472A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */,
 				F1A7102D2A43757D00255F10 /* CardView.swift in Sources */,
+				F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */,
 				F1D29E792A17B8AF0001D469 /* ExportJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,10 +1081,11 @@
 		F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F11583002AA490BE00122FBB /* Model 3.xcdatamodel */,
 				F1A7720F2A17947A004B8DCC /* Model 2.xcdatamodel */,
 				F1A772102A17947A004B8DCC /* Model.xcdatamodel */,
 			);
-			currentVersion = F1A7720F2A17947A004B8DCC /* Model 2.xcdatamodel */;
+			currentVersion = F11583002AA490BE00122FBB /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

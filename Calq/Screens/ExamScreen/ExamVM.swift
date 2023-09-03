@@ -108,6 +108,7 @@ func generateBlockTwo() -> Int {
     var sum: Double = 0
     
     for sub in subjects {
+        let multiplier = Util.getSettings().hasFiveExams ? 4 : 5
         sum += Double(Int(sub.exampoints) * 4)
     }
     
