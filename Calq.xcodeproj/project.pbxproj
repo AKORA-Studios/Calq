@@ -91,7 +91,17 @@
 		F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */; };
 		F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */; };
 		F1BC83CA2AA78184000D7CD2 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6C4D02AA104D6002547C8 /* AccessibilityIdentifier.swift */; };
-		F1BC83CC2AA7823A000D7CD2 /* OverviewScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */; };
+		F1BC83CE2AA78451000D7CD2 /* SubjectListScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83CD2AA78451000D7CD2 /* SubjectListScreenUITests.swift */; };
+		F1BC83D02AA7845F000D7CD2 /* SubjectDetailScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83CF2AA7845F000D7CD2 /* SubjectDetailScreenUITests.swift */; };
+		F1BC83D42AA78480000D7CD2 /* ImpactSegmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83D32AA78480000D7CD2 /* ImpactSegmentUITests.swift */; };
+		F1BC83D62AA78492000D7CD2 /* AddGradeScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83D52AA78492000D7CD2 /* AddGradeScreenUITests.swift */; };
+		F1BC83D92AA784A3000D7CD2 /* GradeListScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83D82AA784A3000D7CD2 /* GradeListScreenUITests.swift */; };
+		F1BC83DB2AA784AA000D7CD2 /* EditGradeScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83DA2AA784AA000D7CD2 /* EditGradeScreenUITests.swift */; };
+		F1BC83DD2AA784B1000D7CD2 /* ExamScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83DC2AA784B1000D7CD2 /* ExamScreenUITests.swift */; };
+		F1BC83DF2AA784BC000D7CD2 /* SettingsScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83DE2AA784BC000D7CD2 /* SettingsScreenUITests.swift */; };
+		F1BC83E12AA784C3000D7CD2 /* EditSubjectScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E02AA784C3000D7CD2 /* EditSubjectScreenUITests.swift */; };
+		F1BC83E32AA784D0000D7CD2 /* LineChartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E22AA784D0000D7CD2 /* LineChartUITests.swift */; };
+		F1BC83E52AA784D9000D7CD2 /* CircleChartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E42AA784D9000D7CD2 /* CircleChartUITests.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -227,7 +237,17 @@
 		F1BC83BF2AA77C5A000D7CD2 /* CalqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITests.swift; sourceTree = "<group>"; };
 		F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83CD2AA78451000D7CD2 /* SubjectListScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83CF2AA7845F000D7CD2 /* SubjectDetailScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83D32AA78480000D7CD2 /* ImpactSegmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegmentUITests.swift; sourceTree = "<group>"; };
+		F1BC83D52AA78492000D7CD2 /* AddGradeScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83D82AA784A3000D7CD2 /* GradeListScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83DA2AA784AA000D7CD2 /* EditGradeScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83DC2AA784B1000D7CD2 /* ExamScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83DE2AA784BC000D7CD2 /* SettingsScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83E02AA784C3000D7CD2 /* EditSubjectScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreenUITests.swift; sourceTree = "<group>"; };
+		F1BC83E22AA784D0000D7CD2 /* LineChartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartUITests.swift; sourceTree = "<group>"; };
+		F1BC83E42AA784D9000D7CD2 /* CircleChartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChartUITests.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
@@ -426,14 +446,13 @@
 				F17F4441298C4DDF000A3993 /* TabView.swift */,
 				F14140452A47639E007E4648 /* TabViewVM.swift */,
 				F1E8BFE1299004AA00486A6D /* OverviewScreen */,
+				F1BE91C32A41DF3200E85494 /* SubjectList */,
+				F1F568C6298D912D00227F88 /* NewGradeScreen */,
 				F10D66B0298D57AA00993237 /* ExamScreen */,
 				F1138E5229959627008E7FD8 /* SettingsScreens */,
-				F1F568C6298D912D00227F88 /* NewGradeScreen */,
-				F1138E5329959664008E7FD8 /* SubjectInfoScreens */,
 				F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */,
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
 				F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */,
-				F1BE91C32A41DF3200E85494 /* SubjectList */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -471,16 +490,43 @@
 		F1BC83C02AA77C5A000D7CD2 /* CalqUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F1BC83D22AA78472000D7CD2 /* Views */,
+				F1BC83D12AA78462000D7CD2 /* Screens */,
 				F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */,
 				F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */,
-				F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */,
 			);
 			path = CalqUITests;
+			sourceTree = "<group>";
+		};
+		F1BC83D12AA78462000D7CD2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC83CD2AA78451000D7CD2 /* SubjectListScreenUITests.swift */,
+				F1BC83CF2AA7845F000D7CD2 /* SubjectDetailScreenUITests.swift */,
+				F1BC83D52AA78492000D7CD2 /* AddGradeScreenUITests.swift */,
+				F1BC83D82AA784A3000D7CD2 /* GradeListScreenUITests.swift */,
+				F1BC83DA2AA784AA000D7CD2 /* EditGradeScreenUITests.swift */,
+				F1BC83DC2AA784B1000D7CD2 /* ExamScreenUITests.swift */,
+				F1BC83DE2AA784BC000D7CD2 /* SettingsScreenUITests.swift */,
+				F1BC83E02AA784C3000D7CD2 /* EditSubjectScreenUITests.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F1BC83D22AA78472000D7CD2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC83D32AA78480000D7CD2 /* ImpactSegmentUITests.swift */,
+				F1BC83E22AA784D0000D7CD2 /* LineChartUITests.swift */,
+				F1BC83E42AA784D9000D7CD2 /* CircleChartUITests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F1BE91C32A41DF3200E85494 /* SubjectList */ = {
 			isa = PBXGroup;
 			children = (
+				F1138E5329959664008E7FD8 /* SubjectInfoScreens */,
 				F17F4449298C4EE7000A3993 /* SubjectListScreen.swift */,
 				F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */,
 			);
@@ -809,10 +855,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BC83E52AA784D9000D7CD2 /* CircleChartUITests.swift in Sources */,
 				F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */,
+				F1BC83DB2AA784AA000D7CD2 /* EditGradeScreenUITests.swift in Sources */,
+				F1BC83D42AA78480000D7CD2 /* ImpactSegmentUITests.swift in Sources */,
+				F1BC83D62AA78492000D7CD2 /* AddGradeScreenUITests.swift in Sources */,
+				F1BC83E12AA784C3000D7CD2 /* EditSubjectScreenUITests.swift in Sources */,
 				F1BC83CA2AA78184000D7CD2 /* AccessibilityIdentifier.swift in Sources */,
-				F1BC83CC2AA7823A000D7CD2 /* OverviewScreenUITests.swift in Sources */,
+				F1BC83CE2AA78451000D7CD2 /* SubjectListScreenUITests.swift in Sources */,
+				F1BC83D02AA7845F000D7CD2 /* SubjectDetailScreenUITests.swift in Sources */,
 				F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */,
+				F1BC83DD2AA784B1000D7CD2 /* ExamScreenUITests.swift in Sources */,
+				F1BC83D92AA784A3000D7CD2 /* GradeListScreenUITests.swift in Sources */,
+				F1BC83DF2AA784BC000D7CD2 /* SettingsScreenUITests.swift in Sources */,
+				F1BC83E32AA784D0000D7CD2 /* LineChartUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
