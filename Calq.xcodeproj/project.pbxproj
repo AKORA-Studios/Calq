@@ -88,6 +88,8 @@
 		F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B386462A1CFE6800F0C5AC /* CalqTests.swift */; };
 		F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F1B6C4D12AA104D6002547C8 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6C4D02AA104D6002547C8 /* AccessibilityIdentifier.swift */; };
+		F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */; };
+		F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -111,6 +113,13 @@
 			remoteInfo = CalqWidgetExtension;
 		};
 		F1B386482A1CFE6800F0C5AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD6878782617B1A900BF2B48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD68787F2617B1A900BF2B48;
+			remoteInfo = Calq;
+		};
+		F1BC83C52AA77C5A000D7CD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DD6878782617B1A900BF2B48 /* Project object */;
 			proxyType = 1;
@@ -213,6 +222,9 @@
 		F1B386462A1CFE6800F0C5AC /* CalqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqTests.swift; sourceTree = "<group>"; };
 		F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		F1B6C4D02AA104D6002547C8 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
+		F1BC83BF2AA77C5A000D7CD2 /* CalqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITests.swift; sourceTree = "<group>"; };
+		F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
@@ -241,6 +253,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1B386412A1CFE6700F0C5AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1BC83BC2AA77C5A000D7CD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +299,7 @@
 				DD6878822617B1A900BF2B48 /* Calq */,
 				DD4F979C27515CA800D3CC57 /* CalqWidget */,
 				F1B386452A1CFE6800F0C5AC /* CalqTests */,
+				F1BC83C02AA77C5A000D7CD2 /* CalqUITests */,
 				DD6878812617B1A900BF2B48 /* Products */,
 				787FEEECA5C14AA0667800A5 /* Frameworks */,
 			);
@@ -291,6 +311,7 @@
 				DD6878802617B1A900BF2B48 /* Calq.app */,
 				DD4F979927515CA800D3CC57 /* CalqWidgetExtension.appex */,
 				F1B386442A1CFE6800F0C5AC /* CalqTests.xctest */,
+				F1BC83BF2AA77C5A000D7CD2 /* CalqUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,6 +465,15 @@
 			path = CalqTests;
 			sourceTree = "<group>";
 		};
+		F1BC83C02AA77C5A000D7CD2 /* CalqUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */,
+				F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */,
+			);
+			path = CalqUITests;
+			sourceTree = "<group>";
+		};
 		F1BE91C32A41DF3200E85494 /* SubjectList */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +571,24 @@
 			productReference = F1B386442A1CFE6800F0C5AC /* CalqTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F1BC83BE2AA77C5A000D7CD2 /* CalqUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1BC83C92AA77C5A000D7CD2 /* Build configuration list for PBXNativeTarget "CalqUITests" */;
+			buildPhases = (
+				F1BC83BB2AA77C5A000D7CD2 /* Sources */,
+				F1BC83BC2AA77C5A000D7CD2 /* Frameworks */,
+				F1BC83BD2AA77C5A000D7CD2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1BC83C62AA77C5A000D7CD2 /* PBXTargetDependency */,
+			);
+			name = CalqUITests;
+			productName = CalqUITests;
+			productReference = F1BC83BF2AA77C5A000D7CD2 /* CalqUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -559,6 +607,10 @@
 					};
 					F1B386432A1CFE6700F0C5AC = {
 						CreatedOnToolsVersion = 14.3;
+						TestTargetID = DD68787F2617B1A900BF2B48;
+					};
+					F1BC83BE2AA77C5A000D7CD2 = {
+						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = DD68787F2617B1A900BF2B48;
 					};
 				};
@@ -580,6 +632,7 @@
 				DD68787F2617B1A900BF2B48 /* Calq */,
 				DD4F979827515CA800D3CC57 /* CalqWidgetExtension */,
 				F1B386432A1CFE6700F0C5AC /* CalqTests */,
+				F1BC83BE2AA77C5A000D7CD2 /* CalqUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -609,6 +662,13 @@
 			files = (
 				F1A710352A4384D900255F10 /* exampleData_v0.json in Resources */,
 				F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1BC83BD2AA77C5A000D7CD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +801,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1BC83BB2AA77C5A000D7CD2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */,
+				F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -753,6 +822,11 @@
 			isa = PBXTargetDependency;
 			target = DD68787F2617B1A900BF2B48 /* Calq */;
 			targetProxy = F1B386482A1CFE6800F0C5AC /* PBXContainerItemProxy */;
+		};
+		F1BC83C62AA77C5A000D7CD2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD68787F2617B1A900BF2B48 /* Calq */;
+			targetProxy = F1BC83C52AA77C5A000D7CD2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1046,6 +1120,45 @@
 			};
 			name = Release;
 		};
+		F1BC83C72AA77C5A000D7CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93TVBDWQK4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "akora-studios.CalqUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calq;
+			};
+			name = Debug;
+		};
+		F1BC83C82AA77C5A000D7CD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93TVBDWQK4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "akora-studios.CalqUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calq;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1081,6 +1194,15 @@
 			buildConfigurations = (
 				F1B3864B2A1CFE6800F0C5AC /* Debug */,
 				F1B3864C2A1CFE6800F0C5AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1BC83C92AA77C5A000D7CD2 /* Build configuration list for PBXNativeTarget "CalqUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1BC83C72AA77C5A000D7CD2 /* Debug */,
+				F1BC83C82AA77C5A000D7CD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
