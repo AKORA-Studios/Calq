@@ -8,7 +8,8 @@
 import XCTest
 
 final class CalqUITests: XCTestCase {
-
+    let app = XCUIApplication()
+    
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
@@ -17,20 +18,16 @@ final class CalqUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testLaunch() throws {
-        let app = XCUIApplication()
+    func testShowGradeTable() throws {
         app.launch()
 
-        //print(Ident.FirstLaunchScreen.loadDemoButton)
-   //     app.buttons[Ident.FirstLaunchScreen.loadDemoButton].click()
-     //   app.buttons["Ident.Main.tabBar"].click()
-        let e: String = Ident.Main.tabBar_Overview
-        app.tabBars.buttons[e].tap()
-        // if whatsnew
+        app.tabBars.buttons[Ident.SubjectListScreen.showGradesTableButton].tap()
         
-        // if first laucnh
+        XCTAssertTrue(app.tables[Ident.GradeTableOverviewScreen.gradeList].exists)
+    }
+    
+    func testNavigateToSubjectDetail() {
         
-        // otherwise
     }
 }
 

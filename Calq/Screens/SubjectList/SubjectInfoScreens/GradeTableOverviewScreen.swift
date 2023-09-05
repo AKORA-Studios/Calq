@@ -20,7 +20,7 @@ struct GradeTableOverviewScreen: View {
                 ForEach(subjects) { sub in
                     gradeTableCell(subject: sub)
                 }
-            }
+            }.accessibilityIdentifier(Ident.GradeTableOverviewScreen.gradeList)
         }.navigationTitle("subjectListTable")
             .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
     }

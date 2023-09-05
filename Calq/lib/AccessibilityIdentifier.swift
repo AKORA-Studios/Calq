@@ -73,6 +73,10 @@ struct Ident {
     struct SubjectListScreen {
         static let showGradesTableButton = "SubjectListScreen/showGradesTable"
     }
+    
+    struct GradeTableOverviewScreen {
+        static let gradeList = "GradeTableOverviewScreen/gradeList"
+    }
 }
 
 //           .accessibilityIdentifier(Ident.EditWeightScreen.contextMenuAddGrade)
