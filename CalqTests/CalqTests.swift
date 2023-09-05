@@ -81,6 +81,12 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(average, "-- 11 -- -- ")
     }
     
+    func testAverageString_WithoutTests() {
+        let sub = MockDataProvider.getSubjectWithoutTests()
+        let average = Util.averageString(MockDataProvider.getSubjectWithoutTests())
+        XCTAssertEqual(average, "-- -- -- -- ")
+    }
+    
     // MARK: Inactive Year funcs
     func testDeactivateHalfyear() {
         JSON.loadDemoData()
@@ -113,7 +119,7 @@ final class CalqTests: XCTestCase {
         Util.addYear(getExampleSub(), 3)
         let firstResult = Util.getinactiveYears(getExampleSub())
         XCTAssertEqual(firstResult.count, 1)
-
+        
         Util.removeYear(getExampleSub(), 4)
         
         let secondResult = Util.getinactiveYears(getExampleSub())
@@ -133,6 +139,24 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(types.filter {$0.name == "Test" || $0.name == "Klausur"}.count, 2)
     }
     
+    func testAddType_MoreThen100Percent() {
+        Util.addType(name: "someName", weigth: 0)
+        XCTAssertNotNil(Util.getTypes().filter {$0.name == "someName"})
+    }
+    
+    func testAddType() {
+        Util.addType(name: "someName", weigth: 200)
+        XCTAssertNotNil(Util.getTypes().filter {$0.name == "someName"})
+    }
+    
+    // TODO:
+   /* func testDeleteType() {
+        let gradeType = Util.getTypes().first
+        let id = gradeType!.id
+        Util.deleteType(type: id)
+        XCTAssertNil(Util.getTypes().filter {$0.id == id})
+    }*/
+    
     func testEditTypes() {
         // add type
         Util.addType(name: "someName", weigth: 0)
@@ -142,7 +166,27 @@ final class CalqTests: XCTestCase {
         XCTAssertTrue(Util.getTypes().filter {$0.name == "someName"}.isEmpty)
     }
     
-    // MARK: idk ranomd
+    func testGetTypes() {
+        XCTAssertGreaterThan(Util.getTypes().count, 1)
+    }
+    
+    func testGetTypes_WhenOnly1Exists() {
+        // TODO:
+    }
+    
+    func testgetTypeGrades() {
+        XCTAssertNotNil(Util.getTypeGrades(0))
+    }
+    
+    func testIsPrimaryType() {
+        // TODO:
+    }
+    
+    func testIsPrimaryType_GradeType() {
+        // TODO:
+    }
+    
+    // MARK: idk random
     func testGetSubjectAverage() {
         JSON.loadDemoData()
         if let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first {
@@ -164,7 +208,7 @@ final class CalqTests: XCTestCase {
     func testGetSubjectAverage_WithYear() {
         JSON.loadDemoData()
         guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
-           return XCTAssertTrue(false, "No subejct")
+            return XCTAssertTrue(false, "No subejct")
         }
         
         XCTAssertEqual(Util.getSubjectAverage(sub, year: 1), 15.0)
@@ -173,7 +217,7 @@ final class CalqTests: XCTestCase {
     func testGetSubjectAverage_WithYear_WithoutTests() {
         JSON.loadDemoData()
         guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
-           return XCTAssertTrue(false, "No subejct")
+            return XCTAssertTrue(false, "No subejct")
         }
         sub.subjecttests = nil
         saveCoreData()
@@ -183,7 +227,7 @@ final class CalqTests: XCTestCase {
     func testGetSubjectAverage_WithInvalidYear() {
         JSON.loadDemoData()
         guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
-           return XCTAssertTrue(false, "No subejct")
+            return XCTAssertTrue(false, "No subejct")
         }
         
         XCTAssertEqual(Util.getSubjectAverage(sub, year: 5), 0.0)
@@ -194,7 +238,29 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(Util.generalAverage().rounded(), 12.0)
     }
     
-    func testGeneralAverage_WithoutSubejcts() {
+    func testGeneralAverage_WithoutSubejects() {
+        let settings = Util.getSettings()
+        settings.usersubjects = nil
+        saveCoreData()
+        
         XCTAssertEqual(Util.generalAverage(), 0.0)
+    }
+    
+    func testGeneralAverage_WithoutTests() {
+        let subjects = Util.getAllSubjects()
+        subjects.forEach { sub in
+            sub.subjecttests = nil
+        }
+        saveCoreData()
+        
+        XCTAssertEqual(Util.generalAverage(), 0.0)
+    }
+    
+    func testDeleteTest() {
+        let sub = MockDataProvider.getSubjectWithTests()
+        XCTAssertEqual(sub.subjecttests?.count, 1)
+        
+        Util.deleteTest((sub.subjecttests?.allObjects.first!)! as! UserTest)
+        XCTAssertEqual(sub.subjecttests?.count, 0)
     }
 }

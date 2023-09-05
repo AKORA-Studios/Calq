@@ -98,6 +98,8 @@
 		F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */; };
 		F1D29E7E2A17BCCF0001D469 /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6822759091600B4A43B /* JSONUtil.swift */; };
 		F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D3433C29C37024002ED7DE /* SettingsVM.swift */; };
+		F1DD87EE2AA795910095C057 /* LineChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DD87ED2AA795910095C057 /* LineChartTests.swift */; };
+		F1DD87F02AA799700095C057 /* BarChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DD87EF2AA799700095C057 /* BarChartTests.swift */; };
 		F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F568C7298DA72100227F88 /* ImpactSegment.swift */; };
 /* End PBXBuildFile section */
@@ -219,6 +221,8 @@
 		F1D29E782A17B8AF0001D469 /* ExportJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportJSON.swift; sourceTree = "<group>"; };
 		F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
 		F1D3433C29C37024002ED7DE /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		F1DD87ED2AA795910095C057 /* LineChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartTests.swift; sourceTree = "<group>"; };
+		F1DD87EF2AA799700095C057 /* BarChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTests.swift; sourceTree = "<group>"; };
 		F1E8BFE229900C5500486A6D /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		F1F568C7298DA72100227F88 /* ImpactSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -440,6 +444,8 @@
 				F1A710322A437F8300255F10 /* exampleData_v1.json */,
 				F1A710342A4384D600255F10 /* exampleData_v0.json */,
 				F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */,
+				F1DD87ED2AA795910095C057 /* LineChartTests.swift */,
+				F1DD87EF2AA799700095C057 /* BarChartTests.swift */,
 			);
 			path = CalqTests;
 			sourceTree = "<group>";
@@ -735,8 +741,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */,
+				F1DD87EE2AA795910095C057 /* LineChartTests.swift in Sources */,
 				F1B292DF2A3BC1DF00AF2ACD /* MockDataProvider.swift in Sources */,
 				F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */,
+				F1DD87F02AA799700095C057 /* BarChartTests.swift in Sources */,
 				F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

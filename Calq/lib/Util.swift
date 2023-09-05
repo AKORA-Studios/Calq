@@ -281,29 +281,6 @@ struct Util {
         return arr1+arr2
     }
     
-    /// Returns one Subject
-    static func getSubject(_ subject: UserSubject) -> UserSubject? {
-        let all = self.getAllSubjects()
-        let filtered = all.filter {$0.objectID == subject.objectID}
-        if filtered.count < 1 { return nil }
-        return filtered[0]
-    }
-    
-    /// Returns one Subject after ID
-    static func getSubject(_ id: NSManagedObjectID) -> UserSubject? {
-        let all = self.getAllSubjects()
-        let filtered = all.filter {$0.objectID == id}
-        if filtered.count < 1 { return nil }
-        return filtered[0]
-    }
-    
-    /// Returns all Subjectnames
-    static func getAllSubjectNames() -> [String] {
-        var subjects = Util.getAllSubjects()
-        subjects = subjects.sorted(by: {$0.name < $1.name })
-        return subjects.map { $0.name }
-    }
-    
     static func deleteSubject(_ subject: UserSubject) {
         context.delete(subject)
     }
@@ -353,41 +330,6 @@ struct Util {
     
     private static func arrToString(_ arr: [String]) -> String {
         return arr.joined(separator: " ")
-    }
-    
-    // MARK: Dates
-    /// Returns the last date when a grade was added
-    static func calcMaxDate() -> Date {
-        let allSubjects = self.getAllSubjects().filter { $0.subjecttests?.count != 0 }
-        if allSubjects.count == 0 { return Date() }
-        
-        let allDates = allSubjects.map {
-            ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
-            .map {
-                $0.map {
-                    $0.date.timeIntervalSince1970
-                }.sorted(by: {$0 > $1})[0]
-            }
-        if allDates.count == 0 { return Date(timeIntervalSince1970: 0.0) }
-        
-        return Date(timeIntervalSince1970: allDates.sorted(by: {$0 > $1})[0])
-    }
-    
-    /// Returns the first date when a grade was added
-    static func calcMinDate() -> Date {
-        let allSubjects = self.getAllSubjects().filter { $0.subjecttests?.count != 0 }
-        if allSubjects.count == 0 { return Date() }
-        
-        let allDates = allSubjects.map {
-            ($0.subjecttests?.allObjects as? [UserTest] ?? [])}
-            .map {
-                $0.map {
-                    $0.date.timeIntervalSince1970
-                }.sorted(by: {$0 < $1})[0]
-            }
-        if allDates.count == 0 { return Date(timeIntervalSince1970: 0.0) }
-        
-        return Date(timeIntervalSince1970: allDates.sorted(by: {$0 < $1})[0])
     }
     
     // MARK: Tests

@@ -31,4 +31,21 @@ class MockDataProvider {
         saveCoreData()
         return sub
     }
+    
+    static func getSubjectWithoutTests() -> UserSubject {
+        let settings: AppSettings = Util.deleteSettings()
+        let sub = UserSubject(context: Util.getContext())
+        sub.name = "name"
+        sub.color = "ffffff"
+        sub.lk = true
+        sub.inactiveYears = ""
+        
+        sub.examtype = 2
+        sub.exampoints = 15
+        
+        settings.addToUsersubjects(sub)
+        
+        saveCoreData()
+        return sub
+    }
 }
