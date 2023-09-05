@@ -90,6 +90,8 @@
 		F1B6C4D12AA104D6002547C8 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6C4D02AA104D6002547C8 /* AccessibilityIdentifier.swift */; };
 		F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */; };
 		F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */; };
+		F1BC83CA2AA78184000D7CD2 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6C4D02AA104D6002547C8 /* AccessibilityIdentifier.swift */; };
+		F1BC83CC2AA7823A000D7CD2 /* OverviewScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -225,6 +227,7 @@
 		F1BC83BF2AA77C5A000D7CD2 /* CalqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITests.swift; sourceTree = "<group>"; };
 		F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalqUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewScreenUITests.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
@@ -470,6 +473,7 @@
 			children = (
 				F1BC83C12AA77C5A000D7CD2 /* CalqUITests.swift */,
 				F1BC83C32AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift */,
+				F1BC83CB2AA7823A000D7CD2 /* OverviewScreenUITests.swift */,
 			);
 			path = CalqUITests;
 			sourceTree = "<group>";
@@ -806,6 +810,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1BC83C22AA77C5A000D7CD2 /* CalqUITests.swift in Sources */,
+				F1BC83CA2AA78184000D7CD2 /* AccessibilityIdentifier.swift in Sources */,
+				F1BC83CC2AA7823A000D7CD2 /* OverviewScreenUITests.swift in Sources */,
 				F1BC83C42AA77C5A000D7CD2 /* CalqUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

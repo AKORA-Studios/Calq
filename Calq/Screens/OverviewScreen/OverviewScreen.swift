@@ -72,7 +72,10 @@ struct OverviewScreen: View {
             }
             HStack(alignment: .center, spacing: 5) {
                 CircleChart(percent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
+                    .accessibilityIdentifier(Ident.OverviewScreen.averageCircleChart)
+                
                 CircleChart(percent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                    .accessibilityIdentifier(Ident.OverviewScreen.examCircleChart)
             }
         }
     }

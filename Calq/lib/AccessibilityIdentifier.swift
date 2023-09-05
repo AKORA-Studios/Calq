@@ -9,6 +9,13 @@ import Foundation
 
 
 struct Ident {
+    struct Main {
+        static let tabBar_overview = "Main/tabBar/overview"
+        static let tabBar_subjects = "Main/tabBar/subjects"
+        static let tabBar_addgrade = "Main/tabBar/addgrade"
+        static let tabBar_exams = "Main/tabBar/exams"
+        static let tabBar_settings = "Main/tabBar/settings"
+    }
     struct Chart {
         static let idk = "Chart/idk" // test
     }
@@ -20,6 +27,11 @@ struct Ident {
     struct ExamScreen {
         static let examSelectButton = "ExamScreen/cancel"
         static let contextMenuExamDeleteButton = "ExamScreen/deleteExam"
+    }
+    
+    struct OverviewScreen {
+        static let averageCircleChart = "OverviewScreen/averageCircleChart"
+        static let examCircleChart = "OverviewScreen/examCircleChart"
     }
     
     struct SettingsScreen {
