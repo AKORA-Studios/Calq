@@ -141,4 +141,60 @@ final class CalqTests: XCTestCase {
         Util.deleteType(type: type.id)
         XCTAssertTrue(Util.getTypes().filter {$0.name == "someName"}.isEmpty)
     }
+    
+    // MARK: idk ranomd
+    func testGetSubjectAverage() {
+        JSON.loadDemoData()
+        if let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first {
+            let subAverage = Util.getSubjectAverage(sub)
+            XCTAssertEqual(subAverage, 14.7)
+        }
+    }
+    
+    func testGetSubjectAverage_WithoutTests() {
+        JSON.loadDemoData()
+        if let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first {
+            sub.subjecttests = nil
+            saveCoreData()
+            let subAverage = Util.getSubjectAverage(sub)
+            XCTAssertEqual(subAverage, 0.0)
+        }
+    }
+    
+    func testGetSubjectAverage_WithYear() {
+        JSON.loadDemoData()
+        guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
+           return XCTAssertTrue(false, "No subejct")
+        }
+        
+        XCTAssertEqual(Util.getSubjectAverage(sub, year: 1), 15.0)
+    }
+    
+    func testGetSubjectAverage_WithYear_WithoutTests() {
+        JSON.loadDemoData()
+        guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
+           return XCTAssertTrue(false, "No subejct")
+        }
+        sub.subjecttests = nil
+        saveCoreData()
+        XCTAssertEqual(Util.getSubjectAverage(sub, year: 1), 0.0)
+    }
+    
+    func testGetSubjectAverage_WithInvalidYear() {
+        JSON.loadDemoData()
+        guard let sub = Util.getAllSubjects().filter({ $0.name == "Kunst"}).first else {
+           return XCTAssertTrue(false, "No subejct")
+        }
+        
+        XCTAssertEqual(Util.getSubjectAverage(sub, year: 5), 0.0)
+    }
+    
+    func testGeneralAverage() {
+        JSON.loadDemoData()
+        XCTAssertEqual(Util.generalAverage().rounded(), 12.0)
+    }
+    
+    func testGeneralAverage_WithoutSubejcts() {
+        XCTAssertEqual(Util.generalAverage(), 0.0)
+    }
 }
