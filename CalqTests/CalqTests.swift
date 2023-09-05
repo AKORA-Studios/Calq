@@ -18,16 +18,35 @@ final class CalqTests: XCTestCase {
         return Util.getAllSubjects().first(where: {$0.name == "Kunst"})!
     }
     
-    func testCheckString() {
+    func testCheckString_InvalidInput() {
         let strChecked = Util.isStringInputInvalid("33 $%&&/%/%/%(!@-*1")
-        
         XCTAssertEqual(strChecked, true)
-        XCTAssertEqual( Util.isStringInputInvalid(""), true)
+    }
+    
+    func testCheckString_ValidInput() {
+        let strChecked = Util.isStringInputInvalid("abc")
+        XCTAssertEqual(strChecked, false)
+    }
+    
+    func testCheckString_EmptyString() {
+        XCTAssertEqual(Util.isStringInputInvalid(""), true)
     }
     
     func testAverage() {
-        let average = Util.average([1, 2, 3])
+        let values: [Int] = [1, 2, 3]
+        let average = Util.average(values)
         XCTAssertEqual(average, 2.0)
+    }
+    
+    func testAverage_EmptyArr() {
+        let values: [Int] = []
+        let average = Util.average(values)
+        XCTAssertEqual(average, 0.0)
+    }
+    
+    func testAverage_WithoutTests() {
+        let average = Util.testAverage([])
+        XCTAssertEqual(average, 0)
     }
     
     func testGradeString() {
@@ -100,6 +119,10 @@ final class CalqTests: XCTestCase {
         
         do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
         XCTAssertEqual(Util.getAllSubjects().count, 1)
+    }
+    
+    func testImportV2() {
+        // TODO:
     }
     
     func testAverageString() {
