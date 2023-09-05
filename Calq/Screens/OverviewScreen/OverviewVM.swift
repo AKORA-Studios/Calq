@@ -15,9 +15,9 @@ class OverViewViewModel: ObservableObject {
     @Published var gradeText = ""
     @Published var blockCircleText = ""
     
-    @Published var subjectValues: [BarChartEntry] = []
-    @Published var halfyears: [BarChartEntry] = []
-    @Published var lineChartEntries: [[LineChartEntry]] = []
+    @Published var subjectValues: [BarChartEntry] = createSubjectBarData()
+    @Published var halfyears: [BarChartEntry] = createHalfYearBarChartData()
+    @Published var lineChartEntries: [[LineChartEntry]] = lineChartData()
     
     @Published var averageText: String = ""
     @Published var averagePercent: Double = 0.0
@@ -33,7 +33,7 @@ class OverViewViewModel: ObservableObject {
         blockCircleText = getGradeData()
         
         subjectValues = createSubjectBarData()
-        halfyears = getHalfyears()
+        halfyears = createHalfYearBarChartData()
         lineChartEntries = lineChartData()
         
         averageText = String(format: "%.2f", Util.generalAverage())
@@ -53,12 +53,5 @@ class OverViewViewModel: ObservableObject {
     func getGradeData() -> String {
         let blockGrade = Util.grade(number: Double(blockPoints * 15 / 900))
         return  String(format: "%.2f", blockGrade)
-    }
-    
-    func getHalfyears() -> [BarChartEntry] {
-        return [BarChartEntry(value: Util.generalAverage(1)),
-                BarChartEntry(value: Util.generalAverage(2)),
-                BarChartEntry(value: Util.generalAverage(3)),
-                BarChartEntry(value: Util.generalAverage(4))]
     }
 }
