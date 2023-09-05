@@ -70,6 +70,13 @@ class SettingsViewModel: ObservableObject {
     
     func updateExamSettings() {
         settings.hasFiveExams = hasFiveExams == 5
+        
+        if hasFiveExams == 4 {
+            let fifthExam = Util.getAllSubjects().filter { $0.examtype == 5}
+            fifthExam.forEach { exam in
+                exam.examtype = Int16(0)
+            }
+        }
         saveCoreData()
     }
     

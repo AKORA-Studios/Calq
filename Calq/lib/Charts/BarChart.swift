@@ -79,6 +79,13 @@ func createSubjectBarData() -> [BarChartEntry] {
     return arr
 }
 
+func createHalfYearBarChartData() -> [BarChartEntry] {
+    return [BarChartEntry(value: Util.generalAverage(1)),
+            BarChartEntry(value: Util.generalAverage(2)),
+            BarChartEntry(value: Util.generalAverage(3)),
+            BarChartEntry(value: Util.generalAverage(4))]
+}
+
 struct BarChartEntry: Hashable {
     var color: Color = .accentColor
     var value: Double = 0.5
