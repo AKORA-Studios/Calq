@@ -31,30 +31,33 @@ final class JSONTests: XCTestCase {
     }
     
     func testImportV0() {
-        Util.deleteSettings()
+        loadJSON(ressource: "exampleData_v0")
         
-        let testBundle = Bundle(for: type(of: self))
-        guard let ressourceURL = testBundle.url(forResource: "exampleData_v0", withExtension: "json") else {
-            return assertionFailure("ExampleFile does not exist")
-        }
-        
-        do { try JSON.importJSONfromDevice(ressourceURL) } catch { return assertionFailure("Failed to load resource") }
         XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
     func testImportV1() {
-        Util.deleteSettings()
+        loadJSON(ressource: "exampleData_v1")
         
-        let testBundle = Bundle(for: type(of: self))
-        guard let ressourceURL = testBundle.url(forResource: "exampleData_v1", withExtension: "json") else {
-            return assertionFailure("ExampleFile does not exist")
-        }
-        
-        do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
         XCTAssertEqual(Util.getAllSubjects().count, 1)
     }
     
     func testImportV2() {
-        // TODO:
+        loadJSON(ressource: "exampleData_v2")
+    
+        let settings = Util.getSettings()
+        XCTAssertEqual(settings.hasFiveExams, false)
+    }
+    
+    // MARK: load Data
+    func loadJSON(ressource: String) {
+        Util.deleteSettings()
+        
+        let testBundle = Bundle(for: type(of: self))
+        guard let ressourceURL = testBundle.url(forResource: ressource, withExtension: "json") else {
+            return assertionFailure("ExampleFile does not exist")
+        }
+        
+        do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
     }
 }
