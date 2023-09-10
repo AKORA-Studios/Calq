@@ -9,6 +9,7 @@ import CoreData
 @testable import Calq
 
 class MockDataProvider {
+    @discardableResult
     static func getSubjectWithTests() -> UserSubject {
         let settings: AppSettings = Util.deleteSettings()
         let sub = UserSubject(context: Util.getContext())
@@ -32,6 +33,7 @@ class MockDataProvider {
         return sub
     }
     
+    @discardableResult
     static func getSubjectWithoutTests() -> UserSubject {
         let settings: AppSettings = Util.deleteSettings()
         let sub = UserSubject(context: Util.getContext())

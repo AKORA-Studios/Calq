@@ -216,7 +216,8 @@ struct Util {
     /// Returns the apps settings
     static func getSettings() -> AppSettings {
         do {
-            let requestResult: [NSManagedObject] = try Util.getContext().fetch(AppSettings.fetchRequest())
+            let fetchRequest = NSFetchRequest<AppSettings>(entityName: "AppSettings")
+            let requestResult = try context.fetch(fetchRequest)
             
             if requestResult.isEmpty {
                 let item =  AppSettings(context: Util.getContext())

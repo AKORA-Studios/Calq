@@ -1,0 +1,25 @@
+
+{"formatVersion": 2, "colorfulCharts": true, "highlightedType": 1, "hasFiveExams": false, "gradeTypes": [], "exam3Spanisch": 11,
+    "usersubjects": [
+        {"name": "Spanisch", "lk": true, "color": "#79c685", "inactiveYears":  "",
+            "subjecttests": [
+                {"name": "Bioolympiadee", "year": 3, "grade":14, "date": "1632820440.0", "type": 0} ,
+                {"name": "Klausur Genetik #2", "year": 3, "grade":13, "date": "1638978893.0", "type": 1} ,
+                {"name": "Klausur Ökologie", "year": 2, "grade":8, "date": "1625562840.0", "type": 1} ,
+                {"name": "Protokoll Experiment", "year": 1, "grade":11, "date": "1602062040.0", "type": 0} ,
+                {"name": "Exkursionsbericht", "year": 2, "grade":14, "date": "1626192991.0", "type": 0} ,
+                {"name": "Test Stoffwechselprozesse", "year": 2, "grade":14, "date": "1616494440.0", "type": 0} ,
+                {"name": "Test Zellbestandteile", "year": 1, "grade":14, "date": "1604398440.0", "type": 0} ,
+                {"name": "Klausur Enzyme", "year": 1, "grade":11, "date": "1606385640.0", "type": 1} ,
+                {"name": "Test Genetik", "year": 3, "grade":14, "date": "1639414125.0", "type": 0} ,
+                {"name": "Experiment Blattfarbstoffe", "year": 2, "grade":14, "date": "1615284840.0", "type": 0} ,
+                {"name": "2. Klausur", "year": 1, "grade":10, "date": "1613470440.0", "type": 1} ,
+                {"name": "Test Neurologie", "year": 4, "grade":14, "date": "1644418358.0", "type": 0} ,
+                {"name": "Wertediskussion PID", "year": 3, "grade":14, "date": "1641830542.0", "type": 0} ,
+                {"name": "Klausur Genetik", "year": 3, "grade":12, "date": "1635790651.0", "type": 1} ,
+                {"name": "Test Stammbaumanalyse", "year": 3, "grade":14, "date": "1637602982.0", "type": 0} ,
+                {"name": "Vorabitur", "year": 4, "grade":11, "date": "1646661978.0", "type": 1}
+            ]
+        }
+    ]
+}

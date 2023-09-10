@@ -82,7 +82,6 @@ final class CalqTests: XCTestCase {
     }
     
     func testAverageString_WithoutTests() {
-        let sub = MockDataProvider.getSubjectWithoutTests()
         let average = Util.averageString(MockDataProvider.getSubjectWithoutTests())
         XCTAssertEqual(average, "-- -- -- -- ")
     }
@@ -170,16 +169,24 @@ final class CalqTests: XCTestCase {
         XCTAssertGreaterThan(Util.getTypes().count, 1)
     }
     
-    func testGetTypes_WhenOnly1Exists() {
+   /* func testGetTypes_WhenOnly1Exists() {
         // TODO:
-    }
+      /*
+        Util.deleteSettings()
+        JSON.loadDemoData()
+       */
+        let type = Util.getTypes().first!
+        Util.deleteType(type: type)
+        XCTAssertEqual(Util.getTypes().count, 2)
+    }*/
     
     func testgetTypeGrades() {
         XCTAssertNotNil(Util.getTypeGrades(0))
     }
     
     func testIsPrimaryType() {
-        // TODO:
+        let type = Util.getTypes().filter { $0.name == "Klausur"}.first!
+        XCTAssertTrue(Util.isPrimaryType(type))
     }
     
     func testIsPrimaryType_GradeType() {
