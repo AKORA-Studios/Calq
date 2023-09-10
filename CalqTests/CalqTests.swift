@@ -82,7 +82,6 @@ final class CalqTests: XCTestCase {
     }
     
     func testAverageString_WithoutTests() {
-        let sub = MockDataProvider.getSubjectWithoutTests()
         let average = Util.averageString(MockDataProvider.getSubjectWithoutTests())
         XCTAssertEqual(average, "-- -- -- -- ")
     }

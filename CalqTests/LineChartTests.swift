@@ -10,7 +10,13 @@ import XCTest
 
 final class LineChartTests: XCTestCase {
 
+    override class func setUp() {
+        Util.setContext(TestCoreDataStack.sharedContext)
+    }
+    
     func testLineChartData() {
-            // TODO: 
+        MockDataProvider.getSubjectWithTests()
+        let data = lineChartData().first!.first!
+        XCTAssertEqual(data.value, 11/15)
     }
 }
