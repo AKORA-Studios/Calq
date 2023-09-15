@@ -21,6 +21,11 @@ class CoreDataStack: ImplementsCoreDataStack {
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         storeDescription.shouldInferMappingModelAutomatically = false
         storeDescription.shouldMigrateStoreAutomatically = true
+        
+        #if APP_WIDGET
+         storeDescription.setOption(true as NSNumber, forKey: NSReadOnlyPersistentStoreOption)
+        #endif
+        
         container.persistentStoreDescriptions = [storeDescription]
         
         container.loadPersistentStores(completionHandler: { (_, error) in
