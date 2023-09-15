@@ -15,9 +15,9 @@ class OverViewViewModel: ObservableObject {
     @Published var gradeText = ""
     @Published var blockCircleText = ""
     
-    @Published var subjectValues: [BarChartEntry] = createSubjectBarData()
-    @Published var halfyears: [BarChartEntry] = createHalfYearBarChartData()
-    @Published var lineChartEntries: [[LineChartEntry]] = lineChartData()
+    @Published var subjectValues: [BarChartEntry] = BarChartEntry.getData()
+    @Published var halfyears: [BarChartEntry] = BarChartEntry.getDataHalfyear()
+    @Published var lineChartEntries: [[LineChartEntry]] = LineChartEntry.getData()
     
     @Published var averageText: String = ""
     @Published var averagePercent: Double = 0.0
@@ -32,9 +32,9 @@ class OverViewViewModel: ObservableObject {
         blockPercent = Double((blockPoints/900.0))
         blockCircleText = getGradeData()
         
-        subjectValues = createSubjectBarData()
-        halfyears = createHalfYearBarChartData()
-        lineChartEntries = lineChartData()
+        subjectValues = BarChartEntry.getData()
+        halfyears = BarChartEntry.getDataHalfyear()
+        lineChartEntries = LineChartEntry.getData()
         
         averageText = String(format: "%.2f", Util.generalAverage())
         averagePercent = Util.generalAverage() / 15

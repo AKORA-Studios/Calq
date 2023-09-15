@@ -47,6 +47,7 @@
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A05C5E2A642670003734F2 /* StringExtension.swift */; };
+		F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
@@ -666,6 +667,7 @@
 				F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */,
 				F1D29E7C2A17BCC90001D469 /* ExportJSON.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
+				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,

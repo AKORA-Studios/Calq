@@ -8,35 +8,16 @@
 import SwiftUI
 
 struct BarChartWidgetView: View {
-    @State var subjects: [UserSubject] = Util.getAllSubjects()
-    var settings = Util.getSettings()
+    var values: [BarChartEntry]
     
     var body: some View {
         GeometryReader { geo in
-            let fullHeigth = geo.size.height - 30
+            let fullHeigth = geo.size.height - 10
             VStack(alignment: .center) {
-                if subjects.isEmpty {
+                if values.isEmpty {
                     EmptyMediumView()
                 } else {
-                    HStack {
-                        ForEach(subjects, id: \.self) { subj in
-                            let average = Util.getSubjectAverage(subj)
-                            let grade =  (average * 100) / 15.0
-                            let color = getSubjectColor(subj)
-                            
-                            VStack(spacing: 0) {
-                                ZStack(alignment: .bottom) {
-                                    Rectangle().frame( height: fullHeigth).foregroundColor(Color(.systemGray4)).topCorner()
-                                    Rectangle().frame( height: (fullHeigth * (grade / 100.0))).foregroundColor(color).topCorner()
-                                    Text(String(Int(average)))
-                                        .font(.footnote)
-                                        .fontWeight(.light)
-                                        .foregroundColor(.black)
-                                }
-                                Text(subj.name.prefix(2).uppercased()).font(.system(size: 9)).frame(height: 10)
-                            }
-                        }
-                    }
+                    BarChart(values: Binding.constant(values), heigth: fullHeigth)
                 }
             }.padding(10)
         }

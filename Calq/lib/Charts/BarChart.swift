@@ -67,32 +67,11 @@ struct BarChart: View {
     }
 }
 
-func createSubjectBarData() -> [BarChartEntry] {
-    var arr: [BarChartEntry] = []
-    let subjects = Util.getAllSubjects()
-    
-    for sub in subjects {
-        let color = getSubjectColor(sub)
-        arr.append(BarChartEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
-    }
-    
-    return arr
-}
-
-func createHalfYearBarChartData() -> [BarChartEntry] {
-    return [BarChartEntry(value: Util.generalAverage(1)),
-            BarChartEntry(value: Util.generalAverage(2)),
-            BarChartEntry(value: Util.generalAverage(3)),
-            BarChartEntry(value: Util.generalAverage(4))]
-}
-
 struct BarChartEntry: Hashable {
     var color: Color = .accentColor
     var value: Double = 0.5
     var text: String = ""
-}
-
-extension BarChartEntry {
+    
     static let exmaple = [
         BarChartEntry(color: pastelColors[0], value: 10, text: "DE"),
         BarChartEntry(color: pastelColors[1], value: 11, text: "EN"),
@@ -104,4 +83,23 @@ extension BarChartEntry {
         BarChartEntry(color: pastelColors[7], value: 9, text: "abc"),
         BarChartEntry(color: pastelColors[8], value: 12, text: "def")
     ]
+    
+    static func getDataHalfyear() -> [BarChartEntry] {
+        return [BarChartEntry(value: Util.generalAverage(1)),
+                BarChartEntry(value: Util.generalAverage(2)),
+                BarChartEntry(value: Util.generalAverage(3)),
+                BarChartEntry(value: Util.generalAverage(4))]
+    }
+    
+    static func getData() -> [BarChartEntry] {
+        var arr: [BarChartEntry] = []
+        let subjects = Util.getAllSubjects()
+        
+        for sub in subjects {
+            let color = getSubjectColor(sub)
+            arr.append(BarChartEntry(color: color, value: Util.getSubjectAverage(sub), text: sub.name))
+        }
+        
+        return arr
+    }
 }

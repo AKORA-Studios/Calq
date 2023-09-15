@@ -16,18 +16,21 @@ private struct Provider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(date: Date(), barChartData: BarChartEntry.exmaple, lineChartData: LineChartEntry.example, circleChartData: CircleChartData.example)
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        let timeline = Timeline(entries: [SimpleEntry(date: Date())], policy: .atEnd)
+        let timeline = Timeline(entries: [SimpleEntry(date: Date(), barChartData: BarChartEntry.getData(), lineChartData: LineChartEntry.getData(), circleChartData: circleChartData())], policy: .atEnd)
         completion(timeline)
     }
 }
 
 private struct SimpleEntry: TimelineEntry {
     let date: Date
+    var barChartData: [BarChartEntry] = []
+    var lineChartData: [[LineChartEntry]] = []
+    var circleChartData: CircleChartData = CircleChartData(percent: 0, upperText: "?", lowerText: "?")
 }
 
 private struct CalqWidgetEntryView: View {
@@ -36,33 +39,20 @@ private struct CalqWidgetEntryView: View {
     
     var body: some View {
         switch family {
-        case .systemSmall: CircleChartWidgetView()
-        case .systemMedium: BarChartWidgetView()
-        default: CircleChartWidgetView()
+        case .systemSmall: CircleChartWidgetView(data: entry.circleChartData)
+        case .systemMedium: BarChartWidgetView(values: entry.barChartData)
+        default: CircleChartWidgetView(data: entry.circleChartData)
         }
     }
 }
 
-class LineChartWidgetViewmodel: ObservableObject {
-    @Published var lineChartEntries: [[LineChartEntry]] = []
-    
-    func updateViews() {
-        self.objectWillChange.send()
-        lineChartEntries = lineChartData()
-    }
-}
-
 private struct CalqWidgetEntryView2: View {
-    @ObservedObject var vm =  LineChartWidgetViewmodel()
     var entry: SimpleEntry
     
     var body: some View {
         GeometryReader { geo in
-            LineChart(data: $vm.lineChartEntries, heigth: geo.size.height - 50)
+            LineChart(data: Binding.constant(entry.lineChartData), heigth: geo.size.height - 50)
                 .padding()
-                .onAppear {
-                    vm.updateViews()
-                }
         }
     }
 }
@@ -120,16 +110,17 @@ struct CalqWidgetBundle: WidgetBundle {
 
 // MARK: Preview
 struct Widgets_Previews: PreviewProvider {
+    
     static var previews: some View {
-        CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), barChartData: BarChartEntry.exmaple))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("BarChart")
         
-        CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date(), circleChartData: CircleChartData.example))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("CircleChart")
         
-        CalqWidgetEntryView2(entry: SimpleEntry(date: Date()))
+        CalqWidgetEntryView2(entry: SimpleEntry(date: Date(), lineChartData: LineChartEntry.example))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("LineChart")
     }

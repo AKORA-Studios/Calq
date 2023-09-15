@@ -8,46 +8,33 @@
 import SwiftUI
 
 struct CircleChartWidgetView: View {
-    var body: some View {
-        ProgressView("Loading...", value: Util.generalAverage(), total: 15)
-            .progressViewStyle(CustomCircularProgressViewStyle())
-    }
-}
-
-struct CustomCircularProgressViewStyle: ProgressViewStyle {
-    let grade = String(format: "%.2f", Util.grade(number: Util.generalAverage()))
+    let data: CircleChartData
     
-    func makeBody(configuration: Configuration) -> some View {
+    var body: some View {
         VStack {
             HStack {
                 Image(systemName: "chart.bar.fill").font(.system(size: 16.0)).foregroundColor(.accentColor)
                 Text("Durchschnitt").foregroundColor(.accentColor)
             }.padding(.top, 10)
             
-            ZStack {
-                Circle()
-                    .trim(from: 0.0, to: 1.0)
-                    .stroke(Color(.systemGray4), style: StrokeStyle(lineWidth: 13.0, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: 100)
-                
-                Circle()
-                    .trim(from: 0.0, to: CGFloat(configuration.fractionCompleted ?? 0))
-                    .stroke(Color.accentColor, style: StrokeStyle(lineWidth: 13.0, lineCap: .round))
-                    .foregroundColor(.accentColor)
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: 100)
-                
-                VStack {
-                    Text(String(format: "%.01f", Util.generalAverage()))
-                        .fontWeight(.bold)
-                        .foregroundColor(.accentColor)
-                        .frame(width: 90)
-                    Text(grade)
-                        .foregroundColor(.accentColor)
-                        .frame(width: 90)
-                }
-            }
+            CircleChart(percent: Binding.constant(data.percent), upperText: Binding.constant(data.upperText), lowerText: Binding.constant(data.lowerText))
+            
         }.padding(.bottom, 10)
     }
+}
+
+struct CircleChartData {
+    var percent: Double
+    var upperText: String
+    var lowerText: String
+    
+    static let example = CircleChartData(percent: 0.5, upperText: "7.5", lowerText: "3.0")
+}
+
+func circleChartData() -> CircleChartData {
+    let average = Util.generalAverage()
+    let percent = Util.generalAverage() / 15
+    let grade = String(format: "%.2f", Util.grade(number: average))
+    let points = String(format: "%.2f", average)
+    return CircleChartData(percent: average / 15, upperText: points, lowerText: grade)
 }

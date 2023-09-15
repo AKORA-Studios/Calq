@@ -16,13 +16,13 @@ final class BarChartTests: XCTestCase {
 
     func testCreateSubjectBarData() {
         MockDataProvider.getSubjectWithTests()
-        let data = createSubjectBarData().first!
+        let data = BarChartEntry.getData().first!
         XCTAssertEqual(data.value, 11)
     }
     
     func testCreateHalfYearBarChartData() {
         MockDataProvider.getSubjectWithTests()
-        let data = createHalfYearBarChartData()
+        let data = BarChartEntry.getDataHalfyear()
         let expected: [Double] = [0, 11, 0, 0]
         XCTAssertEqual(data.map { $0.value}, expected)
     }

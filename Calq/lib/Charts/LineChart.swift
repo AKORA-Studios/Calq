@@ -13,15 +13,37 @@ struct LineChartEntry: Hashable {
     var value: Double
     var date: Double
     var color: Color = .accentColor
-}
-
-extension LineChartEntry {
+    
     static let example = [[
         LineChartEntry(value: 1.0, date: 1685614799, color: Color.orange),
         LineChartEntry(value: 0.4, date: 1686046799, color: Color.orange),
         LineChartEntry(value: 0.9, date: 1686565199, color: Color.orange),
         LineChartEntry(value: 0.5, date: 1687256399, color: Color.orange)
-    ]]
+    ],
+                          [
+                            LineChartEntry(value: 0.4, date: 1685614799, color: Color.blue),
+                            LineChartEntry(value: 0.8, date: 1686565199, color: Color.blue),
+                            LineChartEntry(value: 0.5, date: 1687256399, color: Color.blue)
+                          ]]
+    
+    static func getData() -> [[LineChartEntry]] {
+        let subjects = Util.getAllSubjects()
+        var arr: [[LineChartEntry]] = []
+        for sub in subjects {
+            if !sub.showInLineGraph { continue }
+            var subArr: [LineChartEntry] = []
+            let tests = Util.filterTests(sub, checkinactive: false)
+            let color = getSubjectColor(sub, subjects: subjects)
+            
+            for test in tests {
+                let time = (test.date.timeIntervalSince1970 / 1000)
+                subArr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
+            }
+            arr.append(subArr)
+        }
+        return arr
+    }
+
 }
 
 struct LineChart: View {
@@ -43,7 +65,7 @@ struct LineChart: View {
     }
     
     func values() -> [[LineChartEntry]] {
-     
+        
         var arrV: [LineChartEntry] = []
         for v in data {
             for e in v {
@@ -67,22 +89,4 @@ struct LineChart: View {
         }
         return arr
     }
-}
-
-func lineChartData() -> [[LineChartEntry]] {
-    let subjects = Util.getAllSubjects()
-    var arr: [[LineChartEntry]] = []
-    for sub in subjects {
-        if !sub.showInLineGraph { continue }
-        var subArr: [LineChartEntry] = []
-        let tests = Util.filterTests(sub, checkinactive: false)
-        let color = getSubjectColor(sub, subjects: subjects)
-        
-        for test in tests {
-            let time = (test.date.timeIntervalSince1970 / 1000)
-            subArr.append(.init(value: Double(test.grade) / 15.0, date: time, color: color))
-        }
-        arr.append(subArr)
-    }
-    return arr
 }

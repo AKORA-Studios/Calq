@@ -16,7 +16,7 @@ final class LineChartTests: XCTestCase {
     
     func testLineChartData() {
         MockDataProvider.getSubjectWithTests()
-        let data = lineChartData().first!.first!
+        let data = LineChartEntry.getData().first!.first!
         XCTAssertEqual(data.value, 11/15)
     }
 }
