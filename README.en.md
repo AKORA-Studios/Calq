@@ -48,8 +48,8 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 <summary>Showcase Widget</summary>
 <br>
 
-![Dark](https://media.discordapp.net/attachments/867129329363976212/961320549760499802/unknown.png?width=309&height=670)
-![Light](https://media.discordapp.net/attachments/867129329363976212/961320571247927306/unknown.png?width=309&height=670)
+![Dark](https://media.discordapp.net/attachments/867129329363976212/1152268058690322472/simulator_screenshot_7A6C2F29-63C2-4E9A-ACF8-082217C9335C.png?width=312&height=675)
+![Light](https://media.discordapp.net/attachments/867129329363976212/1152268040046649394/simulator_screenshot_8208E618-3338-40F6-9D42-18EDE0FCEDAE.png?width=312&height=675)
 
 </details
 <br>
