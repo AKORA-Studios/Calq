@@ -44,6 +44,12 @@ struct NewGradeView: View {
     @EnvironmentObject var vm: NewGradeVM
     @EnvironmentObject var toastControl: ToastControl
     
+    init() {
+        let thumbImage = UIImage(systemName: "circle.fill")
+        UISlider.appearance().setThumbImage(thumbImage, for: .normal)
+        // UISlider.appearance().thumbTintColor = .cyan//subject != nil ? UIColor(getSubjectColor(subject)) : UIColor.gray
+    }
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             if vm.selectedSubject != nil {
