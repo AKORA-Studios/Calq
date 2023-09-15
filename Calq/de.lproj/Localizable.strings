@@ -109,3 +109,13 @@
 "firstLaunchGo"="Fortfahren";
 
 "gradeTableDelete"="Alle Noten löschen";
+
+"widgetBarChartNoData"="Du hast noch keine Noten hinzugefügt qwq";
+"AverageWidget_DisplayName"="Kreisdiagramm";
+"AverageWidget_Description"="Gesamtdurchschnitt aller Fächer in Block 1 (ohne Prüfungen)";
+"LineChartWidget_DisplayName"="Liniendiagramm";
+"LineChartWidget_Description"="Notenverlauf aller Fächer";
+"BarChartWidget_DisplayName"="Balkendiagramm";
+"BarChartWidget_Description"="Aktueller Durchschnitt aller Fächer";
+"HalfyearBarChartWidgett_DisplayName"="Halbjahresdiagramm";
+"HalfyearBarChartWidget_Description"="Durchshcnitt aller Halbjahre";

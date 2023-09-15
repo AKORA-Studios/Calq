@@ -47,7 +47,7 @@ struct EmptyMediumView: View {
             Spacer()
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
-                Text("Du hast noch keine Noten hinzugefügt qwq").multilineTextAlignment(.center)
+                Text("widgetBarChartNoData").multilineTextAlignment(.center)
                 Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
             }
             Spacer()

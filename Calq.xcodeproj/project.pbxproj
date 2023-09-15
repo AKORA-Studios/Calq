@@ -48,6 +48,7 @@
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A05C5E2A642670003734F2 /* StringExtension.swift */; };
 		F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8BFE229900C5500486A6D /* CircleChart.swift */; };
+		F1A074B02AB4ADB2005B4957 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
@@ -599,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A074B02AB4ADB2005B4957 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

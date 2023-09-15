@@ -109,3 +109,13 @@
 "firstLaunchGo"="Continue";
 
 "gradeTableDelete"="Delete all Grades";
+
+"widgetBarChartNoData"="You dont have any grades to display here qwq";
+"AverageWidget_DisplayName"="Circle Chart";
+"AverageWidget_Description"="final grade block 1 (without final exams!)";
+"LineChartWidget_DisplayName"="Line Chart";
+"LineChartWidget_Description"="subject grades over time";
+"BarChartWidget_DisplayName"="Bar Chart";
+"BarChartWidget_Description"="current average for each subejct";
+"HalfyearBarChartWidgett_DisplayName"="Halfyear Bar Chart";
+"HalfyearBarChartWidget_Description"="Average of each subejct";

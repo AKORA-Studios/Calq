@@ -73,8 +73,8 @@ struct CalqWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Kreisdiagramm")
-        .description("Gesamtdurchschnitt aller Fächer (ohne Prüfungen)")
+        .configurationDisplayName("AverageWidget_DisplayName")
+        .description("AverageWidget_Description")
         .supportedFamilies([.systemSmall])
     }
 }
@@ -86,8 +86,8 @@ struct LineChartWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView2(entry: entry)
         }
-        .configurationDisplayName("Liniendiagramm")
-        .description("Notenverlauf aller Fächer")
+        .configurationDisplayName("LineChartWidget_DisplayName")
+        .description("LineChartWidget_Description")
         .supportedFamilies([.systemMedium])
     }
 }
@@ -100,8 +100,8 @@ struct BarChartWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Balkendiagramm")
-        .description("Aktueller Durchschnitt aller Fächer")
+        .configurationDisplayName("BarChartWidget_DisplayName")
+        .description("BarChartWidget_Description")
         .supportedFamilies([.systemMedium])
     }
 }
@@ -114,8 +114,8 @@ struct HalfyearBarChartWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView3(entry: entry)
         }
-        .configurationDisplayName("Halbjahresdiagramm")
-        .description("Durchshcnitt aller Halbjahre")
+        .configurationDisplayName("HalfyearBarChartWidgett_DisplayName")
+        .description("HalfyearBarChartWidget_Description")
         .supportedFamilies([.systemMedium])
     }
 }
@@ -151,5 +151,9 @@ struct Widgets_Previews: PreviewProvider {
         CalqWidgetEntryView2(entry: SimpleEntry(date: Date(), lineChartData: LineChartEntry.example))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("LineChart")
+        
+        CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("NoData")
     }
 }
