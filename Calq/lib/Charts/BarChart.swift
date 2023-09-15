@@ -72,7 +72,7 @@ struct BarChartEntry: Hashable {
     var value: Double = 0.5
     var text: String = ""
     
-    static let exmaple = [
+    static let example = [
         BarChartEntry(color: pastelColors[0], value: 10, text: "DE"),
         BarChartEntry(color: pastelColors[1], value: 11, text: "EN"),
         BarChartEntry(color: pastelColors[2], value: 13, text: "MA"),
@@ -83,6 +83,11 @@ struct BarChartEntry: Hashable {
         BarChartEntry(color: pastelColors[7], value: 9, text: "abc"),
         BarChartEntry(color: pastelColors[8], value: 12, text: "def")
     ]
+    
+    static let exampleHalfyear = [BarChartEntry(value: 11),
+                                  BarChartEntry(value: 13),
+                                  BarChartEntry(value: 10),
+                                  BarChartEntry(value: 12)]
     
     static func getDataHalfyear() -> [BarChartEntry] {
         return [BarChartEntry(value: Util.generalAverage(1)),

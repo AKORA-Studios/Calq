@@ -25,7 +25,7 @@ struct FirstLaunchScreen: View {
                     BarChart(values: Binding.constant(BarChartEntry.exmaple))
                 }  .tabViewStyle(.page)
                     .padding()*/
-                BarChart(values: Binding.constant(BarChartEntry.exmaple))
+                BarChart(values: Binding.constant(BarChartEntry.example))
                
                 Button("firstLaunchLoadDemo") {
                     JSON.loadDemoData()
