@@ -24,6 +24,23 @@ struct BarChartWidgetView: View {
     }
 }
 
+struct HalfyearBarChartWidgetView: View {
+    var values: [BarChartEntry]
+    
+    var body: some View {
+        GeometryReader { geo in
+            let fullHeigth = geo.size.height - 10
+            VStack(alignment: .center) {
+                if values.isEmpty {
+                    EmptyMediumView()
+                } else {
+                    BarChart(values: Binding.constant(values), heigth: fullHeigth)
+                }
+            }.padding(10)
+        }
+    }
+}
+
 struct EmptyMediumView: View {
     var body: some View {
         VStack {
