@@ -226,7 +226,7 @@ struct Util {
                 saveCoreData()
                 return item
             } else {
-                let settings = requestResult[0] as! AppSettings
+                let settings = requestResult[0]
                 if settings.gradetypes?.count == 0 {
                     setTypes(settings)
                     saveCoreData()
@@ -258,6 +258,8 @@ struct Util {
         
         settings.addToGradetypes(type1)
         settings.addToGradetypes(type2)
+        
+        setPrimaryType(type2.id)
         
         saveCoreData()
     }

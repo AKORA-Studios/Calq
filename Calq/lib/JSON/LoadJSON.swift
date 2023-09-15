@@ -13,6 +13,7 @@ extension JSON {
     static func loadDemoData() {
         let settings: AppSettings = Util.deleteSettings()
         settings.colorfulCharts = true
+        settings.hasFiveExams = true
         
         do {
             let data = loadJSON()

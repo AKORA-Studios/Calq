@@ -185,13 +185,14 @@ final class CalqTests: XCTestCase {
     }
     
     func testIsPrimaryType() {
+        JSON.loadDemoData()
         let type = Util.getTypes().filter { $0.name == "Klausur"}.first!
         XCTAssertTrue(Util.isPrimaryType(type))
     }
     
-    func testIsPrimaryType_GradeType() {
+    /*func testIsPrimaryType_GradeType() {
         // TODO:
-    }
+    }*/
     
     // MARK: idk random
     func testGetSubjectAverage() {
