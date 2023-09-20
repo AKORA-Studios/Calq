@@ -10,18 +10,18 @@ import Foundation
 class OverViewViewModel: ObservableObject {
     @Published var subjects: [UserSubject] = []
     
-    @Published var blockPoints: Double = 0.0
-    @Published var blockPercent = 0.0
-    @Published var gradeText = ""
-    @Published var blockCircleText = ""
+    @Published var blockPoints: Double = getBlockPoints()
+    @Published var blockPercent = (getBlockPoints()/900.0)
+    @Published var gradeText = grade()
+    @Published var blockCircleText = getGradeData()
     
     @Published var subjectValues: [BarChartEntry] = BarChartEntry.getData()
     @Published var halfyears: [BarChartEntry] = BarChartEntry.getDataHalfyear()
     @Published var lineChartEntries: [[LineChartEntry]] = LineChartEntry.getData()
     
-    @Published var averageText: String = ""
-    @Published var averagePercent: Double = 0.0
-    @Published var generalAverage = 0.0
+    @Published var averageText: String = String(format: "%.2f", Util.generalAverage())
+    @Published var averagePercent: Double = Util.generalAverage() / 15
+    @Published var generalAverage = Util.generalAverage()
     
     @Published var showGraphEdit = false
     
@@ -30,7 +30,7 @@ class OverViewViewModel: ObservableObject {
         subjects = Util.getAllSubjects()
         blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())
         blockPercent = Double((blockPoints/900.0))
-        blockCircleText = getGradeData()
+        blockCircleText = OverViewViewModel.getGradeData()
         
         subjectValues = BarChartEntry.getData()
         halfyears = BarChartEntry.getDataHalfyear()
@@ -39,19 +39,23 @@ class OverViewViewModel: ObservableObject {
         averageText = String(format: "%.2f", Util.generalAverage())
         averagePercent = Util.generalAverage() / 15
         generalAverage = Util.generalAverage()
-        gradeText = grade()
+        gradeText = OverViewViewModel.grade()
         
         if shouldAskForReview() { // show appstore review popup
             askForReview()
         }
     }
     
-    func grade() -> String {
+    static func getBlockPoints() -> Double {
+        Double(generateBlockOne()) + Double(generateBlockTwo())
+    }
+    
+    static func grade() -> String {
         return String(format: "%.2f", Util.grade(number: Util.generalAverage()))
     }
     
-    func getGradeData() -> String {
-        let blockGrade = Util.grade(number: Double(blockPoints * 15 / 900))
+    static func getGradeData() -> String {
+        let blockGrade = Util.grade(number: Double(getBlockPoints() * 15 / 900))
         return  String(format: "%.2f", blockGrade)
     }
 }
