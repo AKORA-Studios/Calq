@@ -20,7 +20,9 @@ struct NewGradeScreen: View {
                     subjectView(sub)
                 }
             }.navigationTitle("gradeNew")
-        }.sheet(isPresented: $vm.isNewGradeSheetPresented, onDismiss: {vm.selectedSubject = nil}) {
+        }.navigationViewStyle(StackNavigationViewStyle())
+        
+        .sheet(isPresented: $vm.isNewGradeSheetPresented, onDismiss: {vm.selectedSubject = nil}) {
             NavigationView {
                 NewGradeView()
                     .navigationTitle("gradeNew")

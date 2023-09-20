@@ -76,6 +76,6 @@ struct SubjectListScreen: View {
                 .onAppear {
                     vm.updateViews()
                 }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

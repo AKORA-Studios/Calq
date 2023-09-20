@@ -38,7 +38,7 @@ struct ExamScreen: View {
             }.onAppear(perform: vm.updateViews)
                 .padding()
                 .navigationTitle("ExamViewTitle")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

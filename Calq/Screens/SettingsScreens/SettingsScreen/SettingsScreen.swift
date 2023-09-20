@@ -38,7 +38,7 @@ struct SettingsScreen: View {
                     NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
         .sheet(isPresented: $vm.editSubjectPresented) {
             NavigationView {

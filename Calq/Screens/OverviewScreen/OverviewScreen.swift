@@ -19,7 +19,7 @@ struct OverviewScreen: View {
                 .padding(.horizontal)
                 .navigationTitle("OverViewTitle")
                 .onAppear(perform: vm.updateViews)
-            }
+            }.navigationViewStyle(StackNavigationViewStyle())
             .refreshable {
                 vm.updateViews()
             }
@@ -32,7 +32,7 @@ struct OverviewScreen: View {
                 .padding(.horizontal)
                 .navigationTitle("OverViewTitle")
                 .onAppear(perform: vm.updateViews)
-            }
+            }.navigationViewStyle(StackNavigationViewStyle())
         }
     }
     
