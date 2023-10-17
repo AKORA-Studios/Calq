@@ -12,6 +12,11 @@ struct WidgetExamEntry: Identifiable {
     var points: Int
     var name: String
     let id = UUID()
+    let active = false 
+
+    static func createWidgetEntrys()-> [WidgetExamEntry] {
+        return []
+    }
 }
 
 struct ExamWidget: View {
