@@ -54,7 +54,7 @@ struct ExamWidget: View {
             if value.entries.isEmpty {
                 EmptyMediumView()
             } else {
-                HStack{
+                HStack {
                     Text("ExamChartWidget_DisplayTitle")
                     Spacer()
                     Text(String(value.blockpoints))
