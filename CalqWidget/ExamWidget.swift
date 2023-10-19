@@ -12,14 +12,14 @@ struct WidgetExamEntrys {
     let blockpoints: Int
     let entries: [WidgetExamEntry]
     
-    static let example = WidgetExamEntrys(entrycount: 5, blockpoints: 12, entries: WidgetExamEntry.example)
+    static let example = WidgetExamEntrys(entrycount: 5, blockpoints: 100, entries: WidgetExamEntry.example)
     
     static func createWidgetEntrys() -> WidgetExamEntrys {
         var arr: [WidgetExamEntry] = []
         let blockpoints = generateBlockTwo()
         let entrycount = Util.getSettings().hasFiveExams ? 5 : 4
         
-        for num in (0...entrycount) {
+        for num in (1...entrycount) {
             let subject = getExam(num)
             guard let sub = subject else {
                 arr.append(WidgetExamEntry(points: 0, name: ""))
@@ -54,7 +54,12 @@ struct ExamWidget: View {
             if value.entries.isEmpty {
                 EmptyMediumView()
             } else {
-                Text("ExamChartWidget_DisplayTitle").frame(height: 10)
+                HStack{
+                    Text("ExamChartWidget_DisplayTitle")
+                    Spacer()
+                    Text(String(value.blockpoints))
+                }.frame(height: 10)
+                
                 HStack {
                     VStack {
                         ForEach(value.entries) { exam in
@@ -70,13 +75,15 @@ struct ExamWidget: View {
     func blockView() -> some View {
         GeometryReader { geo in
             let fullHeight = geo.size.height
-            ZStack {
+            let percent = CGFloat(Double(value.blockpoints)/300.0)
+            
+            ZStack(alignment: .bottom) {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.gray)
                     .frame(height: fullHeight)
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.accentColor)
-                    .frame(height: fullHeight * CGFloat((value.blockpoints/300)))
+                    .frame(height: fullHeight * percent)
             }
         }
     }
@@ -84,6 +91,8 @@ struct ExamWidget: View {
     func examView(_ exam: WidgetExamEntry) -> some View {
         GeometryReader { geo in
             let fullWidth = geo.size.width
+            let percent = CGFloat(Double(exam.points)/15.0)
+            
             HStack {
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 8)
@@ -91,7 +100,7 @@ struct ExamWidget: View {
                         .frame(width: fullWidth)
                     RoundedRectangle(cornerRadius: 8)
                         .fill(exam.color)
-                        .frame(width: fullWidth * CGFloat((exam.points/15)))
+                        .frame(width: fullWidth * percent)
                     HStack {
                         Text(exam.name)
                         Spacer()
