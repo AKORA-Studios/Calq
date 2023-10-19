@@ -16,12 +16,12 @@ private struct Provider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), barChartData: BarChartEntry.example, halfyearbarChartData: BarChartEntry.exampleHalfyear, lineChartData: LineChartEntry.example, circleChartData: CircleChartData.example)
+        let entry = SimpleEntry(date: Date(), barChartData: BarChartEntry.example, halfyearbarChartData: BarChartEntry.exampleHalfyear, lineChartData: LineChartEntry.example, circleChartData: CircleChartData.example, examChartData: WidgetExamEntrys.example)
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        let timeline = Timeline(entries: [SimpleEntry(date: Date(), barChartData: BarChartEntry.getData(), halfyearbarChartData: BarChartEntry.getDataHalfyear(), lineChartData: LineChartEntry.getData(), circleChartData: circleChartData())], policy: .atEnd)
+        let timeline = Timeline(entries: [SimpleEntry(date: Date(), barChartData: BarChartEntry.getData(), halfyearbarChartData: BarChartEntry.getDataHalfyear(), lineChartData: LineChartEntry.getData(), circleChartData: circleChartData(), examChartData: WidgetExamEntrys.createWidgetEntrys())], policy: .atEnd)
         completion(timeline)
     }
 }
@@ -32,6 +32,7 @@ private struct SimpleEntry: TimelineEntry {
     var halfyearbarChartData: [BarChartEntry] = []
     var lineChartData: [[LineChartEntry]] = []
     var circleChartData: CircleChartData = CircleChartData(percent: 0, upperText: "?", lowerText: "?")
+    var examChartData: WidgetExamEntrys = WidgetExamEntrys(entrycount: 5, blockpoints: 0, entries: [])
 }
 
 private struct CalqWidgetEntryView: View {
@@ -63,6 +64,14 @@ private struct CalqWidgetEntryView3: View {
     
     var body: some View {
         HalfyearBarChartWidgetView(values: entry.halfyearbarChartData)
+    }
+}
+
+private struct CalqWidgetEntryView4: View {
+    var entry: SimpleEntry
+    
+    var body: some View {
+        ExamWidget(value: entry.examChartData)
     }
 }
 
@@ -114,8 +123,22 @@ struct HalfyearBarChartWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalqWidgetEntryView3(entry: entry)
         }
-        .configurationDisplayName("HalfyearBarChartWidgett_DisplayName")
+        .configurationDisplayName("HalfyearBarChartWidget_DisplayName")
         .description("HalfyearBarChartWidget_Description")
+        .supportedFamilies([.systemMedium])
+    }
+}
+
+// MARK: Medium HalfyearBarChart Widget
+struct ExamChartWidget: Widget {
+    let kind: String = "ExamChartWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            CalqWidgetEntryView4(entry: entry)
+        }
+        .configurationDisplayName("ExamChartWidget_DisplayName")
+        .description("ExamChartWidget_Description")
         .supportedFamilies([.systemMedium])
     }
 }
@@ -129,6 +152,7 @@ struct CalqWidgetBundle: WidgetBundle {
         BarChartWidget()
         LineChartWidget()
         HalfyearBarChartWidget()
+        ExamChartWidget()
     }
 }
 
@@ -155,5 +179,9 @@ struct Widgets_Previews: PreviewProvider {
         CalqWidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("NoData")
+        
+        CalqWidgetEntryView4(entry: SimpleEntry(date: Date(), examChartData: WidgetExamEntrys.example))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("ExamChart")
     }
 }

@@ -117,5 +117,8 @@
 "LineChartWidget_Description"="Notenverlauf aller Fächer";
 "BarChartWidget_DisplayName"="Balkendiagramm";
 "BarChartWidget_Description"="Aktueller Durchschnitt aller Fächer";
-"HalfyearBarChartWidgett_DisplayName"="Halbjahresdiagramm";
+"HalfyearBarChartWidget_DisplayName"="Halbjahresdiagramm";
 "HalfyearBarChartWidget_Description"="Durchshcnitt aller Halbjahre";
+"ExamChartWidget_DisplayName"="Prüfungsansicht";
+"ExamChartWidget_Description"="Zeigt alle Prüfungen und block 2";
+"ExamChartWidget_DisplayTitle"="Prüfungsübersicht";
