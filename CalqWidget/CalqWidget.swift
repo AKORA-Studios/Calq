@@ -32,7 +32,7 @@ private struct SimpleEntry: TimelineEntry {
     var halfyearbarChartData: [BarChartEntry] = []
     var lineChartData: [[LineChartEntry]] = []
     var circleChartData: CircleChartData = CircleChartData(percent: 0, upperText: "?", lowerText: "?")
-    var examChartData: WidgetExamEntrys = WidgetExamEntrys(entrycount: 5, blockpoints: 0, entries: [])
+    var examChartData: WidgetExamEntrys = WidgetExamEntrys(entrycount: 5, blockpoints2: 0, blockpoints1: 12, entries: [])
 }
 
 private struct CalqWidgetEntryView: View {

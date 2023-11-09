@@ -122,3 +122,4 @@
 "ExamChartWidget_DisplayName"="Prüfungsansicht";
 "ExamChartWidget_Description"="Zeigt alle Prüfungen und block 2";
 "ExamChartWidget_DisplayTitle"="Prüfungsübersicht";
+"ExamChartWidget_BlockTitle"="Blöcke";

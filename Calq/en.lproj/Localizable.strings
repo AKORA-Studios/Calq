@@ -122,4 +122,4 @@
 "ExamChartWidget_DisplayName"="Exam Chart";
 "ExamChartWidget_Description"="Shows all exams + block 2";
 "ExamChartWidget_DisplayTitle"="Exam Overview";
-
+"ExamChartWidget_BlockTitle"="Blocks";
