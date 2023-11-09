@@ -117,5 +117,9 @@
 "LineChartWidget_Description"="subject grades over time";
 "BarChartWidget_DisplayName"="Bar Chart";
 "BarChartWidget_Description"="current average for each subejct";
-"HalfyearBarChartWidgett_DisplayName"="Halfyear Bar Chart";
+"HalfyearBarChartWidget_DisplayName"="Halfyear Bar Chart";
 "HalfyearBarChartWidget_Description"="Average of each subejct";
+"ExamChartWidget_DisplayName"="Exam Chart";
+"ExamChartWidget_Description"="Shows all exams + block 2";
+"ExamChartWidget_DisplayTitle"="Exam Overview";
+"ExamChartWidget_BlockTitle"="Blocks";
