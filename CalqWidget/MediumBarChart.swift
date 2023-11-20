@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BarChartWidgetView: View {
     var values: [BarChartEntry]
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GeometryReader { geo in
@@ -20,12 +21,14 @@ struct BarChartWidgetView: View {
                     BarChart(values: Binding.constant(values), heigth: fullHeigth)
                 }
             }.padding(10)
+                .background(widgteBackground(colorScheme))
         }
     }
 }
 
 struct HalfyearBarChartWidgetView: View {
     var values: [BarChartEntry]
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GeometryReader { geo in
@@ -37,6 +40,7 @@ struct HalfyearBarChartWidgetView: View {
                     BarChart(values: Binding.constant(values), heigth: fullHeigth)
                 }
             }.padding(10)
+                .background(widgteBackground(colorScheme))
         }
     }
 }
