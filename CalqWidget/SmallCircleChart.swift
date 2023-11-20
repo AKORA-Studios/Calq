@@ -9,17 +9,19 @@ import SwiftUI
 
 struct CircleChartWidgetView: View {
     let data: CircleChartData
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
             HStack {
                 Image(systemName: "chart.bar.fill").font(.system(size: 16.0)).foregroundColor(.accentColor)
                 Text("Durchschnitt").foregroundColor(.accentColor)
-            }.padding(.top, 10)
+            }
             
             CircleChart(percent: Binding.constant(data.percent), upperText: Binding.constant(data.upperText), lowerText: Binding.constant(data.lowerText))
             
-        }.padding(.bottom, 10)
+        }.padding(10)
+            .background(widgteBackground(colorScheme))
     }
 }
 

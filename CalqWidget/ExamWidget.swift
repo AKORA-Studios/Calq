@@ -49,8 +49,9 @@ struct WidgetExamEntry: Identifiable {
 }
 
 struct ExamWidget: View {
+    @Environment(\.colorScheme) var colorScheme
     var value: WidgetExamEntrys
-    private let gray = Color(.systemGray4)
+    private let gray = Color(.systemGray2)
     
     var body: some View {
         VStack {
@@ -74,6 +75,7 @@ struct ExamWidget: View {
                 }
             }
         }.padding()
+            .background(widgteBackground(colorScheme))
     }
     
     func blockView(_ name: String = "I") -> some View {

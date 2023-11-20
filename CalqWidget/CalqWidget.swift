@@ -52,10 +52,7 @@ private struct CalqWidgetEntryView2: View {
     var entry: SimpleEntry
     
     var body: some View {
-        GeometryReader { geo in
-            LineChart(data: Binding.constant(entry.lineChartData), heigth: geo.size.height - 50)
-                .padding()
-        }
+        LincechartWidget(lineChartData: entry.lineChartData)
     }
 }
 
