@@ -56,7 +56,6 @@ struct OverviewScreen: View {
             CardContainer {
                 CircleViews()
             }
-            
         }
     }
     

@@ -7,7 +7,22 @@
 
 import SwiftUI
 
+extension UIColor {
+   // static var backgroundColor = UIColor(light: .white, dark: UIColor.gray.withAlphaComponent(0.2))
+    static var backgroundColor = UIColor(light: .white, dark: .black)
+    
+    static var cardShadow = UIColor.systemGray3
+    
+    convenience init(light: UIColor, dark: UIColor) {
+        self.init { $0.userInterfaceStyle == .dark ? dark : light}
+    }
+}
+
 extension Color {
+    
+    static let backgroundColor = Color(UIColor.backgroundColor)
+    static let cardShadow = Color(UIColor.cardShadow)
+    
     init(hexString: String) {
         let hexString: String = hexString.trimmingCharacters(
             in: CharacterSet.whitespacesAndNewlines
