@@ -15,9 +15,9 @@ struct SegmentedPickerView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
+                .fill(Color.secondarySystemBackground)
                 .frame(height: 30)
-                .shadow(radius: 2)
+                .shadow(color: .cardShadow, radius: 2)
             
             HStack {
                 ForEach(Array(entries.enumerated()), id: \.offset) { index, item in
@@ -26,14 +26,17 @@ struct SegmentedPickerView: View {
                         vm.changedIndex(index)
                     } label: {
                         VStack(spacing: 2) {
-                            Text(item)
-                                .foregroundColor(isSelected ? vm.color : .gray)
                             if isSelected {
+                                Text(item)
+                                    .foregroundColor(isSelected ? vm.color : .gray)
+                                    .bold()
                                 Rectangle()
                                     .fill(vm.color)
                                     .frame(height: 2)
                                     .padding(.horizontal, 4)
-                                
+                            } else {
+                                Text(item)
+                                    .foregroundColor(isSelected ? vm.color : .gray)
                             }
                         }.frame(maxWidth: .infinity)
                     }.frame(maxWidth: .infinity)

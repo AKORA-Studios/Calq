@@ -23,6 +23,8 @@ extension Color {
     static let backgroundColor = Color(UIColor.backgroundColor)
     static let cardShadow = Color(UIColor.cardShadow)
     
+    static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)
+    
     init(hexString: String) {
         let hexString: String = hexString.trimmingCharacters(
             in: CharacterSet.whitespacesAndNewlines
