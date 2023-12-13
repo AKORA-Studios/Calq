@@ -40,17 +40,17 @@ struct SettingsScreen: View {
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         
-        .sheet(isPresented: $vm.editSubjectPresented) {
-            NavigationView {
-                EditSubjectScreen(editSubjectPresented: $vm.editSubjectPresented, subject: $vm.selectedSubjet).onDisappear(perform: vm.reloadAndSave)
+            .sheet(isPresented: $vm.editSubjectPresented) {
+                NavigationView {
+                    EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
+                }
             }
-        }
-        .alert(isPresented: $vm.deleteAlert) {
-            settingsAlert()
-        }
-        .onAppear(perform: vm.onAppear)
+            .alert(isPresented: $vm.deleteAlert) {
+                settingsAlert()
+            }
+            .onAppear(perform: vm.onAppear)
     }
-
+    
     func settingsAlert() -> Alert {
         if vm.alertActiontype == .deleteSubject {
             return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteSubject"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
@@ -139,8 +139,7 @@ struct SettingsScreen: View {
             
             ForEach(vm.subjects) { sub in
                 SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
-                    vm.editSubjectPresented = true
-                    vm.selectedSubjet = sub
+                    vm.selectSubject(sub)
                 })
                 .contextMenu {
                     contextAction_addGradeButton()

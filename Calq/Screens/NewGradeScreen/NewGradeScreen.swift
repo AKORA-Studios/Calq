@@ -56,6 +56,7 @@ struct NewGradeView: View {
         ScrollView(showsIndicators: false) {
             if vm.selectedSubject != nil {
                 let color = getSubjectColor(vm.selectedSubject)
+                let _ = vm.pickerVM.setColor(color)
                 
                 VStack {
                     CardContainer {
@@ -81,14 +82,7 @@ struct NewGradeView: View {
                     CardContainer {
                         VStack(alignment: .leading) {
                             Text("gradeHalfyear")
-                            Picker("gradeYear", selection: $vm.year) {
-                                Text("1").tag(1)
-                                Text("2").tag(2)
-                                Text("3").tag(3)
-                                Text("4").tag(4)
-                            }.pickerStyle(.segmented)
-                                .colorMultiply(color)
-                            
+                            SegmentedPickerView(vm: vm.pickerVM)
                             HStack {
                                 DatePicker("gradeDate", selection: $vm.date, displayedComponents: [.date])
                             }

@@ -97,6 +97,10 @@
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
 		F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
+		F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */; };
+		F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */; };
+		F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */; };
+		F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB4D2B2A187A009B9434 /* EditSubjectViewModel.swift */; };
 		F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE4A9E2B0BD703002A37C4 /* LincechartWidget.swift */; };
 		F1CE4AA12B0BD77C002A37C4 /* WidgetBackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE4AA02B0BD77C002A37C4 /* WidgetBackgroundExtension.swift */; };
 		F1D29E792A17B8AF0001D469 /* ExportJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D29E782A17B8AF0001D469 /* ExportJSON.swift */; };
@@ -227,6 +231,10 @@
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
+		F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
+		F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewModel.swift; sourceTree = "<group>"; };
+		F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListViewModel.swift; sourceTree = "<group>"; };
+		F1CCCB4D2B2A187A009B9434 /* EditSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectViewModel.swift; sourceTree = "<group>"; };
 		F1CE4A9E2B0BD703002A37C4 /* LincechartWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LincechartWidget.swift; sourceTree = "<group>"; };
 		F1CE4AA02B0BD77C002A37C4 /* WidgetBackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundExtension.swift; sourceTree = "<group>"; };
 		F1D29E782A17B8AF0001D469 /* ExportJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportJSON.swift; sourceTree = "<group>"; };
@@ -346,6 +354,7 @@
 				F1A7102C2A43757D00255F10 /* CardView.swift */,
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
 				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
+				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -394,9 +403,9 @@
 		F1138E5229959627008E7FD8 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1CCCB4C2B2A186D009B9434 /* EditSubject */,
 				F1A59A422A6354890039C95E /* SettingsScreen */,
 				F1A53D012A196C0E0045C5B0 /* EditWeight */,
-				F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F192DD23299D10CB0077B905 /* NewSubject.swift */,
 			);
@@ -406,9 +415,9 @@
 		F1138E5329959664008E7FD8 /* SubjectInfoScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1CCCB4B2B2A184F009B9434 /* SubjectDetail */,
+				F1CCCB482B2A1601009B9434 /* GradeList */,
 				F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */,
-				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
-				F1138E5429959677008E7FD8 /* GradeListScreen.swift */,
 			);
 			path = SubjectInfoScreens;
 			sourceTree = "<group>";
@@ -472,6 +481,33 @@
 				F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */,
 			);
 			path = SubjectList;
+			sourceTree = "<group>";
+		};
+		F1CCCB482B2A1601009B9434 /* GradeList */ = {
+			isa = PBXGroup;
+			children = (
+				F1138E5429959677008E7FD8 /* GradeListScreen.swift */,
+				F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */,
+			);
+			path = GradeList;
+			sourceTree = "<group>";
+		};
+		F1CCCB4B2B2A184F009B9434 /* SubjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
+				F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */,
+			);
+			path = SubjectDetail;
+			sourceTree = "<group>";
+		};
+		F1CCCB4C2B2A186D009B9434 /* EditSubject */ = {
+			isa = PBXGroup;
+			children = (
+				F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */,
+				F1CCCB4D2B2A187A009B9434 /* EditSubjectViewModel.swift */,
+			);
+			path = EditSubject;
 			sourceTree = "<group>";
 		};
 		F1D29E772A17B8A50001D469 /* JSON */ = {
@@ -706,10 +742,14 @@
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */,
+				F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */,
+				F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,
 				F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */,
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
+				F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */,
 				F14140462A47639E007E4648 /* TabViewVM.swift in Sources */,
+				F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				F1A772412A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,

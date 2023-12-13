@@ -7,7 +7,12 @@
 
 import Foundation
 
-class NewGradeVM: ObservableObject {
+class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
+    
+    func changedIndex(_ index: Int) {
+        year = index
+    }
+    
     @Published var subjects: [UserSubject] = Util.getAllSubjects()
     @Published var isNewGradeSheetPresented = false
     @Published var selectedSubject: UserSubject?
@@ -20,6 +25,12 @@ class NewGradeVM: ObservableObject {
     @Published var date = Date()
     @Published var isAlertPresented = false
     
+    @Published var pickerVM = SegmentedPickerViewModel()
+    
+    init() {
+        pickerVM.delegate = self
+    }
+  
     func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()

@@ -85,4 +85,9 @@ class SettingsViewModel: ObservableObject {
         settings = Util.getSettings()
         hasFiveExams = settings.hasFiveExams ? 5 : 4
     }
+    
+    func selectSubject(_ subject: UserSubject) {
+        selectedSubjet = subject
+        editSubjectPresented = true
+    }
 }

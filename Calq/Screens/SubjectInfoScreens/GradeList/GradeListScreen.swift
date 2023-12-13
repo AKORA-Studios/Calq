@@ -9,39 +9,27 @@ import SwiftUI
 
 struct GradeListScreen: View {
     @Environment(\.presentationMode) var presentationMode
-    var subject: UserSubject
-    @State var years: [[UserTest]] = [[], [], [], []]
-    @State var Alltests: [UserTest] = []
-    @State var deleteAlert = false
+    @ObservedObject var vm: GradeListViewModel
     
     var body: some View {
         List {
             Section {
                 SettingsIcon(color: .red, icon: "archivebox", text: "gradeTableDelete", completation: {
-                    deleteAlert = true
+                    vm.deleteAlert = true
                 })
             }
             ForEach(0...3, id: \.self) {i in
-                let tests =  years[i]
+                let tests = vm.years[i]
                 if !tests.isEmpty {
                     halfyearSection(i)
                 }
             }
             
         }.navigationTitle("subjectGradeList")
-            .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
-            .onAppear {
-                Alltests = (self.subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
-                
-                years[0] = Alltests.filter {$0.year == 1}
-                years[1] = Alltests.filter {$0.year == 2}
-                years[2] = Alltests.filter {$0.year == 3}
-                years[3] = Alltests.filter {$0.year == 4}
-            }
-            .alert(isPresented: $deleteAlert) {
+            .toolbar { Image(systemName: "xmark").onTapGesture { dismissSheet() } }
+            .alert(isPresented: $vm.deleteAlert) {
                 Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrades"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
-                    subject.subjecttests = []
-                    saveCoreData()
+                    vm.deleteAction()
                     dismissSheet()
                 }))
             }
@@ -49,8 +37,8 @@ struct GradeListScreen: View {
     
     func halfyearSection(_ i: Int) -> some View {
         Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
-            ForEach(years[i]) {test in
-                let color = getSubjectColor(subject)
+            ForEach(vm.years[i]) {test in
+                let color = getSubjectColor(vm.subject)
                 
                 NavigationLink {
                     EditGradeScreen(test: test, color: color)
@@ -68,18 +56,16 @@ struct GradeListScreen: View {
     func gradeIcon(test: UserTest, color: Color) -> some View {
         HStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 8.0).fill(Util.isPrimaryType(test.type) ? color : Color.clear).frame(width: 30, height: 30)
+                RoundedRectangle(cornerRadius: 8.0)
+                    .fill(Util.isPrimaryType(test.type) ? color : Color.clear)
+                    .frame(width: 30, height: 30)
                 Text(String(test.grade))
             }
             Text(test.name).lineLimit(1)
             Spacer()
-            Text(formatDate(date: test.date)).foregroundColor(.gray).fontWeight(.light)
+            Text(vm.formatDate(date: test.date))
+                .foregroundColor(.gray)
+                .fontWeight(.light)
         }
-    }
-    
-    func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        return dateFormatter.string(from: date)
     }
 }
