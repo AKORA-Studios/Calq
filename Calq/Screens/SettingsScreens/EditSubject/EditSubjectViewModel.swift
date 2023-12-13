@@ -19,7 +19,6 @@ class EditSubjectViewModel: ObservableObject {
     @Published var subjectName = ""
     @Published var lkSubject = 0
     @Published var selectedColor: Color = .accentColor
-    @Published var hasTest = false
     
     @Published var deleteAlert = false
     @Published var alertType: EditAlertType = .nameInvalid
@@ -32,8 +31,6 @@ class EditSubjectViewModel: ObservableObject {
         subjectName = subject.name
         lkSubject = subject.lk ? 1 : 0
         selectedColor = Color(hexString: subject.color)
-        
-        hasTest = (subject.subjecttests!.allObjects as! [UserTest]).count > 0
     }
     
     func changeName() {
