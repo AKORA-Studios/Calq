@@ -38,8 +38,7 @@ struct SubjectListScreen: View {
                             }
                         }
                         .onTapGesture {
-                            vm.selectedSubejct = entry.subject
-                            vm.isSubjectDetailPResented = true
+                            vm.selectSubject(entry.subject)
                         }
                     }
                 }
@@ -65,7 +64,7 @@ struct SubjectListScreen: View {
                 }
                 .sheet(isPresented: $vm.isSubjectDetailPResented) {
                     NavigationView {
-                        SubjectDetailScreen(subject: $vm.selectedSubejct).onDisappear(perform: vm.updateViews)
+                        SubjectDetailScreen(vm: SubjectDetailViewModel(subject: vm.selectedSubejct!)).onDisappear(perform: vm.updateViews)
                     }
                 }
                 .sheet(isPresented: $vm.gradeTablePresented) {

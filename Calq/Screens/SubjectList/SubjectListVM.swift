@@ -25,6 +25,11 @@ class SubjectListVM: ObservableObject {
     @Published var gradeTablePresented = false
     @Published var isSubjectDetailPResented = false
     
+    func selectSubject(_ subject: UserSubject) {
+        selectedSubejct = subject
+        isSubjectDetailPResented = true
+    }
+    
     func updateViews() {
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
