@@ -19,8 +19,7 @@ struct CircleChartWidgetView: View {
             }
             
             CircleChart(percent: Binding.constant(data.percent), upperText: Binding.constant(data.upperText), lowerText: Binding.constant(data.lowerText))
-            
-        }.padding(10)
+        }.padding(5)
             .background(widgteBackground(colorScheme))
     }
 }
