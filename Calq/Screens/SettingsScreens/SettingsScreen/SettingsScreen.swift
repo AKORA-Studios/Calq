@@ -42,7 +42,7 @@ struct SettingsScreen: View {
         
             .sheet(isPresented: $vm.editSubjectPresented) {
                 NavigationView {
-                    EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave) // TODO: move func to vm
+                    EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
                 }
             }
             .alert(isPresented: $vm.deleteAlert) {
@@ -139,8 +139,7 @@ struct SettingsScreen: View {
             
             ForEach(vm.subjects) { sub in
                 SettingsIcon(color: getSubjectColor(sub), icon: sub.lk ? "bookmark.fill" : "bookmark", text: sub.name, completation: {
-                    vm.editSubjectPresented = true
-                    vm.selectedSubjet = sub
+                    vm.selectSubject(sub)
                 })
                 .contextMenu {
                     contextAction_addGradeButton()
