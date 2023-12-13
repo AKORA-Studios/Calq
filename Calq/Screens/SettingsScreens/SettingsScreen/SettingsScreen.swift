@@ -88,7 +88,7 @@ struct SettingsScreen: View {
             })
             
             HStack {
-                SettingsIcon(color: Color(hexString: "5856d6"), icon: "numbersign", text: "settingsExamCount") {}
+                SettingsIcon(color: Color(hexString: "5856d6"), icon: "books.vertical.fill", text: "settingsExamCount") {}
                 Spacer()
                 Picker("", selection: $vm.hasFiveExams) {
                     Text("4").tag(4)
