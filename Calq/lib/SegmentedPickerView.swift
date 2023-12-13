@@ -16,7 +16,7 @@ struct SegmentedPickerView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white)
-                .frame(height: 45)
+                .frame(height: 35)
                 .shadow(radius: 2).padding()
             
             HStack {
@@ -25,7 +25,7 @@ struct SegmentedPickerView: View {
                     Button {
                         vm.changedIndex(index)
                     } label: {
-                        VStack (spacing: 5) {
+                        VStack(spacing: 3) {
                             Text(item)
                                 .foregroundColor(isSelected ? vm.color : .gray)
                             if isSelected {
@@ -35,7 +35,7 @@ struct SegmentedPickerView: View {
                                     .padding(.horizontal)
                                 
                             }
-                        }
+                        }.frame(maxWidth: .infinity)
                     }.frame(maxWidth: .infinity)
                     
                     if index <= entries.count - 2 {
@@ -43,9 +43,8 @@ struct SegmentedPickerView: View {
                     }
                 }
             }
-            .frame(height: 30)
+            .frame(height: 20)
             .padding()
-            
         }
     }
 }
@@ -59,11 +58,23 @@ struct SegmentedPickerView_Preview: PreviewProvider {
 class SegmentedPickerViewModel: ObservableObject {
     @Published var color: Color = .red
     @Published var selectedIndex: Int = 0
+    var delegate: SegmentedPickerViewDelegate?
     
     func changedIndex(_ index: Int) {
         if selectedIndex == index { return }
         withAnimation {
             selectedIndex = index
+            delegate?.changedIndex(index)
         }
     }
+    
+    func setColor(_ color: Color) {
+        DispatchQueue.main.async {
+            self.color = color
+        }
+    }
+}
+
+protocol SegmentedPickerViewDelegate {
+    func changedIndex(_ index: Int)
 }
