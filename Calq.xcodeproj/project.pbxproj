@@ -413,10 +413,9 @@
 		F1138E5329959664008E7FD8 /* SubjectInfoScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1CCCB4B2B2A184F009B9434 /* SubjectDetail */,
 				F1CCCB482B2A1601009B9434 /* GradeList */,
 				F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */,
-				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
-				F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */,
 			);
 			path = SubjectInfoScreens;
 			sourceTree = "<group>";
@@ -489,6 +488,15 @@
 				F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */,
 			);
 			path = GradeList;
+			sourceTree = "<group>";
+		};
+		F1CCCB4B2B2A184F009B9434 /* SubjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
+				F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */,
+			);
+			path = SubjectDetail;
 			sourceTree = "<group>";
 		};
 		F1D29E772A17B8A50001D469 /* JSON */ = {
