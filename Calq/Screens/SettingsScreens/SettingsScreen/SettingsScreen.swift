@@ -40,17 +40,17 @@ struct SettingsScreen: View {
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         
-        .sheet(isPresented: $vm.editSubjectPresented) {
-            NavigationView {
-                EditSubjectScreen(editSubjectPresented: $vm.editSubjectPresented, subject: $vm.selectedSubjet).onDisappear(perform: vm.reloadAndSave)
+            .sheet(isPresented: $vm.editSubjectPresented) {
+                NavigationView {
+                    EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave) // TODO: move func to vm
+                }
             }
-        }
-        .alert(isPresented: $vm.deleteAlert) {
-            settingsAlert()
-        }
-        .onAppear(perform: vm.onAppear)
+            .alert(isPresented: $vm.deleteAlert) {
+                settingsAlert()
+            }
+            .onAppear(perform: vm.onAppear)
     }
-
+    
     func settingsAlert() -> Alert {
         if vm.alertActiontype == .deleteSubject {
             return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteSubject"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
