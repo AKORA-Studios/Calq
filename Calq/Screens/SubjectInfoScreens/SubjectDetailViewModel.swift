@@ -21,6 +21,7 @@ class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
     @Published var hasTest = false
     @Published var yearAverage = 0.0
     @Published var yearAverageText = "-"
+    @Published var isGradeTablePresented = false
     
     @Published var pickerVM = SegmentedPickerViewModel()
     

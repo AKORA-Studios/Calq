@@ -99,6 +99,7 @@
 		F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
 		F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */; };
 		F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */; };
+		F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */; };
 		F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE4A9E2B0BD703002A37C4 /* LincechartWidget.swift */; };
 		F1CE4AA12B0BD77C002A37C4 /* WidgetBackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE4AA02B0BD77C002A37C4 /* WidgetBackgroundExtension.swift */; };
 		F1D29E792A17B8AF0001D469 /* ExportJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D29E782A17B8AF0001D469 /* ExportJSON.swift */; };
@@ -231,6 +232,7 @@
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
 		F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
 		F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewModel.swift; sourceTree = "<group>"; };
+		F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListViewModel.swift; sourceTree = "<group>"; };
 		F1CE4A9E2B0BD703002A37C4 /* LincechartWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LincechartWidget.swift; sourceTree = "<group>"; };
 		F1CE4AA02B0BD77C002A37C4 /* WidgetBackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundExtension.swift; sourceTree = "<group>"; };
 		F1D29E782A17B8AF0001D469 /* ExportJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportJSON.swift; sourceTree = "<group>"; };
@@ -411,9 +413,9 @@
 		F1138E5329959664008E7FD8 /* SubjectInfoScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1CCCB482B2A1601009B9434 /* GradeList */,
 				F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */,
 				F10CA6B5298DB4AB008F3FE9 /* SubjectDetailScreen.swift */,
-				F1138E5429959677008E7FD8 /* GradeListScreen.swift */,
 				F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */,
 			);
 			path = SubjectInfoScreens;
@@ -478,6 +480,15 @@
 				F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */,
 			);
 			path = SubjectList;
+			sourceTree = "<group>";
+		};
+		F1CCCB482B2A1601009B9434 /* GradeList */ = {
+			isa = PBXGroup;
+			children = (
+				F1138E5429959677008E7FD8 /* GradeListScreen.swift */,
+				F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */,
+			);
+			path = GradeList;
 			sourceTree = "<group>";
 		};
 		F1D29E772A17B8A50001D469 /* JSON */ = {
@@ -718,6 +729,7 @@
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
 				F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */,
 				F14140462A47639E007E4648 /* TabViewVM.swift in Sources */,
+				F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
 				F1A772412A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,

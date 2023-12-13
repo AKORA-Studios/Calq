@@ -11,8 +11,6 @@ struct SubjectDetailScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var vm: SubjectDetailViewModel
     
-    @State var isGradeTablePresented = false
-    
     var body: some View {
         let color = getSubjectColor(vm.subject)
         let _ = vm.pickerVM.setColor(color)
@@ -67,7 +65,7 @@ struct SubjectDetailScreen: View {
                     .padding()
                 
                 if vm.hasTest {
-                    NavigationLink(destination: GradeListScreen(subject: vm.subject)) {
+                    NavigationLink(destination: GradeListScreen(vm: GradeListViewModel(subject: vm.subject))) {
                         Text("subjectDetailGradeList")
                             .foregroundColor(.white)
                     }.padding(.horizontal)
