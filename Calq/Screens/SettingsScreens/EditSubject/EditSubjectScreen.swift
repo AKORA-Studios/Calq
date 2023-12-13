@@ -57,25 +57,17 @@ struct EditSubjectScreen: View {
             VStack {
                 if vm.hasTest {
                     NavigationLink(destination: GradeListScreen(vm: GradeListViewModel(subject: vm.subject))) {
-                        Text("editSubGrades").foregroundColor(.white)
+                        Text("editSubGrades")
+                            .foregroundColor(.white)
                     }.buttonStyle(PrimaryStyle())
                 }
                 
-                Button("editSubDelete") {
+               Button("editSubDelete") {
                     vm.showDeleteSubject()
                 }.buttonStyle(DestructiveStyle())
             }
         }.alert(isPresented: $vm.deleteAlert) {
-            switch vm.alertType {
-                
-            case .delete:
-                return Alert(title: Text("ToastTitle"), message: Text("ToastDesc"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
-                    vm.deleteSubject()
-                    editSubjectPresented = false
-                }))
-            case .nameInvalid:
-                return Alert(title: Text("editSubjectNameInvalid"), message: Text("editSubjecNameInvalidChars"))
-            }
+            alerts()
         }
         .padding()
         .navigationTitle("editSubject")
@@ -85,23 +77,32 @@ struct EditSubjectScreen: View {
         }
     }
     
+    func alerts() -> Alert {
+        switch vm.alertType {
+            
+        case .delete:
+            return Alert(title: Text("ToastTitle"), message: Text("ToastDesc"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
+                vm.deleteSubject()
+                dismissSheet()
+            }))
+        case .nameInvalid:
+            return Alert(title: Text("editSubjectNameInvalid"), message: Text("editSubjecNameInvalidChars"))
+        }
+    }
+    
     @ViewBuilder
     func infoTexts() -> some View {
-        ZStack {
-            //   CardView().frame(height:  30)
-            VStack {
+        VStack {
+            HStack {
+                Image(systemName: "info.circle")
+                Text("editSubGradeCount\(vm.subject.subjecttests?.count ?? 0)")
+            }
+            if Util.isExamSubject(vm.subject) {
                 HStack {
                     Image(systemName: "info.circle")
-                    Text("editSubGradeCount\(vm.subject.subjecttests?.count ?? 0)")
-                }
-                if Util.isExamSubject(vm.subject) {
-                    HStack {
-                        Image(systemName: "info.circle")
-                        Text("editSubInfoIsExam")
-                    }
+                    Text("editSubInfoIsExam")
                 }
             }
-            
         }.padding(.bottom, 40)
     }
     
