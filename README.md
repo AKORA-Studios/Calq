@@ -32,9 +32,9 @@ ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blo
 ![Kurse2](https://media.discordapp.net/attachments/867129329363976212/1181642330911031377/simulator_screenshot_63871C5F-A121-4611-AE6E-96041F30A27B.png?ex=6581cd2d&is=656f582d&hm=14ad2f0ce8c0defe2dc3a3d4b4c7e24f724473b81f93cfff22a4f36ced58d813&=&format=webp&quality=lossless&?width=310&height=670)
 
 ![Kursübersicht](https://media.discordapp.net/attachments/867129329363976212/1075423170997260389/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_12_50.png?width=309&height=669)
-![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/1181642373671944202/simulator_screenshot_AD3B891F-D12B-48F8-9C46-90AAEF432883.png?ex=6581cd37&is=656f5837&hm=89dfbd344f5e8c7bde91c0108d7257e24cb7927931400ea6c21280c5ca0d3fc0&=&format=webp&quality=lossless&width=310&height=670)
+![Neue Noten](https://media.discordapp.net/attachments/867129329363976212/1185625349883695425/simulator_screenshot_9E0DDEB3-539C-4336-8228-02A1E4CDE39C.png?ex=65904aa7&is=657dd5a7&hm=321eae8af87f0df66363aa3d86fdb737ab8e0faed0b5f340df0d11802aa71287&=&format=webp&quality=lossless&width=309&height=669)
 
-![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/1181642354856304732/simulator_screenshot_F71AC8A0-E966-47C3-ADC8-25F45C1BF609.png?ex=6581cd33&is=656f5833&hm=8bf3458905f54fe187d5157980c2a9a606621cfb23ee5bd474ccc3868384b2bd&=&format=webp&quality=lossless&width=310&height=670)
+![Kursinfo](https://media.discordapp.net/attachments/867129329363976212/1185625316522217663/simulator_screenshot_7688191C-43EB-4DE8-8C93-373E4EA3E6A3.png?ex=65904a9f&is=657dd59f&hm=2aa41ecc750d7882846d66f12fec8815f3d1fb8e04553b523a0a35f96e3dd889&=&format=webp&quality=lossless&width=309&height=669)
 ![Noten](https://media.discordapp.net/attachments/867129329363976212/1075423173002149948/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_11_17.png?width=309&height=669)
 
 ![Prüfungen](https://media.discordapp.net/attachments/867129329363976212/1181642395721408612/simulator_screenshot_C9AA268D-D384-47C0-8D81-8545897A8754.png?ex=6581cd3c&is=656f583c&hm=d79e33e2484582570f520ea72a60a6bfc1d71e52c6f9d32c887139edd83253f6&=&format=webp&quality=lossless&width=309&height=669)
