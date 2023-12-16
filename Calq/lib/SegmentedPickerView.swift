@@ -16,6 +16,7 @@ struct SegmentedPickerView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.secondarySystemBackground)
+                .colorMultiply(vm.color.opacity(0.2))
                 .frame(height: 30)
                 .shadow(color: .cardShadow, radius: 2)
             
