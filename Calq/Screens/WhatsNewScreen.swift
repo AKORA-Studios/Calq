@@ -13,13 +13,13 @@ struct WhatsNewScreen: View {
     let newFuncs = [
         "🌸 neue HalbjahresPicker + genral UI update",
         "📥 neues Widget für Prüfungen",
-        "🌸 Widget Hintergrund Farben geändert",
+        "🌸 Widget Hintergrund Farben geändert"
     ]
     
     let newFuncsGeneral = [
         "🌸 new HalfyearPicker + genral UI update",
         "📥 new Widget for exams",
-        "🌸 Widget background color changed",
+        "🌸 Widget background color changed"
     ]
     
     let lang = Locale.preferredLanguages[0]
