@@ -11,19 +11,15 @@ struct WhatsNewScreen: View {
     @EnvironmentObject var vm: TabVM
     
     let newFuncs = [
-        "🌸 Verbesserung der Diagramme durch Schatten",
-        "📥 neues Widget für Halbjahre",
-        "🇺🇸 Widget jetzt auch in Englisch",
-        "🌸 Contextmenüs",
-        "ℹ️ Möglichkeit 4 oder 5 Prüfungen zu haben",
+        "🌸 neue HalbjahresPicker + genral UI update",
+        "📥 neues Widget für Prüfungen",
+        "🌸 Widget Hintergrund Farben geändert",
     ]
     
     let newFuncsGeneral = [
-        "🌸 Better diagramms with shadows",
-        "📥 new Widget for halfyears",
-        "🇺🇸 Widget texts are now also in english",
-        "🌸 Contextmenus",
-        "ℹ️ Option to choose 4 or 5 final exams",
+        "🌸 new HalfyearPicker + genral UI update",
+        "📥 new Widget for exams",
+        "🌸 Widget background color changed",
     ]
     
     let lang = Locale.preferredLanguages[0]
