@@ -23,13 +23,16 @@ class WeightViewmodel: ObservableObject {
     
     @Published var showHintText = false
     
+    @Published var types = Util.getTypes()
+    
     init() {
         load()
         reload()
     }
     
     func load() {
-        for type in Util.getTypes() {
+        types = Util.getTypes()
+        for type in types {
             typeArr[type] = type.weigth
             typeArrNames[type.id] = type.name
         }
@@ -55,7 +58,7 @@ class WeightViewmodel: ObservableObject {
     }
     
     func saveWeigths() {
-        for type in Util.getTypes() {
+        for type in types {
             type.weigth = typeArr[type]!
             type.name = typeArrNames[type.id]!
         }

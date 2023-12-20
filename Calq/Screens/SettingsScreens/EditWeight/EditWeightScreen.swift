@@ -35,7 +35,7 @@ struct ChangeWeightScreen: View {
             
             List {
                 Section {
-                    ForEach(Util.getTypes()) {type in
+                    ForEach(vm.types) { type in
                         HStack {
                             HStack {
                                 if Util.isPrimaryType(type) {
@@ -51,8 +51,9 @@ struct ChangeWeightScreen: View {
                             Text("\(vm.typeArr[type]!)").frame(width: 20).font(.footnote)
                             
                             TextField("", text: vm.binding(for: type.id))
+                               
                             Spacer()
-                            
+                     
                             Stepper("") {
                                 vm.increment(type)
                             } onDecrement: {
