@@ -60,9 +60,11 @@ struct ChangeWeightScreen: View {
                                 vm.decrement(type)
                             }
                             
-                            Image(systemName: "trash").foregroundColor(Color.red)
-                                .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
-                            
+                            if vm.types.count > 2 {
+                                Image(systemName: "trash").foregroundColor(Color.red)
+                                    .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
+                            }
+                           
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
                             }

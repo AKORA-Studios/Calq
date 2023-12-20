@@ -380,12 +380,12 @@ struct Util {
     
     static func deleteType(type: Int16) {
         let type = getTypes().filter { $0.id == type }[0]
-        type.gradetosettings!.removeFromGradetypes(type)
+        getContext().delete(type)
         saveCoreData()
     }
     
     static func deleteType(type: GradeType) {
-        type.gradetosettings?.removeFromGradetypes(type)
+        getContext().delete(type)
         saveCoreData()
     }
     
