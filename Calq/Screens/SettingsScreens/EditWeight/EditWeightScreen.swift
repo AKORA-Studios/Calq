@@ -60,10 +60,7 @@ struct ChangeWeightScreen: View {
                                 vm.decrement(type)
                             }
                             
-                            if vm.types.count > 2 && vm.getGradesForType(type)  {
-                                Image(systemName: "trash").foregroundColor(Color.red)
-                                    .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
-                            }
+                        deleteView(type)
                            
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
@@ -100,6 +97,14 @@ struct ChangeWeightScreen: View {
                     return  Alert(title: Text("EditWeigthAlertTitle"), message: Text("EditWeigthAlertText"))
                 }
             }
+    }
+    
+    @ViewBuilder
+    func deleteView(_ type: GradeType) -> some View {
+        if vm.types.count > 2 && vm.getGradesForType(type).isEmpty {
+            Image(systemName: "trash").foregroundColor(Color.red)
+                .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
+        }
     }
     
     func saveChanges() {
