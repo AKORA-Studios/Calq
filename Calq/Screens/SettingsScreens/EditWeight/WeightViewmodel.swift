@@ -42,6 +42,10 @@ class WeightViewmodel: ObservableObject {
         return Util.getTypeGrades(selectedDelete)
     }
     
+    func getGradesForType(_ type: GradeType) -> [UserTest] {
+        return Util.getTypeGrades(type.id)
+    }
+    
     func increment(_ type: GradeType) {
         typeArr[type]! += typeArr[type] == 100 ? 0 : 10
         reload()

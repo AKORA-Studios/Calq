@@ -60,7 +60,7 @@ struct ChangeWeightScreen: View {
                                 vm.decrement(type)
                             }
                             
-                            if vm.types.count > 2 {
+                            if vm.types.count > 2 && vm.getGradesForType(type)  {
                                 Image(systemName: "trash").foregroundColor(Color.red)
                                     .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
                             }
@@ -83,7 +83,7 @@ struct ChangeWeightScreen: View {
             Text("EditWeigthSum\(vm.summedUp)")
                 .foregroundColor(vm.summedUp > 100 ? Color.red : Color.gray)
             
-            Button("saveData") {
+            Button("saveDataWeight") {
                 saveChanges()
             }.buttonStyle(PrimaryStyle())
             

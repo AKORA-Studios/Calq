@@ -7,6 +7,7 @@
 */
 
 "saveData"="Save";
+"saveDataWeight"="Save Weigth";
 "subjectExam"="Exam";
 "subjectTest"="Test";
 "subjectType"="Type";
