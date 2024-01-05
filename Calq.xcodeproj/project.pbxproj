@@ -26,6 +26,10 @@
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
 		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
 		F11257832B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
+		F11257852B484A8E00BE5D10 /* Util+FetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */; };
+		F11257872B484AAA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
+		F11257882B484ECA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
+		F11257892B484ECD00BE5D10 /* Util+FetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
@@ -175,6 +179,8 @@
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
 		F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
+		F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchTests.swift"; sourceTree = "<group>"; };
+		F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchSubjects.swift"; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
 				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
+				F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */,
+				F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -703,6 +711,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11257882B484ECA00BE5D10 /* Util+FetchSubjects.swift in Sources */,
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */,
 				F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
@@ -720,6 +729,7 @@
 				F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */,
 				F1CE4AA12B0BD77C002A37C4 /* WidgetBackgroundExtension.swift in Sources */,
 				F1D29E7C2A17BCC90001D469 /* ExportJSON.swift in Sources */,
+				F11257892B484ECD00BE5D10 /* Util+FetchTests.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
 				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
@@ -741,6 +751,7 @@
 				F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */,
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
+				F11257852B484A8E00BE5D10 /* Util+FetchTests.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
 				F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */,
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
@@ -778,6 +789,7 @@
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
+				F11257872B484AAA00BE5D10 /* Util+FetchSubjects.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,

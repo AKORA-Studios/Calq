@@ -46,12 +46,12 @@ struct ImpactSegment: View {
     }
     
     func setData() {
-        if subject == nil {return reset()}
-        if Util.filterTests(subject!).isEmpty {return reset()}
-        let allTests = Util.filterTests(subject!, checkinactive: false)
-        if allTests.isEmpty {return reset()}
+        if subject == nil { return reset() }
+        let allTests = Util.getAllSubjectTests(subject!)
+        if allTests.isEmpty { return reset() }
+        
         let tests = allTests.filter {$0.year == year}
-        if tests.isEmpty {return reset()}
+        if tests.isEmpty { return reset() }
         
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         

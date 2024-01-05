@@ -115,8 +115,8 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double {
-        let tests = filterTests(sub)
-        if tests.count == 0 { return 0.0 }
+        let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        if tests.isEmpty { return 0.0 }
         
         var count = 0.0
         var subaverage = 0.0
@@ -133,8 +133,9 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject, year: Int, filterinactve: Bool = true) -> Double {
-        let tests = filterTests(sub, checkinactive: filterinactve).filter {$0.year == year}
-        if tests.count == 0 { return 0.0 }
+        let allTests = filterinactve ? getAllSubjectTests(sub) : getAllSubjectTests(sub, .onlyActiveHalfyears)
+        let tests = allTests.filter {$0.year == year}
+        if tests.isEmpty { return 0.0 }
         return testAverage(tests)
     }
     
@@ -147,7 +148,7 @@ struct Util {
         var subjectCount = Double(allSubjects.count)
         
         for sub in allSubjects {
-            let tests = filterTests(sub)
+            let tests = getAllSubjectTests(sub, .onlyActiveHalfyears)
             if tests.isEmpty { subjectCount-=1; continue }
             a += round(getSubjectAverage(sub))
         }
@@ -164,7 +165,7 @@ struct Util {
         var grades = 0.0
         
         for sub in allSubjects {
-            let tests = filterTests(sub).filter {Int($0.year) == year}
+            let tests = getAllSubjectTests(sub, .onlyActiveHalfyears).filter {Int($0.year) == year}
             if tests.isEmpty { continue }
             let multiplier = sub.lk ? 2.0 : 1.0
             
@@ -184,7 +185,7 @@ struct Util {
     /// Generates a convient String that shows the grades of the subject.
     static func averageString(_ subject: UserSubject) -> String {
         var str: String = ""
-        let tests = subject.getAllTests()
+        let tests = getAllSubjectTests(subject)
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
@@ -309,7 +310,7 @@ struct Util {
         var num = 1
         
         for i in 1...4 {
-            let tests = filterTests(sub, checkinactive: false).filter { $0.year == i }
+            let tests = getAllSubjectTests(sub).filter { $0.year == i }
             if tests.count > 0 { num = i }
         }
         return num
@@ -318,25 +319,7 @@ struct Util {
     private static func arrToString(_ arr: [String]) -> String {
         return arr.joined(separator: " ")
     }
-    
-    // MARK: Tests
-    static func filterTests(_ sub: UserSubject, checkinactive: Bool = true) -> [UserTest] {
-        var tests = sub.getAllTests()
-        if !checkinactive { return tests }
-        
-        for year in [1, 2, 3, 4] {
-            if !checkinactiveYears(getinactiveYears(sub), year) {
-                tests = tests.filter { $0.year != year }
-            }
-        }
-        return tests
-    }
-    
-    static func deleteTest(_ test: UserTest) {
-        getContext().delete(test)
-        saveCoreData()
-    }
-    
+
     // MARK: Managed GradeTypes
     static func addType(name: String, weigth: Int) {
         let existingTypes = getTypes().map { $0.id }
@@ -389,7 +372,7 @@ struct Util {
     static func getTypeGrades(_ type: Int16) -> [UserTest] {
         var arr: [UserTest] = []
         for sub in Util.getAllSubjects() {
-            for test in sub.getAllTests() {
+            for test in getAllSubjectTests(sub) {
                 if test.type != type { continue }
                 arr.append(test)
             }

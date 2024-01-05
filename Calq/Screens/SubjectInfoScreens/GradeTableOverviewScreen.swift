@@ -58,7 +58,7 @@ struct gradeTableCell: View {
     /// Generates a convient String that shows the grades of the subject.
     private func getString() -> [String] {
         var str = averageString
-        let tests = subject.getAllTests()
+        let tests = Util.getAllSubjectTests(subject)
         var sum = 0
         
         for i in 0...3 {
