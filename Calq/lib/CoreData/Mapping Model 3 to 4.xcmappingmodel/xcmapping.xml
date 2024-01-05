@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>0D64FB4B-87A2-4589-9B5E-FFE024D82194</UUID>
-        <nextObjectID>135</nextObjectID>
+        <nextObjectID>137</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -71,7 +71,7 @@ cxIAAYagXxAPTlNLZXllZEFyY2hpdmVy0QAIAAlUcm9vdIABrxEDWQALAAwAGwA3ADgAOQBHAEgASQBK
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z106">
         <attribute name="valueexpressiondata" type="binary">YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8Q
-D05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwTFFUkbnVsbNMNDg8QERJfEA9OU0NvbnN0YW50VmFsdWVfEBBOU0V4cHJlc3Npb25UeXBlViRjbGFzc4ACEACAAwjSFRYXGFokY2xhc3NuYW1lWCRjbGFzc2VzXxAZTlNDb25zdGFudFZhbHVlRXhwcmVzc2lvbqMXGRpcTlNFeHByZXNzaW9uWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmV3ipGTlZeYnaixzdHeAAAAAAAAAQEAAAAAAAAAGwAAAAAAAAAAAAAAAAAAAOc=
+D05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwTFFUkbnVsbNMNDg8QERJfEA9OU0NvbnN0YW50VmFsdWVfEBBOU0V4cHJlc3Npb25UeXBlViRjbGFzc4ACEACAAwnSFRYXGFokY2xhc3NuYW1lWCRjbGFzc2VzXxAZTlNDb25zdGFudFZhbHVlRXhwcmVzc2lvbqMXGRpcTlNFeHByZXNzaW9uWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmV3ipGTlZeYnaixzdHeAAAAAAAAAQEAAAAAAAAAGwAAAAAAAAAAAAAAAAAAAOc=
 </attribute>
         <attribute name="name" type="string">isWrittenGrade</attribute>
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z116"></relationship>
@@ -156,7 +156,7 @@ D05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwXGB0eJiswMTQ4VSRudWxs1Q0ODxAREhMUFRZZTlNP
         <attribute name="destinationname" type="string">UserTest</attribute>
         <attribute name="autogenerateexpression" type="bool">1</attribute>
         <relationship name="mappingmodel" type="1/1" destination="XDDEVMAPPINGMODEL" idrefs="z104"></relationship>
-        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z117 z119 z120 z111 z126 z107 z123"></relationship>
+        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z120 z136 z117 z107 z111 z123 z119 z126"></relationship>
         <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z127"></relationship>
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z119">
@@ -234,5 +234,11 @@ D05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGpCwwXGB0eJiotVSRudWxs1Q0ODxAREhMUFRZZTlNPcGVy
     <object type="XDDEVATTRIBUTEMAPPING" id="z135">
         <attribute name="name" type="string">examtype</attribute>
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z109"></relationship>
+    </object>
+    <object type="XDDEVATTRIBUTEMAPPING" id="z136">
+        <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z118"></relationship>
+    </object>
+    <object type="XDDEVATTRIBUTEMAPPING" id="z137">
+        <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING"></relationship>
     </object>
 </database>

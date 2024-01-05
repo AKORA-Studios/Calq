@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum TestSortCriteria {
+public enum TestSortCriteria: CaseIterable {
     case none
     case name
     case grade
@@ -15,6 +15,17 @@ public enum TestSortCriteria {
     case createdAt
     case lastEditedAt
     case onlyActiveHalfyears
+    case isWritten
+    
+    static var array = [
+        (name: "Keine", type: none),
+        (name: "Name", type: name),
+        (name: "Note", type: grade),
+        (name: "Datum", type: date),
+        (name: "Erstellt am", type: createdAt),
+        (name: "Bearbeitet am", type: lastEditedAt),
+        (name: "Mündliche note", type: isWritten)
+    ]
 }
 
 extension Util {
