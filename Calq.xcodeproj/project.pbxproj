@@ -25,12 +25,12 @@
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
 		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
-		F11257832B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
 		F11257852B484A8E00BE5D10 /* Util+FetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */; };
 		F11257872B484AAA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
 		F11257882B484ECA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
 		F11257892B484ECD00BE5D10 /* Util+FetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */; };
 		F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112578A2B48574400BE5D10 /* TimeStampTexts.swift */; };
+		F112578F2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
@@ -179,10 +179,10 @@
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
 		F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
-		F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchTests.swift"; sourceTree = "<group>"; };
 		F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchSubjects.swift"; sourceTree = "<group>"; };
 		F112578A2B48574400BE5D10 /* TimeStampTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampTexts.swift; sourceTree = "<group>"; };
+		F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -385,10 +385,10 @@
 				F1A772332A1795C6004B8DCC /* UserSubject+CoreDataClass.swift */,
 				F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */,
 				F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */,
-				F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */,
 				F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */,
 				F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
+				F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */,
 				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
 			);
 			path = CoreData;
@@ -798,7 +798,6 @@
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
-				F11257832B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
@@ -812,6 +811,7 @@
 				F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */,
 				F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */,
 				F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */,
+				F112578F2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */,
 				F1A772472A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */,
 				F1A7102D2A43757D00255F10 /* CardView.swift in Sources */,
 				F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */,

@@ -9,7 +9,6 @@
     </entity>
     <entity name="GradeType" representedClassName="GradeType" syncable="YES">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="isWrittenGrade" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="weigth" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="gradetosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="gradetypes" inverseEntity="AppSettings"/>
