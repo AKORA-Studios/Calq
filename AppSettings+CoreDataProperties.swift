@@ -27,8 +27,12 @@ extension AppSettings {
 
 // MARK: Generated accessors for gradetypes
 extension AppSettings {
+    /// sort all subjects sorted after type and then name
     public func getAllSubjects() -> [UserSubject] {
-        return usersubjects?.allObjects as! [UserSubject]
+        let subjects = usersubjects?.allObjects as! [UserSubject]
+        let arr1 = subjects.filter {$0.lk}.sorted(by: {$0.name < $1.name })
+        let arr2 = subjects.filter {!$0.lk}.sorted(by: {$0.name < $1.name })
+        return arr1+arr2
     }
 
     @objc(addGradetypesObject:)

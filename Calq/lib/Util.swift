@@ -264,21 +264,8 @@ struct Util {
     // MARK: Get Subject
     /// Returns all Subjects as Array
     static func getAllSubjects() -> [UserSubject] {
-        var allSubjects: [UserSubject] = []
         let settings = Util.getSettings()
-        
-        if settings.usersubjects != nil {
-            allSubjects = settings.getAllSubjects()
-            return sortSubjects(allSubjects)
-        }
-        return allSubjects
-    }
-    
-    /// sort all subjects sorted after type and name
-    static func sortSubjects(_ subs: [UserSubject]) -> [UserSubject] {
-        let arr1 = subs.filter {$0.lk}.sorted(by: {$0.name < $1.name })
-        let arr2 = subs.filter {!$0.lk}.sorted(by: {$0.name < $1.name })
-        return arr1+arr2
+        return settings.getAllSubjects()
     }
     
     static func deleteSubject(_ subject: UserSubject) {

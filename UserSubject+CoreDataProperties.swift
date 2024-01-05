@@ -28,7 +28,12 @@ extension UserSubject {
     
     @NSManaged public var subjecttests: NSSet?
     @NSManaged public var subjecttosettings: AppSettings
-
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        setPrimitiveValue(Date(), forKey: "createdAt")
+        setPrimitiveValue(Date(), forKey: "lastEditedAt")
+    }
 }
 
 // MARK: Generated accessors for subjecttests
