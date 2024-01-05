@@ -19,7 +19,7 @@ class GradeListViewModel: ObservableObject {
     }
     
     func update() {
-        let Alltests = (subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+        let Alltests = (subject.subjecttests ?? []).sorted(by: {$0.date < $1.date})
         
         years[0] = Alltests.filter {$0.year == 1}
         years[1] = Alltests.filter {$0.year == 2}

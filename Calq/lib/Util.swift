@@ -187,7 +187,7 @@ struct Util {
     static func averageString(_ subject: UserSubject) -> String {
         var str: String = ""
         if subject.subjecttests == nil { return str }
-        let tests = subject.subjecttests!.allObjects as! [UserTest]
+        let tests = subject.subjecttests ?? []
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
@@ -271,7 +271,7 @@ struct Util {
         let settings = Util.getSettings()
         
         if settings.usersubjects != nil {
-            allSubjects = settings.usersubjects!.allObjects as! [UserSubject]
+            allSubjects = settings.usersubjects ?? []
             return sortSubjects(allSubjects)
         }
         return allSubjects
@@ -338,7 +338,7 @@ struct Util {
     // MARK: Tests
     static func filterTests(_ sub: UserSubject, checkinactive: Bool = true) -> [UserTest] {
         if sub.subjecttests == nil { return [] }
-        var tests = sub.subjecttests!.allObjects as! [UserTest]
+        var tests = sub.subjecttests! ?? []
         
         for year in [1, 2, 3, 4] {
             if !checkinactive { continue }
@@ -406,7 +406,7 @@ struct Util {
     static func getTypeGrades(_ type: Int16) -> [UserTest] {
         var arr: [UserTest] = []
         for sub in Util.getAllSubjects() {
-            for test in sub.subjecttests!.allObjects as! [UserTest] {
+            for test in sub.subjecttests ?? [] {
                 if test.type != type { continue }
                 arr.append(test)
             }

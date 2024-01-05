@@ -23,7 +23,10 @@ extension UserSubject {
     @NSManaged public var lk: Bool
     @NSManaged public var name: String
     @NSManaged public var showInLineGraph: Bool
-    @NSManaged public var subjecttests: NSSet?
+    @NSManaged public var lastEditedAt: Date
+    @NSManaged public var createdAt: Date
+    
+    @NSManaged public var subjecttests: [UserTest]?
     @NSManaged public var subjecttosettings: AppSettings
 
 }

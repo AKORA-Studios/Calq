@@ -59,7 +59,7 @@ struct gradeTableCell: View {
     private func getString() -> [String] {
         var str = averageString
         if subject.subjecttests == nil {return str}
-        let tests = subject.subjecttests!.allObjects as! [UserTest]
+        let tests = subject.subjecttests ?? []
         
         var sum = 0
         

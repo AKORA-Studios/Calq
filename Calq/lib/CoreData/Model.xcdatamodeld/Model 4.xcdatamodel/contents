@@ -9,15 +9,18 @@
     </entity>
     <entity name="GradeType" representedClassName="GradeType" syncable="YES">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isWrittenGrade" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="weigth" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="gradetosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="gradetypes" inverseEntity="AppSettings"/>
     </entity>
     <entity name="UserSubject" representedClassName="UserSubject" syncable="YES">
         <attribute name="color" attributeType="String" defaultValueString=""/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="726154980" usesScalarValueType="NO"/>
         <attribute name="exampoints" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="examtype" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="inactiveYears" attributeType="String" defaultValueString=""/>
+        <attribute name="lastEditedAt" attributeType="Date" defaultDateTimeInterval="726155040" usesScalarValueType="NO"/>
         <attribute name="lk" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="showInLineGraph" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
@@ -25,8 +28,10 @@
         <relationship name="subjecttosettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppSettings" inverseName="usersubjects" inverseEntity="AppSettings"/>
     </entity>
     <entity name="UserTest" representedClassName="UserTest" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="726154980" usesScalarValueType="NO"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="grade" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastEditedAt" attributeType="Date" defaultDateTimeInterval="726155040" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="year" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

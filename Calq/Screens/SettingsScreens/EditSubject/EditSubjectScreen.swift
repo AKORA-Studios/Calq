@@ -55,7 +55,7 @@ struct EditSubjectScreen: View {
             infoTexts()
             
             VStack {
-                if (vm.subject.subjecttests!.allObjects as! [UserTest]).count > 0 {
+                if (vm.subject.subjecttests ?? []).count > 0 {
                     NavigationLink(destination: GradeListScreen(vm: GradeListViewModel(subject: vm.subject))) {
                         Text("editSubGrades")
                             .foregroundColor(.white)

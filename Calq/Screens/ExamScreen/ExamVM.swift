@@ -122,7 +122,7 @@ func generatePossibleBlockOne() -> Int {
     for i in 0..<subjects.count {
         let sub = subjects[i]
         if sub.subjecttests == nil { continue }
-        let SubTests = sub.subjecttests!.allObjects as! [UserTest]
+        let SubTests = sub.subjecttests ?? []
         
         for e in 1...4 {
             let tests = SubTests.filter {($0.year == e)}

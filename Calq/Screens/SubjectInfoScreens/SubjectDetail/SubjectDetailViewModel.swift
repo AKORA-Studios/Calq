@@ -40,7 +40,7 @@ class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
             yearAverageText = String(format: "%.2f", average)
             halfyearActive = Util.checkinactiveYears(Util.getinactiveYears(subject), selectedYear)
         }
-        hasTest = (subject.subjecttests!.allObjects as! [UserTest]).count > 0
+        hasTest = (subject.subjecttests ?? [] ).count > 0
     }
     
     func toggleHalfyear() {

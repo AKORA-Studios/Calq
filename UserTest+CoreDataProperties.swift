@@ -22,6 +22,8 @@ extension UserTest {
     @NSManaged public var year: Int16
     @NSManaged public var type: Int16
     @NSManaged public var isWrittenGrade: Bool
+    @NSManaged public var lastEditedAt: Date
+    @NSManaged public var createdAt: Date
     @NSManaged public var testtosubbject: UserSubject
 
 }
