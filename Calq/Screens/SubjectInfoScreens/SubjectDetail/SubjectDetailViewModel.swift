@@ -11,7 +11,7 @@ import SwiftUI
 class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
     
     func changedIndex(_ index: Int) {
-        selectedYear = index
+        selectedYear = index + 1
         update()
     }
     
