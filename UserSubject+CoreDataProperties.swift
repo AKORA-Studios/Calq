@@ -26,13 +26,17 @@ extension UserSubject {
     @NSManaged public var lastEditedAt: Date
     @NSManaged public var createdAt: Date
     
-    @NSManaged public var subjecttests: [UserTest]?
+    @NSManaged public var subjecttests: NSSet?
     @NSManaged public var subjecttosettings: AppSettings
 
 }
 
 // MARK: Generated accessors for subjecttests
 extension UserSubject {
+    
+    public func getAllTests() -> [UserTest] {
+        return subjecttests?.allObjects as! [UserTest]
+    }
 
     @objc(addSubjecttestsObject:)
     @NSManaged public func addToSubjecttests(_ value: UserTest)

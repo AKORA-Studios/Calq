@@ -20,12 +20,16 @@ extension AppSettings {
     @NSManaged public var weightBigGrades: String?
     @NSManaged public var hasFiveExams: Bool
     @NSManaged public var gradetypes: NSSet?
-    @NSManaged public var usersubjects: [UserSubject]?
+    @NSManaged public var usersubjects: NSSet?
 
 }
 
 // MARK: Generated accessors for gradetypes
 extension AppSettings {
+    
+    public func getAllSubjects() -> [UserSubject] {
+        return usersubjects?.allObjects as! [UserSubject]
+    }
 
     @objc(addGradetypesObject:)
     @NSManaged public func addToGradetypes(_ value: GradeType)
