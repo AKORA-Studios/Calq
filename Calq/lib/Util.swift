@@ -123,7 +123,7 @@ struct Util {
         
         for e in 1...4 {
             let yearTests = tests.filter {$0.year == Int16(e)}
-            if yearTests.count == 0 { continue }
+            if yearTests.isEmpty { continue }
             count += 1
             subaverage += Util.testAverage(yearTests)
         }
@@ -147,9 +147,8 @@ struct Util {
         var subjectCount = Double(allSubjects.count)
         
         for sub in allSubjects {
-            if sub.subjecttests == nil { subjectCount-=1; continue }
             let tests = filterTests(sub)
-            if tests.count == 0 { subjectCount-=1; continue }
+            if tests.isEmpty { subjectCount-=1; continue }
             a += round(getSubjectAverage(sub))
         }
         
@@ -165,9 +164,8 @@ struct Util {
         var grades = 0.0
         
         for sub in allSubjects {
-            if sub.subjecttests == nil { continue }
             let tests = filterTests(sub).filter {Int($0.year) == year}
-            if tests.count == 0 { continue }
+            if tests.isEmpty { continue }
             let multiplier = sub.lk ? 2.0 : 1.0
             
             count += multiplier * 1
@@ -190,7 +188,7 @@ struct Util {
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
-            if arr.count == 0 { str += "-- "; continue }
+            if arr.isEmpty { str += "-- "; continue }
             str += String(Int(round(Util.testAverage(arr))))
             if i != 4 { str += " "}
         }
@@ -284,7 +282,7 @@ struct Util {
     }
     
     static func deleteSubject(_ subject: UserSubject) {
-        context.delete(subject)
+        getContext().delete(subject)
     }
     
     // MARK: Years
@@ -336,11 +334,10 @@ struct Util {
     
     // MARK: Tests
     static func filterTests(_ sub: UserSubject, checkinactive: Bool = true) -> [UserTest] {
-        if sub.subjecttests == nil { return [] }
         var tests = sub.getAllTests()
+        if !checkinactive { return tests }
         
         for year in [1, 2, 3, 4] {
-            if !checkinactive { continue }
             if !checkinactiveYears(getinactiveYears(sub), year) {
                 tests = tests.filter { $0.year != year }
             }
@@ -349,7 +346,7 @@ struct Util {
     }
     
     static func deleteTest(_ test: UserTest) {
-        test.testtosubbject.removeFromSubjecttests(test)
+        getContext().delete(test)
         saveCoreData()
     }
     

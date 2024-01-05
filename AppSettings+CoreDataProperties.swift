@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
 extension AppSettings {
@@ -26,7 +27,6 @@ extension AppSettings {
 
 // MARK: Generated accessors for gradetypes
 extension AppSettings {
-    
     public func getAllSubjects() -> [UserSubject] {
         return usersubjects?.allObjects as! [UserSubject]
     }
