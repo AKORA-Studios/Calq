@@ -30,6 +30,7 @@
 		F11257872B484AAA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
 		F11257882B484ECA00BE5D10 /* Util+FetchSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */; };
 		F11257892B484ECD00BE5D10 /* Util+FetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */; };
+		F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112578A2B48574400BE5D10 /* TimeStampTexts.swift */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
@@ -181,6 +182,7 @@
 		F11257822B48405400BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchTests.swift"; sourceTree = "<group>"; };
 		F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+FetchSubjects.swift"; sourceTree = "<group>"; };
+		F112578A2B48574400BE5D10 /* TimeStampTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampTexts.swift; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
 				F11257842B484A8E00BE5D10 /* Util+FetchTests.swift */,
 				F11257862B484AAA00BE5D10 /* Util+FetchSubjects.swift */,
+				F112578A2B48574400BE5D10 /* TimeStampTexts.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				F1A7723D2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
+				F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */,
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,

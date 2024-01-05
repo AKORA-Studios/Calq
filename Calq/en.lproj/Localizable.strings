@@ -59,6 +59,8 @@
 "editSubColor"="Subject Color";
 "editSubEditColor"="Change Color";
 "editSubGradeCount%lld"="**%lld** grades in this subject";
+"editSubCreatedAt"="Created at: ";
+"editSubLastEditedAt"="Last edited at: ";
 "editSubInfoIsExam"="This subject is a final exam";
 
 "settingsSection1"="General";

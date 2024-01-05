@@ -103,6 +103,7 @@ struct EditSubjectScreen: View {
                     Text("editSubInfoIsExam")
                 }
             }
+            TimeStampTexts(createdAt: vm.subject.createdAt, lastEditedAt: vm.subject.lastEditedAt)
         }.padding(.bottom, 40)
     }
     
