@@ -172,6 +172,7 @@
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
+		F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -856,7 +857,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -868,7 +869,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq.CalqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -886,7 +887,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -898,7 +899,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq.CalqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1036,14 +1037,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1062,14 +1063,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1167,11 +1168,12 @@
 		F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */,
 				F11583002AA490BE00122FBB /* Model 3.xcdatamodel */,
 				F1A7720F2A17947A004B8DCC /* Model 2.xcdatamodel */,
 				F1A772102A17947A004B8DCC /* Model.xcdatamodel */,
 			);
-			currentVersion = F11583002AA490BE00122FBB /* Model 3.xcdatamodel */;
+			currentVersion = F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
