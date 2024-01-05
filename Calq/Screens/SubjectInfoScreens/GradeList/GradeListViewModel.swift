@@ -9,22 +9,34 @@ import Foundation
 
 class GradeListViewModel: ObservableObject {
     @Published var subject: UserSubject
-    @Published var years: [[UserTest]] = [[], [], [], []]
+    @Published var years: [[UserTest]] = [[], [], [], [], []]
     @Published var Alltests: [UserTest] = []
     @Published var deleteAlert = false
+    
+    @Published var sortCriteriaIndex = 3 // default sorting after halfyears
     
     init(subject: UserSubject) {
         self.subject = subject
         update()
     }
     
-    func update() {
-        let Alltests = (subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+    func resortTests() {
+        years = [[], [], [], [], []]
+        let Alltests = Util.getAllSubjectTests(subject, TestSortCriteria.array[sortCriteriaIndex].type)
         
-        years[0] = Alltests.filter {$0.year == 1}
-        years[1] = Alltests.filter {$0.year == 2}
-        years[2] = Alltests.filter {$0.year == 3}
-        years[3] = Alltests.filter {$0.year == 4}
+        if sortCriteriaIndex == 3 {
+            years[0] = Alltests.filter {$0.year == 1}
+            years[1] = Alltests.filter {$0.year == 2}
+            years[2] = Alltests.filter {$0.year == 3}
+            years[3] = Alltests.filter {$0.year == 4}
+        } else {
+            
+            years[4] = Alltests
+        }
+    }
+    
+    func update() {
+        resortTests()
     }
     
     func deleteAction() {

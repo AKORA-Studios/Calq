@@ -59,6 +59,8 @@
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
 "editSubGradeCount%lld"="**%lld** Noten in diesem Fach";
+"editSubCreatedAt"="Erstellt am: ";
+"editSubLastEditedAt"="Zuletzt bearbeitet am: ";
 "editSubInfoIsExam"="Dieses Fach ist eine Prüfung";
 
 "settingsSection1"="Allgemein";
@@ -124,3 +126,13 @@
 "ExamChartWidget_Description"="Zeigt alle Prüfungen und block 2";
 "ExamChartWidget_DisplayTitle"="Prüfungsübersicht";
 "ExamChartWidget_BlockTitle"="Blöcke";
+
+// Sorting
+"sortGradeDatum"="Datum";
+"sortGradeIsWritten"="Schriftlich";
+"sortGradeIsNotWritten"="Mündlich";
+
+"sortName"="Name";
+"sortGrade"="Note";
+"sortCreatedAt"="Erstellungsdatum";
+"sortLasteditedAt"="Bearbeitungsdatum";

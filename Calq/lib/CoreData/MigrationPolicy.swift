@@ -19,3 +19,9 @@ class MigrationV0toV1: NSEntityMigrationPolicy {
 }
 // swiftlint:enable compiler_protocol_init
 // FUNCTION($entityPolicy, "typeForIsSaved:", $source.big)
+
+class MigrationV3toV4: NSEntityMigrationPolicy {
+    @objc func setDate() -> Date {
+        return Date()
+    }
+}

@@ -10,7 +10,7 @@ import Foundation
 class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
     
     func changedIndex(_ index: Int) {
-        year = index
+        year = index + 1
     }
     
     @Published var subjects: [UserSubject] = Util.getAllSubjects()

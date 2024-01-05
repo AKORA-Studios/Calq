@@ -21,8 +21,7 @@ extension JSON {
         for sub in subjects {
             string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"subjecttests\": ["
             
-            if sub.subjecttests == nil { continue }
-            let tests = sub.subjecttests!.allObjects as! [UserTest]
+            let tests = sub.getAllTests()
             var testCount: Int = 0
             
             for test in tests {

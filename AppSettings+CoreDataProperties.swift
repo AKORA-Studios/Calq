@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
 extension AppSettings {
@@ -19,6 +20,8 @@ extension AppSettings {
     @NSManaged public var colorfulCharts: Bool
     @NSManaged public var weightBigGrades: String?
     @NSManaged public var hasFiveExams: Bool
+    @NSManaged public var showGradeTypes: Bool
+    
     @NSManaged public var gradetypes: NSSet?
     @NSManaged public var usersubjects: NSSet?
 
@@ -26,6 +29,13 @@ extension AppSettings {
 
 // MARK: Generated accessors for gradetypes
 extension AppSettings {
+    /// sort all subjects sorted after type and then name
+    public func getAllSubjects() -> [UserSubject] {
+        let subjects = usersubjects?.allObjects as! [UserSubject]
+        let arr1 = subjects.filter {$0.lk}.sorted(by: {$0.name < $1.name })
+        let arr2 = subjects.filter {!$0.lk}.sorted(by: {$0.name < $1.name })
+        return arr1+arr2
+    }
 
     @objc(addGradetypesObject:)
     @NSManaged public func addToGradetypes(_ value: GradeType)

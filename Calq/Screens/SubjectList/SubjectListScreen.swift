@@ -17,7 +17,7 @@ struct SubjectListScreen: View {
                     ForEach(vm.data, id: \.self) {entry in
                         HStack {
                             let color = getSubjectColor(entry.subject)
-                            let average = Util.testAverage(Util.filterTests(entry.subject))
+                            let average = Util.testAverage(Util.getAllSubjectTests(entry.subject, .onlyActiveHalfyears)) // TODO: test average automatically only taje active ones??? not sure if should filter or not qwq
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)

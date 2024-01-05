@@ -59,6 +59,8 @@
 "editSubColor"="Subject Color";
 "editSubEditColor"="Change Color";
 "editSubGradeCount%lld"="**%lld** grades in this subject";
+"editSubCreatedAt"="Created at: ";
+"editSubLastEditedAt"="Last edited at: ";
 "editSubInfoIsExam"="This subject is a final exam";
 
 "settingsSection1"="General";
@@ -124,3 +126,13 @@
 "ExamChartWidget_Description"="Shows all exams + block 2";
 "ExamChartWidget_DisplayTitle"="Exam Overview";
 "ExamChartWidget_BlockTitle"="Blocks";
+
+// Sorting
+"sortGradeDatum"="Date";
+"sortGradeIsWritten"="Presentation";
+"sortGradeIsNotWritten"="Written";
+
+"sortName"="Name";
+"sortGrade"="Grade";
+"sortCreatedAt"="Creationdate";
+"sortLasteditedAt"="last Edited date";

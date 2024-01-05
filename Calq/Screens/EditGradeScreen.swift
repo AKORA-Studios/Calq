@@ -73,6 +73,8 @@ struct EditGradeScreen: View {
                 }
             }
             
+            TimeStampTexts(createdAt: test.createdAt, lastEditedAt: test.lastEditedAt)
+            
             Button("gradeSave") {
                 saveGrade()
             }.buttonStyle(PrimaryStyle())
@@ -111,6 +113,7 @@ struct EditGradeScreen: View {
         test.date = testDate
         test.grade = Int16(testPoints)
         test.type = testType
+        test.lastEditedAt = Date()
         saveCoreData()
         self.presentationMode.wrappedValue.dismiss()
     }

@@ -40,17 +40,20 @@ class EditSubjectViewModel: ObservableObject {
             deleteAlert = true
         } else {
             subject.name = subjectName
+            subject.lastEditedAt = Date()
             saveCoreData()
         }
     }
     
     func changeType() {
         subject.lk = lkSubject == 1 ? true : false
+        subject.lastEditedAt = Date()
         saveCoreData()
     }
     
     func changeColor() {
         subject.color = UIColor(selectedColor).toHexString()
+        subject.lastEditedAt = Date()
         saveCoreData()
     }
     

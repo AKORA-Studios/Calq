@@ -32,7 +32,7 @@ struct LineChartEntry: Hashable {
         for sub in subjects {
             if !sub.showInLineGraph { continue }
             var subArr: [LineChartEntry] = []
-            let tests = Util.filterTests(sub, checkinactive: false)
+            let tests = Util.getAllSubjectTests(sub)
             let color = getSubjectColor(sub, subjects: subjects)
             
             for test in tests {
