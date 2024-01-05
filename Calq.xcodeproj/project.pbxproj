@@ -30,9 +30,9 @@
 		F11257882B484ECA00BE5D10 /* Util+Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+Subjects.swift */; };
 		F11257892B484ECD00BE5D10 /* Util+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+Tests.swift */; };
 		F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112578A2B48574400BE5D10 /* TimeStampTexts.swift */; };
-		F112578F2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
 		F11257922B48688900BE5D10 /* Util+GradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257912B48688900BE5D10 /* Util+GradeType.swift */; };
 		F11257932B4868EF00BE5D10 /* Util+GradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257912B48688900BE5D10 /* Util+GradeType.swift */; };
+		F11257982B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
@@ -184,8 +184,8 @@
 		F11257842B484A8E00BE5D10 /* Util+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Tests.swift"; sourceTree = "<group>"; };
 		F11257862B484AAA00BE5D10 /* Util+Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Subjects.swift"; sourceTree = "<group>"; };
 		F112578A2B48574400BE5D10 /* TimeStampTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampTexts.swift; sourceTree = "<group>"; };
-		F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F11257912B48688900BE5D10 /* Util+GradeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+GradeType.swift"; sourceTree = "<group>"; };
+		F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -387,9 +387,9 @@
 				F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */,
 				F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */,
 				F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */,
+				F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */,
 				F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
-				F112578E2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */,
 				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
 			);
 			path = CoreData;
@@ -825,10 +825,10 @@
 				F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */,
 				F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */,
 				F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */,
-				F112578F2B48642C00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */,
 				F1A772472A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */,
 				F1A7102D2A43757D00255F10 /* CardView.swift in Sources */,
 				F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */,
+				F11257982B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */,
 				F1D29E792A17B8AF0001D469 /* ExportJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,8 @@ extension AppSettings {
     @NSManaged public var colorfulCharts: Bool
     @NSManaged public var weightBigGrades: String?
     @NSManaged public var hasFiveExams: Bool
+    @NSManaged public var showGradeTypes: Bool
+    
     @NSManaged public var gradetypes: NSSet?
     @NSManaged public var usersubjects: NSSet?
 
