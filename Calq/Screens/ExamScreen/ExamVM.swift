@@ -80,14 +80,13 @@ func generateBlockOne() -> Int {
     if subjects.count == 0 { return 0 }
     
     for sub in subjects {
-        if sub.subjecttests == nil { continue }
-        let SubTests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
-        if SubTests.count == 0 { continue }
+        let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        if tests.isEmpty { continue }
         
         let multiplier = sub.lk ? 2 : 1
   
         for e in 1...4 {
-            let tests = SubTests.filter {($0.year == e)}
+            let tests = tests.filter {($0.year == e)}
             if tests.count == 0 { continue }
             
             sum += multiplier * Int(round(Util.testAverage(tests)))

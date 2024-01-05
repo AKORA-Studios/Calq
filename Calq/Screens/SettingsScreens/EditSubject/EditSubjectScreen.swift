@@ -55,7 +55,7 @@ struct EditSubjectScreen: View {
             infoTexts()
             
             VStack {
-                if (vm.subject.subjecttests ?? []).count > 0 {
+                if !vm.subject.getAllTests().isEmpty {
                     NavigationLink(destination: GradeListScreen(vm: GradeListViewModel(subject: vm.subject))) {
                         Text("editSubGrades")
                             .foregroundColor(.white)
@@ -95,7 +95,7 @@ struct EditSubjectScreen: View {
         VStack {
             HStack {
                 Image(systemName: "info.circle")
-                Text("editSubGradeCount\(vm.subject.subjecttests?.count ?? 0)")
+                Text("editSubGradeCount\(vm.subject.getAllTests().count)")
             }
             if Util.isExamSubject(vm.subject) {
                 HStack {
