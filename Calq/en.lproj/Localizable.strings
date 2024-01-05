@@ -126,3 +126,13 @@
 "ExamChartWidget_Description"="Shows all exams + block 2";
 "ExamChartWidget_DisplayTitle"="Exam Overview";
 "ExamChartWidget_BlockTitle"="Blocks";
+
+// Sorting
+"sortGradeDatum"="Date";
+"sortGradeIsWritten"="Presentation";
+"sortGradeIsNotWritten"="Written";
+
+"sortName"="Name";
+"sortGrade"="Grade";
+"sortCreatedAt"="Creationdate";
+"sortLasteditedAt"="last Edited date";

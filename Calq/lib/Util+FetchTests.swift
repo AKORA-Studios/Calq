@@ -16,15 +16,17 @@ public enum TestSortCriteria: CaseIterable {
     case lastEditedAt
     case onlyActiveHalfyears
     case isWritten
+    case isNotWritten
     
     static var array = [
-        (name: "Keine", type: none),
-        (name: "Name", type: name),
-        (name: "Note", type: grade),
-        (name: "Datum", type: date),
-        (name: "Erstellt am", type: createdAt),
-        (name: "Bearbeitet am", type: lastEditedAt),
-        (name: "Mündliche note", type: isWritten)
+        (name: "-", type: none),
+        (name: NSLocalizedString("sortName", comment: ""), type: name),
+        (name: NSLocalizedString("sortGrade", comment: ""), type: grade),
+        (name: NSLocalizedString("sortGradeDatum", comment: ""), type: date),
+        (name: NSLocalizedString("sortCreatedAt", comment: ""), type: createdAt),
+        (name: NSLocalizedString("sortLasteditedAt", comment: ""), type: lastEditedAt),
+        //    (name: NSLocalizedString("sortGradeIsWritten", comment: ""), type: isWritten),
+        //   (name: NSLocalizedString("sortGradeIsNotWritten", comment: ""), type: isNotWritten)
     ]
 }
 
@@ -33,7 +35,7 @@ extension Util {
         getContext().delete(test)
         saveCoreData()
     }
-
+    
     /// Returns all Tests sorted By Criteria
     static func getAllSubjectTests(_ subject: UserSubject, _ sortedBy: TestSortCriteria = .none) -> [UserTest] {
         let tests = subject.getAllTests()
@@ -53,6 +55,10 @@ extension Util {
             return tests.sorted(by: {$0.lastEditedAt < $1.lastEditedAt})
         case .onlyActiveHalfyears:
             return filterTests(tests, subject)
+        case .isWritten:
+            return tests.filter { $0.isWrittenGrade }
+        case .isNotWritten:
+            return tests.filter { !$0.isWrittenGrade }
         }
     }
     

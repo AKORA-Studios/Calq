@@ -25,19 +25,49 @@ struct GradeListScreen: View {
                 }
             }
             
+            if !vm.years[4].isEmpty { // if sorting is active
+                ForEach(vm.years[4]) { test in
+                    let color = getSubjectColor(vm.subject)
+                    
+                    NavigationLink {
+                        EditGradeScreen(test: test, color: color)
+                    } label: {
+                        gradeIcon(test: test, color: color)
+                    }
+                }
+            }
+            
         }.navigationTitle("subjectGradeList")
-            .toolbar { Image(systemName: "xmark").onTapGesture { dismissSheet() } }
+            .toolbar {
+                ToolbarItem {
+                    Menu {
+                        Picker(selection: $vm.sortCriteriaIndex) {
+                            ForEach(0..<TestSortCriteria.array.count, id: \.self) { index in
+                                //      Text(TestSortCriteria.array[index].tos)
+                                Text(TestSortCriteria.array[index].name)
+                            }
+                        } label: {}
+                    } label: {
+                        Image(systemName: "slider.horizontal.3").foregroundColor(vm.sortCriteriaIndex == 0 ? .gray : .accentColor)
+                    }
+                }
+                
+                ToolbarItem { Image(systemName: "xmark").onTapGesture { dismissSheet() } }
+            }
             .alert(isPresented: $vm.deleteAlert) {
                 Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrades"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastDelete"), action: {
                     vm.deleteAction()
                     dismissSheet()
                 }))
             }
+            .onChange(of: vm.sortCriteriaIndex) { _ in
+                vm.resortTests()
+            }
     }
     
     func halfyearSection(_ i: Int) -> some View {
         Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
-            ForEach(vm.years[i]) {test in
+            ForEach(vm.years[i]) { test in
                 let color = getSubjectColor(vm.subject)
                 
                 NavigationLink {
