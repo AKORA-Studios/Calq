@@ -83,7 +83,7 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
-"gradeHalfyear"="Halbjahr";
+"%lldgradeHalfyear"="%lld. Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
 "gradeInvalidNameDesc"="Der Name darf keine Sonderzeichen enthalten und nicht leer sein";
@@ -100,7 +100,7 @@
 "gradeEditDelete"="Note gelöscht";
 
 "subjectDetailGradeList"="Notenliste ansehen";
-"subjectDetailAverageHalfyear"="Durchschnitt des Halbjahres";
+"%lldsubjectDetailAverageHalfyear"="Durchschnitt des %lld. Halbjahres";
 "subjectDetailTime"="Verlauf";
 "subjectDetailActive"="Aktiv";
 "subjectDetailInactive"="Inaktiv";
