@@ -103,6 +103,18 @@ struct NewGradeView: View {
                         }
                     }
                     
+                    if vm.shouldShowGradeTypeOptions {
+                        CardContainer {
+                            HStack {
+                                Text("gradeIWritten")
+                                Spacer()
+                                Toggle(isOn: $vm.isWrittenGrade){ }
+                                    .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                                    .frame(width: 60)
+                            }.frame(maxWidth: .infinity)
+                        }
+                    }
+                    
                     Button("gradeNewAdd") {
                         vm.saveGrade()
                         toastControl.show("gradeNewToastSuccess", .success)
