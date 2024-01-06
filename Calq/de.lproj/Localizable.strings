@@ -69,6 +69,7 @@
 "settingsImport"= "Noten importieren";
 "settingsExport"= "Noten exportieren";
 "settingsRainbow"= "Regenbogen";
+"settingsShowGradeTypes"= "Zeige Notentypen";
 "settingsExamCount"= "Anzahl Abiturprüfungen";
 "settingsWeight"= "Wertung ändern";
 "settingsLoadDemo"= "Demo Daten laden";

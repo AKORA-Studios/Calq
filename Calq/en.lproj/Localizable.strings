@@ -69,6 +69,7 @@
 "settingsImport"= "Import Grades";
 "settingsExport"= "Export Grades";
 "settingsRainbow"= "Rainbow";
+"settingsShowGradeTypes"= "Show Grade Types";
 "settingsExamCount"= "Count Final Exams";
 "settingsWeight"= "Change Weigth";
 "settingsLoadDemo"= "Load Demo Data";
