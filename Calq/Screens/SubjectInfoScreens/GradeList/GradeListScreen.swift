@@ -65,7 +65,7 @@ struct GradeListScreen: View {
     }
     
     func halfyearSection(_ i: Int) -> some View {
-        Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
+        Section(header: Text("\(i + 1)gradeHalfyear")) {
             ForEach(vm.years[i]) { test in
                 let color = getSubjectColor(vm.subject)
                 
