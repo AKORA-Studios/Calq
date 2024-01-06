@@ -51,6 +51,7 @@ struct MenuPickerButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
+                .foregroundColor(Color(UIColor.label))
             if !active {
                 Spacer()
                 Image(systemName: "chevron.up.chevron.down").scaledToFit()
@@ -59,7 +60,7 @@ struct MenuPickerButton: ButtonStyle {
         .frame(height: 15)
         .frame(maxWidth: .infinity)
         .padding(5)
-        .background(active ? color : Color.gray)
+        .background(active ? color : Color.gray.opacity(0.2))
         .cornerRadius(8)
         .foregroundColor(.white)
     }

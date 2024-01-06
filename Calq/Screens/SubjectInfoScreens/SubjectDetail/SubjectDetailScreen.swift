@@ -32,7 +32,7 @@ struct SubjectDetailScreen: View {
                 VStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("gradeHalfyear")
+                            Text("\(vm.selectedYear)gradeHalfyear")
                                 .frame(minWidth: 50)
                             Spacer()
                             Text(vm.halfyearActive ? "subjectDetailActive": "subjectDetailInactive")
@@ -57,7 +57,7 @@ struct SubjectDetailScreen: View {
                 
                 // average chart
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("subjectDetailAverageHalfyear")
+                    Text("\(vm.selectedYear)subjectDetailAverageHalfyear")
                         .padding()
                     CircleChart(percent: $vm.yearAverage, color: color, upperText: $vm.yearAverageText, lowerText: Binding.constant(""))
                         .frame(height: 120)

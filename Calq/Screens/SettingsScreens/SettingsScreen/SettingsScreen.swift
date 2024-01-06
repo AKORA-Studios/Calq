@@ -81,12 +81,6 @@ struct SettingsScreen: View {
     
     func staticCells() -> some View {
         Section(header: Text("settingsSection1")) {
-            SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "Github", completation: {
-                if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
-                    UIApplication.shared.open(url)
-                }
-            })
-            
             HStack {
                 SettingsIcon(color: Color(hexString: "5856d6"), icon: "books.vertical.fill", text: "settingsExamCount") {}
                 Spacer()
@@ -131,6 +125,12 @@ struct SettingsScreen: View {
                 vm.alertActiontype = .deleteData
                 vm.deleteAlert = true
             }
+            
+            SettingsIcon(color: Color.pink, icon: "info.circle.fill", text: "Github", completation: {
+                if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
+                    UIApplication.shared.open(url)
+                }
+            })
         }
     }
     
@@ -202,8 +202,11 @@ struct SettingsIcon: View {
                     .foregroundColor(.white)
             }
             Text(LocalizedStringKey(text))
+            Spacer()
         }
         .frame(height: 30, alignment: .leading)
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
         .onTapGesture {
             completation()
         }
