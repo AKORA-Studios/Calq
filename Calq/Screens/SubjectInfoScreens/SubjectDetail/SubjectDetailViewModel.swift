@@ -30,6 +30,7 @@ class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
         pickerVM.delegate = self
         
         selectedYear = Util.lastActiveYear(subject)
+        pickerVM.selectedIndex = selectedYear - 1
         update()
     }
     

@@ -41,6 +41,7 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
         isNewGradeSheetPresented = true
         
         year = Util.lastActiveYear(selectedSubject!)
+        pickerVM.selectedIndex = year - 1
         points = Float(Util.getSubjectAverage(selectedSubject!))
         gradeName = ""
     }
