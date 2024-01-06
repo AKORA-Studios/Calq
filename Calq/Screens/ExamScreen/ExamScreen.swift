@@ -61,33 +61,33 @@ struct ExamView: View {
     
     var body: some View {
         VStack {
-                Menu {
-                        Section {
-                            ForEach(vm.options) {sub in
-                                Button(sub.name) {
-                                    subject = sub
-                                    saveExam(type, sub)
-                                    vm.changeExamSelection()
-                                    sliderValue = 0
-                                }
-                            }
+            Menu {
+                Section {
+                    ForEach(vm.options) {sub in
+                        Button(sub.name) {
+                            subject = sub
+                            saveExam(type, sub)
+                            vm.changeExamSelection()
+                            sliderValue = 0
                         }
-                        
-                        if subject != nil && !vm.options.isEmpty {
-                            Section {
-                                deleteExamButton()
-                            }
-                        }
-                } label: {
-                    Button {
-                    } label: {
-                        if subject != nil {
-                            Text(subject!.name)
-                        } else {
-                            Text("ExamViewSubSelect")
-                        }
-                    }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+                    }
                 }
+                
+                if subject != nil && !vm.options.isEmpty {
+                    Section {
+                        deleteExamButton()
+                    }
+                }
+            } label: {
+                Button {
+                } label: {
+                    if subject != nil {
+                        Text(subject!.name)
+                    } else {
+                        Text("ExamViewSubSelect")
+                    }
+                }.buttonStyle(MenuPickerButton(color: getSubjectColor(subject), active: subject != nil))
+            }
             
             HStack {
                 Text(String(Int(sliderValue.rounded())))
