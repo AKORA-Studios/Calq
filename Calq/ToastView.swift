@@ -67,7 +67,7 @@ struct ToastView: View {
               VStack(alignment: .leading) {
                   Text(toastControl.message)
                         .font(.system(size: 12))
-                        .foregroundColor(Color.black.opacity(0.6))
+                        .foregroundColor(Color(UIColor.label))
                 }
                 
                 Spacer(minLength: 10)
@@ -81,7 +81,7 @@ struct ToastView: View {
             }
             .padding()
         }
-        .background(Color.white)
+        .background(Color(UIColor.secondarySystemBackground))
         .overlay(
             Rectangle()
                 .fill(toastControl.color())

@@ -68,6 +68,11 @@ class SettingsViewModel: ObservableObject {
         saveCoreData()
     }
     
+    func updateShowGradeTypes() {
+        settings.showGradeTypes = Util.getSettings().showGradeTypes
+        saveCoreData()
+    }
+    
     func updateExamSettings() {
         settings.hasFiveExams = hasFiveExams == 5
         

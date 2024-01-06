@@ -69,6 +69,7 @@
 "settingsImport"= "Noten importieren";
 "settingsExport"= "Noten exportieren";
 "settingsRainbow"= "Regenbogen";
+"settingsShowGradeTypes"= "Zeige Notentypen";
 "settingsExamCount"= "Anzahl Abiturprüfungen";
 "settingsWeight"= "Wertung ändern";
 "settingsLoadDemo"= "Demo Daten laden";
@@ -83,6 +84,7 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
+"gradeIWritten"="Ist schriftliche Note";
 "%lldgradeHalfyear"="%lld. Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";

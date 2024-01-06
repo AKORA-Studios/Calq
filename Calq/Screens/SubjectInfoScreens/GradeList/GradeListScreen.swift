@@ -42,13 +42,12 @@ struct GradeListScreen: View {
                 ToolbarItem {
                     Menu {
                         Picker(selection: $vm.sortCriteriaIndex) {
-                            ForEach(0..<TestSortCriteria.array.count, id: \.self) { index in
-                                //      Text(TestSortCriteria.array[index].tos)
-                                Text(TestSortCriteria.array[index].name)
+                            ForEach(0..<Util.getSortingArray().count, id: \.self) { index in
+                                Text(Util.getSortingArray()[index].name)
                             }
                         } label: {}
                     } label: {
-                        Image(systemName: "slider.horizontal.3").foregroundColor(vm.sortCriteriaIndex == 0 ? .gray : .accentColor)
+                        Image(systemName: "slider.horizontal.3")
                     }
                 }
                 
@@ -61,12 +60,12 @@ struct GradeListScreen: View {
                 }))
             }
             .onChange(of: vm.sortCriteriaIndex) { _ in
-                vm.resortTests()
+                vm.update()
             }
     }
     
     func halfyearSection(_ i: Int) -> some View {
-        Section(header: Text("\(i + 1). ") + Text("gradeHalfyear")) {
+        Section(header: Text("\(i + 1)gradeHalfyear")) {
             ForEach(vm.years[i]) { test in
                 let color = getSubjectColor(vm.subject)
                 

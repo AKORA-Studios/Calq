@@ -257,6 +257,4 @@ struct Util {
         }
         return false
     }
-    
-  
 }

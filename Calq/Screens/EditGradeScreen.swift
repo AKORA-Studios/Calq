@@ -22,6 +22,9 @@ struct EditGradeScreen: View {
     
     @State var deleteAlert = false
     
+    @State var isWrittenGrade = false
+    @State var shouldShowGradeTypeOptions = false
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
         VStack {
@@ -73,6 +76,19 @@ struct EditGradeScreen: View {
                 }
             }
             
+            if shouldShowGradeTypeOptions {
+                CardContainer {
+                    HStack {
+                        Text("gradeIWritten")
+                        Spacer()
+                        Toggle(isOn: $isWrittenGrade) {}.onChange(of: isWrittenGrade) { _ in
+                            test.isWrittenGrade = isWrittenGrade
+                        }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                            .frame(width: 60)
+                    }.frame(maxWidth: .infinity)
+                }
+            }
+         
             TimeStampTexts(createdAt: test.createdAt, lastEditedAt: test.lastEditedAt)
             
             Button("gradeSave") {
@@ -93,6 +109,9 @@ struct EditGradeScreen: View {
                 testDate = test.date
                 testPoints = Float(test.grade)
                 testType = test.type
+                isWrittenGrade = test.isWrittenGrade
+                
+                shouldShowGradeTypeOptions = Util.getSettings().showGradeTypes
             }
             .alert(isPresented: $deleteAlert) {
                 Alert(title: Text("ToastTitle"), message: Text("ToastDeleteGrade"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {

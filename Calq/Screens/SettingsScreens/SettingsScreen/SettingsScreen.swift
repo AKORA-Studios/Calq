@@ -82,7 +82,7 @@ struct SettingsScreen: View {
     func staticCells() -> some View {
         Section(header: Text("settingsSection1")) {
             HStack {
-                SettingsIcon(color: Color(hexString: "5856d6"), icon: "books.vertical.fill", text: "settingsExamCount") {}
+                SettingsIcon(color: .purple, icon: "books.vertical.fill", text: "settingsExamCount") {}
                 Spacer()
                 Picker("", selection: $vm.hasFiveExams) {
                     Text("4").tag(4)
@@ -95,10 +95,19 @@ struct SettingsScreen: View {
             }
             
             HStack {
-                SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
+                SettingsIcon(color: Color(hexString: "5856d6"), icon: "highlighter", text: "settingsShowGradeTypes") {}
+                Toggle(isOn: $vm.settings.showGradeTypes) {}.onChange(of: vm.settings.showGradeTypes) { _ in
+                    vm.updateShowGradeTypes()
+                }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                    .frame(width: 60)
+            }
+            
+            HStack {
+                SettingsIcon(color: Color(hexString: "428FE3"), icon: "chart.bar.fill", text: "settingsRainbow") {}
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                     vm.updateColorfulCharts()
                 }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                    .frame(width: 60)
             }
             
             SettingsIcon(color: Color.blue, icon: "folder.fill", text: "settingsImport") {
