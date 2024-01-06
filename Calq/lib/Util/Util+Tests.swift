@@ -19,14 +19,13 @@ public enum TestSortCriteria: CaseIterable {
     case isNotWritten
     
     static var array = [
-        (name: "-", type: none),
         (name: NSLocalizedString("sortName", comment: ""), type: name),
         (name: NSLocalizedString("sortGrade", comment: ""), type: grade),
         (name: NSLocalizedString("sortGradeDatum", comment: ""), type: date),
         (name: NSLocalizedString("sortCreatedAt", comment: ""), type: createdAt),
         (name: NSLocalizedString("sortLasteditedAt", comment: ""), type: lastEditedAt),
-        //    (name: NSLocalizedString("sortGradeIsWritten", comment: ""), type: isWritten),
-        //   (name: NSLocalizedString("sortGradeIsNotWritten", comment: ""), type: isNotWritten)
+        (name: NSLocalizedString("sortGradeIsWritten", comment: ""), type: isWritten),
+        (name: NSLocalizedString("sortGradeIsNotWritten", comment: ""), type: isNotWritten)
     ]
 }
 

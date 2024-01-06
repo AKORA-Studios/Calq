@@ -43,12 +43,11 @@ struct GradeListScreen: View {
                     Menu {
                         Picker(selection: $vm.sortCriteriaIndex) {
                             ForEach(0..<TestSortCriteria.array.count, id: \.self) { index in
-                                //      Text(TestSortCriteria.array[index].tos)
                                 Text(TestSortCriteria.array[index].name)
                             }
                         } label: {}
                     } label: {
-                        Image(systemName: "slider.horizontal.3").foregroundColor(vm.sortCriteriaIndex == 0 ? .gray : .accentColor)
+                        Image(systemName: "slider.horizontal.3")
                     }
                 }
                 
