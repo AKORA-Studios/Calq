@@ -202,8 +202,11 @@ struct SettingsIcon: View {
                     .foregroundColor(.white)
             }
             Text(LocalizedStringKey(text))
+            Spacer()
         }
         .frame(height: 30, alignment: .leading)
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
         .onTapGesture {
             completation()
         }
