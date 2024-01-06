@@ -5,7 +5,7 @@
 
 # Calq-iOS
 
-Abiturnoten Rchner für iOs 14 oder höher.
+Abiturnoten Rchner für iOS 14 oder höher.
 ReadMe in anderen Sprachen: [Englisch](https://github.com/AKORA-Studios/Calq/blob/master/README.en.md).
 
 ## Funktionen
@@ -67,7 +67,7 @@ git clone https://github.com/AKORA-Studios/Calq
 ```
 
 - Open the workspace file in Xcode
-- Use **CMD + R** to run the app sheme
+- Use **CMD + R** to run the app sheme named "Calq"
 
 ## Requirements
 
@@ -78,7 +78,9 @@ git clone https://github.com/AKORA-Studios/Calq
 
 If you encounter any issues or have improvment suggestions open a ticket
 
-Or if you want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them in the mergerequest.
+Or if you want to change smth yourself or have any suggestions how to solve an open issue, fork the repository (master), create a new branch describing your change/issue, then create a mergerequest explaining what you changed. Pls name your commits somewhere usefull. If you have a lot of commits pls squash them.
+
+Note: This project uses [SwiftLint](https://github.com/realm/SwiftLint) to ensure a readble code style.
 
 ## Feature Requests
 
