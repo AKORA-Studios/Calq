@@ -21,10 +21,11 @@ class GradeListViewModel: ObservableObject {
         self.subject = subject
         update()
     }
-    
-    func resortTests() {
+
+    func update() {
         years = [[], [], [], [], []]
-        let Alltests = Util.getAllSubjectTests(subject, TestSortCriteria.array[sortCriteriaIndex].type)
+        let criterias = Util.getSortingArray()
+        let Alltests = Util.getAllSubjectTests(subject, criterias[sortCriteriaIndex].type)
         
         if sortCriteriaIndex == sortAfterDateIndex {
             years[0] = Alltests.filter {$0.year == 1}
@@ -34,10 +35,6 @@ class GradeListViewModel: ObservableObject {
         } else {
             years[4] = Alltests
         }
-    }
-    
-    func update() {
-        resortTests()
     }
     
     func deleteAction() {

@@ -42,8 +42,8 @@ struct GradeListScreen: View {
                 ToolbarItem {
                     Menu {
                         Picker(selection: $vm.sortCriteriaIndex) {
-                            ForEach(0..<TestSortCriteria.array.count, id: \.self) { index in
-                                Text(TestSortCriteria.array[index].name)
+                            ForEach(0..<Util.getSortingArray().count, id: \.self) { index in
+                                Text(Util.getSortingArray()[index].name)
                             }
                         } label: {}
                     } label: {
@@ -60,7 +60,7 @@ struct GradeListScreen: View {
                 }))
             }
             .onChange(of: vm.sortCriteriaIndex) { _ in
-                vm.resortTests()
+                vm.update()
             }
     }
     

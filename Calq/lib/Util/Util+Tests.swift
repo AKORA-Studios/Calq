@@ -24,8 +24,10 @@ public enum TestSortCriteria: CaseIterable {
         (name: NSLocalizedString("sortGradeDatum", comment: ""), type: date),
         (name: NSLocalizedString("sortCreatedAt", comment: ""), type: createdAt),
         (name: NSLocalizedString("sortLasteditedAt", comment: ""), type: lastEditedAt),
+        // Add them here thx
         (name: NSLocalizedString("sortGradeIsWritten", comment: ""), type: isWritten),
         (name: NSLocalizedString("sortGradeIsNotWritten", comment: ""), type: isNotWritten)
+        // Do not add criterias after these!
     ]
 }
 
@@ -33,6 +35,11 @@ extension Util {
     static func deleteTest(_ test: UserTest) {
         getContext().delete(test)
         saveCoreData()
+    }
+    
+    static func getSortingArray() -> [(name: String, type: TestSortCriteria)] {
+        if getSettings().showGradeTypes { return TestSortCriteria.array }
+        return TestSortCriteria.array.filter { $0.type != TestSortCriteria.isWritten && $0.type != TestSortCriteria.isNotWritten }
     }
     
     /// Returns all Tests sorted By Criteria
