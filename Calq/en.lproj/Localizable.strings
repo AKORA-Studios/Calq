@@ -84,6 +84,7 @@
 "gradeYear"="Year";
 "gradeDate"="Date";
 "gradePoints"="Points";
+"gradeIWritten"="Is written Grade";
 "%lldgradeHalfyear"="%lld. Halfyear";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";

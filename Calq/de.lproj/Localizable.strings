@@ -84,6 +84,7 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
+"gradeIWritten"="Ist schriftliche Note";
 "%lldgradeHalfyear"="%lld. Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
