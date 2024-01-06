@@ -243,8 +243,12 @@ struct Util {
     }
     
     static func checkIfNewVersion() -> Bool {
-        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
-        if oldVersion == "0.0.0" { return true }
+        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion)
+        
+        guard let oldVersion = oldVersion else {
+            return true
+        }
+        
         let partsOldV = oldVersion.split(separator: ".")
         let partsNewV = appVersion.split(separator: ".")
         
