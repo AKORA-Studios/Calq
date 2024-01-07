@@ -35,7 +35,7 @@ struct AppStructV3: Codable { // Model 4
             var name: String
             var year: Int
             var grade: Int
-            var date: String
+            var date: Date
             var type: Int
             var isWrittenGrade: Bool
             var lastEditedAt: Date
@@ -43,7 +43,6 @@ struct AppStructV3: Codable { // Model 4
         }
     }
 }
-
 
 struct AppStructV2: Codable { // Model 3
     var colorfulCharts: Bool

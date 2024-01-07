@@ -63,7 +63,9 @@ extension JSON {
             version = jsonDict["formatVersion"] as? Int ?? 0
         }
         
-        if version >= 2 {
+        if version >= 3 {
+            try consctructV3(json, jsonDict)
+        } else if version >= 2 {
             try consctructV2(json, jsonDict)
         } else if version == 1 {
             try consctructV1(json, jsonDict)
