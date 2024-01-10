@@ -82,6 +82,12 @@ Or if you want to change smth yourself or have any suggestions how to solve an o
 
 Note: This project uses [SwiftLint](https://github.com/realm/SwiftLint) to ensure a readble code style.
 
+### Structure idk
+* Every View that doies stuff should have its own viewmodel ideally (https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+* Every Screen with a Viewmodel should have its own Folder
+* Reusable Views should have their own file in /lib
+* Screens should be in /Screens
+
 ## Feature Requests
 
 [Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen.
