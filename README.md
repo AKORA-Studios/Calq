@@ -83,10 +83,11 @@ Or if you want to change smth yourself or have any suggestions how to solve an o
 Note: This project uses [SwiftLint](https://github.com/realm/SwiftLint) to ensure a readble code style.
 
 ### Structure idk
-* Every View that doies stuff should have its own viewmodel ideally (https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
-* Every Screen with a Viewmodel should have its own Folder
-* Reusable Views should have their own file in /lib
-* Screens should be in /Screens
+
+- Every View that does stuff ideally should have its own viewmodel'; (https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+- Every Screen with a Viewmodel should have its own Folder
+- Reusable Views should have their own file in /lib
+- Screens should be in /Screens
 
 ## Feature Requests
 
