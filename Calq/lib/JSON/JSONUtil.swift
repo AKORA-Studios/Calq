@@ -40,6 +40,9 @@ struct JSON {
         case failedToloadData
         case failedToLoadDictionary
         case parseJSON
+        case parseVersionThree
+        case parseVersionTwo
+        case parseVersionOne
     }
     
     static func createWidgetPreviewData() -> [UserSubject] {
@@ -82,4 +85,12 @@ struct JSON {
         if num >= 1 && num <= 5 { return Int16(num) }
         return Int16(0)
     }
+}
+
+extension DateFormatter {
+    static let calqFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy HH:mm"
+        return formatter
+    }()
 }
