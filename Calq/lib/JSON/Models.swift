@@ -27,19 +27,19 @@ struct AppStructV3: Codable { // Model 4
         var lk: Bool
         var color: String
         var inactiveYears: String
-        var lastEditedAt: Date
-        var createdAt: Date
+        var lastEditedAt: String
+        var createdAt: String
         var subjecttests: [JSONTest]
         
         struct JSONTest: Codable {
             var name: String
             var year: Int
             var grade: Int
-            var date: Date
+            var date: String
             var type: Int
             var isWrittenGrade: Bool
-            var lastEditedAt: Date
-            var createdAt: Date
+            var lastEditedAt: String
+            var createdAt: String
         }
     }
 }
