@@ -47,7 +47,7 @@ struct SubjectListScreen: View {
                     HStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(hexString: "428FE3"))
+                                .fill(Color.calqColor)
                                 .frame(width: 30, height: 30)
                             Text("∑")
                                 .frame(width: 30, height: 30)
