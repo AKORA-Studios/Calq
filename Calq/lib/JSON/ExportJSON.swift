@@ -10,23 +10,24 @@ import Foundation
 extension JSON {
     /// Export userdata as json
     static func exportJSON() -> String {
+        let formatter = DateFormatter.calqFormat
         let data = Util.getSettings()
         
         let primaryType = UserDefaults.standard.integer(forKey: UD_primaryType)
-        var string = "{\"formatVersion\": 2, \"colorfulCharts\": \(data.colorfulCharts), \"hasFiveExams\": \(data.hasFiveExams), \"highlightedType\": \(primaryType), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
+        var string = "{\"formatVersion\": 3, \"colorfulCharts\": \(data.colorfulCharts), \"hasFiveExams\": \(data.hasFiveExams), \"showGradeTypes\": \(data.showGradeTypes), \"highlightedType\": \(primaryType), \"gradeTypes\": \(getTypesJSONData()), \(getExamJSONData()) \"usersubjects\": ["
         
         let subjects = Util.getAllSubjects()
         var subCount: Int = 0
         
         for sub in subjects {
-            string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"subjecttests\": ["
+            string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"lastEditedAt\": \"\(formatter.string(from: sub.lastEditedAt))\", \"createdAt\": \"\(formatter.string(from: sub.createdAt))\", \"subjecttests\": ["
             
             let tests = sub.getAllTests()
             var testCount: Int = 0
             
             for test in tests {
                 testCount += 1
-                string += "{\"name\": \"\(test.name)\", \"year\": \(test.year), \"grade\":\(test.grade), \"date\": \"\(test.date.timeIntervalSince1970)\", \"type\": \(test.type)} \(tests.count == testCount ? "": ",")"
+                string += "{\"name\": \"\(test.name)\", \"year\": \(test.year), \"grade\":\(test.grade), \"isWrittenGrade\":\(test.isWrittenGrade), \"lastEditedAt\": \"\(formatter.string(from: test.lastEditedAt))\", \"createdAt\": \"\(formatter.string(from: test.createdAt))\", \"date\": \"\(formatter.string(from: test.date))\", \"type\": \(test.type)} \(tests.count == testCount ? "": ",")"
             }
             subCount += 1
             string += "]} \(subjects.count == subCount ? "" : ",")"
