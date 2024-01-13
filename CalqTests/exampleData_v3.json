@@ -2,7 +2,7 @@
   "formatVersion": 3,
   "colorfulCharts": true,
   "hasFiveExams": true,
-  "showGradeTypes": false,
+  "showGradeTypes": true,
   "highlightedType": 1,
   "gradeTypes": [
     { "name": "Test", "weigth": 50, "id": 0 },

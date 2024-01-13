@@ -49,6 +49,13 @@ final class JSONTests: XCTestCase {
         XCTAssertEqual(settings.hasFiveExams, false)
     }
     
+    func testImportV3() {
+        loadJSON(ressource: "exampleData_v3")
+    
+        let settings = Util.getSettings()
+        XCTAssertEqual(settings.showGradeTypes, true)
+    }
+    
     // MARK: load Data
     func loadJSON(ressource: String) {
         Util.deleteSettings()
