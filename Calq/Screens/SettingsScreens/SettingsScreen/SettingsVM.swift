@@ -37,6 +37,11 @@ class SettingsViewModel: ObservableObject {
     @Published var importedJson: String = ""
     @Published var importeJsonURL: URL = URL(fileURLWithPath: "")
     
+    // Feedback
+    @Published var feedbackContent: String = "ABC"
+    @Published var showFeedbackSheet = false
+    @Published var feedbackError = false
+    
     func reloadAndSave() {
         saveCoreData()
         subjects = Util.getAllSubjects()
@@ -95,5 +100,15 @@ class SettingsViewModel: ObservableObject {
     func selectSubject(_ subject: UserSubject) {
         selectedSubjet = subject
         editSubjectPresented = true
+    }
+    
+    func sendFeedback() {
+        if FeedbackService.sendFeedback(feedbackContent) {
+            showFeedbackSheet = false
+            feedbackContent = "ABC"
+            feedbackError = false
+        } else {
+            feedbackError = true
+        }
     }
 }

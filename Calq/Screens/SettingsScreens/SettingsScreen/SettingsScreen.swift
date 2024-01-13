@@ -45,6 +45,9 @@ struct SettingsScreen: View {
                     EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
                 }
             }
+            .sheet(isPresented: $vm.showFeedbackSheet, content: {
+                feeedbackSheet()
+            })
             .alert(isPresented: $vm.deleteAlert) {
                 settingsAlert()
             }
@@ -140,6 +143,10 @@ struct SettingsScreen: View {
                     UIApplication.shared.open(url)
                 }
             })
+            
+            SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
+                vm.showFeedbackSheet = true
+            }
         }
     }
     
@@ -161,6 +168,34 @@ struct SettingsScreen: View {
                 vm.newSubjectSheetPresented = true
             }
         }
+    }
+    
+    func feeedbackSheet() -> some View {
+        VStack {
+            Text("settings.feedback.title")
+                .font(.headline)
+            
+            if vm.feedbackError {
+                Text("settings.feedback.error")
+                    .foregroundColor(.red)
+            }
+            
+            TextEditor(text: $vm.feedbackContent)
+                .multilineTextAlignment(.leading)
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(8)
+                .frame(minHeight: 50)
+                .shadow(radius: 5)
+            
+            Text("\(vm.feedbackContent.count)settings.feedback.textlimit")
+                .foregroundColor(vm.feedbackContent.count >= 1000 ? .red : .gray)
+                .font(.footnote)
+            
+            Button("settings.feedback.button", action: {
+                vm.sendFeedback()
+            }).disabled(vm.feedbackContent.count >= 1000)
+                .buttonStyle(PrimaryStyle())
+        }.padding()
     }
     
     func contextAction_addGradeButton() -> some View {
