@@ -108,7 +108,7 @@ struct NewGradeView: View {
                             HStack {
                                 Text("gradeIWritten")
                                 Spacer()
-                                Toggle(isOn: $vm.isWrittenGrade){ }
+                                Toggle(isOn: $vm.isWrittenGrade) { }
                                     .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                                     .frame(width: 60)
                             }.frame(maxWidth: .infinity)

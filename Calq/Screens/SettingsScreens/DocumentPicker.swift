@@ -38,7 +38,9 @@ class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate {
         
         Util.deleteSettings()
         
-        do { try JSON.importJSONfromDevice(urls[0])} catch (let err){
+        do {
+            try JSON.importJSONfromDevice(urls[0])
+        } catch let err {
             print("failed to import json from Device: ", err)
         }
         saveCoreData()

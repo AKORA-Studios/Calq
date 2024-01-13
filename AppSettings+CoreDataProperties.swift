@@ -36,6 +36,12 @@ extension AppSettings {
         let arr2 = subjects.filter {!$0.lk}.sorted(by: {$0.name < $1.name })
         return arr1+arr2
     }
+    
+    /// sort all subjects sorted after type and then name
+    public func getAllTypes() -> [GradeType] {
+        let types = gradetypes?.allObjects as! [GradeType]
+        return types.sorted(by: { $0.weigth > $1.weigth})
+    }
 
     @objc(addGradetypesObject:)
     @NSManaged public func addToGradetypes(_ value: GradeType)
