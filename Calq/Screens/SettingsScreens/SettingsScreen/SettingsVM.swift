@@ -12,6 +12,7 @@ enum AlertAction {
     case deleteData
     case deleteSubject
     case loadDemo
+    case noConnection
     case none
 }
 
@@ -109,6 +110,16 @@ class SettingsViewModel: ObservableObject {
             feedbackError = false
         } else {
             feedbackError = true
+        }
+    }
+    
+    func showFeedbackSheetFromVM () {
+        if Reachability.isConnectedToNetwork() {
+            alertActiontype = .none
+            showFeedbackSheet = true
+        } else {
+            alertActiontype = .noConnection
+            deleteAlert = true
         }
     }
 }

@@ -61,10 +61,13 @@ struct SettingsScreen: View {
             }))
         }
         
+        if vm.alertActiontype == .noConnection {
+            return Alert(title: Text("settings.feedback.connection"))
+        }
+        
         // handle other cases
         return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
             switch vm.alertActiontype {
-                
             case .importData:
                 vm.presentDocumentPicker = true
             case .deleteData:
@@ -75,6 +78,8 @@ struct SettingsScreen: View {
             case .none:
                 break
             case .deleteSubject: // handled seperatly
+                break
+            case .noConnection:
                 break
             }
             vm.alertActiontype = .none
@@ -145,7 +150,7 @@ struct SettingsScreen: View {
             })
             
             SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
-                vm.showFeedbackSheet = true
+                vm.showFeedbackSheetFromVM()
             }
         }
     }
