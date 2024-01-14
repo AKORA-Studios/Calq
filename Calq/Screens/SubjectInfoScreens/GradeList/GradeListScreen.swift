@@ -33,6 +33,9 @@ struct GradeListScreen: View {
                     dismissSheet()
                 }))
             }
+            .onAppear {
+                vm.update()
+            }
     }
     
     func halfyearSection(_ i: Int) -> some View {
