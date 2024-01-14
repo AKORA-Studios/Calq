@@ -82,6 +82,7 @@
 "gradeDate"="Date";
 "gradePoints"="Points";
 "gradeHalfyear"="Halfyear";
+"%lldgradeHalfyear"="%lld. Halfyear";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
 "gradeInvalidNameDesc"="Name cannot include special characters or be empty";
@@ -98,7 +99,7 @@
 "gradeEditDelete"="Grade deleted";
 
 "subjectDetailGradeList"="View Grades";
-"subjectDetailAverageHalfyear"="Halfyear Average";
+"%lldsubjectDetailAverageHalfyear"="%lld .Halfyear Average";
 "subjectDetailTime"="Time Chart";
 "subjectDetailActive"="Active";
 "subjectDetailInactive"="Inactive";

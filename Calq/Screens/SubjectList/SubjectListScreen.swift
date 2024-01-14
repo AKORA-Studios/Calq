@@ -36,7 +36,7 @@ struct SubjectListScreen: View {
                                         .frame(width: 25)
                                 }
                             }
-                        }
+                        }.frame(maxWidth: .infinity)
                         .onTapGesture {
                             vm.selectSubject(entry.subject)
                         }
