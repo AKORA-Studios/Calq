@@ -38,8 +38,7 @@ class GradeListViewModel: ObservableObject {
     }
     
     func deleteAction() {
-        subject.subjecttests = [] // TODO: not sure if thats allright?
-        saveCoreData()
+        subject.deleteAllTests()
     }
     
     func formatDate(date: Date) -> String {

@@ -95,9 +95,11 @@ struct GradeListScreen: View {
             }
             Text(test.name).lineLimit(1)
             Spacer()
-            Text(vm.formatDate(date: test.date))
-                .foregroundColor(.gray)
-                .fontWeight(.light)
+            if !test.isFault {
+                Text(vm.formatDate(date: test.date))
+                    .foregroundColor(.gray)
+                    .fontWeight(.light)
+            }
         }
     }
 }
