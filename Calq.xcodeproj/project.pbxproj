@@ -52,6 +52,8 @@
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
+		F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC412B543A59001BD833 /* FeedbackService.swift */; };
+		F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC432B543B47001BD833 /* Reachability.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
 		F1A7102D2A43757D00255F10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102C2A43757D00255F10 /* CardView.swift */; };
 		F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A710322A437F8300255F10 /* exampleData_v1.json */; };
@@ -197,6 +199,8 @@
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		F1A6BC412B543A59001BD833 /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
+		F1A6BC432B543B47001BD833 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
 		F1A7102C2A43757D00255F10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1A710322A437F8300255F10 /* exampleData_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v1.json; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
 				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
+				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
+				F1A6BC432B543B47001BD833 /* Reachability.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 				F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */,
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
 				F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */,
+				F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */,
 				F14140462A47639E007E4648 /* TabViewVM.swift in Sources */,
 				F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
@@ -772,6 +779,7 @@
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
+				F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,

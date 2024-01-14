@@ -71,6 +71,10 @@
 "settingsWeight"= "Wertung ändern";
 "settingsLoadDemo"= "Demo Daten laden";
 "settingsDelete"= "Daten löschen";
+"settings.feedback.title"="Feedback";
+"settings.feedback.button"="Feedback schicken";
+"%lldsettings.feedback.textlimit"="Zeichenanzahl: %lld/1000";
+"settings.feedback.error"="Etwas ist schief gelaufen :c";
 
 "editSubjectNameInvalid"="Name ungültig";
 "editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten oder leer sein";
