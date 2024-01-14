@@ -38,8 +38,9 @@ class SettingsViewModel: ObservableObject {
     @Published var importeJsonURL: URL = URL(fileURLWithPath: "")
     
     func reloadAndSave() {
-        subjects = Util.getAllSubjects()
         saveCoreData()
+        subjects = Util.getAllSubjects()
+        settings = Util.getSettings()
     }
     
     func deleteData() {
