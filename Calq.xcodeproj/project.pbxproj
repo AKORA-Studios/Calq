@@ -44,6 +44,7 @@
 		F192DD25299D2CD00077B905 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
 		F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
+		F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */; };
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A05C5E2A642670003734F2 /* StringExtension.swift */; };
@@ -54,6 +55,7 @@
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
 		F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC412B543A59001BD833 /* FeedbackService.swift */; };
 		F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC432B543B47001BD833 /* Reachability.swift */; };
+		F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
 		F1A7102D2A43757D00255F10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102C2A43757D00255F10 /* CardView.swift */; };
 		F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A710322A437F8300255F10 /* exampleData_v1.json */; };
@@ -201,6 +203,7 @@
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F1A6BC412B543A59001BD833 /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
 		F1A6BC432B543B47001BD833 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Sorting.swift"; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
 		F1A7102C2A43757D00255F10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1A710322A437F8300255F10 /* exampleData_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v1.json; sourceTree = "<group>"; };
@@ -361,6 +364,7 @@
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
 				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
 				F1A6BC432B543B47001BD833 /* Reachability.swift */,
+				F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -724,6 +728,7 @@
 				F1D29E7C2A17BCC90001D469 /* ExportJSON.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
 				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
+				F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
 				F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */,
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
@@ -768,6 +773,7 @@
 				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,
 				F1A7723B2A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
+				F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,

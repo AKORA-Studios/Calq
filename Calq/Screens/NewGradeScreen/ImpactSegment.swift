@@ -46,12 +46,9 @@ struct ImpactSegment: View {
     }
     
     func setData() {
-        if subject == nil {return reset()}
-        if Util.filterTests(subject!).isEmpty {return reset()}
-        let allTests = Util.filterTests(subject!, checkinactive: false)
-        if allTests.isEmpty {return reset()}
-        let tests = allTests.filter {$0.year == year}
-        if tests.isEmpty {return reset()}
+        guard let subject = subject else { return reset() }
+        let tests = Util.getAllSubjectTests(subject).filter { $0.year == year }
+        if tests.isEmpty { return reset() }
         
         let averageOld: Int = Int(round(Util.testAverage(tests)))
         
@@ -68,7 +65,7 @@ struct ImpactSegment: View {
             var avgArr: [Double] = []
             
             for x in types {
-                var filtered = tests.filter {$0.type == x.id}.map {Int($0.grade)}
+                var filtered = tests.filter {$0.type == x.id}.map { Int($0.grade) }
                
                 let weigth = Double(Double(x.weigth)/100)
                 gradeWeigths += weigth

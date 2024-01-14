@@ -26,7 +26,14 @@ extension AppSettings {
 
 // MARK: Generated accessors for gradetypes
 extension AppSettings {
-
+    
+    public func getAllSubjects() -> [UserSubject] {
+        let subjects = usersubjects?.allObjects as! [UserSubject]
+        let arr1 = subjects.filter {$0.lk}.sorted(by: {$0.name < $1.name })
+        let arr2 = subjects.filter {!$0.lk}.sorted(by: {$0.name < $1.name })
+        return arr1+arr2
+    }
+    
     @objc(addGradetypesObject:)
     @NSManaged public func addToGradetypes(_ value: GradeType)
 

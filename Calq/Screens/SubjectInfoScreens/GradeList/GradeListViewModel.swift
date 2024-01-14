@@ -7,11 +7,15 @@
 
 import Foundation
 
+private let sortAfterDateIndex = 2 // default sorting after halfyears
+
 class GradeListViewModel: ObservableObject {
     @Published var subject: UserSubject
-    @Published var years: [[UserTest]] = [[], [], [], []]
+    @Published var years: [[UserTest]] = [[], [], [], [], []]
     @Published var Alltests: [UserTest] = []
     @Published var deleteAlert = false
+    
+    @Published var sortCriteriaIndex = sortAfterDateIndex
     
     init(subject: UserSubject) {
         self.subject = subject
@@ -19,12 +23,18 @@ class GradeListViewModel: ObservableObject {
     }
     
     func update() {
-        let Alltests = (subject.subjecttests!.allObjects as! [UserTest]).sorted(by: {$0.date < $1.date})
+        years = [[], [], [], [], []]
+        let criterias = Util.getSortingArray()
+        let Alltests = Util.getAllSubjectTests(subject, criterias[sortCriteriaIndex].type)
         
-        years[0] = Alltests.filter {$0.year == 1}
-        years[1] = Alltests.filter {$0.year == 2}
-        years[2] = Alltests.filter {$0.year == 3}
-        years[3] = Alltests.filter {$0.year == 4}
+        if sortCriteriaIndex == sortAfterDateIndex {
+            years[0] = Alltests.filter {$0.year == 1}
+            years[1] = Alltests.filter {$0.year == 2}
+            years[2] = Alltests.filter {$0.year == 3}
+            years[3] = Alltests.filter {$0.year == 4}
+        } else {
+            years[4] = Alltests
+        }
     }
     
     func deleteAction() {

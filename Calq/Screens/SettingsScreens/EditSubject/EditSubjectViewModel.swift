@@ -26,14 +26,14 @@ class EditSubjectViewModel: ObservableObject {
     
     init(subject: UserSubject) {
         self.subject = subject
-        hasTests = subject.subjecttests?.allObjects.isEmpty != nil
+        hasTests = !subject.getAllTests().isEmpty
     }
     
     func update() {
         subjectName = subject.name
         lkSubject = subject.lk ? 1 : 0
         selectedColor = Color(hexString: subject.color)
-        hasTests = subject.subjecttests?.allObjects.isEmpty != nil
+        hasTests = !subject.getAllTests().isEmpty
     }
     
     func changeName() {

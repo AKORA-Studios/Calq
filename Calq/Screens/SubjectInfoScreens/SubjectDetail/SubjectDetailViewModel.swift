@@ -41,7 +41,7 @@ class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
             yearAverageText = String(format: "%.2f", average)
             halfyearActive = Util.checkinactiveYears(Util.getinactiveYears(subject), selectedYear)
         }
-        hasTest = (subject.subjecttests!.allObjects as! [UserTest]).count > 0
+        hasTest = !Util.getAllSubjectTests(subject).isEmpty
     }
     
     func toggleHalfyear() {
@@ -58,7 +58,7 @@ class SubjectDetailViewModel: ObservableObject, SegmentedPickerViewDelegate {
         var arr: [[LineChartEntry]] = []
         var subArr: [LineChartEntry] = []
         
-        let tests = Util.filterTests(subject, checkinactive: false)
+        let tests = Util.getAllSubjectTests(subject)
         let color = getSubjectColor(subject)
         
         for test in tests {

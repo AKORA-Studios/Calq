@@ -95,7 +95,7 @@ struct EditSubjectScreen: View {
         VStack {
             HStack {
                 Image(systemName: "info.circle")
-                Text("editSubGradeCount\(vm.subject.subjecttests?.count ?? 0)")
+                Text("editSubGradeCount\(vm.subject.getAllTests().count)")
             }
             if Util.isExamSubject(vm.subject) {
                 HStack {

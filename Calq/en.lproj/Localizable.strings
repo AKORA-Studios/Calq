@@ -129,3 +129,8 @@
 "ExamChartWidget_Description"="Shows all exams + block 2";
 "ExamChartWidget_DisplayTitle"="Exam Overview";
 "ExamChartWidget_BlockTitle"="Blocks";
+
+// Sorting
+"sortGradeDatum"="Date";
+"sortName"="Name";
+"sortGrade"="Grade";

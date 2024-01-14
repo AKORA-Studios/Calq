@@ -30,7 +30,11 @@ extension UserSubject {
 
 // MARK: Generated accessors for subjecttests
 extension UserSubject {
-
+    
+    public func getAllTests() -> [UserTest] {
+        return subjecttests?.allObjects as? [UserTest] ?? []
+    }
+    
     @objc(addSubjecttestsObject:)
     @NSManaged public func addToSubjecttests(_ value: UserTest)
 

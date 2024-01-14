@@ -80,8 +80,7 @@ func generateBlockOne() -> Int {
     if subjects.count == 0 { return 0 }
     
     for sub in subjects {
-        if sub.subjecttests == nil { continue }
-        let SubTests = Util.filterTests(sub)
+        let SubTests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
         if SubTests.count == 0 { continue }
         
         let multiplier = sub.lk ? 2 : 1
@@ -121,8 +120,7 @@ func generatePossibleBlockOne() -> Int {
     
     for i in 0..<subjects.count {
         let sub = subjects[i]
-        if sub.subjecttests == nil { continue }
-        let SubTests = sub.subjecttests!.allObjects as! [UserTest]
+        let SubTests = Util.getAllSubjectTests(sub)
         
         for e in 1...4 {
             let tests = SubTests.filter {($0.year == e)}
