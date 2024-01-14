@@ -40,7 +40,7 @@ extension UserSubject {
 extension UserSubject {
     
     public func getAllTests() -> [UserTest] {
-        return subjecttests?.allObjects as! [UserTest]
+        return subjecttests?.allObjects as? [UserTest] ?? []
     }
 
     @objc(addSubjecttestsObject:)
