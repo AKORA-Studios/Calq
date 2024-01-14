@@ -95,7 +95,7 @@ struct SettingsScreen: View {
             }
             
             HStack {
-                SettingsIcon(color: Color.accentColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
+                SettingsIcon(color: Color.calqColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                     vm.updateColorfulCharts()
                 }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
