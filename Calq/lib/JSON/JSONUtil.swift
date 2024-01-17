@@ -12,10 +12,8 @@ struct JSON {
     // MARK: Load Json data
     static func loadJSON() -> [AppStruct.SubjectStruct] {
         var values: [AppStruct.SubjectStruct] = [ ]
-        do {
-            if let file = Bundle.main.path(forResource: "grades", ofType: "json") {
-                let json = try! String(contentsOfFile: file, encoding: String.Encoding.utf8).data(using: .utf8)!
-                
+        if let file = Bundle.main.path(forResource: "grades", ofType: "json") {
+            if let json = try? String(contentsOfFile: file, encoding: String.Encoding.utf8).data(using: .utf8) {
                 let decoder = JSONDecoder()
                 let products = try! decoder.decode([AppStruct.SubjectStruct].self, from: json)
                 values = products

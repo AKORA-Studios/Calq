@@ -81,8 +81,8 @@ struct ExamView: View {
             } label: {
                 Button {
                 } label: {
-                    if subject != nil {
-                        Text(subject!.name)
+                    if let subject = subject {
+                        Text(subject.name)
                     } else {
                         Text("ExamViewSubSelect")
                     }
@@ -103,8 +103,10 @@ struct ExamView: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .onAppear {
-            subject = getExam(type)
-            sliderValue = (subject != nil) ? Float(Int(subject!.exampoints)) : 0
+            sliderValue = 0
+            if let subject = getExam(type) {
+                sliderValue = Float(Int(subject.exampoints))
+            }
         }
     }
     
@@ -112,7 +114,9 @@ struct ExamView: View {
     func deleteExamButton() -> some View {
         if #available(iOS 15.0, *) {
             Button(role: .destructive) {
-                removeExam(type, subject!)
+                if let subject = subject {
+                    removeExam(type, subject)
+                }
                 vm.changeExamSelection()
                 subject = nil
                 sliderValue = 0
@@ -121,7 +125,9 @@ struct ExamView: View {
             }
         } else {
             Button {
-                removeExam(type, subject!)
+                if let subject = subject {
+                    removeExam(type, subject)
+                }
                 vm.changeExamSelection()
                 subject = nil
                 sliderValue = 0

@@ -48,7 +48,9 @@ struct Util {
     
     static func isStringInputInvalid(_ str: String) -> Bool {
         if str.isEmpty { return true }
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z_ ]*$")
+        guard let regex = try? NSRegularExpression(pattern: "^[a-zA-Z_ ]*$") else {
+            return true
+        }
         let range = NSRange(location: 0, length: str.utf16.count)
         return regex.firstMatch(in: str, options: [], range: range) == nil
     }
@@ -128,7 +130,7 @@ struct Util {
             subaverage += Util.testAverage(yearTests)
         }
         let average = (subaverage / count)
-        return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0))!
+        return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0)) ?? 0.0
     }
     
     /// Returns the average of all grades from one subject

@@ -46,8 +46,10 @@ struct ImpactSegment: View {
     }
     
     func setData() {
-        if subject == nil { return reset() }
-        let allTests = Util.getAllSubjectTests(subject!)
+        guard let subject = subject else {
+            return reset()
+        }
+        let allTests = Util.getAllSubjectTests(subject)
         if allTests.isEmpty { return reset() }
         
         let tests = allTests.filter {$0.year == year}

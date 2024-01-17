@@ -44,7 +44,10 @@ extension Util {
     }
     
     static func getTypes() -> [GradeType] {
-        var types = getSettings().gradetypes!.allObjects as! [GradeType]
+        guard let gradetypes = getSettings().gradetypes else {
+            return []
+        }
+        var types = gradetypes.allObjects as? [GradeType] ?? []
         if types.count >= 2 { return types}
         
         if types.count == 1 {

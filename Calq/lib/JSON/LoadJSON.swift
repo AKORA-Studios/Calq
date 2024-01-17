@@ -46,29 +46,27 @@ extension JSON {
         var jsonDict: [String: Any] = [:]
         var version = 0
         
-        do {
-            json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8))!
-        } catch {
-            throw LoadErrors.failedToloadData
-        }
-        
-        do {
-            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as! [String: Any]
-        } catch {
-            try consctructV0(json, jsonDict)
-            //  throw loadErrors.failedToLoadDictionary
-        }
-        
-        if jsonDict["formatVersion"] != nil {
-            version = jsonDict["formatVersion"] as? Int ?? 0
-        }
-        
-        if version >= 2 {
-            try consctructV2(json, jsonDict)
-        } else if version == 1 {
-            try consctructV1(json, jsonDict)
+        if let json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8)) {
+            do {
+                jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
+            } catch {
+                try consctructV0(json, jsonDict)
+                //  throw loadErrors.failedToLoadDictionary
+            }
+            
+            if jsonDict["formatVersion"] != nil {
+                version = jsonDict["formatVersion"] as? Int ?? 0
+            }
+            
+            if version >= 2 {
+                try consctructV2(json, jsonDict)
+            } else if version == 1 {
+                try consctructV1(json, jsonDict)
+            } else {
+                try consctructV0(json, jsonDict)
+            }
         } else {
-            try consctructV0(json, jsonDict)
+            throw LoadErrors.failedToloadData
         }
     }
     
@@ -102,8 +100,10 @@ extension JSON {
         }
         
         let set = Util.getSettings()
-        for t in set.gradetypes!.allObjects as! [GradeType] {
-            set.removeFromGradetypes(t)
+        if let gradetypes = set.gradetypes {
+            for t in gradetypes.allObjects as? [GradeType] ?? [] {
+                set.removeFromGradetypes(t)
+            }
         }
         set.colorfulCharts = data.colorfulCharts
         

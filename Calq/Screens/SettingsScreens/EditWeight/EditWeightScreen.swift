@@ -47,8 +47,9 @@ struct ChangeWeightScreen: View {
                                 Util.setPrimaryType(type.id)
                                 vm.load()
                             }
-                          
-                            Text("\(vm.typeArr[type]!)").frame(width: 20).font(.footnote)
+                            if let type = vm.typeArr[type] {
+                                Text("\(type)").frame(width: 20).font(.footnote)
+                            }
                             
                             TextField("", text: vm.binding(for: type.id))
                                

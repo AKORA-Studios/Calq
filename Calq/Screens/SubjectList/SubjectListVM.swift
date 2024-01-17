@@ -63,7 +63,9 @@ private func getcolorArr(subject: UserSubject) -> [Color] {
     
     inactiveYears.forEach { year in
         if year.isEmpty {return}
-        arr[Int(year)! - 1] = Color.red
+        if let yearInInt = Int(year) {
+            arr[yearInInt - 1] = Color.red
+        }
     }
     return arr
 }
