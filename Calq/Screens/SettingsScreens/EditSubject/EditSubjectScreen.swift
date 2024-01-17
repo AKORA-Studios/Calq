@@ -103,12 +103,12 @@ struct EditSubjectScreen: View {
                     Text("editSubInfoIsExam")
                 }
             }
-            TimeStampTexts(createdAt: vm.subject.createdAt, lastEditedAt: vm.subject.lastEditedAt)
+            
+          TimeStampTexts(createdAt: vm.createdAt, lastEditedAt: vm.lastEditedAt)
         }.padding(.bottom, 40)
     }
     
     func dismissSheet() {
-        saveCoreData()
         self.presentationMode.wrappedValue.dismiss()
     }
 }

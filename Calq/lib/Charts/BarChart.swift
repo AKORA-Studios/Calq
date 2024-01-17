@@ -67,10 +67,11 @@ struct BarChart: View {
     }
 }
 
-struct BarChartEntry: Hashable {
+struct BarChartEntry: Hashable, Identifiable {
     var color: Color = .accentColor
     var value: Double = 0.5
     var text: String = ""
+    var id = UUID()
     
     static let example = [
         BarChartEntry(color: pastelColors[0], value: 10, text: "DE"),

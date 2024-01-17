@@ -50,24 +50,112 @@ extension JSON {
             do {
                 jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
             } catch {
-                try consctructV0(json, jsonDict)
-                //  throw loadErrors.failedToLoadDictionary
+                throw LoadErrors.failedToLoadDictionary
             }
             
             if jsonDict["formatVersion"] != nil {
                 version = jsonDict["formatVersion"] as? Int ?? 0
             }
             
-            if version >= 2 {
+            if version >= 3 {
+                try consctructV3(json, jsonDict)
+            } else if version >= 2 {
                 try consctructV2(json, jsonDict)
             } else if version == 1 {
                 try consctructV1(json, jsonDict)
-            } else {
-                try consctructV0(json, jsonDict)
             }
         } else {
             throw LoadErrors.failedToloadData
         }
+    }
+    
+    static func consctructV3(_ json: Data, _ jsonDict: [String: Any]) throws {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.calqFormat)
+        let formatter = DateFormatter.calqFormat
+        
+        var data: AppStructV3
+        do {
+            let importedSettings = try decoder.decode(AppStructV3.self, from: json)
+            data = importedSettings
+        } catch let err {
+            print(">>>>", err)
+            throw LoadErrors.parseVersionThree
+        }
+        
+        let set = Util.getSettings()
+        for t in set.gradetypes!.allObjects as! [GradeType] {
+            set.removeFromGradetypes(t)
+        }
+        set.colorfulCharts = data.colorfulCharts
+        set.hasFiveExams = data.hasFiveExams
+        set.showGradeTypes = data.showGradeTypes
+        
+        // add types
+        var typecheck = 0 // should stay below 100
+        var typeIds: [Int] = []
+        for type in data.gradeTypes {
+            if typeIds.contains(type.id) { continue } // ids should only occur once
+            
+            let NewType = GradeType(context: Util.getContext())
+            NewType.name = type.name
+            NewType.weigth = Int16(type.weigth)
+            NewType.id = Int16(type.id)
+            
+            if !(typecheck + type.weigth <= 100) {
+                NewType.weigth = 0
+            }
+            
+            set.addToGradetypes(NewType)
+            typeIds.append(type.id)
+            typecheck += type.weigth
+        }
+        
+        // check if two types there, if not  add default ones
+        saveCoreData()
+        let setTypes = Util.getTypes()
+        typeIds = setTypes.map {Int($0.id)}
+        
+        for parsedSubject in data.usersubjects {
+            let subject = UserSubject(context: Util.getContext())
+            subject.name = parsedSubject.name
+            subject.color = parsedSubject.color
+            subject.lk = parsedSubject.lk
+            subject.inactiveYears = parsedSubject.inactiveYears
+            subject.createdAt = formatter.date(from: parsedSubject.createdAt) ?? Date()
+            subject.lastEditedAt = formatter.date(from: parsedSubject.lastEditedAt) ?? Date()
+            
+            // check for exams
+            for index in 1...5 {
+                if let code = jsonDict["exam\(index)\(subject.name)"] as? Int {
+                    subject.examtype = Int16(index)
+                    subject.exampoints = Int16(code)
+                }
+            }
+            
+            // add tests
+            for parsedTest in parsedSubject.subjecttests {
+                let test = UserTest(context: Util.getContext())
+                test.name = parsedTest.name
+                test.year = JSON.checkYear(parsedTest.year)
+                test.grade = JSON.checkGrade(parsedTest.grade)
+                test.date = formatter.date(from: parsedTest.date) ?? Date()
+                test.createdAt = formatter.date(from: parsedTest.createdAt) ?? Date()
+                test.lastEditedAt = formatter.date(from: parsedTest.lastEditedAt) ?? Date()
+                test.isWrittenGrade = parsedTest.isWrittenGrade
+                
+                if typeIds.contains(parsedTest.type) {
+                    test.type = Int16(parsedTest.type)
+                } else {
+                    test.type = Int16(typeIds[0])
+                }
+                
+                subject.addToSubjecttests(test)
+            }
+            set.addToUsersubjects(subject)
+        }
+        
+        saveCoreData()
     }
     
     static func consctructV2(_ json: Data, _ jsonDict: [String: Any]) throws {
@@ -96,7 +184,7 @@ extension JSON {
             let importedSettings = try decoder.decode(AppStructV1.self, from: json)
             data = importedSettings
         } catch {
-            throw LoadErrors.parseJSON
+            throw LoadErrors.parseVersionOne
         }
         
         let set = Util.getSettings()

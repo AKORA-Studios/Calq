@@ -20,6 +20,7 @@ import Foundation
 extension Util {
     static func deleteSubject(_ subject: UserSubject) {
         getContext().delete(subject)
+        saveCoreData()
     }
     
     /// Returns all Subjects as Array

@@ -23,8 +23,13 @@ class EditSubjectViewModel: ObservableObject {
     @Published var deleteAlert = false
     @Published var alertType: EditAlertType = .nameInvalid
     
+    @Published var lastEditedAt: Date = Date()
+    @Published var createdAt: Date = Date()
+    
     init(subject: UserSubject) {
         self.subject = subject
+        lastEditedAt = subject.lastEditedAt
+        createdAt = subject.createdAt
     }
     
     func update() {

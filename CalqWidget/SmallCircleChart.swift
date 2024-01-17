@@ -34,7 +34,6 @@ struct CircleChartData {
 
 func circleChartData() -> CircleChartData {
     let average = Util.generalAverage()
-    let percent = Util.generalAverage() / 15
     let grade = String(format: "%.2f", Util.grade(number: average))
     let points = String(format: "%.2f", average)
     return CircleChartData(percent: average / 15, upperText: points, lowerText: grade)

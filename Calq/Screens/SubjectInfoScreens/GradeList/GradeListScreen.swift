@@ -30,7 +30,7 @@ struct GradeListScreen: View {
                     let color = getSubjectColor(vm.subject)
                     
                     NavigationLink {
-                        EditGradeScreen(test: test, color: color)
+                        EditGradeScreen(vm: EditGradeViewModel(test), color: color)
                     } label: {
                         gradeIcon(test: test, color: color)
                     }
@@ -62,6 +62,9 @@ struct GradeListScreen: View {
             .onChange(of: vm.sortCriteriaIndex) { _ in
                 vm.update()
             }
+            .onAppear {
+                vm.update()
+            }
     }
     
     func halfyearSection(_ i: Int) -> some View {
@@ -70,7 +73,7 @@ struct GradeListScreen: View {
                 let color = getSubjectColor(vm.subject)
                 
                 NavigationLink {
-                    EditGradeScreen(test: test, color: color)
+                    EditGradeScreen(vm: EditGradeViewModel(test), color: color)
                 } label: {
                     gradeIcon(test: test, color: color)
                 }
@@ -92,9 +95,11 @@ struct GradeListScreen: View {
             }
             Text(test.name).lineLimit(1)
             Spacer()
-            Text(vm.formatDate(date: test.date))
-                .foregroundColor(.gray)
-                .fontWeight(.light)
+            if !test.isFault {
+                Text(vm.formatDate(date: test.date))
+                    .foregroundColor(.gray)
+                    .fontWeight(.light)
+            }
         }
     }
 }

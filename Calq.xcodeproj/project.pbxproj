@@ -60,6 +60,9 @@
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
+		F1A6BC402B54087E001BD833 /* EditGradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */; };
+		F1A6D63B2B52CBDC00E8CD1F /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */; };
+		F1A6D63D2B52EC7800E8CD1F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
 		F1A7102D2A43757D00255F10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102C2A43757D00255F10 /* CardView.swift */; };
 		F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A710322A437F8300255F10 /* exampleData_v1.json */; };
@@ -82,6 +85,7 @@
 		F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
+		F1A8A97D2B50870B00213E35 /* exampleData_v3.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A8A97C2B50870B00213E35 /* exampleData_v3.json */; };
 		F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
 		F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
 		F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
@@ -211,6 +215,9 @@
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeViewModel.swift; sourceTree = "<group>"; };
+		F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
+		F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
 		F1A7102C2A43757D00255F10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1A710322A437F8300255F10 /* exampleData_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v1.json; sourceTree = "<group>"; };
@@ -226,6 +233,7 @@
 		F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		F1A8A97C2B50870B00213E35 /* exampleData_v3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v3.json; sourceTree = "<group>"; };
 		F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 1.xcmappingmodel"; sourceTree = "<group>"; };
 		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamWidget.swift; sourceTree = "<group>"; };
@@ -423,6 +431,8 @@
 				F11257912B48688900BE5D10 /* Util+GradeType.swift */,
 				F11257862B484AAA00BE5D10 /* Util+Subjects.swift */,
 				F11257842B484A8E00BE5D10 /* Util+Tests.swift */,
+				F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */,
+				F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -445,6 +455,7 @@
 				F1CCCB4B2B2A184F009B9434 /* SubjectDetail */,
 				F1CCCB482B2A1601009B9434 /* GradeList */,
 				F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */,
+				F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */,
 			);
 			path = SubjectInfoScreens;
 			sourceTree = "<group>";
@@ -497,6 +508,7 @@
 				F1DD87ED2AA795910095C057 /* LineChartTests.swift */,
 				F1DD87EF2AA799700095C057 /* BarChartTests.swift */,
 				F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */,
+				F1A8A97C2B50870B00213E35 /* exampleData_v3.json */,
 			);
 			path = CalqTests;
 			sourceTree = "<group>";
@@ -695,6 +707,7 @@
 				F1A710352A4384D900255F10 /* exampleData_v0.json in Resources */,
 				F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */,
 				F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */,
+				F1A8A97D2B50870B00213E35 /* exampleData_v3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +808,7 @@
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
+				F1A6BC402B54087E001BD833 /* EditGradeViewModel.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
@@ -807,6 +821,7 @@
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
+				F1A6D63D2B52EC7800E8CD1F /* Reachability.swift in Sources */,
 				F11257872B484AAA00BE5D10 /* Util+Subjects.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
@@ -814,6 +829,7 @@
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
+				F1A6D63B2B52CBDC00E8CD1F /* FeedbackService.swift in Sources */,
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
 				F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
@@ -891,7 +907,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -921,7 +937,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -1071,7 +1087,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1097,7 +1113,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

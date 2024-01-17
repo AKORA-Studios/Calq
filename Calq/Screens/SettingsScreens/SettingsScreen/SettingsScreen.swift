@@ -47,6 +47,9 @@ struct SettingsScreen: View {
                     }
                 }
             }
+            .sheet(isPresented: $vm.showFeedbackSheet, content: {
+                feeedbackSheet()
+            })
             .alert(isPresented: $vm.deleteAlert) {
                 settingsAlert()
             }
@@ -60,10 +63,13 @@ struct SettingsScreen: View {
             }))
         }
         
+        if vm.alertActiontype == .noConnection {
+            return Alert(title: Text("settings.feedback.connection"))
+        }
+        
         // handle other cases
         return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
             switch vm.alertActiontype {
-                
             case .importData:
                 vm.presentDocumentPicker = true
             case .deleteData:
@@ -74,6 +80,8 @@ struct SettingsScreen: View {
             case .none:
                 break
             case .deleteSubject: // handled seperatly
+                break
+            case .noConnection:
                 break
             }
             vm.alertActiontype = .none
@@ -105,7 +113,7 @@ struct SettingsScreen: View {
             }
             
             HStack {
-                SettingsIcon(color: Color(hexString: "428FE3"), icon: "chart.bar.fill", text: "settingsRainbow") {}
+                SettingsIcon(color: Color.calqColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                     vm.updateColorfulCharts()
                 }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
@@ -142,6 +150,10 @@ struct SettingsScreen: View {
                     UIApplication.shared.open(url)
                 }
             })
+            
+            SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
+                vm.showFeedbackSheetFromVM()
+            }
         }
     }
     
@@ -163,6 +175,34 @@ struct SettingsScreen: View {
                 vm.newSubjectSheetPresented = true
             }
         }
+    }
+    
+    func feeedbackSheet() -> some View {
+        VStack {
+            Text("settings.feedback.title")
+                .font(.headline)
+            
+            if vm.feedbackError {
+                Text("settings.feedback.error")
+                    .foregroundColor(.red)
+            }
+            
+            TextEditor(text: $vm.feedbackContent)
+                .multilineTextAlignment(.leading)
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(8)
+                .frame(minHeight: 50)
+                .shadow(radius: 5)
+            
+            Text("\(vm.feedbackContent.count)settings.feedback.textlimit")
+                .foregroundColor(vm.feedbackContent.count >= 1000 ? .red : .gray)
+                .font(.footnote)
+            
+            Button("settings.feedback.button", action: {
+                vm.sendFeedback()
+            }).disabled(vm.feedbackContent.count >= 1000)
+                .buttonStyle(PrimaryStyle())
+        }.padding()
     }
     
     func contextAction_addGradeButton() -> some View {

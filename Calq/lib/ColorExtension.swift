@@ -25,6 +25,8 @@ extension Color {
     
     static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)
     
+    static let calqColor = Color(hexString: "428FE3")
+    
     init(hexString: String) {
         let hexString: String = hexString.trimmingCharacters(
             in: CharacterSet.whitespacesAndNewlines

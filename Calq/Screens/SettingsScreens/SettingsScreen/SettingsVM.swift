@@ -12,6 +12,7 @@ enum AlertAction {
     case deleteData
     case deleteSubject
     case loadDemo
+    case noConnection
     case none
 }
 
@@ -37,9 +38,15 @@ class SettingsViewModel: ObservableObject {
     @Published var importedJson: String = ""
     @Published var importeJsonURL: URL = URL(fileURLWithPath: "")
     
+    // Feedback
+    @Published var feedbackContent: String = "ABC"
+    @Published var showFeedbackSheet = false
+    @Published var feedbackError = false
+    
     func reloadAndSave() {
-        subjects = Util.getAllSubjects()
         saveCoreData()
+        subjects = Util.getAllSubjects()
+        settings = Util.getSettings()
     }
     
     func deleteData() {
@@ -94,5 +101,25 @@ class SettingsViewModel: ObservableObject {
     func selectSubject(_ subject: UserSubject) {
         selectedSubjet = subject
         editSubjectPresented = true
+    }
+    
+    func sendFeedback() {
+        if FeedbackService.sendFeedback(feedbackContent) {
+            showFeedbackSheet = false
+            feedbackContent = "ABC"
+            feedbackError = false
+        } else {
+            feedbackError = true
+        }
+    }
+    
+    func showFeedbackSheetFromVM () {
+        if Reachability.isConnectedToNetwork() {
+            alertActiontype = .none
+            showFeedbackSheet = true
+        } else {
+            alertActiontype = .noConnection
+            deleteAlert = true
+        }
     }
 }

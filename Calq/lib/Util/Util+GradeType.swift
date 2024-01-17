@@ -44,11 +44,8 @@ extension Util {
     }
     
     static func getTypes() -> [GradeType] {
-        guard let gradetypes = getSettings().gradetypes else {
-            return []
-        }
-        var types = gradetypes.allObjects as? [GradeType] ?? []
-        if types.count >= 2 { return types}
+        let types = getSettings().getAllTypes()
+        if types.count >= 2 { return types }
         
         if types.count == 1 {
             addType(name: "default type", weigth: 0)
@@ -56,8 +53,7 @@ extension Util {
             setTypes(Util.getSettings())
         }
         saveCoreData()
-        types = getSettings().gradetypes!.allObjects as! [GradeType]
-        return types.sorted(by: { $0.weigth > $1.weigth})
+        return getSettings().getAllTypes()
     }
     
     static func getTypeGrades(_ type: Int16) -> [UserTest] {

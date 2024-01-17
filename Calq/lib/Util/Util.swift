@@ -130,7 +130,8 @@ struct Util {
             subaverage += Util.testAverage(yearTests)
         }
         let average = (subaverage / count)
-        return Double(String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0)) ?? 0.0
+        let rounded = String(format: "%.2f", average).padding(toLength: 4, withPad: "0", startingAt: 0)
+        return Double(rounded) ?? 0.0
     }
     
     /// Returns the average of all grades from one subject
