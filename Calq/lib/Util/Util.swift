@@ -118,7 +118,7 @@ struct Util {
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double {
         let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
-        if tests.isEmpty { return 0.0 }
+        if tests.count == 0 { return 0.0 }
         
         var count = 0.0
         var subaverage = 0.0
@@ -136,8 +136,8 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject, year: Int, filterinactve: Bool = true) -> Double {
-        let allTests = filterinactve ? getAllSubjectTests(sub) : getAllSubjectTests(sub, .onlyActiveHalfyears)
-        let tests = allTests.filter {$0.year == year}
+        var tests = filterinactve ? Util.getAllSubjectTests(sub) : Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        tests = tests.filter {$0.year == year}
         if tests.isEmpty { return 0.0 }
         return testAverage(tests)
     }
@@ -151,7 +151,8 @@ struct Util {
         var subjectCount = Double(allSubjects.count)
         
         for sub in allSubjects {
-            let tests = getAllSubjectTests(sub, .onlyActiveHalfyears)
+            if sub.getAllTests().isEmpty { subjectCount-=1; continue }
+            let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
             if tests.isEmpty { subjectCount-=1; continue }
             a += round(getSubjectAverage(sub))
         }
@@ -168,7 +169,8 @@ struct Util {
         var grades = 0.0
         
         for sub in allSubjects {
-            let tests = getAllSubjectTests(sub, .onlyActiveHalfyears).filter {Int($0.year) == year}
+            if sub.getAllTests().isEmpty { continue }
+            let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears).filter {Int($0.year) == year}
             if tests.isEmpty { continue }
             let multiplier = sub.lk ? 2.0 : 1.0
             
@@ -188,7 +190,8 @@ struct Util {
     /// Generates a convient String that shows the grades of the subject.
     static func averageString(_ subject: UserSubject) -> String {
         var str: String = ""
-        let tests = getAllSubjectTests(subject)
+        let tests = subject.getAllTests()
+        if tests.isEmpty { return str }
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
@@ -243,6 +246,164 @@ struct Util {
         setTypes(item)
         saveCoreData()
         return item
+    }
+    
+    /// add default grade types
+    static func setTypes(_ settings: AppSettings, _ deleted: Bool = false) {
+        let type1 = GradeType(context: context)
+        type1.id = 0
+        type1.name = "Test"
+        type1.weigth = 50
+        
+        let type2 = GradeType(context: context)
+        type2.id = 1
+        type2.name = "Klausur"
+        type2.weigth = 50
+        
+        settings.addToGradetypes(type1)
+        settings.addToGradetypes(type2)
+        
+        setPrimaryType(type2.id)
+        
+        saveCoreData()
+    }
+    
+    // MARK: Get Subject
+    /// Returns all Subjects as Array
+    static func getAllSubjects() -> [UserSubject] {
+        return Util.getSettings().getAllSubjects()
+    }
+    
+    static func deleteSubject(_ subject: UserSubject) {
+        context.delete(subject)
+        saveCoreData()
+    }
+    
+    // MARK: Years
+    static func getinactiveYears(_ sub: UserSubject) -> [String] {
+        if sub.inactiveYears.isEmpty { return [] }
+        let arr: [String] = sub.inactiveYears.components(separatedBy: " ")
+        return arr
+    }
+    
+    /// Check if year is inactive
+    static func checkinactiveYears(_ arr: [String], _ num: Int) -> Bool {
+        return !arr.contains(String(num))
+    }
+    
+    /// Remove  inactive halfyear
+    @discardableResult static func removeYear(_ sub: UserSubject, _ num: Int) -> UserSubject {
+        let arr = getinactiveYears(sub)
+        sub.inactiveYears = arrToString(arr.filter { $0 != String(num)})
+        saveCoreData()
+        return sub
+    }
+    
+    /// Add inactive halfyear
+    @discardableResult static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject {
+        var arr = getinactiveYears(sub)
+        if arr.contains(String(num)) {
+            return sub
+        }
+        arr.append(String(num))
+        sub.inactiveYears = arrToString(arr)
+        saveCoreData()
+        return sub
+    }
+    
+    /// returns last active year of a subject
+    static func lastActiveYear(_ sub: UserSubject) -> Int {
+        var num = 1
+        
+        for i in 1...4 {
+            let tests = getAllSubjectTests(sub).filter { $0.year == i }
+            if tests.count > 0 { num = i }
+        }
+        return num
+    }
+    
+    private static func arrToString(_ arr: [String]) -> String {
+        return arr.joined(separator: " ")
+    }
+    
+    // MARK: Tests
+    static func deleteTest(_ test: UserTest) {
+        getContext().delete(test)
+        saveCoreData()
+    }
+    
+    // MARK: Managed GradeTypes
+    static func addType(name: String, weigth: Int) {
+        let existingTypes = getTypes().map { $0.id }
+        let newType = GradeType(context: context)
+        newType.name = name
+        newType.weigth = Int16(weigth)
+        newType.id = getNewIDQwQ(existingTypes)
+        
+        let new = getTypes().map {Int($0.weigth)}.reduce(0, +)
+        if new + weigth > 100 {
+            newType.weigth = 0
+        }
+        let settings = Util.getSettings()
+        settings.addToGradetypes(newType)
+        saveCoreData()
+    }
+    
+    private static func getNewIDQwQ(_ ids: [Int16]) -> Int16 {
+        for i in 0...(ids.max() ?? Int16(ids.count)) {
+            if !ids.contains(Int16(i)) { return Int16(i) }
+        }
+        return Int16(ids.count + 1)
+    }
+    
+    static func deleteType(type: Int16) {
+        let type = getTypes().filter { $0.id == type }[0]
+        getContext().delete(type)
+        saveCoreData()
+    }
+    
+    static func deleteType(type: GradeType) {
+        getContext().delete(type)
+        saveCoreData()
+    }
+    
+    static func getTypes() -> [GradeType] {
+        var types = getSettings().gradetypes!.allObjects as! [GradeType]
+        if types.count >= 2 { return types}
+        
+        if types.count == 1 {
+            addType(name: "default type", weigth: 0)
+        } else if types.isEmpty {
+            setTypes(Util.getSettings())
+        }
+        saveCoreData()
+        types = getSettings().gradetypes!.allObjects as! [GradeType]
+        return types.sorted(by: { $0.weigth > $1.weigth})
+    }
+    
+    static func getTypeGrades(_ type: Int16) -> [UserTest] {
+        var arr: [UserTest] = []
+        for sub in Util.getAllSubjects() {
+            for test in Util.getAllSubjectTests(sub) {
+                if test.type != type { continue }
+                arr.append(test)
+            }
+        }
+        return arr
+    }
+    
+    static func isPrimaryType(_ type: GradeType) -> Bool {
+        return isPrimaryType(type.id)
+    }
+    
+    static func isPrimaryType(_ type: Int16) -> Bool {
+        let types = getTypes().map { $0.id}
+        if !types.contains(type) {setPrimaryType(types[0])}
+        return type == UserDefaults.standard.integer(forKey: UD_primaryType)
+    }
+    
+    static func setPrimaryType(_ type: Int16) {
+        UserDefaults.standard.set(type, forKey: UD_primaryType)
     }
     
     static func checkIfNewVersion() -> Bool {

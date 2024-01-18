@@ -23,6 +23,8 @@ extension JSON {
             string += "{\"name\": \"\(sub.name)\", \"lk\": \(sub.lk), \"color\": \"\(sub.color)\", \"inactiveYears\":  \"\(sub.inactiveYears )\", \"lastEditedAt\": \"\(formatter.string(from: sub.lastEditedAt))\", \"createdAt\": \"\(formatter.string(from: sub.createdAt))\", \"subjecttests\": ["
             
             let tests = sub.getAllTests()
+            if tests.isEmpty { continue }
+            
             var testCount: Int = 0
             
             for test in tests {

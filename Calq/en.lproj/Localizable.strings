@@ -78,7 +78,6 @@
 "settings.feedback.button"="Send Feedback";
 "%lldsettings.feedback.textlimit"="Characters count: %lld/1000";
 "settings.feedback.error"="Something went wrong :c";
-"settings.feedback.connection"="Please make sure you have an internet connection";
 
 "editSubjectNameInvalid"="Name invalid";
 "editSubjecNameInvalidChars"="Name should not include special characters or be empty";
@@ -89,7 +88,7 @@
 "gradeYear"="Year";
 "gradeDate"="Date";
 "gradePoints"="Points";
-"gradeIWritten"="Is written Grade";
+"gradeHalfyear"="Halfyear";
 "%lldgradeHalfyear"="%lld. Halfyear";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
@@ -136,10 +135,5 @@
 
 // Sorting
 "sortGradeDatum"="Date";
-"sortGradeIsWritten"="Presentation";
-"sortGradeIsNotWritten"="Written";
-
 "sortName"="Name";
 "sortGrade"="Grade";
-"sortCreatedAt"="Creationdate";
-"sortLasteditedAt"="last Edited date";

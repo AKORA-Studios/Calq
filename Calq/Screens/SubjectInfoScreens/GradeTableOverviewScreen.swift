@@ -37,7 +37,7 @@ struct gradeTableCell: View {
     var body: some View {
         HStack {
             if subject.lk {
-                Text(subject.name).foregroundColor(.calqColor )
+                Text(subject.name).foregroundColor(.calqColor)
             } else {
                 Text(subject.name)
             }
@@ -47,8 +47,10 @@ struct gradeTableCell: View {
                 Text(averageString[1]).frame(width: 25)
                 Text(averageString[2]).frame(width: 25)
                 Text(averageString[3]).frame(width: 25)
-                Text(" | ").frame(width: 10).foregroundColor(.gray)
-                Text(averageString[4]).frame(width: 25).foregroundColor(.calqColor)
+                Text(" | ").frame(width: 10)
+                    .foregroundColor(.gray)
+                Text(averageString[4]).frame(width: 25)
+                    .foregroundColor(.calqColor)
             }
         }.onAppear {
             averageString = getString()
@@ -59,6 +61,7 @@ struct gradeTableCell: View {
     private func getString() -> [String] {
         var str = averageString
         let tests = Util.getAllSubjectTests(subject)
+        if tests.isEmpty { return str }
         var sum = 0
         
         for i in 0...3 {

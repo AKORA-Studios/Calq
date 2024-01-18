@@ -43,6 +43,15 @@ extension UserSubject {
         return subjecttests?.allObjects as? [UserTest] ?? []
     }
 
+    public func deleteAllTests() {
+        let context = Util.getContext()
+        for test in getAllTests() {
+            context.delete(test)
+        }
+        subjecttests = NSSet()
+        saveCoreData()
+    }
+    
     @objc(addSubjecttestsObject:)
     @NSManaged public func addToSubjecttests(_ value: UserTest)
 

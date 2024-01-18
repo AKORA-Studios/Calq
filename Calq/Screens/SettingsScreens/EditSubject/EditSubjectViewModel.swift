@@ -22,20 +22,21 @@ class EditSubjectViewModel: ObservableObject {
     
     @Published var deleteAlert = false
     @Published var alertType: EditAlertType = .nameInvalid
+    @Published var hasTests = false
     
     @Published var lastEditedAt: Date = Date()
     @Published var createdAt: Date = Date()
     
     init(subject: UserSubject) {
         self.subject = subject
-        lastEditedAt = subject.lastEditedAt
-        createdAt = subject.createdAt
+        hasTests = !subject.getAllTests().isEmpty
     }
     
     func update() {
         subjectName = subject.name
         lkSubject = subject.lk ? 1 : 0
         selectedColor = Color(hexString: subject.color)
+        hasTests = !subject.getAllTests().isEmpty
     }
     
     func changeName() {

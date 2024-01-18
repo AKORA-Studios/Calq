@@ -105,14 +105,6 @@ struct SettingsScreen: View {
             }
             
             HStack {
-                SettingsIcon(color: Color(hexString: "5856d6"), icon: "highlighter", text: "settingsShowGradeTypes") {}
-                Toggle(isOn: $vm.settings.showGradeTypes) {}.onChange(of: vm.settings.showGradeTypes) { _ in
-                    vm.updateShowGradeTypes()
-                }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                    .frame(width: 60)
-            }
-            
-            HStack {
                 SettingsIcon(color: Color.calqColor, icon: "chart.bar.fill", text: "settingsRainbow") {}
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                     vm.updateColorfulCharts()
@@ -152,7 +144,7 @@ struct SettingsScreen: View {
             })
             
             SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
-                vm.showFeedbackSheetFromVM()
+                vm.showFeedbackSheet = true
             }
         }
     }
@@ -234,6 +226,34 @@ struct SettingsScreen: View {
                 vm.showDeleteSubAlert(sub)
             }.buttonStyle(MenuPickerDestructive())
         }
+    }
+    
+    func feeedbackSheet() -> some View {
+        VStack {
+            Text("settings.feedback.title")
+                .font(.headline)
+            
+            if vm.feedbackError {
+                Text("settings.feedback.error")
+                    .foregroundColor(.red)
+            }
+            
+            TextEditor(text: $vm.feedbackContent)
+                .multilineTextAlignment(.leading)
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(8)
+                .frame(minHeight: 50)
+                .shadow(radius: 5)
+            
+            Text("\(vm.feedbackContent.count)settings.feedback.textlimit")
+                .foregroundColor(vm.feedbackContent.count >= 1000 ? .red : .gray)
+                .font(.footnote)
+            
+            Button("settings.feedback.button", action: {
+                vm.sendFeedback()
+            }).disabled(vm.feedbackContent.count >= 1000)
+                .buttonStyle(PrimaryStyle())
+        }.padding()
     }
 }
 

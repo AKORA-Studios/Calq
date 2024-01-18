@@ -80,8 +80,8 @@ func generateBlockOne() -> Int {
     if subjects.count == 0 { return 0 }
     
     for sub in subjects {
-        let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
-        if tests.isEmpty { continue }
+        let SubTests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        if SubTests.count == 0 { continue }
         
         let multiplier = sub.lk ? 2 : 1
   

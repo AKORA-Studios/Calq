@@ -78,7 +78,6 @@
 "settings.feedback.button"="Feedback schicken";
 "%lldsettings.feedback.textlimit"="Zeichenanzahl: %lld/1000";
 "settings.feedback.error"="Etwas ist schief gelaufen :c";
-"settings.feedback.connection"="Bitte stelle sicher das du eine Inernet Verbindung hast";
 
 "editSubjectNameInvalid"="Name ungültig";
 "editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten oder leer sein";
@@ -89,7 +88,7 @@
 "gradeYear"="Jahr";
 "gradeDate"="Datum";
 "gradePoints"="Punkte";
-"gradeIWritten"="Ist schriftliche Note";
+"gradeHalfyear"="Halbjahr";
 "%lldgradeHalfyear"="%lld. Halbjahr";
 "gradeNewAdd"="Note hinzufügen";
 "gradeInvalidName"="Ungültiger Name";
@@ -136,10 +135,5 @@
 
 // Sorting
 "sortGradeDatum"="Datum";
-"sortGradeIsWritten"="Schriftlich";
-"sortGradeIsNotWritten"="Mündlich";
-
 "sortName"="Name";
 "sortGrade"="Note";
-"sortCreatedAt"="Erstellungsdatum";
-"sortLasteditedAt"="Bearbeitungsdatum";

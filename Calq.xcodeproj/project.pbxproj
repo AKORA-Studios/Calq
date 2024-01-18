@@ -25,14 +25,6 @@
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
 		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
-		F11257852B484A8E00BE5D10 /* Util+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+Tests.swift */; };
-		F11257872B484AAA00BE5D10 /* Util+Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+Subjects.swift */; };
-		F11257882B484ECA00BE5D10 /* Util+Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257862B484AAA00BE5D10 /* Util+Subjects.swift */; };
-		F11257892B484ECD00BE5D10 /* Util+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257842B484A8E00BE5D10 /* Util+Tests.swift */; };
-		F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112578A2B48574400BE5D10 /* TimeStampTexts.swift */; };
-		F11257922B48688900BE5D10 /* Util+GradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257912B48688900BE5D10 /* Util+GradeType.swift */; };
-		F11257932B4868EF00BE5D10 /* Util+GradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11257912B48688900BE5D10 /* Util+GradeType.swift */; };
-		F11257982B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
 		F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */; };
@@ -52,6 +44,7 @@
 		F192DD25299D2CD00077B905 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8813782764D58B00EB6BD8 /* BarChart.swift */; };
 		F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
 		F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192DD27299D2DEC0077B905 /* ViewExtension.swift */; };
+		F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */; };
 		F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19B10A429AF84C000B11C82 /* OverviewVM.swift */; };
 		F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19F8E4429F18E03006142B4 /* Localizable.strings */; };
 		F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A05C5E2A642670003734F2 /* StringExtension.swift */; };
@@ -60,9 +53,9 @@
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
-		F1A6BC402B54087E001BD833 /* EditGradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */; };
-		F1A6D63B2B52CBDC00E8CD1F /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */; };
-		F1A6D63D2B52EC7800E8CD1F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */; };
+		F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC412B543A59001BD833 /* FeedbackService.swift */; };
+		F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC432B543B47001BD833 /* Reachability.swift */; };
+		F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
 		F1A7102D2A43757D00255F10 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102C2A43757D00255F10 /* CardView.swift */; };
 		F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A710322A437F8300255F10 /* exampleData_v1.json */; };
@@ -85,7 +78,6 @@
 		F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
-		F1A8A97D2B50870B00213E35 /* exampleData_v3.json in Resources */ = {isa = PBXBuildFile; fileRef = F1A8A97C2B50870B00213E35 /* exampleData_v3.json */; };
 		F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
 		F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
 		F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
@@ -184,12 +176,6 @@
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
-		F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
-		F11257842B484A8E00BE5D10 /* Util+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Tests.swift"; sourceTree = "<group>"; };
-		F11257862B484AAA00BE5D10 /* Util+Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Subjects.swift"; sourceTree = "<group>"; };
-		F112578A2B48574400BE5D10 /* TimeStampTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampTexts.swift; sourceTree = "<group>"; };
-		F11257912B48688900BE5D10 /* Util+GradeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+GradeType.swift"; sourceTree = "<group>"; };
-		F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 3 to 4.xcmappingmodel"; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
 		F11583002AA490BE00122FBB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -215,9 +201,9 @@
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeViewModel.swift; sourceTree = "<group>"; };
-		F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
-		F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F1A6BC412B543A59001BD833 /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
+		F1A6BC432B543B47001BD833 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Sorting.swift"; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
 		F1A7102C2A43757D00255F10 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1A710322A437F8300255F10 /* exampleData_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v1.json; sourceTree = "<group>"; };
@@ -233,7 +219,6 @@
 		F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		F1A8A97C2B50870B00213E35 /* exampleData_v3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v3.json; sourceTree = "<group>"; };
 		F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 1.xcmappingmodel"; sourceTree = "<group>"; };
 		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamWidget.swift; sourceTree = "<group>"; };
@@ -364,10 +349,10 @@
 		DD70E116261F315E0092815F /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				F11257942B4868F600BE5D10 /* Util */,
 				F1D29E772A17B8A50001D469 /* JSON */,
 				DD7A4A6F26AF297B00CBF7D8 /* CoreData */,
 				DD8D4DB626AD733700AC289A /* Charts */,
+				DD687945261C530000BF2B48 /* Util.swift */,
 				F17F445D298C59B3000A3993 /* ColorExtension.swift */,
 				F192DD27299D2DEC0077B905 /* ViewExtension.swift */,
 				F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */,
@@ -377,7 +362,9 @@
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
 				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
-				F112578A2B48574400BE5D10 /* TimeStampTexts.swift */,
+				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
+				F1A6BC432B543B47001BD833 /* Reachability.swift */,
+				F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -395,7 +382,6 @@
 				F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */,
 				F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */,
 				F11583012AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel */,
-				F11257972B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel */,
 				F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
 				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
@@ -424,19 +410,6 @@
 			path = ExamScreen;
 			sourceTree = "<group>";
 		};
-		F11257942B4868F600BE5D10 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				DD687945261C530000BF2B48 /* Util.swift */,
-				F11257912B48688900BE5D10 /* Util+GradeType.swift */,
-				F11257862B484AAA00BE5D10 /* Util+Subjects.swift */,
-				F11257842B484A8E00BE5D10 /* Util+Tests.swift */,
-				F1A6D63C2B52EC7800E8CD1F /* Reachability.swift */,
-				F1A6D63A2B52CBDC00E8CD1F /* FeedbackService.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		F1138E5229959627008E7FD8 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,7 +428,6 @@
 				F1CCCB4B2B2A184F009B9434 /* SubjectDetail */,
 				F1CCCB482B2A1601009B9434 /* GradeList */,
 				F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */,
-				F1A6BC3F2B54087E001BD833 /* EditGradeViewModel.swift */,
 			);
 			path = SubjectInfoScreens;
 			sourceTree = "<group>";
@@ -508,7 +480,6 @@
 				F1DD87ED2AA795910095C057 /* LineChartTests.swift */,
 				F1DD87EF2AA799700095C057 /* BarChartTests.swift */,
 				F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */,
-				F1A8A97C2B50870B00213E35 /* exampleData_v3.json */,
 			);
 			path = CalqTests;
 			sourceTree = "<group>";
@@ -707,7 +678,6 @@
 				F1A710352A4384D900255F10 /* exampleData_v0.json in Resources */,
 				F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */,
 				F1A710332A437F8300255F10 /* exampleData_v1.json in Resources */,
-				F1A8A97D2B50870B00213E35 /* exampleData_v3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,7 +709,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F11257882B484ECA00BE5D10 /* Util+Subjects.swift in Sources */,
 				F1B0B17129968E6C00F3D1FD /* ColorExtension.swift in Sources */,
 				F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */,
 				F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
@@ -753,14 +722,13 @@
 				F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */,
 				F192DD25299D2CD00077B905 /* BarChart.swift in Sources */,
 				F11583052AA4AC8200122FBB /* Models.swift in Sources */,
-				F11257932B4868EF00BE5D10 /* Util+GradeType.swift in Sources */,
 				F1A7723A2A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
 				F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */,
 				F1CE4AA12B0BD77C002A37C4 /* WidgetBackgroundExtension.swift in Sources */,
 				F1D29E7C2A17BCC90001D469 /* ExportJSON.swift in Sources */,
-				F11257892B484ECD00BE5D10 /* Util+Tests.swift in Sources */,
 				F192DD29299D2DF40077B905 /* ViewExtension.swift in Sources */,
 				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
+				F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
 				F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */,
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
@@ -780,7 +748,6 @@
 				F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */,
 				F1E8BFE329900C5500486A6D /* CircleChart.swift in Sources */,
 				DD4F97532751167000D3CC57 /* CoreDataStack.swift in Sources */,
-				F11257852B484A8E00BE5D10 /* Util+Tests.swift in Sources */,
 				F1F568C8298DA72100227F88 /* ImpactSegment.swift in Sources */,
 				F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */,
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
@@ -792,11 +759,11 @@
 				F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */,
 				F17F445E298C59B3000A3993 /* ColorExtension.swift in Sources */,
 				F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */,
+				F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */,
 				F14140462A47639E007E4648 /* TabViewVM.swift in Sources */,
 				F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */,
 				F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */,
 				F10D66B2298D57BD00993237 /* BlockView.swift in Sources */,
-				F11257922B48688900BE5D10 /* Util+GradeType.swift in Sources */,
 				F1A772412A1795C6004B8DCC /* UserSubject+CoreDataClass.swift in Sources */,
 				F11583042AA4AB3500122FBB /* Models.swift in Sources */,
 				F1D3433D29C37024002ED7DE /* SettingsVM.swift in Sources */,
@@ -806,30 +773,27 @@
 				F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */,
 				F1A7723B2A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
+				F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
-				F1A6BC402B54087E001BD833 /* EditGradeViewModel.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
 				F1A7723D2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
-				F112578B2B48574400BE5D10 /* TimeStampTexts.swift in Sources */,
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
+				F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
-				F1A6D63D2B52EC7800E8CD1F /* Reachability.swift in Sources */,
-				F11257872B484AAA00BE5D10 /* Util+Subjects.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
 				F17F444A298C4EE7000A3993 /* SubjectListScreen.swift in Sources */,
 				DD81F6832759091600B4A43B /* JSONUtil.swift in Sources */,
-				F1A6D63B2B52CBDC00E8CD1F /* FeedbackService.swift in Sources */,
 				F1A772112A17947A004B8DCC /* Model.xcdatamodeld in Sources */,
 				F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
@@ -844,7 +808,6 @@
 				F1A772472A179617004B8DCC /* GradeType+CoreDataClass.swift in Sources */,
 				F1A7102D2A43757D00255F10 /* CardView.swift in Sources */,
 				F11583022AA4910200122FBB /* Mapping Model 2 to 3.xcmappingmodel in Sources */,
-				F11257982B486BCA00BE5D10 /* Mapping Model 3 to 4.xcmappingmodel in Sources */,
 				F1D29E792A17B8AF0001D469 /* ExportJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,7 +870,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -919,7 +882,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq.CalqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -937,7 +900,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
@@ -949,7 +912,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq.CalqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1087,14 +1050,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1113,14 +1076,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = AKORA.Calq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1218,12 +1181,11 @@
 		F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */,
 				F11583002AA490BE00122FBB /* Model 3.xcdatamodel */,
 				F1A7720F2A17947A004B8DCC /* Model 2.xcdatamodel */,
 				F1A772102A17947A004B8DCC /* Model.xcdatamodel */,
 			);
-			currentVersion = F11257812B483E9A00BE5D10 /* Model 4.xcdatamodel */;
+			currentVersion = F11583002AA490BE00122FBB /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

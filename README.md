@@ -1,7 +1,7 @@
 [![Size](https://img.shields.io/github/repo-size/AKORA-Studios/Calq?color=428FE3&label=SIZE&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 [![Version](https://img.shields.io/github/v/release/AKORA-Studios/Calq?color=428FE3&label=Version&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 [![Issues](https://img.shields.io/github/issues/AKORA-Studios/Calq?color=428FE3&label=Issues&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
-[![Last Commit](https://img.shields.io/github/last-commit/AKORA-Studios/Calq/master?color=428FE3&label=lastcommit&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
+[![Last Commit](https://img.shields.io/github/last-commit/AKORA-Studios/Calq/stable?color=428FE3&label=lastcommit&style=for-the-badge)](https://apps.apple.com/tt/app/calq-abiturnoten/id1605925893?uo=2)
 
 # Calq-iOS
 
@@ -96,4 +96,4 @@ Alternativ schreib einfach eine Nachricht aufm Discord ;3
 
 # License
 
-Calq is available under the MIT license. See the [LICENSE](https://github.com/AKORA-Studios/Calq-iOS/blob/main/LICENSE) file for more info.
+Calq is available under the MIT license. See the [LICENSE](https://github.com/AKORA-Studios/Calq-iOS/blob/stable/LICENSE) file for more info.
