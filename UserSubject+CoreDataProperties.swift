@@ -23,17 +23,9 @@ extension UserSubject {
     @NSManaged public var lk: Bool
     @NSManaged public var name: String
     @NSManaged public var showInLineGraph: Bool
-    @NSManaged public var lastEditedAt: Date
-    @NSManaged public var createdAt: Date
-    
     @NSManaged public var subjecttests: NSSet?
     @NSManaged public var subjecttosettings: AppSettings
-    
-    public override func awakeFromInsert() {
-        super.awakeFromInsert()
-        setPrimitiveValue(Date(), forKey: "createdAt")
-        setPrimitiveValue(Date(), forKey: "lastEditedAt")
-    }
+
 }
 
 // MARK: Generated accessors for subjecttests
@@ -42,7 +34,7 @@ extension UserSubject {
     public func getAllTests() -> [UserTest] {
         return subjecttests?.allObjects as? [UserTest] ?? []
     }
-
+    
     public func deleteAllTests() {
         let context = Util.getContext()
         for test in getAllTests() {
