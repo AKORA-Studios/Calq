@@ -125,7 +125,7 @@ struct Util {
         
         for e in 1...4 {
             let yearTests = tests.filter {$0.year == Int16(e)}
-            if yearTests.isEmpty { continue }
+            if yearTests.count == 0 { continue }
             count += 1
             subaverage += Util.testAverage(yearTests)
         }
@@ -195,7 +195,7 @@ struct Util {
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
-            if arr.isEmpty { str += "-- "; continue }
+            if arr.count == 0 { str += "-- "; continue }
             str += String(Int(round(Util.testAverage(arr))))
             if i != 4 { str += " "}
         }
@@ -407,12 +407,8 @@ struct Util {
     }
     
     static func checkIfNewVersion() -> Bool {
-        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion)
-        
-        guard let oldVersion = oldVersion else {
-            return true
-        }
-        
+        let oldVersion = UserDefaults.standard.string(forKey: UD_lastVersion) ?? "0.0.0"
+        if oldVersion == "0.0.0" { return true }
         let partsOldV = oldVersion.split(separator: ".")
         let partsNewV = appVersion.split(separator: ".")
         
@@ -424,5 +420,9 @@ struct Util {
             return true
         }
         return false
+    }
+    
+    static func isExamSubject(_ sub: UserSubject) -> Bool {
+        return sub.examtype != 0
     }
 }

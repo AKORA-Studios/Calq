@@ -73,7 +73,7 @@ struct GradeListScreen: View {
                 let color = getSubjectColor(vm.subject)
                 
                 NavigationLink {
-                    EditGradeScreen(vm: EditGradeViewModel(test), color: color)
+                    EditGradeScreen(test: test, color: color)
                 } label: {
                     gradeIcon(test: test, color: color)
                 }

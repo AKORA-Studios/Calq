@@ -59,8 +59,6 @@
 "editSubColor"="Subject Color";
 "editSubEditColor"="Change Color";
 "editSubGradeCount%lld"="**%lld** grades in this subject";
-"editSubCreatedAt"="Created at: ";
-"editSubLastEditedAt"="Last edited at: ";
 "editSubInfoIsExam"="This subject is a final exam";
 
 "settingsSection1"="General";
@@ -69,7 +67,6 @@
 "settingsImport"= "Import Grades";
 "settingsExport"= "Export Grades";
 "settingsRainbow"= "Rainbow";
-"settingsShowGradeTypes"= "Show Grade Types";
 "settingsExamCount"= "Count Final Exams";
 "settingsWeight"= "Change Weigth";
 "settingsLoadDemo"= "Load Demo Data";

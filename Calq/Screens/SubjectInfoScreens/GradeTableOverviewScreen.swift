@@ -62,6 +62,7 @@ struct gradeTableCell: View {
         var str = averageString
         let tests = Util.getAllSubjectTests(subject)
         if tests.isEmpty { return str }
+        
         var sum = 0
         
         for i in 0...3 {

@@ -59,8 +59,6 @@
 "editSubColor"="Kursfarbe";
 "editSubEditColor"="Farbe ändern";
 "editSubGradeCount%lld"="**%lld** Noten in diesem Fach";
-"editSubCreatedAt"="Erstellt am: ";
-"editSubLastEditedAt"="Zuletzt bearbeitet am: ";
 "editSubInfoIsExam"="Dieses Fach ist eine Prüfung";
 
 "settingsSection1"="Allgemein";
@@ -69,7 +67,6 @@
 "settingsImport"= "Noten importieren";
 "settingsExport"= "Noten exportieren";
 "settingsRainbow"= "Regenbogen";
-"settingsShowGradeTypes"= "Zeige Notentypen";
 "settingsExamCount"= "Anzahl Abiturprüfungen";
 "settingsWeight"= "Wertung ändern";
 "settingsLoadDemo"= "Demo Daten laden";

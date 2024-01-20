@@ -42,7 +42,7 @@ struct SettingsScreen: View {
         
             .sheet(isPresented: $vm.editSubjectPresented) {
                 NavigationView {
-                    if let selectedSubject = vm.selectedSubjet {
+		    if let selectedSubject = vm.selectedSubjet {
                         EditSubjectScreen(vm: EditSubjectViewModel(subject: selectedSubject), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
                     }
                 }
@@ -63,13 +63,10 @@ struct SettingsScreen: View {
             }))
         }
         
-        if vm.alertActiontype == .noConnection {
-            return Alert(title: Text("settings.feedback.connection"))
-        }
-        
         // handle other cases
         return Alert(title: Text("ToastTitle"), message: Text("ToastDeleteAll"), primaryButton: .cancel(), secondaryButton: .destructive(Text("ToastOki"), action: {
             switch vm.alertActiontype {
+                
             case .importData:
                 vm.presentDocumentPicker = true
             case .deleteData:
@@ -81,8 +78,6 @@ struct SettingsScreen: View {
                 break
             case .deleteSubject: // handled seperatly
                 break
-            case .noConnection:
-                break
             }
             vm.alertActiontype = .none
             vm.deleteAlert = false
@@ -92,7 +87,7 @@ struct SettingsScreen: View {
     func staticCells() -> some View {
         Section(header: Text("settingsSection1")) {
             HStack {
-                SettingsIcon(color: .purple, icon: "books.vertical.fill", text: "settingsExamCount") {}
+                SettingsIcon(color: Color(hexString: "5856d6"), icon: "books.vertical.fill", text: "settingsExamCount") {}
                 Spacer()
                 Picker("", selection: $vm.hasFiveExams) {
                     Text("4").tag(4)
@@ -109,7 +104,6 @@ struct SettingsScreen: View {
                 Toggle(isOn: $vm.settings.colorfulCharts) {}.onChange(of: vm.settings.colorfulCharts) { _ in
                     vm.updateColorfulCharts()
                 }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                    .frame(width: 60)
             }
             
             SettingsIcon(color: Color.blue, icon: "folder.fill", text: "settingsImport") {
@@ -167,34 +161,6 @@ struct SettingsScreen: View {
                 vm.newSubjectSheetPresented = true
             }
         }
-    }
-    
-    func feeedbackSheet() -> some View {
-        VStack {
-            Text("settings.feedback.title")
-                .font(.headline)
-            
-            if vm.feedbackError {
-                Text("settings.feedback.error")
-                    .foregroundColor(.red)
-            }
-            
-            TextEditor(text: $vm.feedbackContent)
-                .multilineTextAlignment(.leading)
-                .background(Color.gray.opacity(0.3))
-                .cornerRadius(8)
-                .frame(minHeight: 50)
-                .shadow(radius: 5)
-            
-            Text("\(vm.feedbackContent.count)settings.feedback.textlimit")
-                .foregroundColor(vm.feedbackContent.count >= 1000 ? .red : .gray)
-                .font(.footnote)
-            
-            Button("settings.feedback.button", action: {
-                vm.sendFeedback()
-            }).disabled(vm.feedbackContent.count >= 1000)
-                .buttonStyle(PrimaryStyle())
-        }.padding()
     }
     
     func contextAction_addGradeButton() -> some View {

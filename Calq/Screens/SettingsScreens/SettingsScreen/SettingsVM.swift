@@ -12,7 +12,6 @@ enum AlertAction {
     case deleteData
     case deleteSubject
     case loadDemo
-    case noConnection
     case none
 }
 
@@ -75,11 +74,6 @@ class SettingsViewModel: ObservableObject {
         saveCoreData()
     }
     
-    func updateShowGradeTypes() {
-        settings.showGradeTypes = Util.getSettings().showGradeTypes
-        saveCoreData()
-    }
-    
     func updateExamSettings() {
         settings.hasFiveExams = hasFiveExams == 5
         
@@ -110,16 +104,6 @@ class SettingsViewModel: ObservableObject {
             feedbackError = false
         } else {
             feedbackError = true
-        }
-    }
-    
-    func showFeedbackSheetFromVM () {
-        if Reachability.isConnectedToNetwork() {
-            alertActiontype = .none
-            showFeedbackSheet = true
-        } else {
-            alertActiontype = .noConnection
-            deleteAlert = true
         }
     }
 }

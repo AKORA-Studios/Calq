@@ -23,15 +23,12 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
     @Published var year = 1
     @Published var points: Float = 9
     @Published var date = Date()
-    @Published var isWrittenGrade = true
-    
-    @Published var shouldShowGradeTypeOptions = false
     @Published var isAlertPresented = false
+    
     @Published var pickerVM = SegmentedPickerViewModel()
     
     init() {
         pickerVM.delegate = self
-        
     }
   
     func updateViews() {
@@ -67,7 +64,6 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
         newTest.date = date
         newTest.type = gradeType
         newTest.year = Int16(year)
-        newTest.isWrittenGrade = isWrittenGrade
         
         selectedSubject.addToSubjecttests(newTest)
         saveCoreData()

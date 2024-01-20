@@ -21,7 +21,7 @@ class GradeListViewModel: ObservableObject {
         self.subject = subject
         update()
     }
-
+    
     func update() {
         years = [[], [], [], [], []]
         let criterias = Util.getSortingArray()
