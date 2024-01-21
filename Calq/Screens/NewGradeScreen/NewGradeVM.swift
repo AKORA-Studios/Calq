@@ -38,11 +38,14 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
     
     func selectSub(_ sub: UserSubject) {
         selectedSubject = sub
+        guard let selectedSubject = selectedSubject else {
+            return
+        }
         isNewGradeSheetPresented = true
         
-        year = Util.lastActiveYear(selectedSubject!)
+        year = Util.lastActiveYear(selectedSubject)
         pickerVM.selectedIndex = year - 1
-        points = Float(Util.getSubjectAverage(selectedSubject!))
+        points = Float(Util.getSubjectAverage(selectedSubject))
         gradeName = ""
     }
     
@@ -52,6 +55,9 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
             return
         }
         
+        guard let selectedSubject = selectedSubject else {
+            return
+        }
         let newTest = UserTest(context: Util.getContext())
         newTest.name = gradeName
         newTest.grade =  Int16(points)
@@ -59,7 +65,7 @@ class NewGradeVM: ObservableObject, SegmentedPickerViewDelegate {
         newTest.type = gradeType
         newTest.year = Int16(year)
         
-        selectedSubject!.addToSubjecttests(newTest)
+        selectedSubject.addToSubjecttests(newTest)
         saveCoreData()
         
         isNewGradeSheetPresented = false

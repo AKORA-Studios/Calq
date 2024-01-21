@@ -47,11 +47,13 @@ class WeightViewmodel: ObservableObject {
     }
     
     func increment(_ type: GradeType) {
+        guard let _ =  typeArr[type] else { return }
         typeArr[type]! += typeArr[type] == 100 ? 0 : 10
         reload()
     }
     
     func decrement(_ type: GradeType) {
+        guard let _ =  typeArr[type] else { return }
         typeArr[type]! -= typeArr[type] == 100 ? 0 : 10
         if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
@@ -63,8 +65,11 @@ class WeightViewmodel: ObservableObject {
     
     func saveWeigths() {
         for type in types {
-            type.weigth = typeArr[type]!
-            type.name = typeArrNames[type.id]!
+            if let typeWeight = typeArr[type],  
+                let typeName = typeArrNames[type.id] {
+                type.weigth = typeWeight
+                type.name = typeName
+            }
         }
         saveCoreData()
     }

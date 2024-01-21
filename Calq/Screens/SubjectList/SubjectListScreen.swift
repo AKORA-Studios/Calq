@@ -64,7 +64,9 @@ struct SubjectListScreen: View {
                 }
                 .sheet(isPresented: $vm.isSubjectDetailPResented) {
                     NavigationView {
-                        SubjectDetailScreen(vm: SubjectDetailViewModel(subject: vm.selectedSubejct!)).onDisappear(perform: vm.updateViews)
+                        if let selectedSubject = vm.selectedSubejct {
+                            SubjectDetailScreen(vm: SubjectDetailViewModel(subject: selectedSubject)).onDisappear(perform: vm.updateViews)
+                        }
                     }
                 }
                 .sheet(isPresented: $vm.gradeTablePresented) {

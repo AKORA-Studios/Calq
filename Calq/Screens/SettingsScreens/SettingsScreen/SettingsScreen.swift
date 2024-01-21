@@ -42,7 +42,9 @@ struct SettingsScreen: View {
         
             .sheet(isPresented: $vm.editSubjectPresented) {
                 NavigationView {
-                    EditSubjectScreen(vm: EditSubjectViewModel(subject: vm.selectedSubjet!), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
+		    if let selectedSubject = vm.selectedSubjet {
+                        EditSubjectScreen(vm: EditSubjectViewModel(subject: selectedSubject), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
+                    }
                 }
             }
             .sheet(isPresented: $vm.showFeedbackSheet, content: {
