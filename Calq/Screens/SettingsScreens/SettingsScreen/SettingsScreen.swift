@@ -137,9 +137,9 @@ struct SettingsScreen: View {
                 }
             })
             
-            SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
+           /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
                 vm.showFeedbackSheet = true
-            }
+            }*/
         }
     }
     
