@@ -30,7 +30,35 @@ class CoreDataStack: ImplementsCoreDataStack {
         
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
-                fatalError("Unresolved error \(error)") // crash qwq
+                
+                if #available(iOS 15.0, *) {
+                    let ArchvieArr = NSMutableArray()
+                    ArchvieArr.add(NSKeyedArchiver.archivedData(withRootObject: container.managedObjectModel.entities))
+                    UserDefaults.standard.set(ArchvieArr, forKey: "savedArray")
+                    
+                    /*if let file = Bundle.main.path(forResource: "gradesBackup", ofType: "json") {
+                       // try data.write(to: container.managedObjectModel.entities)
+                    }*/
+                    
+                    do {
+                        let data = try NSKeyedArchiver.archivedData(withRootObject: "eeee", requiringSecureCoding: false)
+                        
+                    } catch {
+                        print("Couldn't write file")
+                    }
+                    
+                    do {
+                        try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
+                    }  catch {
+                            fatalError("Unresolved error \(error)") // crash qwq
+                        }
+                } else {
+                    fatalError("Unresolved error #2 \(error)") // crash qwq
+                }
+                
+                container.loadPersistentStores { (_, error) in
+                    fatalError("Unresolved error #3 \(error)") // crash qwq
+                }
             }
         })
         return container
