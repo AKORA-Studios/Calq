@@ -31,29 +31,19 @@ class CoreDataStack: ImplementsCoreDataStack {
         
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
+                JSON.saveBackup("\(error)")
                 
-                if #available(iOS 15.0, *) {
-                    if let file = Bundle.main.path(forResource: "gradesBackup", ofType: "json") {
-                       // try data.write(to: container.managedObjectModel.entities)
+                do {
+                    if #available(iOS 15.0, *) {
+                        try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
+                    } else {
                     }
-                    
-                    do {
-                        let data = try NSKeyedArchiver.archivedData(withRootObject: "eeee", requiringSecureCoding: false)
-                        
-                    } catch {
-                        print("Couldn't write file")
-                    }
-                    
-                    do {
-                        try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite) }  catch {
-                            fatalError("Unresolved error \(error)") // crash qwq
-                        }
-                } else {
-                    fatalError("Unresolved error #2 \(error)") // crash qwq
+                } catch {
+                    fatalError("Unresolved error \(error)") // crash qwq
                 }
                 
-                container.loadPersistentStores { (store, error) in
-                    // Handle errors
+                container.loadPersistentStores { (_, error2) in
+                    fatalError("Unresolved error loading second time \(error2)") // crash qwq
                 }
             }
         })

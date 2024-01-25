@@ -97,6 +97,8 @@
 		F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */; };
 		F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */; };
+		F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
+		F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -235,6 +237,8 @@
 		F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v2.json; sourceTree = "<group>"; };
 		F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		F1BD65A22B6296DB003B8D34 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupJSON.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
 				F1A6BC432B543B47001BD833 /* Reachability.swift */,
 				F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */,
+				F1BD65A22B6296DB003B8D34 /* DateExtension.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				F1D29E782A17B8AF0001D469 /* ExportJSON.swift */,
 				F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */,
 				F11583032AA4AB3500122FBB /* Models.swift */,
+				F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -776,6 +782,7 @@
 				F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
+				F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
@@ -789,6 +796,7 @@
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
+				F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
