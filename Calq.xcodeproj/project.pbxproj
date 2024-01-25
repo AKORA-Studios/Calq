@@ -99,6 +99,8 @@
 		F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */; };
 		F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
 		F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
+		F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
+		F1BD65A72B6299A2003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -719,6 +721,7 @@
 				F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */,
 				F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */,
+				F1BD65A72B6299A2003B8D34 /* DateExtension.swift in Sources */,
 				F1ABCA362AE1AEF000AC58C2 /* ExamWidget.swift in Sources */,
 				F1A7723C2A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */,
@@ -736,6 +739,7 @@
 				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
 				F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
+				F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */,
 				F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */,
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,

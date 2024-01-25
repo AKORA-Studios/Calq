@@ -21,6 +21,12 @@ struct SettingsScreen: View {
                 Section {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
+                
+                Section(header: Text("Backups")) {
+                    ForEach(JSON.loadBackups(), id: \.self) { url in
+                        Text(JSON.parseFileName(url))
+                    }
+                }
             }
             
             .disabled(vm.isLoading)
