@@ -35,10 +35,8 @@ class CoreDataStack: ImplementsCoreDataStack {
                 UserDefaults.standard.set(true, forKey: UD_repairData)
                 
                 do {
-                    if #available(iOS 15.0, *) {
-                        try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
-                    } else {
-                    }
+                    try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
+                    
                 } catch {
                     fatalError("Unresolved error \(error)") // crash qwq
                 }
