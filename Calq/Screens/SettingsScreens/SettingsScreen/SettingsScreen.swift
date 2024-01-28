@@ -24,7 +24,13 @@ struct SettingsScreen: View {
                 
                 Section(header: Text("Backups")) {
                     ForEach(JSON.loadBackups(), id: \.self) { url in
-                        Text(JSON.parseFileName(url))
+                        NavigationLink {
+                            ScrollView {
+                                Text(JSON.loadBackup(url: url))
+                            }.padding()
+                        } label: {
+                            Text(JSON.parseFileName(url))
+                        }
                     }
                 }
             }

@@ -33,17 +33,29 @@ extension JSON {
                 at: documentsURL,
                 includingPropertiesForKeys: nil
             )
-           // print("directoryContents:", directoryContents.map { $0.lastPathComponent })
-            
             return directoryContents.map { $0.lastPathComponent }
-           /* for url in directoryContents {
-                x += 1
-            }*/
             
-        } catch(let error) {
+        } catch {
             print("Failed to fetch bacups form device: ", error)
             return []
         }
+    }
+    
+    static func loadBackup(url: String) -> String {
+        var str = ""
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let filePath = documentsURL.appendingPathComponent(url)
+        
+        do {
+            let json = (try String(contentsOf: filePath, encoding: String.Encoding.utf8).data(using: .utf8))
+            if let json = json {
+                str = String(data: json, encoding: .utf8) ?? "No Data could be parsed"
+            }
+        } catch {
+            print("Failed laoding backup (\(url)) with: ", error)
+        }
+        
+        return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")
     }
     
     static func parseFileName(_ url: String) -> String {
