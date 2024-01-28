@@ -134,3 +134,7 @@
 "sortGradeDatum"="Date";
 "sortName"="Name";
 "sortGrade"="Grade";
+
+// Backup
+"backupSheet.title"="Failed to laod data";
+"backupSheet.text"="There was an error laoding the data. In the settings tab you can view and maybe restore your data";

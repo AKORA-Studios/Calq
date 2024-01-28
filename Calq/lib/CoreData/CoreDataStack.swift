@@ -32,6 +32,7 @@ class CoreDataStack: ImplementsCoreDataStack {
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
                 JSON.saveBackup("\(error)")
+                UserDefaults.standard.set(true, forKey: UD_repairData)
                 
                 do {
                     if #available(iOS 15.0, *) {

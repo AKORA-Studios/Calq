@@ -13,21 +13,23 @@ struct TabbarView: View {
     var body: some View {
         ZStack {
             EmptyView()
-                
+            
             if vm.showOverlay {
                 if vm.firstLaunch {
                     FirstLaunchScreen()
+                        .environmentObject(vm)
+                } else if vm.repairData {
+                    BackupScreen()
                         .environmentObject(vm)
                 } else {
                     WhatsNewScreen()
                         .environmentObject(vm)
                 }
-            } else {
+            }  else {
                 tabview()
                     .environmentObject(vm)
             }
         }.onAppear(perform: vm.checkForSheets)
-        
     }
     
     @ViewBuilder

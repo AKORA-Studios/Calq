@@ -78,6 +78,7 @@
 		F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
+		F1A77FFA2B66905700380E56 /* BackupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A77FF92B66905700380E56 /* BackupScreen.swift */; };
 		F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
 		F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
 		F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
@@ -223,6 +224,7 @@
 		F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		F1A77FF92B66905700380E56 /* BackupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupScreen.swift; sourceTree = "<group>"; };
 		F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 1.xcmappingmodel"; sourceTree = "<group>"; };
 		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamWidget.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
 				F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */,
 				F1BE91C32A41DF3200E85494 /* SubjectList */,
+				F1A77FF92B66905700380E56 /* BackupScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */,
+				F1A77FFA2B66905700380E56 /* BackupScreen.swift in Sources */,
 				F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */,
 				F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,

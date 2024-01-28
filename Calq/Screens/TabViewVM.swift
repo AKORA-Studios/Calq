@@ -12,6 +12,7 @@ class TabVM: ObservableObject {
     @Published var showOverlay = false
     @Published var firstLaunch = false
     @Published var lastVersion = false
+    @Published var repairData = false
     
     @Published var selectedIndex = 0
     
@@ -22,8 +23,9 @@ class TabVM: ObservableObject {
         
         firstLaunch = !UserDefaults.standard.bool(forKey: UD_firstLaunchKey)
         lastVersion = Util.checkIfNewVersion()
-        showOverlay = firstLaunch || lastVersion
-        
+        repairData = UserDefaults.standard.bool(forKey: UD_repairData)
+        showOverlay = firstLaunch || lastVersion || repairData
+ 
         if lastVersion {
             UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
         }
@@ -39,6 +41,11 @@ class TabVM: ObservableObject {
         showOverlay = false
         lastVersion = false
         UserDefaults.standard.set(appVersion, forKey: UD_lastVersion)
+    }
+    
+    func showedRepairInfo() {
+        repairData = false
+        UserDefaults.standard.set(false, forKey: UD_repairData)
     }
     
     @objc func appMovedToBackground() {

@@ -134,3 +134,7 @@
 "sortGradeDatum"="Datum";
 "sortName"="Name";
 "sortGrade"="Note";
+
+// Backup
+"backupSheet.title"="Fehler beim Laden der Daten";
+"backupSheet.text"="Beim laden der Daten ist ein Fehler aufgetreten. Ein Backup der Daten kann im Tab Einstellungen geladen/angesehen werden und evt. wieder hergestellt werden.";
