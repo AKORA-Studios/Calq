@@ -24,6 +24,7 @@ class OverViewViewModel: ObservableObject {
     @Published var generalAverage = Util.generalAverage()
     
     @Published var showGraphEdit = false
+    var backupedThisRun = false
     
     func updateViews() {
         self.objectWillChange.send()
@@ -44,6 +45,11 @@ class OverViewViewModel: ObservableObject {
         if shouldAskForReview() { // show appstore review popup
             askForReview()
         }
+        
+        if !backupedThisRun {
+            JSON.saveBackup()
+        }
+        backupedThisRun = true
     }
     
     static func getBlockPoints() -> Double {
