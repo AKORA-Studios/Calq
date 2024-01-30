@@ -10,8 +10,22 @@ import Foundation
 extension JSON {
     private static var fileprefix = "calqBackup"
     
-    /// save backup
+    /// save backup every launch
     static func saveBackup() {
+        let lastsave = UserDefaults.standard.string(forKey: UD_lastbackup)
+        guard let lastsave = lastsave else { return }
+        let date = Date(milliseconds: Int64(lastsave) ?? 0)
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        
+        if formatter.string(from: currentDate) == formatter.string(from: date) {
+            print("Already saved backup today")
+            return
+        }
+        
+        UserDefaults.standard.set(String(currentDate.millisecondsSince1970), forKey: UD_lastbackup)
+        
         let data = JSON.exportJSON()
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(fileprefix + "\(Date().millisecondsSince1970)" + ".json")
@@ -41,6 +55,7 @@ extension JSON {
         }
     }
     
+    /// delete backup file  from name  ex: 1324242424.json
     static func deleteBackup(_ url: String) {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(url)
@@ -51,7 +66,7 @@ extension JSON {
             print("Could not delete file, probably read-only filesystem")
         }
     }
-    
+    /// import backup file
     static func importWithstringURL(_ url: String) {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(url)
@@ -62,6 +77,7 @@ extension JSON {
         }
     }
     
+    /// load backup file from name ex: 1324242424.json
     static func loadBackup(url: String) -> String {
         var str = ""
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -79,6 +95,7 @@ extension JSON {
         return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")
     }
     
+    /// parse Date from file name  ex: 1324242424.json
     static func parseFileName(_ url: String) -> String {
         let cleanedString = url.replacingOccurrences(of: fileprefix, with: "").replacingOccurrences(of: ".json", with: "")
         let timestamp = Int64(cleanedString) ?? 0

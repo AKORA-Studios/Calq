@@ -140,3 +140,4 @@
 "backupSheet.text"="There was an error laoding the data. In the settings tab you can view and maybe restore your data";
 "backupSheet.laod"="Load Backup";
 "backupSheet.delete"="Delete Backup";
+"backupSheet.section"="Backups (Swipe to delete)";

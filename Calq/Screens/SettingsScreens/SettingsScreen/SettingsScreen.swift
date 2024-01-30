@@ -165,7 +165,7 @@ struct SettingsScreen: View {
     }
     
     func backupCells() -> some View {
-        Section(header: Text("Backups")) {
+        Section(header: Text("backupSheet.section")) {
             ForEach(JSON.loadBackups(), id: \.self) { url in
                 NavigationLink {
                     ScrollView {
