@@ -22,19 +22,8 @@ struct SettingsScreen: View {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
                 
-                Section(header: Text("Backups")) {
-                    ForEach(JSON.loadBackups(), id: \.self) { url in
-                        NavigationLink {
-                            ScrollView {
-                                Text(JSON.loadBackup(url: url))
-                            }.padding()
-                        } label: {
-                            Text(JSON.parseFileName(url))
-                        }
-                    }
-                }
+                backupCells()
             }
-            
             .disabled(vm.isLoading)
             .navigationTitle("settingsTitle")
             .sheet(isPresented: $vm.presentDocumentPicker) {
@@ -171,6 +160,29 @@ struct SettingsScreen: View {
             
             SettingsIcon(color: .green, icon: "plus", text: "newSub") {
                 vm.newSubjectSheetPresented = true
+            }
+        }
+    }
+    
+    func backupCells() -> some View {
+        Section(header: Text("Backups")) {
+            ForEach(JSON.loadBackups(), id: \.self) { url in
+                NavigationLink {
+                    ScrollView {
+                        Button("backupSheet.laod") {
+                            JSON.importWithstringURL(url)
+                        }.buttonStyle(PrimaryStyle())
+                        Text(JSON.loadBackup(url: url))
+                    }.padding(.horizontal)
+                } label: {
+                    Text(JSON.parseFileName(url))
+                } .swipeActions {
+                    Button("backupSheet.delete") {
+                        JSON.deleteBackup(url)
+                        vm.backups = JSON.loadBackups()
+                    }
+                    .tint(.red)
+                }
             }
         }
     }

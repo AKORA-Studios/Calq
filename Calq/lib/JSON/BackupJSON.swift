@@ -33,11 +33,32 @@ extension JSON {
                 at: documentsURL,
                 includingPropertiesForKeys: nil
             )
-            return directoryContents.map { $0.lastPathComponent }
+            return directoryContents.map { $0.lastPathComponent }.sorted()
             
         } catch {
-            print("Failed to fetch bacups form device: ", error)
+            print("Failed to fetch backups form device: ", error)
             return []
+        }
+    }
+    
+    static func deleteBackup(_ url: String) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let filePath = documentsURL.appendingPathComponent(url)
+        
+        do {
+            try FileManager.default.removeItem(atPath: filePath.path)
+        } catch {
+            print("Could not delete file, probably read-only filesystem")
+        }
+    }
+    
+    static func importWithstringURL(_ url: String) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let filePath = documentsURL.appendingPathComponent(url)
+        do {
+            try importJSONfromDevice(filePath)
+        } catch {
+            print("Failed to import backups form device: ", error)
         }
     }
     
