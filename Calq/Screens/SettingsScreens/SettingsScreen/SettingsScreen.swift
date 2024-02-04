@@ -21,8 +21,9 @@ struct SettingsScreen: View {
                 Section {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
+                
+                backupCells()
             }
-            
             .disabled(vm.isLoading)
             .navigationTitle("settingsTitle")
             .sheet(isPresented: $vm.presentDocumentPicker) {
@@ -42,7 +43,7 @@ struct SettingsScreen: View {
         
             .sheet(isPresented: $vm.editSubjectPresented) {
                 NavigationView {
-		    if let selectedSubject = vm.selectedSubjet {
+                    if let selectedSubject = vm.selectedSubjet {
                         EditSubjectScreen(vm: EditSubjectViewModel(subject: selectedSubject), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
                     }
                 }
@@ -137,9 +138,9 @@ struct SettingsScreen: View {
                 }
             })
             
-           /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
-                vm.showFeedbackSheet = true
-            }*/
+            /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
+             vm.showFeedbackSheet = true
+             }*/
         }
     }
     
@@ -159,6 +160,31 @@ struct SettingsScreen: View {
             
             SettingsIcon(color: .green, icon: "plus", text: "newSub") {
                 vm.newSubjectSheetPresented = true
+            }
+        }
+    }
+    
+    func backupCells() -> some View {
+        Section(header: Text("backupSheet.section")) {
+            ForEach(JSON.loadBackups(), id: \.self) { url in
+                NavigationLink {
+                    ScrollView {
+                        Text(JSON.loadBackup(url: url))
+                    }.padding(.horizontal)
+                        .navigationTitle(JSON.parseFileName(url))
+                } label: {
+                    Text(JSON.parseFileName(url))
+                } .swipeActions {
+                    Button("backupSheet.delete") {
+                        JSON.deleteBackup(url)
+                        vm.backups = JSON.loadBackups()
+                    }
+                    .tint(.red)
+                    Button("backupSheet.load") {
+                        JSON.importWithstringURL(url)
+                        vm.reloadAndSave()
+                    }
+                }
             }
         }
     }

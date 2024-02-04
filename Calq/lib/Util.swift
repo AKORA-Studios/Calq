@@ -16,6 +16,8 @@ let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
 let UD_lastVersion = "lastAppVersion"
 let UD_lastAskedForeReview = "lastAskedForReview"
+let UD_repairData = "repairData"
+let UD_lastbackup = "lastBackup"
 
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"

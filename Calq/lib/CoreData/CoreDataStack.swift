@@ -1,4 +1,5 @@
 import CoreData
+import UIKit
 
 class CoreDataStack: ImplementsCoreDataStack {
     static let sharedContext = CoreDataStack().managedObjectContext
@@ -16,7 +17,7 @@ class CoreDataStack: ImplementsCoreDataStack {
     init() {}
     
     lazy private var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
+        var container = NSPersistentContainer(name: "Model")
         let storeURL = URL.storeURL()
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         storeDescription.shouldInferMappingModelAutomatically = false
@@ -30,34 +31,18 @@ class CoreDataStack: ImplementsCoreDataStack {
         
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
+
+                UserDefaults.standard.set(true, forKey: UD_repairData)
                 
-                if #available(iOS 15.0, *) {
-                    let ArchvieArr = NSMutableArray()
-                    ArchvieArr.add(NSKeyedArchiver.archivedData(withRootObject: container.managedObjectModel.entities))
-                    UserDefaults.standard.set(ArchvieArr, forKey: "savedArray")
+                do {
+                    try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
                     
-                    /*if let file = Bundle.main.path(forResource: "gradesBackup", ofType: "json") {
-                       // try data.write(to: container.managedObjectModel.entities)
-                    }*/
-                    
-                    do {
-                        let data = try NSKeyedArchiver.archivedData(withRootObject: "eeee", requiringSecureCoding: false)
-                        
-                    } catch {
-                        print("Couldn't write file")
-                    }
-                    
-                    do {
-                        try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, type: .sqlite)
-                    }  catch {
-                            fatalError("Unresolved error \(error)") // crash qwq
-                        }
-                } else {
-                    fatalError("Unresolved error #2 \(error)") // crash qwq
+                } catch {
+                    fatalError("Unresolved error \(error)") // crash qwq
                 }
                 
-                container.loadPersistentStores { (_, error) in
-                    fatalError("Unresolved error #3 \(error)") // crash qwq
+                container.loadPersistentStores { (_, error2) in
+                    fatalError("Unresolved error loading second time \(error2)") // crash qwq
                 }
             }
         })

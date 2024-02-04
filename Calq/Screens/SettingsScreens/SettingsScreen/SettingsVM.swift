@@ -42,6 +42,9 @@ class SettingsViewModel: ObservableObject {
     @Published var showFeedbackSheet = false
     @Published var feedbackError = false
     
+    // bakcup
+    @Published var backups: [String] = JSON.loadBackups()
+    
     func reloadAndSave() {
         saveCoreData()
         subjects = Util.getAllSubjects()
