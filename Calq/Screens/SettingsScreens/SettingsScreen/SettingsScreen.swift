@@ -43,7 +43,7 @@ struct SettingsScreen: View {
         
             .sheet(isPresented: $vm.editSubjectPresented) {
                 NavigationView {
-		    if let selectedSubject = vm.selectedSubjet {
+                    if let selectedSubject = vm.selectedSubjet {
                         EditSubjectScreen(vm: EditSubjectViewModel(subject: selectedSubject), editSubjectPresented: $vm.editSubjectPresented).onDisappear(perform: vm.reloadAndSave)
                     }
                 }
@@ -138,9 +138,9 @@ struct SettingsScreen: View {
                 }
             })
             
-           /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
-                vm.showFeedbackSheet = true
-            }*/
+            /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
+             vm.showFeedbackSheet = true
+             }*/
         }
     }
     
@@ -169,11 +169,9 @@ struct SettingsScreen: View {
             ForEach(JSON.loadBackups(), id: \.self) { url in
                 NavigationLink {
                     ScrollView {
-                        Button("backupSheet.laod") {
-                            JSON.importWithstringURL(url)
-                        }.buttonStyle(PrimaryStyle())
                         Text(JSON.loadBackup(url: url))
                     }.padding(.horizontal)
+                        .navigationTitle(JSON.parseFileName(url))
                 } label: {
                     Text(JSON.parseFileName(url))
                 } .swipeActions {
@@ -182,6 +180,10 @@ struct SettingsScreen: View {
                         vm.backups = JSON.loadBackups()
                     }
                     .tint(.red)
+                    Button("backupSheet.load") {
+                        JSON.importWithstringURL(url)
+                        vm.reloadAndSave()
+                    }
                 }
             }
         }

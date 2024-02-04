@@ -42,13 +42,13 @@ extension JSON {
     
     // MARK: Import JSON
     static func importJSONfromDevice(_ URL: URL) throws {
-        var json: Data
         var jsonDict: [String: Any] = [:]
         var version = 0
         
         if let json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8)) {
             do {
                 jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
+                Util.deleteSettings()
             } catch {
                 try consctructV0(json, jsonDict)
                 //  throw loadErrors.failedToLoadDictionary

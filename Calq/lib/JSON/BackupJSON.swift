@@ -74,6 +74,7 @@ extension JSON {
         } catch {
             print("Failed to import backups form device: ", error)
         }
+        saveCoreData()
     }
     
     /// load backup file from name ex: 1324242424.json
@@ -91,7 +92,7 @@ extension JSON {
             print("Failed laoding backup (\(url)) with: ", error)
         }
         
-        return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")
+        return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")//.replacingOccurrences(of: "\"", with: "")
     }
     
     /// parse Date from file name  ex: 1324242424.json
