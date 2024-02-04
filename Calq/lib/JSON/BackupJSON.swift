@@ -31,8 +31,7 @@ extension JSON {
         let filePath = documentsURL.appendingPathComponent(fileprefix + "\(Date().millisecondsSince1970)" + ".json")
         
         do {
-            let jsonData = try JSONEncoder().encode(data)
-            try jsonData.write(to: filePath)
+            try data.write(to: filePath, atomically: true, encoding: .utf8)
         } catch {
             print("Error writing to JSON backup file: \(error)")
         }
