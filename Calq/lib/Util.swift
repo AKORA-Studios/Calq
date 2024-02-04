@@ -50,7 +50,7 @@ struct Util {
     
     static func isStringInputInvalid(_ str: String) -> Bool {
         if str.isEmpty { return true }
-        guard let regex = try? NSRegularExpression(pattern: "^[a-zA-Z_ ]*$") else {
+        guard let regex = try? NSRegularExpression(pattern: "[^\\/\"']+") else {
             return true
         }
         let range = NSRange(location: 0, length: str.utf16.count)

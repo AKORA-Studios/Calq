@@ -25,7 +25,10 @@ final class CalqTests: XCTestCase {
     
     func testCheckString_ValidInput() {
         let strChecked = Util.isStringInputInvalid("abc")
+        let strChecked2 = Util.isStringInputInvalid("ÖÄÜ")
+        
         XCTAssertEqual(strChecked, false)
+        XCTAssertEqual(strChecked2, false)
     }
     
     func testCheckString_EmptyString() {
