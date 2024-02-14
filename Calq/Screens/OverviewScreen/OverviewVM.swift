@@ -26,7 +26,6 @@ class OverViewViewModel: ObservableObject {
     @Published var showGraphEdit = false
     
     func updateViews() {
-        print(UserDefaults.standard.object(forKey: "savedArray"))
         self.objectWillChange.send()
         subjects = Util.getAllSubjects()
         blockPoints = Double(generateBlockOne()) + Double(generateBlockTwo())

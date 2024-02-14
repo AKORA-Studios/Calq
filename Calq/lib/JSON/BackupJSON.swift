@@ -92,7 +92,7 @@ extension JSON {
             print("Failed laoding backup (\(url)) with: ", error)
         }
         
-        return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")//.replacingOccurrences(of: "\"", with: "")
+        return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")
     }
     
     /// parse Date from file name  ex: 1324242424.json

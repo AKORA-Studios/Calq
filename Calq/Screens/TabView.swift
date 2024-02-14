@@ -25,7 +25,7 @@ struct TabbarView: View {
                     WhatsNewScreen()
                         .environmentObject(vm)
                 }
-            }  else {
+            } else {
                 tabview()
                     .environmentObject(vm)
             }
