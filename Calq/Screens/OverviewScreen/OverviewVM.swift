@@ -45,6 +45,8 @@ class OverViewViewModel: ObservableObject {
         if shouldAskForReview() { // show appstore review popup
             askForReview()
         }
+        
+        JSON.saveBackup()
     }
     
     static func getBlockPoints() -> Double {

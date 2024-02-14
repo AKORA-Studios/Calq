@@ -16,6 +16,8 @@ let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
 let UD_lastVersion = "lastAppVersion"
 let UD_lastAskedForeReview = "lastAskedForReview"
+let UD_repairData = "repairData"
+let UD_lastbackup = "lastBackup"
 
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?.?.?"
@@ -48,7 +50,7 @@ struct Util {
     
     static func isStringInputInvalid(_ str: String) -> Bool {
         if str.isEmpty { return true }
-        guard let regex = try? NSRegularExpression(pattern: "^[a-zA-Z_ ]*$") else {
+        guard let regex = try? NSRegularExpression(pattern: "[^\\/\"']+") else {
             return true
         }
         let range = NSRange(location: 0, length: str.utf16.count)

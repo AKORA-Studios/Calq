@@ -78,6 +78,7 @@
 		F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */; };
 		F1A7724B2A179753004B8DCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1A7720E2A17947A004B8DCC /* Model.xcdatamodeld */; };
+		F1A77FFA2B66905700380E56 /* BackupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A77FF92B66905700380E56 /* BackupScreen.swift */; };
 		F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */; };
 		F1AAEF302A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
 		F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */; };
@@ -97,6 +98,10 @@
 		F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */; };
 		F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */; };
+		F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
+		F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
+		F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
+		F1BD65A72B6299A2003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
 		F1BE91C22A41DF2A00E85494 /* SubjectListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */; };
 		F1C04B5229BA376800DAC128 /* MediumBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5129BA376800DAC128 /* MediumBarChart.swift */; };
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
@@ -219,6 +224,7 @@
 		F1A772342A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSubject+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772452A179617004B8DCC /* GradeType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		F1A772462A179617004B8DCC /* GradeType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradeType+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		F1A77FF92B66905700380E56 /* BackupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupScreen.swift; sourceTree = "<group>"; };
 		F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Mapping Model 1.xcmappingmodel"; sourceTree = "<group>"; };
 		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamWidget.swift; sourceTree = "<group>"; };
@@ -235,6 +241,8 @@
 		F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v2.json; sourceTree = "<group>"; };
 		F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		F1BD65A22B6296DB003B8D34 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupJSON.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
@@ -365,6 +373,7 @@
 				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
 				F1A6BC432B543B47001BD833 /* Reachability.swift */,
 				F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */,
+				F1BD65A22B6296DB003B8D34 /* DateExtension.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -446,6 +455,7 @@
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
 				F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */,
 				F1BE91C32A41DF3200E85494 /* SubjectList */,
+				F1A77FF92B66905700380E56 /* BackupScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -527,6 +537,7 @@
 				F1D29E782A17B8AF0001D469 /* ExportJSON.swift */,
 				F1D29E7A2A17B8D90001D469 /* LoadJSON.swift */,
 				F11583032AA4AB3500122FBB /* Models.swift */,
+				F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -713,6 +724,7 @@
 				F1D29E7D2A17BCCB0001D469 /* LoadJSON.swift in Sources */,
 				F1A7724A2A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1AAEF312A1BDA01000CD044 /* LineChartBase.swift in Sources */,
+				F1BD65A72B6299A2003B8D34 /* DateExtension.swift in Sources */,
 				F1ABCA362AE1AEF000AC58C2 /* ExamWidget.swift in Sources */,
 				F1A7723C2A1795C6004B8DCC /* AppSettings+CoreDataProperties.swift in Sources */,
 				F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */,
@@ -730,6 +742,7 @@
 				F1A074AF2AB4A717005B4957 /* CircleChart.swift in Sources */,
 				F19359DE2B544523007F2F58 /* Util+Sorting.swift in Sources */,
 				F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */,
+				F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */,
 				F1CE4A9F2B0BD703002A37C4 /* LincechartWidget.swift in Sources */,
 				F1A7723E2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				DD4F979E27515CA800D3CC57 /* CalqWidget.swift in Sources */,
@@ -753,6 +766,7 @@
 				F1A772492A179617004B8DCC /* GradeType+CoreDataProperties.swift in Sources */,
 				F1B0B17029968D5100F3D1FD /* EditWeightScreen.swift in Sources */,
 				F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */,
+				F1A77FFA2B66905700380E56 /* BackupScreen.swift in Sources */,
 				F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */,
 				F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,
@@ -776,6 +790,7 @@
 				F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
+				F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
 				F17F4446298C4EC3000A3993 /* ExamScreen.swift in Sources */,
@@ -789,6 +804,7 @@
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
+				F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */,
 				F17F443F298C4DCE000A3993 /* OverviewScreen.swift in Sources */,
 				F17F4448298C4ED3000A3993 /* NewGradeScreen.swift in Sources */,
 				F19B10A529AF84C000B11C82 /* OverviewVM.swift in Sources */,
@@ -870,13 +886,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalqWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -900,13 +916,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = CalqWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalqWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalqWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -975,7 +991,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1032,7 +1048,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1050,9 +1066,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1076,9 +1093,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1103,7 +1121,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "akora-studios.CalqTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1123,7 +1141,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "akora-studios.CalqTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
