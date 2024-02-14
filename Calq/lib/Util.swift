@@ -193,7 +193,7 @@ struct Util {
     static func averageString(_ subject: UserSubject) -> String {
         var str: String = ""
         let tests = subject.getAllTests()
-        if tests.isEmpty { return str }
+        if tests.isEmpty { return "-- -- -- -- " }
         
         for i in 1...4 {
             let arr = tests.filter({$0.year == i})
