@@ -27,29 +27,30 @@ Abiturnoten Rchner für iOS 14 oder höher.
 <summary>Showcase Hell</summary>
 <br>
 
-![Kurse1](https://kiarar.moe/images/calq/overview1.png?width=310&height=670)
-![Kurse2](https://kiarar.moe/images/calq/overview2.png?width=310&height=670)
+<img src="https://kiarar.moe/images/calq/overview1.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/overview2.png" width="310" height="670">
 
-![Kursübersicht](https://kiarar.moe/images/calq/subjectList.png?width=309&height=669)
-![Neue Noten](https://kiarar.moe/images/calq/newgrade.png?width=309&height=669)
+<img src="https://kiarar.moe/images/calq/subjectList.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/newgrade.png" width="310" height="670">
 
-![Kursinfo](https://kiarar.moe/images/calq/subject.png?width=309&height=669)
-![Noten](https://kiarar.moe/images/calq/gradeList.png?width=309&height=669)
+<img src="https://kiarar.moe/images/calq/subject.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/gradeList.png" width="310" height="670">
 
-![Prüfungen](https://kiarar.moe/images/calq/exams.png?width=309&height=669)
-![Einstellung](https://kiarar.moe/images/calq/settings.png?width=309&height=669)
+<img src="https://kiarar.moe/images/calq/exams.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/settings.png" width="310" height="670">
 
-![GewichtungÄndern](https://kiarar.moe/images/calq/weight.png?width=310&height=670)
-![Notentabelle](https://kiarar.moe/images/calq/gradeTable.png?width=310&height=670)
+<img src="https://kiarar.moe/images/calq/weight.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/gradeTable.png" width="310" height="670">
 
 </details>
 
 <details closed>
 <summary>Showcase Widget</summary>
 <br>
+
+<img src="https://kiarar.moe/images/calq/widgetDark.png" width="310" height="670">
+<img src="https://kiarar.moe/images/calq/widget.png" width="310" height="670">
   
-![Dunkel](https://kiarar.moe/images/calq/widgetDark.png&width=420&height=909)
-![Hell](https://kiarar.moe/images/calq/widget.png&width=420&height=909)
 </details
 <br>
 
