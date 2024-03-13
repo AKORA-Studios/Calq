@@ -134,6 +134,17 @@ final class CalqTests: XCTestCase {
         XCTAssertEqual(lastYear, 4)
     }
     
+    // MARK: Subjects
+    func testDeleteSubject() {
+        JSON.loadDemoData()
+        
+        guard let subject = Util.getAllSubjects().randomElement() else {
+            return assertionFailure("No Subject")
+        }
+        Util.deleteSubject(subject)
+        XCTAssertTrue(Util.getAllSubjects().filter { $0.name == subject.name}.isEmpty)
+    }
+    
     // MARK: GradeTypes
     func testGetDefaultTypes() {
         let types = Util.getTypes()
@@ -151,11 +162,20 @@ final class CalqTests: XCTestCase {
         XCTAssertNotNil(Util.getTypes().filter {$0.name == "someName"})
     }
     
-   func testDeleteType() {
-        let gradeType = Util.getTypes().first
-        let id = gradeType!.id
-        Util.deleteType(type: id)
-        XCTAssertNil(Util.getTypes().filter {$0.id == id})
+    func testDeleteType() {
+        guard let gradeType = Util.getTypes().first else {
+            return assertionFailure("No type :c")
+        }
+        Util.deleteType(type: gradeType)
+        XCTAssertTrue(Util.getTypes().filter {$0.name == gradeType.name}.isEmpty)
+    }
+    
+    func testDeleteTypeById() {
+        guard let gradeType = Util.getTypes().first else {
+            return assertionFailure("No type :c")
+        }
+        Util.deleteType(type: gradeType.id)
+        XCTAssertTrue(Util.getTypes().filter {$0.name == gradeType.name}.isEmpty)
     }
     
     func testEditTypes() {
@@ -171,16 +191,14 @@ final class CalqTests: XCTestCase {
         XCTAssertGreaterThan(Util.getTypes().count, 1)
     }
     
-   /* func testGetTypes_WhenOnly1Exists() {
-        // TODO:
-      /*
+    func testGetTypes_WhenOnly1Exists() {
         Util.deleteSettings()
         JSON.loadDemoData()
-       */
+       
         let type = Util.getTypes().first!
         Util.deleteType(type: type)
         XCTAssertEqual(Util.getTypes().count, 2)
-    }*/
+    }
     
     func testgetTypeGrades() {
         XCTAssertNotNil(Util.getTypeGrades(0))
@@ -191,10 +209,6 @@ final class CalqTests: XCTestCase {
         let type = Util.getTypes().filter { $0.name == "Klausur"}.first!
         XCTAssertTrue(Util.isPrimaryType(type))
     }
-    
-    /*func testIsPrimaryType_GradeType() {
-        // TODO:
-    }*/
     
     // MARK: idk random
     func testGetSubjectAverage() {

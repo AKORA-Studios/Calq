@@ -222,8 +222,7 @@ struct Util {
     /// Returns the apps settings
     static func getSettings() -> AppSettings {
         do {
-            let fetchRequest = NSFetchRequest<AppSettings>(entityName: "AppSettings")
-            let requestResult = try getContext().fetch(fetchRequest)
+            let requestResult = try getContext().fetch(AppSettings.fetchRequest())
             
             if requestResult.isEmpty {
                 let item =  AppSettings(context: Util.getContext())
@@ -335,8 +334,20 @@ struct Util {
     }
     
     // MARK: Managed GradeTypes
+    static func addSecondType(_ firstID: Int16) {
+        let newType = GradeType(context: getContext())
+        newType.name = "new default type"
+        newType.weigth = Int16(0)
+        newType.id = getNewIDQwQ([firstID])
+        
+        let settings = Util.getSettings()
+        settings.addToGradetypes(newType)
+        saveCoreData()
+    }
+    
     static func addType(name: String, weigth: Int) {
         let existingTypes = getTypes().map { $0.id }
+        
         let newType = GradeType(context: getContext())
         newType.name = name
         newType.weigth = Int16(weigth)
@@ -371,13 +382,15 @@ struct Util {
     
     static func getTypes() -> [GradeType] {
         var types = getSettings().getAllGradeTypes()
-        if types.count >= 2 { return types }
         
+        if types.count >= 2 { return types }
+    
         if types.count == 1 {
-            addType(name: "default type", weigth: 0)
+            addSecondType(types[0].id)
         } else if types.isEmpty {
             setTypes(Util.getSettings())
         }
+        
         saveCoreData()
         types = getSettings().getAllGradeTypes()
         return types.sorted(by: { $0.weigth > $1.weigth})
