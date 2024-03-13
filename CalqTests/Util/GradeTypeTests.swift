@@ -15,6 +15,7 @@ final class GradeTypeTests: XCTestCase {
     }
     
     func testGetDefaultTypes() {
+        JSON.loadDemoData()
         let types = Util.getTypes()
         XCTAssertEqual(types.count, 2)
         XCTAssertEqual(types.filter {$0.name == "Test" || $0.name == "Klausur"}.count, 2)
@@ -47,6 +48,7 @@ final class GradeTypeTests: XCTestCase {
     }
     
     func testEditTypes() {
+        JSON.loadDemoData()
         // add type
         Util.addType(name: "someName", weigth: 0)
         let type = Util.getTypes().filter {$0.name == "someName"}[0]
@@ -76,5 +78,15 @@ final class GradeTypeTests: XCTestCase {
         JSON.loadDemoData()
         let type = Util.getTypes().filter { $0.name == "Klausur"}.first!
         XCTAssertTrue(Util.isPrimaryType(type))
+    }
+    
+    func testGetTypeGrades() {
+        JSON.loadDemoData()
+        guard let type = Util.getTypes().filter({ $0.name == "Klausur" }).first else {
+            return assertionFailure("No Gradetypes")
+        }
+        
+        let result = Util.getTypeGrades(type.id).map {"\($0.grade)"} .joined(separator: ", ")
+        XCTAssertEqual(result, "11, 10, 8, 12, 13, 11, 4, 13, 10, 10, 10, 10, 2, 9, 10, 12, 14, 8, 14, 11, 14, 14, 10, 15, 13, 13, 15, 7, 10, 9, 11")
     }
 }
