@@ -13,6 +13,7 @@ disabled_rules:
   - function_body_length
   - for_where
   - multiple_closures_with_trailing_closure
+  - class_delegate_protocol
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
@@ -21,4 +22,3 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - UserTest+CoreDataProperties.swift
   - GradeType+CoreDataProperties.swift
   - AppSettings+CoreDataProperties.swift
-  - class_delegate_protocol
