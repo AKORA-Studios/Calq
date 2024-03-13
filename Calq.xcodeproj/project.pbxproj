@@ -98,6 +98,7 @@
 		F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */; };
 		F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */; };
 		F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */; };
+		F1BD15712BA1A7FE00CE570D /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD15702BA1A7FE00CE570D /* NSManagedObjectExtension.swift */; };
 		F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
 		F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
 		F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
@@ -241,6 +242,7 @@
 		F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v2.json; sourceTree = "<group>"; };
 		F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		F1BD15702BA1A7FE00CE570D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		F1BD65A22B6296DB003B8D34 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupJSON.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				F1AAEF282A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel */,
 				DD4F97522751167000D3CC57 /* CoreDataStack.swift */,
 				F1A772072A17940B004B8DCC /* MigrationPolicy.swift */,
+				F1BD15702BA1A7FE00CE570D /* NSManagedObjectExtension.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */,
 				F1A772392A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
 				F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */,
+				F1BD15712BA1A7FE00CE570D /* NSManagedObjectExtension.swift in Sources */,
 				F14140482A476408007E4648 /* AppStoreRating.swift in Sources */,
 				F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */,
 				F1A772082A17940B004B8DCC /* MigrationPolicy.swift in Sources */,
