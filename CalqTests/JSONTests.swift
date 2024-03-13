@@ -60,4 +60,24 @@ final class JSONTests: XCTestCase {
         
         do { try JSON.importJSONfromDevice(ressourceURL) } catch { return  assertionFailure("Failed to load resource") }
     }
+    
+    func testCreateWidgetPreviewData() {
+        XCTAssertEqual(JSON.createWidgetPreviewData().count, 12)
+    }
+    
+    // MARK: Validation
+    func testCheckGrade() {
+        XCTAssertEqual(JSON.checkGrade(3), 3)
+        XCTAssertEqual(JSON.checkGrade(16), 0)
+    }
+    
+    func testCheckYear() {
+        XCTAssertEqual(JSON.checkYear(3), 3)
+        XCTAssertEqual(JSON.checkYear(5), 0)
+    }
+    
+    func testCheckType() {
+        XCTAssertEqual(JSON.checkType(3), 3)
+        XCTAssertEqual(JSON.checkType(7), 0)
+    }
 }
