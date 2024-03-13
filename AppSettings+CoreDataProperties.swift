@@ -34,6 +34,10 @@ extension AppSettings {
         return arr1+arr2
     }
     
+    public func getAllGradeTypes() -> [GradeType] {
+        return gradetypes?.allObjects as? [GradeType] ?? []
+    }
+    
     @objc(addGradetypesObject:)
     @NSManaged public func addToGradetypes(_ value: GradeType)
 

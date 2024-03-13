@@ -30,7 +30,7 @@ func saveCoreData() {
     let context = Util.getContext()
     if context.hasChanges {
         do {
-            try Util.getContext().save()
+            try context.save()
         } catch {
             print("Failed saving context with \(error)")
         }
@@ -370,8 +370,8 @@ struct Util {
     }
     
     static func getTypes() -> [GradeType] {
-        var types = getSettings().gradetypes!.allObjects as! [GradeType]
-        if types.count >= 2 { return types}
+        var types = getSettings().getAllGradeTypes()
+        if types.count >= 2 { return types }
         
         if types.count == 1 {
             addType(name: "default type", weigth: 0)
@@ -379,7 +379,7 @@ struct Util {
             setTypes(Util.getSettings())
         }
         saveCoreData()
-        types = getSettings().gradetypes!.allObjects as! [GradeType]
+        types = getSettings().getAllGradeTypes()
         return types.sorted(by: { $0.weigth > $1.weigth})
     }
     
