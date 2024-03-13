@@ -99,6 +99,9 @@
 		F1B8018B2AADD9EA003DBE47 /* exampleData_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */; };
 		F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */; };
 		F1BD15712BA1A7FE00CE570D /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD15702BA1A7FE00CE570D /* NSManagedObjectExtension.swift */; };
+		F1BD15752BA1B83800CE570D /* GradeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD15742BA1B83800CE570D /* GradeTypeTests.swift */; };
+		F1BD15772BA1B86600CE570D /* SubjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD15762BA1B86600CE570D /* SubjectTests.swift */; };
+		F1BD15792BA1B87300CE570D /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD15782BA1B87300CE570D /* CoreDataTests.swift */; };
 		F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A22B6296DB003B8D34 /* DateExtension.swift */; };
 		F1BD65A52B6296FB003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
 		F1BD65A62B629991003B8D34 /* BackupJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */; };
@@ -243,6 +246,9 @@
 		F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleData_v2.json; sourceTree = "<group>"; };
 		F1BC83E82AA78F17000D7CD2 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
 		F1BD15702BA1A7FE00CE570D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
+		F1BD15742BA1B83800CE570D /* GradeTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTypeTests.swift; sourceTree = "<group>"; };
+		F1BD15762BA1B86600CE570D /* SubjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTests.swift; sourceTree = "<group>"; };
+		F1BD15782BA1B87300CE570D /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		F1BD65A22B6296DB003B8D34 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		F1BD65A42B6296FB003B8D34 /* BackupJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupJSON.swift; sourceTree = "<group>"; };
 		F1BE91C12A41DF2A00E85494 /* SubjectListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVM.swift; sourceTree = "<group>"; };
@@ -484,6 +490,7 @@
 		F1B386452A1CFE6800F0C5AC /* CalqTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1BD15732BA1B81700CE570D /* Util */,
 				F1B52D162A323BCB0082DEBE /* MockCoreDataStack.swift */,
 				F1B386462A1CFE6800F0C5AC /* CalqTests.swift */,
 				F1B292DE2A3BC1DF00AF2ACD /* MockDataProvider.swift */,
@@ -503,6 +510,16 @@
 				F1A77FF92B66905700380E56 /* BackupScreen.swift */,
 			);
 			path = Backup;
+			sourceTree = "<group>";
+		};
+		F1BD15732BA1B81700CE570D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F1BD15742BA1B83800CE570D /* GradeTypeTests.swift */,
+				F1BD15762BA1B86600CE570D /* SubjectTests.swift */,
+				F1BD15782BA1B87300CE570D /* CoreDataTests.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F1BE91C32A41DF3200E85494 /* SubjectList */ = {
@@ -844,12 +861,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BD15772BA1B86600CE570D /* SubjectTests.swift in Sources */,
+				F1BD15752BA1B83800CE570D /* GradeTypeTests.swift in Sources */,
 				F1B52D172A323BCB0082DEBE /* MockCoreDataStack.swift in Sources */,
 				F1DD87EE2AA795910095C057 /* LineChartTests.swift in Sources */,
 				F1B292DF2A3BC1DF00AF2ACD /* MockDataProvider.swift in Sources */,
 				F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */,
 				F1DD87F02AA799700095C057 /* BarChartTests.swift in Sources */,
 				F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */,
+				F1BD15792BA1B87300CE570D /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
