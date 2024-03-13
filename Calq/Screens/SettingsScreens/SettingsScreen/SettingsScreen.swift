@@ -48,9 +48,6 @@ struct SettingsScreen: View {
                     }
                 }
             }
-            .sheet(isPresented: $vm.showFeedbackSheet, content: {
-                feeedbackSheet()
-            })
             .alert(isPresented: $vm.deleteAlert) {
                 settingsAlert()
             }
@@ -214,34 +211,6 @@ struct SettingsScreen: View {
                 vm.showDeleteSubAlert(sub)
             }.buttonStyle(MenuPickerDestructive())
         }
-    }
-    
-    func feeedbackSheet() -> some View {
-        VStack {
-            Text("settings.feedback.title")
-                .font(.headline)
-            
-            if vm.feedbackError {
-                Text("settings.feedback.error")
-                    .foregroundColor(.red)
-            }
-            
-            TextEditor(text: $vm.feedbackContent)
-                .multilineTextAlignment(.leading)
-                .background(Color.gray.opacity(0.3))
-                .cornerRadius(8)
-                .frame(minHeight: 50)
-                .shadow(radius: 5)
-            
-            Text("\(vm.feedbackContent.count)settings.feedback.textlimit")
-                .foregroundColor(vm.feedbackContent.count >= 1000 ? .red : .gray)
-                .font(.footnote)
-            
-            Button("settings.feedback.button", action: {
-                vm.sendFeedback()
-            }).disabled(vm.feedbackContent.count >= 1000)
-                .buttonStyle(PrimaryStyle())
-        }.padding()
     }
 }
 

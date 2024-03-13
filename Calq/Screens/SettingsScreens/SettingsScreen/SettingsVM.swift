@@ -99,14 +99,4 @@ class SettingsViewModel: ObservableObject {
         selectedSubjet = subject
         editSubjectPresented = true
     }
-    
-    func sendFeedback() {
-        if FeedbackService.sendFeedback(feedbackContent) {
-            showFeedbackSheet = false
-            feedbackContent = "ABC"
-            feedbackError = false
-        } else {
-            feedbackError = true
-        }
-    }
 }
