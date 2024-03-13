@@ -137,10 +137,6 @@ struct SettingsScreen: View {
                     UIApplication.shared.open(url)
                 }
             })
-            
-            /* SettingsIcon(color: Color(hexString: "c14f9f"), icon: "bubble.right.fill", text: "settings.feedback.title") {
-             vm.showFeedbackSheet = true
-             }*/
         }
     }
     

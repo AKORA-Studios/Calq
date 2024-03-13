@@ -53,7 +53,6 @@
 		F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */; };
 		F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */; };
 		F1A59A3E2A6347880039C95E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A59A3D2A6347880039C95E /* ToastView.swift */; };
-		F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC412B543A59001BD833 /* FeedbackService.swift */; };
 		F1A6BC442B543B47001BD833 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC432B543B47001BD833 /* Reachability.swift */; };
 		F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */; };
 		F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */; };
@@ -210,7 +209,6 @@
 		F1A53CFF2A196BFF0045C5B0 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		F1A53D022A196C220045C5B0 /* WeightViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewmodel.swift; sourceTree = "<group>"; };
 		F1A59A3D2A6347880039C95E /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		F1A6BC412B543A59001BD833 /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
 		F1A6BC432B543B47001BD833 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Sorting.swift"; sourceTree = "<group>"; };
 		F1A7102A2A4345BF00255F10 /* NewGradeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeVM.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				F14140472A476408007E4648 /* AppStoreRating.swift */,
 				F1A05C5E2A642670003734F2 /* StringExtension.swift */,
 				F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */,
-				F1A6BC412B543A59001BD833 /* FeedbackService.swift */,
 				F1A6BC432B543B47001BD833 /* Reachability.swift */,
 				F1A6BC452B543DBB001BD833 /* Util+Sorting.swift */,
 				F1BD65A22B6296DB003B8D34 /* DateExtension.swift */,
@@ -828,7 +825,6 @@
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
-				F1A6BC422B543A59001BD833 /* FeedbackService.swift in Sources */,
 				F1B0B16E29968D4700F3D1FD /* FirstLaunchScreen.swift in Sources */,
 				F192DD24299D10CB0077B905 /* NewSubject.swift in Sources */,
 				F1B2732429B5F53900E841F4 /* ButtonStyle.swift in Sources */,
