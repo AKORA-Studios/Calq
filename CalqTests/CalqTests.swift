@@ -151,13 +151,12 @@ final class CalqTests: XCTestCase {
         XCTAssertNotNil(Util.getTypes().filter {$0.name == "someName"})
     }
     
-    // TODO:
-   /* func testDeleteType() {
+   func testDeleteType() {
         let gradeType = Util.getTypes().first
         let id = gradeType!.id
         Util.deleteType(type: id)
         XCTAssertNil(Util.getTypes().filter {$0.id == id})
-    }*/
+    }
     
     func testEditTypes() {
         // add type

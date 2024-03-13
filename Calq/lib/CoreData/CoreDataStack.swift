@@ -42,7 +42,7 @@ class CoreDataStack: ImplementsCoreDataStack {
                 }
                 
                 container.loadPersistentStores { (_, error2) in
-                    fatalError("Unresolved error loading second time \(error2)") // crash qwq
+                    fatalError("Unresolved error loading second time \(String(describing: error2))") // crash qwq
                 }
             }
         })

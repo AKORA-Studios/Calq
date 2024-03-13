@@ -75,7 +75,6 @@ struct YAxisLines: View {
     }
 }
 
-
 struct LineChartBase_Preview: PreviewProvider {
     static var previews: some View {
         ZStack {

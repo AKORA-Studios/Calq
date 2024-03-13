@@ -21,3 +21,4 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - UserTest+CoreDataProperties.swift
   - GradeType+CoreDataProperties.swift
   - AppSettings+CoreDataProperties.swift
+  - class_delegate_protocol
