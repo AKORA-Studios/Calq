@@ -41,3 +41,9 @@ struct WhatsNewScreen: View {
         }.padding()
     }
 }
+
+struct WhatsNewScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        WhatsNewScreen().environmentObject(TabVM())
+    }
+}

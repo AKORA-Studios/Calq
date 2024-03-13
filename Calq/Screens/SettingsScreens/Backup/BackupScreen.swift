@@ -27,3 +27,9 @@ struct BackupScreen: View {
         }.padding()
     }
 }
+
+struct BackupScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        BackupScreen().environmentObject(TabVM())
+    }
+}

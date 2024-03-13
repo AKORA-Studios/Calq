@@ -136,7 +136,7 @@
 "sortGrade"="Grade";
 
 // Backup
-"backupSheet.title"="Failed to laod data";
+"backupSheet.title"="Failed to load data";
 "backupSheet.text"="There was an error laoding the data. In the settings tab you can view and maybe restore your data";
 "backupSheet.laod"="Load Backup";
 "backupSheet.delete"="Delete Backup";

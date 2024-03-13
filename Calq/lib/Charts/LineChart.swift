@@ -90,3 +90,10 @@ struct LineChart: View {
         return arr
     }
 }
+
+struct LineChart_Preview: PreviewProvider {
+    static var previews: some View {
+        LineChart(data: Binding.constant(LineChartEntry.example))
+            .padding()
+    }
+}

@@ -109,3 +109,10 @@ struct BarChartEntry: Hashable, Identifiable {
         return arr
     }
 }
+
+struct BarChart_Preview: PreviewProvider {
+    static var previews: some View {
+        BarChart(values: Binding.constant(BarChartEntry.example))
+            .padding()
+    }
+}

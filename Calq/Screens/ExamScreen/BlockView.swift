@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BlockView: View {
     @EnvironmentObject var vm: ExamViewModel
-    
+
     var body: some View {
         VStack {
             bars()
@@ -19,7 +19,7 @@ struct BlockView: View {
             vm.updateBlocks()
         }
     }
-    
+
     func bars() -> some View {
         GeometryReader { geo in
             HStack(alignment: .center) {
@@ -43,14 +43,14 @@ struct BlockView: View {
 struct RoundProgressBar: View {
     @Binding var value: Int
     @Binding var max: Int
-    
+
     var body: some View {
         GeometryReader { geo in
             let barProgressWidth =  (CGFloat(max != 0 ? (value * 100 / max) : 0) * geo.size.width)/100
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color(.systemGray4))
-                
+
                 HStack(spacing: 0) {
                     if barProgressWidth + 10 < geo.size.width && barProgressWidth - 5 > 0 {
                         Spacer().frame(width: barProgressWidth - 5)
@@ -59,7 +59,7 @@ struct RoundProgressBar: View {
                             .frame(width: 15, height: 8)
                     }
                 }
-                
+
                 RoundedRectangle(cornerRadius: 8)
                     .frame(width: barProgressWidth, height: 8)
                     .foregroundColor(.accentColor)

@@ -422,6 +422,7 @@
 		F1138E5229959627008E7FD8 /* SettingsScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F1BD156D2BA19D1100CE570D /* Backup */,
 				F1CCCB4C2B2A186D009B9434 /* EditSubject */,
 				F1A59A422A6354890039C95E /* SettingsScreen */,
 				F1A53D012A196C0E0045C5B0 /* EditWeight */,
@@ -455,7 +456,6 @@
 				F1B0B16D29968D4700F3D1FD /* FirstLaunchScreen.swift */,
 				F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */,
 				F1BE91C32A41DF3200E85494 /* SubjectList */,
-				F1A77FF92B66905700380E56 /* BackupScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -492,6 +492,14 @@
 				F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */,
 			);
 			path = CalqTests;
+			sourceTree = "<group>";
+		};
+		F1BD156D2BA19D1100CE570D /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				F1A77FF92B66905700380E56 /* BackupScreen.swift */,
+			);
+			path = Backup;
 			sourceTree = "<group>";
 		};
 		F1BE91C32A41DF3200E85494 /* SubjectList */ = {
