@@ -83,7 +83,7 @@ Or if you want to change smth yourself or have any suggestions how to solve an o
 Note: This project uses [SwiftLint](https://github.com/realm/SwiftLint) to ensure a readble code style.
 
 ### Project Structure
-
+- native SwiftUI, no other dependencies needed uwu
 - There are no other dependencies included in this project (so no cocoapods or swift packages)
 - Every View/Screen ideally should have its own viewmodel ([Reference Link](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel))
 - Every Screen Class (like Settings for example) with its Viewmodels and Subscreens should have its own Folder
@@ -96,7 +96,7 @@ Heres a brief overview of all screens and important things in the app, since the
 <img src = "./images/CalqOverViews.png"/>
 
 #### Data Structure
-Idk if you are really really interested heres an  ER-model of the CoreData stuff
+Idk if you are really really interested heres an  ER-Model of the CoreData stuff
 
 <img src = "https://kiarar.moe/images/calq/sql_calq.jpg" height="200" />
 
