@@ -23,7 +23,7 @@ Abiturnoten Rchner für iOS 14 oder höher.
 
 ## Showcase
 
-<details open>
+<details closed>
 <summary>Showcase App (Light Mode)</summary>
 <br>
 
@@ -94,6 +94,11 @@ Note: This project uses [SwiftLint](https://github.com/realm/SwiftLint) to ensur
   
 Heres a brief overview of all screens and important things in the app, since the naming is sometimes kinda confusing for gradeList for example.
 <img src = "./images/CalqOverViews.png"/>
+
+#### Data Structure
+Idk if you are really really interested heres an  ER-model of the CoreData stuff
+
+<img src = "https://kiarar.moe/images/calq/sql_calq.jpg" height="200" />
 
 ## Feature Requests
 
