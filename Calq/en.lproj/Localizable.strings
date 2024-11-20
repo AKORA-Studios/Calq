@@ -142,3 +142,4 @@
 "backupSheet.delete"="Delete Backup";
 "backupSheet.load"="Load Backup";
 "backupSheet.section"="Backups (Swipe to delete or load)";
+"backupNavTitle"="Backups";
