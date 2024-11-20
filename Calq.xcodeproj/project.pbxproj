@@ -25,6 +25,7 @@
 		F10D66B2298D57BD00993237 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B1298D57BD00993237 /* BlockView.swift */; };
 		F10D66B4298D66C200993237 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
 		F10DD4B42CEDDD4300315534 /* BackupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DD4B32CEDDD4300315534 /* BackupListView.swift */; };
+		F10DD4B62CEDE45300315534 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DD4B52CEDE45300315534 /* ExtensionTests.swift */; };
 		F10E74F32A41E6C1004C7863 /* WhatsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */; };
 		F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5029958878008E7FD8 /* DocumentPicker.swift */; };
 		F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1138E5429959677008E7FD8 /* GradeListScreen.swift */; };
@@ -185,6 +186,7 @@
 		F10D66B1298D57BD00993237 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		F10D66B3298D66C200993237 /* ExamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVM.swift; sourceTree = "<group>"; };
 		F10DD4B32CEDDD4300315534 /* BackupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupListView.swift; sourceTree = "<group>"; };
+		F10DD4B52CEDE45300315534 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		F10E74F22A41E6C1004C7863 /* WhatsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewScreen.swift; sourceTree = "<group>"; };
 		F1138E5029958878008E7FD8 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F1138E5429959677008E7FD8 /* GradeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListScreen.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				F1DD87ED2AA795910095C057 /* LineChartTests.swift */,
 				F1DD87EF2AA799700095C057 /* BarChartTests.swift */,
 				F1B8018A2AADD9EA003DBE47 /* exampleData_v2.json */,
+				F10DD4B52CEDE45300315534 /* ExtensionTests.swift */,
 			);
 			path = CalqTests;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				F1B292DF2A3BC1DF00AF2ACD /* MockDataProvider.swift in Sources */,
 				F1B386472A1CFE6800F0C5AC /* CalqTests.swift in Sources */,
 				F1DD87F02AA799700095C057 /* BarChartTests.swift in Sources */,
+				F10DD4B62CEDE45300315534 /* ExtensionTests.swift in Sources */,
 				F1BC83E92AA78F17000D7CD2 /* JSONTests.swift in Sources */,
 				F1BD15792BA1B87300CE570D /* CoreDataTests.swift in Sources */,
 			);
