@@ -4,7 +4,7 @@
 
 # Calq-iOS
 
-Abitur grades calculator for iOs 14 or higher.
+A-Levels grades calculator for iOs 15 or higher.
 Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/blob/master/README.md)
 
 ## Features
@@ -30,7 +30,6 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![OVerview1](https://media.discordapp.net/attachments/867129329363976212/1181642309104844810/simulator_screenshot_B6BA853F-6491-4845-9200-9009F0B4CD6C.png?ex=6581cd28&is=656f5828&hm=045cbfe5428f477e23daab9157afd518bdfc665b2d35429f1194acfb0a38f20b&=&format=webp&quality=lossless&?width=310&height=670)
 ![OVerview2](https://media.discordapp.net/attachments/867129329363976212/1181642330911031377/simulator_screenshot_63871C5F-A121-4611-AE6E-96041F30A27B.png?ex=6581cd2d&is=656f582d&hm=14ad2f0ce8c0defe2dc3a3d4b4c7e24f724473b81f93cfff22a4f36ced58d813&=&format=webp&quality=lossless&?width=310&height=670)
 
-
 ![subjectlist](https://media.discordapp.net/attachments/867129329363976212/1075423170997260389/Simulator_Screen_Shot_iPhone_14_Pro_2023_02_15_at_06_12_50.png?width=309&height=669)
 ![New grade](https://media.discordapp.net/attachments/867129329363976212/1181642373671944202/simulator_screenshot_AD3B891F-D12B-48F8-9C46-90AAEF432883.png?ex=6581cd37&is=656f5837&hm=89dfbd344f5e8c7bde91c0108d7257e24cb7927931400ea6c21280c5ca0d3fc0&=&format=webp&quality=lossless&width=310&height=670)
 
@@ -52,7 +51,6 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 ![Dark](https://media.discordapp.net/attachments/867129329363976212/1181642252322349127/simulator_screenshot_258061BB-4D4E-4102-8B4C-40A1F0A69AF5.png?ex=6581cd1a&is=656f581a&hm=6351cb115653b16e1839ca35e3045c0f30245033c18df4ff20f5d434ffe2394e&=&format=webp&quality=lossless&width=420&height=909)
 ![Light](https://media.discordapp.net/attachments/867129329363976212/1181642278633209966/simulator_screenshot_4EFA0332-3EBE-41F3-8C92-A8FAEEA1FE2E.png?ex=6581cd21&is=656f5821&hm=54f0461100a743a8d5ec8fc1a69f9f0c561b7f6679af6b6dfbda5c48d7090f3e&=&format=webp&quality=lossless&width=420&height=909)
 
-
 </details
 <br>
 
@@ -73,7 +71,7 @@ git clone https://github.com/AKORA-Studios/Calq
 
 ## Requirements
 
-- iOS 14.1+
+- iOS 15.0+
 - Xcode Xcode 12.1
 
 ## How to contribute
