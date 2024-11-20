@@ -47,12 +47,16 @@ struct ChangeWeightScreen: View {
                                 Util.setPrimaryType(type.id)
                                 vm.load()
                             }
-                            if let type = vm.typeArr[type] {
-                                Text("\(type)").frame(width: 20).font(.footnote)
-                            }
                             
-                            TextField("", text: vm.binding(for: type.id))
-                               
+                            if let typeWeight = vm.typeArr[type] {
+                                Text("\(typeWeight)")
+                                    .foregroundStyle(weightColor(typeWeight))
+                                    .frame(width: 25).font(.footnote)
+                                
+                                TextField("", text: vm.binding(for: type.id))
+                                    .foregroundStyle(weightColor(typeWeight))
+                            }
+
                             Spacer()
                      
                             Stepper("") {
@@ -61,7 +65,7 @@ struct ChangeWeightScreen: View {
                                 vm.decrement(type)
                             }
                             
-                        deleteView(type)
+                            deleteView(type)
                            
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
@@ -84,9 +88,10 @@ struct ChangeWeightScreen: View {
             Button("saveDataWeight") {
                 saveChanges()
             }.buttonStyle(PrimaryStyle())
+                .disabled(vm.summedUp != 100)
+                .padding()
             
-        }.padding()
-            .navigationTitle("EditWeigthTitle")
+        }.navigationTitle("EditWeigthTitle")
             .toolbar {Image(systemName: "xmark").onTapGesture {dismissSheet()}}
             .alert(isPresented: $vm.isAlertPresented) {
                 switch vm.alertActiontype {
@@ -106,6 +111,10 @@ struct ChangeWeightScreen: View {
             Image(systemName: "trash").foregroundColor(Color.red)
                 .onTapGesture {vm.selectedDelete = type.id; vm.removeWeigth()}
         }
+    }
+    
+    func weightColor(_ weight: Int16) -> Color {
+        return weight > 0 ? Color(uiColor: UIColor.label) : Color.red
     }
     
     func saveChanges() {

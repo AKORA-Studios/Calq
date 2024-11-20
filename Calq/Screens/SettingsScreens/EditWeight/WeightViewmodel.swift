@@ -47,14 +47,15 @@ class WeightViewmodel: ObservableObject {
     }
     
     func increment(_ type: GradeType) {
-        guard let _ =  typeArr[type] else { return }
-        typeArr[type]! += typeArr[type] == 100 ? 0 : 10
+        guard let aloha = typeArr[type] else { return }
+        typeArr[type]! += typeArr[type]! >= 100 ? 0 : 10
+    //    if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
     }
     
     func decrement(_ type: GradeType) {
-        guard let _ =  typeArr[type] else { return }
-        typeArr[type]! -= typeArr[type] == 100 ? 0 : 10
+        guard let _ = typeArr[type] else { return }
+        typeArr[type]! -= typeArr[type]! <= 0 ? 0 : 10
         if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
     }
@@ -96,7 +97,8 @@ class WeightViewmodel: ObservableObject {
     }
     
     func addWeigth() {
-        Util.addType(name: "something", weigth: 0)
+        let newName = "Type \(typeArr.count)"
+        Util.addType(name: newName, weigth: 0)
         load()
     }
     
