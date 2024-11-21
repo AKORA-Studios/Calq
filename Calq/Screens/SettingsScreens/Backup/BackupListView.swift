@@ -11,28 +11,17 @@ struct BackupListView: View {
     @ObservedObject var vm: SettingsViewModel
     
     var body: some View {
-            List {
-                ForEach(vm.backups, id: \.self) { url in
-                    NavigationLink {
-                        ScrollView {
-                             Text(formatJSON(JSON.loadBackup(url: url)))
-                        }.padding(.horizontal)
-                            .navigationTitle(JSON.parseFileName(url))
-                    } label: {
-                        Text(JSON.parseFileName(url))
-                    } .swipeActions {
-                        Button("backupSheet.delete") {
-                            JSON.deleteBackup(url)
-                            vm.backups = JSON.loadBackups()
-                        }
-                        .tint(.red)
-                        Button("backupSheet.load") {
-                            JSON.importWithstringURL(url)
-                            vm.reloadAndSave()
-                        }
-                    }
-                }  .navigationTitle("backupNavTitle")
-            }
+            VStack {
+                ScrollView {
+                    Text(formatJSON( vm.backup))
+                }
+                Button("backupSheet.load") {
+                    JSON.importWithstringURL()
+                    vm.reloadAndSave()
+                    
+                }.buttonStyle(PrimaryStyle())
+                    .navigationTitle("backupNavTitle")
+            }.padding(.horizontal)
     }
     
     func formatJSON(_ jsonString: String) -> String {

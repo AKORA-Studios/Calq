@@ -8,7 +8,7 @@
 import Foundation
 
 extension JSON {
-    private static var fileprefix = "calqBackup"
+    private static var fileprefix = "calqBackup.json"
     
     /// save backup every launch
     static func saveBackup() {
@@ -28,7 +28,7 @@ extension JSON {
         
         let data = JSON.exportJSON()
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let filePath = documentsURL.appendingPathComponent(fileprefix + "\(Date().millisecondsSince1970)" + ".json")
+        let filePath = documentsURL.appendingPathComponent(fileprefix)
         
         do {
             try data.write(to: filePath, atomically: true, encoding: .utf8)
@@ -37,36 +37,8 @@ extension JSON {
         }
     }
     
-    /// load backup names
-    static func loadBackups() -> [String] {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(
-                at: documentsURL,
-                includingPropertiesForKeys: nil
-            )
-            return directoryContents.map { $0.lastPathComponent }.sorted()
-            
-        } catch {
-            print("Failed to fetch backups form device: ", error)
-            return []
-        }
-    }
-    
-    /// delete backup file  from name  ex: 1324242424.json
-    static func deleteBackup(_ url: String) {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let filePath = documentsURL.appendingPathComponent(url)
-        
-        do {
-            try FileManager.default.removeItem(atPath: filePath.path)
-        } catch {
-            print("Could not delete file, probably read-only filesystem")
-        }
-    }
     /// import backup file
-    static func importWithstringURL(_ url: String) {
+    static func importWithstringURL(_ url: String = fileprefix) {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(url)
         do {
@@ -77,8 +49,8 @@ extension JSON {
         saveCoreData()
     }
     
-    /// load backup file from name ex: 1324242424.json
-    static func loadBackup(url: String) -> String {
+    /// load backup file from name 
+    static func loadBackup(url: String = fileprefix) -> String {
         var str = ""
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(url)
@@ -93,14 +65,5 @@ extension JSON {
         }
         
         return str.replacingOccurrences(of: "},", with: "},\n\n").replacingOccurrences(of: "}", with: "}\n")
-    }
-    
-    /// parse Date from file name  ex: 1324242424.json
-    static func parseFileName(_ url: String) -> String {
-        let cleanedString = url.replacingOccurrences(of: fileprefix, with: "").replacingOccurrences(of: ".json", with: "")
-        let timestamp = Int64(cleanedString) ?? 0
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy HH:mm"
-        return formatter.string(from: Date(milliseconds: timestamp))
     }
 }

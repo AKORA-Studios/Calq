@@ -22,7 +22,7 @@ struct SettingsScreen: View {
                     Text("Version: \(appVersion) Build: \(buildVersion)").foregroundColor(.gray)
                 }
                 
-                NavigationLink("Backups (\(vm.backups.count))") {
+                NavigationLink("Backup") {
                     BackupListView(vm: vm)
                 }
                 

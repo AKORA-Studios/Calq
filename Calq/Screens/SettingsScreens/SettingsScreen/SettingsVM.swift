@@ -43,7 +43,7 @@ class SettingsViewModel: ObservableObject {
     @Published var feedbackError = false
     
     // Backups
-    @Published var backups: [String] = JSON.loadBackups()
+    @Published var backup: String = JSON.loadBackup()
     
     func reloadAndSave() {
         saveCoreData()
