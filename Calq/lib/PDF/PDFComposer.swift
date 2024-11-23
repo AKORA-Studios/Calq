@@ -16,8 +16,6 @@ class PDFComposer {
     let pathToHTMLRowTemplate = Bundle.main.path(forResource: "template_row", ofType: "html")
     let pathToHTMLRowFinalsTemplate = Bundle.main.path(forResource: "template_row2", ofType: "html")
     
- 
-    
     func renderPDF(date: String, items: [PDFItem], sum: PDFSum, exams: [PDFExam]) -> String {
         self.date = date
         
@@ -51,7 +49,7 @@ class PDFComposer {
                     finals += itemHTMLContent
                 }
             }
-           
+            
             HTMLContent = HTMLContent.replacingOccurrences(of: "#EXAMITEMS#", with: finals)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#ITEMS#", with: allItems)
             return HTMLContent
