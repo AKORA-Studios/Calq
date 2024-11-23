@@ -21,8 +21,12 @@ class PDFPreviewViewModel: ObservableObject {
         
         for subject in subjects {
             let averageString = Util.getSubjectYearString(subject)
+            let numbers = averageString.prefix(4)
+            let average = numbers.reduce(0) { (accumulator, number) in
+                return accumulator + (Int(number) ?? 0)
+            }
             
-            data.append(PDFItem(title: subject.name, content: formatAverageString(averageString), grade: averageString[4]))
+            data.append(PDFItem(title: subject.name, content: formatAverageString(averageString), grade: averageString[4], average: String(average)))
         }
         
         let result = pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage, exams: getFinals(subjects))
@@ -72,6 +76,7 @@ struct PDFItem {
     var title: String
     var content: String
     var grade: String
+    var average: String
 }
 
 struct PDFSum {

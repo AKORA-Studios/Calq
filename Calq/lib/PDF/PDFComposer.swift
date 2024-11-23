@@ -35,6 +35,7 @@ class PDFComposer {
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: items[i].title)
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT#", with: items[i].content)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#AVERAGE#", with: items[i].average)
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#GRADE#", with: items[i].grade)
                 allItems += itemHTMLContent
             }
@@ -49,8 +50,6 @@ class PDFComposer {
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#POINTS#", with: exams[i].points)
                     finals += itemHTMLContent
                 }
-            } else {
-                // TODO: hide finals table
             }
            
             HTMLContent = HTMLContent.replacingOccurrences(of: "#EXAMITEMS#", with: finals)
