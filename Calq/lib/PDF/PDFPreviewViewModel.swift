@@ -1,23 +1,17 @@
 //
-//  PDFPreview.swift
+//  PDFPreviewViewModel.swift
 //  Calq
 //
 //  Created by Kiara on 23.11.24.
 //
-
 import SwiftUI
 
-struct PDFPreview: View {
+class PDFPreviewViewModel: ObservableObject {
     var pdfComposer = PDFComposer()
+    @Published var htmlContent: String = ""
     
-    var body: some View {
-        VStack {
-            Text("PDFExport")
-            HTMLStringView(htmlContent: generatePDF())
-        }.padding(.vertical)
-        .onAppear {
-          //  generatePDF()
-        }
+    init() {
+        self.htmlContent = generatePDF()
     }
     
     func generatePDF() -> String {
@@ -29,8 +23,10 @@ struct PDFPreview: View {
             
             data.append(PDFItem(title: subject.name, content: formatAverageString(averageString), grade: averageString[4]))
         }
-                    
-        return pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage)
+        
+        let result = pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage)
+        htmlContent = result
+        return result
     }
     
     func formatAverageString(_ averageString: [String]) -> String {
@@ -40,8 +36,23 @@ struct PDFPreview: View {
     func formatDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-
+        
         return dateFormatter.string(from: Date())
+    }
+    
+    func writePDF() -> URL {
+        let data = pdfComposer.exportHTMLToPDF(htmlContent)
+        
+        let DocumentDirURL = try! FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("exportData").appendingPathExtension("pdf")
+        
+        do {
+            try data.write(to: DocumentDirURL)
+        } catch let error as NSError {
+            print("Failed writing to URL: \(DocumentDirURL), Error: " + error.localizedDescription)
+        }
+        return DocumentDirURL
+        
     }
 }
 

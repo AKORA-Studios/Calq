@@ -5,7 +5,7 @@
 //  Created by Kiara on 23.11.24.
 //
 
-import Foundation
+import UIKit
 
 class PDFComposer {
     var date = ""
@@ -23,7 +23,7 @@ class PDFComposer {
         self.date = date
         
         do {
-            var HTMLContent = try String(contentsOfFile: pathToHTMLTemplate!) //TODO: guard pls
+            var HTMLContent = try String(contentsOfFile: pathToHTMLTemplate!)
             
             HTMLContent = HTMLContent.replacingOccurrences(of: "#DATE#", with: date)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE#", with: sum.toString())
@@ -31,7 +31,7 @@ class PDFComposer {
             // table
             var allItems = ""
             for i in 0..<items.count {
-                var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowTemplate!) //TODO: guard pls
+                var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowTemplate!)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: items[i].title)
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT#", with: items[i].content)
@@ -46,5 +46,21 @@ class PDFComposer {
             print("Couldnt create PDF")
         }
         return ""
+    }
+    
+    func exportHTMLToPDF(_ content: String) -> Data {
+        let renderer = PrintPageRenderer()
+        let formatter = UIMarkupTextPrintFormatter(markupText: content)
+        renderer.addPrintFormatter(formatter, startingAtPageAt: 0)
+        return drawPDFUsingPrintPageRenderer(renderer) as Data
+    }
+    
+    func drawPDFUsingPrintPageRenderer(_ renderer: UIPrintPageRenderer) -> NSData {
+        let data = NSMutableData()
+        UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
+        UIGraphicsBeginPDFPage()
+        renderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
+        UIGraphicsEndPDFContext()
+        return data
     }
 }

@@ -75,6 +75,7 @@
 "settings.feedback.button"="Send Feedback";
 "%lldsettings.feedback.textlimit"="Characters count: %lld/1000";
 "settings.feedback.error"="Something went wrong :c";
+"settingsExportPDF"= "export to PDF";
 
 "editSubjectNameInvalid"="Name invalid";
 "editSubjecNameInvalidChars"="Name should not include special characters or be empty";

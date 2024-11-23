@@ -42,9 +42,6 @@ struct SettingsScreen: View {
                     NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
             }
-            .sheet(isPresented: $vm.showPDFSheet, content: {
-                PDFPreview()
-            })
         }.navigationViewStyle(StackNavigationViewStyle())
         
             .sheet(isPresented: $vm.editSubjectPresented) {
@@ -141,8 +138,9 @@ struct SettingsScreen: View {
                 }
             })
             
-            SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "PDF", completation: {
-                vm.showPDFSheet = true
+            SettingsIcon(color: Color.purple, icon: "doc.text.fill", text: "settingsExportPDF", completation: {
+                let url = PDFPreviewViewModel().writePDF()
+                showShareSheet(url: url)
             })
         }
     }
