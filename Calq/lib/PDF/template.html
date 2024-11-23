@@ -10,7 +10,6 @@
                 margin: auto;
                 padding: 30px;
                 border: 1px solid #eee;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
                 font-size: 16px;
                 line-height: 24px;
                 font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -29,6 +28,10 @@
             }
 
             .invoice-box table tr td:nth-child(2) {
+                text-align: center;
+            }
+
+            .invoice-box table tr td:nth-child(3) {
                 text-align: right;
             }
 
@@ -65,7 +68,6 @@
             }
 
             .invoice-box table tr.total td:nth-child(2) {
-                border-top: 2px solid #eee;
                 font-weight: bold;
             }
 
@@ -103,14 +105,14 @@
         <div class="invoice-box">
             <table cellpadding="0" cellspacing="0">
                 <tr class="top">
-                    <td colspan="2">
+                    <td colspan="3">
                         <table>
                             <tr>
-                                <td class="title">
-                                    <h3>Calq Export</h3>
-                                </td>
-
                                 <td>
+                                    <h2>Calq Export</h2>
+                                </td>
+                                <td></td>
+                                <td style="text-align: right;">
                                     PDF Export<br />
                                     Created: #DATE#<br />
                                 </td>
@@ -122,7 +124,7 @@
                 <tr class="heading">
                     <td>Subject</td>
                     <td>Halfyears</td>
-                    <td>Grade</td>
+                    <td>Points Sum</td>
                 </tr>
 
                 #ITEMS#
@@ -130,8 +132,28 @@
                 <tr class="total">
                     <td></td>
                     <td></td>
-                    <td>Grade: #FINAL_GRADE#</td>
+                    <td>Subject Grade:   #FINAL_GRADE#</td>
                 </tr>
+
+                <tr class="total">
+                    <td></td>
+                    <td></td>
+                    <td>Final Grade: #FINAL_GRADE2#</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="invoice-box">
+            <table cellpadding="0" cellspacing="0">
+
+                <tr class="heading">
+                    <td>Subject</td>
+                    <td>Number</td>
+                    <td>Points</td>
+                </tr>
+
+                #EXAMITEMS#
             </table>
         </div>
     </body>

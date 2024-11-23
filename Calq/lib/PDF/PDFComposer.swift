@@ -14,12 +14,11 @@ class PDFComposer {
     // Templates
     let pathToHTMLTemplate = Bundle.main.path(forResource: "template", ofType: "html")
     let pathToHTMLRowTemplate = Bundle.main.path(forResource: "template_row", ofType: "html")
+    let pathToHTMLRowFinalsTemplate = Bundle.main.path(forResource: "template_row2", ofType: "html")
     
-    init() {
-        
-    }
+ 
     
-    func renderPDF(date: String, items: [PDFItem], sum: PDFSum) -> String {
+    func renderPDF(date: String, items: [PDFItem], sum: PDFSum, exams: [PDFExam]) -> String {
         self.date = date
         
         do {
@@ -27,6 +26,7 @@ class PDFComposer {
             
             HTMLContent = HTMLContent.replacingOccurrences(of: "#DATE#", with: date)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE#", with: sum.toString())
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE2#", with: sum.finalgrade)
             
             // table
             var allItems = ""
@@ -39,6 +39,21 @@ class PDFComposer {
                 allItems += itemHTMLContent
             }
             
+            // finals
+            var finals = ""
+            if !exams.isEmpty {
+                for i in 0..<exams.count {
+                    var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowFinalsTemplate!)
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: exams[i].title)
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TYPE#", with: String(exams[i].num))
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#POINTS#", with: exams[i].points)
+                    finals += itemHTMLContent
+                }
+            } else {
+                // TODO: hide finals table
+            }
+           
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#EXAMITEMS#", with: finals)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#ITEMS#", with: allItems)
             return HTMLContent
             

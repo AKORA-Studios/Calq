@@ -3,13 +3,25 @@
     
     <head>
         <meta charset="utf-8" />
+        <style>
+            .container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
     </head>
     
     <body>
 
         <tr class="item">
             <td>#TITLE#</td>
-            <td>#CONTENT#</td>
+            <td>
+                <div class="container">
+                    #CONTENT#
+                </div>
+            </td>
             <td>#GRADE#</td>
         </tr>
     

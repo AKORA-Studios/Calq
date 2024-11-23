@@ -16,21 +16,33 @@ class PDFPreviewViewModel: ObservableObject {
     
     func generatePDF() -> String {
         var data: [PDFItem] = []
+        let subjects = Util.getAllSubjects()
         let sumAverage =  PDFSum(subjectsgrade: String(Util.generalAverage() / 15), subjectpoints: String(format: "%.2f", Util.generalAverage()), finalgrade: String(Util.generalAverage()))
         
-        for subject in Util.getAllSubjects() {
+        for subject in subjects {
             let averageString = Util.getSubjectYearString(subject)
             
             data.append(PDFItem(title: subject.name, content: formatAverageString(averageString), grade: averageString[4]))
         }
         
-        let result = pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage)
+        let result = pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage, exams: getFinals(subjects))
         htmlContent = result
         return result
     }
     
+    func getFinals(_ subjects: [UserSubject]) -> [PDFExam] {
+        var arr: [PDFExam] = []
+        for index in 1...5 {
+            if let exam = subjects.filter({$0.examtype == Int16(index)}).first {
+                var item = PDFExam(title: exam.name, primary: (index == 1 || index == 2), points: String(exam.exampoints), num: index)
+                arr.append(item)
+            }
+        }
+        return arr
+    }
+    
     func formatAverageString(_ averageString: [String]) -> String {
-        return averageString[0] + "|" + averageString[1] + "|" + averageString[2] + "|" + averageString[3]
+        return averageString[0] + "\n" + averageString[1] + "\n" + averageString[2] + "\n" + averageString[3]
     }
     
     func formatDate() -> String {
@@ -68,6 +80,13 @@ struct PDFSum {
     var finalgrade: String
     
     func toString() -> String {
-        return subjectsgrade + " (" + subjectpoints + ")" + " -> " + finalgrade
+        return subjectsgrade + " (" + subjectpoints + ")"
     }
+}
+
+struct PDFExam {
+    var title: String
+    var primary: Bool
+    var points: String
+    var num: Int
 }
