@@ -45,6 +45,9 @@ class SettingsViewModel: ObservableObject {
     // Backups
     @Published var backup: String = JSON.loadBackup()
     
+    // PDF
+    @Published var showPDFSheet = false
+    
     func reloadAndSave() {
         saveCoreData()
         subjects = Util.getAllSubjects()

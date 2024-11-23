@@ -42,6 +42,9 @@ struct SettingsScreen: View {
                     NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
             }
+            .sheet(isPresented: $vm.showPDFSheet, content: {
+                PDFPreview()
+            })
         }.navigationViewStyle(StackNavigationViewStyle())
         
             .sheet(isPresented: $vm.editSubjectPresented) {
@@ -136,6 +139,10 @@ struct SettingsScreen: View {
                 if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
                     UIApplication.shared.open(url)
                 }
+            })
+            
+            SettingsIcon(color: Color.purple, icon: "info.circle.fill", text: "PDF", completation: {
+                vm.showPDFSheet = true
             })
         }
     }
