@@ -19,22 +19,23 @@ class PDFComposer {
         
     }
     
-    func renderPDF(date: String, items: [String], finalGrade: String) -> String {
+    func renderPDF(date: String, items: [PDFItem], sum: PDFSum) -> String {
         self.date = date
         
         do {
             var HTMLContent = try String(contentsOfFile: pathToHTMLTemplate!) //TODO: guard pls
             
             HTMLContent = HTMLContent.replacingOccurrences(of: "#DATE#", with: date)
-            HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE#", with: finalGrade)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE#", with: sum.toString())
             
             // table
             var allItems = ""
             for i in 0..<items.count {
                 var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowTemplate!) //TODO: guard pls
                 
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: items[i])
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#GRADE#", with: items[i])
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: items[i].title)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT#", with: items[i].content)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#GRADE#", with: items[i].grade)
                 allItems += itemHTMLContent
             }
             

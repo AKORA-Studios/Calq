@@ -204,6 +204,28 @@ struct Util {
         return str
     }
     
+    /// Generates a convient String that shows the grades of the subject.
+    static func getSubjectYearString(_ subject: UserSubject) -> [String] {
+        var str = ["-", "-", "-", "-", "#"]
+        let tests = Util.getAllSubjectTests(subject)
+        if tests.isEmpty { return str }
+        
+        var sum = 0
+        
+        for i in 0...3 {
+            let arr = tests.filter({$0.year == i+1})
+            if arr.count == 0 { continue }
+            
+            if !Util.checkinactiveYears(Util.getinactiveYears(subject), i+1) { continue }
+            let points = Int(round(Util.testAverage(arr)))
+            
+            str[i] = String(points)
+            sum += points
+        }
+        str[4] = String(subject.lk ? sum*2 : sum)
+        return str
+    }
+    
     // MARK: Get Settings
     /// Returns fresh new settings and deletes everything
     @discardableResult static func deleteSettings() -> AppSettings {
