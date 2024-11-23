@@ -92,6 +92,7 @@
 		F1AF8F912CF1FB0C00D9A60B /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F902CF1FB0C00D9A60B /* PrintPageRenderer.swift */; };
 		F1AF8F932CF1FEF700D9A60B /* PDFPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F922CF1FEF700D9A60B /* PDFPreviewViewModel.swift */; };
 		F1AF8F952CF20F4300D9A60B /* template_row2.html in Resources */ = {isa = PBXBuildFile; fileRef = F1AF8F942CF20F4300D9A60B /* template_row2.html */; };
+		F1AF8F972CF2112500D9A60B /* LicenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F962CF2112500D9A60B /* LicenceView.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
 		F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */; };
@@ -247,6 +248,7 @@
 		F1AF8F902CF1FB0C00D9A60B /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
 		F1AF8F922CF1FEF700D9A60B /* PDFPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewModel.swift; sourceTree = "<group>"; };
 		F1AF8F942CF20F4300D9A60B /* template_row2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template_row2.html; sourceTree = "<group>"; };
+		F1AF8F962CF2112500D9A60B /* LicenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenceView.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
 		F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableOverviewScreen.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				F1A53D012A196C0E0045C5B0 /* EditWeight */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F192DD23299D10CB0077B905 /* NewSubject.swift */,
+				F1AF8F962CF2112500D9A60B /* LicenceView.swift */,
 			);
 			path = SettingsScreens;
 			sourceTree = "<group>";
@@ -860,6 +863,7 @@
 				F1A7723D2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
+				F1AF8F972CF2112500D9A60B /* LicenceView.swift in Sources */,
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,

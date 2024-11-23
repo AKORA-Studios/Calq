@@ -26,6 +26,10 @@ struct SettingsScreen: View {
                     BackupListView(vm: vm)
                 }
                 
+                NavigationLink("settingsLicence") {
+                    LicenceView()
+                }
+                
             }
             .disabled(vm.isLoading)
             .navigationTitle("settingsTitle")
