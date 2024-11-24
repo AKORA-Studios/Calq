@@ -74,8 +74,10 @@ class PDFComposer {
     func drawPDFUsingPrintPageRenderer(_ renderer: UIPrintPageRenderer) -> NSData {
         let data = NSMutableData()
         UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
-        UIGraphicsBeginPDFPage()
-        renderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
+        for i in 0..<renderer.numberOfPages {
+            UIGraphicsBeginPDFPage()
+            renderer.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
         UIGraphicsEndPDFContext()
         return data
     }
