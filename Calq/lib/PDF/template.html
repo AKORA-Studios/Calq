@@ -29,8 +29,6 @@
             border-bottom: 1px solid #eee;
         }
 
-
-
         .invoice-box table tr td:nth-child(2) {
             text-align: center;
         }
@@ -44,7 +42,7 @@
         }
 
         .invoice-box table tr td:nth-child(7) {
-            text-align: right;
+            text-align: center;
         }
 
         .invoice-box table tr.top table td {
@@ -96,20 +94,6 @@
                 text-align: center;
             }
         }
-
-        /** RTL **/
-        .invoice-box.rtl {
-            direction: rtl;
-            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        }
-
-        .invoice-box.rtl table {
-            text-align: right;
-        }
-
-        .invoice-box.rtl table tr td:nth-child(2) {
-            text-align: left;
-        }
     </style>
 </head>
 
@@ -124,7 +108,7 @@
                 <th scope="col" colspan="4"></th>
                 <th scope="col"></th>
 
-                <th style="text-align: right;">
+                <th>
                     PDF Export<br />
                     Created: #DATE#<br />
                 </th>
@@ -134,22 +118,10 @@
             <tr class="heading">
                 <td>Subject</td>
                 <td scope="col" colspan="4">Halfyears</td>
-                <td>⌀</td>
-                <td style="text-align: right;">Σ</td>
+                <td style="width: 100px;">⌀</td>
+                <td style="text-align: center;">Σ</td>
             </tr>
 
-
-            <!--
-            <tr>
-                <td>name</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>33</td>
-                <td>10</td>
-            </tr>
-  -->
             #ITEMS#
 
             <tr class="total" style="border: none;">
@@ -159,7 +131,7 @@
                 <td style="border: none;"></td>
                 <td style="border: none;"></td>
                 <td style="border: none;"></td>
-                <td>Subject Grade: #FINAL_GRADE#</td>
+                <td style="text-align: right;">Subject Grade: #FINAL_GRADE#</td>
             </tr>
 
         </table>
@@ -179,7 +151,7 @@
             <tr class="total" style="border: none;">
                 <td style="border: none;"></td>
                 <td style="border: none;"></td>
-                <td>Final Grade: #FINAL_GRADE2#</td>
+                <td style="text-align: right;">Final Grade: #FINAL_GRADE2#</td>
             </tr>
             
         </table>
