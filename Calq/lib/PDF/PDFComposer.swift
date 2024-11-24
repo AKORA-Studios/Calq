@@ -32,7 +32,11 @@ class PDFComposer {
                 var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowTemplate!)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: items[i].title)
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT#", with: items[i].content)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT1#", with: items[i].content[0])
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT2#", with: items[i].content[1])
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT3#", with: items[i].content[2])
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CONTENT4#", with: items[i].content[3])
+                
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#AVERAGE#", with: items[i].average)
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#GRADE#", with: items[i].grade)
                 allItems += itemHTMLContent
