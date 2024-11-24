@@ -1,165 +1,189 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>A simple, clean, and responsive HTML invoice template</title>
 
-        <style>
-            .invoice-box {
-                max-width: 800px;
-                margin: auto;
-                padding: 30px;
-                border: 1px solid #eee;
-                font-size: 16px;
-                line-height: 24px;
-                font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-                color: #555;
-            }
+<head>
+    <meta charset="utf-8" />
+    <title>A simple, clean, and responsive HTML invoice template</title>
 
-            .invoice-box table {
-                width: 100%;
-                line-height: inherit;
-                text-align: left;
-            }
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
 
-            .invoice-box table td {
-                padding: 5px;
-                vertical-align: top;
-            }
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
 
-            .invoice-box table tr td:nth-child(2) {
-                text-align: center;
-            }
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+        }
 
-            .invoice-box table tr td:nth-child(3) {
-                text-align: center;
-            }
 
-            .invoice-box table tr td:nth-child(4) {
-                text-align: right;
-            }
 
+        .invoice-box table tr td:nth-child(2) {
+            text-align: center;
+        }
+
+        .invoice-box table tr td:nth-child(3) {
+            text-align: center;
+        }
+
+        .invoice-box table tr td:nth-child(6) {
+            text-align: center;
+        }
+
+        .invoice-box table tr td:nth-child(7) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
             .invoice-box table tr.top table td {
-                padding-bottom: 20px;
-            }
-
-            .invoice-box table tr.top table td.title {
-                font-size: 45px;
-                line-height: 45px;
-                color: #333;
+                width: 100%;
+                display: block;
+                text-align: center;
             }
 
             .invoice-box table tr.information table td {
-                padding-bottom: 40px;
+                width: 100%;
+                display: block;
+                text-align: center;
             }
+        }
 
-            .invoice-box table tr.heading td {
-                background: #eee;
-                border-bottom: 1px solid #ddd;
-                font-weight: bold;
-            }
+        /** RTL **/
+        .invoice-box.rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
 
-            .invoice-box table tr.details td {
-                padding-bottom: 20px;
-            }
+        .invoice-box.rtl table {
+            text-align: right;
+        }
 
-            .invoice-box table tr.item td {
-                border-bottom: 1px solid #eee;
-            }
+        .invoice-box.rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+    </style>
+</head>
 
-            .invoice-box table tr.item.last td {
-                border-bottom: none;
-            }
+<body>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
 
-            .invoice-box table tr.total td:nth-child(2) {
-                font-weight: bold;
-            }
+            <tr class="top">
+                <th scope="col">
+                    <h2>Calq Export</h2>
+                </th>
+                <th scope="col" colspan="4"></th>
+                <th scope="col"></th>
 
-            @media only screen and (max-width: 600px) {
-                .invoice-box table tr.top table td {
-                    width: 100%;
-                    display: block;
-                    text-align: center;
-                }
+                <th style="text-align: right;">
+                    PDF Export<br />
+                    Created: #DATE#<br />
+                </th>
+            <tr>
 
-                .invoice-box table tr.information table td {
-                    width: 100%;
-                    display: block;
-                    text-align: center;
-                }
-            }
 
-            /** RTL **/
-            .invoice-box.rtl {
-                direction: rtl;
-                font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            }
+            <tr class="heading">
+                <td>Subject</td>
+                <td scope="col" colspan="4">Halfyears</td>
+                <td>Average</td>
+                <td style="text-align: right;">Points Sum</td>
+            </tr>
 
-            .invoice-box.rtl table {
-                text-align: right;
-            }
 
-            .invoice-box.rtl table tr td:nth-child(2) {
-                text-align: left;
-            }
-        </style>
-    </head>
+            <!--
+            <tr>
+                <td>name</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>33</td>
+                <td>10</td>
+            </tr>
+  -->
+            #ITEMS#
 
-    <body>
-        <div class="invoice-box">
-            <table cellpadding="0" cellspacing="0">
-                <tr class="top">
-                    <td colspan="4">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h2>Calq Export</h2>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td style="text-align: right;">
-                                    PDF Export<br />
-                                    Created: #DATE#<br />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+            <tr class="total" style="border: none;">
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td>Subject Grade: #FINAL_GRADE#</td>
+            </tr>
 
-                <tr class="heading">
-                    <td>Subject</td>
-                    <td>Halfyears</td>
-                    <td>Average</td>
-                    <td>Points Sum</td>
-                </tr>
+            <tr class="total" style="border: none;">
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td>Final Grade: #FINAL_GRADE2#</td>
+            </tr>
+        </table>
 
-                #ITEMS#
+        <table cellpadding="0" cellspacing="0">
 
-                <tr class="total">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Subject Grade:   #FINAL_GRADE#</td>
-                </tr>
+            <tr class="heading">
+                <td>Subject</td>
+                <td>Number</td>
+                <td>Points</td>
+            </tr>
 
-                <tr class="total">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Final Grade: #FINAL_GRADE2#</td>
-                </tr>
-            </table>
-  
-            <table cellpadding="0" cellspacing="0">
+            #EXAMITEMS#
+        </table>
+    </div>
+</body>
 
-                <tr class="heading">
-                    <td>Subject</td>
-                    <td>Number</td>
-                    <td>Points</td>
-                </tr>
-
-                #EXAMITEMS#
-            </table>
-        </div>
-    </body>
 </html>
