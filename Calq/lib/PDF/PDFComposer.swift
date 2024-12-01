@@ -26,6 +26,13 @@ class PDFComposer {
             HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE#", with: sum.toString())
             HTMLContent = HTMLContent.replacingOccurrences(of: "#FINAL_GRADE2#", with: sum.finalgrade)
             
+            // Header Localization
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#SUBJECT_HEADING#", with: "pdf.tableheader.subject".localized)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#TERMS_HEADING#", with: "pdf.tableheader.terms".localized)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#NUMBER_HEADING#", with: "pdf.tableheader.number".localized)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#POINTS_HEADING#", with: "pdf.tableheader.points".localized)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#CREATED_AT_HEADING#", with: "pdf.tableheader.created".localized)
+            
             // table
             var allItems = ""
             for i in 0..<items.count {
