@@ -76,6 +76,7 @@
 "%lldsettings.feedback.textlimit"="Characters count: %lld/1000";
 "settings.feedback.error"="Something went wrong :c";
 "settingsExportPDF"= "export to PDF";
+"settingsExportPDF2"= "PDF Export";
 "settingsLicence"= "Licences";
 
 "editSubjectNameInvalid"="Name invalid";
