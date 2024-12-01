@@ -97,7 +97,7 @@ struct NewGradeView: View {
                                 Slider(value: $vm.points, in: 0...15, onEditingChanged: { _ in
                                     vm.points = vm.points.rounded()
                                 })
-                                .accentColor(Color.accentColor)
+                                .accentColor((vm.selectedSubject != nil) ? getSubjectColor(vm.selectedSubject!) : Color.accentColor)
                             }
                             ImpactSegment(subject: $vm.selectedSubject, gradeType: $vm.gradeType, year: $vm.year).frame(height: 35)
                         }
