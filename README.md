@@ -12,6 +12,7 @@ Abiturnoten Rechner für iOS 15 oder höher.
 - Abiturschnitt berechnen
 - Fächerdurchschnitt berechnen
 - Daten als JSON exportieren und importieren
+  - Export als PDF
 - (optional) Automatische Fächerfarben
 - Berechnung Auswirkung neuer Note
 - Deaktivieren von Halbjahren

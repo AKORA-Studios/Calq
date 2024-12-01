@@ -26,6 +26,10 @@ struct SettingsScreen: View {
                     BackupListView(vm: vm)
                 }
                 
+                NavigationLink("settingsLicence") {
+                    LicenceView()
+                }
+                
             }
             .disabled(vm.isLoading)
             .navigationTitle("settingsTitle")
@@ -136,6 +140,11 @@ struct SettingsScreen: View {
                 if let url = URL(string: "https://github.com/AKORA-Studios/Calq") {
                     UIApplication.shared.open(url)
                 }
+            })
+            
+            SettingsIcon(color: Color.purple, icon: "doc.text.fill", text: "settingsExportPDF", completation: {
+                let url = PDFPreviewViewModel().writePDF()
+                showShareSheet(url: url)
             })
         }
     }

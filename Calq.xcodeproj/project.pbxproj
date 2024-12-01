@@ -86,6 +86,13 @@
 		F1ABCA362AE1AEF000AC58C2 /* ExamWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */; };
 		F1ABCA372AE1B57D00AC58C2 /* ExamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D66B3298D66C200993237 /* ExamVM.swift */; };
 		F1AF649329A3C7CC00BAE066 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */; };
+		F1AF8F872CF1ED0300D9A60B /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = F1AF8F862CF1ED0300D9A60B /* template.html */; };
+		F1AF8F892CF1ED5500D9A60B /* PDFComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F882CF1ED5500D9A60B /* PDFComposer.swift */; };
+		F1AF8F8F2CF1F26800D9A60B /* template_row.html in Resources */ = {isa = PBXBuildFile; fileRef = F1AF8F8E2CF1F26800D9A60B /* template_row.html */; };
+		F1AF8F912CF1FB0C00D9A60B /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F902CF1FB0C00D9A60B /* PrintPageRenderer.swift */; };
+		F1AF8F932CF1FEF700D9A60B /* PDFPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F922CF1FEF700D9A60B /* PDFPreviewViewModel.swift */; };
+		F1AF8F952CF20F4300D9A60B /* template_row2.html in Resources */ = {isa = PBXBuildFile; fileRef = F1AF8F942CF20F4300D9A60B /* template_row2.html */; };
+		F1AF8F972CF2112500D9A60B /* LicenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AF8F962CF2112500D9A60B /* LicenceView.swift */; };
 		F1B0B1682996489900F3D1FD /* EditGradeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */; };
 		F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */; };
 		F1B0B16C299648C400F3D1FD /* GradeTableOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */; };
@@ -235,6 +242,13 @@
 		F1AAEF2F2A1BDA01000CD044 /* LineChartBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartBase.swift; sourceTree = "<group>"; };
 		F1ABCA352AE1AEF000AC58C2 /* ExamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamWidget.swift; sourceTree = "<group>"; };
 		F1AF649229A3C7CC00BAE066 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		F1AF8F862CF1ED0300D9A60B /* template.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		F1AF8F882CF1ED5500D9A60B /* PDFComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFComposer.swift; sourceTree = "<group>"; };
+		F1AF8F8E2CF1F26800D9A60B /* template_row.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template_row.html; sourceTree = "<group>"; };
+		F1AF8F902CF1FB0C00D9A60B /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
+		F1AF8F922CF1FEF700D9A60B /* PDFPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewModel.swift; sourceTree = "<group>"; };
+		F1AF8F942CF20F4300D9A60B /* template_row2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template_row2.html; sourceTree = "<group>"; };
+		F1AF8F962CF2112500D9A60B /* LicenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenceView.swift; sourceTree = "<group>"; };
 		F1B0B1672996489900F3D1FD /* EditGradeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGradeScreen.swift; sourceTree = "<group>"; };
 		F1B0B169299648A200F3D1FD /* EditSubjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectScreen.swift; sourceTree = "<group>"; };
 		F1B0B16B299648C400F3D1FD /* GradeTableOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableOverviewScreen.swift; sourceTree = "<group>"; };
@@ -367,6 +381,7 @@
 		DD70E116261F315E0092815F /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				F1AF8F852CF1ECC200D9A60B /* PDF */,
 				F1D29E772A17B8A50001D469 /* JSON */,
 				DD7A4A6F26AF297B00CBF7D8 /* CoreData */,
 				DD8D4DB626AD733700AC289A /* Charts */,
@@ -438,6 +453,7 @@
 				F1A53D012A196C0E0045C5B0 /* EditWeight */,
 				F1138E5029958878008E7FD8 /* DocumentPicker.swift */,
 				F192DD23299D10CB0077B905 /* NewSubject.swift */,
+				F1AF8F962CF2112500D9A60B /* LicenceView.swift */,
 			);
 			path = SettingsScreens;
 			sourceTree = "<group>";
@@ -486,6 +502,19 @@
 				F1D3433C29C37024002ED7DE /* SettingsVM.swift */,
 			);
 			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		F1AF8F852CF1ECC200D9A60B /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				F1AF8F862CF1ED0300D9A60B /* template.html */,
+				F1AF8F8E2CF1F26800D9A60B /* template_row.html */,
+				F1AF8F882CF1ED5500D9A60B /* PDFComposer.swift */,
+				F1AF8F902CF1FB0C00D9A60B /* PrintPageRenderer.swift */,
+				F1AF8F922CF1FEF700D9A60B /* PDFPreviewViewModel.swift */,
+				F1AF8F942CF20F4300D9A60B /* template_row2.html */,
+			);
+			path = PDF;
 			sourceTree = "<group>";
 		};
 		F1B386452A1CFE6800F0C5AC /* CalqTests */ = {
@@ -706,10 +735,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1AF8F952CF20F4300D9A60B /* template_row2.html in Resources */,
+				F1AF8F872CF1ED0300D9A60B /* template.html in Resources */,
 				DD6878932617B1AB00BF2B48 /* LaunchScreen.storyboard in Resources */,
 				F19F8E4229F18E03006142B4 /* Localizable.strings in Resources */,
 				DD60BA552715B69A00048FA4 /* grades.json in Resources */,
 				DD6878902617B1AB00BF2B48 /* Assets.xcassets in Resources */,
+				F1AF8F8F2CF1F26800D9A60B /* template_row.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +853,9 @@
 				F1138E5529959677008E7FD8 /* GradeListScreen.swift in Sources */,
 				F1A6BC462B543DBB001BD833 /* Util+Sorting.swift in Sources */,
 				DD0B86D427667E3F00DCC61F /* LineChart.swift in Sources */,
+				F1AF8F932CF1FEF700D9A60B /* PDFPreviewViewModel.swift in Sources */,
 				F1A772432A1795C6004B8DCC /* UserSubject+CoreDataProperties.swift in Sources */,
+				F1AF8F892CF1ED5500D9A60B /* PDFComposer.swift in Sources */,
 				F1BD65A32B6296DB003B8D34 /* DateExtension.swift in Sources */,
 				F1138E5129958878008E7FD8 /* DocumentPicker.swift in Sources */,
 				F1D29E7B2A17B8D90001D469 /* LoadJSON.swift in Sources */,
@@ -829,6 +863,7 @@
 				F1A7723D2A1795C6004B8DCC /* UserTest+CoreDataClass.swift in Sources */,
 				F192DD28299D2DEC0077B905 /* ViewExtension.swift in Sources */,
 				DD687946261C530000BF2B48 /* Util.swift in Sources */,
+				F1AF8F972CF2112500D9A60B /* LicenceView.swift in Sources */,
 				F17F4442298C4DDF000A3993 /* TabView.swift in Sources */,
 				F1B0B16A299648A200F3D1FD /* EditSubjectScreen.swift in Sources */,
 				F1A7723F2A1795C6004B8DCC /* UserTest+CoreDataProperties.swift in Sources */,
@@ -845,6 +880,7 @@
 				F1A05C5F2A642670003734F2 /* StringExtension.swift in Sources */,
 				DD8813792764D58B00EB6BD8 /* BarChart.swift in Sources */,
 				F10CA6B6298DB4AB008F3FE9 /* SubjectDetailScreen.swift in Sources */,
+				F1AF8F912CF1FB0C00D9A60B /* PrintPageRenderer.swift in Sources */,
 				F1A53D032A196C220045C5B0 /* WeightViewmodel.swift in Sources */,
 				F1A772392A1795C6004B8DCC /* AppSettings+CoreDataClass.swift in Sources */,
 				F1A53D002A196BFF0045C5B0 /* ListBackgroundModifier.swift in Sources */,
@@ -1102,7 +1138,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1129,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Calq/CalqRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93TVBDWQK4;
 				INFOPLIST_FILE = Calq/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

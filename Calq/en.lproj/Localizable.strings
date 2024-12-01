@@ -32,7 +32,7 @@
 
 "OverViewTitle"="Overview";
 "OverviewTimeChartTitle"="Time Chart";
-"OverViewHalfyearChartTitle"="Halfyears";
+"OverViewHalfyearChartTitle"="Terms";
 "OverviewPieChartSubjects"="Subjectaverage";
 "OverviewPieChartSubjectsDesc"="Grade without final exams";
 "OverviewPieChartSum"="Abigrade";
@@ -75,6 +75,8 @@
 "settings.feedback.button"="Send Feedback";
 "%lldsettings.feedback.textlimit"="Characters count: %lld/1000";
 "settings.feedback.error"="Something went wrong :c";
+"settingsExportPDF"= "export to PDF";
+"settingsLicence"= "Licences";
 
 "editSubjectNameInvalid"="Name invalid";
 "editSubjecNameInvalidChars"="Name should not include special characters or be empty";
@@ -85,8 +87,8 @@
 "gradeYear"="Year";
 "gradeDate"="Date";
 "gradePoints"="Points";
-"gradeHalfyear"="Halfyear";
-"%lldgradeHalfyear"="%lld. Halfyear";
+"gradeHalfyear"="Term";
+"%lldgradeHalfyear"="%lld. Term";
 "gradeNewAdd"="Add Grade";
 "gradeInvalidName"="Invalid Name";
 "gradeInvalidNameDesc"="Name cannot include special characters or be empty";
@@ -95,7 +97,7 @@
 "subjectListTitle"="Subjectlist";
 "subjectListTable"="Gradetable";
 "subjectGradeList"="Gradelist";
-"%lld subjectListYears %lld"="%lld of %lld Halfyears active";
+"%lld subjectListYears %lld"="%lld of %lld Terms active";
 
 "gradeEdit"="Edit Grade";
 "gradeDelete"="Delete Grade";
@@ -103,12 +105,12 @@
 "gradeEditDelete"="Grade deleted";
 
 "subjectDetailGradeList"="View Grades";
-"%lldsubjectDetailAverageHalfyear"="%lld .Halfyear Average";
+"%lldsubjectDetailAverageHalfyear"="%lld .Term Average";
 "subjectDetailTime"="Time Chart";
 "subjectDetailActive"="Active";
 "subjectDetailInactive"="Inactive";
-"subjectDetailDeactivate"="deactivate Halfyear";
-"subjectDetailActivate"="activate Halfyear";
+"subjectDetailDeactivate"="deactivate Term";
+"subjectDetailActivate"="activate Term";
 
 "firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";
 "firstLaunchLoadDemo"="load Demo Data";
@@ -123,7 +125,7 @@
 "LineChartWidget_Description"="subject grades over time";
 "BarChartWidget_DisplayName"="Bar Chart";
 "BarChartWidget_Description"="current average for each subejct";
-"HalfyearBarChartWidget_DisplayName"="Halfyear Bar Chart";
+"HalfyearBarChartWidget_DisplayName"="Term Bar Chart";
 "HalfyearBarChartWidget_Description"="Average of each subejct";
 "ExamChartWidget_DisplayName"="Exam Chart";
 "ExamChartWidget_Description"="Shows all exams + block 2";
@@ -143,3 +145,10 @@
 "backupSheet.load"="Load Backup";
 "backupSheet.section"="Backups (Swipe to delete or load)";
 "backupNavTitle"="Backups";
+
+// PDF Export
+"pdf.tableheader.subject"="Subject";
+"pdf.tableheader.terms"="Terms";
+"pdf.tableheader.number"="Number";
+"pdf.tableheader.points"="Points";
+"pdf.tableheader.created"="Created at";

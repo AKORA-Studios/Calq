@@ -75,6 +75,8 @@
 "settings.feedback.button"="Feedback schicken";
 "%lldsettings.feedback.textlimit"="Zeichenanzahl: %lld/1000";
 "settings.feedback.error"="Etwas ist schief gelaufen :c";
+"settingsExportPDF"= "Als PDF exportieren";
+"settingsLicence"= "Lizenzen";
 
 "editSubjectNameInvalid"="Name ungültig";
 "editSubjecNameInvalidChars"="Name darf keine Sonderzeichen/Zahlen etc. enthalten oder leer sein";
@@ -143,3 +145,10 @@
 "backupSheet.load"="Backup laden";
 "backupSheet.section"="Backups (Wische zum Löschen oder Laden)";
 "backupNavTitle"="Backups";
+
+// PDF Export
+"pdf.tableheader.subject"="Fach";
+"pdf.tableheader.terms"="Halbjahr";
+"pdf.tableheader.number"="Nummer";
+"pdf.tableheader.points"="Punkte";
+"pdf.tableheader.created"="Erstellt am";
