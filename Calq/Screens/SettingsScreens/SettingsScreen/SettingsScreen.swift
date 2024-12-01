@@ -46,6 +46,11 @@ struct SettingsScreen: View {
                     NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
             }
+            .sheet(isPresented: $vm.pdfSheetPresented) {
+                NavigationView {
+                    PDFPreview()
+                }
+            }
         }.navigationViewStyle(StackNavigationViewStyle())
         
             .sheet(isPresented: $vm.editSubjectPresented) {
@@ -143,8 +148,7 @@ struct SettingsScreen: View {
             })
             
             SettingsIcon(color: Color.purple, icon: "doc.text.fill", text: "settingsExportPDF", completation: {
-                let url = PDFPreviewViewModel().writePDF()
-                showShareSheet(url: url)
+                vm.pdfSheetPresented = true
             })
         }
     }

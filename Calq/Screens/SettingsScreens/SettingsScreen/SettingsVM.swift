@@ -22,11 +22,12 @@ class SettingsViewModel: ObservableObject {
     
     @Published var hasFiveExams = Util.getSettings().hasFiveExams ? 5 : 4
     
-    // sheet presnet stuff
+    // sheet rpesenting stuff
     @Published var editSubjectPresented = false
     @Published var weightSheetPresented = false
     @Published var newSubjectSheetPresented = false
     @Published var presentDocumentPicker = false
+    @Published var pdfSheetPresented = false
     
     @Published var deleteAlert = false
     @Published var alertActiontype: AlertAction = .none
