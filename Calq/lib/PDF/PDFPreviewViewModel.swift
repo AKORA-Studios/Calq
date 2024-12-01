@@ -17,7 +17,8 @@ class PDFPreviewViewModel: ObservableObject {
     func generatePDF() -> String {
         var data: [PDFItem] = []
         let subjects = Util.getAllSubjects()
-        let sumAverage =  PDFSum(subjectsgrade: String(Util.generalAverage() / 15), subjectpoints: String(format: "%.2f", Util.generalAverage()), finalgrade: String(Util.generalAverage()))
+        let sumAverage =  PDFSum(subjectsgrade: String(format: "%.2f", Util.grade(number: Util.generalAverage())), subjectpoints: String(format: "%.2f", Util.generalAverage()), finalgrade: String(format: "%.2f", Util.generalAverage()))
+        print(sumAverage)
         
         for subject in subjects {
             let averageString = Util.getSubjectYearString(subject)
@@ -26,7 +27,7 @@ class PDFPreviewViewModel: ObservableObject {
                 return accumulator + (Int(number) ?? 0)
             }
             
-            data.append(PDFItem(title: subject.name, content: averageString, grade: averageString[4], average: String( average/4)))
+            data.append(PDFItem(title: subject.name, content: averageString, grade: averageString[4], average: String(average/4)))
         }
         
         let result = pdfComposer.renderPDF(date: formatDate(), items: data, sum: sumAverage, exams: getFinals(subjects))
