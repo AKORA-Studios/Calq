@@ -11,13 +11,15 @@ struct WhatsNewScreen: View {
     @EnvironmentObject var vm: TabVM
     
     let newFuncs = [
-        "📥 load Backup",
-        "🌸 Removed common crash sources"
+        "📥 Save PDF Export",
+        "🌸 Added Backup",
+        "🌸 Fixed Missing Impact Number"
     ]
     
     let newFuncsGeneral = [
-        "📥 Backups laden",
-        "🌸 Entfernen von häufige Absturzquellen"
+        "📥 Speichern PDF Export",
+        "🌸 Backup Hinzugefügt",
+        "🌸 Fixed Fehlende Einfluss Note"
     ]
     
     let lang = Locale.preferredLanguages[0]
