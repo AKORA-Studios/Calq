@@ -12,6 +12,7 @@ Read this in other languages: [Deutsch](https://github.com/AKORA-Studios/Calq/bl
 - Calculate high school graduation average
 - Calculate subject average
 - Export data as JSON
+  - export as PDF
 - (optional) Automatic subject colors
 - Calculate impact of new grade
 - Disable half-years
