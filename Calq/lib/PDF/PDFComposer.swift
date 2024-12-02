@@ -52,6 +52,9 @@ class PDFComposer {
             // finals
             var finals = ""
             if !exams.isEmpty {
+                // show table
+                HTMLContent = HTMLContent.replacingOccurrences(of: "hiddenTable", with: '')
+                // add exams
                 for i in 0..<exams.count {
                     var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowFinalsTemplate!)
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: exams[i].title)

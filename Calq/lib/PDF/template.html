@@ -94,6 +94,10 @@
                 text-align: center;
             }
         }
+
+        .hiddenTable {
+            visibility: hidden;
+        }
     </style>
 </head>
 
@@ -134,24 +138,30 @@
         </table>
 
         <br>
-        
-        <table cellpadding="0" cellspacing="0">
 
-            <tr class="heading">
-                <td>#SUBJECT_HEADING#</td>
-                <td>#NUMBER_HEADING#</td>
-                <td>#POINTS_HEADING#</td>
-            </tr>
+        <!-- Final Exams-->
+        <div class="hiddenTable">
+            <h3>Final Exams</h3> <!-- TODO: Localize-->
+            <table cellpadding="0" cellspacing="0">
 
-            #EXAMITEMS#
-            
-            <tr class="total" style="border: none;">
-                <td style="border: none;"></td>
-                <td style="border: none;"></td>
-                <td style="text-align: right;">Final Grade: #FINAL_GRADE2#</td>
-            </tr>
-            
-        </table>
+                <tr class="heading">
+                    <td>#SUBJECT_HEADING#</td>
+                    <td>#NUMBER_HEADING#</td>
+                    <td>#POINTS_HEADING#</td>
+                </tr>
+
+                #EXAMITEMS#
+
+                <tr class="total" style="border: none;">
+                    <td style="border: none;"></td>
+                    <td style="border: none;"></td>
+                    <td style="text-align: right;">Final Grade: #FINAL_GRADE2#</td>
+                </tr>
+
+            </table>
+        </div>
+
+
     </div>
 </body>
 
