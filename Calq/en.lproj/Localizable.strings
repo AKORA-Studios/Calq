@@ -66,6 +66,7 @@
 "settingsTitle"="Settings";
 "settingsImport"= "Import Grades";
 "settingsExport"= "Export Grades";
+"settingsExport2"= "JSON Data";
 "settingsRainbow"= "Rainbow";
 "settingsExamCount"= "Count Final Exams";
 "settingsWeight"= "Change Weigth";
@@ -76,6 +77,7 @@
 "%lldsettings.feedback.textlimit"="Characters count: %lld/1000";
 "settings.feedback.error"="Something went wrong :c";
 "settingsExportPDF"= "export to PDF";
+"settingsExportPDF2"= "PDF Export";
 "settingsLicence"= "Licences";
 
 "editSubjectNameInvalid"="Name invalid";

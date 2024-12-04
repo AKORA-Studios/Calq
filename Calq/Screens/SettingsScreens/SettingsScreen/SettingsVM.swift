@@ -22,7 +22,7 @@ class SettingsViewModel: ObservableObject {
     
     @Published var hasFiveExams = Util.getSettings().hasFiveExams ? 5 : 4
     
-    // sheet presnet stuff
+    // sheet rpesenting stuff
     @Published var editSubjectPresented = false
     @Published var weightSheetPresented = false
     @Published var newSubjectSheetPresented = false

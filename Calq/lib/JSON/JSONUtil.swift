@@ -80,4 +80,27 @@ struct JSON {
         if num >= 1 && num <= 5 { return Int16(num) }
         return Int16(0)
     }
+    
+    static func formatJSON(_ jsonString: String) -> String {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            return jsonString // return unformatted
+        }
+        
+        var jsonObject: Any
+        do {
+            jsonObject =  try JSONSerialization.jsonObject(with: jsonData)
+        } catch {
+            return jsonString // return unformatted
+        }
+        
+        var prettyJsonData: Data
+        do {
+            prettyJsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+        } catch {
+            return jsonString // return unformatted
+        }
+        
+        let prettyPrintedJson = NSString(data: prettyJsonData, encoding: NSUTF8StringEncoding)!
+        return prettyPrintedJson as String
+    }
 }

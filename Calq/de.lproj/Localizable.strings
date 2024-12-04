@@ -66,6 +66,7 @@
 "settingsTitle"="Einstellungen";
 "settingsImport"= "Noten importieren";
 "settingsExport"= "Noten exportieren";
+"settingsExport2"= "JSON Data";
 "settingsRainbow"= "Regenbogen";
 "settingsExamCount"= "Anzahl Abiturprüfungen";
 "settingsWeight"= "Wertung ändern";
@@ -76,6 +77,7 @@
 "%lldsettings.feedback.textlimit"="Zeichenanzahl: %lld/1000";
 "settings.feedback.error"="Etwas ist schief gelaufen :c";
 "settingsExportPDF"= "Als PDF exportieren";
+"settingsExportPDF2"= "PDF Export";
 "settingsLicence"= "Lizenzen";
 
 "editSubjectNameInvalid"="Name ungültig";
