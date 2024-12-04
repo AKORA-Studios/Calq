@@ -27,7 +27,6 @@ class SettingsViewModel: ObservableObject {
     @Published var weightSheetPresented = false
     @Published var newSubjectSheetPresented = false
     @Published var presentDocumentPicker = false
-    @Published var pdfSheetPresented = false
     
     @Published var deleteAlert = false
     @Published var alertActiontype: AlertAction = .none

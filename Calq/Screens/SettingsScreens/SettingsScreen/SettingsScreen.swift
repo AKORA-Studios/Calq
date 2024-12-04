@@ -46,11 +46,6 @@ struct SettingsScreen: View {
                     NewSubjectScreen().onDisappear(perform: vm.reloadAndSave)
                 }
             }
-            .sheet(isPresented: $vm.pdfSheetPresented) {
-                NavigationView {
-                    PDFPreview()
-                }
-            }
         }.navigationViewStyle(StackNavigationViewStyle())
         
             .sheet(isPresented: $vm.editSubjectPresented) {
@@ -121,12 +116,11 @@ struct SettingsScreen: View {
                 vm.deleteAlert = true
             }
             
-            SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport") {
-                let data = JSON.exportJSON()
-                let url = JSON.writeJSON(data)
-                showShareSheet(url: url)
+            NavigationLink(destination: JSONPreview(json: JSON.exportJSON())) {
+                SettingsIcon(color: Color.green, icon: "square.and.arrow.up.fill", text: "settingsExport") {
+                }.allowsHitTesting(false)
             }
-            
+        
             SettingsIcon(color: Color.yellow, icon: "square.stack.3d.down.right.fill", text: "settingsWeight") {
                 vm.weightSheetPresented = true
             }
@@ -147,9 +141,10 @@ struct SettingsScreen: View {
                 }
             })
             
-            SettingsIcon(color: Color.purple, icon: "doc.text.fill", text: "settingsExportPDF", completation: {
-                vm.pdfSheetPresented = true
-            })
+            NavigationLink(destination: PDFPreview()) {
+                SettingsIcon(color: Color.purple, icon: "doc.text.fill", text: "settingsExportPDF", completation: {
+                }).allowsHitTesting(false)
+            }
         }
     }
     

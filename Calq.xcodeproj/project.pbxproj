@@ -119,6 +119,7 @@
 		F1C04B5429BA3E2D00DAC128 /* SmallCircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */; };
 		F1C04B5529BA3EAB00DAC128 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B86D327667E3F00DCC61F /* LineChart.swift */; };
 		F1C2CAD82B22620E00C51D15 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */; };
+		F1CA65FE2D00B5B60079DAE0 /* JSONPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA65FD2D00B5B60079DAE0 /* JSONPreview.swift */; };
 		F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */; };
 		F1CCCB4A2B2A160D009B9434 /* GradeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */; };
 		F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCCB4D2B2A187A009B9434 /* EditSubjectViewModel.swift */; };
@@ -272,6 +273,7 @@
 		F1C04B5129BA376800DAC128 /* MediumBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumBarChart.swift; sourceTree = "<group>"; };
 		F1C04B5329BA3E2D00DAC128 /* SmallCircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleChart.swift; sourceTree = "<group>"; };
 		F1C2CAD72B22620E00C51D15 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
+		F1CA65FD2D00B5B60079DAE0 /* JSONPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPreview.swift; sourceTree = "<group>"; };
 		F1CCCB462B2A1242009B9434 /* SubjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewModel.swift; sourceTree = "<group>"; };
 		F1CCCB492B2A160D009B9434 /* GradeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListViewModel.swift; sourceTree = "<group>"; };
 		F1CCCB4D2B2A187A009B9434 /* EditSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectViewModel.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D12F7D2CFC6515001A47EC /* PDFPreview.swift */,
+				F1CA65FD2D00B5B60079DAE0 /* JSONPreview.swift */,
 			);
 			path = Export;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				F1A7102B2A4345BF00255F10 /* NewGradeVM.swift in Sources */,
 				F1A77FFA2B66905700380E56 /* BackupScreen.swift in Sources */,
 				F1CCCB4E2B2A187A009B9434 /* EditSubjectViewModel.swift in Sources */,
+				F1CA65FE2D00B5B60079DAE0 /* JSONPreview.swift in Sources */,
 				F1CCCB472B2A1242009B9434 /* SubjectDetailViewModel.swift in Sources */,
 				F17F4444298C4E7D000A3993 /* SettingsScreen.swift in Sources */,
 				F1AAEF292A1BC1E5000CD044 /* Mapping Model 1.xcmappingmodel in Sources */,

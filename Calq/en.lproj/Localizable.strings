@@ -66,6 +66,7 @@
 "settingsTitle"="Settings";
 "settingsImport"= "Import Grades";
 "settingsExport"= "Export Grades";
+"settingsExport2"= "JSON Data";
 "settingsRainbow"= "Rainbow";
 "settingsExamCount"= "Count Final Exams";
 "settingsWeight"= "Change Weigth";
