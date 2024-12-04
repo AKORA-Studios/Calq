@@ -14,6 +14,7 @@ struct WhatsNewScreen: View {
         "📥 save Backup",
         "🗒️ Export to PDF (experimental)",
         "📄 PDF & JSON export preview",
+        "🌸 Fixed Missing Impact Number",
         "💾 Removed common crash sources"
     ]
     
@@ -21,6 +22,7 @@ struct WhatsNewScreen: View {
         "📥 Backups speichern",
         "🗒️ Export zu PDF (experimentell)",
         "📄 PDF & JSON Export Vorschau",
+        "🌸 Fehlende Zahl beim Einfluss gefixt",
         "💾 Entfernen von häufige Absturzquellen"
     ]
     

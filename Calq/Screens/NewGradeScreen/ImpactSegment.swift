@@ -59,7 +59,7 @@ struct ImpactSegment: View {
         let types = Util.getTypes()
         
         // calc new average
-        for i in 0...14 {
+        for i in 0...15 {
             var newAverage: Int = 0
             var gradeWeigths = 0.0
             var avgArr: [Double] = []

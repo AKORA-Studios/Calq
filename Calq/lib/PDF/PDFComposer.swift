@@ -52,6 +52,9 @@ class PDFComposer {
             // finals
             var finals = ""
             if !exams.isEmpty {
+                // show table
+                HTMLContent = HTMLContent.replacingOccurrences(of: "hiddenTable", with: "")
+                // add exams
                 for i in 0..<exams.count {
                     var itemHTMLContent = try String(contentsOfFile: pathToHTMLRowFinalsTemplate!)
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#TITLE#", with: exams[i].title)
@@ -63,6 +66,16 @@ class PDFComposer {
             
             HTMLContent = HTMLContent.replacingOccurrences(of: "#EXAMITEMS#", with: finals)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#ITEMS#", with: allItems)
+            
+            // LOGO
+           /* if let logo = UIImage(named: "AppIcon"), let data = logo.pngData() {
+                let base64 = data.base64EncodedString(options: [])
+                let imageForTheHtml = "data:image/gif;base64," + base64
+                let html = "<img src='\(imageForTheHtml)'>"
+                HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO#", with: html)
+            }
+            print(HTMLContent)*/
+            
             return HTMLContent
             
         } catch {
@@ -70,7 +83,7 @@ class PDFComposer {
         }
         return ""
     }
-    
+ 
     func exportHTMLToPDF(_ content: String) -> Data {
         let renderer = PrintPageRenderer()
         let formatter = UIMarkupTextPrintFormatter(markupText: content)

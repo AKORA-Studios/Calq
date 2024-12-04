@@ -14,7 +14,7 @@ Abiturnoten Rechner für iOS 15 oder höher.
 - Daten als JSON exportieren und importieren
   - Export als PDF
 - (optional) Automatische Fächerfarben
-- Berechnung Auswirkung neuer Note
+- Berechnung der Auswirkung neuer Note auf den Schnitt
 - Deaktivieren von Halbjahren
 - mehrere Notentypen mit variabler Gewichtung
 - Sprachen: 🇩🇪 🇺🇸
@@ -99,7 +99,7 @@ Heres a brief overview of all screens and important things in the app, since the
 
 #### Data Structure
 
-Idk if you are really really interested heres an ER-Model of the CoreData stuff
+Idk if you are really really interested heres a simplified ER-Model of the Relations in CoreData Model without any Properties
 
 <img src = "https://kiarar.moe/images/calq/sql_calq.jpg" height="200" />
 
