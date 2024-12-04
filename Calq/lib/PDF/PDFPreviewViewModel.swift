@@ -18,7 +18,6 @@ class PDFPreviewViewModel: ObservableObject {
         var data: [PDFItem] = []
         let subjects = Util.getAllSubjects()
         let sumAverage =  PDFSum(subjectsgrade: String(format: "%.2f", Util.grade(number: Util.generalAverage())), subjectpoints: String(format: "%.2f", Util.generalAverage()), finalgrade: String(format: "%.2f", Util.generalAverage()))
-        print(sumAverage)
         
         for subject in subjects {
             let averageString = Util.getSubjectYearString(subject)
