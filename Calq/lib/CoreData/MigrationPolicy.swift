@@ -7,6 +7,7 @@
 
 import CoreData
 
+// FUNCTION($entityPolicy, "typeForIsSaved:", $source.big)
 class MigrationV0toV1: NSEntityMigrationPolicy {
     // swiftlint:disable compiler_protocol_init
     @objc func typeFor(isSaved: NSNumber) -> NSNumber {
@@ -18,11 +19,10 @@ class MigrationV0toV1: NSEntityMigrationPolicy {
     }
 }
 
+// FUNCTION($entityPolicy, "updateWeightOrigWeight:", $source.weigth)
 class MigrationV3toV4: NSEntityMigrationPolicy {
-    // swiftlint:disable compiler_protocol_init
     @objc func updateWeight(origWeight: NSNumber) -> Double {
-        return Double(truncating: origWeight)
+        return Double(origWeight)
     }
 }
 // swiftlint:enable compiler_protocol_init
-// FUNCTION($entityPolicy, "typeForIsSaved:", $source.big)
