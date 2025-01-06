@@ -32,17 +32,22 @@ struct ChangeWeightScreen: View {
                 .multilineTextAlignment(.center)
                 .padding(.top, 5)
             
-            Picker("What is your favorite color?", selection: $vm.selectedStepSize) {
-                Text("tenth").tag(stepSize.tenth)
-                Text("ones").tag(stepSize.ones)
-                Text("fraction").tag(stepSize.fraction)
+            VStack {
+                Text("EditWeigthPickerTitle").frame(maxWidth: .infinity, alignment: .leading)
+                Picker("EditWeigthPickerTitle", selection: $vm.selectedStepSize) {
+                    Text("10").tag(stepSize.tenth)
+                    Text("1").tag(stepSize.ones)
+                    Text("0.1").tag(stepSize.fraction)
+                }
+                .pickerStyle(.segmented)
             }
-            .pickerStyle(.segmented)
             .padding()
             
             List {
+                exampleWeightView()
+                
                 Section {
-                    ForEach(vm.types) { type in
+                    ForEach(vm.types.sorted(by: {$0.weigth > $1.weigth})) { type in
                         HStack {
                             HStack {
                                 if Util.isPrimaryType(type) {
@@ -110,6 +115,31 @@ struct ChangeWeightScreen: View {
                     return  Alert(title: Text("EditWeigthAlertTitle"), message: Text("EditWeigthAlertText"))
                 }
             }
+    }
+    
+    func exampleWeightView() -> some View {
+        Section {
+            HStack {
+                Image(systemName: "star")
+            
+                Text("%")
+                    .foregroundStyle(.gray)
+                    .frame(width: 30).font(.footnote)
+                
+                Text("Name")
+                    .foregroundStyle(.gray)
+                
+                Spacer()
+                
+                Stepper("") {
+                } onDecrement: {
+                }.disabled(true)
+                
+                if vm.showHintText {
+                    Text("ID").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
+                }
+            }
+        }
     }
     
     @ViewBuilder

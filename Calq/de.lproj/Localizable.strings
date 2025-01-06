@@ -52,6 +52,7 @@
 "EditWeigthWarningTitle"="Wuah warte";
 "EditWeigthNew"="Neuen Typ hinzufügen";
 "EditWeigthPrimaryHint"="Tippe lang auf den Stern um den hervorgehobenen Notentypen auszuwählen";
+"EditWeigthPickerTitle"="Stufengröße";
 
 "editSubject"="Kurs bearbeiten";
 "editSubDelete"="Fach löschen";

@@ -52,6 +52,7 @@
 "EditWeigthWarningTitle"="Wuah wait";
 "EditWeigthNew"="Add new type";
 "EditWeigthPrimaryHint"="Press long on the star icon to change the which grade type should be highlited";
+"EditWeigthPickerTitle"="Stepsize";
 
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";
