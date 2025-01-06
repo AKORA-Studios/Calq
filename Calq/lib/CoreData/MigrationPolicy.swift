@@ -17,5 +17,12 @@ class MigrationV0toV1: NSEntityMigrationPolicy {
         }
     }
 }
+
+class MigrationV3toV4: NSEntityMigrationPolicy {
+    // swiftlint:disable compiler_protocol_init
+    @objc func updateWeight(origWeight: NSNumber) -> Double {
+        return Double(truncating: origWeight)
+    }
+}
 // swiftlint:enable compiler_protocol_init
 // FUNCTION($entityPolicy, "typeForIsSaved:", $source.big)

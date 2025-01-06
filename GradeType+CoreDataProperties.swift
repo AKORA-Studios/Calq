@@ -2,7 +2,7 @@
 //  GradeType+CoreDataProperties.swift
 //  Calq
 //
-//  Created by Kiara on 19.05.23.
+//  Created by Kiara on 06.01.25.
 //
 //
 
@@ -18,8 +18,8 @@ extension GradeType {
 
     @NSManaged public var id: Int16
     @NSManaged public var name: String
-    @NSManaged public var weigth: Int16
-    @NSManaged public var gradetosettings: AppSettings
+    @NSManaged public var weigth: Double
+    @NSManaged public var gradetosettings: AppSettings?
 
 }
 
