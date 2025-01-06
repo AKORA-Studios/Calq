@@ -359,7 +359,7 @@ struct Util {
     static func addSecondType(_ firstID: Int16) {
         let newType = GradeType(context: getContext())
         newType.name = "new default type"
-        newType.weigth = Int16(0)
+        newType.weigth = 0.0
         newType.id = getNewIDQwQ([firstID])
         
         let settings = Util.getSettings()
@@ -367,17 +367,17 @@ struct Util {
         saveCoreData()
     }
     
-    static func addType(name: String, weigth: Int) {
+    static func addType(name: String, weigth: Double) {
         let existingTypes = getTypes().map { $0.id }
         
         let newType = GradeType(context: getContext())
         newType.name = name
-        newType.weigth = Int16(weigth)
+        newType.weigth = weigth
         newType.id = getNewIDQwQ(existingTypes)
         
-        let new = getTypes().map {Int($0.weigth)}.reduce(0, +)
-        if new + weigth > 100 {
-            newType.weigth = 0
+        let new = getTypes().map {$0.weigth}.reduce(0.0, +)
+        if new + weigth > 100.0 {
+            newType.weigth = 0.0
         }
         let settings = Util.getSettings()
         settings.addToGradetypes(newType)

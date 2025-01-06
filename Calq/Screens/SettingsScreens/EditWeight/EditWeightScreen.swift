@@ -49,7 +49,7 @@ struct ChangeWeightScreen: View {
                             }
                             
                             if let typeWeight = vm.typeArr[type] {
-                                Text("\(typeWeight)")
+                                Text("\(typeWeight.shorted)")
                                     .foregroundStyle(weightColor(typeWeight))
                                     .frame(width: 25).font(.footnote)
                                 
@@ -113,8 +113,8 @@ struct ChangeWeightScreen: View {
         }
     }
     
-    func weightColor(_ weight: Int16) -> Color {
-        return weight > 0 ? Color(uiColor: UIColor.label) : Color.red
+    func weightColor(_ weight: Double) -> Color {
+        return weight > 0.0 ? Color(uiColor: UIColor.label) : Color.red
     }
     
     func saveChanges() {

@@ -107,24 +107,24 @@ extension JSON {
         }
         set.colorfulCharts = data.colorfulCharts
         
-        // add types
-        var typecheck = 0 // should stay below 100
+        // add types //TODO: check if double compatible with old/new versions
+        var typecheck = 0.0 // should stay below 100
         var typeIds: [Int] = []
         for type in data.gradeTypes {
             if typeIds.contains(type.id) { continue } // ids should only occur once
             
             let NewType = GradeType(context: Util.getContext())
             NewType.name = type.name
-            NewType.weigth = Int16(type.weigth)
+            NewType.weigth = Double(type.weigth)
             NewType.id = Int16(type.id)
             
-            if !(typecheck + type.weigth <= 100) {
-                NewType.weigth = 0
+            if !(typecheck + Double(type.weigth) <= 100-0) {
+                NewType.weigth = 0.0
             }
             
             set.addToGradetypes(NewType)
             typeIds.append(type.id)
-            typecheck += type.weigth
+            typecheck += Double(type.weigth)
         }
         
         // check if two types there, if not  add default ones

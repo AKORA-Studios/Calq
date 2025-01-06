@@ -14,7 +14,7 @@ enum AlertType {
 }
 
 class WeightViewmodel: ObservableObject {
-    @Published var typeArr: [GradeType: Int16] = [:]
+    @Published var typeArr: [GradeType: Double] = [:]
     @Published var summedUp: Int = 0
     
     @Published var selectedDelete: Int16 = 0
