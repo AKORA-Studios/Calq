@@ -19,7 +19,7 @@ extension UIColor {
 }
 
 extension Color {
-    
+    static let labelColor = Color(UIColor.label)
     static let backgroundColor = Color(UIColor.backgroundColor)
     static let cardShadow = Color(UIColor.cardShadow)
     

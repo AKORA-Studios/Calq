@@ -51,7 +51,8 @@
 "EditWeigthWarning %@"="Pls change the type of the following grades to something else: %@";
 "EditWeigthWarningTitle"="Wuah wait";
 "EditWeigthNew"="Add new type";
-"EditWeigthPrimaryHint"="Press long on the star icon to change the which grade type should be highlited";
+"EditWeigthPrimaryHint"="Press long on the star icon to change the which grade type should be highlited.\nTypes can only be deleted when no grade has them assigned anymore.";
+"EditWeigthPickerTitle"="Stepsize";
 
 "editSubject"="Edit Subject";
 "editSubDelete"="Delete Subject";

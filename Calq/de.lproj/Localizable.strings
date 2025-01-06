@@ -51,7 +51,8 @@
 "EditWeigthWarning %@"="Bitte ändere den Typ dieser Noten: %@";
 "EditWeigthWarningTitle"="Wuah warte";
 "EditWeigthNew"="Neuen Typ hinzufügen";
-"EditWeigthPrimaryHint"="Tippe lang auf den Stern um den hervorgehobenen Notentypen auszuwählen";
+"EditWeigthPrimaryHint"="Tippe lang auf den Stern um den hervorgehobenen Notentypen auszuwählen.\n Typen können nur gelöscht werden wenn diese von keinen Noten mehr verwendet werden.";
+"EditWeigthPickerTitle"="Stufengröße";
 
 "editSubject"="Kurs bearbeiten";
 "editSubDelete"="Fach löschen";

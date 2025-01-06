@@ -13,8 +13,14 @@ enum AlertType {
     case wrongPercentage
 }
 
+enum stepSize {
+    case tenth
+    case ones
+    case fraction
+}
+
 class WeightViewmodel: ObservableObject {
-    @Published var typeArr: [GradeType: Int16] = [:]
+    @Published var typeArr: [GradeType: Double] = [:]
     @Published var summedUp: Int = 0
     
     @Published var selectedDelete: Int16 = 0
@@ -24,6 +30,8 @@ class WeightViewmodel: ObservableObject {
     @Published var showHintText = false
     
     @Published var types = Util.getTypes()
+    
+    @Published var selectedStepSize = stepSize.tenth
     
     init() {
         load()
@@ -47,17 +55,27 @@ class WeightViewmodel: ObservableObject {
     }
     
     func increment(_ type: GradeType) {
-        guard let aloha = typeArr[type] else { return }
-        typeArr[type]! += typeArr[type]! >= 100 ? 0 : 10
-    //    if typeArr[type]! < 0 { typeArr[type]! = 0}
+        if typeArr[type] == nil { return }
+        typeArr[type]! += typeArr[type]! >= 100 ? 0 : getStepValue()
         reload()
     }
     
     func decrement(_ type: GradeType) {
-        guard let _ = typeArr[type] else { return }
-        typeArr[type]! -= typeArr[type]! <= 0 ? 0 : 10
+        if typeArr[type] == nil { return }
+        typeArr[type]! -= typeArr[type]! <= 0 ? 0 : getStepValue()
         if typeArr[type]! < 0 { typeArr[type]! = 0}
         reload()
+    }
+    
+    func getStepValue() -> Double {
+        switch selectedStepSize {
+        case .tenth:
+            return 10.0
+        case .ones:
+            return 1.0
+        case .fraction:
+            return 0.1
+        }
     }
     
     func reload() {
@@ -66,7 +84,7 @@ class WeightViewmodel: ObservableObject {
     
     func saveWeigths() {
         for type in types {
-            if let typeWeight = typeArr[type],  
+            if let typeWeight = typeArr[type],
                 let typeName = typeArrNames[type.id] {
                 type.weigth = typeWeight
                 type.name = typeName
@@ -98,8 +116,11 @@ class WeightViewmodel: ObservableObject {
     
     func addWeigth() {
         let newName = "Type \(typeArr.count)"
-        Util.addType(name: newName, weigth: 0)
-        load()
+        let newType = Util.addType(name: newName, weigth: 0)
+        typeArr[newType] = newType.weigth
+        typeArrNames[newType.id] = newType.name
+        types.append(newType)
+        objectWillChange.send()
     }
     
     func removeWeigth() {

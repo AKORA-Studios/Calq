@@ -19,7 +19,6 @@ struct ChangeWeightScreen: View {
     
     var body: some View {
         VStack {
-
             HStack {
                 Text("EditWeigthDesc")
                 Image(systemName: "info.circle").onTapGesture {
@@ -27,15 +26,28 @@ struct ChangeWeightScreen: View {
                 }
             }
             
-            if vm.showHintText {
-                Text("EditWeigthPrimaryHint").font(.footnote)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 5)
+            Text("EditWeigthPrimaryHint")
+                .foregroundColor(vm.showHintText ? .labelColor : .backgroundColor)
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .padding(.top, 5)
+            
+            VStack {
+                Text("EditWeigthPickerTitle").frame(maxWidth: .infinity, alignment: .leading)
+                Picker("EditWeigthPickerTitle", selection: $vm.selectedStepSize) {
+                    Text("10").tag(stepSize.tenth)
+                    Text("1").tag(stepSize.ones)
+                    Text("0.1").tag(stepSize.fraction)
+                }
+                .pickerStyle(.segmented)
             }
+            .padding()
             
             List {
+                exampleWeightView()
+                
                 Section {
-                    ForEach(vm.types) { type in
+                    ForEach(vm.types.sorted(by: {$0.weigth > $1.weigth})) { type in
                         HStack {
                             HStack {
                                 if Util.isPrimaryType(type) {
@@ -49,16 +61,16 @@ struct ChangeWeightScreen: View {
                             }
                             
                             if let typeWeight = vm.typeArr[type] {
-                                Text("\(typeWeight)")
+                                Text("\(typeWeight.shorted)")
                                     .foregroundStyle(weightColor(typeWeight))
-                                    .frame(width: 25).font(.footnote)
+                                    .frame(width: 30).font(.footnote)
                                 
                                 TextField("", text: vm.binding(for: type.id))
                                     .foregroundStyle(weightColor(typeWeight))
                             }
-
+                            
                             Spacer()
-                     
+                            
                             Stepper("") {
                                 vm.increment(type)
                             } onDecrement: {
@@ -66,7 +78,7 @@ struct ChangeWeightScreen: View {
                             }
                             
                             deleteView(type)
-                           
+                            
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
                             }
@@ -82,7 +94,7 @@ struct ChangeWeightScreen: View {
                 .padding(0)
             
             Spacer()
-            Text("EditWeigthSum\(vm.summedUp)")
+            Text("EditWeigthSum\(vm.summedUp) %")
                 .foregroundColor(vm.summedUp > 100 ? Color.red : Color.gray)
             
             Button("saveDataWeight") {
@@ -105,6 +117,31 @@ struct ChangeWeightScreen: View {
             }
     }
     
+    func exampleWeightView() -> some View {
+        Section {
+            HStack {
+                Image(systemName: "star")
+            
+                Text("%")
+                    .foregroundStyle(.gray)
+                    .frame(width: 30).font(.footnote)
+                
+                Text("Name")
+                    .foregroundStyle(.gray)
+                
+                Spacer()
+                
+                Stepper("") {
+                } onDecrement: {
+                }.disabled(true)
+                
+                if vm.showHintText {
+                    Text("ID").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
+                }
+            }
+        }
+    }
+    
     @ViewBuilder
     func deleteView(_ type: GradeType) -> some View {
         if vm.types.count > 2 && vm.getGradesForType(type).isEmpty {
@@ -113,8 +150,8 @@ struct ChangeWeightScreen: View {
         }
     }
     
-    func weightColor(_ weight: Int16) -> Color {
-        return weight > 0 ? Color(uiColor: UIColor.label) : Color.red
+    func weightColor(_ weight: Double) -> Color {
+        return weight > 0.0 ? Color(uiColor: UIColor.label) : Color.red
     }
     
     func saveChanges() {
