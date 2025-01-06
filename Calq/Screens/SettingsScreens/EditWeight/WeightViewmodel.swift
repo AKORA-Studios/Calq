@@ -116,8 +116,11 @@ class WeightViewmodel: ObservableObject {
     
     func addWeigth() {
         let newName = "Type \(typeArr.count)"
-        Util.addType(name: newName, weigth: 0)
-        load()
+        let newType = Util.addType(name: newName, weigth: 0)
+        typeArr[newType] = newType.weigth
+        typeArrNames[newType.id] = newType.name
+        types.append(newType)
+        objectWillChange.send()
     }
     
     func removeWeigth() {

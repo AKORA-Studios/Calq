@@ -94,7 +94,7 @@ struct ChangeWeightScreen: View {
                 .padding(0)
             
             Spacer()
-            Text("EditWeigthSum\(vm.summedUp)")
+            Text("EditWeigthSum\(vm.summedUp) %")
                 .foregroundColor(vm.summedUp > 100 ? Color.red : Color.gray)
             
             Button("saveDataWeight") {

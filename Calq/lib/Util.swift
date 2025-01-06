@@ -367,7 +367,8 @@ struct Util {
         saveCoreData()
     }
     
-    static func addType(name: String, weigth: Double) {
+    @discardableResult
+    static func addType(name: String, weigth: Double) -> GradeType {
         let existingTypes = getTypes().map { $0.id }
         
         let newType = GradeType(context: getContext())
@@ -382,6 +383,8 @@ struct Util {
         let settings = Util.getSettings()
         settings.addToGradetypes(newType)
         saveCoreData()
+        
+        return newType
     }
     
     private static func getNewIDQwQ(_ ids: [Int16]) -> Int16 {
