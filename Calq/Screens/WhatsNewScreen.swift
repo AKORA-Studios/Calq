@@ -11,19 +11,11 @@ struct WhatsNewScreen: View {
     @EnvironmentObject var vm: TabVM
     
     let newFuncs = [
-        "📥 save Backup",
-        "🗒️ Export to PDF (experimental)",
-        "📄 PDF & JSON export preview",
-        "🌸 Fixed Missing Impact Number",
-        "💾 Removed common crash sources"
+        "⚙️ Grade weights can now also be 51.3!"
     ]
     
     let newFuncsGeneral = [
-        "📥 Backups speichern",
-        "🗒️ Export zu PDF (experimentell)",
-        "📄 PDF & JSON Export Vorschau",
-        "🌸 Fehlende Zahl beim Einfluss gefixt",
-        "💾 Entfernen von häufige Absturzquellen"
+        "⚙️ Notengewichte können nurn auch 51.3 sein!"
     ]
     
     let lang = Locale.preferredLanguages[0]
