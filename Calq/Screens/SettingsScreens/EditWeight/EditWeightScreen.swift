@@ -19,7 +19,6 @@ struct ChangeWeightScreen: View {
     
     var body: some View {
         VStack {
-
             HStack {
                 Text("EditWeigthDesc")
                 Image(systemName: "info.circle").onTapGesture {
@@ -27,11 +26,19 @@ struct ChangeWeightScreen: View {
                 }
             }
             
-            if vm.showHintText {
-                Text("EditWeigthPrimaryHint").font(.footnote)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 5)
+            Text("EditWeigthPrimaryHint")
+                .foregroundColor(vm.showHintText ? .labelColor : .backgroundColor)
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .padding(.top, 5)
+            
+            Picker("What is your favorite color?", selection: $vm.selectedStepSize) {
+                Text("tenth").tag(stepSize.tenth)
+                Text("ones").tag(stepSize.ones)
+                Text("fraction").tag(stepSize.fraction)
             }
+            .pickerStyle(.segmented)
+            .padding()
             
             List {
                 Section {
@@ -51,14 +58,14 @@ struct ChangeWeightScreen: View {
                             if let typeWeight = vm.typeArr[type] {
                                 Text("\(typeWeight.shorted)")
                                     .foregroundStyle(weightColor(typeWeight))
-                                    .frame(width: 25).font(.footnote)
+                                    .frame(width: 30).font(.footnote)
                                 
                                 TextField("", text: vm.binding(for: type.id))
                                     .foregroundStyle(weightColor(typeWeight))
                             }
-
+                            
                             Spacer()
-                     
+                            
                             Stepper("") {
                                 vm.increment(type)
                             } onDecrement: {
@@ -66,7 +73,7 @@ struct ChangeWeightScreen: View {
                             }
                             
                             deleteView(type)
-                           
+                            
                             if vm.showHintText {
                                 Text("\(type.id)").foregroundColor(Color.gray).frame(width: 10).font(.footnote)
                             }
