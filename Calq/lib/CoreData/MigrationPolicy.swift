@@ -18,11 +18,4 @@ class MigrationV0toV1: NSEntityMigrationPolicy {
         }
     }
 }
-
-// FUNCTION($entityPolicy, "updateWeightOrigWeight:", $source.weigth)
-class MigrationV3toV4: NSEntityMigrationPolicy {
-    @objc func updateWeight(origWeight: NSNumber) -> Double {
-        return Double(origWeight)
-    }
-}
 // swiftlint:enable compiler_protocol_init
