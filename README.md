@@ -105,8 +105,11 @@ Idk if you are really really interested heres a simplified ER-Model of the Relat
 
 ## Feature Requests
 
-[Future features](https://github.com/AKORA-Studios/Calq/projects2) sind in dem Reiter Projekte aufgelistet. Du hast einen weiteren Verbesserungsvorschlag? [Hier](https://github.com/AKORA-Studios/Calq/issues) kannst du eines vorschlagen.
-Alternativ schreib einfach eine Nachricht aufm Discord ;3
+[Future features](https://github.com/AKORA-Studios/Calq/projects2) are listed in the project tab of this project. You have another feature suggestions? [Here](https://github.com/AKORA-Studios/Calq/issues) you can open an issue to add it. Or write us on discord
+
+## Future of this project
+
+Since none of the mainatainers has any use for this application anymore, its unlikely new complex features will be implemented.
 
 # License
 
