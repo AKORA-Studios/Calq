@@ -11,7 +11,7 @@ public enum TestSortCriteria: CaseIterable {
     case name
     case grade
     case date
-    case onlyActiveHalfyears
+    case onlyActiveTerms
     
     static var array = [
         (name: NSLocalizedString("sortName", comment: ""), type: name),
@@ -35,12 +35,12 @@ extension Util {
             return tests.sorted(by: {$0.grade < $1.grade})
         case .date:
             return tests.sorted(by: {$0.date < $1.date})
-        case .onlyActiveHalfyears:
+        case .onlyActiveTerms:
             return filterTests(tests, subject)
         }
     }
     
-    /// Filters out every inactive Halfyear Grades for subject grade calculations
+    /// Filters out every inactive terms Grades for subject grade calculations
     private static func filterTests(_ tests: [UserTest], _ subject: UserSubject) -> [UserTest] {
         var filteredTests = tests
         

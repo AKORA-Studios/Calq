@@ -119,7 +119,7 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject) -> Double {
-        let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        let tests = Util.getAllSubjectTests(sub, .onlyActiveTerms)
         if tests.count == 0 { return 0.0 }
         
         var count = 0.0
@@ -138,7 +138,7 @@ struct Util {
     
     /// Returns the average of all grades from one subject
     static func getSubjectAverage(_ sub: UserSubject, year: Int, filterinactve: Bool = true) -> Double {
-        var tests = filterinactve ? Util.getAllSubjectTests(sub) : Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+        var tests = filterinactve ? Util.getAllSubjectTests(sub) : Util.getAllSubjectTests(sub, .onlyActiveTerms)
         tests = tests.filter {$0.year == year}
         if tests.isEmpty { return 0.0 }
         return testAverage(tests)
@@ -154,7 +154,7 @@ struct Util {
         
         for sub in allSubjects {
             if sub.getAllTests().isEmpty { subjectCount-=1; continue }
-            let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears)
+            let tests = Util.getAllSubjectTests(sub, .onlyActiveTerms)
             if tests.isEmpty { subjectCount-=1; continue }
             a += round(getSubjectAverage(sub))
         }
@@ -163,7 +163,7 @@ struct Util {
         return a / subjectCount
     }
     
-    /// Returns the average of all grades from all subjects in a specific halfyear
+    /// Returns the average of all grades from all subjects in a specific term
     static func generalAverage(_ year: Int) -> Double {
         let allSubjects = getAllSubjects()
         if allSubjects.count == 0 { return 0.0 }
@@ -172,7 +172,7 @@ struct Util {
         
         for sub in allSubjects {
             if sub.getAllTests().isEmpty { continue }
-            let tests = Util.getAllSubjectTests(sub, .onlyActiveHalfyears).filter {Int($0.year) == year}
+            let tests = Util.getAllSubjectTests(sub, .onlyActiveTerms).filter {Int($0.year) == year}
             if tests.isEmpty { continue }
             let multiplier = sub.lk ? 2.0 : 1.0
             
@@ -189,7 +189,7 @@ struct Util {
         return ((17 - abs(number)) / 3.0)
     }
     
-    /// Generates a convient String that shows the grades of the subject.
+    /// Generates a convenient String that shows the grades of the subject.
     static func averageString(_ subject: UserSubject) -> String {
         var str: String = ""
         let tests = subject.getAllTests()
@@ -204,7 +204,7 @@ struct Util {
         return str
     }
     
-    /// Generates a convient String that shows the grades of the subject.
+    /// Generates a convenient String that shows the grades of the subject.
     static func getSubjectYearString(_ subject: UserSubject) -> [String] {
         var str = ["-", "-", "-", "-", "#"]
         let tests = Util.getAllSubjectTests(subject)
@@ -314,7 +314,7 @@ struct Util {
         return !arr.contains(String(num))
     }
     
-    /// Remove  inactive halfyear
+    /// Remove  inactive term
     @discardableResult static func removeYear(_ sub: UserSubject, _ num: Int) -> UserSubject {
         let arr = getinactiveYears(sub)
         sub.inactiveYears = arrToString(arr.filter { $0 != String(num)})
@@ -322,7 +322,7 @@ struct Util {
         return sub
     }
     
-    /// Add inactive halfyear
+    /// Add inactive term
     @discardableResult static func addYear(_ sub: UserSubject, _ num: Int) -> UserSubject {
         var arr = getinactiveYears(sub)
         if arr.contains(String(num)) {
