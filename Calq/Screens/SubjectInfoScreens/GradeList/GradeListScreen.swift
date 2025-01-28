@@ -88,10 +88,21 @@ struct GradeListScreen: View {
     func gradeIcon(test: UserTest, color: Color) -> some View {
         HStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 8.0)
-                    .fill(Util.isPrimaryType(test.type) ? color : Color.clear)
-                    .frame(width: 30, height: 30)
-                Text(String(test.grade))
+                if Util.isPrimaryType(test.type) {
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .fill(color)
+                        .frame(width: 30, height: 30)
+                    Text(String(test.grade))
+                } else {
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .fill( Color.clear)
+                        .frame(width: 30, height: 30)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(color, lineWidth: 1)
+                        )
+                    Text(String(test.grade))
+                }
             }
             Text(test.name).lineLimit(1)
             Spacer()
