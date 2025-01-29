@@ -12,6 +12,8 @@ public enum ModelKit {
     public static let bundle = Bundle.main
 }
 
+let defaultPadding: CGFloat = 8 * 2 //8 left & right
+
 let UD_firstLaunchKey = "notFirstLaunch"
 let UD_primaryType = "primaryGradeType"
 let UD_lastVersion = "lastAppVersion"

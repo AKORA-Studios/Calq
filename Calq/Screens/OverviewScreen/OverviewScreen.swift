@@ -12,68 +12,73 @@ struct OverviewScreen: View {
     
     var body: some View {
         if #available(iOS 15.0, *) {
-            NavigationView {
-                ScrollView(showsIndicators: false) {
-                    scrollViewBody()
-                }
-                .padding(.horizontal)
-                .navigationTitle("OverViewTitle")
-                .onAppear(perform: vm.updateViews)
-            }.navigationViewStyle(StackNavigationViewStyle())
-            .refreshable {
-                vm.updateViews()
+            GeometryReader { bounds in
+                NavigationView {
+                    ScrollView(showsIndicators: false) {
+                        scrollViewBody(bounds)
+                    }
+                    .padding(.horizontal)
+                    .navigationTitle("OverViewTitle")
+                    .onAppear(perform: vm.updateViews)
+                }.navigationViewStyle(StackNavigationViewStyle())
+                    .refreshable {
+                        vm.updateViews()
+                    }
             }
             
         } else {
-            NavigationView {
-                ScrollView(showsIndicators: false) {
-                    scrollViewBody()
-                }
-                .padding(.horizontal)
-                .navigationTitle("OverViewTitle")
-                .onAppear(perform: vm.updateViews)
-            }.navigationViewStyle(StackNavigationViewStyle())
+            GeometryReader { bounds in
+                NavigationView {
+                    ScrollView(showsIndicators: false) {
+                        scrollViewBody(bounds)
+                    }
+                    .padding(.horizontal)
+                    .navigationTitle("OverViewTitle")
+                    .onAppear(perform: vm.updateViews)
+                }.navigationViewStyle(StackNavigationViewStyle())
+            }
         }
     }
     
-    func scrollViewBody() -> some View {
+    func scrollViewBody(_ bounds: GeometryProxy) -> some View {
         VStack {
             CardContainer {
                 BarChart(values: $vm.subjectValues, heigth: 200, average: vm.generalAverage, round: true)
-            }
+            }.frame(width: bounds.size.width - defaultPadding)
             
             CardContainer {
                 LineChartView()
-            }
+            }.frame(width: bounds.size.width - defaultPadding)
             
             CardContainer {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("OverViewHalfyearChartTitle")
                     BarChart(values: $vm.halfyears, heigth: 150)
                 }
-            }
+            }.frame(width: bounds.size.width - defaultPadding)
             
             CardContainer {
-                CircleViews()
-            }
+                CircleViews(bounds)
+            }.frame(width: bounds.size.width - defaultPadding)
         }
     }
     
     // MARK: Subviews
-    func CircleViews() -> some View {
-        VStack {
-            GeometryReader { geo in
-                HStack(alignment: .center) {
-                    Text("OverviewPieChartSubjects").frame(width: geo.size.width/2)
-                    Spacer()
-                    Text("OverviewPieChartSum") .frame(width: geo.size.width/2)
-                }
+    func CircleViews(_ bounds: GeometryProxy) -> some View {
+        let x = (bounds.size.width)/2 - 2*defaultPadding
+        return VStack {
+            HStack(alignment: .center) {
+                Text("OverviewPieChartSubjects")
+                Spacer()
+                Text("OverviewPieChartSum")
             }
             HStack(alignment: .center, spacing: 5) {
-                CircleChart(percent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText).frame(height: 150)
-                CircleChart(percent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø")).frame(height: 150)
+                CircleChart(percent: $vm.averagePercent, textDescription: "OverviewPieChartSubjectsDesc", upperText: $vm.averageText, lowerText: $vm.gradeText)
+                    .frame(height: 150).frame(width: x)
+                CircleChart(percent: $vm.blockPercent, textDescription: "OverviewPieChartSumDesc", upperText: $vm.blockCircleText, lowerText: Binding.constant("Ø"))
+                    .frame(height: 150).frame(width: x)
             }
-        }
+        }.frame(width: bounds.size.width - 3 * defaultPadding)
     }
     
     func LineChartView() -> some View {
