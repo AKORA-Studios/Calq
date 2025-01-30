@@ -109,11 +109,12 @@
 
 "subjectDetailGradeList"="View Grades";
 "%lldsubjectDetailAverageHalfyear"="%lld .Term Average";
-"subjectDetailTime"="Time Chart";
+"subjectDetailTime"="Grades over time";
 "subjectDetailActive"="Active";
 "subjectDetailInactive"="Inactive";
 "subjectDetailDeactivate"="deactivate Term";
 "subjectDetailActivate"="activate Term";
+"subjectDetailLineChartInfo"="This graph shows all your grades in this subject over all terms";
 
 "firstLaunchDesc"="The default weigth between Exams and Tests is 50%:50% (You can change that anytime in the settings)";
 "firstLaunchLoadDemo"="load Demo Data";

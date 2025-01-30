@@ -21,8 +21,18 @@ struct SubjectDetailScreen: View {
                 Spacer()
                 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("subjectDetailTime")
-                        .padding(.top, 10)
+                    HStack {
+                        Text("subjectDetailTime")
+                        Spacer()
+                        Image(systemName: "info.circle").onTapGesture {
+                            vm.isLineChartInfoPresented.toggle()
+                        }
+                    }.padding(.top, 10)
+                    
+                    if vm.isLineChartInfoPresented {
+                        Text("subjectDetailLineChartInfo")
+                    }
+                    
                     LineChart(data: Binding.constant(vm.lineChartData()), heigth: 90, averageValue: Util.getSubjectAverage(vm.subject))
                 }
                 .padding(.horizontal)

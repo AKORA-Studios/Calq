@@ -109,11 +109,12 @@
 
 "subjectDetailGradeList"="Notenliste ansehen";
 "%lldsubjectDetailAverageHalfyear"="Durchschnitt des %lld. Halbjahres";
-"subjectDetailTime"="Verlauf";
+"subjectDetailTime"="Notenverlauf";
 "subjectDetailActive"="Aktiv";
 "subjectDetailInactive"="Inaktiv";
 "subjectDetailDeactivate"="Halbjahr deaktivieren";
 "subjectDetailActivate"=" Halbjahr aktivieren";
+"subjectDetailLineChartInfo"="Der Graph zeigt alle Noten dieses Fachs über alle Halbjahre";
 
 "firstLaunchDesc"="Die Standardwertung von Klausur und Test beträgt 50% (Änderung des Verhältnis in den Einstellungen möglich)";
 "firstLaunchLoadDemo"="Demo Daten laden";

@@ -11,11 +11,15 @@ struct WhatsNewScreen: View {
     @EnvironmentObject var vm: TabVM
     
     let newFuncs = [
-        "⚙️ Grade weights can now also be 51.3!"
+        "⚙️ Grade weights can now also be 51.3!",
+        "🌻 Quality of life improvement for iPads - Split view is now better supported",
+        "➗ Subject Average is now also displayed in its Linechart"
     ]
     
     let newFuncsGeneral = [
-        "⚙️ Notengewichte können nurn auch 51.3 sein!"
+        "⚙️ Notengewichte können nur auch 51.3 sein!",
+        "🌻 Split View für iPad verbessert",
+        "➗ Durchschnitt des Fachs wird im Verlaufsdiagram mit angezeigt"
     ]
     
     let lang = Locale.preferredLanguages[0]
