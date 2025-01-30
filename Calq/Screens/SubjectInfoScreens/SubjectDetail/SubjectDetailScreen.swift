@@ -23,7 +23,7 @@ struct SubjectDetailScreen: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("subjectDetailTime")
                         .padding(.top, 10)
-                    LineChart(data: Binding.constant(vm.lineChartData()), heigth: 90)
+                    LineChart(data: Binding.constant(vm.lineChartData()), heigth: 90, averageValue: Util.getSubjectAverage(vm.subject))
                 }
                 .padding(.horizontal)
                 .background(CardView())

@@ -31,7 +31,10 @@ struct LineShape: Shape {
     }
 }
 
+/// Creates the axis ticks and associated labels
 struct YAxis: View {
+    @State var averageValue = 0.0
+    
     var body: some View {
         GeometryReader {geo in
             let fullHeight = geo.size.height
@@ -42,6 +45,16 @@ struct YAxis: View {
                     .fill(Color.gray)
                     .frame(width: 1)
                     .offset(x: -15)
+                
+                // Average line
+                if averageValue > 0.0 {
+                    HStack(spacing: 2) {
+                        // Spacer()
+                        Text(String("Ø")).font(.footnote).foregroundColor(grayColor)
+                        Rectangle().fill(grayColor).frame(width: 5, height: 1)// .frame(height: 1).offset(x: 15)
+                    }.offset(y: fullHeight/2 - (fullHeight * (averageValue)/15)).offset(x: -20)
+                }
+                
                 // ticks
                 ForEach(ticks, id: \.self.value) {tick in
                     HStack(spacing: 2) {
@@ -54,14 +67,22 @@ struct YAxis: View {
         }
     }
 }
-
+/// Creates the vertical lines
 struct YAxisLines: View {
+    @State var averageValue = 0.0
+    
     var body: some View {
         GeometryReader { geo in
             let fullHeight = geo.size.height
             let fullWidth = geo.size.width
             
             ZStack {
+                // Average line
+                if averageValue > 0.0 {
+                    HStack(spacing: 2) {
+                        Rectangle().fill(grayColor).frame(width: fullWidth, height: 1)
+                    }.offset(y: fullHeight - (fullHeight * (( averageValue)/15.0)) - 17).offset(x: -5)
+                }
                 // ticks
                 ForEach(ticks, id: \.self.value) {tick in
                     HStack(spacing: 2) {
@@ -77,9 +98,15 @@ struct YAxisLines: View {
 
 struct LineChartBase_Preview: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            YAxis()
-            YAxisLines()
-        }.padding().frame(width: 350, height: 150)
+        VStack {
+            ZStack {
+                YAxis(averageValue: 7.0)
+                YAxisLines(averageValue: 7.0)
+            }.padding().frame(width: 350, height: 150)
+            ZStack {
+                YAxis()
+                YAxisLines()
+            }.padding().frame(width: 350, height: 150)
+        }
     }
 }

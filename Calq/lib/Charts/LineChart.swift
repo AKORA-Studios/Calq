@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let grayColor = Color.gray.opacity(0.3)
+let grayColor = Color.gray.opacity(0.4)
 
 struct LineChartEntry: Hashable {
     var value: Double
@@ -49,14 +49,15 @@ struct LineChartEntry: Hashable {
 struct LineChart: View {
     @Binding var data: [[LineChartEntry]]
     @State var heigth: CGFloat = 150
+    @State var averageValue = 0.0
     
     var body: some View {
         ZStack {
-            YAxis()
-            YAxisLines()
+            YAxis(averageValue: averageValue)
+            YAxisLines(averageValue: averageValue)
             ZStack {
                 ForEach(values(), id: \.self) {v in
-                    if v.count > 0 {LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0)}
+                    if v.count > 0 { LineShape(values: v, frame: $heigth).stroke(v[0].color, lineWidth: 2.0) }
                 }
             }
         }
@@ -64,8 +65,9 @@ struct LineChart: View {
         .padding()
     }
     
+    /// Creates ChartEntries from the given data
+    /// - Returns: Dataset[ChartEntries], [AverageLineDataSet]
     func values() -> [[LineChartEntry]] {
-        
         var arrV: [LineChartEntry] = []
         for v in data {
             for e in v {
@@ -87,13 +89,14 @@ struct LineChart: View {
             }
             arr.append(arrD)
         }
+   
         return arr
     }
 }
 
 struct LineChart_Preview: PreviewProvider {
     static var previews: some View {
-        LineChart(data: Binding.constant(LineChartEntry.example))
+        LineChart(data: Binding.constant(LineChartEntry.example), averageValue: 11)
             .padding()
     }
 }
