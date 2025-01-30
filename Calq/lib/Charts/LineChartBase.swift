@@ -12,8 +12,9 @@ var ticks: [LineChartEntry] = [LineChartEntry(value: 15, date: 1),
                                LineChartEntry(value: 5, date: 1/3),
                                LineChartEntry(value: 0, date: 0)]
 
+/// Draws the polygon line for a given Dataset of points, fitting the given frame
 struct LineShape: Shape {
-    @State var values: [LineChartEntry]
+    var values: [LineChartEntry]
     @Binding var frame: CGFloat
     
     func path(in rect: CGRect) -> Path {

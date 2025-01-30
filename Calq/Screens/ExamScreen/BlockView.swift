@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Creates the final grade block View, containing "Block 1" (subject term points) and "Block 2" (final exam points)
 struct BlockView: View {
     @EnvironmentObject var vm: ExamViewModel
 
@@ -40,6 +41,11 @@ struct BlockView: View {
     }
 }
 
+/// Creates the bar View for thr exma Blocks
+/// - Parameters:
+///     - value: the current value
+///     - max: the maximum value
+/// > Warning: Unexpeted behaviour if max < value
 struct RoundProgressBar: View {
     @Binding var value: Int
     @Binding var max: Int
@@ -54,7 +60,7 @@ struct RoundProgressBar: View {
                 HStack(spacing: 0) {
                     if barProgressWidth + 10 < geo.size.width && barProgressWidth - 5 > 0 {
                         Spacer().frame(width: barProgressWidth - 5)
-                        LinearGradient(colors: [.black.opacity(0.3), .clear], startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(colors: [.black.opacity(0.2), .clear], startPoint: .leading, endPoint: .trailing)
                             .clipShape(RoundedRectangle(cornerRadius: 8) )
                             .frame(width: 15, height: 8)
                     }
@@ -63,7 +69,17 @@ struct RoundProgressBar: View {
                 RoundedRectangle(cornerRadius: 8)
                     .frame(width: barProgressWidth, height: 8)
                     .foregroundColor(.accentColor)
-            }.frame( height: 8)
+            }.frame(height: 8)
         }
+    }
+}
+
+struct RoundProgressBar_Preview: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            RoundProgressBar(value: Binding.constant(0), max: Binding.constant(100))
+            RoundProgressBar(value: Binding.constant(20), max: Binding.constant(100))
+            RoundProgressBar(value: Binding.constant(20), max: Binding.constant(20))
+        }.padding()
     }
 }
