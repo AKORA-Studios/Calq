@@ -45,7 +45,7 @@
 
 "EditWeigthTitle"="Wertung ändern";
 "EditWeigthDesc"="Wähle die Wertung der Noten in % aus";
-"EditWeigthSum%lld"="Gesamt: %lld %";
+"EditWeigthSum%d"="Gesamt: %lld %";
 "EditWeigthAlertTitle"="Summe ungültig";
 "EditWeigthAlertText"="Die Summe sollte 100% betragen";
 "EditWeigthWarning %@"="Bitte ändere den Typ dieser Noten: %@";

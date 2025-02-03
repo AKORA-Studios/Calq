@@ -45,7 +45,7 @@
 
 "EditWeigthTitle"="Change Weight";
 "EditWeigthDesc"="Change the grades weight in %";
-"EditWeigthSum%lld"="Sum: %lld %";
+"EditWeigthSum%d"="Sum: %lld %";
 "EditWeigthAlertTitle"="Invalid sum";
 "EditWeigthAlertText"="The maximum sum should be 100";
 "EditWeigthWarning %@"="Pls change the type of the following grades to something else: %@";

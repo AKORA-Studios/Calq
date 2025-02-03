@@ -100,7 +100,7 @@ struct ChangeWeightScreen: View {
             Button("saveDataWeight") {
                 saveChanges()
             }.buttonStyle(PrimaryStyle())
-                .disabled(vm.summedUp != 100)
+                .disabled(vm.summedUp != 100.0)
                 .padding()
             
         }.navigationTitle("EditWeigthTitle")
