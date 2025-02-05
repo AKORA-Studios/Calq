@@ -21,7 +21,7 @@ enum stepSize {
 
 class WeightViewmodel: ObservableObject {
     @Published var typeArr: [GradeType: Double] = [:]
-    @Published var summedUp: Int = 0
+    @Published var summedUp: Double = 0.0
     
     @Published var selectedDelete: Int16 = 0
     @Published var isAlertPresented = false
@@ -56,14 +56,16 @@ class WeightViewmodel: ObservableObject {
     
     func increment(_ type: GradeType) {
         if typeArr[type] == nil { return }
-        typeArr[type]! += typeArr[type]! >= 100 ? 0 : getStepValue()
+        typeArr[type]! += typeArr[type]! >= 100.0 ? 0.0 : getStepValue()
+        typeArr[type]! = typeArr[type]!.rounded(toPlaces: 2) //to prevent numbers like 26.200000000000003
         reload()
     }
     
     func decrement(_ type: GradeType) {
         if typeArr[type] == nil { return }
-        typeArr[type]! -= typeArr[type]! <= 0 ? 0 : getStepValue()
-        if typeArr[type]! < 0 { typeArr[type]! = 0}
+        typeArr[type]! -= typeArr[type]! <= 0-0 ? 0.0 : getStepValue()
+        if typeArr[type]! < 0.0 { typeArr[type]! = 0.0}
+        typeArr[type]! = typeArr[type]!.rounded(toPlaces: 2)
         reload()
     }
     
@@ -79,7 +81,7 @@ class WeightViewmodel: ObservableObject {
     }
     
     func reload() {
-        summedUp = Int(Array(typeArr.values).reduce(0, +))
+        summedUp = Array(typeArr.values).reduce(0.0, +)
     }
     
     func saveWeigths() {
