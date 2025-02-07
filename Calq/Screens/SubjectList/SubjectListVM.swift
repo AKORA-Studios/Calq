@@ -25,6 +25,12 @@ class SubjectListVM: ObservableObject {
     @Published var gradeTablePresented = false
     @Published var isSubjectDetailPResented = false
     
+    init() {
+           subjects = Util.getAllSubjects()
+           inactiveCount = (subjects.count * 4) - calcInactiveYearsCount()
+           subjectCount = subjects.count * 4
+       }
+    
     func selectSubject(_ subject: UserSubject) {
         selectedSubejct = subject
         isSubjectDetailPResented = true

@@ -74,9 +74,6 @@ struct SubjectListScreen: View {
                         GradeTableOverviewScreen(subjects: vm.subjects)
                     }
                 }
-                .onAppear {
-                    vm.updateViews()
-                }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
