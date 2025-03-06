@@ -55,7 +55,7 @@ extension JSON {
             Util.deleteSettings()
         } catch(let err) {
             print("Error parsing JSON: \(err), Fallback to import with V0")
-            try consctructV0(json, jsonDict)
+            try constructV0(json, jsonDict)
         }
         
         if jsonDict["formatVersion"] != nil {
@@ -63,20 +63,20 @@ extension JSON {
         }
         
         if version >= 3 {
-            try consctructV3(json, jsonDict)
+            try constructV3(json, jsonDict)
         } else  if version == 2 {
-            try consctructV1(json, jsonDict)
+            try constructV1(json, jsonDict)
             constructPrimaryTypeAndExamOption(jsonDict)
             
         } else if version == 1 {
-            try consctructV1(json, jsonDict)
+            try constructV1(json, jsonDict)
         } else {
-            try consctructV0(json, jsonDict)
+            try constructV0(json, jsonDict)
         }
         
     }
     
-    static func consctructV3(_ json: Data, _ jsonDict: [String: Any]) throws {
+    static func constructV3(_ json: Data, _ jsonDict: [String: Any]) throws {
         let decoder = JSONDecoder()
         var data: AppStructV3
         do {
@@ -145,7 +145,7 @@ extension JSON {
         }
     }
     
-    static func consctructV1(_ json: Data, _ jsonDict: [String: Any]) throws {
+    static func constructV1(_ json: Data, _ jsonDict: [String: Any]) throws {
         let decoder = JSONDecoder()
         var data: AppStructV1
         do {
@@ -230,7 +230,7 @@ extension JSON {
         }
     }
     
-    static func consctructV0(_ json: Data, _ jsonDict: [String: Any]) throws {
+    static func constructV0(_ json: Data, _ jsonDict: [String: Any]) throws {
         let decoder = JSONDecoder()
         var data: AppStruct
         
