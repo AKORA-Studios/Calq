@@ -27,10 +27,11 @@ struct ChangeWeightScreen: View {
             }
             
             Text("EditWeigthPrimaryHint")
-                .foregroundColor(vm.showHintText ? .labelColor : .backgroundColor)
+                .foregroundColor(vm.showHintText ? .labelColor : .clear)
                 .font(.footnote)
                 .multilineTextAlignment(.center)
                 .padding(.top, 5)
+                .padding(.horizontal)
             
             VStack {
                 Text("EditWeigthPickerTitle").frame(maxWidth: .infinity, alignment: .leading)

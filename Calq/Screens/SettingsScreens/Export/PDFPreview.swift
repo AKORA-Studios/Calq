@@ -13,7 +13,6 @@ struct PDFPreview: View {
     
     var body: some View {
         VStack {
-            Text("Loading . . .").opacity(viewModel.htmlContent.isEmpty ? 1 : 0)
             HTMLStringView(htmlContent: viewModel.generatePDF())
         }.navigationTitle("settingsExportPDF2")
             .toolbar {
@@ -33,7 +32,9 @@ struct HTMLStringView: UIViewRepresentable {
     let htmlContent: String
     
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        let view = WKWebView()
+        view.isOpaque = false
+        return view
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
