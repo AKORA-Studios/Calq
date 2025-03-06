@@ -8,40 +8,24 @@
 import Foundation
 
 // Struct for importing from json
-struct AppStructV2: Codable {
+struct AppStructV3: Codable {
     var colorfulCharts: Bool
     var hasFiveExams: Bool
-    var usersubjects: [SubjectStruct]
+    var usersubjects: [SubjectStruct_Typed]
     var gradeTypes: [JSONTypes]
     var highlightedType: Int
     var formatVersion: Int
     
     struct JSONTypes: Codable {
         var name: String
-        var weigth: Int
+        var weigth: Double
         var id: Int
-    }
-    
-    struct SubjectStruct: Codable {
-        var name: String
-        var lk: Bool
-        var color: String
-        var inactiveYears: String
-        var subjecttests: [JSONTest]
-        
-        struct JSONTest: Codable {
-            var name: String
-            var year: Int
-            var grade: Int
-            var date: String
-            var type: Int
-        }
     }
 }
 
 struct AppStructV1: Codable {
     var colorfulCharts: Bool
-    var usersubjects: [SubjectStruct]
+    var usersubjects: [SubjectStruct_Typed]
     var gradeTypes: [JSONTypes]
     var formatVersion: Int
     
@@ -50,21 +34,21 @@ struct AppStructV1: Codable {
         var weigth: Int
         var id: Int
     }
+}
+
+struct SubjectStruct_Typed: Codable {
+    var name: String
+    var lk: Bool
+    var color: String
+    var inactiveYears: String
+    var subjecttests: [JSONTest]
     
-    struct SubjectStruct: Codable {
+    struct JSONTest: Codable {
         var name: String
-        var lk: Bool
-        var color: String
-        var inactiveYears: String
-        var subjecttests: [JSONTest]
-        
-        struct JSONTest: Codable {
-            var name: String
-            var year: Int
-            var grade: Int
-            var date: String
-            var type: Int
-        }
+        var year: Int
+        var grade: Int
+        var date: String
+        var type: Int
     }
 }
 

@@ -45,35 +45,91 @@ extension JSON {
         var jsonDict: [String: Any] = [:]
         var version = 0
         
-        if let json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8)) {
-            do {
-                jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
-                Util.deleteSettings()
-            } catch {
-                try consctructV0(json, jsonDict)
-                //  throw loadErrors.failedToLoadDictionary
-            }
-            
-            if jsonDict["formatVersion"] != nil {
-                version = jsonDict["formatVersion"] as? Int ?? 0
-            }
-            
-            if version >= 2 {
-                try consctructV2(json, jsonDict)
-            } else if version == 1 {
-                try consctructV1(json, jsonDict)
-            } else {
-                try consctructV0(json, jsonDict)
-            }
-        } else {
+        guard let json = (try String(contentsOf: URL, encoding: String.Encoding.utf8).data(using: .utf8)) else {
             throw LoadErrors.failedToloadData
         }
+        
+        
+        do {
+            jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
+            Util.deleteSettings()
+        } catch(let err) {
+            print("Error parsing JSON: \(err), Fallback to import with V0")
+            try consctructV0(json, jsonDict)
+        }
+        
+        if jsonDict["formatVersion"] != nil {
+            version = jsonDict["formatVersion"] as? Int ?? 0
+        }
+        
+        if version >= 3 {
+            try consctructV3(json, jsonDict)
+        } else  if version == 2 {
+            try consctructV1(json, jsonDict)
+            constructPrimaryTypeAndExamOption(jsonDict)
+            
+        } else if version == 1 {
+            try consctructV1(json, jsonDict)
+        } else {
+            try consctructV0(json, jsonDict)
+        }
+        
     }
     
-    static func consctructV2(_ json: Data, _ jsonDict: [String: Any]) throws {
-        try consctructV1(json, jsonDict)
+    static func consctructV3(_ json: Data, _ jsonDict: [String: Any]) throws {
+        let decoder = JSONDecoder()
+        var data: AppStructV3
+        do {
+            let importedSettings = try decoder.decode(AppStructV3.self, from: json)
+            data = importedSettings
+        } catch {
+            throw LoadErrors.parseJSON
+        }
+        
+        let set = Util.getSettings()
+        if let gradetypes = set.gradetypes {
+            for t in gradetypes.allObjects as? [GradeType] ?? [] {
+                set.removeFromGradetypes(t)
+            }
+        }
+        set.colorfulCharts = data.colorfulCharts
+        
+        // add types
+        var typecheck = 0.0 // should stay below 100
+        var typeIds: [Int] = []
+        for type in data.gradeTypes {
+            if typeIds.contains(type.id) { continue } // ids should only occur once
+            let NewType = GradeType(context: Util.getContext())
+            NewType.name = type.name
+            NewType.weigth = Double(type.weigth)
+            NewType.id = Int16(type.id)
+            
+            if !(typecheck + Double(type.weigth) <= 100.0) {
+                NewType.weigth = 0.0
+            }
+            
+            set.addToGradetypes(NewType)
+            typeIds.append(type.id)
+            typecheck += Double(type.weigth)
+        }
+        
+        saveCoreData()
         
         // read primaryType and exam options
+        constructPrimaryTypeAndExamOption(jsonDict)
+        
+        // check if two types there, if not  add default ones
+        let setTypes = Util.getTypes()
+        typeIds = setTypes.map {Int($0.id)}
+        
+        // construct subjects + tests
+        constructSubjectsWithType(data.usersubjects, set, jsonDict, typeIds)
+        
+        saveCoreData()
+    }
+    
+    // read primaryType and exam options
+    static func constructPrimaryTypeAndExamOption(_ jsonDict: [String: Any]) {
         if jsonDict["hasFiveExams"] != nil {
             let hasFiveExams = jsonDict["hasFiveExams"] as? Bool ?? true
             let set = Util.getSettings()
@@ -107,8 +163,8 @@ extension JSON {
         }
         set.colorfulCharts = data.colorfulCharts
         
-        // add types //TODO: check if double compatible with old/new versions
-        var typecheck = 0.0 // should stay below 100
+        // add types
+        var typecheck = 0.0 // should stay below 100, idealy be exact 100
         var typeIds: [Int] = []
         for type in data.gradeTypes {
             if typeIds.contains(type.id) { continue } // ids should only occur once
@@ -118,7 +174,7 @@ extension JSON {
             NewType.weigth = Double(type.weigth)
             NewType.id = Int16(type.id)
             
-            if !(typecheck + Double(type.weigth) <= 100-0) {
+            if !(typecheck + Double(type.weigth) <= 100.0) {
                 NewType.weigth = 0.0
             }
             
@@ -132,7 +188,13 @@ extension JSON {
         let setTypes = Util.getTypes()
         typeIds = setTypes.map {Int($0.id)}
         
-        for subject in data.usersubjects {
+        constructSubjectsWithType(data.usersubjects, set, jsonDict, typeIds)
+        
+        saveCoreData()
+    }
+    
+    static func constructSubjectsWithType(_ data: [SubjectStruct_Typed], _ settings: AppSettings, _ jsonDict: [String: Any], _ typeIds: [Int]) {
+        for subject in data {
             let sub = UserSubject(context: Util.getContext())
             sub.name = subject.name
             sub.color = subject.color
@@ -164,10 +226,8 @@ extension JSON {
                 
                 sub.addToSubjecttests(test)
             }
-            set.addToUsersubjects(sub)
+            settings.addToUsersubjects(sub)
         }
-        
-        saveCoreData()
     }
     
     static func consctructV0(_ json: Data, _ jsonDict: [String: Any]) throws {
