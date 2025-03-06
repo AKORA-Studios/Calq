@@ -24,7 +24,7 @@ struct JSON {
     
     static func writeJSON(_ data: String) -> URL {
         let DocumentDirURL = try! FileManager.default
-            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("example").appendingPathExtension("json")
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("CalqGrades").appendingPathExtension("json")
         
         do {
             try data.write(to: DocumentDirURL, atomically: true, encoding: String.Encoding.utf8)
