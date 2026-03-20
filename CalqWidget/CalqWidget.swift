@@ -82,6 +82,7 @@ struct CalqWidget: Widget {
         .configurationDisplayName("AverageWidget_DisplayName")
         .description("AverageWidget_Description")
         .supportedFamilies([.systemSmall])
+        .contentMarginsDisabled() // temporary padding fix for ios18
     }
 }
 
@@ -95,6 +96,7 @@ struct LineChartWidget: Widget {
         .configurationDisplayName("LineChartWidget_DisplayName")
         .description("LineChartWidget_Description")
         .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }
 
@@ -109,6 +111,7 @@ struct BarChartWidget: Widget {
         .configurationDisplayName("BarChartWidget_DisplayName")
         .description("BarChartWidget_Description")
         .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }
 
