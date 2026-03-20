@@ -57,7 +57,7 @@ class WeightViewmodel: ObservableObject {
     func increment(_ type: GradeType) {
         if typeArr[type] == nil { return }
         typeArr[type]! += typeArr[type]! >= 100.0 ? 0.0 : getStepValue()
-        typeArr[type]! = typeArr[type]!.rounded(toPlaces: 2) //to prevent numbers like 26.200000000000003
+        typeArr[type]! = typeArr[type]!.rounded(toPlaces: 2) // to prevent numbers like 26.200000000000003
         reload()
     }
     

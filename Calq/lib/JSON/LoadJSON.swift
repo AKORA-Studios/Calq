@@ -52,7 +52,7 @@ extension JSON {
         do {
             jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
             Util.deleteSettings()
-        } catch(let err) {
+        } catch let err {
             print("Error parsing JSON: \(err), Fallback to import with V0")
             try constructV0(json, jsonDict)
         }
