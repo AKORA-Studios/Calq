@@ -49,7 +49,6 @@ extension JSON {
             throw LoadErrors.failedToloadData
         }
         
-        
         do {
             jsonDict = try JSONSerialization.jsonObject(with: json, options: []) as? [String: Any] ?? [:]
             Util.deleteSettings()

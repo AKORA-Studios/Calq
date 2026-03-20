@@ -12,6 +12,16 @@ struct CircleChartWidgetView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
+        if #available(iOS 17.0, *) {
+            bodyView()
+                .containerBackground(for: .widget, content: {})
+        } else {
+            bodyView()
+                .background(widgteBackground(colorScheme))
+        }
+    }
+    
+    func bodyView() -> some View {
         VStack {
             HStack {
                 Image(systemName: "chart.bar.fill").font(.system(size: 16.0)).foregroundColor(.accentColor)
@@ -20,7 +30,6 @@ struct CircleChartWidgetView: View {
             
             CircleChart(percent: Binding.constant(data.percent), upperText: Binding.constant(data.upperText), lowerText: Binding.constant(data.lowerText))
         }.padding(5)
-            .background(widgteBackground(colorScheme))
     }
 }
 

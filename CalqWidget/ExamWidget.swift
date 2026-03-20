@@ -54,6 +54,16 @@ struct ExamWidget: View {
     private let gray = Color(.systemGray2)
     
     var body: some View {
+        if #available(iOS 17.0, *) {
+            bodyView()
+                .containerBackground(for: .widget, content: {})
+        } else {
+            bodyView()
+                .background(widgteBackground(colorScheme))
+        }
+    }
+    
+    func bodyView() -> some View {
         VStack {
             if value.entries.isEmpty {
                 EmptyMediumView()
@@ -66,7 +76,7 @@ struct ExamWidget: View {
                 
                 HStack {
                     VStack {
-                        ForEach(value.entries.indices) { index in
+                        ForEach(value.entries.indices, id: \.self) { index in
                             examView(index)
                         }
                     }
@@ -75,7 +85,6 @@ struct ExamWidget: View {
                 }
             }
         }.padding()
-            .background(widgteBackground(colorScheme))
     }
     
     func blockView(_ name: String = "I") -> some View {

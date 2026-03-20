@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct SettingsScreen: View {
     @ObservedObject var vm: SettingsViewModel
@@ -79,6 +80,7 @@ struct SettingsScreen: View {
             case .loadDemo:
                 JSON.loadDemoData()
                 vm.reloadAndSave()
+                WidgetCenter.shared.reloadAllTimelines()
             case .none:
                 break
             case .deleteSubject: // handled seperatly
