@@ -27,12 +27,14 @@ struct BlockView: View {
                 VStack(alignment: .leading) {
                     Text("Block 1").fontWeight(.bold)
                     RoundProgressBar(value: $vm.points1, max: $vm.maxpoints)
+                        .padding(.bottom, 3)
                     Text("\(vm.points1) von \(vm.maxpoints)").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 2/3 - 20)
                 Spacer()
                 VStack(alignment: .leading) {
                     Text("Block 2").fontWeight(.bold)
                     RoundProgressBar(value: $vm.points2, max: Binding.constant(300))
+                        .padding(.bottom, 3)
                     Text("\(vm.points2) von 300").foregroundColor(.accentColor).fontWeight(.light)
                 }.frame(width: geo.size.width * 1/3 - 20)
             }.padding(10)
